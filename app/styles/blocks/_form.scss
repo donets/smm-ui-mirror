@@ -1,0 +1,208 @@
+@import "../_base/base";
+
+%input-text {
+    height: 38px;
+    border: 1px solid $colorGrey;
+    font-size: 15px;
+    font-family: $fontRegular;
+    color: $colorText;
+    padding: 0 12px;
+    line-height: 36px;
+    @include border-radius(2px);
+    @include box-sizing(border-box);
+    @include my-placeholder($colorGrey);
+    &:focus {
+        outline: none;
+        border-color: $colorText;
+    }
+    @media (max-width: $containerMobileWidth) {
+        height: 80px;
+        border-width: 2px;
+        line-height: 76px;
+        font-size: 26px;
+        padding: 0 26px;
+    }
+}
+
+input[type="text"], input[type="password"],  input[type="email"], textarea {
+    &.ng-invalid.ng-dirty {
+        border-color: $colorError;
+    }
+    &.ng-valid.ng-dirty {
+        border-color: $colorSuccess;
+    }
+    &:focus {
+        @include my-placeholder(transparent!important);
+    }
+    &[disabled] {
+        background: $colorGrey;
+        opacity: 0.5;
+    }
+}
+
+.form-rel {
+    position: relative;
+    margin: 20px 0;
+    width: 320px;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @media (max-width: $containerMobileWidth) {
+        width: auto;
+        margin: 30px 0;
+    }
+}
+
+.form-input, .form-textarea {
+    @extend %input-text;
+    width: 100%;
+}
+.form-textarea {
+    height: 120px;
+    @media (max-width: $containerMobileWidth) {
+        height: 240px;
+    }
+}
+.form-button {
+    @extend %form-button;
+    width: 100%;
+}
+
+.form-spinner {
+    text-align: center;
+    height: 50px;
+    @media (max-width: $containerMobileWidth) {
+        height: 80px;
+    }
+    .fa-spinner {
+        font-size: 40px;
+        color: $colorLink;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 70px;
+        }
+    }
+
+}
+
+.form-message {
+    font-size: 15px;
+    margin: 5px;
+    @media (max-width: $containerMobileWidth) {
+        font-size: 26px;
+        margin: 10px;
+    }
+}
+
+.form-success {
+    color: $colorSuccess;
+}
+
+.form-error {
+    color: $colorError;
+}
+
+:invalid {
+    box-shadow: none;
+}
+
+:-moz-submit-invalid {
+    box-shadow: none;
+}
+
+:-moz-ui-invalid {
+    box-shadow:none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: none;
+}
+
+%label {
+    font-size: 12px;
+    font-family: $fontBold;
+    text-transform: uppercase;
+    color: $colorLabel;
+}
+
+.form-radio, .form-check {
+    display: inline-block;
+    position: relative;
+    input[type='radio'], input[type='checkbox'] {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        height: 20px;
+        width: 20px;
+        z-index: 1;
+        margin-top: -10px;
+        visibility: hidden;
+        opacity: 0;
+    }
+    > .fa {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        z-index: 0;
+        margin-top: -10px;
+        cursor: pointer;
+    }
+    label {
+        position: relative;
+        display: block;
+        padding: 0 0 0 36px;
+        cursor: pointer;
+        font-family: $fontRegular;
+        font-size: 13px;
+        color: $colorLabel;
+        z-index: 2;
+        //background: url(../img/icons/form/checkbox.png) no-repeat;
+    }
+    input:checked ~ label {
+        background-position: 0 -23px;
+    }
+}
+
+.form-radio {
+    > .fa {
+        padding: 2px;
+        height: 1em;
+        width: 1em;
+        border: 1px solid $colorText;
+        @include border-radius(50%);
+        &:before {
+           //content: "\f10c";
+            display: inline-block;
+            vertical-align: top;
+            height: 100%;
+            width: 100%;
+            background: $colorText;
+            @include border-radius(50%);
+        }
+    }
+    input:checked ~ .fa {
+        &:before {
+            //content: "\f192";
+            content: "";
+        }
+    }
+}
+
+.form-check {
+    > .fa {
+        &:before {
+            content: "\f096";
+        }
+    }
+    input:checked ~ .fa {
+        &:before {
+            content: "\f046";
+        }
+    }
+}
+

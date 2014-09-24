@@ -1,0 +1,75 @@
+
+<div class="b-main-cover event-cover desktop" ng-if="desktop" style="background-image: url({{event.event.somuchmore.coverHD || coverMain}})">
+
+</div>
+<div class="b-main-cover event-cover mobile" ng-if="mobile" style="background-image: url({{event.event.somuchmore.coverMobile || coverMain}})">
+    <div class="b-event-header">
+        <h1>{{event.event.title}}</h1>
+        <h3><span ng-if="event.event.somuchmore.tags">{{event.event.somuchmore.tags}} — </span>mit {{event.event.somuchmore.teacherName}}</h3>
+    </div>
+</div>
+<div class="container b-event cf">
+    <div class="w-right">
+        <div class="b-main-sidebar">
+            <div class="sidebar-widget book">
+                <p class="price" ng-show="desktop">{{minPrice.ticket.display_price}} &euro;</p>
+                <p class="date">{{date | amDateFormat: 'L'}}</p>
+                <p class="capacity" ng-if="event.event.somuchmore.ticketsInfo">
+                    <span ng-if="event.event.somuchmore.ticketsInfo.totalTicketsLeft && event.event.somuchmore.ticketsInfo.totalSpots > 1">{{event.event.somuchmore.ticketsInfo.totalTicketsLeft}}/{{event.event.somuchmore.ticketsInfo.totalSpots}} Plätzen frei</span>
+                    <span ng-if="event.event.somuchmore.ticketsInfo.totalTicketsLeft == 0">Ausverkauft</span>
+                    <span ng-if="event.event.somuchmore.ticketsInfo.totalSpots == 1">Privatstunde</span>
+                </p>
+                <a class="book_btn" ng-if="desktop" analytics-on="click" analytics-event="book" analytics-category="booking" ng-href="{{event.event.url}}" ng-click="bookEvent()">Buche dieses Event</a>
+                <a class="book_btn" ng-if="mobile" analytics-on="click" analytics-event="book" analytics-category="booking" sticky use-placeholder ng-href="{{event.event.url}}" ng-click="bookEvent()">Buche dieses Event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span></a>
+                <a class="change_btn" analytics-on="click" analytics-event="book" analytics-category="book_another" ng-href="{{event.event.url}}" ng-click="bookAnotherEvent()"><i class="fa fa-calendar"></i>Buche einen anderen Termin</a>
+                <!--<button class="share_btn" ng-click="share()">Share FB</button>-->
+            </div>
+        </div>
+    </div>
+    <div class="w-left">
+        <div class="b-main-content">
+            <div class="b-event-block">
+                <div ng-show="desktop">
+                    <h1>{{event.event.title}}</h1>
+                    <h3><span ng-if="event.event.somuchmore.tags">{{event.event.somuchmore.tags}} — </span> mit {{event.event.somuchmore.teacherName}}</h3>
+                </div>
+                <p ng-if="event.event.somuchmore.description">{{event.event.somuchmore.description | cutString:cutVal:true}}
+                    <a class="a-more" href="" ng-show="event.event.somuchmore.description.length > cutVal && cutVal > 0" analytics-on="click" analytics-event="book" analytics-category="consideration" ng-click="uncut()">Mehr &gt;</a>
+                    <a class="a-more" href="" ng-show="cutVal == 0" ng-click="cut()">&lt; Weniger</a>
+                </p>
+                <div class="b-event-map">
+                    <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+                        <marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></marker>
+                    </google-map>
+                </div>
+                <ul class="b-event-list">
+                    <li ng-if="event.event.venue"><i class="fa fa-location-arrow"></i>{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.city}} ({{event.event.venue.name}})</li>
+                    <li ng-if="duration"><i class="fa fa-clock-o"></i>{{duration}} Minuten</li>
+                    <li ng-if="event.event.somuchmore.level"><i class="fa fa-bolt"></i>{{event.event.somuchmore.level}}</li>
+                    <li ng-if="event.event.somuchmore.languages"><i class="fa fa-comments"></i>{{event.event.somuchmore.languages}}</li>
+                    <li ng-if="event.event.somuchmore.besonderheiten"><i class="fa fa-info-circle"></i>{{event.event.somuchmore.besonderheiten}}</li>
+                </ul>
+            </div>
+            <div class="b-teacher-block">
+                <div class="b-teacher-block__header cf">
+                    <div class="avatar"><img ng-src="{{event.event.somuchmore.teacherAvatar}}" alt=""/></div>
+                    <h2>{{event.event.somuchmore.teacherName}}</h2>
+                    <h3 ng-if="event.event.somuchmore.teacherLevel">
+                        <b ng-if="event.event.somuchmore.teacherLevel == 'teacher'">Lehrer</b>
+                        <b ng-if="event.event.somuchmore.teacherLevel == 'advanced'">Erfahrener Lehrer</b>
+                        <b ng-if="event.event.somuchmore.teacherLevel == 'master'">Meister Lehrer</b>
+                    </h3>
+                    <a class="contact_btn" ng-if="desktop" analytics-on="click" analytics-event="book" analytics-category="consideration" ng-click="contactTeacher()" ui-sref="view.contact"><i class="fa fa-envelope"></i>Fragen zum Event?</a>
+                </div>
+                <ul class="b-event-list">
+                    <li ng-if="event.event.somuchmore.teacherSince || event.event.somuchmore.teacherNumberOfClassesTaught"><i class="fa fa-check-circle-o"></i>
+                        <span ng-if="event.event.somuchmore.teacherSince">Seit {{2014 - event.event.somuchmore.teacherSince}} </span>
+                        <span ng-if="event.event.somuchmore.teacherNumberOfClassesTaught">, {{event.event.somuchmore.teacherNumberOfClassesTaught}} Stunden</span>
+                    </li>
+                    <li ng-if="event.event.somuchmore.teacherTrainings"><i class="fa fa-certificate"></i><ul class="certificate-list"><li ng-repeat="training in event.event.somuchmore.teacherTrainings">{{training.name}}</li></ul></li>
+                </ul>
+                <a class="contact_btn" ng-if="mobile" analytics-on="click" analytics-event="book" analytics-category="consideration" ng-click="contactTeacher()" ui-sref="view.contact"><i class="fa fa-envelope"></i>Fragen zum Event?</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+/*******************************************************************************
+ Fonts
+ *******************************************************************************/
+@font-face {
+    font-family: 'ProximaNova Bold';
+    src: url('fonts/proximanova-bold.eot');
+    src: url('fonts/proximanova-bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova-bold.woff') format('woff'),
+         url('fonts/proximanova-bold.ttf') format('truetype'),
+         url('fonts/proximanova-bold.svg#proximanovabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova Regular';
+    src: url('fonts/proximanova-regular.eot');
+    src: url('fonts/proximanova-regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/proximanova-regular.woff') format('woff'),
+    url('fonts/proximanova-regular.ttf') format('truetype'),
+    url('fonts/proximanova-regular.svg#proximanovaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova Light';
+    src: url('fonts/proximanova-light.eot');
+    src: url('fonts/proximanova-light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/proximanova-light.woff') format('woff'),
+    url('fonts/proximanova-light.ttf') format('truetype'),
+    url('fonts/proximanova-light.svg#proximanovalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//@include font-face('ProximaNova Bold', font-files('fonts/proximanova-bold.woff',
+//                                                  'fonts/proximanova-bold.ttf',
+//                                                  'fonts/proximanova-bold.svg'),'fonts/proximanova-bold.eot',normal,normal);
+//
+//@include font-face('ProximaNova Regular', font-files('fonts/proximanova-regular.woff',
+//                                                  'fonts/proximanova-regular.ttf',
+//                                                  'fonts/proximanova-regular.svg'),'fonts/proximanova-regular.eot',normal,normal);
+//
+//@include font-face('ProximaNova Light', font-files('fonts/proximanova-light.woff',
+//                                                  'fonts/proximanova-light.ttf',
+//                                                  'fonts/proximanova-light.svg'),'fonts/proximanova-light.eot',normal,normal);
+
+
+
+
+

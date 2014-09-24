@@ -1,0 +1,41 @@
+@import "../_base/base";
+
+.modal {
+    text-align: center;
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        width: 0;
+    }
+}
+.modal-dialog {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    @media (max-width: $containerMobileWidth) {
+        width: 92%;
+    }
+}
+.modal-content {
+    border-radius: 2px;
+}
+.modal-body {
+    @media (max-width: $containerMobileWidth) {
+        padding-top: 60px;
+    }
+}
+.modal-close {
+    background: none;
+    border: 0 none;
+    position: absolute;
+    font-size: 20px;
+    color: $colorGrey;
+    top: 10px;
+    right: 10px;
+    @media (max-width: $containerMobileWidth) {
+        font-size: 40px;
+        line-height: 1;
+    }
+}

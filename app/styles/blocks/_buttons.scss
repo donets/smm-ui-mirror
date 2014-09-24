@@ -1,0 +1,106 @@
+@import "../_base/base";
+
+%form-button {
+    display: inline-block;
+    min-width: 315px;
+    height: 50px;
+    line-height: 50px;
+    background: $colorLink;
+    border: 0 none;
+    @include transition(all .2s);
+    color: #fff;
+    font-size: 18px;
+    font-family: $fontRegular;
+    @include box-sizing(border-box);
+    letter-spacing: 1px;
+    @include border-radius(2px);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 21px;
+    text-decoration: none;
+    @media (max-width: $containerMobileWidth) {
+        height: 80px;
+        font-size: 26px;
+        line-height: 80px;
+    }
+    &:hover {
+        background: $colorHover;
+        text-decoration: none;
+    }
+    &:active {
+        background: $colorActive;
+    }
+    &[disabled] {
+        background: $colorLink;
+        opacity: 0.5;
+        &:hover {
+            background: $colorLink;
+        }
+    }
+}
+
+%custom-button {
+    display: inline-block;
+    min-width: 315px;
+    height: 50px;
+    line-height: 50px;
+    background: none;
+    border: 1px solid $colorGrey;
+    @include transition(all .2s);
+    color: $colorText;
+    font-size: 18px;
+    font-family: $fontRegular;
+    @include box-sizing(border-box);
+    letter-spacing: 1px;
+    @include border-radius(2px);
+    text-align: center;
+    padding: 0 12px;
+    text-decoration: none;
+    @media (max-width: $containerMobileWidth) {
+        height: 80px;
+        border-width: 2px;
+        font-size: 26px;
+        line-height: 80px;
+    }
+    .fa {
+        color: $colorGrey;
+        margin-right: 8px;
+    }
+    &:hover {
+        border-color: $colorHover;
+        color: $colorHover;
+        text-decoration: none;
+        .fa {
+            color: $colorHover;
+        }
+    }
+    &:active {
+        border-color: $colorActive;
+        color: $colorActive;
+        .fa {
+            color: $colorActive;
+        }
+    }
+    &[disabled] {
+        border-color: $colorGrey;
+        opacity: 0.5;
+        &:hover {
+            border-color: $colorGrey;
+        }
+    }
+}
+
+.arrow-bottom {
+    position: absolute;
+    left: 50%;
+    margin-left: -13px;
+    bottom: 10px;
+    z-index: 1;
+    &:focus {
+        outline: none;
+    }
+    .fa {
+        font-size: 40px;
+        color: #fff;
+    }
+}

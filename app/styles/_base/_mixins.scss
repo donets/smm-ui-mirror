@@ -1,0 +1,74 @@
+
+@mixin my-placeholder($color) {
+    @if $ie > 9 {
+        &:-moz-placeholder {
+            color: $color;
+            opacity: 1;
+            @content;
+        }
+        &::-moz-placeholder {
+            color: $color;
+            opacity: 1;
+            @content;
+        }
+        &:-ms-placeholder {
+            color: $color;
+            opacity: 1;
+            @content;
+        }
+        &::-webkit-input-placeholder {
+            color: $color;
+            opacity: 1;
+            @content;
+        }
+        &.placeholder {
+            color: $color;
+            opacity: 1;
+            @content;
+        }
+    }
+}
+
+@mixin my-selection($color, $backgroundColor) {
+    @if $ie > 9 {
+        &::-moz-selection {
+            color: $color;
+            background-color: $backgroundColor;
+            @content;
+        }
+        &::-webkit-selection {
+            color: $color;
+            background-color: $backgroundColor;
+            @content;
+        }
+        &::-ms-selection {
+            color: $color;
+            background-color: $backgroundColor;
+            @content;
+        }
+        &::selection {
+            color: $color;
+            background-color: $backgroundColor;
+            @content;
+        }
+    }
+}
+
+@mixin my-media-queries($type, $value) {
+    @if $type == 'max' {
+        @media screen and (max-width: $value) {
+            @content;
+        }
+    }
+    @if $type == 'min' {
+        @media screen and (min-width: $value) {
+            @content;
+        }
+    }
+}
+
+@mixin my-resetList($m: 0, $p: 0) {
+    list-style: none;
+    margin: $m;
+    padding: $p;
+}

@@ -1,0 +1,35 @@
+
+// ******************************************************************************
+// * colors
+// *****************************************************************************/
+@function getHex($color, $opacity: 1, $background: #fff) {
+
+    $red: red($color);
+    $green: green($color);
+    $blue: blue($color);
+
+    @if $opacity < 1 {
+
+        $alpha: 1 - $opacity;
+
+        $bgRed: red($background);
+        $bgGreen: green($background);
+        $bgBlue: blue($background);
+
+        $red : round(($alpha * ($red / 255) + ($alpha * ($bgRed / 255))) * 255);
+        $green : round(($alpha * ($green / 255) + ($alpha * ($bgGreen / 255))) * 255);
+        $blue : round(($alpha * ($blue / 255) + ($alpha * ($bgBlue / 255))) * 255);
+
+    }
+
+    @return rgb($red, $green, $blue);
+}
+
+@function getRgba($color, $opacity: 1, $background: #fff) {
+    @if $ie > 9 {
+        @return rgba($color, $opacity);
+
+    } @else {
+        @return getHex($color, $opacity, $background);
+    }
+}

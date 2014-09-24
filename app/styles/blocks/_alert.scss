@@ -1,0 +1,35 @@
+@import "../_base/base";
+
+.b-alert {
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+    color: #fff;
+    span {
+        padding: 20px 60px;
+        display: inline-block;
+        width: 80%;
+    }
+    &.info {
+        background: $colorBlue;
+    }
+    @media (max-width: $containerMobileWidth) {
+        font-size: 26px;
+        line-height: $fontLine;
+        span {
+            padding: 20px 30px;
+        }
+    }
+}
+.b-close {
+    background: none;
+    border: 0 none;
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    @media (max-width: $containerMobileWidth) {
+        font-size: 40px;
+        line-height: 1;
+        right: 30px;
+    }
+}

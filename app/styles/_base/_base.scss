@@ -1,0 +1,37 @@
+
+//dimensions
+$containerWidth: 990px;
+$containerMobileWidth: 1080px;
+
+//colors
+$colorBackground: #ffffff;
+$colorForeground: #f8f8f8;
+$colorBlack: #333;
+$colorText: #666;
+$colorLabel: #8f949a;
+$colorLink: #ff5c40;
+$colorHover: #ff7057;
+$colorActive: #d9452b;
+$colorGrey: #ccc;
+$colorBlue: #71c8cd;
+$colorError: #ee5555;
+$colorSuccess: #20c600;
+$colorFacebook: #3b5998;
+$colorTwitter: #4099ff;
+
+// fonts
+$fontSize: 13px;
+$fontLine: 1.428571429;
+$fontBody: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontRegular: 'ProximaNova Regular', $fontBody;
+$fontBold: 'ProximaNova Bold', $fontBody;
+$fontLight: 'ProximaNova Light', $fontBody;
+$fontItalic: 'Georgia', Times, serif;
+
+// sprites
+
+//$spriteIco : sprite-map('/sprites/ico/*.png', $position: 0%, $spacing: 70px, $repeat: no-repeat);
+
+@import "compass";
+@import "functions";
+@import "mixins";

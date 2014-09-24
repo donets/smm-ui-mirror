@@ -1,0 +1,31 @@
+
+<div class="modal-body">
+    <button ng-click="close()" class="modal-close" type="button">
+        <i class="fa fa-times"></i>
+        <span class="sr-only">Close</span>
+    </button>
+    <form ng-submit="submitMessage()">
+
+        <div class="form-wrapper">
+
+            <div class="form-rel">
+                <input class="form-input" ng-model="contact.name" name="name" id="name" placeholder="Name" type="text" required />
+            </div>
+            <div class="form-rel">
+                <input class="form-input" ng-model="contact.email" name="email" id="email" placeholder="Email" type="email" required />
+            </div>
+            <div class="form-rel">
+                <input class="form-input" ng-model="contact.phone" name="phone" id="phone" placeholder="Telefon" type="text" />
+            </div>
+            <div class="form-rel">
+                <textarea class="form-textarea" ng-model="contact.message" name="message" id="message" placeholder="Nachricht" required ></textarea>
+            </div>
+            <div class="form-rel">
+                <button class="form-button" ng-hide="loadingUpdate" type="submit" translate>Absenden</button>
+                <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+            </div>
+            <div class="form-rel form-message form-error" ng-if="errorUpdate">Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut.</div>
+        </div>
+
+    </form>
+</div>

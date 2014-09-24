@@ -1,0 +1,87 @@
+@import "../_base/base";
+
+.b-main-cover {
+    background: url("/images/main-2880.jpg") no-repeat center center;
+    height: 550px;
+    position: relative;
+    display: table;
+    width: 100%;
+    text-align: center;
+    @include background-size(cover);
+    @media (max-width: 1440px) {
+        background-image: url("/images/main-1440.jpg");
+    }
+    @media (max-width: $containerMobileWidth) {
+        height: 306px;
+        background-image: url("/images/main-1080.jpg");
+    }
+    &.event-cover.desktop {
+        @extend %shadow-cover-top;
+    }
+    &.event-cover.mobile {
+        @extend %shadow-cover-top;
+        @extend %shadow-cover-bottom;
+    }
+    &.about-cover {
+        background-image: url("/images/about-2880.jpg");
+        @extend %shadow-cover-top;
+        @media (max-width: $containerMobileWidth) {
+            background-image: url("/images/about-1080.jpg");
+        }
+    }
+}
+.b-main-slogan {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    h2 {
+        font-size: 50px;
+        color: #fff;
+        font-family: $fontBold;
+        margin: 0;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 18px;
+        color: #fff;
+        width: 680px;
+        margin: 0 auto;
+        letter-spacing: 0.1em;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+            width: auto; 
+        }
+        a {
+            font-size: 18px;
+            outline: none;
+            @media (max-width: $containerMobileWidth) {
+                display: block;
+                font-size: 26px;
+            }
+        }
+    }
+}
+%shadow-cover-top {
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)));
+    }
+}
+%shadow-cover-bottom {
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 154px;
+        @include background-image(linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)));
+    }
+}

@@ -1,0 +1,132 @@
+@import "../_base/base";
+
+.b-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
+.b-header-logo {
+    width: 247px;
+    height: 67px;
+    background: url("/images/logo.svg") no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 26px;
+    overflow: hidden;
+    z-index: 2;
+    @media (max-width: $containerMobileWidth) {
+        width: 209px;
+        height: 57px;
+        left: 15px;
+        top: 12px;
+    }
+    &.black {
+        background: url("/images/logo-black.svg") no-repeat;
+    }
+    a {
+        display: block;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        font-size: 0px;
+        text-align: center;
+        opacity: 0;
+    }
+}
+
+.b-header-badge {
+    position: absolute;
+    top: 52px;
+    left: 300px;
+    width: 45px;
+    height: 16px;
+    background: $colorLink;
+    padding: 2px 6px;
+    @include border-radius(2px);
+    font-size: 14px;
+    text-align: center;
+    line-height: 1;
+    color: #fff;
+    @media (max-width: $containerMobileWidth) {
+        left: initial;
+        right: 20px;
+        top: 20px;
+        font-size: 22px;
+        width: 63px;
+        height: 25px;
+    }
+}
+
+
+.b-header-likes {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    width: 100px;
+    text-align: right;
+    padding-bottom: 20px;
+    color: #fff;
+    outline: none;
+    z-index: 2;
+    @media (max-width: $containerMobileWidth) {
+        right: 30px;
+        top: 20px;
+    }
+    &.black {
+        color: $colorGrey;
+    }
+    .fa {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+    span {
+        font-size: 16px;
+    }
+    &:hover {
+        color: #fff;
+        &.black {
+            color: $colorGrey;
+        }
+        text-decoration: none;
+        .fa {
+            color: $colorLink;
+        }
+    }
+    &:active, &:focus {
+        color: #fff;
+        &.black {
+            color: $colorGrey;
+        }
+        outline: none;
+        text-decoration: none;
+        .fa {
+            color: $colorLink;
+        }
+    }
+}
+.b-popover {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 300px;
+    height: 240px;
+    z-index: 1;
+    background: #fff;
+    @include border-radius(2px);
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        right: 28px;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        border-width: 5px 6px;
+        border-style: solid;
+        border-color: transparent;
+        border-bottom-color: #fff;
+    }
+}
