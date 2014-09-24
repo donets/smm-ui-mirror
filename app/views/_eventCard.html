@@ -1,0 +1,30 @@
+<div class="card__photo">
+    <img ng-if="desktop" ng-src="{{event.event.logo_ssl}}" alt=""/>
+    <img ng-if="mobile" ng-src="{{event.event.somuchmore.coverMobile || event.event.logo_ssl}}" alt=""/>
+    <div class="card__capacity"
+         ng-class="{'half': event.event.somuchmore.ticketsInfo.totalTicketsLeft > 1, 'hot': event.event.somuchmore.ticketsInfo.totalTicketsLeft == 1 && event.event.somuchmore.ticketsInfo.totalSpots > 1, 'sold': event.event.somuchmore.ticketsInfo.totalTicketsLeft == 0, 'private': event.event.somuchmore.ticketsInfo.totalSpots == 1}"
+         ng-if="event.event.somuchmore.ticketsInfo">
+        <span ng-if="event.event.somuchmore.ticketsInfo.totalTicketsLeft && event.event.somuchmore.ticketsInfo.totalSpots > 1">{{event.event.somuchmore.ticketsInfo.totalTicketsLeft}}/{{event.event.somuchmore.ticketsInfo.totalSpots}} Plätzen frei</span>
+        <span ng-if="event.event.somuchmore.ticketsInfo.totalTicketsLeft == 0">Ausverkauft</span>
+        <span ng-if="event.event.somuchmore.ticketsInfo.totalSpots == 1">Privatstunde</span>
+    </div>
+    <div class="card__price">{{event.event.minPrice.ticket.display_price.split(".")[0]}} &euro;</div>
+    <div class="card__badge">
+        <ul>
+            <li ng-if="event.event.somuchmore.tags"><i class="fa fa-circle-o"></i>{{event.event.somuchmore.tags}}</li>
+            <li ng-if="event.event.venue.name"><i class="fa fa-map-marker"></i>{{event.event.venue.name}}</li>
+        </ul>
+    </div>
+    <div class="card__hover" ng-hide="event.event.eventLoad">
+        <span><button>Zum Event</button></span>
+    </div>
+    <div class="card__spinner" ng-show="event.event.eventLoad">
+        <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#fff', left: 0, top: 20}"></span>
+    </div>
+</div>
+<div class="card__info">
+    <div class="info-cell">
+        <b class="name">{{event.event.title}}</b>
+        <span>{{event.event.start_date | amCalendar}}<span ng-if="event.event.somuchmore.teacherName"> — mit {{event.event.somuchmore.teacherName}}</span></span>
+    </div>
+</div>

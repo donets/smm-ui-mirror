@@ -1,0 +1,71 @@
+@import "../_base/base";
+
+.b-main-sidebar {
+    margin-top: 30px;
+    width: 320px;
+    @media (max-width: $containerMobileWidth) {
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+.sidebar-widget {
+    .price {
+        font-size: 33px;
+        color: $colorLink;
+        line-height: 36px;
+        @media (max-width: $containerMobileWidth) {
+            line-height: 20px;
+        }
+    }
+    .date {
+        @extend h2;
+        margin: 0;
+        font-size: 24px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 40px;
+            line-height: $fontLine;
+        }
+    }
+    .capacity {
+        @extend h3;
+        margin: 10px 0 20px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+            line-height: $fontLine;
+        }
+    }
+    .book_btn {
+        @extend %form-button;
+        @media (max-width: $containerMobileWidth) {
+            &.stuck {
+                @include transition(background .2s);
+                margin: 0 -30px;
+                width: 100%;
+                z-index: 1;
+            }
+            display: block;
+        }
+    }
+    .change_btn {
+        @extend %custom-button;
+        margin: 20px 0 0;
+        @media (max-width: $containerMobileWidth) {
+            display: block;
+            width: 100%;
+        }
+    }
+    .share_btn {
+        @extend %form-button;
+        margin: 20px 0 0;
+        background: $colorFacebook;
+        &:hover {
+            background: $colorFacebook;
+            opacity: 0.8;
+        }
+        @media (max-width: $containerMobileWidth) {
+            display: block;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,251 @@
+
+@import "../_base/base";
+@import "fonts";
+
+/*******************************************************************************
+ global rules
+ *******************************************************************************/
+html {
+    height: 100%;
+    min-width: $containerWidth;
+    background: $colorBackground;
+    @media (max-width: $containerMobileWidth) {
+        min-width: 320px;
+    }
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    color: $colorText;
+    font-family: $fontRegular;
+    font-size: $fontSize;
+    line-height: $fontLine;
+
+    @if $ie > 20 {
+        -webkit-font-smoothing: antialiased !important;
+    }
+
+    * {
+        @include my-selection($colorText, getRgba($colorText, 0.3));
+    }
+}
+
+div[ng-app] {
+    visibility: visible;
+}
+
+textarea:focus,
+input:focus { outline: none; }
+
+input, textarea, th, td {
+    padding: 0;
+    border: 0 none;
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+table {
+    outline: none;
+}
+
+b, h1, h2, h3, h4, h5, h6, th {
+    font-weight: normal;
+}
+
+a {
+    color: $colorLink;
+    font-size: 12px;
+    font-family: $fontRegular;
+    text-decoration: none;
+    @include transition(color .2s);
+
+    &:hover {
+        color: $colorHover;
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: $colorActive;
+        text-decoration: underline;
+    }
+
+    &:focus {
+        color: $colorActive;
+        text-decoration: none;
+    }
+
+}
+
+p {
+    margin: 0;
+}
+
+em {
+    font-family: $fontItalic;
+}
+
+address {
+    font-style: normal;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+.wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    @media (min-width: $containerMobileWidth) {
+        padding-bottom: 175px;
+    }
+}
+
+.container {
+    position: relative;
+    width: $containerWidth;
+    margin: 0 auto;
+    padding: 0;
+    &.center {
+        text-align: center;
+    }
+    @media (max-width: $containerMobileWidth) {
+        max-width: none;
+        padding: 0 30px;
+        width: 100%;
+    }
+}
+.b-main {
+    background: #fff;
+}
+.b-main-sidebar {
+    width: 328px;
+}
+.b-main-content {
+    width: 560px;
+}
+.w-blocks {
+    margin: 80px 0;
+    &.center {
+        text-align: center;
+    }
+}
+.w-center {
+    text-align: center;
+}
+.w-left {
+    float: left;
+}
+.w-right {
+    float: right;
+}
+@media (max-width: $containerMobileWidth) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block;
+    }
+    .w-left, .w-right {
+        float: none !important;
+    }
+}
+@media (min-width: $containerMobileWidth) {
+    .mobile {
+        display: none !important;
+    }
+}
+.stuck {
+    position: fixed;
+    top: 0;
+}
+.ng-animate {
+    &.ng-move,
+    &.ng-enter,
+    &.ng-leave {
+        -webkit-transition: all linear 0.5s;
+        transition: all linear 0.5s;
+    }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-move,
+    &.ng-enter {
+        opacity:0;
+    }
+
+    &.ng-leave,
+    &.ng-move.ng-move-active,
+    &.ng-enter.ng-enter-active {
+        opacity:1;
+    }
+}
+
+.spinner {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+.rel {
+    position: relative;
+}
+
+.hidden {
+    display: none!important;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/* clearfix */
+
+.cf {
+    position: relative;
+    display: table;
+}
+
+.cf:after {
+    content: '. .';
+    display: block;
+    word-spacing: 99in;
+    height: 0;
+    overflow: hidden;
+
+    /* Opera bugfix*/
+    font-size: 0.05em;
+    //font: .13em/0 sans-serif;
+    line-height: 0.05em;
+}
+
+@if $ie < 8 {
+/* Clearfix for IE 6/7 (trigger hasLayout) */
+    .cf { zoom: 1; }
+}
+
+@import "form";
+@import "buttons";
+@import "title";
+@import "header";
+@import "cover";
+@import "nav";
+@import "event-card";
+@import "footer";
+@import "event";
+@import "sidebar";
+@import "about";
+@import "video";
+@import "alert";
+@import "ngProgress";
+@import "modal";
+

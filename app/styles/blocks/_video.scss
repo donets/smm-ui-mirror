@@ -1,0 +1,43 @@
+@import "../_base/base";
+
+.b-main-video {
+    width: 1200px;
+    height: 675px;
+    @include box-sizing(content-box);
+    margin: 0 auto;
+    padding-top: 120px;
+    @media (max-width: $containerMobileWidth) {
+        padding-top: 80px;
+        width: auto;
+        height: auto;
+    }
+}
+video {
+    display: block;
+}
+videogular {
+    font-size: 18px;
+    background: #fff; 
+}
+videogular vg-buffering .bufferingContainer {
+    margin-top: -30px;
+}
+videogular .vg-scrubbar {
+    width: auto;
+    display: table-cell;
+    cursor: pointer;
+}
+videogular vg-overlay-play div.play {
+    &:before {
+        content: "";
+        background: url('/images/play.png') no-repeat;
+        display: inline-block;
+        width: 152px;
+        height: 152px;
+    }
+    &:hover {
+        &:before {
+            background: url('/images/play-hover.png') no-repeat;
+        }
+    }
+}
