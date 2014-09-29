@@ -28,6 +28,7 @@
     "grunt-usemin": "^2.1.1",
     "grunt-wiredep": "1.8.0",
     "imagemin-gifsicle": "^1.0.0",
+    "gzippo": "^0.2.0",
     "jshint-stylish": "^0.2.0",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
