@@ -1,6 +1,7 @@
 {
   "name": "ui",
   "version": "1.0.0",
+  "main": "web.js",
   "dependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
