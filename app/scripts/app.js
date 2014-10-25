@@ -23,6 +23,7 @@ angular
         'ngProgress',
         'angularSpinner',
         'duScroll',
+        'duParallax',
         'ezfb',
         'angulartics',
         'angulartics.google.analytics',
@@ -34,12 +35,16 @@ angular
         'com.2fdevs.videogular.plugins.poster',
         'boltApp.controllers.Main',
         'boltApp.controllers.Event',
+        'boltApp.controllers.Studio',
         'boltApp.controllers.Social',
         'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
+        'boltApp.controllers.Getcard',
+        'boltApp.controllers.About',
         'boltApp.controllers.More',
-        'boltApp.navigator',
-        'boltApp.services'
+        'boltApp.services.events',
+        'boltApp.services.suppliers',
+        'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
     .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window',
@@ -48,9 +53,10 @@ angular.module('boltApp')
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
             // to active whenever 'contacts.list' or one of its decendents is active.
+            $('.pre-cover').addClass('hide-cover');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
-
+            $rootScope.mainTitle = 'Somuchmore | Entdecke alles, was Dir gut tut';
             amMoment.changeLanguage('de');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
@@ -76,6 +82,12 @@ angular.module('boltApp')
                 }
             });
         }])
+    .config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
+        GoogleMapApi.configure({
+            v: '3.17',
+            libraries: 'weather,geometry,visualization'
+        });
+    }])
     .config(['ezfbProvider', function(ezfbProvider) {
         ezfbProvider.setInitParams({
             appId: '1403268876590849'
@@ -97,7 +109,7 @@ angular.module('boltApp')
 
             return function(promise){
                 ngProgress = my.getNgProgress();
-                ngProgress.color('#ff5c40');
+                ngProgress.color('#ff695c');
                 ngProgress.height('3px');
                 ngProgress.reset();
                 ngProgress.start();
@@ -130,7 +142,7 @@ angular.module('boltApp')
         //noinspection JSValidateTypes
         $stateProvider
             .state('main', {
-                url : '/',
+                url : '/events/',
                 templateUrl: 'views/main.html',
                 resolve: {
 
@@ -162,6 +174,13 @@ angular.module('boltApp')
                         // resolved before the controller is instantiated
                         return Events.get({eventId: $stateParams.eventId}).$promise;
                     }
+                },
+                onEnter: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight - 200) : 0;
+                },
+                onExit: function($rootScope){
+                    $('html head title').text($rootScope.mainTitle);
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 },
                 controller : 'EventCtrl'
             })
@@ -212,6 +231,28 @@ angular.module('boltApp')
                     });
                 }]
             })
+            .state('studio', {
+                url : '/studio/:studioId/',                 
+                templateUrl: 'views/studio.html',
+                onEnter: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight - 350) : 0;
+                },
+                onExit: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
+                },
+                controller : 'StudioCtrl'
+            })
+            .state('get', {
+                url : '/',
+                templateUrl: 'views/getCard.html',
+                onEnter: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
+                },
+                onExit: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
+                },
+                controller : 'GetcardCtrl'
+            })
             .state('more', {
                 url : '/more/',
                 templateUrl: 'views/more.html',
@@ -219,7 +260,8 @@ angular.module('boltApp')
             })
             .state('about', {
                 url : '/about/',
-                templateUrl: 'views/about.html'
+                templateUrl: 'views/about.html',
+                controller: 'AboutCtrl'
             })
 	        .state('impressum', {
 	            url : '/impressum/',

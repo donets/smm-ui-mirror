@@ -20,6 +20,22 @@
 }
 .modal-content {
     border-radius: 2px;
+    .form-spinner {
+        text-align: center;
+        height: 50px;
+        margin: 0;
+        @media (max-width: $containerMobileWidth) {
+            margin: 0;
+            height: 80px;
+        }
+        .fa-spinner {
+            font-size: 40px;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 70px;
+            }
+        }
+
+    }
 }
 .modal-body {
     @media (max-width: $containerMobileWidth) {

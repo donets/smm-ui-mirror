@@ -8,17 +8,15 @@
     z-index: 5;
 }
 .b-header-logo {
-    width: 247px;
-    height: 67px;
+    width: 186px;
+    height: 50px;
     background: url("/images/logo.svg") no-repeat;
     position: absolute;
     left: 40px;
-    top: 26px;
+    top: 16px;
     overflow: hidden;
     z-index: 2;
     @media (max-width: $containerMobileWidth) {
-        width: 209px;
-        height: 57px;
         left: 15px;
         top: 12px;
     }
@@ -38,24 +36,24 @@
 
 .b-header-badge {
     position: absolute;
-    top: 52px;
-    left: 300px;
-    width: 45px;
-    height: 16px;
-    background: $colorLink;
-    padding: 2px 6px;
+    top: 34px;
+    left: 234px;
+    width: 35px;
+    height: 14px;
+    background: #fff;
+    padding: 1px 3px;
     @include border-radius(2px);
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     line-height: 1;
-    color: #fff;
+    color: $colorBlack;
     @media (max-width: $containerMobileWidth) {
-        left: initial;
-        right: 20px;
-        top: 20px;
-        font-size: 22px;
-        width: 63px;
-        height: 25px;
+        font-size: 12px;
+        width: 34px;
+        height: 14px;
+        top: 30px;
+        padding: 1px 2px;
+        left: 210px;
     }
 }
 
@@ -63,7 +61,7 @@
 .b-header-likes {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 30px;
     right: 60px;
     width: 100px;
     text-align: right;

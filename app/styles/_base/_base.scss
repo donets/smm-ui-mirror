@@ -2,18 +2,23 @@
 //dimensions
 $containerWidth: 990px;
 $containerMobileWidth: 1080px;
+$containerMobileWidth640: 480px;
 
 //colors
 $colorBackground: #ffffff;
 $colorForeground: #f8f8f8;
-$colorBlack: #333;
-$colorText: #666;
+$colorBackTimetable: #f4f7f9;
+$colorBlack: #222;
+$colorText: #3d3d3d;
 $colorLabel: #8f949a;
-$colorLink: #ff5c40;
-$colorHover: #ff7057;
-$colorActive: #d9452b;
-$colorGrey: #ccc;
+$colorLink: #f2836b;
+$colorHover: #ff756b;
+$colorActive: #f5655b;
+$colorGrey: #777;
+$colorLightGrey: #d7d7d7;
+$colorFooter: #f4f4f4;
 $colorBlue: #71c8cd;
+$colorGreen: #79bd8f;
 $colorError: #ee5555;
 $colorSuccess: #20c600;
 $colorFacebook: #3b5998;
@@ -27,6 +32,8 @@ $fontRegular: 'ProximaNova Regular', $fontBody;
 $fontBold: 'ProximaNova Bold', $fontBody;
 $fontLight: 'ProximaNova Light', $fontBody;
 $fontItalic: 'Georgia', Times, serif;
+$fontSerif: 'NotoSerif-Regular', Times, serif;
+$fontSerifIta: 'NotoSerif-Italic', Times, serif;
 
 // sprites
 

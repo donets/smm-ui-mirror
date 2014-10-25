@@ -2,26 +2,40 @@
 
 %form-button {
     display: inline-block;
-    min-width: 315px;
-    height: 50px;
-    line-height: 50px;
+    min-width: 320px;
+    height: 42px;
+    line-height: 41px;
     background: $colorLink;
     border: 0 none;
     @include transition(all .2s);
     color: #fff;
     font-size: 18px;
-    font-family: $fontRegular;
+    font-family: $fontLight;
     @include box-sizing(border-box);
     letter-spacing: 1px;
     @include border-radius(2px);
     text-align: center;
-    text-transform: uppercase;
     padding: 0 21px;
     text-decoration: none;
+    &.small {
+        @media (min-width: $containerMobileWidth) {
+            height: 36px;
+            font-size: 15px;
+            line-height: 36px;
+            min-width: 132px;
+            padding: 0 11px;
+        }
+    }
     @media (max-width: $containerMobileWidth) {
         height: 80px;
-        font-size: 26px;
+        font-size: 30px;
         line-height: 80px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 40px;
+        min-width: 0;
+        font-size: 15px;
+        line-height: 40px;
     }
     &:hover {
         background: $colorHover;
@@ -37,19 +51,36 @@
             background: $colorLink;
         }
     }
+    &.dark {
+        background: $colorText;
+        &:hover {
+            background: #4d4d4d;
+            text-decoration: none;
+        }
+        &:active {
+            background: #333;
+        }
+        &[disabled] {
+            background: $colorText;
+            opacity: 0.5;
+            &:hover {
+                background: $colorText;
+            }
+        }
+    }
 }
 
 %custom-button {
     display: inline-block;
-    min-width: 315px;
-    height: 50px;
-    line-height: 50px;
+    min-width: 320px;
+    height: 42px;
+    line-height: 40px;
     background: none;
-    border: 1px solid $colorGrey;
+    border: 1px solid $colorLightGrey;
     @include transition(all .2s);
-    color: $colorText;
+    color: $colorGrey;
     font-size: 18px;
-    font-family: $fontRegular;
+    font-family: $fontLight;
     @include box-sizing(border-box);
     letter-spacing: 1px;
     @include border-radius(2px);
@@ -61,6 +92,13 @@
         border-width: 2px;
         font-size: 26px;
         line-height: 80px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 42px;
+        min-width: 0;
+        border-width: 1px;
+        font-size: 15px;
+        line-height: 40px;
     }
     .fa {
         color: $colorGrey;

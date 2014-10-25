@@ -34,19 +34,24 @@
     font-style: normal;
 }
 
-//@include font-face('ProximaNova Bold', font-files('fonts/proximanova-bold.woff',
-//                                                  'fonts/proximanova-bold.ttf',
-//                                                  'fonts/proximanova-bold.svg'),'fonts/proximanova-bold.eot',normal,normal);
-//
-//@include font-face('ProximaNova Regular', font-files('fonts/proximanova-regular.woff',
-//                                                  'fonts/proximanova-regular.ttf',
-//                                                  'fonts/proximanova-regular.svg'),'fonts/proximanova-regular.eot',normal,normal);
-//
-//@include font-face('ProximaNova Light', font-files('fonts/proximanova-light.woff',
-//                                                  'fonts/proximanova-light.ttf',
-//                                                  'fonts/proximanova-light.svg'),'fonts/proximanova-light.eot',normal,normal);
+@font-face {
+    font-family: 'NotoSerif-Regular';
+    src: url('fonts/notoserif-regular.eot');
+    src: url('fonts/notoserif-regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/notoserif-regular.woff') format('woff'),
+    url('fonts/notoserif-regular.ttf') format('truetype'),
+    url('fonts/notoserif-regular.svg#proximanovalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-
-
-
-
+@font-face {
+    font-family: 'NotoSerif-Italic';
+    src: url('fonts/notoserif-italic.eot');
+    src: url('fonts/notoserif-italic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/notoserif-italic.woff') format('woff'),
+    url('fonts/notoserif-italic.ttf') format('truetype'),
+    url('fonts/notoserif-italic.svg#proximanovalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
