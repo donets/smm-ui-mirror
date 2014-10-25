@@ -19,15 +19,16 @@
 }
 .b-main-content {
     margin-top: 30px;
-    width: 570px;
     @media (max-width: $containerMobileWidth) {
         margin-top: 50px;
-        width: 100%;
     }
     p {
         font-size: 15px;
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 14px;
         }
     }
     .a-more {
@@ -45,6 +46,9 @@
         margin-bottom: 30px;
         padding-bottom: 20px;
         border-bottom: 1px solid $colorGrey;
+        h3 {
+            margin-top: -5px;
+        }
         @media (max-width: $containerMobileWidth) {
             border: 0 none;
         }
@@ -96,9 +100,9 @@
 }
 .b-event-map {
     margin: 30px 0;
-}
-.angular-google-map-container {
-    height: 300px;
+    .angular-google-map-container {
+        height: 300px;
+    }
 }
 .b-teacher-block {
     .b-event-list {

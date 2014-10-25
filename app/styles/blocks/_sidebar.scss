@@ -2,9 +2,7 @@
 
 .b-main-sidebar {
     margin-top: 30px;
-    width: 320px;
     @media (max-width: $containerMobileWidth) {
-        width: 100%;
         margin-top: 20px;
         text-align: center;
     }
@@ -49,8 +47,9 @@
     }
     .change_btn {
         @extend %custom-button;
-        margin: 20px 0 0;
+        margin: 10px 0 0;
         @media (max-width: $containerMobileWidth) {
+            margin: 20px 0 0;
             display: block;
             width: 100%;
         }

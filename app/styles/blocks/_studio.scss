@@ -1,0 +1,418 @@
+@import "../_base/base";
+
+.b-studio-block {
+    margin-bottom: 30px;
+    h1 {
+        display: inline-block;
+        @media (max-width: $containerMobileWidth) {
+            display: block;
+            text-align: center;
+        }
+    }
+    .b-studio-likes {
+        position: relative;
+        font-size: 15px;
+        margin: 0 10px;
+        line-height: 20px;
+        color: $colorText;
+        padding-bottom: 10px;
+        .b-popover {
+            right: auto;
+            left: 0;
+            border: 1px solid $colorLightGrey;
+            &:before {
+                right: auto;
+                left: 28px;
+                z-index: 2;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                left: 27px;
+                z-index: 1;
+                width: 0;
+                height: 0;
+                border-width: 6px 7px;
+                border-style: solid;
+                border-color: transparent;
+                border-bottom-color: $colorLightGrey;
+            }
+        }
+        .fa {
+            margin-right: 5px;
+            color: $colorLink;
+        }
+        &:hover {
+            text-decoration: none;
+        }
+        &:active, &:focus {
+            outline: none;
+            text-decoration: none;
+        }
+    }
+}
+.b-studio-info {
+    .info-row {
+        margin: 10px 0;
+        font-size: 15px;
+        text-align: left;
+        color: $colorText;
+        span {
+            display: block;
+            @media (max-width: $containerMobileWidth) {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 26px;
+                width: 30%;
+                margin-right: 2%;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 14px;
+            }
+        }
+        ul {
+            @include my-resetList();
+            @media (max-width: $containerMobileWidth) {
+                display: inline-block;
+                vertical-align: top;
+                width: 68%;
+            }
+            li {
+                width: 150px;
+                display: inline-block;
+                vertical-align: top;
+                color: $colorGrey;
+                font-size: 13px;
+                @media (max-width: $containerMobileWidth) {
+                    width: auto;
+                    font-size: 26px;
+                    &:after {
+                        content: ", ";
+                    }
+                    &:last-child {
+                        &:after {
+                            content: "";
+                        }
+                    }
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 14px;
+                }
+            }
+        }
+        address {
+            color: $colorGrey;
+            font-size: 13px;
+            @media (max-width: $containerMobileWidth) {
+                display: inline-block;
+                font-size: 26px;
+                text-decoration: underline;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 14px;
+            }
+        }
+    }
+}
+.b-studio-timetable {
+    background: $colorBackTimetable;
+    padding: 60px 0;
+    @media (max-width: $containerMobileWidth) {
+        padding-bottom: 20px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        padding: 30px 0 20px;
+    }
+    h2 {
+        line-height: 1;
+        margin: 0;
+    }
+    h3 {
+        margin-top: 10px;
+        line-height: 1;
+    }
+    .weekdays {
+        @include my-resetList();
+        margin: 0 -16px;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        li {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 18px;
+            color: $colorGrey;
+            padding: 4px 12px;
+            letter-spacing: 1px;
+            line-height: 1;
+            margin: 0 8px;
+            @include border-radius(2px);
+            cursor: pointer;
+            &.current {
+                background: $colorLink;
+                color: #fff;
+            }
+        }
+    }
+    .weekdays-mobile {
+        width: 100%;
+        margin: 30px 0 50px;
+        @media (max-width: $containerMobileWidth640) {
+            margin: 20px 0 30px;
+        }
+        th {
+            font-size: 24px;
+            color: $colorGrey;
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 18px;
+            }
+            b {
+                height: 36px;
+                @media (max-width: $containerMobileWidth640) {
+                    height: 26px;
+                }
+            }
+        }
+        td {
+            font-size: 28px;
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 20px;
+            }
+            b {
+                height: 40px;
+                @media (max-width: $containerMobileWidth640) {
+                    height: 30px;
+                }
+                cursor: pointer;
+                @include border-radius(3px);
+                &.current {
+                    background: $colorLink;
+                    color: #fff;
+                }
+            }
+        }
+        th, td {
+            &:last-child {
+                width: 50px;
+            }
+            b {
+                display: block;
+                width: 50px;
+                text-align: center;
+                @media (max-width: $containerMobileWidth640) {
+                    width: 40px;
+                }
+            }
+        }
+    }
+    .timetable {
+        width: 100%;
+        margin: 30px 0 0;
+        th {
+            font-size: 12px;
+            color: $colorGrey;
+            height: 32px;
+            padding: 0 16px;
+        }
+        td {
+            font-size: 18px;
+            height: 42px;
+            padding: 0 16px;
+            background: #fff;
+            border-bottom: 3px solid $colorBackTimetable;
+            &:nth-child(3), &:nth-child(4) {
+                font-size: 15px;
+            }
+        }
+        tr {
+            th:first-child, td:first-child {
+                padding-left: 20px;
+                @include border-left-radius(2px);
+            }
+            th:last-child, td:last-child {
+                padding: 0;
+                width: 148px;
+            }
+            &.disabled {
+                td {
+                    text-decoration: line-through;
+                }
+            }
+        }
+        tbody {
+            tr:nth-child(even) {
+                td {
+                    background: #fcfcfc;
+                }
+            }
+        }
+        button {
+            width: 148px;
+            height: 42px;
+            background: $colorLink;
+            border: 0 none;
+            @include border-right-radius(2px);
+            color: #fff;
+            span {
+                margin: 0 16px;
+            }
+            &.joined {
+                background: $colorGreen;
+            }
+            &.disabled {
+                background: $colorLightGrey;
+            }
+        }
+    }
+    .timetable-mobile {
+        @include my-resetList();
+        li {
+            background: #fff;
+            padding: 20px;
+            @include border-radius(3px);
+            margin: 0 0 10px;
+            .time, .info {
+                display: inline-block;
+                vertical-align: top;
+                b, span {
+                    display: block;
+                }
+                b {
+                    font-size: 32px;
+                    line-height: 1.3;
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 18px;
+                    }
+                }
+                span {
+                    font-size: 26px;
+                    color: $colorGrey;
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 16px;
+                    }
+                }
+                button {
+                    height: 60px;
+                    border: 0 none;
+                    background: $colorLink;
+                    width: 100%;
+                    margin: 20px 0 0;
+                    color: #fff;
+                    font-size: 26px;
+                    @include border-radius(3px);
+                    @media (max-width: $containerMobileWidth640) {
+                        height: 30px;
+                        margin: 10px 0 0;
+                        font-size: 15px;
+                        @include border-radius(2px);
+                    }
+                    span {
+                        display: inline-block;
+                        margin: 0 24px;
+                        color: #fff;
+                        @media (max-width: $containerMobileWidth640) {
+                            margin: 0 12px;
+                        }
+                    }
+                    &.joined {
+                        background: $colorGreen;
+                    }
+                    &.disabled {
+                        background: $colorLightGrey;
+                    }
+                }
+            }
+            .time {
+                width: 24%;
+            }
+            .info {
+                width: 76%;
+            }
+            &.disabled {
+                b, span {
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+}
+.b-studio-map {
+    margin: 20px 0;
+    .angular-google-map-container {
+        height: 500px;
+    }
+    .location {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 30px;
+        background: #fff;
+        font-size: 15px;
+        z-index: 1;
+        @media (max-width: $containerMobileWidth) {
+            position: static;
+            padding: 60px 0 30px;
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            padding: 30px 0 20px;
+            font-size: 15px;
+        }
+        h2 {
+            margin: 0;
+            @media (max-width: $containerMobileWidth) {
+                line-height: 1;
+            }
+        }
+        address, p {
+            margin: 5px 0;
+            @media (max-width: $containerMobileWidth) {
+                line-height: 1;
+            }
+            .fa {
+                width: 16px;
+                margin-right: 4px;
+                color: #888;
+                text-align: center;
+                @media (max-width: $containerMobileWidth) {
+                    width: 26px;
+                    margin-right: 12px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    width: 16px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
+.b-studio {
+    .b-main-content {
+        margin-top: 10px;
+    }
+    .b-main-sidebar {
+        .contact_btn {
+            @extend %custom-button;
+            width: 150px;
+            min-width: 0;
+            margin-bottom: 40px;
+            @media (max-width: $containerMobileWidth) {
+                margin: 60px 0;
+                display: block;
+                width: 100%;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                margin: 30px 0;
+            }
+        }
+    }
+    .fb-like {
+        @media (max-width: $containerMobileWidth) {
+            margin: 60px 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 30px 0;
+        }
+    }
+}

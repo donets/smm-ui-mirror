@@ -7,7 +7,7 @@
  * # navigator
  * Service in the boltApp.
  */
-angular.module('boltApp.navigator', [])
+angular.module('boltApp.services.navigator', [])
     .service('navigator', ['$window', function($window) {
 
         return {
@@ -35,6 +35,10 @@ angular.module('boltApp.navigator', [])
                     if (mobile[key].test(userAgent)) {
                         return 'mobile';
                     }
+                }
+
+                if (/Mac/i.test(userAgent)) {
+                    return 'Mac';
                 }
 
                 return 'desktop';

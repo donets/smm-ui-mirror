@@ -32,10 +32,18 @@
             font-size: 26px;
             margin: 0;
         }
+        @media (max-width: $containerMobileWidth640) {
+            line-height: 60px;
+            height: 60px;
+            font-size: 18px;
+        }
     }
     @media (max-width: $containerMobileWidth) {
         margin: 30px -30px;
         min-height: 60px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        margin: 30px -15px;
     }
 }
 
@@ -63,7 +71,6 @@
             width: 100%;
         }
         @media (max-width: $containerMobileWidth) {
-            //height: 396px;
             height: auto;
         }
         &:before {
@@ -90,6 +97,10 @@
         @media (max-width: $containerMobileWidth) {
             margin: 18px 30px;
             font-size: 40px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 12px;
+            font-size: 21px;
         }
     }
     .card__capacity {
@@ -120,6 +131,11 @@
             margin: 26px 30px;
             font-size: 26px;
         }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 12px;
+            padding: 5px 6px;
+            font-size: 13px;
+        }
     }
     .card__badge {
         position: absolute;
@@ -143,10 +159,17 @@
                 margin-right: 10px;
                 width: 23px;
             }
+            @media (max-width: $containerMobileWidth640) {
+                width: 13px;
+            }
         }
         @media (max-width: $containerMobileWidth) {
             margin: 18px 30px;
             font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 12px;
+            font-size: 13px;
         }
     }
     .card__hover {
@@ -208,6 +231,9 @@
         @media (max-width: $containerMobileWidth) {
             height: 118px;
         }
+        @media (max-width: $containerMobileWidth640) {
+            height: 94px;
+        }
         .name {
             display: block;
             font-size: 21px;
@@ -219,12 +245,18 @@
             @media (max-width: $containerMobileWidth) {
                 font-size: 40px;
             }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 21px;
+            }
         }
         span {
             font-size: 13px;
             color: $colorText;
             @media (max-width: $containerMobileWidth) {
                 font-size: 26px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 13px;
             }
         }
         .info-cell {

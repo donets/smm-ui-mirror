@@ -7,7 +7,7 @@
  * # Events
  * Factory in the boltApp.
  */
-angular.module('boltApp.services', [])
+angular.module('boltApp.services.events', [])
     .factory('Events', ['$resource', function($resource) {
         return $resource('/api/events/:eventId', {eventId: '@id'}, {
             'query': {method: 'GET', isArray: false, cache: true},

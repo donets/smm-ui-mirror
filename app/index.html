@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="fragment" content="!">
     <meta name="robots" content="@robots">
-    <title ng-bind="$state.includes('view') ? eventTitle : '@title'">Somuchmore | Entdecke alles, was Dir gut tut</title>
+    <title>Somuchmore | Entdecke alles, was Dir gut tut</title>
 
     <link rel="canonical" href="@url" />
     <meta name="description" 		 content="@description">
@@ -16,7 +16,8 @@
     <meta property="og:title"  content="@title" />
     <meta property="og:image"  content="@image" />
 
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
     <base href="/">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" type="image/ico" href="/favicon.ico" />
@@ -48,6 +49,11 @@
             left: 0;
             right: 0;
             background-size: cover;
+            opacity: 1;
+            transition: opacity 1s linear 1s;
+        }
+        .pre-cover.hide-cover {
+            opacity: 0;
         }
         @@media (max-width: 1080px) {
             .pre-cover {
@@ -78,22 +84,21 @@
     </div>
 </div>
 
-<div ng-cloak ng-app="boltApp">
+<div ng-cloak resizable ng-app="boltApp">
     <div ng-controller="ConfirmationCtrl">
         <div class="b-alert info" ng-if="alert">
-            <span>Danke fur Deine Buchung: {{event.event.title}} | Lehrer: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br /> Du bekommst eine Email mit Ticket und Details.</span>
+            <span>Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br /> Du bekommst eine Email mit Ticket und Details.</span>
             <button ng-click="close()" class="b-close" type="button">
                 <i class="fa fa-times"></i>
                 <span class="sr-only">Close</span>
             </button>
         </div>
     </div>
-    <div class="wrapper" resizable>
-
-        <div class="b-header" ng-controller="SocialCtrl">
-            <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="main">Somuchmore</a></div>
+    <div class="wrapper">
+        <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('get')}">
+            <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="main" ng-if="!$state.includes('get')">Somuchmore</a></div>
             <div class="b-header-badge">BETA</div>
-            <a class="b-header-likes" ng-show="desktop" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
+            <a class="b-header-likes" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
                 <div ng-show="popover" class="b-popover">
                     <div class="fb-like-box"
                          data-href="https://www.facebook.com/somuchmoredeutsch"
@@ -105,27 +110,41 @@
                          data-show-border="false"></div>
                 </div>
             </a>
+            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav">
+                <li>
+                    <a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>
+                </li><li>
+                    <a href="#studios" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_studio" analytics-category="card_page">Studios</a>
+                </li>
+            </ul>
         </div>
-        <div class="b-main" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('get')}" ui-view autoscroll="autoscroll"></div>
 
     </div>
     <div class="b-footer">
         <div class="container">
             <div class="b-footer-top cf">
                 <div class="b-footer-block w-left">
-                    <h3>Bleibe am Ball</h3>
-                    <ul class="social-links">
-                        <li><a class="facebook" href="https://www.facebook.com/somuchmoredeutsch"><i class="fa fa-facebook"></i></a></li>
-                    </ul>
+                    <h3>Bleib mit uns in Kontakt</h3>
+                    <div class="fb-like"
+                         data-href="https://www.facebook.com/somuchmoredeutsch"
+                         data-width="120"
+                         data-layout="button_count"
+                         data-action="like"
+                         data-show-faces="false"
+                         data-share="false">
+                    </div>
                 </div>
                 <div class="b-footer-block w-left">
-                    <h3>Lass Dich beraten</h3>
-                    <p class="phone"><i class="fa fa-phone"></i>030 577 023 101</p>
+                    <h3>Hast Du Fragen?</h3>
+                    <div class="contact">
+                        <p class="phone">030 - 577023100</p><span ng-show="mobile"> – </span><a class="email" href="mailto:info@@somuchmore.org">info@@somuchmore.org</a>
+                    </div>
                 </div>
                 <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
-                    <h3><i class="fa fa-mobile"></i>Erlebe mehr</h3>
+                    <h3>Halt Dich auf dem Laufenden</h3>
                     <form name="form" class="app-email" ng-submit="subscribe()">
-                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Email-Adresse fur Newsletter" name="email" required /><input type="submit" value="Bestellen"/>
+                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Email-Adresse" name="email" required /><button type="submit">Newsletter Bestellen</button>
                         <div class="form-response">
                             <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                             <div ng-show="successUpdate" class="form-message form-success">Danke!</div>
@@ -136,7 +155,7 @@
             </div>
             <nav class="b-footer-nav cf">
                 <ul class="b-footer-nav__menu">
-                    <li><a ui-sref="about">Uber uns</a></li><li>
+                    <li><a ui-sref="about">Über uns</a></li><li>
                     <a ui-sref="impressum">Impressum</a></li><li>
                     <a ui-sref="agb">AGB</a></li>
                 </ul>
@@ -169,7 +188,7 @@
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 <!-- endbuild -->
-<script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -210,24 +229,30 @@
 <script src="bower_components/angulartics/src/angulartics-marketo.js"></script>
 <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
 <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/bluebird/js/browser/bluebird.js"></script>
 <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 <script src="bower_components/ngprogress/build/ngProgress.js"></script>
 <script src="bower_components/spin.js/spin.js"></script>
 <script src="bower_components/angular-spinner/angular-spinner.js"></script>
 <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
 <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
+<script src="bower_components/ng-parallax/angular-parallax.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/services/events.js"></script>
+<script src="scripts/services/suppliers.js"></script>
 <script src="scripts/services/navigator.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/event.js"></script>
+<script src="scripts/controllers/studio.js"></script>
 <script src="scripts/controllers/social.js"></script>
+<script src="scripts/controllers/getcard.js"></script>
 <script src="scripts/controllers/confirmation.js"></script>
 <script src="scripts/controllers/subscribe.js"></script>
+<script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/more.js"></script>
 <script src="scripts/custom/moment/de.js"></script>
 <script src="scripts/filters/cutstring.js"></script>

@@ -1,0 +1,234 @@
+
+<div class="b-main-cover event-cover desktop" ng-if="desktop" ng-style="{ height: windowHeight - 350 }" style="background-image: url({{event.event.somuchmore.coverHD || coverMain}})">
+    <span class="cover-name"><div class="container">Jivamukti Berlin – Mitte</div></span>
+</div>
+<div class="b-main-cover event-cover mobile" ng-if="mobile" style="background-image: url({{event.event.somuchmore.coverMobile || coverMain}})">
+
+</div>
+<div class="container b-studio cf">
+    <div class="w-left">
+        <div class="b-main-content">
+            <div class="b-studio-block">
+                <h1>Jivamukti Berlin</h1>
+                <a class="b-studio-likes" ng-show="desktop" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
+                    <div ng-show="popover" class="b-popover">
+                        <div class="fb-like-box"
+                             data-href="https://www.facebook.com/somuchmoredeutsch"
+                             data-width="300"
+                             data-colorscheme="light"
+                             data-show-faces="true"
+                             data-header="false"
+                             data-stream="false"
+                             data-show-border="false"></div>
+                    </div>
+                </a>
+                <p>In dieser Meditationsstunde lernst Du Deine Lebendigkeit kennen. Du spürst, wie Deine Gedanken und Gefühlen still werden. Alles darf so sein, wie es ist. Du bist einverstanden. So sinkst Du tiefer und tiefer wie eine Feder in dein Selbst. In dieser Meditationsstunde lernst Du Deine Lebendigkeit kennen. Du spürst, wie Deine Gedanken und Gefühlen still werden. Alles darf so sein, wie es ist. Du bist einverstanden. So sinkst Du tiefer und tiefer wie eine Feder in dein Selbst. </p>
+            </div>
+        </div>
+    </div>
+    <div class="w-right">
+        <div class="b-main-sidebar">
+            <div class="b-studio-info">
+                <div class="info-row" ng-show="desktop">
+                    <span>Disciplines:</span><ul>
+                        <li>Tea & Snack Bar</li>
+                        <li>Changing Rooms</li>
+                        <li>Lockers</li>
+                        <li>Showers</li>
+                        <li>Backyard</li>
+                    </ul>
+                </div>
+                <div class="info-row" ng-show="desktop">
+                    <span>Additional services:</span><ul>
+                        <li>Yoga</li>
+                        <li>Meditation</li>
+                        <li>Pilates</li>
+                        <li>Martial Arts</li>
+                        <li>Ayurvedic Cooking</li>
+                    </ul>
+                </div>
+                <div class="info-row">
+                    <span>Adresse:</span><address>Brunnenstraße 29, 10119 Berlin</address>
+                </div>
+            </div>
+            <button type="button" class="contact_btn" ng-show="desktop">Contact us</button>
+        </div>
+    </div>
+</div>
+<div class="b-studio-timetable">
+    <div class="container">
+        <h2>Classes</h2>
+        <h2>Heute, Sa. 27</h2>
+        <h3>September 2014</h3>
+        <ul class="weekdays" ng-show="desktop">
+            <li class="current">Sa 27</li>
+            <li>So 28</li>
+            <li>Mo 29</li>
+            <li>Di 30</li>
+            <li>Mi 01</li>
+            <li>Do 02</li>
+            <li>Fr 03</li>
+        </ul>
+        <table class="weekdays-mobile" ng-show="mobile">
+            <tr>
+                <th><b>Sa</b></th>
+                <th><b>So</b></th>
+                <th><b>Mo</b></th>
+                <th><b>Di</b></th>
+                <th><b>Mi</b></th>
+                <th><b>Do</b></th>
+                <th><b>Fr</b></th>
+            </tr>
+            <tr>
+                <td><b class="current">27</b></td>
+                <td><b>28</b></td>
+                <td><b>29</b></td>
+                <td><b>30</b></td>
+                <td><b>01</b></td>
+                <td><b>02</b></td>
+                <td><b>03</b></td>
+            </tr>
+        </table>
+        <table class="timetable" ng-show="desktop">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Class</th>
+                    <th>Sub-Discipline</th>
+                    <th>Teacher</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button class="joined" type="button">Joined<span>|</span><i class="fa fa-calendar"></i></button></td>
+                </tr>
+                <tr>
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button type="button">Join</button></td>
+                </tr>
+                <tr>
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button type="button">Join</button></td>
+                </tr>
+                <tr class="disabled">
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button class="disabled" type="button" disabled>Cancelled</button></td>
+                </tr>
+                <tr class="disabled">
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button class="disabled" type="button" disabled>Cancelled</button></td>
+                </tr>
+                <tr>
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button type="button">Join</button></td>
+                </tr>
+                <tr>
+                    <td>08:00 - 09:30</td>
+                    <td>Jivamukti Open 60 English</td>
+                    <td>Jivamukti Yoga</td>
+                    <td>Reto Halme</td>
+                    <td><button type="button">Join</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="timetable-mobile" ng-show="mobile">
+            <li>
+                <div class="time">
+                    <b>08:00</b>
+                    <span>09:00</span>
+                </div><div class="info">
+                    <b>Jivamukti Open 60 English</b>
+                    <span>Jivamukti Yoga</span>
+                    <span>Reto Halme</span>
+                    <button class="joined" type="button">Joined<span>|</span><i class="fa fa-calendar"></i></button>
+                </div>
+            </li><li>
+                <div class="time">
+                    <b>08:00</b>
+                    <span>09:00</span>
+                </div><div class="info">
+                    <b>Jivamukti Open 60 English</b>
+                    <span>Jivamukti Yoga</span>
+                    <span>Reto Halme</span>
+                    <button type="button">Join</button>
+                </div>
+            </li><li class="disabled">
+                <div class="time">
+                    <b>08:00</b>
+                    <span>09:00</span>
+                </div><div class="info">
+                    <b>Jivamukti Open 60 English</b>
+                    <span>Jivamukti Yoga</span>
+                    <span>Reto Halme</span>
+                    <button class="disabled" type="button" disabled>Cancelled</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="b-studio-map">
+    <div class="container">
+        <div class="location">
+            <h2>Location</h2>
+            <address><i class="fa fa-map-marker"></i>Brunnenstraße 29, 10119 Berlin</address>
+            <p><i class="fa fa-home"></i>Studio</p>
+        </div>
+    </div>
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+        <ui-gmap-marker coords="marker.coords" icon="marker.icon" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+    </ui-gmap-google-map>
+</div>
+<div class="container b-studio" ng-show="mobile">
+    <div class="b-main-sidebar">
+        <div class="b-studio-info">
+            <div class="info-row">
+                <span>Disciplines:</span><ul>
+                <li>Tea & Snack Bar</li>
+                <li>Changing Rooms</li>
+                <li>Lockers</li>
+                <li>Showers</li>
+                <li>Backyard</li>
+            </ul>
+            </div>
+            <div class="info-row">
+                <span>Additional services:</span><ul>
+                <li>Yoga</li>
+                <li>Meditation</li>
+                <li>Pilates</li>
+                <li>Martial Arts</li>
+                <li>Ayurvedic Cooking</li>
+            </ul>
+            </div>
+        </div>
+        <button type="button" class="contact_btn">Contact us</button>
+    </div>
+    <div class="fb-like"
+         data-href="https://www.facebook.com/somuchmoredeutsch"
+         data-width="280"
+         data-layout="standard"
+         data-action="like"
+         data-show-faces="true"
+         data-share="false">
+    </div>
+</div>
+

@@ -3,6 +3,7 @@
 .b-main-cover {
     background: url("/images/main-2880.jpg") no-repeat center center;
     height: 550px;
+    min-height: 250px;
     position: relative;
     display: table;
     width: 100%;
@@ -12,8 +13,19 @@
         background-image: url("/images/main-1440.jpg");
     }
     @media (max-width: $containerMobileWidth) {
-        height: 306px;
+        height: 400px;
         background-image: url("/images/main-1080.jpg");
+    }
+    .cover-name {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 35px;
+        font-size: 15px;
+        text-align: left;
+        line-height: 35px;
+        background: rgba(255,255,255,0.8);
     }
     &.event-cover.desktop {
         @extend %shadow-cover-top;
@@ -42,6 +54,9 @@
         margin: 0;
         letter-spacing: 1px;
         margin-bottom: 15px;
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 32px;
+        }
     }
     p {
         font-size: 18px;
@@ -53,12 +68,18 @@
             font-size: 26px;
             width: auto; 
         }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 14px;
+        }
         a {
             font-size: 18px;
             outline: none;
             @media (max-width: $containerMobileWidth) {
                 display: block;
                 font-size: 26px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 14px;
             }
         }
     }

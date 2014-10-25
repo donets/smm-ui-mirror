@@ -10,6 +10,10 @@
         border-width: 4px;
         height: 90px;
     }
+    @media (max-width: $containerMobileWidth640) {
+        border-width: 3px;
+        height: 60px;
+    }
     ul {
         @include my-resetList();
         margin: 0 auto;
@@ -35,6 +39,11 @@
                     line-height: 86px;
                     width: 100%;
                     border-width: 4px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 18px;
+                    line-height: 57px;
+                    border-width: 3px;
                 }
                 &:hover {
                     color: $colorLink;
