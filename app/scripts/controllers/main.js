@@ -25,22 +25,22 @@ angular.module('boltApp.controllers.Main', [])
         function initEvents() {
             $scope.loading = false;
             $scope.schedule = $location.search().schedule;
-            _.each($scope.events.events, function (event) {
+            _.each($scope.events.occurrences, function (event) {
 
                 var now = moment(); // jshint ignore:line
-                var date = moment(event.event.start_date); // jshint ignore:line
+                var date = moment(event.start_date) || 0; // jshint ignore:line
 
                 if(now > date) {
-                    event.event.schedule = 'past';
+                    event.schedule = 'past';
                 } else if (date.calendar().split(' ')[0] === 'Heute') {
-                    event.event.schedule = 'today';
+                    event.schedule = 'today';
                 } else if (date.calendar().split(' ')[0] === 'Morgen') {
-                    event.event.schedule = 'tomorrow';
+                    event.schedule = 'tomorrow';
                 } else {
-                    event.event.schedule = 'later';
+                    event.schedule = 'later';
                 }
 
-                event.event.minPrice = _.min(event.event.tickets, function (ticket) {
+                event.minPrice = _.min(event.tickets, function (ticket) {
                     return ticket.ticket.display_price; // jshint ignore:line
                 });
 

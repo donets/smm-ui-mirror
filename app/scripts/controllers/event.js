@@ -28,8 +28,8 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
 
             $scope.map = {
                 center: {
-                    latitude: getEvent.event.venue.latitude,
-                    longitude: getEvent.event.venue.longitude
+                    latitude: getEvent.occurrence.parent_event.location.latitude,  // jshint ignore:line
+                    longitude: getEvent.occurrence.parent_event.location.longitude // jshint ignore:line
                 },
                 zoom: 16,
                 options: {
@@ -42,10 +42,10 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
             };
 
             $scope.marker = {
-                id: getEvent.event.id,
+                id: getEvent.occurrence.id,
                 coords: {
-                    latitude: getEvent.event.venue.latitude,
-                    longitude: getEvent.event.venue.longitude
+                    latitude: getEvent.occurrence.parent_event.location.latitude,  // jshint ignore:line
+                    longitude: getEvent.occurrence.parent_event.location.longitude // jshint ignore:line
                 },
                 options: {
                     icon: {
@@ -63,30 +63,19 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
 
         getEvent.$promise.then(function () {
             getEvent.eventLoad = false;
-            $('html head title').text(getEvent.event.title);
-            var start = moment(getEvent.event.start_date); // jshint ignore:line
-            var end = moment(getEvent.event.end_date); // jshint ignore:line
-            moment.relativeTimeThreshold('m', 1000); // jshint ignore:line
-            $scope.duration = moment.duration(end.diff(start)).asMinutes(); // jshint ignore:line
+            $('html head title').text(getEvent.occurrence.parent_event.title);
+            var start = moment(getEvent.occurrence.start_date);
+            var end = moment(getEvent.occurrence.end_date);
+            moment.relativeTimeThreshold('m', 1000);
+            $scope.duration = moment.duration(end.diff(start)).asMinutes();
             $scope.date = start;
-            $scope.minPrice = _.min(getEvent.event.tickets, function (ticket) {
-                return ticket.ticket.display_price; // jshint ignore:line
-            });
-            Suppliers.get({supplierId: getEvent.event.somuchmore.teacherId}).$promise.then(function (res) {
+            //$scope.minPrice = _.min(getEvent.event.tickets, function (ticket) {
+            //    return ticket.ticket.display_price;
+            //});
+            Suppliers.get({supplierId: getEvent.occurrence.parent_event.teacher_id}).$promise.then(function (res) {
                 console.log(res);
                 $scope.teacher = res;
             });
-            //var availableSpots = _.reduce(getEvent.event.tickets, function (memo, ticket) {
-            //    memo = _.isObject(memo) ? memo.ticket.quantity_available : memo; // jshint ignore:line
-            //    return memo + ticket.ticket.quantity_available; // jshint ignore:line
-            //});
-            //$scope.availableSpots = _.isObject(availableSpots) ? availableSpots.ticket.quantity_available : availableSpots; // jshint ignore:line
-
-            //var soldSpots = _.reduce(getEvent.event.tickets, function (memo, ticket) {
-            //    memo = _.isObject(memo) ? memo.ticket.quantity_sold : memo; // jshint ignore:line
-            //    return memo + ticket.ticket.quantity_sold; // jshint ignore:line
-            //});
-            //$scope.availableSpots = _.isObject(soldSpots) ? getEvent.event.somuchmore.totalSpots - soldSpots.ticket.quantity_sold : getEvent.event.somuchmore.totalSpots - soldSpots; // jshint ignore:line
 
         });
 
@@ -107,10 +96,10 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
             ezfb.ui(
                 {
                     method: 'feed',
-                    name: getEvent.event.title,
-                    picture: getEvent.event.logo,
+                    name: getEvent.occurrence.parent_event.title,
+                    picture: getEvent.occurrence.parent_event.cover_default,
                     link: $location.absUrl(),
-                    description: getEvent.event.somuchmore.description
+                    description: getEvent.occurrence.parent_event.description
                 },
                 callback
             );

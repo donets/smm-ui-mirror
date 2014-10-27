@@ -20,28 +20,28 @@
     <span class="spinner" ng-show="loading" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
     <div class="b-events__list" id="today" ng-hide="loading">
         <a class="b-event-card"
-           ng-repeat="event in events.events | dataFilter: 'event.schedule': 'today' | limitTo: 15"
+           ng-repeat="event in events.occurrences | dataFilter: 'schedule': 'today' | limitTo: 15"
            ng-include="'views/_eventCard.html'"
-           analytics-on analytics-event="filter" analytics-category="eventlisting" analytics-label="{{event.event.schedule}}" analytics-value="{{$index+1}}"
-           ui-sref="view({eventId: event.event.id})" ng-click="showSpinner(event.event)">
+           analytics-on analytics-event="filter" analytics-category="eventlisting" analytics-label="{{event.schedule}}" analytics-value="{{$index+1}}"
+           ui-sref="view({eventId: event.id})" ng-click="showSpinner(event)">
         </a>
     </div>
     <div class="b-events__list" id="tomorrow" ng-hide="loading">
         <h3 ng-show="contentLoaded"><b>Morgen</b></h3>
         <a class="b-event-card"
-           ng-repeat="event in events.events | dataFilter: 'event.schedule': 'tomorrow' | limitTo: 15"
+           ng-repeat="event in events.occurrences | dataFilter: 'schedule': 'tomorrow' | limitTo: 15"
            ng-include="'views/_eventCard.html'"
-           analytics-on analytics-event="filter" analytics-category="eventlisting" analytics-label="{{event.event.schedule}}" analytics-value="{{$index+1}}"
-           ui-sref="view({eventId: event.event.id})" ng-click="showSpinner(event.event)">
+           analytics-on analytics-event="filter" analytics-category="eventlisting" analytics-label="{{event.schedule}}" analytics-value="{{$index+1}}"
+           ui-sref="view({eventId: event.id})" ng-click="showSpinner(event)">
         </a>
     </div>
     <div class="b-events__list" id="later" ng-hide="loading">
         <h3 ng-show="contentLoaded"><b>Später</b></h3>
         <a class="b-event-card"
-           ng-repeat="event in events.events | dataFilter: 'event.schedule': 'later' | limitTo: 15"
+           ng-repeat="event in events.occurrences | dataFilter: 'schedule': 'later' | limitTo: 15"
            ng-include="'views/_eventCard.html'"
-           analytics-on analytics-event="filter" analytics-category="eventlisting" analytics-label="{{event.event.schedule}}" analytics-value="{{$index+1}}"
-           ui-sref="view({eventId: event.event.id})" ng-click="showSpinner(event.event)">
+           analytics-on analytics-event="filter" analytics-category="eventlisting" analytics-label="{{event.schedule}}" analytics-value="{{$index+1}}"
+           ui-sref="view({eventId: event.id})" ng-click="showSpinner(event)">
         </a>
     </div>
 </div>

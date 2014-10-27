@@ -9,8 +9,8 @@
  */
 angular.module('boltApp.services.suppliers', [])
     .factory('Suppliers', ['$resource', function($resource) {
-        return $resource('/api/rest/supplier/:supplierId', {eventId: '@id'}, {
-            'query': {method: 'GET', url: '/api/rest/supplier/list', isArray: true, cache: true},
+        return $resource('//smm-dev.herokuapp.com/api/rest/supplier/:supplierId', {eventId: '@id'}, {
+            'query': {method: 'GET', url: '//smm-dev.herokuapp.com/api/rest/supplier/list', isArray: true, cache: true},
             'get': {method: 'GET', cache: true}
         });
     }]);
