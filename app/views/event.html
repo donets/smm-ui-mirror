@@ -1,11 +1,11 @@
 
-<div class="b-main-cover event-cover desktop" ng-if="desktop" ng-style="{ height: windowHeight - 200 }" style="background-image: url({{event.event.somuchmore.coverHD || coverMain}})">
+<div class="b-main-cover event-cover desktop" ng-if="desktop" ng-style="{ height: windowHeight - 200 }" style="background-image: url({{event.occurrence.parent_event.cover_hd || coverMain}})">
 
 </div>
-<div class="b-main-cover event-cover mobile" ng-if="mobile" style="background-image: url({{event.event.somuchmore.coverMobile || coverMain}})">
+<div class="b-main-cover event-cover mobile" ng-if="mobile" style="background-image: url({{event.occurrence.parent_event.cover_mobile || coverMain}})">
     <div class="b-event-header">
-        <h1>{{event.event.title}}</h1>
-        <h3><span ng-if="event.event.somuchmore.tags">{{event.event.somuchmore.tags}} — </span>mit {{event.event.somuchmore.teacherName}}</h3>
+        <h1>{{event.occurrence.parent_event.title}}</h1>
+        <h3><span ng-if="event.occurrence.parent_event.tags"><span class="comma-list" ng-repeat="tag in event.occurrence.parent_event.tags">{{tag}}</span> — </span>mit {{event.occurrence.parent_event.teacher_name}}</h3>
     </div>
 </div>
 <div class="container b-event cf">
@@ -14,14 +14,14 @@
             <div class="sidebar-widget book">
                 <p class="price" ng-show="desktop">{{minPrice.ticket.display_price}} &euro;</p>
                 <p class="date">{{date | amDateFormat: 'L'}}</p>
-                <p class="capacity" ng-if="event.event.somuchmore.ticketsInfo">
-                    <span ng-if="event.event.somuchmore.ticketsInfo.totalTicketsLeft && event.event.somuchmore.ticketsInfo.totalSpots > 1">{{event.event.somuchmore.ticketsInfo.totalTicketsLeft}}/{{event.event.somuchmore.ticketsInfo.totalSpots}} Plätzen frei</span>
-                    <span ng-if="event.event.somuchmore.ticketsInfo.totalTicketsLeft == 0">Ausverkauft</span>
-                    <span ng-if="event.event.somuchmore.ticketsInfo.totalSpots == 1">Privatstunde</span>
+                <p class="capacity" ng-if="event.occurrence.total_tickets">
+                    <span ng-if="event.occurrence.total_tickets_left && event.occurrence.total_tickets > 1">{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} Plätzen frei</span>
+                    <span ng-if="event.occurrence.total_tickets_left == 0">Ausverkauft</span>
+                    <span ng-if="event.occurrence.total_tickets == 1">Privatstunde</span>
                 </p>
-                <a class="book_btn" ng-if="desktop" analytics-on="click" analytics-event="book" analytics-category="booking" ng-href="{{event.event.url}}" ng-click="bookEvent()">Buche dieses Event</a>
-                <a class="book_btn" ng-if="mobile" analytics-on="click" analytics-event="book" analytics-category="booking" sticky use-placeholder ng-href="{{event.event.url}}" ng-click="bookEvent()">Buche dieses Event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span></a>
-                <a class="change_btn" analytics-on="click" analytics-event="book" analytics-category="book_another" ng-href="{{event.event.url}}" ng-click="bookAnotherEvent()"><i class="fa fa-calendar"></i>Buche einen anderen Termin</a>
+                <a class="book_btn" ng-if="desktop" analytics-on="click" analytics-event="book" analytics-category="booking" ng-href="{{event.occurrence.url}}" ng-click="bookEvent()">Buche dieses Event</a>
+                <a class="book_btn" ng-if="mobile" analytics-on="click" analytics-event="book" analytics-category="booking" sticky use-placeholder ng-href="{{event.occurrence.url}}" ng-click="bookEvent()">Buche dieses Event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span></a>
+                <a class="change_btn" analytics-on="click" analytics-event="book" analytics-category="book_another" ng-href="{{event.url}}" ng-click="bookAnotherEvent()"><i class="fa fa-calendar"></i>Buche einen anderen Termin</a>
                 <!--<button class="share_btn" ng-click="share()">Share FB</button>-->
             </div>
         </div>
@@ -30,11 +30,11 @@
         <div class="b-main-content">
             <div class="b-event-block">
                 <div ng-show="desktop">
-                    <h1>{{event.event.title}}</h1>
-                    <h3><span ng-if="event.event.somuchmore.tags">{{event.event.somuchmore.tags}} — </span> mit {{event.event.somuchmore.teacherName}}</h3>
+                    <h1>{{event.occurrence.parent_event.title}}</h1>
+                    <h3><span ng-if="event.occurrence.parent_event.tags"><span class="comma-list" ng-repeat="tag in event.occurrence.parent_event.tags">{{tag}}</span> — </span> mit {{event.occurrence.parent_event.teacher_name}}</h3>
                 </div>
-                <p ng-if="event.event.somuchmore.description">{{event.event.somuchmore.description | cutString:cutVal:true}}
-                    <a class="a-more" href="" ng-show="event.event.somuchmore.description.length > cutVal && cutVal > 0" analytics-on="click" analytics-event="book" analytics-category="consideration" ng-click="uncut()">Mehr &gt;</a>
+                <p ng-if="event.occurrence.parent_event.description">{{event.occurrence.parent_event.description | cutString:cutVal:true}}
+                    <a class="a-more" href="" ng-show="event.occurrence.parent_event.description.length > cutVal && cutVal > 0" analytics-on="click" analytics-event="book" analytics-category="consideration" ng-click="uncut()">Mehr &gt;</a>
                     <a class="a-more" href="" ng-show="cutVal == 0" ng-click="cut()">&lt; Weniger</a>
                 </p>
                 <div class="b-event-map">
@@ -43,11 +43,11 @@
                     </ui-gmap-google-map>
                 </div>
                 <ul class="b-event-list">
-                    <li ng-if="event.event.venue"><i class="fa fa-location-arrow"></i>{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.city}} ({{event.event.venue.name}})</li>
+                    <li ng-if="event.occurrence.parent_event.location"><i class="fa fa-location-arrow"></i>{{event.occurrence.parent_event.location.address}}, {{event.occurrence.parent_event.location.postal_code}} {{event.occurrence.parent_event.location.city}} ({{event.occurrence.parent_event.location.name}})</li>
                     <li ng-if="duration"><i class="fa fa-clock-o"></i>{{duration}} Minuten</li>
-                    <li ng-if="event.event.somuchmore.level"><i class="fa fa-bolt"></i>{{event.event.somuchmore.level}}</li>
-                    <li ng-if="event.event.somuchmore.languages"><i class="fa fa-comments"></i>{{event.event.somuchmore.languages}}</li>
-                    <li ng-if="event.event.somuchmore.besonderheiten"><i class="fa fa-info-circle"></i>{{event.event.somuchmore.besonderheiten}}</li>
+                    <li ng-if="event.occurrence.parent_event.level"><i class="fa fa-bolt"></i>{{event.occurrence.parent_event.level}}</li>
+                    <li ng-if="event.occurrence.parent_event.languages"><i class="fa fa-comments"></i><span class="comma-list" ng-repeat="language in event.occurrence.parent_event.languages">{{language}}</span></li>
+                    <li ng-if="event.occurrence.parent_event.besonderheiten"><i class="fa fa-info-circle"></i>{{event.occurrence.parent_event.besonderheiten}}</li>
                 </ul>
             </div>
             <div class="b-teacher-block">

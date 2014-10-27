@@ -143,6 +143,16 @@
         }
     }
 }
+.comma-list {
+    &:after {
+        content: ", ";
+    }
+    &:last-child {
+        &:after {
+            content: " ";
+        }
+    }
+}
 .contact_btn {
     @extend %custom-button;
     width: 252px;

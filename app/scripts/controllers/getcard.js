@@ -18,7 +18,7 @@ angular.module('boltApp.controllers.Getcard', [])
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
             $scope.errorSubscribe = false;
-            $http.post('/api/subscribtion/subscribe', { email: $scope.email, interestedInProduct: true }).success(function () {
+            $http.post('//smm-dev.herokuapp.com/api/subscribtion/subscribe', { email: $scope.email, interestedInProduct: true }).success(function () {
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
                 $scope.email = '';
@@ -37,7 +37,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 message: 'A user suggest we should add studio: ' + $scope.studioName
             };
             $scope.loadingStudio = true;
-            $http.post('/api/message/', suggestedStudio).success(function () {
+            $http.post('//smm-dev.herokuapp.com/api/message/', suggestedStudio).success(function () {
                 $scope.loadingStudio = false;
                 $scope.successStudio = true;
                 $scope.studioName = '';
