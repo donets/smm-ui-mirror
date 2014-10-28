@@ -51,7 +51,7 @@ module.exports = function (grunt) {
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
-                files: ['gruntfile.js']
+                files: ['Gruntfile.js']
             },
             livereload: {
                 options: {
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
             },
             all: {
                 src: [
-                    'gruntfile.js',
+                    'Gruntfile.js',
                     '<%= yeoman.app %>/scripts/{,*/}*.js'
                 ]
             },
