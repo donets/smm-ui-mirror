@@ -108,7 +108,18 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     open: true,
-                    base: '<%= yeoman.dist %>'
+                    base: '<%= yeoman.dist %>',
+                    middleware: function (connect) {
+                        return [
+                            modRewrite(['^[^\\.]*$ /index.html [L]']),
+                            connect.static('.tmp'),
+                            connect().use(
+                                '/bower_components',
+                                connect.static('./bower_components')
+                            ),
+                            connect.static(appConfig.app)
+                        ];
+                    }
                 }
             }
         },
@@ -395,11 +406,11 @@ module.exports = function (grunt) {
             ]
         },
 
-        removelogging: {
-            dist: {
-                src: '<%= yeoman.dist %>/scripts/*.js' // Each file will be overwritten with the output!
-            }
-        },
+        // removelogging: {
+        //     dist: {
+        //         src: '<%= yeoman.dist %>/scripts/*.js'
+        //     }
+        // },
 
         // Test settings
         karma: {
