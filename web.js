@@ -8,5 +8,5 @@ var app = express();
 
 app.use(morgan('dev'));
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-app.use(modRewrite(['^[^\\.]*$ /index.html [L]']));
+app.use(modRewrite(['^[^\\.]*$ /dist/index.html [L]']));
 app.listen(process.env.PORT || 5000);
