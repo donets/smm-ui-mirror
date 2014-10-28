@@ -319,7 +319,11 @@ module.exports = function (grunt) {
                     collapseWhitespace: true,
                     conservativeCollapse: true,
                     removeCommentsFromCDATA: true,
-                    removeCDATASectionsFromCDATA: true
+                    removeCDATASectionsFromCDATA: true,
+                    ignoreCustomComments: [
+                        /^\s+smm/,
+                        /\/smm\s+$/
+                    ]
                 },
                 files: [{
                     expand: true,

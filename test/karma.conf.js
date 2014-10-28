@@ -41,7 +41,6 @@ module.exports = function(config) {
       'bower_components/angulartics/src/angulartics-ga.js',
       'bower_components/angulartics/src/angulartics-gtm.js',
       'bower_components/angular-easyfb/angular-easyfb.js',
-      'http://maps.googleapis.com/maps/api/js?sensor=false',
       'bower_components/lodash/dist/lodash.compat.js',
       'bower_components/angular-google-maps/dist/angular-google-maps.js',
       'bower_components/ngprogress/build/ngProgress.js',
