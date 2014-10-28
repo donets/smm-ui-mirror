@@ -5,9 +5,9 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# somuchmore: http://ogp.me/ns/fb/somuchmore#">
     <meta charset="utf-8">
     <meta name="fragment" content="!">
-    <meta name="robots" content="@robots">
     <title>Somuchmore | Entdecke alles, was Dir gut tut</title>
-
+    <!-- smm custom comment -->
+    <meta name="robots" content="@robots">
     <link rel="canonical" href="@url" />
     <meta name="description" 		 content="@description">
     <meta property="og:description"  content="@description" />
@@ -15,6 +15,13 @@
     <meta property="og:url"    content="@url" />
     <meta property="og:title"  content="@title" />
     <meta property="og:image"  content="@image" />
+    <script>
+        window.smm_config = {
+            rest_url_old: 'smm-dev.herokuapp.com',
+            rest_url: 'stage-smm-api.herokuapp.com'
+        }
+    </script>
+    <!-- /smm -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
