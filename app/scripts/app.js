@@ -88,12 +88,6 @@ angular.module('boltApp')
             libraries: 'weather,geometry,visualization'
         });
     }])
-//    .config(['ezfbProvider', function(ezfbProvider) {
-//        ezfbProvider.setInitParams({
-//            appId: $window.smmConfig.fbClientId
-//        });
-//        ezfbProvider.setLocale('de_DE');
-//    }])
     .config(function (ezfbProvider) {
         var myInitFunction = function ($window, $rootScope) {
             $window.FB.init({
