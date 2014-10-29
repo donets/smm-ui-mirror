@@ -36,7 +36,7 @@ angular.module('boltApp.controllers.Social', [])
 
         function sendLoginData (res) {
             console.log(res);
-            $http.post($window.smmConfig.restUrlBase + '/api/auth/login/facebook', { accessToken: res.authResponse.accessToken }).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function (response) {
                 console.log(response);
             }).error(function (response, status) {
                 console.error(response);
