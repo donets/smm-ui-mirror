@@ -1,4 +1,5 @@
-window.smm_config = {
-    rest_url_old: 'smm-dev.herokuapp.com',
-    rest_url: 'stage-smm-api.herokuapp.com'
+window.smmConfig = {
+    restUrlBaseOld: 'smm-dev.herokuapp.com',
+    restUrlBase: 'stage-smm-api.herokuapp.com',
+    fbClientId: '1403268876590849'
 };
