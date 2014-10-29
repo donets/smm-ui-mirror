@@ -117,7 +117,15 @@
                          data-show-border="false"></div>
                 </div>
             </a>
-            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav">
+            <ul class="b-header-nav">
+                <li>
+                    <a href="" ng-click="login()" ng-hide="loginStatus.status == 'connected'" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
+                    <a href="" ng-show="loginStatus.status == 'connected'">{{apiMe.first_name}}</a>
+                </li><li>
+                    <a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
+                </li>
+            </ul>
+            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav hidden">
                 <li>
                     <a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>
                 </li><li>
