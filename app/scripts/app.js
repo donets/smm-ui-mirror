@@ -88,7 +88,13 @@ angular.module('boltApp')
             libraries: 'weather,geometry,visualization'
         });
     }])
-    .config(function (ezfbProvider) {
+    // .config(['ezfbProvider', function(ezfbProvider) {
+    //     ezfbProvider.setInitParams({
+    //         appId: $window.smmConfig.fbClientId
+    //     });
+    //     ezfbProvider.setLocale('de_DE');
+    // }])
+    .config(['ezfbProvider', function (ezfbProvider) {
         var myInitFunction = function ($window, $rootScope) {
             $window.FB.init({
                 appId: $window.smmConfig.fbClientId,
@@ -100,7 +106,7 @@ angular.module('boltApp')
 
         ezfbProvider.setInitFunction(myInitFunction);
         ezfbProvider.setLocale('de_DE');
-    })
+    }])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
     }])
