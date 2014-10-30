@@ -8,10 +8,10 @@
  * Factory in the boltApp.
  */
 angular.module('boltApp.services.events', [])
-    .factory('Events', ['$resource', function($resource) {
-        return $resource('http://stage-smm-api.herokuapp.com/api/occurrence/:eventId', {eventId: '@id'}, {
+    .factory('Events', ['$resource', '$window', function($resource, $window) {
+        return $resource($window.smmConfig.restUrlBase + '/api/occurrence/:eventId', {eventId: '@id'}, {
             'query': {method: 'GET', isArray: false, cache: true},
             'get': {method: 'GET', cache: true},
-            'getOrder': {method: 'GET', cache: false, url: 'http://stage-smm-api.herokuapp.com/api/eventbrite/:eventId/order'}
+            'getOrder': {method: 'GET', cache: false, url: $window.smmConfig.restUrlBase + '/api/eventbrite/:eventId/order'}
         });
     }]);

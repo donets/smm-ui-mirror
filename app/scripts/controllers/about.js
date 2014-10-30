@@ -14,7 +14,7 @@ angular.module('boltApp.controllers.About', [])
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
             $scope.errorSubscribe = false;
-            $http.post('//smm-dev.herokuapp.com/api/subscribtion/subscribe', { email: $scope.email, interestedInProduct: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: $scope.email, interestedInProduct: true }).success(function () {
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
                 $scope.email = '';
@@ -32,7 +32,7 @@ angular.module('boltApp.controllers.About', [])
                 message: $scope.feedback
             };
             $scope.loadingFeedback = true;
-            $http.post('//smm-dev.herokuapp.com/api/message/', feedback).success(function () {
+            $http.post($window.smmConfig.restUrlBaseOld + '/api/message/', feedback).success(function () {
                 $scope.loadingFeedback = false;
                 $scope.successFeedback = true;
                 $scope.feedback = '';
