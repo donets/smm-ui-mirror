@@ -5,24 +5,25 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# somuchmore: http://ogp.me/ns/fb/somuchmore#">
     <meta charset="utf-8">
     <meta name="fragment" content="!">
-    <title>Somuchmore | Entdecke alles, was Dir gut tut</title>
+    <title>Somuchmore | Trainiere Körper, Geist und Seele</title>
+    <meta name="description" content="Entdecke unbegrenzt Yoga, Pilates, Kampfkunst, Meditation, Tanz, Gesundheit, Ernährung und persönliche Entfaltung in ganz Berlin.">
     <!-- smm custom comment -->
     <meta name="robots" content="@robots">
     <link rel="canonical" href="@url" />
-    <meta name="description" 		 content="@description">
     <meta property="og:description"  content="@description" />
     <meta property="fb:app_id" content="1403268876590849" />
     <meta property="og:url"    content="@url" />
     <meta property="og:title"  content="@title" />
     <meta property="og:image"  content="@image" />
+    <!-- /smm -->
+
     <script>
         window.smmConfig = {
-            restUrlBaseOld: 'https://smm-dev.herokuapp.com',
-            restUrlBase: 'https://stage-smm-api.herokuapp.com',
-            fbClientId: '1403268876590849'
+            "restUrlBaseOld": "https://smm-dev.herokuapp.com",
+            "restUrlBase": "https://stage-smm-api.herokuapp.com",
+            "fbClientId": "1403268876590849"
         }
     </script>
-    <!-- /smm -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
@@ -50,7 +51,7 @@
             right: 0;
         }
         .pre-cover {
-            background: url("/images/main-1080.jpg") no-repeat center center;
+            background: url("/images/landing-1080.jpg") no-repeat center center;
             position: relative;
             top: 0;
             height: 550px;
@@ -104,7 +105,7 @@
     </div>
     <div class="wrapper">
         <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('get')}">
-            <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="main" ng-if="!$state.includes('get')">Somuchmore</a></div>
+            <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="get">Somuchmore</a></div>
             <div class="b-header-badge">BETA</div>
             <a class="b-header-likes" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
                 <div ng-show="popover" class="b-popover">
@@ -118,15 +119,15 @@
                          data-show-border="false"></div>
                 </div>
             </a>
-            <ul class="b-header-nav">
-                <li>
-                    <a href="" ng-click="login()" ng-hide="loginStatus.status == 'connected'" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
-                    <a href="" ng-show="loginStatus.status == 'connected'">{{apiMe.first_name}}</a>
-                </li><li>
-                    <a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
-                </li>
-            </ul>
-            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav hidden">
+            <!--<ul class="b-header-nav">-->
+                <!--<li>-->
+                    <!--<a href="" ng-click="login()" ng-hide="loginStatus.status == 'connected'" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>-->
+                    <!--<a href="" ng-show="loginStatus.status == 'connected'">{{apiMe.first_name}}</a>-->
+                <!--</li><li>-->
+                    <!--<a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav">
                 <li>
                     <a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>
                 </li><li>

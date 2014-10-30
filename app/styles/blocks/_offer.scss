@@ -34,6 +34,7 @@
         }
     }
     .b-main-cover {
+        background-image: url("/images/landing-2880.jpg");
         padding: 50px 0 0;
         overflow: hidden;
         position: fixed;
@@ -43,27 +44,24 @@
         @media (max-width: $containerMobileWidth) {
             position: relative;
             display: block;
+            background-image: url("/images/landing-1440.jpg");
             padding: 90px 30px 0;
             min-height: 730px;
             height: auto;
-            .b-card-subscribe {
-                input[type="text"] {
-                    border: 0 none;
-                }
-            }
         }
         @media (max-width: $containerMobileWidth640) {
+            background-image: url("/images/landing-1080.jpg");
             min-height: 480px;
         }
     }
     .cover-animated {
-        background: url("/images/main-2880.jpg") center center no-repeat;
+        background: url("/images/landing-2880.jpg") center center no-repeat;
         @include background-size(cover);
         @media (max-width: 1440px) {
-            background-image: url("/images/main-1440.jpg");
+            background-image: url("/images/landing-1440.jpg");
         }
         @media (max-width: $containerMobileWidth) {
-            background-image: url("/images/main-1080.jpg");
+            background-image: url("/images/landing-1080.jpg");
         }
         position: absolute;
         top: 0;
@@ -122,10 +120,16 @@
                 line-height: 1.2;
             }
         }
-        .b-card-subscribe {
-            margin-top: 60px;
-            span {
-                color: #fff;
+    }
+    .b-card-subscribe {
+        margin-top: 60px;
+        span {
+            color: #fff;
+        }
+        @media (max-width: $containerMobileWidth) {
+            margin-top: 90px;
+            input[type="email"] {
+                border: 0 none;
             }
         }
     }
