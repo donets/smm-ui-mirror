@@ -27,7 +27,7 @@
     <div class="w-right">
         <div class="b-main-sidebar">
             <img class="card-image" src="images/card.png" alt=""/>
-            <form class="b-card-subscribe" ng-submit="subscribeCard('about')">
+            <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('about')">
                 <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" class="small" value="Kostenlos anmelden"/><span>Erhalte Deine Einladung</span>
                 <div class="form-response">
                     <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -53,7 +53,7 @@
             <div class="column">
                 <p>Ich habe folgende Frage:</p>
                 <div class="feedback__form-wrapper">
-                    <form ng-submit="sendMessage()">
+                    <form name="feedbackForm" ng-submit="sendMessage()">
                         <textarea ng-model="feedback" placeholder="Frage eingeben" required></textarea>
                         <input class="feedback-email" name="email" ng-model="email" ng-change="successFeedback = false" type="email" placeholder="Email-Adresse" required /><input type="submit" value="Abschicken"/>
                         <div class="form-response">

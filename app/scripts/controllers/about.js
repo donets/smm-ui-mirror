@@ -18,7 +18,7 @@ angular.module('boltApp.controllers.About', [])
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
                 $scope.email = '';
-                $scope.form.$setPristine();
+                $scope.subscribeForm.$setPristine();
                 $window.ga('send', 'submitemail_' + locate, 'about_page');
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
@@ -36,7 +36,7 @@ angular.module('boltApp.controllers.About', [])
                 $scope.loadingFeedback = false;
                 $scope.successFeedback = true;
                 $scope.feedback = '';
-                $scope.form.$setPristine();
+                $scope.feedbackForm.$setPristine();
                 $window.ga('send', 'about_question', 'about_page');
             }).error(function (response, status) {
                 $scope.loadingFeedback = false;

@@ -16,7 +16,7 @@
 <div class="b-main-cover" ng-show="mobile">
     <div class="b-main-slogan"><h2>Trainiere Körper, Geist und Seele.</h2>
         <p>Besuche die besten Studios und Lehrer, wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Tanz, Meditation, Ernährung und Gesundheit und trainiere unbegrenzt in ganz Berlin.</p></div>
-        <form class="b-card-subscribe" ng-submit="subscribeCard('body')">
+        <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('body')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="Kostenlos anmelden"/><span>Erhalte Deine Einladung</span>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -43,7 +43,7 @@
                 <p>Sage Kurse jederzeit zu oder ab – und genieße Deine monatlich kündbare Mitgliedschaft.</p>
             </li>
         </ul>
-        <form class="b-card-subscribe" ng-submit="subscribeCard()">
+        <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard()">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="Kostenlos anmelden"/><span>Erhalte Deine Einladung</span>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -99,7 +99,7 @@
             YogaZentrum Akazienhof</li><li>
             Yogibar</li>
         </ul>
-        <form class="b-studios-submit" ng-submit="addStudio()">
+        <form name="studioForm" class="b-studios-submit" ng-submit="addStudio()">
             <input type="text" name="studio" ng-model="studioName" ng-change="successStudio = false" placeholder="Studionamen"/><input class="dark" type="submit" value="Einreichen"/><span>Trag Dein Lieblingsstudio ein:</span>
             <div class="form-response">
                 <div ng-show="loadingStudio" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>

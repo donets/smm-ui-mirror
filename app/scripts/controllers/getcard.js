@@ -22,7 +22,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
                 $scope.email = '';
-                $scope.form.$setPristine();
+                $scope.subscribeForm.$setPristine();
                 $window.ga('send', 'submitemail_' + locate, 'card_page');
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
@@ -41,7 +41,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 $scope.loadingStudio = false;
                 $scope.successStudio = true;
                 $scope.studioName = '';
-                $scope.form.$setPristine();
+                $scope.studioForm.$setPristine();
                 $window.ga('send', 'studio_suggestion', 'card_page');
             }).error(function (response, status) {
                 $scope.loadingStudio = false;
