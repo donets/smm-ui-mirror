@@ -56,7 +56,7 @@ angular.module('boltApp')
             $('.pre-cover').addClass('hide-cover');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
-            $rootScope.mainTitle = 'Somuchmore | Entdecke alles, was Dir gut tut';
+            $rootScope.mainTitle = 'Somuchmore | Trainiere Körper, Geist und Seele';
             amMoment.changeLanguage('de');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
@@ -259,9 +259,11 @@ angular.module('boltApp')
                 url : '/',
                 templateUrl: 'views/getCard.html',
                 onEnter: function($rootScope){
+                    $rootScope.autoscroll = false;
                     return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
                 },
                 onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 },
                 controller : 'GetcardCtrl'
