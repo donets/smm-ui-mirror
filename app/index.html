@@ -5,9 +5,9 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# somuchmore: http://ogp.me/ns/fb/somuchmore#">
     <meta charset="utf-8">
     <meta name="fragment" content="!">
-    <meta name="robots" content="@robots">
     <title>Somuchmore | Entdecke alles, was Dir gut tut</title>
-
+    <!-- smm custom comment -->
+    <meta name="robots" content="@robots">
     <link rel="canonical" href="@url" />
     <meta name="description" 		 content="@description">
     <meta property="og:description"  content="@description" />
@@ -15,6 +15,14 @@
     <meta property="og:url"    content="@url" />
     <meta property="og:title"  content="@title" />
     <meta property="og:image"  content="@image" />
+    <script>
+        window.smmConfig = {
+            restUrlBaseOld: 'https://smm-dev.herokuapp.com',
+            restUrlBase: 'https://stage-smm-api.herokuapp.com',
+            fbClientId: '1403268876590849'
+        }
+    </script>
+    <!-- /smm -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
@@ -110,7 +118,15 @@
                          data-show-border="false"></div>
                 </div>
             </a>
-            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav">
+            <ul class="b-header-nav">
+                <li>
+                    <a href="" ng-click="login()" ng-hide="loginStatus.status == 'connected'" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
+                    <a href="" ng-show="loginStatus.status == 'connected'">{{apiMe.first_name}}</a>
+                </li><li>
+                    <a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
+                </li>
+            </ul>
+            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav hidden">
                 <li>
                     <a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>
                 </li><li>

@@ -14,7 +14,7 @@ angular.module('boltApp.controllers.Subscribe', [])
             $scope.loadingUpdate = true;
             $scope.successUpdate = false; 
             $scope.errorUpdate = false;
-            $http.post('//smm-dev.herokuapp.com/api/subscribtion/subscribe', { email: $scope.email }).success(function () {
+            $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: $scope.email }).success(function () {
                 $scope.loadingUpdate = false;
                 $scope.successUpdate = true;
                 $scope.email = '';
