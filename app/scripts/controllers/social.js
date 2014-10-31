@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Social', [])
-  .controller('SocialCtrl', ['$rootScope', '$scope', '$http', 'ezfb', '$window', function ($rootScope, $scope, $http, ezfb, $window) {
+  .controller('SocialCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'session', '$window', function ($rootScope, $scope, $http, ezfb, session, $window) {
 
         $scope.getLikes = function () {
 
@@ -21,6 +21,8 @@ angular.module('boltApp.controllers.Social', [])
         };
 
         $scope.getLikes();
+
+        $scope.forgotForm = false;
 
         ezfb.Event.subscribe('edge.create', function(targetUrl) {
             $window.ga('set', 'dimension3', '1');
@@ -38,6 +40,7 @@ angular.module('boltApp.controllers.Social', [])
             console.log(res);
             $http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function (response) {
                 console.log(response);
+                $scope.userName = response.user.name;
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
@@ -54,37 +57,71 @@ angular.module('boltApp.controllers.Social', [])
             });
         }
 
-        function updateApiMe () {
-            ezfb.api('/me', function (res) {
-                $scope.apiMe = res;
-                console.log(res);
-            });
+        console.log(session);
+
+        if(!_.isEmpty(session)) {
+            $scope.userName = session.u.name;
+        } else {
+            updateLoginStatus();
         }
 
-        updateLoginStatus(updateApiMe);
+        $scope.loginFB = function () {
 
-        $scope.login = function () {
-            /**
-             * Calling FB.login with required permissions specified
-             * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
-             */
             ezfb.login(function (res) {
-                /**
-                 * no manual $scope.$apply, I got that handled
-                 */
+
                 if (res.authResponse) {
-                    updateLoginStatus(updateApiMe);
+                    updateLoginStatus();
                 }
             }, {scope: 'email,user_likes'});
+
         };
 
         $scope.logout = function () {
-            /**
-             * Calling FB.logout
-             * https://developers.facebook.com/docs/reference/javascript/FB.logout
-             */
-            ezfb.logout(function () {
-                updateLoginStatus(updateApiMe);
+
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
+                console.log(response);
+                $scope.userName = null;
+                ezfb.logout(function () {
+                    updateLoginStatus();
+                });
+            }).error(function (response, status) {
+                console.error(response);
+                console.error(status);
+            });
+
+        };
+
+        $scope.toggleForgot = function () {
+            $scope.forgotForm = !$scope.forgotForm;
+        };
+
+        $scope.login = function () {
+            $scope.loadingLogin = true;
+            $scope.errorLogin = false;
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
+                console.log(response);
+                $scope.loadingLogin = false;
+            }).error(function (response, status) {
+                console.error(response);
+                console.error(status);
+                $scope.loadingLogin = false;
+                $scope.errorLogin = true;
+            });
+        };
+
+        $scope.forgot = function () {
+            $scope.loadingForgot = true;
+            $scope.successSubscribe = false;
+            $scope.errorForgot = false;
+            $http.get($window.smmConfig.restUrlBase + 'auth/requestPwdReset?email=' + this.emailForgot).success(function (response) {
+                console.log(response);
+                $scope.loadingForgot = false;
+                $scope.successSubscribe = true;
+            }).error(function (response, status) {
+                console.error(response);
+                console.error(status);
+                $scope.loadingForgot = false;
+                $scope.errorForgot = true;
             });
         };
 

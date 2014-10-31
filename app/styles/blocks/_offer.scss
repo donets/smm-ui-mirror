@@ -13,26 +13,6 @@
             background: none;
         }
     }
-    .b-header-nav {
-        @include my-resetList();
-        position: absolute;
-        top: 0;
-        right: 40px;
-        li {
-            display: inline-block;
-            vertical-align: top;
-            line-height: 80px;
-            a {
-                font-size: 15px;
-                color: #fff;
-                padding: 0 20px;
-                outline: none;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-    }
     .b-main-cover {
         background-image: url("/images/landing-2880.jpg");
         padding: 50px 0 0;
@@ -52,6 +32,18 @@
         @media (max-width: $containerMobileWidth640) {
             background-image: url("/images/landing-1080.jpg");
             min-height: 480px;
+        }
+        .b-card-subscribe {
+            margin-top: 60px;
+            span {
+                color: #fff;
+            }
+            @media (max-width: $containerMobileWidth) {
+                margin-top: 90px;
+                input[type="email"] {
+                    border: 0 none;
+                }
+            }
         }
     }
     .cover-animated {
@@ -118,18 +110,6 @@
             @media (max-width: $containerMobileWidth640) {
                 font-size: 14px;
                 line-height: 1.2;
-            }
-        }
-    }
-    .b-card-subscribe {
-        margin-top: 60px;
-        span {
-            color: #fff;
-        }
-        @media (max-width: $containerMobileWidth) {
-            margin-top: 90px;
-            input[type="email"] {
-                border: 0 none;
             }
         }
     }

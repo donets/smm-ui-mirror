@@ -40,11 +40,13 @@ angular
         'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Getcard',
+        'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
         'boltApp.services.events',
         'boltApp.services.suppliers',
-        'boltApp.services.navigator'
+        'boltApp.services.navigator',
+        'boltApp.services.session'
     ]);
 angular.module('boltApp')
     .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window',
@@ -94,19 +96,19 @@ angular.module('boltApp')
          });
          ezfbProvider.setLocale('de_DE');
     }])
-//    .config(['ezfbProvider', function (ezfbProvider) {
-//        var myInitFunction = function ($window, $rootScope) {
-//            $window.FB.init({
-//                appId: $window.smmConfig.fbClientId,
-//                version: 'v1.0'
-//            });
-//
-//            $rootScope.$broadcast('FB.init');
-//        };
-//
-//        ezfbProvider.setInitFunction(myInitFunction);
-//        ezfbProvider.setLocale('de_DE');
-//    }])
+    //.config(['ezfbProvider', function (ezfbProvider) {
+    //    var myInitFunction = function ($window, $rootScope) {
+    //        $window.FB.init({
+    //            appId: $window.smmConfig.fbClientId,
+    //            version: 'v1.0'
+    //        });
+    //
+    //        $rootScope.$broadcast('FB.init');
+    //    };
+    //
+    //    ezfbProvider.setInitFunction(myInitFunction);
+    //    ezfbProvider.setLocale('de_DE');
+    //}])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
     }])
@@ -277,6 +279,11 @@ angular.module('boltApp')
                 url : '/about/',
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
+            })
+            .state('reset', {
+                url : '/reset/:token',
+                templateUrl: 'views/resetPassword.html',
+                controller: 'ResetCtrl'
             })
 	        .state('impressum', {
 	            url : '/impressum/',

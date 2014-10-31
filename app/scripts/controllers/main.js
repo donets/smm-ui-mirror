@@ -41,7 +41,7 @@ angular.module('boltApp.controllers.Main', [])
                 }
 
                 event.minPrice = _.min(event.tickets, function (ticket) {
-                    return ticket.ticket.display_price; // jshint ignore:line
+                    return ticket.ticket.display_price;
                 });
 
                 //var availableSpots = _.reduce(event.event.tickets, function (memo, ticket) {

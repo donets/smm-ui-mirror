@@ -28,8 +28,8 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
 
             $scope.map = {
                 center: {
-                    latitude: getEvent.occurrence.parent_event.location.latitude,  // jshint ignore:line
-                    longitude: getEvent.occurrence.parent_event.location.longitude // jshint ignore:line
+                    latitude: getEvent.occurrence.parent_event.location.latitude,
+                    longitude: getEvent.occurrence.parent_event.location.longitude
                 },
                 zoom: 16,
                 options: {
@@ -44,8 +44,8 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
             $scope.marker = {
                 id: getEvent.occurrence.id,
                 coords: {
-                    latitude: getEvent.occurrence.parent_event.location.latitude,  // jshint ignore:line
-                    longitude: getEvent.occurrence.parent_event.location.longitude // jshint ignore:line
+                    latitude: getEvent.occurrence.parent_event.location.latitude,
+                    longitude: getEvent.occurrence.parent_event.location.longitude
                 },
                 options: {
                     icon: {
@@ -84,7 +84,7 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
             console.log($location.absUrl());
 
             var callback = function(response) {
-                if (response && !response.error_code) // jshint ignore:line
+                if (response && !response.error_code)
                 {
                     console.log('Posting completed');
                 }
