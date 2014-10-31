@@ -60,7 +60,7 @@ angular.module('boltApp.controllers.Social', [])
         console.log(session);
 
         if(!_.isEmpty(session)) {
-            $scope.userName = session.u.name;
+            $scope.userName = session[u.name];
         } else {
             updateLoginStatus();
         }
@@ -81,9 +81,6 @@ angular.module('boltApp.controllers.Social', [])
             $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
                 console.log(response);
                 $scope.userName = null;
-                ezfb.logout(function () {
-                    updateLoginStatus();
-                });
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
@@ -101,6 +98,7 @@ angular.module('boltApp.controllers.Social', [])
             $http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
                 console.log(response);
                 $scope.loadingLogin = false;
+                $scope.userName = response.user.name;
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
