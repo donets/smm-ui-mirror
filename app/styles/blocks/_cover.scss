@@ -27,6 +27,15 @@
         line-height: 35px;
         background: rgba(255,255,255,0.8);
     }
+    .photo-copyright {
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        z-index: 1;
+        outline: none;
+        color: #fff;
+        text-decoration: none;
+    }
     &.event-cover.desktop {
         @extend %shadow-cover-top;
     }
