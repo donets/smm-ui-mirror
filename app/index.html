@@ -64,7 +64,7 @@
         .pre-cover.hide-cover {
             opacity: 0;
         }
-        @@media (max-width: 1080px) {
+        @media (max-width: 1080px) {
             .pre-cover {
                 height: 306px;
             }
@@ -107,7 +107,7 @@
         <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('get')}">
             <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="get">Somuchmore</a></div>
             <div class="b-header-badge">BETA</div>
-            <a class="b-header-likes" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
+            <a class="b-header-likes hidden" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
                 <div ng-show="popover" class="b-popover">
                     <div class="fb-like-box"
                          data-href="https://www.facebook.com/somuchmoredeutsch"
@@ -272,6 +272,7 @@
 <script src="scripts/directives/sticky.js"></script>
 <script src="scripts/controllers/reset.js"></script>
 <script src="scripts/services/session.js"></script>
+<script src="scripts/directives/togglePopup.js"></script>
 <!-- endbuild -->
 
 </body>

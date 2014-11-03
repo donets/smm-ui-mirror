@@ -157,7 +157,7 @@ angular.module('boltApp')
         //noinspection JSValidateTypes
         $stateProvider
             .state('main', {
-                url : '/events/',
+                url : '/p/events/',
                 templateUrl: 'views/main.html',
                 resolve: {
 
@@ -177,7 +177,7 @@ angular.module('boltApp')
                 controller : 'MainCtrl'
             })
             .state('view', {
-                url : '/event/:eventId/',
+                url : '/p/event/:eventId/',
                 templateUrl: 'views/event.html',
                 resolve: {
 
@@ -247,7 +247,7 @@ angular.module('boltApp')
                 }]
             })
             .state('studio', {
-                url : '/studio/:studioId/',                 
+                url : '/p/studio/:studioId/',
                 templateUrl: 'views/studio.html',
                 onEnter: function($rootScope){
                     return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight - 350) : 0;
@@ -271,26 +271,26 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl'
             })
             .state('more', {
-                url : '/more/',
+                url : '/p/more/',
                 templateUrl: 'views/more.html',
                 controller : 'MoreCtrl'
             })
             .state('about', {
-                url : '/about/',
+                url : '/p/about/',
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
             .state('reset', {
-                url : '/reset/:token',
+                url : '/p/password/reset/:token',
                 templateUrl: 'views/resetPassword.html',
                 controller: 'ResetCtrl'
             })
 	        .state('impressum', {
-	            url : '/impressum/',
+	            url : '/p/impressum/',
 	            templateUrl: 'views/impressum.html'
 	        })
 	        .state('agb', {
-	            url : '/agb/',
+	            url : '/p/agb/',
 	            templateUrl: 'views/agb.html'
 	        });
     }]);

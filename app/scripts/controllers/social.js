@@ -22,8 +22,6 @@ angular.module('boltApp.controllers.Social', [])
 
         $scope.getLikes();
 
-        $scope.forgotForm = false;
-
         ezfb.Event.subscribe('edge.create', function(targetUrl) {
             $window.ga('set', 'dimension3', '1');
             $window.ga('send', 'social', 'facebook', 'like', targetUrl);
@@ -36,9 +34,9 @@ angular.module('boltApp.controllers.Social', [])
             $scope.getLikes();
         });
 
-        function sendLoginData (res) {
+        function sendLoginFB (res) {
             console.log(res);
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function (response) {
+            $http.get('/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function (response) {
                 console.log(response);
                 $scope.userName = response.user.name;
             }).error(function (response, status) {
@@ -51,7 +49,7 @@ angular.module('boltApp.controllers.Social', [])
             ezfb.getLoginStatus(function (res) {
                 $scope.loginStatus = res;
                 if (res.authResponse) {
-                    sendLoginData(res);
+                    sendLoginFB(res);
                 }
                 (more || angular.noop)();
             });
@@ -60,7 +58,10 @@ angular.module('boltApp.controllers.Social', [])
         console.log(session);
 
         if(!_.isEmpty(session)) {
-            $scope.userName = session[u.name];
+            var now = moment();
+            var valid = moment(session['u.valid']);
+            console.log(valid.diff(now));
+            valid.diff(now) > 0 ? $scope.userName = session['u.name'] : $scope.userName = null;
         } else {
             updateLoginStatus();
         }
@@ -78,7 +79,7 @@ angular.module('boltApp.controllers.Social', [])
 
         $scope.logout = function () {
 
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
+            $http.get('/api/auth/logout').success(function (response) {
                 console.log(response);
                 $scope.userName = null;
             }).error(function (response, status) {
@@ -88,14 +89,16 @@ angular.module('boltApp.controllers.Social', [])
 
         };
 
+        $scope.forgotView = false;
+
         $scope.toggleForgot = function () {
-            $scope.forgotForm = !$scope.forgotForm;
+            $scope.forgotView = !$scope.forgotView;
         };
 
         $scope.login = function () {
             $scope.loadingLogin = true;
             $scope.errorLogin = false;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
+            $http.get('/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
                 console.log(response);
                 $scope.loadingLogin = false;
                 $scope.userName = response.user.name;
@@ -111,7 +114,7 @@ angular.module('boltApp.controllers.Social', [])
             $scope.loadingForgot = true;
             $scope.successSubscribe = false;
             $scope.errorForgot = false;
-            $http.get($window.smmConfig.restUrlBase + 'auth/requestPwdReset?email=' + this.emailForgot).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + this.emailForgot).success(function (response) {
                 console.log(response);
                 $scope.loadingForgot = false;
                 $scope.successSubscribe = true;

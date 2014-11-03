@@ -1,15 +1,15 @@
 <ul class="b-header-nav">
-    <li>
-        <a href="" ng-hide="loginStatus.status == 'connected' || userName" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
-        <a href="" ng-show="loginStatus.status == 'connected' || userName">{{userName}}</a>
-        <div class="b-header-nav_login-widget" disable-animate>
+    <li toggle-popup>
+        <a href="" ng-hide="userName" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
+        <a href="" ng-show="userName">{{userName}}</a>
+        <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <div class="form-rel">
                 <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook"></i>Log in Facebook</a>
             </div>
             <div class="form-rel">
                 <span class="or">&mdash; or &mdash;</span>
             </div>
-            <form name="loginForm" ng-if="!forgotForm" ng-submit="login()">
+            <form name="loginForm" ng-hide="forgotView" ng-submit="login()">
                 <div class="form-rel">
                     <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="Email Address" required />
                 </div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </form>
-            <form name="forgotForm" ng-if="forgotForm" ng-submit="forgot()">
+            <form name="forgotForm" ng-show="forgotView" ng-submit="forgot()">
                 <div class="form-rel">
                     <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="Email Address" required />
                 </div>
@@ -33,16 +33,16 @@
                     <div class="form-response">
                         <div ng-show="loadingForgot" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="successSubscribe" class="form-message form-success">Wir haben die Instruktionen zum Zurücksetzen des Passworts auf die Email Adresse EMAIL gesendet.</div>
-                        <div ng-show="errorForgot" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
+                        <div ng-show="errorForgot" class="form-message form-error">Die Email Adresse wurde nicht gefunden</div>
                     </div>
                 </div>
             </form>
             <div class="form-rel">
-                <a class="forgot-password" ng-if="!forgotForm" ng-click="toggleForgot()" href="">Forgot your password?</a>
-                <a class="forgot-password" ng-if="forgotForm" ng-click="toggleForgot()" href="">Back to login</a>
+                <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="">Forgot your password?</a>
+                <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="">Back to login</a>
             </div>
         </div>
     </li><li>
-    <a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" ng-show="userName" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
+    <a href="" ng-click="logout()" ng-show="userName" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
 </li>
 </ul>
