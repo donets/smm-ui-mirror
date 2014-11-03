@@ -38,6 +38,7 @@ angular.module('boltApp.controllers.Social', [])
             console.log(res);
             $http.get('/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function (response) {
                 console.log(response);
+                $scope.isPopupVisible = false;
                 $scope.userName = response.user.name;
             }).error(function (response, status) {
                 console.error(response);
@@ -100,6 +101,7 @@ angular.module('boltApp.controllers.Social', [])
             $http.get('/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
                 console.log(response);
                 $scope.loadingLogin = false;
+                $scope.isPopupVisible = false;
                 $scope.userName = response.user.name;
             }).error(function (response, status) {
                 console.error(response);
