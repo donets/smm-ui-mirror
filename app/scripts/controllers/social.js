@@ -59,9 +59,8 @@ angular.module('boltApp.controllers.Social', [])
 
         if(!_.isEmpty(session)) {
             var now = moment();
-            var valid = moment(session['u.valid']);
-            console.log(valid.diff(now));
-            valid.diff(now) > 0 ? $scope.userName = session['u.name'] : $scope.userName = null;
+            var valid = moment(+session['u.valid']);
+            return valid.diff(now) > 0 ? $scope.userName = session['u.name'] : $scope.userName = null;
         } else {
             updateLoginStatus();
         }
