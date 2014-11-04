@@ -51,7 +51,7 @@
             right: 0;
         }
         .pre-cover {
-            background: url("/images/landing-1080.jpg") no-repeat center center;
+            background: url("/images/landing-1440.jpg") no-repeat center center;
             position: relative;
             top: 0;
             height: 550px;
@@ -66,6 +66,7 @@
         }
         @media (max-width: 1080px) {
             .pre-cover {
+                background: url("/images/landing-1080.jpg") no-repeat center center;
                 height: 306px;
             }
         }
@@ -104,10 +105,10 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('get')}">
+        <div class="b-header" ng-class="{'offer': $state.includes('get'), 'admin': $state.includes('admin')}">
             <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="get">Somuchmore</a></div>
             <div class="b-header-badge">BETA</div>
-            <a class="b-header-likes hidden" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
+            <a class="b-header-likes hidden" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
                 <div ng-show="popover" class="b-popover">
                     <div class="fb-like-box"
                          data-href="https://www.facebook.com/somuchmoredeutsch"
@@ -119,7 +120,7 @@
                          data-show-border="false"></div>
                 </div>
             </a>
-            <ng-include src="'views/_loginForm.html'" ng-show="!$state.includes('reset')" ></ng-include>
+            <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-show="!$state.includes('reset')"></ng-include>
             <ul ng-show="$state.includes('get') && desktop" class="b-header-nav hidden">
                 <li>
                     <a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>
@@ -128,7 +129,7 @@
                 </li>
             </ul>
         </div>
-        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('get')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('get'), 'admin': $state.includes('admin')}" ui-view autoscroll="autoscroll"></div>
 
     </div>
     <div class="b-footer">
@@ -274,6 +275,9 @@
 <script src="scripts/controllers/reset.js"></script>
 <script src="scripts/services/session.js"></script>
 <script src="scripts/directives/togglePopup.js"></script>
+<script src="scripts/controllers/admin.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/classes.js"></script>
 <!-- endbuild -->
 
 </body>

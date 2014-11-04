@@ -83,6 +83,9 @@
                 text-decoration: none;
             }
         }
+        &.ng-animate {
+            @include transition(none);
+        }
     }
 }
 
@@ -156,6 +159,9 @@
             font-size: 13px;
         }
         outline: none;
+    }
+    .admin-nav {
+        margin: 0;
     }
 }
 

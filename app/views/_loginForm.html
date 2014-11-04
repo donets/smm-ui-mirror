@@ -1,7 +1,6 @@
 <ul class="b-header-nav">
-    <li toggle-popup>
-        <a href="" ng-hide="userName" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
-        <a href="" ng-show="userName">{{userName}}</a>
+    <li id="login" toggle-popup ng-if="!userName">
+        <a href="" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <div class="form-rel">
                 <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook"></i>Log in Facebook</a>
@@ -42,7 +41,16 @@
                 <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="">Back to login</a>
             </div>
         </div>
-    </li><li>
-    <a href="" ng-click="logout()" ng-show="userName" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
-</li>
+    </li><li id="account" toggle-popup ng-if="userName">
+        <a href="" ng-click="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
+        <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
+            <ul class="admin-nav">
+                <li><a ui-sref="studios">Studios</a></li>
+                <li><a ui-sref="locations">Locations</a></li>
+                <li><a ui-sref="teachers">Teachers</a></li>
+                <li><a ui-sref="admin.classes">Classes</a></li>
+            </ul>
+        </div>
+    </li><li><a href="" ng-click="logout()" ng-show="userName" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>
+    </li>
 </ul>

@@ -43,6 +43,9 @@ angular
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
+        'boltApp.controllers.Login',
+        'boltApp.controllers.Admin',
+        'boltApp.controllers.Classes',
         'boltApp.services.events',
         'boltApp.services.suppliers',
         'boltApp.services.navigator',
@@ -269,6 +272,16 @@ angular.module('boltApp')
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 },
                 controller : 'GetcardCtrl'
+            })
+            .state('admin', {
+                url : '/admin/v2/',
+                templateUrl: 'views/admin.html',
+                controller : 'AdminCtrl'
+            })
+            .state('admin.classes', {
+                url : '/admin/v2/classes/',
+                templateUrl: 'views/classes.html',
+                controller : 'ClassesCtrl'
             })
             .state('more', {
                 url : '/p/more/',

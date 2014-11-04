@@ -1,0 +1,42 @@
+@import "../_base/base";
+
+.admin {
+    &.b-header {
+        top: 0;
+        left: 0;
+        height: 80px;
+        background: $colorText;
+        @media (max-width: $containerMobileWidth) {
+            height: 90px;
+            background: none;
+        }
+    }
+}
+.admin-panel {
+    padding: 80px 0 0;
+    h2 {
+        text-align: center;
+        margin: 50px 0;
+    }
+}
+.admin-nav {
+    @include my-resetList();
+    margin: 50px 0;
+    li {
+        width: 200px;
+        height: 40px;
+        a {
+            display: block;
+            font-size: 18px;
+            @include transition(padding 0.2s);
+            color: $colorText;
+            line-height: 40px;
+            outline: none;
+            &:hover {
+                color: $colorLink;
+                padding-left: 10px;
+                text-decoration: none;
+            }
+        }
+    }
+}

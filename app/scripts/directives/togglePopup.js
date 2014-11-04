@@ -23,7 +23,7 @@ angular.module('boltApp')
                         .find(event.target)
                         .length > 0;
 
-                    if (isClickedElementChildOfPopup) {
+                    if (isClickedElementChildOfPopup && element) {
                         return;
                     }
 
