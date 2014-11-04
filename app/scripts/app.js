@@ -114,6 +114,7 @@ angular.module('boltApp')
     //}])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
+        $httpProvider.defaults.withCredentials = true;
     }])
     .provider('HttpProgressInterceptor', function HttpProgressInterceptor(){
         this.$get = ['$injector', '$q', function($injector, $q){
