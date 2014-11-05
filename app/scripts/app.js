@@ -93,25 +93,25 @@ angular.module('boltApp')
             libraries: 'weather,geometry,visualization'
         });
     }])
-    .config(['ezfbProvider', function(ezfbProvider) {
-         ezfbProvider.setInitParams({
-             appId: '1403268876590849'
-         });
-         ezfbProvider.setLocale('de_DE');
-    }])
-    //.config(['ezfbProvider', function (ezfbProvider) {
-    //    var myInitFunction = function ($window, $rootScope) {
-    //        $window.FB.init({
-    //            appId: $window.smmConfig.fbClientId,
-    //            version: 'v1.0'
-    //        });
-    //
-    //        $rootScope.$broadcast('FB.init');
-    //    };
-    //
-    //    ezfbProvider.setInitFunction(myInitFunction);
-    //    ezfbProvider.setLocale('de_DE');
+    //.config(['ezfbProvider', function(ezfbProvider) {
+    //     ezfbProvider.setInitParams({
+    //         appId: '1403268876590849'
+    //     });
+    //     ezfbProvider.setLocale('de_DE');
     //}])
+    .config(['ezfbProvider', function (ezfbProvider) {
+        var myInitFunction = function ($window, $rootScope) {
+            $window.FB.init({
+                appId: $window.smmConfig.fbClientId,
+                version: 'v1.0'
+            });
+
+            $rootScope.$broadcast('FB.init');
+        };
+
+        ezfbProvider.setInitFunction(myInitFunction);
+        ezfbProvider.setLocale('de_DE');
+    }])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
         $httpProvider.defaults.withCredentials = true;
@@ -280,7 +280,7 @@ angular.module('boltApp')
                 controller : 'AdminCtrl'
             })
             .state('admin.classes', {
-                url : '/admin/v2/classes/',
+                url : 'classes/',
                 templateUrl: 'views/classes.html',
                 controller : 'ClassesCtrl'
             })
