@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'session', '$window', function ($rootScope, $scope, $http, ezfb, session, $window) {
+    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$window', function ($rootScope, $scope, $http, ezfb, User, $window) {
 
         function sendLoginFB (res) {
             console.log(res);
@@ -31,15 +31,14 @@ angular.module('boltApp.controllers.Login', [])
             });
         }
 
-        console.log(session);
-
-        if(!_.isEmpty(session)) {
-            var now = moment();
-            var valid = moment(+session['u.valid']);
-            return valid.diff(now) > 0 ? $scope.userName = session['u.name'] : $scope.userName = null;
-        } else {
-            updateLoginStatus();
-        }
+        User.get().$promise.then(function (res) {
+            console.log(res);
+            if (res.currentUser) {
+                $scope.userName = res.currentUser.name;
+            } else {
+                updateLoginStatus();
+            }
+        });
 
         $scope.loginFB = function () {
 

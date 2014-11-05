@@ -48,8 +48,8 @@ angular
         'boltApp.controllers.Classes',
         'boltApp.services.events',
         'boltApp.services.suppliers',
-        'boltApp.services.navigator',
-        'boltApp.services.session'
+        'boltApp.services.user',
+        'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
     .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window',
@@ -100,14 +100,14 @@ angular.module('boltApp')
     //     ezfbProvider.setLocale('de_DE');
     //}])
     .config(['ezfbProvider', function (ezfbProvider) {
-        var myInitFunction = function ($window, $rootScope) {
+        var myInitFunction = ['$window', '$rootScope', function ($window, $rootScope) {
             $window.FB.init({
                 appId: $window.smmConfig.fbClientId,
                 version: 'v1.0'
             });
 
             $rootScope.$broadcast('FB.init');
-        };
+        }];
 
         ezfbProvider.setInitFunction(myInitFunction);
         ezfbProvider.setLocale('de_DE');

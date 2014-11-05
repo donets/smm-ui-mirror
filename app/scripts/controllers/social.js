@@ -12,7 +12,7 @@ angular.module('boltApp.controllers.Social', [])
 
         $scope.getLikes = function () {
 
-            return $http.get('//graph.facebook.com/somuchmoredeutsch', {cache: false}).success(function (res) {
+            return $http.get('//graph.facebook.com/somuchmoredeutsch', {cache: false, withCredentials: false}).success(function (res) {
 
                 $rootScope.likes = res.likes;
 
