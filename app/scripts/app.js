@@ -24,6 +24,7 @@ angular
         'angularSpinner',
         'duScroll',
         'duParallax',
+        'localytics.directives',
         'ezfb',
         'angulartics',
         'angulartics.google.analytics',
@@ -40,6 +41,7 @@ angular
         'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Getcard',
+        'boltApp.controllers.Class',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
@@ -276,13 +278,23 @@ angular.module('boltApp')
             })
             .state('admin', {
                 url : '/admin/v2/',
+                abstract: true,
                 templateUrl: 'views/admin.html',
                 controller : 'AdminCtrl'
+            })
+            .state('admin.dashboard', {
+                url : 'dashboard/',
+                templateUrl: 'views/dashboard.html'
             })
             .state('admin.classes', {
                 url : 'classes/',
                 templateUrl: 'views/classes.html',
                 controller : 'ClassesCtrl'
+            })
+            .state('admin.class', {
+                url : 'class/',
+                templateUrl: 'views/class.html',
+                controller : 'ClassCtrl'
             })
             .state('more', {
                 url : '/p/more/',

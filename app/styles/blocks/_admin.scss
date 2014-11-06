@@ -14,10 +14,93 @@
 }
 .admin-panel {
     padding: 80px 0 0;
-    h2 {
-        text-align: center;
-        margin: 50px 0;
+    .b-studio-timetable {
+        padding: 0 0 30px;
+        margin: 0 0 30px;
+        .b-sidebar-filters {
+            width: 170px;
+            padding: 50px 0 0;
+            select {
+                width: 100%;
+            }
+            .chosen-container {
+                width: 100%;
+                background: $colorBackTimetable;
+                margin: 0 0 20px;
+            }
+            .chosen-drop {
+                background: $colorBackTimetable;
+            }
+            .control-button {
+                @extend %custom-button;
+                display: block;
+                min-width: 0;
+                width: 100%;
+                margin-bottom: 20px;
+                font-size: 15px;
+                font-family: $fontRegular;
+            }
+            .input-search {
+                margin-bottom: 20px;
+                input {
+                    background: none;
+                    width: 100%;
+                }
+            }
+        }
+        .b-classes-list {
+            width: 800px;
+        }
+        .timetable {
+            width: 100%;
+            margin: 0;
+            th, td {
+                font-size: 12px;
+                height: 50px;
+                padding: 0 12px;
+            }
+            td {
+                font-size: 12px;
+                height: 50px;
+                padding: 0 12px;
+                &:nth-child(1), &:nth-child(2) {
+                    font-size: 15px;
+                }
+            }
+            tr {
+                th:first-child, td:first-child {
+                    padding-left: 12px;
+                    @include border-left-radius(2px);
+                }
+                th:last-child, td:last-child {
+                    padding: 0;
+                    width: 200px;
+                }
+            }
+            button {
+                width: 100px;
+                height: 50px;
+                font-size: 15px;
+                i {
+                    margin-right: 8px;
+                }
+                &.green {
+                    background: $colorGreen;
+                    @include border-right-radius(0px);
+                    @include border-left-radius(2px);
+                }
+            }
+            .status {
+                &.green {
+                    color: $colorGreen;
+                }
+            }
+        }
     }
+}
+.admin-title {
+    text-align: center;
+    margin: 50px 0;
 }
 .admin-nav {
     @include my-resetList();
@@ -37,6 +120,111 @@
                 padding-left: 10px;
                 text-decoration: none;
             }
+        }
+    }
+}
+.b-class-block {
+    background: $colorBackTimetable;
+    padding: 20px 0;
+    width: 100%;
+    z-index: 1;
+    h2 {
+        margin: 10px 0;
+    }
+    button {
+        width: 150px;
+        height: 50px;
+        background: $colorLink;
+        border: 0 none;
+        font-size: 15px;
+        color: #fff;
+        margin: 10px;
+        .fa {
+            margin-right: 8px;
+        }
+        &.green {
+            background: $colorGreen;
+        }
+        &.disabled {
+            background: $colorLightGrey;
+        }
+    }
+    a {
+        display: block;
+        font-size: 15px;
+        color: $colorText;
+        text-align: center;
+        text-decoration: underline;
+        &:hover {
+            color: $colorHover;
+        }
+    }
+}
+.b-class-edit {
+    margin: 20px 0 60px;
+    .form-label {
+        display: block;
+    }
+    select {
+        width: 100%;
+    }
+}
+.b-date-group {
+    width: 620px;
+    border-collapse: separate;
+    margin-bottom: 20px;
+    th, td {
+        font-size: 15px;
+        padding: 10px;
+        span {
+            font-size: 12px;
+            color: $colorGrey;
+        }
+        &:first-child {
+            text-align: center;
+            border-left: 1px solid $colorLightGrey;
+        }
+        &:last-child {
+            border-right: 1px solid $colorLightGrey;
+        }
+    }
+    th {
+        background: $colorBackTimetable;
+        border-top: 1px solid $colorLightGrey;
+        border-bottom: 2px solid $colorGrey;
+        &:first-child {
+            @include border-top-left-radius(5px);
+        }
+        &:last-child {
+            @include border-top-right-radius(5px);
+        }
+    }
+    td {
+        border-bottom: 1px solid $colorLightGrey;
+    }
+    tr {
+        &:hover {
+            td {
+                background: $colorBackTimetable;
+            }
+        }
+        &:last-child {
+            td {
+                &:first-child {
+                    @include border-bottom-left-radius(5px);
+                }
+                &:last-child {
+                    @include border-bottom-right-radius(5px);
+                }
+            }
+        }
+    }
+    .controls {
+        text-align: right;
+        a {
+            font-size: 15px;
+            margin: 0 10px;
+            outline: none;
         }
     }
 }

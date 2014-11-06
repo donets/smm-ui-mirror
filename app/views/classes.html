@@ -1,1 +1,103 @@
-<h2>Classes</h2>
+<div class="container">
+    <h2>Classes</h2>
+</div>
+<div class="b-studio-timetable cf">
+    <div class="container">
+        <div class="w-left b-sidebar-filters">
+            <button class="control-button" type="button"><i class="fa fa-plus"></i>New Class</button>
+            <div class="input-search"><input type="text" placeholder="Filter name"/></div>
+            <select chosen
+                    data-placeholder="All levels"
+                    disable-search="true"
+                    allow-single-deselect="true">
+                <option value=""></option>
+                <option>Junior</option>
+                <option>Medium</option>
+                <option>Expert</option>
+            </select>
+            <div class="form-check">
+                <input type="checkbox" id="1"
+                       value="draft" name="status"/>
+                <i class="fa"></i>
+                <label for="1">Draft</label>
+            </div>
+        </div>
+        <div class="w-right b-classes-list">
+            <table class="timetable" ng-show="desktop">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Class</th>
+                        <th>Sub-Discipline</th>
+                        <th>Teacher</th>
+                        <th>Venue</th>
+                        <th>Neighborhood</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="status green">Live</span></td>
+                        <td>Jivamukti Open 60 English</td>
+                        <td>Jivamukti Yoga</td>
+                        <td>Reto Halme</td>
+                        <td>Jivamukti Berlin</td>
+                        <td>Prenzlauer Berg</td>
+                        <td><button class="green" ui-sref="admin.class" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="status">Draft</span></td>
+                        <td>Jivamukti Open 60 English</td>
+                        <td>Jivamukti Yoga</td>
+                        <td>Reto Halme</td>
+                        <td>Jivamukti Berlin</td>
+                        <td>Prenzlauer Berg</td>
+                        <td><button class="green" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="status green">Live</span></td>
+                        <td>Jivamukti Open 60 English</td>
+                        <td>Jivamukti Yoga</td>
+                        <td>Reto Halme</td>
+                        <td>Jivamukti Berlin</td>
+                        <td>Prenzlauer Berg</td>
+                        <td><button class="green" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="timetable-mobile" ng-show="mobile">
+                <li>
+                    <div class="time">
+                        <b>08:00</b>
+                        <span>09:00</span>
+                    </div><div class="info">
+                    <b>Jivamukti Open 60 English</b>
+                    <span>Jivamukti Yoga</span>
+                    <span>Reto Halme</span>
+                    <button class="joined" type="button">Joined<span>|</span><i class="fa fa-calendar"></i></button>
+                </div>
+                </li><li>
+                <div class="time">
+                    <b>08:00</b>
+                    <span>09:00</span>
+                </div><div class="info">
+                <b>Jivamukti Open 60 English</b>
+                <span>Jivamukti Yoga</span>
+                <span>Reto Halme</span>
+                <button type="button">Join</button>
+            </div>
+            </li><li class="disabled">
+                <div class="time">
+                    <b>08:00</b>
+                    <span>09:00</span>
+                </div><div class="info">
+                <b>Jivamukti Open 60 English</b>
+                <span>Jivamukti Yoga</span>
+                <span>Reto Halme</span>
+                <button class="disabled" type="button" disabled>Cancelled</button>
+            </div>
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>

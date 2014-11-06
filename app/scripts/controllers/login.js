@@ -45,7 +45,7 @@ angular.module('boltApp.controllers.Login', [])
             ezfb.login(function (res) {
 
                 if (res.authResponse) {
-                    updateLoginStatus();
+                    updateLoginStatus($rootScope.$state.go('admin.dashboard'));
                 }
             }, {scope: 'email,user_likes'});
 
@@ -56,6 +56,7 @@ angular.module('boltApp.controllers.Login', [])
             $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
                 console.log(response);
                 $scope.userName = null;
+                $rootScope.$state.go('get');
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
@@ -77,6 +78,7 @@ angular.module('boltApp.controllers.Login', [])
                 console.log(response);
                 $scope.loadingLogin = false;
                 $scope.userName = response.user.name;
+                $rootScope.$state.go('admin.dashboard');
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);

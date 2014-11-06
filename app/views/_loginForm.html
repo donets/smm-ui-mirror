@@ -41,10 +41,11 @@
                 <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="">Back to login</a>
             </div>
         </div>
-    </li><li id="account" toggle-popup ng-if="userName">
-        <a href="" ng-click="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
+    </li><li id="account" toggle-popup ng-mouseover="isPopupVisible = true" ng-mouseleave="isPopupVisible = false" ng-if="userName">
+        <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="admin-nav">
+                <li><a ui-sref="admin.dashboard">Dashboard</a></li>
                 <li><a ui-sref="studios">Studios</a></li>
                 <li><a ui-sref="locations">Locations</a></li>
                 <li><a ui-sref="teachers">Teachers</a></li>
