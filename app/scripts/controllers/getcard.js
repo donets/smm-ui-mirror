@@ -59,15 +59,13 @@ angular.module('boltApp.controllers.Getcard', [])
                             $scope.loadingSubscribe = true;
                             $scope.successSubscribe = false;
                             $scope.errorSubscribe = false;
-                            $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: $scope.email, interestedInProduct: true }).success(function () {
+                            $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: this.email, interestedInProduct: true }).success(function () {
                                 $scope.loadingSubscribe = false;
                                 $scope.successSubscribe = true;
-                                $scope.email = '';
-                                $scope.subscribeForm.$setPristine();
                                 $window.ga('send', 'submitemail_' + cardType, 'card_page');
                                 setTimeout(function () {
                                     $modalInstance.dismiss();
-                                }, 200);
+                                }, 2000);
                             }).error(function (response, status) {
                                 $scope.loadingSubscribe = false;
                                 $scope.errorSubscribe = true;

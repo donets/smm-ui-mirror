@@ -181,8 +181,8 @@
     .b-card-subscribe {
         margin-top: 20px;
         z-index: 1;
-        span {
-            color: #fff;
+        .form-success {
+            color: $colorText;
         }
         @media (max-width: $containerMobileWidth) {
             margin-top: 90px;
