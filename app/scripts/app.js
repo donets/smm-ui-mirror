@@ -56,7 +56,7 @@ angular.module('boltApp')
             $('.pre-cover').addClass('hide-cover');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
-            $rootScope.mainTitle = 'Somuchmore | Trainiere Körper, Geist und Seele';
+            $rootScope.mainTitle = 'Somuchmore | Bewege Körper, Geist und Seele';
             amMoment.changeLanguage('de');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];

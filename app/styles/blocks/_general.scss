@@ -129,11 +129,11 @@ button {
     background: #fff; 
 }
 %gradient {
-    @include filter-gradient(#a3bbab, #6793ac, horizontal);
-    @include background-image(linear-gradient(70deg, rgba(163,187,171,1) 0%, rgba(65,97,130,1) 58%, rgba(103,147,172,1) 100%));
+    @include filter-gradient(#533576, #4970b9, horizontal);
+    @include background-image(linear-gradient(70deg, #533576 0%, #4296a5 58%, #4970b9 100%));
     @media (max-width: $containerMobileWidth) {
         @include filter-gradient(#7e9c9e, #699bb2, horizontal);
-        @include background-image(linear-gradient(70deg, #7e9c9e 0%,#699bb2 100%));
+        @include background-image(linear-gradient(70deg, #7e9c9e 0%, #699bb2 100%));
     }
 }
 .b-main-sidebar {
@@ -251,8 +251,9 @@ button {
     .cf { zoom: 1; }
 }
 
-@import "form";
+
 @import "buttons";
+@import "form";
 @import "title";
 @import "header";
 @import "cover";

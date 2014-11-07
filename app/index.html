@@ -5,7 +5,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# somuchmore: http://ogp.me/ns/fb/somuchmore#">
     <meta charset="utf-8">
     <meta name="fragment" content="!">
-    <title>Somuchmore | Trainiere Körper, Geist und Seele</title>
+    <title>Somuchmore | Bewege Körper, Geist und Seele</title>
     <meta name="description" content="Entdecke unbegrenzt Yoga, Pilates, Kampfkunst, Meditation, Tanz, Gesundheit, Ernährung und persönliche Entfaltung in ganz Berlin.">
     <!-- smm custom comment -->
     <meta name="robots" content="@robots">
@@ -105,7 +105,7 @@
     </div>
     <div class="wrapper">
         <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('get')}">
-            <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="get">Somuchmore</a></div>
+            <div class="b-header-logo" ng-class="{'black': $state.includes('more') || desktop && $state.includes('get')}"><a ui-sref="get">Somuchmore</a></div>
             <div class="b-header-badge">BETA</div>
             <a class="b-header-likes" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
                 <div ng-show="popover" class="b-popover">
@@ -127,13 +127,13 @@
                     <!--<a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>-->
                 <!--</li>-->
             <!--</ul>-->
-            <ul ng-show="$state.includes('get') && desktop" class="b-header-nav">
-                <li>
-                    <a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>
-                </li><li>
-                    <a href="#studios" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_studio" analytics-category="card_page">Studios</a>
-                </li>
-            </ul>
+            <!--<ul ng-show="$state.includes('get') && desktop" class="b-header-nav">-->
+                <!--<li>-->
+                    <!--<a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>-->
+                <!--</li><li>-->
+                    <!--<a href="#studios" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_studio" analytics-category="card_page">Studios</a>-->
+                <!--</li>-->
+            <!--</ul>-->
         </div>
         <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('get')}" ui-view autoscroll="autoscroll"></div>
 

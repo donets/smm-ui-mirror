@@ -7,7 +7,7 @@
     font-family: $fontRegular;
     color: $colorText;
     padding: 5px 12px;
-    line-height: 26px;
+    line-height: 30px;
     @include border-radius(2px);
     @include box-sizing(border-box);
     @include my-placeholder($colorGrey);
@@ -74,15 +74,26 @@ textarea {
     input[type="email"] {
         @extend %input-text;
         vertical-align: top;
-        width: 330px;
+        width: 420px;
+        border: 0 none;
+        @media (min-width: $containerMobileWidth) {
+            @include border-right-radius(0px);
+            height: 50px;
+            font-size: 18px;
+            line-height: 38px;
+            padding: 5px 20px;
+        }
         @media (max-width: $containerMobileWidth) {
             width: 100%;
         }
     }
     input[type="submit"] {
         @extend %form-button;
-        margin-left: 12px;
         min-width: 0;
+        @media (min-width: $containerMobileWidth) {
+            @include border-left-radius(0px);
+            height: 50px;
+        }
         @media (max-width: $containerMobileWidth) {
             margin: 20px 0;
             width: 100%;

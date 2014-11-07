@@ -1,24 +1,24 @@
 <div class="b-main-cover" ng-show="desktop" ng-style="{ 'height' : windowHeight }">
     <div class="cover-animated" ng-if="!hiddenFF"></div>
-    <div class="b-main-slogan"><h2>Trainiere Körper, Geist und Seele.</h2>
+    <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele.</h2>
         <p>Besuche die besten Studios und Lehrer, wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Tanz, Meditation, Ernährung und Gesundheit und trainiere unbegrenzt in ganz Berlin.</p>
         <form class="b-card-subscribe" ng-submit="subscribeCard('header')">
-            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="Kostenlos anmelden"/><span>Erhalte Deine Einladung</span>
+            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="EINLADUNG ERHALTEN"/>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
                 <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
             </div>
         </form>
-        <a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>
+        <a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="60" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>
     </div>
-    <a class="photo-copyright" target="_blank" href="https://flic.kr/p/fB4xbs">&copy; Betty Nudler</a>
+    <!--<a class="photo-copyright" target="_blank" href="https://flic.kr/p/fB4xbs">&copy; Betty Nudler</a>-->
 </div>
 <div class="b-main-cover" ng-show="mobile">
-    <div class="b-main-slogan"><h2>Trainiere Körper, Geist und Seele.</h2>
+    <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele.</h2>
         <p>Besuche die besten Studios und Lehrer, wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Tanz, Meditation, Ernährung und Gesundheit und trainiere unbegrenzt in ganz Berlin.</p></div>
         <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('body')">
-            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="Kostenlos anmelden"/><span>Erhalte Deine Einladung</span>
+            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="EINLADUNG ERHALTEN"/>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
@@ -29,29 +29,101 @@
 </div>
 <div id="card" class="b-card" ng-style="{ 'margin-top' : desktop && windowHeight }">
     <div class="container">
-        <img class="card-image" ng-if="desktop" src="images/card.png" du-parallax y="background" opacity="fadeIn" alt=""/>
-        <img class="card-image" ng-if="mobile" src="images/card.png" alt=""/>
-        <h2>Eine Karte für Dein vollkommenes Potenzial.</h2>
-        <ul class="b-card-list">
+        <h2>Eine Karte für ganz Berlin.</h2>
+        <p class="subtitle">Ab Januar 2015.</p>
+        <img class="card-image" ng-if="desktop" src="images/cards.png" du-parallax y="background" opacity="fadeIn" alt=""/>
+        <ul class="b-price-list" ng-if="desktop" du-parallax y="background" opacity="fadeIn">
             <li>
-                <h3>Vollkommen frei.</h3>
-                <p>Wähle unter hunderten von Kursen aus – jede Woche kommen neue Studios und Lehrer hinzu.</p>
+                <h3>Black Card - 99€<span> / Monat</span></h3>
+                <dl>
+                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dt>unbegrenzt</dt>
+                    <dd>Kurse je Anbieter / Monat:</dd>
+                    <dt>unbegrenzt</dt>
+                    <dd>Langfristige Bindung:</dd>
+                    <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
+                </dl>
+                <button class="book_btn" type="button">Vorbestellen</button>
             </li><li>
-                <h3>Vollkommen effektiv.</h3>
-                <p>Entdecke Dein Potential mit unserem Test und erstelle Dir einen persönlichen Trainingsplan für Körper, Geist und Seele.</p>
+                <h3>White Card - 69€<span> / Monat</span></h3>
+                <dl>
+                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dt>unbegrenzt</dt>
+                    <dd>Kurse je Anbieter / Monat:</dd>
+                    <dt>3x</dt>
+                    <dd>Langfristige Bindung:</dd>
+                    <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
+                </dl>
+                <button class="book_btn" type="button">Vorbestellen</button>
             </li><li>
-                <h3>Vollkommen flexibel.</h3>
-                <p>Sage Kurse jederzeit zu oder ab – und genieße Deine monatlich kündbare Mitgliedschaft.</p>
+                <h3>White Card Lite - 39€<span> / Monat</span></h3>
+                <dl>
+                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dt>4x</dt>
+                    <dd>Kurse je Anbieter / Monat:</dd>
+                    <dt>3x</dt>
+                    <dd>Langfristige Bindung:</dd>
+                    <dt>1 Monat Mindestlaufzeit, danach mtl. kündbar</dt>
+                </dl>
+                <button class="book_btn" type="button">Vorbestellen</button>
             </li>
         </ul>
-        <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard()">
-            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="Kostenlos anmelden"/><span>Erhalte Deine Einladung</span>
-            <div class="form-response">
-                <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
-                <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
-            </div>
-        </form>
+        <ul class="b-price-list" ng-if="mobile">
+            <li>
+                <img class="card-image" src="images/card-black.png" alt=""/>
+                <h3>Black Card - 99€<span> / Monat</span></h3>
+                <dl>
+                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dt>unbegrenzt</dt>
+                    <dd>Kurse je Anbieter / Monat:</dd>
+                    <dt>unbegrenzt</dt>
+                    <dd>Langfristige Bindung:</dd>
+                    <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
+                </dl>
+                <button class="book_btn" type="button">Vorbestellen</button>
+            </li><li>
+            <img class="card-image" src="images/card-white.png" alt=""/>
+                <h3>White Card - 69€<span> / Monat</span></h3>
+                <dl>
+                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dt>unbegrenzt</dt>
+                    <dd>Kurse je Anbieter / Monat:</dd>
+                    <dt>3x</dt>
+                    <dd>Langfristige Bindung:</dd>
+                    <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
+                </dl>
+                <button class="book_btn" type="button">Vorbestellen</button>
+            </li><li>
+                <img class="card-image" src="images/card-lite.png" alt=""/>
+                <h3>White Card Lite - 39€<span> / Monat</span></h3>
+                <dl>
+                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dt>4x</dt>
+                    <dd>Kurse je Anbieter / Monat:</dd>
+                    <dt>3x</dt>
+                    <dd>Langfristige Bindung:</dd>
+                    <dt>1 Monat Mindestlaufzeit, danach mtl. kündbar</dt>
+                </dl>
+                <button class="book_btn" type="button">Vorbestellen</button>
+            </li>
+        </ul>
+    </div>
+    <div class="b-special-offer">
+        10% Ermäßigung auf die ersten 12 Monate bei Reservierung bis 1.12.2014.
+    </div>
+    <div class="container">
+        <ul class="b-card-list">
+            <li>
+                <h3>Freie Auswahl</h3>
+                <p>Besuche alle Kursklassen unserer geprüften Partner und bekomme besondere Angebote für Workshops und Personal Training.</p>
+            </li><li>
+                <h3>Einzigartige Vielfalt</h3>
+                <p>Erlebe unbegrenzt Yoga, Pilates, Kampfkunst, Fitness oder Tanz und entdecke Kurse für Meditation, Gesundheit, Ernährung und die persönliche Entfaltung.</p>
+            </li><li>
+                <h3>Einfache Kündigung</h3>
+                <p>Probiere entspannt ganzheitliche Lebensweise aus - Du kannst nach Ablauf einer kurzen Mindestlaufzeit monatlich kündigen und hast ein Widerrufsrecht von 14 Tagen.</p>
+            </li>
+        </ul>
     </div>
 </div>
 <div id="studios" class="b-studios">
