@@ -285,6 +285,7 @@
                     dt {
                         font-size: 18px;
                         font-weight: normal;
+                        margin-bottom: 5px;
                         @media (max-width: $containerMobileWidth) {
                             font-size: 26px;
                             color: $colorText;

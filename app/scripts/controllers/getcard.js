@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', [])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'navigator', '$window', function ($scope, $rootScope, $http, parallaxHelper, navigator, $window) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'navigator', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, navigator, $window, $modal) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
         if (navigator.platform() === 'Mac' && navigator.browser() === 'firefox') {
@@ -27,7 +27,6 @@ angular.module('boltApp.controllers.Getcard', [])
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
                 $scope.errorSubscribe = true;
-                $window.ga('send', 'submitemail_' + locate, 'card_page');
                 console.error(status);
             });
         };
@@ -49,4 +48,46 @@ angular.module('boltApp.controllers.Getcard', [])
                 console.error(status);
             });
         };
+        $scope.bookCard = function (type) {
+            $modal.open({
+                templateUrl: 'views/modalSubscribe.html',
+                controller: ['$scope', '$modalInstance', '$http', 'cardType',
+
+                    function ($scope, $modalInstance, $http, cardType) {
+
+                        $scope.subscribeCard = function () {
+                            $scope.loadingSubscribe = true;
+                            $scope.successSubscribe = false;
+                            $scope.errorSubscribe = false;
+                            $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: $scope.email, interestedInProduct: true }).success(function () {
+                                $scope.loadingSubscribe = false;
+                                $scope.successSubscribe = true;
+                                $scope.email = '';
+                                $scope.subscribeForm.$setPristine();
+                                $window.ga('send', 'submitemail_' + cardType, 'card_page');
+                                setTimeout(function () {
+                                    $modalInstance.dismiss();
+                                }, 200);
+                            }).error(function (response, status) {
+                                $scope.loadingSubscribe = false;
+                                $scope.errorSubscribe = true;
+                                console.error(status);
+                            });
+                        };
+
+                        $scope.close = function () {
+                            $modalInstance.close(true);
+                        };
+
+                    }],
+                backdrop: 'static',
+                windowClass: 'modal-subscribe',
+                resolve: {
+                    cardType: function () {
+                        return type;
+                    }
+                }
+            });
+        };
+
     }]);

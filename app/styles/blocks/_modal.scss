@@ -55,3 +55,81 @@
         line-height: 1;
     }
 }
+.modal-subscribe {
+    .modal-dialog {
+        width: 820px;
+        @media (max-width: $containerMobileWidth) {
+            width: 92%;
+        }
+    }
+    .modal-content {
+        background: $colorText;
+        @media (max-width: $containerMobileWidth) {
+            background: none;
+            border: 0 none;
+            @include box-shadow(none);
+        }
+        .form-spinner {
+            margin: 5px;
+        }
+        .form-success {
+            font-size: 18px;
+            color: #fff;
+            line-height: 50px;
+            margin: 0;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 30px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 24px;
+            }
+        }
+    }
+    .modal-body {
+        padding: 60px;
+        text-align: center;
+        @media (max-width: $containerMobileWidth) {
+            padding: 0;
+        }
+    }
+    .b-card-subscribe {
+        margin: 0;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
+        input[type="text"] {
+            @media (max-width: $containerMobileWidth) {
+                width: 100%;
+            }
+        }
+        input[type="submit"] {
+            width: 235px;
+            @media (max-width: $containerMobileWidth) {
+                width: 100%;
+            }
+        }
+    }
+    .modal-close {
+        background: url('/images/close.png');
+        border: 0 none;
+        position: absolute;
+        height: 20px;
+        width: 21px;
+        margin: 7px 0;
+        right: 0;
+        top: initial;
+        bottom: 100%;
+        @media (max-width: $containerMobileWidth) {
+            background: url('/images/close-mobile.png');
+            height: 40px;
+            width: 41px;
+            margin: 50px 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            background-size: 21px 20px;
+            height: 20px;
+            width: 21px;
+            margin: 25px 0;
+        }
+    }
+}

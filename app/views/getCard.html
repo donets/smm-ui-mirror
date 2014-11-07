@@ -43,7 +43,7 @@
                     <dd>Langfristige Bindung:</dd>
                     <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
                 </dl>
-                <button class="book_btn" type="button">Vorbestellen</button>
+                <button class="book_btn" ng-click="bookCard('black')" type="button">Vorbestellen</button>
             </li><li>
                 <h3>White Card - 69€<span> / Monat</span></h3>
                 <dl>
@@ -54,7 +54,7 @@
                     <dd>Langfristige Bindung:</dd>
                     <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
                 </dl>
-                <button class="book_btn" type="button">Vorbestellen</button>
+                <button class="book_btn" ng-click="bookCard('white')" type="button">Vorbestellen</button>
             </li><li>
                 <h3>White Card Lite - 39€<span> / Monat</span></h3>
                 <dl>
@@ -65,7 +65,7 @@
                     <dd>Langfristige Bindung:</dd>
                     <dt>1 Monat Mindestlaufzeit, danach mtl. kündbar</dt>
                 </dl>
-                <button class="book_btn" type="button">Vorbestellen</button>
+                <button class="book_btn" ng-click="bookCard('lite')" type="button">Vorbestellen</button>
             </li>
         </ul>
         <ul class="b-price-list" ng-if="mobile">
@@ -80,7 +80,7 @@
                     <dd>Langfristige Bindung:</dd>
                     <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
                 </dl>
-                <button class="book_btn" type="button">Vorbestellen</button>
+                <button class="book_btn" ng-click="bookCard('black')" type="button">Vorbestellen</button>
             </li><li>
             <img class="card-image" src="images/card-white.png" alt=""/>
                 <h3>White Card - 69€<span> / Monat</span></h3>
@@ -92,7 +92,7 @@
                     <dd>Langfristige Bindung:</dd>
                     <dt>3 Monate Mindestlaufzeit, danach mtl. kündbar</dt>
                 </dl>
-                <button class="book_btn" type="button">Vorbestellen</button>
+                <button class="book_btn" ng-click="bookCard('white')" type="button">Vorbestellen</button>
             </li><li>
                 <img class="card-image" src="images/card-lite.png" alt=""/>
                 <h3>White Card Lite - 39€<span> / Monat</span></h3>
@@ -104,7 +104,7 @@
                     <dd>Langfristige Bindung:</dd>
                     <dt>1 Monat Mindestlaufzeit, danach mtl. kündbar</dt>
                 </dl>
-                <button class="book_btn" type="button">Vorbestellen</button>
+                <button class="book_btn" ng-click="bookCard('lite')" type="button">Vorbestellen</button>
             </li>
         </ul>
     </div>

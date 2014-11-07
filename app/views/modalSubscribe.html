@@ -1,0 +1,14 @@
+
+<div class="modal-body">
+    <button ng-click="close()" class="modal-close" type="button">
+        <span class="sr-only">Close</span>
+    </button>
+    <form name="subscribeForm" ng-hide="successSubscribe" class="b-card-subscribe" ng-submit="subscribeCard()">
+        <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Email-Adresse"/><input type="submit" value="ABSCHICKEN"/>
+        <div class="form-response">
+            <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+            <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
+        </div>
+    </form>
+    <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
+</div>
