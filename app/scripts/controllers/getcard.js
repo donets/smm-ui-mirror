@@ -65,7 +65,7 @@ angular.module('boltApp.controllers.Getcard', [])
                                 $window.ga('send', 'submitemail_' + cardType, 'card_page');
                                 setTimeout(function () {
                                     $modalInstance.dismiss();
-                                }, 2000);
+                                }, 200);
                             }).error(function (response, status) {
                                 $scope.loadingSubscribe = false;
                                 $scope.errorSubscribe = true;

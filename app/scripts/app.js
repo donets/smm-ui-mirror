@@ -269,21 +269,21 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl'
             })
             .state('more', {
-                url : '/more/',
+                url : '/p/more/',
                 templateUrl: 'views/more.html',
                 controller : 'MoreCtrl'
             })
             .state('about', {
-                url : '/about/',
+                url : '/p/about/',
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
 	        .state('impressum', {
-	            url : '/impressum/',
+	            url : '/p/impressum/',
 	            templateUrl: 'views/impressum.html'
 	        })
 	        .state('agb', {
-	            url : '/agb/',
+	            url : '/p/agb/',
 	            templateUrl: 'views/agb.html'
 	        });
     }]);
