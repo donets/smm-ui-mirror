@@ -51,7 +51,7 @@
             right: 0;
         }
         .pre-cover {
-            background: url("/images/landing-1080.jpg") no-repeat center center;
+            background: url("/images/landing-2880.jpg") no-repeat center center;
             position: relative;
             top: 0;
             height: 550px;
@@ -61,10 +61,20 @@
             opacity: 1;
             transition: opacity 1s linear 1s;
         }
+        @media (max-width: 1440px) {
+            .pre-cover {
+                background-image: url("/images/landing-1440.jpg");
+            }
+        }
+        @media (max-width: 1080px) {
+            .pre-cover {
+                background-image: url("/images/landing-1080.jpg");
+            }
+        }
         .pre-cover.hide-cover {
             opacity: 0;
         }
-        @@media (max-width: 1080px) {
+        @media (max-width: 1080px) {
             .pre-cover {
                 height: 306px;
             }
