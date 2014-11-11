@@ -8,6 +8,9 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Classes', [])
-    .controller('ClassesCtrl', function () {
-
+    .controller('ClassesCtrl', function ($scope, Events) {
+        Events.all().$promise.then(function (res) {
+            $scope.classes = _.uniq(res.events);
+            console.log($scope.classes);
+        });
     });

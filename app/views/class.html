@@ -100,5 +100,22 @@
                 </thead>
             </table>
         </div>
+        <!--<div ng-repeat="c in classes">-->
+            <!--{{c.startTime}} - {{c.endTime}} : {{c.duration}}-->
+        <!--</div>-->
+        <!--<div ng-repeat="(key, value) in groupByTime">-->
+            <!--<h1>{{key}}</h1>-->
+            <!--<div ng-repeat="c in value">-->
+                <!--{{c.startTime}} - {{c.endTime}} : {{c.duration}}-->
+            <!--</div>-->
+        <!--</div>-->
+        <div ng-repeat="groupByTime in groupByDuration">
+            <div ng-repeat="(key, value) in groupByTime">
+                <h1>{{key}}</h1>
+                <div ng-repeat="c in value">
+                    {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>

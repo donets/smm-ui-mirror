@@ -64,7 +64,7 @@ angular.module('boltApp')
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             $rootScope.mainTitle = 'Somuchmore | Trainiere Körper, Geist und Seele';
-            amMoment.changeLanguage('de');
+            amMoment.changeLanguage('en');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
                 $window._fbq.push(['addPixelId', '1461407927469396']);
