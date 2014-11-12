@@ -41,15 +41,15 @@
                         <td>Jivamukti Yoga</td>
                         <td>Reto Halme</td>
                         <td>Prenzlauer Berg</td>
-                        <td><button class="green" ui-sref="admin.class" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                        <td><button class="green" ui-sref="admin.class({classId: 54})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
                     </tr>
-                    <tr ng-repeat="c in classes">
+                    <tr ng-repeat="c in classes | limitTo: 15">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>
                         <td><span ng-repeat="t in c.tags">{{t}}, </span></td>
                         <td>{{c.teacher_name}}</td>
                         <td>{{c.location.name}}</td>
-                        <td><button class="green" ui-sref="admin.class" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                        <td><button class="green" ui-sref="admin.class({classId: c.id})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
                     </tr>
                 </tbody>
             </table>

@@ -2,12 +2,13 @@
     <div class="container cf">
         <div class="w-left">
             <h2>Jivamukti Yoga</h2>
-            <p><b class="status">Draft</b> 13 Classes scheduled.</p>
-            <p>Studio Mitte</p>
+            <div class="info">
+                <p><b class="status">Draft</b> 13 Classes scheduled.</p>
+                <p>Studio Mitte</p>
+            </div>
         </div>
         <div class="w-right">
-            <button type="button"><i class="fa fa-eye"></i>Preview</button><button class="green" type="button"><i class="fa fa-save"></i>Save & go live</button>
-            <a href="">Save as draft</a>
+            <button type="button"><i class="fa fa-eye"></i>Preview</button><button type="button"><i class="fa fa-save"></i>Save as draft</button><button class="green" type="button"><i class="fa fa-save"></i>Save & go live</button>
         </div>
     </div>
 </div>
@@ -100,21 +101,25 @@
                 </thead>
             </table>
         </div>
-        <!--<div ng-repeat="c in classes">-->
-            <!--{{c.startTime}} - {{c.endTime}} : {{c.duration}}-->
-        <!--</div>-->
-        <!--<div ng-repeat="(key, value) in groupByTime">-->
-            <!--<h1>{{key}}</h1>-->
-            <!--<div ng-repeat="c in value">-->
-                <!--{{c.startTime}} - {{c.endTime}} : {{c.duration}}-->
-            <!--</div>-->
-        <!--</div>-->
-        <div ng-repeat="groupByTime in groupByDuration">
-            <div ng-repeat="(key, value) in groupByTime">
-                <h1>{{key}}</h1>
-                <div ng-repeat="c in value">
-                    {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}}
+        <div class="hidden" ng-repeat="(key, value) in groupByTime">
+            <h1>{{key}}</h1>
+            <div ng-repeat="(key, duration) in value">
+                <h2>{{key}}</h2>
+                <div ng-repeat="(key, days) in duration">
+                    <h3>{{moment.day(key) | amDateFormat: 'dddd'}}</h3>
+                    <div ng-repeat="(key, repeats) in days">
+                        <h4>Group {{key}}</h4>
+                        <div ng-repeat="c in repeats">
+                            {{c.startTime}} - {{c.endTime}} : {{c.duration}} = {{c.weekly}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY, HH:mm:ss'}}
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div ng-repeat="(key, value) in groupByDates">
+            <h1>{{key}}</h1>
+            <div ng-repeat="c in value">
+                <strong>{{c.id}}</strong> {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}} ___ {{c.daily}}
             </div>
         </div>
     </div>

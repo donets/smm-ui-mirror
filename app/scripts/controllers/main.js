@@ -8,8 +8,8 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Main', [])
-    .controller('MainCtrl', ['$scope', '$rootScope', '$window', '$location', '$interval', 'DSCacheFactory', 'Events', 'getEvents',
-        function ($scope, $rootScope, $window, $location, $interval, DSCacheFactory, Events, getEvents) {
+    .controller('MainCtrl', ['$scope', '$rootScope', '$window', '$location', '$interval', 'DSCacheFactory', 'Occurrences', 'getEvents',
+        function ($scope, $rootScope, $window, $location, $interval, DSCacheFactory, Occurrences, getEvents) {
         var defaultCache = DSCacheFactory.get('defaultCache');
         $scope.loading = true;
         $scope.changeSchedule = function (value) {
@@ -67,7 +67,7 @@ angular.module('boltApp.controllers.Main', [])
             onExpire: function (key) {
                 console.log(key);
                 if (key === '/api/events') {
-                    return Events.query().$promise.then(function (res) {
+                    return Occurrences.query().$promise.then(function (res) {
                         $scope.events = res;
                         initEvents();
                         console.log($scope.events);

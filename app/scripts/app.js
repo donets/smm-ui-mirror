@@ -49,6 +49,7 @@ angular
         'boltApp.controllers.Admin',
         'boltApp.controllers.Classes',
         'boltApp.services.events',
+        'boltApp.services.occurrences',
         'boltApp.services.suppliers',
         'boltApp.services.user',
         'boltApp.services.navigator'
@@ -169,9 +170,9 @@ angular.module('boltApp')
 
                     // A function value resolves to the return
                     // value of the function
-                    getEvents: function(Events) {
+                    getEvents: function(Occurrences) {
                         //$location.search('schedule', $location.search().schedule || 'today');
-                        return Events.query();
+                        return Occurrences.query();
                     }
                 },
                 onEnter: function($rootScope){
@@ -187,13 +188,13 @@ angular.module('boltApp')
                 templateUrl: 'views/event.html',
                 resolve: {
 
-                    getEvent: function(Events, $stateParams){
+                    getEvent: function(Occurrences, $stateParams){
 
                         // Extract customer ID from $stateParams
 
                         // Return a promise to make sure the customer is completely
                         // resolved before the controller is instantiated
-                        return Events.get({eventId: $stateParams.eventId}).$promise;
+                        return Occurrences.get({occurrenceId: $stateParams.eventId}).$promise;
                     }
                 },
                 onEnter: function($rootScope){
@@ -238,16 +239,16 @@ angular.module('boltApp')
                         }],
                         backdrop: 'static',
                         resolve: {
-                            teacherId: function (Events) {
-                                var eventId = $stateParams.eventId;
-                                return Events.get({eventId: eventId}).$promise.then(function (res) {
+                            teacherId: function (Occurrences) {
+                                var occurrenceId = $stateParams.occurrenceId;
+                                return Occurrences.get({occurrenceId: occurrenceId}).$promise.then(function (res) {
                                     return res.event.somuchmore.teacherId; 
                                 });
                             }
                         }
                     }).result.then(function(result) {
                         if (result) {
-                            return $state.transitionTo('view', {eventId: $stateParams.eventId});
+                            return $state.transitionTo('view', {occurrenceId: $stateParams.occurrenceId});
                         }
                     });
                 }]
@@ -292,8 +293,19 @@ angular.module('boltApp')
                 controller : 'ClassesCtrl'
             })
             .state('admin.class', {
-                url : 'class/',
+                url : 'class/:classId/',
                 templateUrl: 'views/class.html',
+                resolve: {
+
+                    getClass: function(Events, $stateParams){
+
+                        // Extract customer ID from $stateParams
+
+                        // Return a promise to make sure the customer is completely
+                        // resolved before the controller is instantiated
+                        return Events.getWithOccurrences({eventId: $stateParams.classId}).$promise;
+                    }
+                },
                 controller : 'ClassCtrl'
             })
             .state('more', {

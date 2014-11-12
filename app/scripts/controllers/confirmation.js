@@ -8,15 +8,15 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Confirmation', [])
-    .controller('ConfirmationCtrl', ['$scope', '$rootScope', '$location', '$window', '$q', 'Events', function ($scope, $rootScope, $location, $window, $q, Events) {
+    .controller('ConfirmationCtrl', ['$scope', '$rootScope', '$location', '$window', '$q', 'Occurrences', function ($scope, $rootScope, $location, $window, $q, Occurrences) {
 
         $scope.params = $location.search();
 
         if($scope.params.eid) {
-            Events.get({eventId: $scope.params.eid}).$promise.then(function (res) {
+            Occurrences.get({occurrenceId: $scope.params.eid}).$promise.then(function (res) {
                 $scope.alert = true;
                 $scope.event = res;
-                Events.getOrder({eventId: $scope.params.eid, order_id: $scope.params.oid}).$promise.then(function (res) {
+                Occurrences.getOrder({occurrenceId: $scope.params.eid, order_id: $scope.params.oid}).$promise.then(function (res) {
                     var qG = $q.defer();
                     var qF = $q.defer();
                     $window.ga('require', 'ecommerce', 'ecommerce.js');
