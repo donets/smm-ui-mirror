@@ -21,7 +21,7 @@ angular.module('boltApp.controllers.Subscribe', [])
                 $scope.form.$setPristine();
                 /* jshint ignore:start */
                 $window.ga('set', 'dimension1', '1');
-                $window.ga('send', 'signup_app_waitlist', 'content');
+                $window.ga('send', 'event', 'content', 'signup_app_waitlist');
                 $.getScript("//www.googleadservices.com/pagead/conversion_async.js").done( function() {
                     $window.google_trackConversion({
                         google_conversion_id: 970072239,

@@ -23,7 +23,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 $scope.successSubscribe = true;
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
-                $window.ga('send', 'submitemail_' + locate, 'card_page');
+                $window.ga('send', 'event', 'about_page', 'submitemail_' + locate);
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
                 $scope.errorSubscribe = true;
@@ -41,7 +41,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 $scope.successStudio = true;
                 $scope.studioName = '';
                 $scope.studioForm.$setPristine();
-                $window.ga('send', 'studio_suggestion', 'card_page');
+                $window.ga('send', 'event', 'card_page', 'studio_suggestion');
             }).error(function (response, status) {
                 $scope.loadingStudio = false;
                 $scope.errorStudio = true;
@@ -62,7 +62,7 @@ angular.module('boltApp.controllers.Getcard', [])
                             $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: this.email, interestedInProduct: true }).success(function () {
                                 $scope.loadingSubscribe = false;
                                 $scope.successSubscribe = true;
-                                $window.ga('send', 'submitemail_' + cardType, 'card_page');
+                                $window.ga('send', 'event', 'card_page', 'submitemail_' + cardType);
                                 setTimeout(function () {
                                     $modalInstance.dismiss();
                                 }, 200);

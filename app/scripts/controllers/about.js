@@ -19,7 +19,7 @@ angular.module('boltApp.controllers.About', [])
                 $scope.successSubscribe = true;
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
-                $window.ga('send', 'submitemail_' + locate, 'about_page');
+                $window.ga('send', 'event', 'about_page', 'submitemail_' + locate);
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
                 $scope.errorSubscribe = true;
@@ -37,7 +37,7 @@ angular.module('boltApp.controllers.About', [])
                 $scope.successFeedback = true;
                 $scope.feedback = '';
                 $scope.feedbackForm.$setPristine();
-                $window.ga('send', 'about_question', 'about_page');
+                $window.ga('send', 'event', 'about_page', 'about_question');
             }).error(function (response, status) {
                 $scope.loadingFeedback = false;
                 $scope.errorFeedback = true;
@@ -46,6 +46,6 @@ angular.module('boltApp.controllers.About', [])
         };
         $scope.sendFeedback = function (message) {
             $scope.receiveFeedback = true;
-            return message === 'yes' ? $window.ga('send', 'smm_clear', 'about_page') : $window.ga('send', 'smm_not_clear', 'about_page');
+            return message === 'yes' ? $window.ga('send', 'event', 'about_page', 'smm_clear') : $window.ga('send', 'event', 'about_page', 'smm_not_clear');
         };
     }]);
