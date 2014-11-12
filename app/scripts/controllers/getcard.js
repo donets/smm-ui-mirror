@@ -23,7 +23,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 $scope.successSubscribe = true;
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
-                $window.ga('send', 'event', 'about_page', 'submitemail_' + locate);
+                $window.ga('send', 'event', 'card_page', 'submitemail_' + locate);
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
                 $scope.errorSubscribe = true;
