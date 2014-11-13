@@ -8,10 +8,13 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope, getClass) {
+    .controller('ClassCtrl', function ($scope) {
         $scope.moment = moment();
-        getClass.$promise.then(function () {
-            //$scope.occurrences = getClass.occurrences;
+        //getClass.$promise.then(function () {
+        //getOccurrences.$promise.then(function () {
+        //    console.log(getOccurrences);
+        //});
+            //$scope.occurrences = getOccurrences;
             $scope.occurrences = [
                 {
                     id: 169,
@@ -56,8 +59,20 @@ angular.module('boltApp.controllers.Class', [])
                     ref_provider_id: 'eventbrite',
                     ref_status: 'LIVE',
                     parent_event_id: 7,
+                    start_date: '2016-06-08T17:00:00.000Z',
+                    end_date: '2016-06-08T19:00:00.000Z',
+                    total_tickets: 5,
+                    total_tickets_left: 5
+                },
+                {
+                    id: 63,
+                    capacity: null,
+                    ref_id: '13523399853',
+                    ref_provider_id: 'eventbrite',
+                    ref_status: 'LIVE',
+                    parent_event_id: 7,
                     start_date: '2016-06-08T18:00:00.000Z',
-                    end_date: '2016-06-08T20:00:00.000Z',
+                    end_date: '2016-06-08T19:00:00.000Z',
                     total_tickets: 5,
                     total_tickets_left: 5
                 },
@@ -110,6 +125,30 @@ angular.module('boltApp.controllers.Class', [])
                     total_tickets_left: 5
                 },
                 {
+                    id: 230,
+                    capacity: null,
+                    ref_id: '13523405871',
+                    ref_provider_id: 'eventbrite',
+                    ref_status: 'LIVE',
+                    parent_event_id: 7,
+                    start_date: '2014-06-28T18:00:00.000Z',
+                    end_date: '2014-06-28T20:00:00.000Z',
+                    total_tickets: 5,
+                    total_tickets_left: 5
+                },
+                {
+                    id: 230,
+                    capacity: null,
+                    ref_id: '13523405871',
+                    ref_provider_id: 'eventbrite',
+                    ref_status: 'LIVE',
+                    parent_event_id: 7,
+                    start_date: '2014-06-29T18:00:00.000Z',
+                    end_date: '2014-06-29T20:00:00.000Z',
+                    total_tickets: 5,
+                    total_tickets_left: 5
+                },
+                {
                     id: 145,
                     capacity: null,
                     ref_id: '13523407877',
@@ -158,38 +197,41 @@ angular.module('boltApp.controllers.Class', [])
                     total_tickets_left: 5
                 }
             ];
-            console.log(getClass.occurrences);
-            $scope.occurrences = _.sortBy($scope.occurrences, 'start_date');
-            _.each($scope.occurrences, function(obj) {
+
+        //});
+
+        var groupOccurrences = function (occurrences) {
+            occurrences = _.sortBy(occurrences, 'start_date');
+            _.each(occurrences, function(obj) {
                 var startDate = moment(obj.start_date);
                 var endDate = moment(obj.end_date);
-                //moment.relativeTimeThreshold('m', 1000);
                 obj.startTime = startDate.format('HH:mm');
                 obj.endTime = endDate.format('HH:mm');
                 obj.duration = moment.duration(endDate.diff(startDate)).asMinutes();
-                obj.day = startDate.isoWeekday();
+                obj.weekday = startDate.isoWeekday();
+                obj.year = startDate.year();
+                obj.day = startDate.dayOfYear();
             });
-            $scope.groupByTime = _.groupBy($scope.occurrences, 'startTime');
-            $scope.groupByDates = {};
+            $scope.groupByTime = _.groupBy(occurrences, 'startTime');
             console.log($scope.groupByTime);
             _.each($scope.groupByTime, function (obj, key) {
-                $scope.groupByTime[key] = _.groupBy(obj, 'duration');
+                $scope.groupByTime[key] = _.groupBy(obj, 'endTime');
             });
-            _.each($scope.groupByTime, function (obj) {
-                _.each(obj, function (val, i) {
-                    obj[i] = _.groupBy(val, 'day');
+            _.each($scope.groupByTime, function (obj, st) {
+                _.each(obj, function (val, et) {
+                    obj[et] = _.groupBy(val, 'weekday');
                     var memo = null;
                     _.each(val, function (c, j) {
                         var curr = moment(c.start_date);
                         if (memo && curr.isSame(moment(memo.start_date).add(1, 'w'))) {
                             c.weekly = memo.weekly;
-                            c.daily = j;
+                            c.daily = c.year + '' + c.day + '' + st.replace(':','') + '' + et.replace(':','') + j;
                         } else if (memo && curr.isSame(moment(memo.start_date).add(1, 'd'))) {
-                            c.weekly = j;
+                            c.weekly = c.year + '' + c.day + '' + st.replace(':','') + '' + et.replace(':','') + j;
                             c.daily = memo.daily;
                         } else {
-                            c.weekly = j;
-                            c.daily = j;
+                            c.weekly = c.year + '' + c.day + '' + st.replace(':','') + '' + et.replace(':','') + j;
+                            c.daily = c.year + '' + c.day + '' + st.replace(':','') + '' + et.replace(':','') + j;
                         }
                         memo = c;
                     });
@@ -203,24 +245,52 @@ angular.module('boltApp.controllers.Class', [])
                     });
                 });
             });
+            $scope.groupByWeekly = [];
             console.log($scope.groupByTime);
             _.each($scope.groupByTime, function (obj) {
                 _.each(obj, function (val) {
                     _.each(val, function (c) {
-                        $scope.groupByDates = _.extend(_.clone(c), $scope.groupByDates);
+                        $scope.groupByWeekly = _.extend(_.clone(c), $scope.groupByWeekly);
                     });
                 });
             });
-            $scope.groupByDates = _.sortBy($scope.groupByDates, function(value, key) {
-                return +key;
-            });
-            $scope.groupByDay = _.filter($scope.groupByDates, function (obj) {
+            console.log($scope.groupByWeekly);
+            $scope.groupByDaily = _.filter($scope.groupByWeekly, function (obj) {
                 return obj.length === 1;
             });
-            _.each($scope.groupByDay, function (obj, i) {
-                $scope.groupByDay[i] = _.groupBy(obj, 'daily');
+
+            $scope.groupByDaily = _.flatten($scope.groupByDaily);
+            $scope.groupByDaily = _.sortBy($scope.groupByDaily, 'weekly');
+            $scope.groupByDaily = _.groupBy($scope.groupByDaily, 'daily');
+            _.map($scope.groupByDaily, function (obj) {
+                if (obj.length === 1) {
+                    obj.repeat = 'Single';
+                } else {
+                    obj.repeat = 'Daily';
+                }
             });
-            console.log($scope.groupByDay);
-        });
+            $scope.groupByWeekly = _.reject($scope.groupByWeekly, function (obj) {
+                return obj.length === 1;
+            });
+            $scope.groupByWeekly = _.flatten($scope.groupByWeekly);
+            $scope.groupByWeekly = _.groupBy($scope.groupByWeekly, 'weekly');
+            _.map($scope.groupByWeekly, function (obj) {
+                obj.repeat = 'Weekly';
+                obj.day = 'on ' + moment(_.first(obj).start_date).format('dddd');
+            });
+            $scope.groupByAll = _.extend(_.clone($scope.groupByDaily), _.clone($scope.groupByWeekly));
+            $scope.groupByAll = _.sortBy($scope.groupByAll, function(value, key) {
+                return +key;
+            });
+            _.map($scope.groupByAll, function (obj) {
+                obj.frame = 'Starting ' + moment(_.first(obj).start_date).format('MMMM D YYYY') + (obj.length > 1 ? ' through ' + moment(_.last(obj).start_date).format('MMMM D YYYY') : '');
+                obj.time = _.first(obj).startTime + ' - ' + _.first(obj).endTime;
+            });
+            console.log($scope.groupByWeekly);
+            console.log($scope.groupByDaily);
+            console.log($scope.groupByAll);
+        };
+
+        groupOccurrences($scope.occurrences);
 
     });

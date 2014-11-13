@@ -33,11 +33,11 @@
         </div>
         <div class="form-rel">
             <label class="form-label">Event dates</label>
-            <table class="b-date-group">
+            <table class="b-date-group" ng-repeat="(key, value) in groupByAll">
                 <thead>
                     <tr>
-                        <th><p>2</p><p>Dates</p></th>
-                        <th><p>Daily 7:00 PM - 10:00 PM</p><p><span>Starting December 1 2014 through December 8 2014</span></p></th>
+                        <th><p>{{value.length}}</p><p>Date{{value.length > 1 ? 's' : ''}}</p></th>
+                        <th><p>{{value.repeat}} {{value.day}} {{value.time}}</p><p><span>{{value.frame}}</span></p></th>
                         <th>
                             <div class="controls">
                                 <a href=""><i class="fa fa-list"></i></a>
@@ -48,19 +48,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr ng-repeat="c in value">
                         <td></td>
-                        <td>Sunday, December 14</td>
-                        <td>
-                            <div class="controls">
-                                <a href=""><i class="fa fa-pencil"></i></a>
-                                <a href=""><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Monday, December 15</td>
+                        <td>{{c.start_date | amDateFormat: 'dddd, D MMMM YYYY'}} ({{c.startTime}} to {{c.endTime}})</td>
                         <td>
                             <div class="controls">
                                 <a href=""><i class="fa fa-pencil"></i></a>
@@ -70,38 +60,8 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="b-date-group">
-                <thead>
-                    <tr>
-                        <th><p>2</p><p>Dates</p></th>
-                        <th><p>Daily 7:00 PM - 10:00 PM</p><p><span>Starting December 1 2014 through December 8 2014</span></p></th>
-                        <th>
-                            <div class="controls">
-                                <a href=""><i class="fa fa-list"></i></a>
-                                <a href=""><i class="fa fa-pencil"></i></a>
-                                <a href=""><i class="fa fa-trash"></i></a>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-            </table>
-            <table class="b-date-group">
-                <thead>
-                    <tr>
-                        <th><p>2</p><p>Dates</p></th>
-                        <th><p>Daily 7:00 PM - 10:00 PM</p><p><span>Starting December 1 2014 through December 8 2014</span></p></th>
-                        <th>
-                            <div class="controls">
-                                <a href=""><i class="fa fa-list"></i></a>
-                                <a href=""><i class="fa fa-pencil"></i></a>
-                                <a href=""><i class="fa fa-trash"></i></a>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-            </table>
         </div>
-        <div class="hidden" ng-repeat="(key, value) in groupByTime">
+        <div ng-repeat="(key, value) in groupByTime">
             <h1>{{key}}</h1>
             <div ng-repeat="(key, duration) in value">
                 <h2>{{key}}</h2>
@@ -116,10 +76,11 @@
                 </div>
             </div>
         </div>
-        <div ng-repeat="(key, value) in groupByDates">
-            <h1>{{key}}</h1>
+        <div ng-repeat="(key, value) in groupByAll">
+            <h1>{{key}} {{value.repeat}} {{value.day}} {{value.time}}</h1>
+            <h2>{{value.frame}}</h2>
             <div ng-repeat="c in value">
-                <strong>{{c.id}}</strong> {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}} ___ {{c.daily}}
+                <strong>{{c.id}}</strong> {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}} ___ {{c.daily}} / {{c.weekly}}
             </div>
         </div>
     </div>

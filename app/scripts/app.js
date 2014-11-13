@@ -295,17 +295,21 @@ angular.module('boltApp')
             .state('admin.class', {
                 url : 'class/:classId/',
                 templateUrl: 'views/class.html',
-                resolve: {
-
-                    getClass: function(Events, $stateParams){
-
-                        // Extract customer ID from $stateParams
-
-                        // Return a promise to make sure the customer is completely
-                        // resolved before the controller is instantiated
-                        return Events.getWithOccurrences({eventId: $stateParams.classId}).$promise;
-                    }
-                },
+                //resolve: {
+                //
+                //    getClass: function(Events, $stateParams) {
+                //
+                //        return Events.get({eventId: $stateParams.classId}).$promise;
+                //
+                //    },
+                //
+                //    getOccurrences: function(Occurrences, $stateParams) {
+                //
+                //        return Occurrences.query({parentId: $stateParams.classId}).$promise;
+                //
+                //    }
+                //
+                //},
                 controller : 'ClassCtrl'
             })
             .state('more', {
