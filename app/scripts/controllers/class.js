@@ -7,204 +7,454 @@
  * # ClassCtrl
  * Controller of the boltApp
  */
-angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope) {
-        $scope.moment = moment();
-        //getClass.$promise.then(function () {
-        //getOccurrences.$promise.then(function () {
-        //    console.log(getOccurrences);
-        //});
-            //$scope.occurrences = getOccurrences;
-            $scope.occurrences = [
-                {
-                    id: 169,
-                    capacity: null,
-                    ref_id: '13523393835',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-05-18T18:00:00.000Z',
-                    end_date: '2016-05-18T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 26,
-                    capacity: null,
-                    ref_id: '13523395841',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-05-25T18:00:00.000Z',
-                    end_date: '2016-05-25T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 230,
-                    capacity: null,
-                    ref_id: '13523397847',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-01T18:00:00.000Z',
-                    end_date: '2016-06-01T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 63,
-                    capacity: null,
-                    ref_id: '13523399853',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-08T17:00:00.000Z',
-                    end_date: '2016-06-08T19:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 63,
-                    capacity: null,
-                    ref_id: '13523399853',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-08T18:00:00.000Z',
-                    end_date: '2016-06-08T19:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 203,
-                    capacity: null,
-                    ref_id: '13523401859',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-15T18:00:00.000Z',
-                    end_date: '2016-06-15T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 96,
-                    capacity: null,
-                    ref_id: '13523403865',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-25T18:00:00.000Z',
-                    end_date: '2016-06-25T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 228,
-                    capacity: null,
-                    ref_id: '13523405871',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-26T18:00:00.000Z',
-                    end_date: '2016-06-26T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 229,
-                    capacity: null,
-                    ref_id: '13523405871',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-06-27T18:00:00.000Z',
-                    end_date: '2016-06-27T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 230,
-                    capacity: null,
-                    ref_id: '13523405871',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2014-06-28T18:00:00.000Z',
-                    end_date: '2014-06-28T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 230,
-                    capacity: null,
-                    ref_id: '13523405871',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2014-06-29T18:00:00.000Z',
-                    end_date: '2014-06-29T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 145,
-                    capacity: null,
-                    ref_id: '13523407877',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-07-06T18:00:00.000Z',
-                    end_date: '2016-07-06T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 38,
-                    capacity: null,
-                    ref_id: '13523409883',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-07-13T18:00:00.000Z',
-                    end_date: '2016-07-13T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 212,
-                    capacity: null,
-                    ref_id: '13523411889',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-07-20T18:00:00.000Z',
-                    end_date: '2016-07-20T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                },
-                {
-                    id: 181,
-                    capacity: null,
-                    ref_id: '13523415901',
-                    ref_provider_id: 'eventbrite',
-                    ref_status: 'LIVE',
-                    parent_event_id: 7,
-                    start_date: '2016-08-03T18:00:00.000Z',
-                    end_date: '2016-08-03T20:00:00.000Z',
-                    total_tickets: 5,
-                    total_tickets_left: 5
-                }
-            ];
 
-        //});
+/* jshint undef:false */
+
+angular.module('boltApp.controllers.Class', [])
+    .controller('ClassCtrl', function ($scope, $rootScope, getClass, getOccurrences, Occurrences) {
+        $scope.moment = moment();
+        $scope._ = _;
+        getClass.$promise.then(function () {
+            $scope.class = getClass;
+        });
+        getOccurrences.$promise.then(function () {
+            $scope.occurrences = getOccurrences;
+            groupOccurrences(getOccurrences);
+        });
+
+        $scope.toggleGroup = function(obj) {
+            obj.hide = !obj.hide;
+        };
+
+        $scope.showSchedule = false;
+
+        $scope.startTimeList = [];
+
+        $scope.weekdayList = [];
+
+        $scope.repeatList = [
+            'Daily',
+            'Weekly',
+            'Single'
+        ];
+
+        $scope.checkDate = function() {
+
+//            if($scope.schedule.startDate.getDate() === new Date().getDate() && new Date().getHours() > 5) {
+//                setTimeList($scope.timeList, (new Date().getHours() + 1));
+//            } else {
+//                setTimeList($scope.timeList, false);
+//            }
+
+        };
+
+        setTimeList($scope.startTimeList, false, 23);
+
+        setWeekdayList($scope.weekdayList);
+
+        $scope.showDatepicker = {};
+
+        $scope.openDatepicker = function($event, type) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.showDatepicker[type] = true;
+        };
+        $scope.minStartDate = new Date();
+        $scope.dateOptions = {
+            startingDay: 1,
+            showWeekNumbers: false,
+            showWeeks: false
+        };
+
+        $scope.addDates = function() {
+            $scope.showSchedule = true;
+            $scope.newEvent = true;
+            $scope.schedule = {};
+        };
+
+        $scope.setEndTimeList = function() {
+            $scope.endTimeList = [];
+            setTimeList($scope.endTimeList, $scope.schedule.startTime);
+        };
+
+        $scope.updateSchedule = function() {
+            var et = moment(moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z');
+            var st = moment(moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z');
+            if($scope.schedule.endDate && !moment($scope.schedule.endDate).hours(0).minutes(0).utc().isAfter(moment($scope.schedule.startDate).hours(0).minutes(0).utc(), 'days')) {
+                $scope.schedule.endDate = null;
+            }
+            $scope.minEndDate = moment($scope.schedule.startDate).add(1, 'd');
+            $scope.schedule.duration = {
+                hours: moment.duration(et.diff(st)).hours() ? moment.duration(et.diff(st)).hours() + ' hours' : '',
+                minutes: moment.duration(et.diff(st)).minutes() ? moment.duration(et.diff(st)).minutes() + ' minutes' : ''
+            };
+            switch ($scope.schedule.repeat) {
+                case 'Daily': {
+                    $scope.schedule.times = moment($scope.schedule.endDate).diff(moment($scope.schedule.startDate), 'days');
+                    break;
+                }
+                case 'Weekly': {
+                    var weekday = $scope.schedule.weekday;
+                    var endDate = moment($scope.schedule.endDate).hours(0);
+                    var startDate = moment($scope.schedule.startDate).hours(0);
+                    if (startDate.isoWeekday(weekday).isBefore($scope.schedule.startDate, 'days')) {
+                        var addStartDate = startDate.add(1, 'w');
+                        if (!addStartDate.isAfter($scope.schedule.endDate, 'days')) {
+                            $scope.schedule.startDateWeekly = addStartDate.isoWeekday(weekday);
+                        } else {
+                            $scope.schedule.startDateWeekly = null;
+                        }
+                    } else if (!startDate.isoWeekday(weekday).isAfter($scope.schedule.endDate, 'days')) {
+                        $scope.schedule.startDateWeekly = startDate.isoWeekday(weekday);
+                    } else {
+                        $scope.schedule.startDateWeekly = null;
+                    }
+                    if (endDate.isoWeekday(weekday).isAfter($scope.schedule.endDate, 'days')) {
+                        var subEndDate = endDate.subtract(1, 'w');
+                        if (!subEndDate.isBefore($scope.schedule.startDate, 'days')) {
+                            $scope.schedule.endDateWeekly = subEndDate.isoWeekday(weekday);
+                        } else {
+                            $scope.schedule.endDateWeekly = null;
+                        }
+                    } else if (!endDate.isoWeekday(weekday).isBefore($scope.schedule.startDate, 'days')) {
+                        $scope.schedule.endDateWeekly = endDate.isoWeekday(weekday);
+                    } else {
+                        $scope.schedule.endDateWeekly = null;
+                    }
+                    if ($scope.schedule.startDateWeekly && $scope.schedule.endDateWeekly) {
+                        $scope.schedule.times = moment($scope.schedule.endDateWeekly).diff(moment($scope.schedule.startDateWeekly), 'weeks');
+                        $scope.form.$setValidity('times', true);
+                    } else {
+                        $scope.form.$setValidity('times', false);
+                    }
+                    break;
+                }
+            }
+        };
+
+        $scope.clearSchedule = function() {
+            $scope.showSchedule = false;
+            $scope.newEvent = false;
+            $scope.schedule = null;
+            $scope.form.$setPristine();
+        };
+
+        $scope.fetchOccurrences = function() {
+            Occurrences.query({parentId: $rootScope.$stateParams.classId}).$promise.then(function (res) {
+                groupOccurrences(res);
+                $scope.clearSchedule();
+            });
+        };
+
+        $scope.saveSchedule = function() {
+            switch ($scope.schedule.repeat) {
+                case 'Single': {
+                    var obj = new Occurrences();
+                    console.log('single');
+                    obj.start_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z';
+                    obj.end_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z';
+                    if ($scope.newEvent) {
+                        obj.parentEventId = $rootScope.$stateParams.classId;
+                        obj.$save().then(function () {
+                            $scope.fetchOccurrences();
+                        });
+                    } else {
+                        obj.id = $scope.schedule.id;
+                        obj.$update({occurrenceId: obj.id}).then(function () {
+                            $scope.fetchOccurrences();
+                        });
+                    }
+                    console.log(obj);
+                    break;
+                }
+                case 'Daily': {
+                    console.log('group daily');
+                    console.log($scope.schedule);
+                    var arrDailyR = new Occurrences();
+                    if (!$scope.newEvent) {
+                        _.map($scope.schedule, function(c) {
+                            arrDailyR.push({id: c.id});
+                            return arrDailyR;
+                        });
+                        arrDailyR.$deleteList().then(function () {
+                            $scope.fetchOccurrences();
+                        });
+                    }
+                    var arrDaily = [];
+                    for (var d = 0; d<= $scope.schedule.times; d++) {
+                        var objDay = {
+                            start_date: moment($scope.schedule.startDate).add(d, 'd').format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z',
+                            end_date: moment($scope.schedule.startDate).add(d, 'd').format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z',
+                            parentEventId: $rootScope.$stateParams.classId
+                        };
+                        arrDaily.push(objDay);
+                    }
+                    Occurrences.saveList(arrDaily).$promise.then(function () {
+                        $scope.fetchOccurrences();
+                    });
+                    console.log(arrDaily);
+                    break;
+                }
+                case 'Weekly': {
+                    console.log('group weekly');
+                    console.log($scope.schedule);
+                    var arrWeekly = [];
+                    if (!$scope.newEvent) {
+                        _.map($scope.schedule, function(c) {
+                            var obj = {
+                                id: c.id,
+                                removed: true
+                            };
+                            arrWeekly.push(obj);
+                            return arrWeekly;
+                        });
+                    }
+                    for (var w = 0; w<= $scope.schedule.times; w++) {
+                        var objWeekDay = {
+                            start_date: moment($scope.schedule.startDateWeekly).add(w, 'w').format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z',
+                            end_date: moment($scope.schedule.startDateWeekly).add(w, 'w').format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z',
+                            parentEventId: $rootScope.$stateParams.classId
+                        };
+                        arrWeekly.push(objWeekDay);
+                    }
+                    console.log(arrWeekly);
+                    break;
+                }
+                default:
+                    break;
+            }
+        };
+
+        $scope.editGroup = function(obj) {
+            $scope.showSchedule = true;
+            if(obj.length === 1) {
+                $scope.editSingle(_.first(obj));
+            } else {
+                $scope.schedule = obj;
+                console.log(obj);
+            }
+            $scope.updateSchedule();
+            $scope.setEndTimeList();
+        };
+
+        $scope.deleteGroup = function(obj) {
+            console.log(obj);
+        };
+
+        $scope.editSingle = function(c) {
+            $scope.showSchedule = true;
+            c.startDate = c.start_date;
+            c.repeat = 'Single';
+            $scope.schedule = c;
+            console.log(c);
+            $scope.updateSchedule();
+            $scope.setEndTimeList();
+        };
+
+        $scope.deleteSingle = function(c) {
+            console.log(c);
+        };
+
+//        $scope.occurrences = [
+//            {
+//                id: 169,
+//                capacity: null,
+//                ref_id: '13523393835',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-05-18T18:00:00.000Z',
+//                end_date: '2016-05-18T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 26,
+//                capacity: null,
+//                ref_id: '13523395841',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-05-25T18:00:00.000Z',
+//                end_date: '2016-05-25T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 230,
+//                capacity: null,
+//                ref_id: '13523397847',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-01T18:00:00.000Z',
+//                end_date: '2016-06-01T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 63,
+//                capacity: null,
+//                ref_id: '13523399853',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-08T17:00:00.000Z',
+//                end_date: '2016-06-08T19:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 63,
+//                capacity: null,
+//                ref_id: '13523399853',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-08T18:00:00.000Z',
+//                end_date: '2016-06-08T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 63,
+//                capacity: null,
+//                ref_id: '13523399853',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-08T18:00:00.000Z',
+//                end_date: '2016-06-08T19:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 203,
+//                capacity: null,
+//                ref_id: '13523401859',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-15T18:00:00.000Z',
+//                end_date: '2016-06-15T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 96,
+//                capacity: null,
+//                ref_id: '13523403865',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-25T18:00:00.000Z',
+//                end_date: '2016-06-25T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 228,
+//                capacity: null,
+//                ref_id: '13523405871',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-26T18:00:00.000Z',
+//                end_date: '2016-06-26T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 229,
+//                capacity: null,
+//                ref_id: '13523405871',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-06-27T18:00:00.000Z',
+//                end_date: '2016-06-27T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 230,
+//                capacity: null,
+//                ref_id: '13523405871',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2014-06-28T18:00:00.000Z',
+//                end_date: '2014-06-28T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 230,
+//                capacity: null,
+//                ref_id: '13523405871',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2014-06-29T18:00:00.000Z',
+//                end_date: '2014-06-29T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 145,
+//                capacity: null,
+//                ref_id: '13523407877',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-07-06T18:00:00.000Z',
+//                end_date: '2016-07-06T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 38,
+//                capacity: null,
+//                ref_id: '13523409883',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-07-13T18:00:00.000Z',
+//                end_date: '2016-07-13T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 212,
+//                capacity: null,
+//                ref_id: '13523411889',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-07-20T18:00:00.000Z',
+//                end_date: '2016-07-20T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            },
+//            {
+//                id: 181,
+//                capacity: null,
+//                ref_id: '13523415901',
+//                ref_provider_id: 'eventbrite',
+//                ref_status: 'LIVE',
+//                parent_event_id: 7,
+//                start_date: '2016-08-03T18:00:00.000Z',
+//                end_date: '2016-08-03T20:00:00.000Z',
+//                total_tickets: 5,
+//                total_tickets_left: 5
+//            }
+//        ];
 
         var groupOccurrences = function (occurrences) {
             occurrences = _.sortBy(occurrences, 'start_date');
             _.each(occurrences, function(obj) {
-                var startDate = moment(obj.start_date);
-                var endDate = moment(obj.end_date);
+                var startDate = moment(obj.start_date).utc();
+                var endDate = moment(obj.end_date).utc();
                 obj.startTime = startDate.format('HH:mm');
                 obj.endTime = endDate.format('HH:mm');
                 obj.duration = moment.duration(endDate.diff(startDate)).asMinutes();
@@ -213,7 +463,7 @@ angular.module('boltApp.controllers.Class', [])
                 obj.day = startDate.dayOfYear();
             });
             $scope.groupByTime = _.groupBy(occurrences, 'startTime');
-            console.log($scope.groupByTime);
+            //console.log($scope.groupByTime);
             _.each($scope.groupByTime, function (obj, key) {
                 $scope.groupByTime[key] = _.groupBy(obj, 'endTime');
             });
@@ -237,7 +487,7 @@ angular.module('boltApp.controllers.Class', [])
                     });
                 });
             });
-            console.log($scope.groupByTime);
+            //console.log($scope.groupByTime);
             _.each($scope.groupByTime, function (obj) {
                 _.each(obj, function (val) {
                     _.each(val, function (c, j) {
@@ -246,7 +496,7 @@ angular.module('boltApp.controllers.Class', [])
                 });
             });
             $scope.groupByWeekly = [];
-            console.log($scope.groupByTime);
+            //console.log($scope.groupByTime);
             _.each($scope.groupByTime, function (obj) {
                 _.each(obj, function (val) {
                     _.each(val, function (c) {
@@ -254,7 +504,7 @@ angular.module('boltApp.controllers.Class', [])
                     });
                 });
             });
-            console.log($scope.groupByWeekly);
+            //console.log($scope.groupByWeekly);
             $scope.groupByDaily = _.filter($scope.groupByWeekly, function (obj) {
                 return obj.length === 1;
             });
@@ -276,21 +526,26 @@ angular.module('boltApp.controllers.Class', [])
             $scope.groupByWeekly = _.groupBy($scope.groupByWeekly, 'weekly');
             _.map($scope.groupByWeekly, function (obj) {
                 obj.repeat = 'Weekly';
-                obj.day = 'on ' + moment(_.first(obj).start_date).format('dddd');
+                obj.day = 'on ' + moment(_.first(obj).start_date).utc().format('dddd');
+                obj.weekday = _.first(obj).weekday;
             });
             $scope.groupByAll = _.extend(_.clone($scope.groupByDaily), _.clone($scope.groupByWeekly));
             $scope.groupByAll = _.sortBy($scope.groupByAll, function(value, key) {
                 return +key;
             });
             _.map($scope.groupByAll, function (obj) {
-                obj.frame = 'Starting ' + moment(_.first(obj).start_date).format('MMMM D YYYY') + (obj.length > 1 ? ' through ' + moment(_.last(obj).start_date).format('MMMM D YYYY') : '');
-                obj.time = _.first(obj).startTime + ' - ' + _.first(obj).endTime;
+                obj.frame = 'Starting ' + moment(_.first(obj).start_date).utc().format('MMMM D YYYY') + (obj.length > 1 ? ' through ' + moment(_.last(obj).start_date).utc().format('MMMM D YYYY') : '');
+                obj.startDate = _.first(obj).start_date;
+                obj.endDate = _.last(obj).end_date;
+                obj.startTime = _.first(obj).startTime;
+                obj.endTime = _.last(obj).endTime;
+                obj.hide = true;
             });
-            console.log($scope.groupByWeekly);
-            console.log($scope.groupByDaily);
-            console.log($scope.groupByAll);
+            //console.log($scope.groupByWeekly);
+            //console.log($scope.groupByDaily);
+            //console.log($scope.groupByAll);
         };
 
-        groupOccurrences($scope.occurrences);
+        //groupOccurrences($scope.occurrences);
 
     });

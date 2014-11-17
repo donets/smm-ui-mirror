@@ -127,28 +127,38 @@
     background: $colorBackTimetable;
     padding: 20px 0;
     width: 100%;
+    @include transition(all .2s);
     z-index: 1;
     &.stuck {
         @include box-shadow(0 3px 5px getRgba($colorGrey, 0.5));
-        @include transition(all .2s);
         height: 70px;
         padding: 0;
         h2 {
-            @include transition(all .2s);
+            height: 28px;
+            overflow: hidden;
             font-size: 28px;
+            margin: 10px 0 0;
             line-height: 28px;
-            margin-bottom: 5px;
-        }
-        p {
-            display: inline-block;
-            margin-right: 10px;
         }
         a {
             display: inline-block;
         }
     }
     h2 {
-        margin: 10px 0;
+        @include transition(all .2s);
+        display: inline-block;
+        margin: 15px 0 5px;
+        width: 480px;
+    }
+    p {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .status {
+        font-size: 15px;
+        &.green {
+            color: $colorGreen;
+        }
     }
     button {
         width: 150px;
@@ -169,24 +179,39 @@
             background: $colorLightGrey;
         }
     }
-    a {
-        display: block;
-        font-size: 15px;
-        color: $colorText;
-        text-align: center;
-        text-decoration: underline;
-        &:hover {
-            color: $colorHover;
-        }
-    }
 }
 .b-class-edit {
     margin: 20px 0 60px;
     .form-label {
         display: block;
     }
+    .form-rel {
+        > button {
+            width: 150px;
+            height: 40px;
+            background: $colorGrey;
+            border: 0 none;
+            @include border-radius(5px);
+            font-size: 16px;
+            color: #fff;
+            margin: 15px 10px 15px 0;
+            .fa {
+                margin-right: 8px;
+            }
+            &.green {
+                background: $colorGreen;
+            }
+            &.disabled {
+                background: $colorLightGrey;
+            }
+        }
+    }
     select {
         width: 100%;
+    }
+    textarea {
+        width: 620px;
+        min-height: 120px;
     }
 }
 .b-date-group {
@@ -201,6 +226,7 @@
             color: $colorGrey;
         }
         &:first-child {
+            width: 70px;
             text-align: center;
             border-left: 1px solid $colorLightGrey;
         }
@@ -245,6 +271,33 @@
             font-size: 15px;
             margin: 0 10px;
             outline: none;
+        }
+    }
+}
+.b-date-schedule {
+    width: 620px;
+    border: 1px solid $colorLightGrey;
+    padding: 20px;
+    @include border-radius(5px);
+    h3 {
+        display: block;
+        background: $colorBackTimetable;
+        border-bottom: 1px solid $colorLightGrey;
+        @include border-top-radius(5px);
+        margin: -20px -20px 0;
+        padding: 20px;
+    }
+    > .form-rel {
+        margin: 20px 0;
+        width: 380px;
+        &:last-child {
+            margin: 20px 0 0;
+        }
+        .date, .time {
+            width: 170px;
+        }
+        > span {
+            margin: 0 10px;
         }
     }
 }

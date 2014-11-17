@@ -18,7 +18,7 @@ angular.module('boltApp.controllers.Subscribe', [])
                 $scope.loadingUpdate = false;
                 $scope.successUpdate = true;
                 $scope.email = '';
-                $scope.form.$setPristine();                
+                $scope.form.$setPristine();
                 $window.ga('set', 'dimension1', '1');
                 $window.ga('send', 'signup_app_waitlist', 'content');
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {

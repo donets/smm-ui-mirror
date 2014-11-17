@@ -295,21 +295,21 @@ angular.module('boltApp')
             .state('admin.class', {
                 url : 'class/:classId/',
                 templateUrl: 'views/class.html',
-                //resolve: {
-                //
-                //    getClass: function(Events, $stateParams) {
-                //
-                //        return Events.get({eventId: $stateParams.classId}).$promise;
-                //
-                //    },
-                //
-                //    getOccurrences: function(Occurrences, $stateParams) {
-                //
-                //        return Occurrences.query({parentId: $stateParams.classId}).$promise;
-                //
-                //    }
-                //
-                //},
+                resolve: {
+
+                    getClass: function(Events, $stateParams) {
+
+                        return Events.get({eventId: $stateParams.classId}).$promise;
+
+                    },
+
+                    getOccurrences: function(Occurrences, $stateParams) {
+
+                        return Occurrences.query({parentId: $stateParams.classId}).$promise;
+
+                    }
+
+                },
                 controller : 'ClassCtrl'
             })
             .state('more', {

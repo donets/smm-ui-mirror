@@ -1,10 +1,11 @@
 <div class="b-class-block" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
-            <h2>Jivamukti Yoga</h2>
+            <h2>{{class.title}}</h2>
             <div class="info">
-                <p><b class="status">Draft</b> 13 Classes scheduled.</p>
+                <p>{{occurrences.length}} Classes scheduled</p>
                 <p>Studio Mitte</p>
+                <p class="status" ng-class="{'green': class.status === 'LIVE'}">{{class.status}}</p>
             </div>
         </div>
         <div class="w-right">
@@ -17,7 +18,7 @@
         <h3>Main info</h3>
         <div class="form-rel">
             <label class="form-label" for="title">Event title</label>
-            <input class="form-input" type="text" id="title"/>
+            <input class="form-input" type="text" ng-model="class.title" id="title"/>
         </div>
         <div class="form-rel">
             <label class="form-label" for="location">Location</label>
@@ -31,57 +32,167 @@
                 <option>Prenzlauer Berg</option>
             </select>
         </div>
-        <div class="form-rel">
+        <div class="form-rel auto" disable-animate>
             <label class="form-label">Event dates</label>
-            <table class="b-date-group" ng-repeat="(key, value) in groupByAll">
+            <table class="b-date-group" ng-if="!showSchedule" ng-repeat="(key, value) in groupByAll">
                 <thead>
                     <tr>
                         <th><p>{{value.length}}</p><p>Date{{value.length > 1 ? 's' : ''}}</p></th>
-                        <th><p>{{value.repeat}} {{value.day}} {{value.time}}</p><p><span>{{value.frame}}</span></p></th>
+                        <th><p>{{value.repeat}} {{value.day}} {{value.startTime}} - {{value.endTime}}</p><p><span>{{value.frame}}</span></p></th>
                         <th>
                             <div class="controls">
-                                <a href=""><i class="fa fa-list"></i></a>
-                                <a href=""><i class="fa fa-pencil"></i></a>
-                                <a href=""><i class="fa fa-trash"></i></a>
+                                <a href="" ng-click="toggleGroup(value)"><i class="fa fa-list"></i></a>
+                                <a href="" ng-click="editGroup(value)"><i class="fa fa-pencil"></i></a>
+                                <a href="" ng-click="deleteGroup(value)"><i class="fa fa-trash"></i></a>
                             </div>
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-if="!value.hide">
                     <tr ng-repeat="c in value">
                         <td></td>
                         <td>{{c.start_date | amDateFormat: 'dddd, D MMMM YYYY'}} ({{c.startTime}} to {{c.endTime}})</td>
                         <td>
                             <div class="controls">
-                                <a href=""><i class="fa fa-pencil"></i></a>
-                                <a href=""><i class="fa fa-trash"></i></a>
+                                <a href="" ng-click="editSingle(c)"><i class="fa fa-pencil"></i></a>
+                                <a href="" ng-click="deleteSingle(c)"><i class="fa fa-trash"></i></a>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div ng-repeat="(key, value) in groupByTime">
-            <h1>{{key}}</h1>
-            <div ng-repeat="(key, duration) in value">
-                <h2>{{key}}</h2>
-                <div ng-repeat="(key, days) in duration">
-                    <h3>{{moment.day(key) | amDateFormat: 'dddd'}}</h3>
-                    <div ng-repeat="(key, repeats) in days">
-                        <h4>Group {{key}}</h4>
-                        <div ng-repeat="c in repeats">
-                            {{c.startTime}} - {{c.endTime}} : {{c.duration}} = {{c.weekly}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY, HH:mm:ss'}}
-                        </div>
+            <div class="form-rel" ng-if="!showSchedule">
+                <button class="green" ng-click="addDates()" type="button">Add Dates</button>
+            </div>
+            <form name="form" class="b-date-schedule" ng-show="showSchedule" ng-submit="saveSchedule()">
+                <h3 ng-if="newEvent">Schedule dates</h3>
+                <h3 ng-if="schedule.repeat === 'Single' && !newEvent">Edit a single date</h3>
+                <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat.toLowerCase()}} repeating dates</h3>
+                <div class="form-rel" ng-if="newEvent">
+                    <label class="form-label" for="repeat">Event repeats</label>
+                    <select chosen
+                            id="repeat"
+                            ng-model="schedule.repeat"
+                            ng-change="updateSchedule()"
+                            data-placeholder="Select repeats"
+                            disable-search="true" required
+                            ng-options="item for item in repeatList">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-rel" ng-if="schedule.repeat === 'Weekly'">
+                    <label class="form-label" for="weekday">Repeating every</label>
+                    <select chosen
+                            id="weekday"
+                            ng-model="schedule.weekday"
+                            ng-change="updateSchedule()"
+                            data-placeholder="Select repeats"
+                            disable-search="true" required
+                            ng-options="item.number as item.text for item in weekdayList">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-rel">
+                    <label class="form-label">From</label>
+                    <select chosen
+                            width="130" id="startTime"
+                            disable-search="false"
+                            search-contains="true"
+                            data-placeholder="Select time"
+                            name="workSchedule" inherit-select-classes="true"
+                            ng-model="schedule.startTime" class="time" required
+                            ng-change="updateSchedule();setEndTimeList()"
+                            ng-options="item for item in startTimeList">
+                        <option value=""></option>
+                    </select>
+                    <span>to</span>
+                    <select chosen
+                            width="130" id="endTime"
+                            disable-search="false"
+                            search-contains="true"
+                            data-placeholder="Select time"
+                            name="workSchedule" inherit-select-classes="true"
+                            ng-model="schedule.endTime" class="time" required
+                            ng-change="updateSchedule()"
+                            ng-options="item for item in endTimeList">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-rel">
+                    <label class="form-label" for="location" ng-bind="schedule.repeat === 'Single' ? 'On' : 'Repeat from'"></label>
+                    <div class="form-rel input-date" ng-click="openDatepicker($event, 'from')">
+                        <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
+                               datepicker-options="dateOptions" min-date="minStartDate"
+                               ng-model="schedule.startDate" ng-change="updateSchedule();checkDate()"
+                               class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
+                    </div>
+                    <span ng-if="schedule.repeat !== 'Single'">to</span>
+                    <div class="form-rel input-date" ng-if="schedule.repeat !== 'Single'" ng-click="openDatepicker($event, 'to')">
+                        <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'to')" is-open="showDatepicker.to"
+                               datepicker-options="dateOptions" min-date="minEndDate" ng-disabled="!schedule.startDate"
+                               ng-model="schedule.endDate" ng-change="updateSchedule();checkDate()"
+                               class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
                     </div>
                 </div>
-            </div>
+                <div class="form-rel" ng-if="form.$valid">
+                    <p><span ng-if="schedule.repeat !== 'Single' && schedule.times">{{schedule.times + 1 + ' dates'}}</span><span ng-if="schedule.repeat === 'Single' || schedule.times === 0">1 Date</span> ( {{schedule.duration.hours}} {{schedule.duration.minutes}} <span ng-if="schedule.times">each </span>)</p>
+                    <p ng-if="schedule.repeat !== 'Weekly'">Starting {{schedule.startDate | amDateFormat: 'MMMM D YYYY'}} <span ng-if="schedule.times">through {{schedule.endDate | amDateFormat: 'MMMM D YYYY'}}</span></p>
+                    <p ng-if="schedule.repeat === 'Weekly'">Starting {{schedule.startDateWeekly | amDateFormat: 'MMMM D YYYY'}} <span ng-if="schedule.times">through {{schedule.endDateWeekly | amDateFormat: 'MMMM D YYYY'}}</span></p>
+                </div>
+                <div class="form-rel" ng-if="form.$invalid">
+                    <p>No dates created by schedule</p>
+                </div>
+                <div class="form-rel">
+                    <button class="green" ng-disabled="form.$invalid" type="submit">Save</button><button type="button" ng-click="fetchOccurrences()">Cancel</button>
+                </div>
+            </form>
+            <!--<pre style="position: absolute; right: 0; top: 0; ">{{minEndDate | json}}</pre>-->
         </div>
-        <div ng-repeat="(key, value) in groupByAll">
-            <h1>{{key}} {{value.repeat}} {{value.day}} {{value.time}}</h1>
-            <h2>{{value.frame}}</h2>
-            <div ng-repeat="c in value">
-                <strong>{{c.id}}</strong> {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}} ___ {{c.daily}} / {{c.weekly}}
-            </div>
+        <div class="form-rel">
+            <label class="form-label" for="level">Event level</label>
+            <input class="form-input" type="text" ng-model="class.level" id="level"/>
         </div>
+        <div class="form-rel">
+            <label class="form-label" for="teacher">Event teacher</label>
+            <input class="form-input" type="text" ng-model="class.teacher_name" id="teacher"/>
+        </div>
+        <div class="form-rel">
+            <label class="form-label" for="studio">Event studio</label>
+            <input class="form-input" type="text" ng-model="class.studio" id="studio"/>
+        </div>
+        <div class="form-rel">
+            <label class="form-label" for="discipline">Event discipline</label>
+            <input class="form-input" type="text" ng-model="class.tags" id="discipline"/>
+        </div>
+        <div class="form-rel">
+            <label class="form-label" for="subDiscipline">Event sub-discipline</label>
+            <input class="form-input" type="text" ng-model="class.sub" id="subDiscipline"/>
+        </div>
+        <div class="form-rel">
+            <label class="form-label" for="description">Event description</label>
+            <textarea ng-model="class.description" id="description"></textarea>
+        </div>
+        <!--<div ng-repeat="(key, value) in groupByTime">-->
+            <!--<h1>{{key}}</h1>-->
+            <!--<div ng-repeat="(key, duration) in value">-->
+                <!--<h2>{{key}}</h2>-->
+                <!--<div ng-repeat="(key, days) in duration">-->
+                    <!--<h3>{{moment.day(key) | amDateFormat: 'dddd'}}</h3>-->
+                    <!--<div ng-repeat="(key, repeats) in days">-->
+                        <!--<h4>Group {{key}}</h4>-->
+                        <!--<div ng-repeat="c in repeats">-->
+                            <!--{{c.startTime}} - {{c.endTime}} : {{c.duration}} = {{c.weekly}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY, HH:mm:ss'}}-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div ng-repeat="(key, value) in groupByAll">-->
+            <!--<h1>{{key}} {{value.repeat}} {{value.day}} {{value.time}}</h1>-->
+            <!--<h2>{{value.frame}}</h2>-->
+            <!--<div ng-repeat="c in value">-->
+                <!--<strong>{{c.id}}</strong> {{c.startTime}} - {{c.endTime}} : {{c.duration}} /// {{c.start_date | amDateFormat: 'dddd, MMMM Do YYYY'}} ___ {{c.daily}} / {{c.weekly}}-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
