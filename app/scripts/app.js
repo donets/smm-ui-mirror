@@ -61,7 +61,7 @@ angular.module('boltApp')
                 $window.rendering = true;
             });
             $rootScope.$on('$viewContentLoaded', function(){
-                $window.rendering ? $window.prerenderReady = true : 0;
+                return $window.rendering ? $window.prerenderReady = true : 0;
             });
             amMoment.changeLanguage('de'); 
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
