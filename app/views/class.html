@@ -67,7 +67,7 @@
             <form name="form" class="b-date-schedule" ng-show="showSchedule" ng-submit="saveSchedule()">
                 <h3 ng-if="newEvent">Schedule dates</h3>
                 <h3 ng-if="schedule.repeat === 'Single' && !newEvent">Edit a single date</h3>
-                <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat.toLowerCase()}} repeating dates</h3>
+                <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat | lowercase}} repeating dates</h3>
                 <div class="form-rel" ng-if="newEvent">
                     <label class="form-label" for="repeat">Event repeats</label>
                     <select chosen
@@ -123,14 +123,14 @@
                     <div class="form-rel input-date" ng-click="openDatepicker($event, 'from')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
                                datepicker-options="dateOptions" min-date="minStartDate"
-                               ng-model="schedule.startDate" ng-change="updateSchedule();checkDate()"
+                               ng-model="schedule.startDate" ng-change="updateSchedule();checkDate('startDate')"
                                class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
                     </div>
                     <span ng-if="schedule.repeat !== 'Single'">to</span>
                     <div class="form-rel input-date" ng-if="schedule.repeat !== 'Single'" ng-click="openDatepicker($event, 'to')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'to')" is-open="showDatepicker.to"
                                datepicker-options="dateOptions" min-date="minEndDate" ng-disabled="!schedule.startDate"
-                               ng-model="schedule.endDate" ng-change="updateSchedule();checkDate()"
+                               ng-model="schedule.endDate" ng-change="updateSchedule();checkDate('endDate')"
                                class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                     <button class="green" ng-disabled="form.$invalid" type="submit">Save</button><button type="button" ng-click="fetchOccurrences()">Cancel</button>
                 </div>
             </form>
-            <!--<pre style="position: absolute; right: 0; top: 0; ">{{minEndDate | json}}</pre>-->
+            <!--<pre style="position: absolute; right: 0; top: 0; ">{{schedule | json}}</pre>-->
         </div>
         <div class="form-rel">
             <label class="form-label" for="level">Event level</label>

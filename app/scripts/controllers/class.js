@@ -38,13 +38,18 @@ angular.module('boltApp.controllers.Class', [])
             'Single'
         ];
 
-        $scope.checkDate = function() {
+        $scope.checkDate = function(date) {
 
-//            if($scope.schedule.startDate.getDate() === new Date().getDate() && new Date().getHours() > 5) {
-//                setTimeList($scope.timeList, (new Date().getHours() + 1));
-//            } else {
-//                setTimeList($scope.timeList, false);
-//            }
+            console.log($scope.schedule[date]);
+            console.log(moment($scope.schedule[date]).zone());
+            $scope.schedule[date] = moment($scope.schedule[date]).format();
+            //$scope.schedule[date] = moment($scope.schedule[date]).subtract(moment($scope.schedule[date]).zone(), 'm').toISOString();
+
+            /*if($scope.schedule.startDate.getDate() === new Date().getDate() && new Date().getHours() > 5) {
+                setTimeList($scope.timeList, (new Date().getHours() + 1));
+            } else {
+                setTimeList($scope.timeList, false);
+            }*/
 
         };
 
@@ -94,30 +99,30 @@ angular.module('boltApp.controllers.Class', [])
                     break;
                 }
                 case 'Weekly': {
-                    var weekday = $scope.schedule.weekday;
+                    var weekday = $scope.schedule.weekday ? $scope.schedule.weekday : 1;
                     var endDate = moment($scope.schedule.endDate).hours(0);
                     var startDate = moment($scope.schedule.startDate).hours(0);
                     if (startDate.isoWeekday(weekday).isBefore($scope.schedule.startDate, 'days')) {
                         var addStartDate = startDate.add(1, 'w');
                         if (!addStartDate.isAfter($scope.schedule.endDate, 'days')) {
-                            $scope.schedule.startDateWeekly = addStartDate.isoWeekday(weekday);
+                            $scope.schedule.startDateWeekly = addStartDate.isoWeekday(weekday).format();
                         } else {
                             $scope.schedule.startDateWeekly = null;
                         }
                     } else if (!startDate.isoWeekday(weekday).isAfter($scope.schedule.endDate, 'days')) {
-                        $scope.schedule.startDateWeekly = startDate.isoWeekday(weekday);
+                        $scope.schedule.startDateWeekly = startDate.isoWeekday(weekday).format();
                     } else {
                         $scope.schedule.startDateWeekly = null;
                     }
                     if (endDate.isoWeekday(weekday).isAfter($scope.schedule.endDate, 'days')) {
                         var subEndDate = endDate.subtract(1, 'w');
                         if (!subEndDate.isBefore($scope.schedule.startDate, 'days')) {
-                            $scope.schedule.endDateWeekly = subEndDate.isoWeekday(weekday);
+                            $scope.schedule.endDateWeekly = subEndDate.isoWeekday(weekday).format();
                         } else {
                             $scope.schedule.endDateWeekly = null;
                         }
                     } else if (!endDate.isoWeekday(weekday).isBefore($scope.schedule.startDate, 'days')) {
-                        $scope.schedule.endDateWeekly = endDate.isoWeekday(weekday);
+                        $scope.schedule.endDateWeekly = endDate.isoWeekday(weekday).format();
                     } else {
                         $scope.schedule.endDateWeekly = null;
                     }
@@ -146,6 +151,46 @@ angular.module('boltApp.controllers.Class', [])
             });
         };
 
+        var updateList = function (repeat) {
+            var arrGroup = [];
+            _.map($scope.schedule, function(c) {
+                arrGroup.push({id: c.id});
+                return arrGroup;
+            });
+            Occurrences.deleteList(arrGroup).$promise.then(function () {
+                saveList(repeat);
+            });
+        };
+
+        var saveList = function (repeat) {
+            var arr = [];
+            var date, step;
+            switch (repeat) {
+                case 'Daily': {
+                    date = $scope.schedule.startDate;
+                    step = 'd';
+                    break;
+                }
+                case 'Weekly': {
+                    date = $scope.schedule.startDateWeekly;
+                    step = 'w';
+                    break;
+                }
+            }
+            for (var d = 0; d<= $scope.schedule.times; d++) {
+                var obj = {
+                    start_date: moment(date).add(d, step).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z',
+                    end_date: moment(date).add(d, step).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z',
+                    parent_event_id: +$rootScope.$stateParams.classId
+                };
+                arr.push(obj);
+            }
+            Occurrences.saveList(arr).$promise.then(function () {
+                $scope.fetchOccurrences();
+            });
+            console.log(arr);
+        };
+
         $scope.saveSchedule = function() {
             switch ($scope.schedule.repeat) {
                 case 'Single': {
@@ -154,13 +199,12 @@ angular.module('boltApp.controllers.Class', [])
                     obj.start_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z';
                     obj.end_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z';
                     if ($scope.newEvent) {
-                        obj.parentEventId = $rootScope.$stateParams.classId;
+                        obj.parent_event_id = +$rootScope.$stateParams.classId;
                         obj.$save().then(function () {
                             $scope.fetchOccurrences();
                         });
                     } else {
-                        obj.id = $scope.schedule.id;
-                        obj.$update({occurrenceId: obj.id}).then(function () {
+                        obj.$update({occurrenceId: $scope.schedule.id}).then(function () {
                             $scope.fetchOccurrences();
                         });
                     }
@@ -170,54 +214,21 @@ angular.module('boltApp.controllers.Class', [])
                 case 'Daily': {
                     console.log('group daily');
                     console.log($scope.schedule);
-                    var arrDailyR = new Occurrences();
                     if (!$scope.newEvent) {
-                        _.map($scope.schedule, function(c) {
-                            arrDailyR.push({id: c.id});
-                            return arrDailyR;
-                        });
-                        arrDailyR.$deleteList().then(function () {
-                            $scope.fetchOccurrences();
-                        });
+                        updateList('Daily');
+                    } else {
+                        saveList('Daily');
                     }
-                    var arrDaily = [];
-                    for (var d = 0; d<= $scope.schedule.times; d++) {
-                        var objDay = {
-                            start_date: moment($scope.schedule.startDate).add(d, 'd').format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z',
-                            end_date: moment($scope.schedule.startDate).add(d, 'd').format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z',
-                            parentEventId: $rootScope.$stateParams.classId
-                        };
-                        arrDaily.push(objDay);
-                    }
-                    Occurrences.saveList(arrDaily).$promise.then(function () {
-                        $scope.fetchOccurrences();
-                    });
-                    console.log(arrDaily);
                     break;
                 }
                 case 'Weekly': {
                     console.log('group weekly');
                     console.log($scope.schedule);
-                    var arrWeekly = [];
                     if (!$scope.newEvent) {
-                        _.map($scope.schedule, function(c) {
-                            var obj = {
-                                id: c.id,
-                                removed: true
-                            };
-                            arrWeekly.push(obj);
-                            return arrWeekly;
-                        });
+                        updateList('Weekly');
+                    } else {
+                        saveList('Weekly');
                     }
-                    for (var w = 0; w<= $scope.schedule.times; w++) {
-                        var objWeekDay = {
-                            start_date: moment($scope.schedule.startDateWeekly).add(w, 'w').format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z',
-                            end_date: moment($scope.schedule.startDateWeekly).add(w, 'w').format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z',
-                            parentEventId: $rootScope.$stateParams.classId
-                        };
-                        arrWeekly.push(objWeekDay);
-                    }
-                    console.log(arrWeekly);
                     break;
                 }
                 default:
@@ -237,10 +248,6 @@ angular.module('boltApp.controllers.Class', [])
             $scope.setEndTimeList();
         };
 
-        $scope.deleteGroup = function(obj) {
-            console.log(obj);
-        };
-
         $scope.editSingle = function(c) {
             $scope.showSchedule = true;
             c.startDate = c.start_date;
@@ -251,8 +258,30 @@ angular.module('boltApp.controllers.Class', [])
             $scope.setEndTimeList();
         };
 
+        $scope.deleteGroup = function(obj) {
+            console.log(obj);
+            if(obj.length === 1) {
+                $scope.deleteSingle(_.first(obj));
+            } else {
+                var arrGroup = [];
+                _.map(obj, function(c) {
+                    arrGroup.push({id: c.id});
+                    return arrGroup;
+                });
+                $scope.schedule = arrGroup;
+                console.log(arrGroup);
+                Occurrences.deleteList(arrGroup).$promise.then(function () {
+                    $scope.fetchOccurrences();
+                });
+            }
+        };
+
         $scope.deleteSingle = function(c) {
             console.log(c);
+            var obj = new Occurrences();
+            obj.$delete({occurrenceId: c.id}).then(function () {
+                $scope.fetchOccurrences();
+            });
         };
 
 //        $scope.occurrences = [
@@ -460,7 +489,9 @@ angular.module('boltApp.controllers.Class', [])
                 obj.duration = moment.duration(endDate.diff(startDate)).asMinutes();
                 obj.weekday = startDate.isoWeekday();
                 obj.year = startDate.year();
-                obj.day = startDate.dayOfYear();
+                var str = "" + startDate.dayOfYear();
+                var pad = "000";
+                obj.day = pad.substring(0, pad.length - str.length) + str
             });
             $scope.groupByTime = _.groupBy(occurrences, 'startTime');
             //console.log($scope.groupByTime);
@@ -543,7 +574,7 @@ angular.module('boltApp.controllers.Class', [])
             });
             //console.log($scope.groupByWeekly);
             //console.log($scope.groupByDaily);
-            //console.log($scope.groupByAll);
+            console.log($scope.groupByAll);
         };
 
         //groupOccurrences($scope.occurrences);
