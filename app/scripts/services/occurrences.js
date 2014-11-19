@@ -16,7 +16,7 @@ angular.module('boltApp.services.occurrences', [])
             'save': {method: 'POST', cache: false},
             'delete': {method: 'DELETE', cache: false },
             'saveList': {method: 'POST', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/occurrences/bulk' },
-            'deleteList': {method: 'DELETE', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/occurrences/bulk' },
+            'deleteList': {method: 'POST', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/occurrences/bulk/delete' },
             'getOrder': {method: 'GET', cache: false, url: $window.smmConfig.restUrlBase + '/api/eventbrite/:eventId/order'}
         });
     }]);

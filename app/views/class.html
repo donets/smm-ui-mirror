@@ -32,7 +32,7 @@
                 <option>Prenzlauer Berg</option>
             </select>
         </div>
-        <div class="form-rel auto" disable-animate>
+        <div class="form-rel auto" id="datesSchedule" disable-animate>
             <label class="form-label">Event dates</label>
             <table class="b-date-group" ng-if="!showSchedule" ng-repeat="(key, value) in groupByAll">
                 <thead>
@@ -64,7 +64,8 @@
             <div class="form-rel" ng-if="!showSchedule">
                 <button class="green" ng-click="addDates()" type="button">Add Dates</button>
             </div>
-            <form name="form" class="b-date-schedule" ng-show="showSchedule" ng-submit="saveSchedule()">
+            <span class="spinner" ng-show="showSpinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
+            <form name="form" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
                 <h3 ng-if="newEvent">Schedule dates</h3>
                 <h3 ng-if="schedule.repeat === 'Single' && !newEvent">Edit a single date</h3>
                 <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat | lowercase}} repeating dates</h3>

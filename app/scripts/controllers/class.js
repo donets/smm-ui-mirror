@@ -11,7 +11,7 @@
 /* jshint undef:false */
 
 angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope, $rootScope, getClass, getOccurrences, Occurrences) {
+    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, Occurrences) {
         $scope.moment = moment();
         $scope._ = _;
         getClass.$promise.then(function () {
@@ -30,6 +30,8 @@ angular.module('boltApp.controllers.Class', [])
 
         $scope.startTimeList = [];
 
+        $scope.endTimeList = [];
+
         $scope.weekdayList = [];
 
         $scope.repeatList = [
@@ -38,25 +40,30 @@ angular.module('boltApp.controllers.Class', [])
             'Single'
         ];
 
+        setWeekdayList($scope.weekdayList);
+
         $scope.checkDate = function(date) {
 
+            var currentDate = moment($scope.schedule[date]);
             console.log($scope.schedule[date]);
-            console.log(moment($scope.schedule[date]).zone());
-            $scope.schedule[date] = moment($scope.schedule[date]).format();
-            //$scope.schedule[date] = moment($scope.schedule[date]).subtract(moment($scope.schedule[date]).zone(), 'm').toISOString();
+            console.log(currentDate.zone());
+            $scope.schedule[date] = currentDate.format();
 
-            /*if($scope.schedule.startDate.getDate() === new Date().getDate() && new Date().getHours() > 5) {
-                setTimeList($scope.timeList, (new Date().getHours() + 1));
+            if(date === 'startDate' && currentDate.isSame(moment(), 'days') && moment().hours() > 5) {
+                $scope.setStartTimeList(moment().format('HH:mm'), 23);
             } else {
-                setTimeList($scope.timeList, false);
-            }*/
+                $scope.setStartTimeList(false, 23);
+            }
 
         };
 
-        setTimeList($scope.startTimeList, false, 23);
+        $scope.setStartTimeList = function(start, end) {
+            setTimeList($scope.startTimeList, start, end);
+        };
 
-        setWeekdayList($scope.weekdayList);
-
+        $scope.setEndTimeList = function() {
+            setTimeList($scope.endTimeList, $scope.schedule.startTime);
+        };
         $scope.showDatepicker = {};
 
         $scope.openDatepicker = function($event, type) {
@@ -71,15 +78,16 @@ angular.module('boltApp.controllers.Class', [])
             showWeeks: false
         };
 
-        $scope.addDates = function() {
+        $scope.showScheduleFunc = function () {
             $scope.showSchedule = true;
-            $scope.newEvent = true;
-            $scope.schedule = {};
+            $scope.setStartTimeList(false, 23);
+            $document.scrollToElement($('#datesSchedule'), 80);
         };
 
-        $scope.setEndTimeList = function() {
-            $scope.endTimeList = [];
-            setTimeList($scope.endTimeList, $scope.schedule.startTime);
+        $scope.addDates = function() {
+            $scope.showScheduleFunc();
+            $scope.newEvent = true;
+            $scope.schedule = {};
         };
 
         $scope.updateSchedule = function() {
@@ -140,6 +148,7 @@ angular.module('boltApp.controllers.Class', [])
         $scope.clearSchedule = function() {
             $scope.showSchedule = false;
             $scope.newEvent = false;
+            $scope.showSpinner = false;
             $scope.schedule = null;
             $scope.form.$setPristine();
         };
@@ -188,14 +197,13 @@ angular.module('boltApp.controllers.Class', [])
             Occurrences.saveList(arr).$promise.then(function () {
                 $scope.fetchOccurrences();
             });
-            console.log(arr);
         };
 
         $scope.saveSchedule = function() {
+            $scope.showSpinner = true;
             switch ($scope.schedule.repeat) {
                 case 'Single': {
                     var obj = new Occurrences();
-                    console.log('single');
                     obj.start_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z';
                     obj.end_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z';
                     if ($scope.newEvent) {
@@ -208,12 +216,9 @@ angular.module('boltApp.controllers.Class', [])
                             $scope.fetchOccurrences();
                         });
                     }
-                    console.log(obj);
                     break;
                 }
                 case 'Daily': {
-                    console.log('group daily');
-                    console.log($scope.schedule);
                     if (!$scope.newEvent) {
                         updateList('Daily');
                     } else {
@@ -222,8 +227,6 @@ angular.module('boltApp.controllers.Class', [])
                     break;
                 }
                 case 'Weekly': {
-                    console.log('group weekly');
-                    console.log($scope.schedule);
                     if (!$scope.newEvent) {
                         updateList('Weekly');
                     } else {
@@ -237,29 +240,26 @@ angular.module('boltApp.controllers.Class', [])
         };
 
         $scope.editGroup = function(obj) {
-            $scope.showSchedule = true;
+            $scope.showScheduleFunc();
             if(obj.length === 1) {
                 $scope.editSingle(_.first(obj));
             } else {
                 $scope.schedule = obj;
-                console.log(obj);
             }
             $scope.updateSchedule();
             $scope.setEndTimeList();
         };
 
         $scope.editSingle = function(c) {
-            $scope.showSchedule = true;
+            $scope.showScheduleFunc();
             c.startDate = c.start_date;
             c.repeat = 'Single';
             $scope.schedule = c;
-            console.log(c);
             $scope.updateSchedule();
             $scope.setEndTimeList();
         };
 
         $scope.deleteGroup = function(obj) {
-            console.log(obj);
             if(obj.length === 1) {
                 $scope.deleteSingle(_.first(obj));
             } else {
@@ -269,7 +269,6 @@ angular.module('boltApp.controllers.Class', [])
                     return arrGroup;
                 });
                 $scope.schedule = arrGroup;
-                console.log(arrGroup);
                 Occurrences.deleteList(arrGroup).$promise.then(function () {
                     $scope.fetchOccurrences();
                 });
@@ -277,7 +276,6 @@ angular.module('boltApp.controllers.Class', [])
         };
 
         $scope.deleteSingle = function(c) {
-            console.log(c);
             var obj = new Occurrences();
             obj.$delete({occurrenceId: c.id}).then(function () {
                 $scope.fetchOccurrences();
@@ -489,9 +487,9 @@ angular.module('boltApp.controllers.Class', [])
                 obj.duration = moment.duration(endDate.diff(startDate)).asMinutes();
                 obj.weekday = startDate.isoWeekday();
                 obj.year = startDate.year();
-                var str = "" + startDate.dayOfYear();
-                var pad = "000";
-                obj.day = pad.substring(0, pad.length - str.length) + str
+                var str = '' + startDate.dayOfYear();
+                var pad = '000';
+                obj.day = pad.substring(0, pad.length - str.length) + str;
             });
             $scope.groupByTime = _.groupBy(occurrences, 'startTime');
             //console.log($scope.groupByTime);

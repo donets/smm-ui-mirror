@@ -213,6 +213,9 @@
         width: 620px;
         min-height: 120px;
     }
+    .spinner {
+        top: 50%;
+    }
 }
 .b-date-group {
     width: 620px;
@@ -286,6 +289,9 @@
         @include border-top-radius(5px);
         margin: -20px -20px 0;
         padding: 20px;
+    }
+    &.disabled {
+        opacity: 0.5;
     }
     > .form-rel {
         margin: 20px 0;

@@ -5,7 +5,8 @@
 /* jshint unused:false */
 
 function setTimeList (timeList, start, end) {
-    if (start && start.split(':')[1] === '00') {
+    _.clearArray(timeList);
+    if (start && +start.split(':')[1] < 30) {
         timeList.push(start.split(':')[0] + ':30');
     }
     for (var hour = start ? +start.split(':')[0] + 1 : 6; hour <= (end ? end : 23); hour++) {
@@ -26,6 +27,14 @@ function setWeekdayList (weekdayList) {
     }
     return (weekdayList);
 }
+
+_.mixin({
+    clearArray: function(array) {
+        while (array.length > 0) {
+            array.pop();
+        }
+    }
+});
 
 
 
