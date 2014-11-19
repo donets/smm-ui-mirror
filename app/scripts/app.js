@@ -57,7 +57,13 @@ angular.module('boltApp')
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             $rootScope.mainTitle = 'Somuchmore | Bewege Körper, Geist und Seele';
-            amMoment.changeLanguage('de');
+            $rootScope.$on('$viewContentLoading', function(){
+                $window.rendering = true;
+            });
+            $rootScope.$on('$viewContentLoaded', function(){
+                $window.rendering ? $window.prerenderReady = true : 0;
+            });
+            amMoment.changeLanguage('de'); 
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
                 $window._fbq.push(['addPixelId', '1461407927469396']);
