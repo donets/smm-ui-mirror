@@ -62,7 +62,7 @@
         font-family: $fontBold;
         margin: 0;
         letter-spacing: 1px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         @media (max-width: $containerMobileWidth640) {
             font-size: 32px;
         }
@@ -70,6 +70,7 @@
     p {
         font-size: 18px;
         color: #fff;
+        font-family: $fontBold;
         width: 680px;
         margin: 0 auto;
         letter-spacing: 0.1em;

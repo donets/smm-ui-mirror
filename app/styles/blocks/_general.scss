@@ -1,6 +1,7 @@
 
 @import "../_base/base";
 @import "fonts";
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400italic);
 
 /*******************************************************************************
  global rules
@@ -129,11 +130,11 @@ button {
     background: #fff; 
 }
 %gradient {
-    @include filter-gradient(#533576, #4970b9, horizontal);
-    @include background-image(linear-gradient(70deg, #533576 0%, #4296a5 58%, #4970b9 100%));
+    @include filter-gradient(#8d2526, #cb863b, horizontal);
+    @include background-image(linear-gradient(24deg, #8d2526 0%, #c84236 50%, #cb863b 100%));
     @media (max-width: $containerMobileWidth) {
-        @include filter-gradient(#7e9c9e, #699bb2, horizontal);
-        @include background-image(linear-gradient(70deg, #7e9c9e 0%, #699bb2 100%));
+        @include filter-gradient(#8d2526, #cb863b, horizontal);
+        @include background-image(linear-gradient(24deg, #8d2526 0%, #c84236 50%, #cb863b 100%));
     }
 }
 .b-main-sidebar {
@@ -268,5 +269,6 @@ button {
 @import "video";
 @import "alert";
 @import "ngProgress";
+@import "carousel";
 @import "modal";
 

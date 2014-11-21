@@ -2,8 +2,8 @@
 
 %input-text {
     height: 42px;
-    border: 1px solid #ddd;
-    font-size: 15px;
+    border: 1px solid $colorLightGrey;
+    font-size: 18px;
     font-family: $fontRegular;
     color: $colorText;
     padding: 5px 12px;
@@ -26,14 +26,14 @@
         height: 80px;
         border-width: 2px;
         line-height: 56px;
-        font-size: 30px;
+        font-size: 28px;
         padding: 10px 26px;
     }
     @media (max-width: $containerMobileWidth640) {
         height: 40px;
         border-width: 1px;
         line-height: 28px;
-        font-size: 15px;
+        font-size: 18px;
         padding: 5px 16px;
     }
 }
@@ -74,13 +74,9 @@ textarea {
     input[type="email"] {
         @extend %input-text;
         vertical-align: top;
-        width: 420px;
-        border: 0 none;
+        width: 400px;
         @media (min-width: $containerMobileWidth) {
             @include border-right-radius(0px);
-            height: 50px;
-            font-size: 18px;
-            line-height: 38px;
             padding: 5px 20px;
         }
         @media (max-width: $containerMobileWidth) {
@@ -92,7 +88,6 @@ textarea {
         min-width: 0;
         @media (min-width: $containerMobileWidth) {
             @include border-left-radius(0px);
-            height: 50px;
         }
         @media (max-width: $containerMobileWidth) {
             margin: 20px 0;
@@ -107,11 +102,11 @@ textarea {
         left: 0;
         bottom: 100%;
         width: 100%;
-        text-align: left;
-        color: $colorGrey;
-        font-size: 15px;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+        line-height: 40px;
         @media (max-width: $containerMobileWidth) {
-            text-align: center;
             font-size: 26px;
             margin: 0 0 20px;
         }

@@ -6,7 +6,7 @@
         top: 0;
         left: 0;
         height: 60px;
-        background: #fff;
+        background: getRgba($colorText, 0.5);
         @media (max-width: $containerMobileWidth) {
             position: absolute;
             height: 90px;
@@ -58,15 +58,15 @@
         @include my-resetList();
         position: absolute;
         top: 0;
-        right: 40px;
+        right: 0;
         li {
             display: inline-block;
             vertical-align: top;
-            line-height: 80px;
+            line-height: 60px;
             a {
-                font-size: 15px;
+                font-size: 16px;
                 color: #fff;
-                padding: 0 20px;
+                padding: 0;
                 outline: none;
                 &:hover {
                     text-decoration: none;
@@ -106,6 +106,22 @@
         @media (max-width: $containerMobileWidth640) {
             min-height: 480px;
         }
+        .b-card-subscribe {
+            margin-top: 35px;
+            input[type="email"] {
+                @media (min-width: $containerMobileWidth) {
+                    height: 50px;
+                    font-size: 18px;
+                    line-height: 38px;
+                    border: 0 none;
+                }
+            }
+            input[type="submit"] {
+                @media (min-width: $containerMobileWidth) {
+                    height: 50px;
+                }
+            }
+        }
     }
     .cover-animated {
         background: url("/images/landing-2880.jpg") center center no-repeat;
@@ -139,7 +155,7 @@
     }
 
     .b-main-slogan {
-        padding-bottom: 160px;
+        padding-bottom: 80px;
         @media (max-width: $containerMobileWidth) {
             padding: 50px 0 0;
         }
@@ -147,10 +163,8 @@
             padding: 20px 0 0;
         }
         h2 {
-            font-family: $fontLight;
             letter-spacing: 0;
-            margin-bottom: 20px;
-            color: $colorText;
+            font-size: 60px;
             //@include text-shadow(0px 1px 8px rgba(27, 24, 27, 0.40));
             @media (max-width: $containerMobileWidth) {
                 @include text-shadow(0px 1px 10px rgba(27, 24, 27, 0.50));
@@ -162,9 +176,9 @@
             }
         }
         p {
-            width: 820px;
+            width: 860px;
+            font-size: 20px;
             letter-spacing: 0.5px;
-            color: $colorText;
             //@include text-shadow(0px 1px 4px rgba(27, 24, 27, 0.75));
             @media (max-width: $containerMobileWidth) {
                 @include text-shadow(0px 1px 4px rgba(27, 24, 27, 0.75));
@@ -179,7 +193,6 @@
         }
     }
     .b-card-subscribe {
-        margin-top: 20px;
         z-index: 1;
         .form-success {
             color: $colorText;
@@ -197,7 +210,8 @@
         background: #fff;
         padding: 60px 0;
         z-index: 10;
-        .card-image {
+        .cards-image {
+            margin: -40px 0 -60px;
             @media (max-width: 640px) {
                 width: 100%;
             }
@@ -214,26 +228,24 @@
         }
         .subtitle {
             font-size: 21px;
-            margin: 10px 0 60px;
+            margin: 10px 0;
             @media (max-width: $containerMobileWidth640) {
                 margin-bottom: 30px;
                 font-size: 16px;
             }
         }
-        .b-price-list {
+        .b-card-list {
             @include my-resetList();
-            text-align: left;
             display: flex;
             justify-content: space-between;
-            color: $colorGrey;
             @media (max-width: $containerMobileWidth) {
-                text-align: center;
                 display: block;
                 width: 100%;
             }
             li {
                 width: 316px;
-                margin: 40px 0 60px;
+                margin: 40px 0;
+                text-align: center;
                 @media (max-width: $containerMobileWidth) {
                     display: block;
                     width: 100%;
@@ -244,11 +256,108 @@
                 h3 {
                     display: block;
                     margin: 0 0 20px;
-                    font-size: 24px;
+                    font-size: 20px;
                     letter-spacing: 0.5px;
+                    font-family: $fontItalic;
+                    font-style: italic;
                     color: $colorGrey;
-                    span {
-                        font-size: 15px;
+                    @media (max-width: $containerMobileWidth) {
+                        font-size: 32px;
+                        margin: 0 0 20px;
+                    }
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 18px;
+                        margin: 0 0 10px;
+                    }
+                }
+                p {
+                    font-size: 18px;
+                    padding: 0 10px;
+                    letter-spacing: 0.5px;
+                    @media (max-width: $containerMobileWidth) {
+                        font-size: 26px;
+                        padding: 0;
+                    }
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 14px;
+                    }
+                }
+                .card-image {
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 0 40px;
+                }
+                .circle-image {
+                    width: 300px;
+                    height: 300px;
+                    margin: 0 0 20px;
+                    @include border-radius(50%);
+                }
+            }
+        }
+        .b-card-subscribe {
+            margin-top: 20px;
+            @media (max-width: $containerMobileWidth) {
+                margin-top: 50px;
+            }
+        }
+    }
+    .b-price {
+        background: url("/images/price-bg.jpg") no-repeat center center;
+        @include background-size(cover);
+        h2 {
+            color: #fff;
+        }
+        .subtitle {
+            color: #fff;
+        }
+        .offer {
+            display: inline-block;
+            height: 30px;
+            padding: 0 10px;
+            background: #fff;
+            font-size: 18px;
+            line-height: 30px;
+            color: $colorGrey;
+            @include border-radius(2px);
+        }
+        .b-price-list {
+            @include my-resetList();
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0 0;
+            @media (max-width: $containerMobileWidth) {
+                text-align: center;
+                display: block;
+                width: 100%;
+            }
+            li {
+                background: getRgba(#fff, 0.9);
+                width: 318px;
+                margin: 100px 0 60px;
+                @media (max-width: $containerMobileWidth) {
+                    display: block;
+                    width: 100%;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    margin: 25px 0;
+                }
+                h3 {
+                    display: block;
+                    margin: 0 0 20px;
+                    font-size: 22px;
+                    letter-spacing: 0.5px;
+                    color: $colorText;
+                    strong {
+                        font-weight: normal;
+                        text-decoration: line-through;
+                    }
+                    b {
+                        font-family: $fontBold;
+                        font-size: 22px;
+                    }
+                    p, span {
+                        font-size: 16px;
                         @media (max-width: $containerMobileWidth) {
                             font-size: 32px;
                             margin-top: 10px;
@@ -256,6 +365,9 @@
                         @media (max-width: $containerMobileWidth640) {
                             font-size: 18px;
                         }
+                    }
+                    p {
+                        margin: 5px 0;
                     }
                     @media (max-width: $containerMobileWidth) {
                         font-family: $fontLight;
@@ -268,11 +380,14 @@
                         margin: 0 0 10px;
                     }
                 }
+                img {
+                    margin-top: -100px;
+                }
                 dl {
-                    padding: 0 80px 0 0;
                     margin-bottom: 30px;
                     dd {
-                        font-size: 12px;
+                        font-size: 14px;
+                        color: $colorGrey;
                         @media (max-width: $containerMobileWidth) {
                             font-size: 26px;
                             display: inline-block;
@@ -285,7 +400,7 @@
                     dt {
                         font-size: 18px;
                         font-weight: normal;
-                        margin-bottom: 5px;
+                        margin-bottom: 10px;
                         @media (max-width: $containerMobileWidth) {
                             font-size: 26px;
                             color: $colorText;
@@ -314,30 +429,18 @@
                 }
             }
         }
+    }
+    .b-testimonial {
         .b-card-list {
-            @include my-resetList();
-            display: flex;
-            justify-content: space-between;
-            @media (max-width: $containerMobileWidth) {
-                display: block;
-                width: 100%;
-            }
             li {
-                width: 316px;
-                margin: 40px 0;
-                text-align: center;
-                @media (max-width: $containerMobileWidth) {
+                em {
                     display: block;
-                    width: 100%;
-                }
-                @media (max-width: $containerMobileWidth640) {
-                    margin: 25px 0;
-                }
-                h3 {
-                    display: block;
-                    margin: 0 0 20px;
-                    font-size: 21px;
+                    margin: 0 0 10px;
+                    padding: 0 10px;
+                    font-size: 20px;
                     letter-spacing: 0.5px;
+                    font-family: $fontItalic;
+                    font-style: italic;
                     color: $colorGrey;
                     @media (max-width: $containerMobileWidth) {
                         font-size: 32px;
@@ -349,40 +452,14 @@
                     }
                 }
                 p {
-                    font-size: 15px;
-                    padding: 0 32px;
-                    letter-spacing: 0.5px;
-                    @media (max-width: $containerMobileWidth) {
-                        font-size: 26px;
-                        padding: 0;
-                    }
-                    @media (max-width: $containerMobileWidth640) {
-                        font-size: 14px;
-                    }
+                    padding: 0;
                 }
             }
         }
-        .b-special-offer {
-            font-size: 21px;
-            color: $colorGrey;
-            line-height: 55px;
-            background: $colorBackTimetable;
-            @media (max-width: $containerMobileWidth) {
-                font-size: 32px;
-                padding: 30px 60px;
-                line-height: 1.2;
-            }
-            @media (max-width: $containerMobileWidth640) {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-        }
-        .b-card-subscribe {
-            margin-top: 20px;
-            @media (max-width: $containerMobileWidth) {
-                margin-top: 50px;
-            }
-        }
+    }
+    .b-facts {
+        position: relative;
+        z-index: 10;
     }
     .b-studios {
         position: relative;
@@ -391,6 +468,7 @@
         @extend %gradient;
         text-align: center;
         padding: 60px 0;
+        color: #fff;
         @media (max-width: $containerMobileWidth) {
             padding: 30px 0;
             background-color: #7e9c9e;
@@ -400,6 +478,8 @@
         }
         h2 {
             @extend %title-light;
+        }
+        .subtitle {
             color: #fff;
         }
         .b-studios-list {
@@ -417,7 +497,6 @@
             li {
                 padding: 3px 0;
                 text-align: center;
-                color: #fff;
                 font-size: 15px;
                 @media (max-width: $containerMobileWidth) {
                     font-size: 26px;
@@ -427,63 +506,10 @@
                 }
             }
         }
-        .b-studios-submit {
-            display: inline-block;
-            position: relative;
-            margin-top: 60px;
-            @media (max-width: $containerMobileWidth) {
-                margin-top: 90px;
-                display: block;
-            }
-            @media (max-width: $containerMobileWidth640) {
-                margin-top: 80px;
-            }
-            input[type="text"] {
-                @extend %input-text;
-                vertical-align: top;
-                width: 400px;
-                @media (min-width: $containerMobileWidth) {
-                    @include border-right-radius(0px);
-                    font-size: 18px;
-                    padding: 0 20px;
-                }
-                @media (max-width: $containerMobileWidth) {
-                    width: 100%;
-                }
-            }
-            input[type="submit"] {
-                @extend %form-button;
-                min-width: 0;
-                @media (min-width: $containerMobileWidth) {
-                    @include border-left-radius(0px);
-                }
-                @media (max-width: $containerMobileWidth) {
-                    margin: 20px 0;
-                    width: 100%;
-                }
-                @media (max-width: $containerMobileWidth640) {
-                    margin: 10px 0;
-                }
-            }
-            span {
-                position: absolute;
-                left: 0;
-                bottom: 100%;
-                width: 100%;
-                margin: 20px 0;
-                text-align: center;
-                color: #fff;
-                font-size: 21px;
-                @media (max-width: $containerMobileWidth) {
-                    font-size: 32px;
-                }
-                @media (max-width: $containerMobileWidth640) {
-                    font-size: 16px;
-                }
-            }
-            .form-response {
-                text-align: left;
-            }
+        .suggest_btn {
+            @extend %form-button;
+            width: 230px;
+            min-width: 0;
         }
     }
 }

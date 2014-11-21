@@ -261,9 +261,9 @@ angular.module('boltApp')
                 },
                 controller : 'StudioCtrl'
             })
-            .state('get', {
+            .state('home', {
                 url : '/',
-                templateUrl: 'views/getCard.html',
+                templateUrl: '../views/homepage.html',
                 onEnter: function($rootScope){
                     $rootScope.autoscroll = false;
                     return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
