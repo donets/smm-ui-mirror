@@ -13,6 +13,7 @@ angular.module('boltApp')
                 $rootScope.windowWidth = $window.innerWidth;
                 $rootScope.windowHeight = $window.innerHeight;
                 $rootScope.windowWidthScroll = 2*$window.innerWidth - $window.outerWidth;
+                $rootScope.documentWidth = $window.document.body.clientWidth;
                 if($window.innerWidth > 1080) {
                     $rootScope.desktop = true;
                     $rootScope.mobile = false;

@@ -11,12 +11,16 @@
 .carousel-inner > .item {
     display: none;
     position: relative;
+    width: 100%;
     -webkit-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     width: 100%;
     height: auto;
     line-height: 1;
@@ -24,7 +28,7 @@
 .carousel-inner > .active,
 .carousel-inner > .next,
 .carousel-inner > .prev {
-    display: block;
+    display: table;
 }
 .carousel-inner > .active {
     left: 0;
@@ -57,40 +61,53 @@
     left: 0;
     bottom: 0;
     width: 15%;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
+    opacity: 1;
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right {
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+    }
     font-size: 20px;
+    z-index: 10;
     color: #ffffff;
     cursor: pointer;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: none;
 }
 .carousel-control.left {
-    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0%), color-stop(rgba(0, 0, 0, 0.0001) 100%));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.25) 0%), color-stop(rgba(0, 0, 0, 0.0001) 100%));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
 }
 .carousel-control.right {
     left: auto;
     right: 0;
-    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0%), color-stop(rgba(0, 0, 0, 0.5) 100%));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0%), color-stop(rgba(0, 0, 0, 0.25) 100%));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.25) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
 }
 .carousel-control:hover,
 .carousel-control:focus {
+    opacity: 1;
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right {
+        opacity: 0.9;
+        filter: alpha(opacity=90);
+    }
     outline: none;
     color: #ffffff;
     text-decoration: none;
-    opacity: 0.9;
-    filter: alpha(opacity=90);
 }
 .carousel-control .icon-prev,
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-left,
 .carousel-control .glyphicon-chevron-right {
+    background: url("/images/arrow.svg") no-repeat;
+    width: 32px;
+    height: 60px;
+    margin: -16px 0 0;
     position: absolute;
     top: 50%;
     z-index: 5;
@@ -98,25 +115,26 @@
 }
 .carousel-control .icon-prev,
 .carousel-control .glyphicon-chevron-left {
-    left: 50%;
+    @include rotate(180deg);
+    left: 20%;
 }
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
-    right: 50%;
+    right: 20%;
 }
 .carousel-control .icon-prev,
 .carousel-control .icon-next {
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
+    width: 32px;
+    height: 60px;
+    margin-top: -16px;
+    margin-left: -30px;
     font-family: serif;
 }
-.carousel-control .icon-prev:before {
-    content: '\2039';
+.carousel-control .glyphicon-chevron-left:before {
+    content: "";
 }
-.carousel-control .icon-next:before {
-    content: '\203a';
+.carousel-control .glyphicon-chevron-right:before {
+    content: "";
 }
 .carousel-indicators {
     position: absolute;
@@ -170,19 +188,37 @@
 .carousel-number {
     position: absolute;
     bottom: 30px;
+    left: 50%;
+    display: inline-block;
+    background: url("/images/line.svg") no-repeat;
+    width: 41px;
+    height: 40px;
+    margin-left: -20px;
     color: #fff;
     font-family: $fontItalic;
     font-style: italic;
     font-size: 18px;
+    z-index: 10;
+    p {
+        line-height: 1;
+        &:first-child {
+            text-align: left;
+            margin: -2px 0 8px;
+        }
+        &:last-child {
+            text-align: right;
+        }
+    }
 }
 .carousel-caption {
-    position: absolute;
-    left: 20%;
-    right: 20%;
-    bottom: 150px;
+    position: relative;
+    left: 0;
+    right: 0;
+    display: table-cell;
+    vertical-align: middle;
+    bottom: 0;
     z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 0 20%;
     color: #ffffff;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -194,7 +230,4 @@
     p {
         font-size: 20px;
     }
-}
-.carousel-caption .btn {
-    text-shadow: none;
 }

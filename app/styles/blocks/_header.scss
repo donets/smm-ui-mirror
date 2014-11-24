@@ -6,19 +6,37 @@
     right: 0;
     top: 0;
     z-index: 5;
+    height: 60px;
+    background: getRgba($colorText, 0.5);
+    @media (max-width: $containerMobileWidth) {
+        position: absolute;
+        height: 90px;
+        background: rgba(0,0,0,0.6);
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 60px;
+    }
 }
 .b-header-logo {
-    width: 186px;
-    height: 50px;
+    width: 157px;
+    height: 42px;
     background: url("/images/logo.svg") no-repeat;
     position: absolute;
     left: 0;
-    top: 16px;
+    top: 10px;
     overflow: hidden;
     z-index: 2;
     @media (max-width: $containerMobileWidth) {
+        width: 209px;
+        height: 57px;
+        top: 16px;
+        left: 25px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        width: 157px;
+        height: 42px;
+        top: 10px;
         left: 15px;
-        top: 12px;
     }
     &.black {
         background: url("/images/logo-black.svg") no-repeat;
@@ -57,6 +75,48 @@
     }
 }
 
+.b-header-badge {
+    color: $colorLink;
+    font-size: 13px;
+    top: 24px;
+    left: 200px;
+    @media (max-width: $containerMobileWidth) {
+        color: $colorText;
+        font-size: 20px;
+        width: 56px;
+        height: 22px;
+        top: 33px;
+        left: 245px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        font-size: 13px;
+        width: 35px;
+        height: 14px;
+        top: 24px;
+        left: 180px;
+    }
+}
+
+.b-header-nav {
+    @include my-resetList();
+    position: absolute;
+    top: 0;
+    right: 0;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 60px;
+        a {
+            font-size: 16px;
+            color: #fff;
+            padding: 0;
+            outline: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
 
 .b-header-likes {
     display: block;

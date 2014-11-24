@@ -1,7 +1,6 @@
-<div class="b-main-cover" ng-show="desktop" ng-style="{ 'height' : windowHeight }">
-    <div class="cover-animated" ng-if="!hiddenFF"></div>
-    <div class="b-main-slogan"><h2>Willkommen bei Dir.</h2>
-        <p>Trainiere Körper, Geist und Seele in den besten Studios der Stadt mit einer Mitgliedschaft.</p>
+<div class="b-main-cover" ng-show="desktop" ng-style="{ 'height' : windowHeight*0.8 }">
+    <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele.</h2>
+        <p>Trainiere in den besten Studios Deiner Stadt mit einer Mitgliedschaft.</p>
         <form class="b-card-subscribe" ng-submit="subscribeCard('header')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Erhalte Deine Einladung"/>
             <div class="form-response">
@@ -10,9 +9,8 @@
                 <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
             </div>
         </form>
-        <a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="60" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>
+        <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
     </div>
-    <!--<a class="photo-copyright" target="_blank" href="https://flic.kr/p/fB4xbs">&copy; Betty Nudler</a>-->
 </div>
 <div class="b-main-cover" ng-show="mobile">
     <div class="b-main-slogan"><h2>Willkommen bei Dir.</h2>
@@ -27,9 +25,9 @@
         </form>
     </div>
 </div>
-<div id="card" class="b-card" ng-style="{ 'margin-top' : desktop && windowHeight }">
+<div id="card" class="b-card" ng-style="{ 'padding-top' : desktop && windowHeight*0.1 }">
     <div class="container">
-        <h2>Eine Karte für ganz Berlin.</h2>
+        <h2 ng-style="{ 'line-height' : desktop && windowHeight*0.1 + 'px', 'margin-top' : 0 }">Eine Karte für ganz Berlin.</h2>
         <p class="subtitle">Trainiere mit einer Mitgliedschaft in allen Studios.</p>
         <ul class="b-card-list">
             <li>
@@ -56,7 +54,7 @@
         <button ng-click="suggestStudio()" type="button" class="suggest_btn white">Studio vorschlagen</button>
     </div>
 </div>
-<div class="b-card">
+<div class="b-card b-hiw">
     <div class="container">
         <ul class="b-card-list">
             <li>
@@ -87,7 +85,7 @@
     <div class="container">
         <h2>Deine Karte.</h2>
         <p class="subtitle">Werde Mitglied und entfalte ganzheitlich Dein Potenzial.</p>
-        <b class="offer">Get 20% off*</b>
+        <b class="discount">Get 20% off*</b>
         <ul class="b-price-list">
             <li>
                 <img class="card-image" src="images/card-lite.png" alt=""/>
@@ -158,15 +156,35 @@
 </div>
 <div class="b-facts">
     <carousel interval="-1" disable-animate>
-        <slide ng-repeat="slide in slides" active="slide.active">
+        <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': documentWidth / 3.6 }">
             <img ng-src="{{slide.image}}"/>
             <div class="carousel-caption">
                 <h4>{{slide.title}}</h4>
                 <p>{{slide.text}}</p>
             </div>
-            <span class="carousel-number">{{$index + 1}} / {{slides.length}}</span>
+            <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
         </slide>
     </carousel>
+</div>
+<div class="b-card">
+    <div class="container">
+        <h2>Worum es geht.</h2>
+        <p class="subtitle">Unsere Philosophie, Dein Potenzial.</p>
+        <p class="text">Es gibt so viel in Dir, was Du entfalten kannst. So viel im Leben zu entdecken. Und Du musst nichts machen, um wertvoll zu sein - Du bist es schon. Bei ganzheitlicher Lebensweise geht es nicht nicht um 10 x Yoga pro Tag oder stundenlang Meditation im Morgengrauen oder Fitnesstraining bis zum Umfallen. Sondern um bewusstes Leben, Miteinander, Bewegung, Gesundheit - und ganz viel Spaß. Deshalb haben wir eine Karte entwickelt, mit der Du Dein Potenzial ganzheitlich entfalten kannst: Yoga, Meditation, Pilates, Tanz, Kampfkunst, Fitness, Gesundheit, Ernährung und persönliches Wachstum. Finde heraus, wie ein entspanntes, gesundes und glückliches Leben für Dich aussehen kann. Wir freuen uns auf Dich! </p>
+    </div>
+</div>
+<div class="b-card b-cta">
+    <div class="container">
+        <h2>Ich möchte Mitglied werden.</h2>
+        <form class="b-card-subscribe" ng-submit="subscribeCard('final')">
+            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Erhalte Deine Einladung"/>
+            <div class="form-response">
+                <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
+                <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
+            </div>
+        </form>
+    </div>
 </div>
 
 

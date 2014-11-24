@@ -165,6 +165,17 @@
                     </div>
                 </div>
                 <div class="b-footer-block w-left">
+                    <h3>Moneyback guarantee</h3>
+                    <div class="contact">
+                        <span>Cancel within 2 weeks</span>
+                        <ul class="payment-icons">
+                            <li><img src="/images/mastercard-icon.svg" alt="mastercard"/></li><li>
+                            <img src="/images/visa-icon.svg" alt="visa"/></li><li>
+                            <img src="/images/paypal-icon.svg" alt="paypal"/></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="b-footer-block w-left">
                     <h3>Hast Du Fragen?</h3>
                     <div class="contact">
                         <p class="phone">030 - 577023100</p><span ng-show="mobile"> – </span><a class="email" href="mailto:info@somuchmore.org">info@somuchmore.org</a>
@@ -173,7 +184,7 @@
                 <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
                     <h3>Halt Dich auf dem Laufenden</h3>
                     <form name="form" class="app-email" ng-submit="subscribe()">
-                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Email-Adresse" name="email" required /><button type="submit">Newsletter Bestellen</button>
+                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Deine E-Mail-Adresse" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
                         <div class="form-response">
                             <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                             <div ng-show="successUpdate" class="form-message form-success">Danke!</div>

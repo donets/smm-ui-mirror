@@ -135,6 +135,6 @@ angular.module('boltApp.controllers.Getcard', [])
                 title: 'Yoga kann Angst dauerhaft reduzieren.',
                 text: '— NCBI (National Center for Biotechnology Information)'
             }
-        ]
+        ];
 
     }]);
