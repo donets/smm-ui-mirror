@@ -21,7 +21,7 @@
         window.smmConfig = {
             "restUrlBaseOld": "https://smm-dev.herokuapp.com",
             "restUrlBase": "https://stage-smm-api.herokuapp.com",
-            "fbClientId": "1403268876590849"
+            "fbClientId": "1500112250239844"
         }
     </script>
     <script>window.prerenderReady = false;</script>
@@ -77,6 +77,7 @@
         }
         @media (max-width: 1080px) {
             .pre-cover {
+                background: url("/images/landing-1080.jpg") no-repeat center center;
                 height: 306px;
             }
         }
@@ -124,11 +125,11 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('home')}">
+        <div class="b-header" ng-class="{'offer': $state.includes('home'), 'admin': $state.includes('admin')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
                 <!--<div class="b-header-badge">BETA</div>-->
-                <a class="b-header-likes" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
+                <a class="b-header-likes" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
                     <div ng-show="popover" class="b-popover">
                         <div class="fb-like-box"
                              data-href="https://www.facebook.com/somuchmoredeutsch"
@@ -140,14 +141,9 @@
                              data-show-border="false"></div>
                     </div>
                 </a>
-                <ul class="b-header-nav">
-                    <li>
-                        <a href="" ng-click="login()" ng-hide="loginStatus.status == 'connected'" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Anmelden</a>
-                    </li>
-                </ul>
-            </div>
+            <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-show="!$state.includes('reset')"></ng-include>
         </div>
-        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('home')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('home'), 'admin': $state.includes('admin')}" ui-view autoscroll="autoscroll"></div>
 
     </div>
     <div class="b-footer">
@@ -268,14 +264,21 @@
 <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
 <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
 <script src="bower_components/ng-parallax/angular-parallax.min.js"></script>
+<script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+<script src="bower_components/chosen-bower/chosen.jquery.js"></script>
+<script src="bower_components/angular-chosen-localytics/chosen.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/services/events.js"></script>
+<script src="scripts/services/occurrences.js"></script>
 <script src="scripts/services/suppliers.js"></script>
 <script src="scripts/services/navigator.js"></script>
+<script src="scripts/services/user.js"></script>
+<script src="scripts/custom/helper.js"></script>
+<script src="scripts/custom/moment/de.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/event.js"></script>
 <script src="scripts/controllers/studio.js"></script>
@@ -285,12 +288,17 @@
 <script src="scripts/controllers/subscribe.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/more.js"></script>
-<script src="scripts/custom/moment/de.js"></script>
+<script src="scripts/controllers/reset.js"></script>
+<script src="scripts/controllers/admin.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/classes.js"></script>
+<script src="scripts/controllers/class.js"></script>
 <script src="scripts/filters/cutstring.js"></script>
 <script src="scripts/filters/datafilter.js"></script>
 <script src="scripts/directives/disableAnimate.js"></script>
 <script src="scripts/directives/resizable.js"></script>
 <script src="scripts/directives/sticky.js"></script>
+<script src="scripts/directives/togglePopup.js"></script>
 <!-- endbuild -->
 
 </body>

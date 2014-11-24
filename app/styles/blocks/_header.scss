@@ -102,21 +102,109 @@
     position: absolute;
     top: 0;
     right: 0;
-    li {
+    @media (max-width: $containerMobileWidth) {
+        left: 15px;
+        right: 15px;
+        text-align: right;
+    }
+    > li {
         display: inline-block;
         vertical-align: top;
         line-height: 60px;
-        a {
+        @media (max-width: $containerMobileWidth) {
+            line-height: 70px;
+        }
+        > a {
             font-size: 16px;
             color: #fff;
-            padding: 0;
+            padding: 0 20px;
             outline: none;
             &:hover {
                 text-decoration: none;
             }
         }
+        &.ng-animate {
+            @include transition(none);
+        }
     }
 }
+
+.b-header-nav_login-widget {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 20px;
+    background: #fff;
+    @include border-radius(2px);
+    @include box-shadow(0 3px 5px getRgba($colorGrey, 0.5));
+    line-height: $fontLine;
+    @media (max-width: $containerMobileWidth) {
+        left: 0;
+        padding: 30px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        padding: 15px;
+    }
+    .fb_button {
+        @extend %form-button;
+        min-width: 0;
+        display: block;
+        background: $colorFacebook;
+        outline: none;
+        .fa {
+            margin-right: 10px;
+        }
+        &:hover {
+            background: #4d6ca8;
+        }
+        &:active {
+            background: #37538c;
+        }
+    }
+    .form_button {
+        @extend %form-button;
+        min-width: 0;
+        display: block;
+        width: 100%;
+    }
+    .form-input {
+        display: block;
+    }
+    .form-rel {
+        width: 280px;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
+    }
+    .or {
+        display: block;
+        text-align: center;
+        font-size: 13px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 13px;
+        }
+    }
+    .forgot-password {
+        display: block;
+        text-align: center;
+        font-size: 13px;
+        padding: 10px 0 0;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 13px;
+        }
+        outline: none;
+    }
+    .admin-nav {
+        margin: -10px 0;
+    }
+}
+
 
 .b-header-likes {
     display: block;

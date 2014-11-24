@@ -1,0 +1,58 @@
+<div class="container">
+    <h2>Classes</h2>
+</div>
+<div class="b-studio-timetable cf">
+    <div class="container">
+        <div class="w-left b-sidebar-filters">
+            <button class="control-button" type="button"><i class="fa fa-plus"></i>New Class</button>
+            <div class="input-search"><input type="text" placeholder="Filter name"/></div>
+            <select chosen
+                    data-placeholder="All levels"
+                    disable-search="true"
+                    allow-single-deselect="true">
+                <option value=""></option>
+                <option>Junior</option>
+                <option>Medium</option>
+                <option>Expert</option>
+            </select>
+            <div class="form-check">
+                <input type="checkbox" id="1"
+                       value="draft" name="status"/>
+                <i class="fa"></i>
+                <label for="1">Draft</label>
+            </div>
+        </div>
+        <div class="w-right b-classes-list">
+            <table class="timetable" ng-show="desktop">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Class</th>
+                        <th>Sub-Discipline</th>
+                        <th>Teacher</th>
+                        <th>Neighborhood</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="status green">Live</span></td>
+                        <td>Jivamukti Open 60 English</td>
+                        <td>Jivamukti Yoga</td>
+                        <td>Reto Halme</td>
+                        <td>Prenzlauer Berg</td>
+                        <td><button class="green" ui-sref="admin.class({classId: 54})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                    </tr>
+                    <tr ng-repeat="c in classes | limitTo: 15">
+                        <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
+                        <td>{{c.title}}</td>
+                        <td><span ng-repeat="t in c.tags">{{t}}, </span></td>
+                        <td>{{c.teacher_name}}</td>
+                        <td>{{c.location.name}}</td>
+                        <td><button class="green" ui-sref="admin.class({classId: c.id})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

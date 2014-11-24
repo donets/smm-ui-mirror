@@ -9,9 +9,8 @@
  */
 angular.module('boltApp.services.events', [])
     .factory('Events', ['$resource', '$window', function($resource, $window) {
-        return $resource($window.smmConfig.restUrlBase + '/api/occurrence/:eventId', {eventId: '@id'}, {
-            'query': {method: 'GET', isArray: false, cache: true},
-            'get': {method: 'GET', cache: true},
-            'getOrder': {method: 'GET', cache: false, url: $window.smmConfig.restUrlBase + '/api/eventbrite/:eventId/order'}
+        return $resource($window.smmConfig.restUrlBase + '/api/rest/events/:eventId', {eventId: '@id'}, {
+            'query': {method: 'GET', isArray: true, cache: true},
+            'get': {method: 'GET', cache: true}
         });
     }]);

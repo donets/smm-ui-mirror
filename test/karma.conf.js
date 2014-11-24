@@ -49,6 +49,7 @@ module.exports = function(config) {
       'bower_components/angular-scroll/angular-scroll.min.js',
       'bower_components/angular-cache/dist/angular-cache.min.js',
       'bower_components/ng-parallax/angular-parallax.min.js',
+      'bower_components/angular-permission/dist/angular-permission.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

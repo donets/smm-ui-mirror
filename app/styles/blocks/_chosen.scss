@@ -1,0 +1,422 @@
+@import "../_base/base";
+@import "compass/css3/user-interface";
+
+/* @group Base */
+.chosen-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    font-family: $fontRegular;
+    background: #fff;
+    zoom: 1;
+    *display: inline;
+    @include user-select(none);
+    .chosen-drop {
+        position: absolute;
+        top: 100%;
+        left: -9999px;
+        z-index: 1010;
+        @include border-radius(0 0 2px 2px);
+        @include box-sizing(border-box);
+        width: 100%;
+        border: 1px solid $colorLightGrey;
+        border-top: 0;
+        background: #fff;
+        //box-shadow: 0 4px 5px rgba(#000,.15);
+        @include box-shadow(2px 2px 2px 0 rgba(34,31,31,0.1));
+    }
+    &.chosen-with-drop .chosen-drop {
+        left: 0;
+    }
+    a{
+        cursor: pointer;
+    }
+}
+/* @end */
+
+/* @group Single Chosen */
+.chosen-container-single{
+    .chosen-single {
+        @extend %input-text;
+        line-height: 40px;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        padding: 0 0 0 10px;
+        background-clip: padding-box;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    .chosen-default {
+        color: $colorGrey;
+    }
+    .chosen-single span {
+        display: block;
+        overflow: hidden;
+        margin-right: 40px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .chosen-single-with-deselect span {
+        margin-right: 38px;
+    }
+    .chosen-single abbr {
+        @extend .fa;
+        position: absolute;
+        top: 10px;
+        right: 35px;
+        display: block;
+        font-size: 20px;
+        color: $colorLightGrey;
+        text-decoration: none;
+        &:hover {
+            color: $colorGrey;
+        }
+        &:before {
+            content: "\f057";
+        }
+    }
+    .chosen-single div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 40px;
+        text-align: center;
+        height: 100%;
+        b {
+            @extend .fa;
+            color: $colorGrey;
+            height: 22px;
+            vertical-align: middle;
+            font-size: 20px;
+            &:before {
+                content: "\f107";
+            }
+        }
+    }
+    &.select-tags {
+        padding: 6px;
+        background: $colorGrey;
+        .chosen-single {
+            height: 34px;
+            border: 0 none;
+            line-height: 34px;
+            background: #fff;
+        }
+        .chosen-single div {
+            background: #fff;
+            width: 30px;
+            &:before {
+                display: none;
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 9px;
+                bottom: 9px;
+                width: 0px;
+                border-left: 1px solid $colorLightGrey;
+            }
+            b {
+                height: 20px;
+                color: $colorGrey;
+                &:before {
+                    content: $fa-var-search;
+                }
+            }
+        }
+        .chosen-search {
+            &:before {
+                content: "";
+            }
+        }
+        .chosen-drop {
+            border-color: $colorLightGrey;
+            margin: 0;
+        }
+    }
+    .chosen-search {
+        position: relative;
+        z-index: 1010;
+        margin: 0;
+        padding: 5px 5px;
+        white-space: nowrap;
+        input[type="text"] {
+            @include box-sizing(border-box);
+            margin: 1px 0;
+            padding: 4px 26px 4px 5px;
+            width: 100%;
+            height: auto;
+            outline: 0;
+            border: 1px solid $colorLightGrey;
+            font-size: 1em;
+            font-family: $fontRegular;
+            line-height: normal;
+            border-radius: 0;
+        }
+        &:before {
+            @extend .fa;
+            content: $fa-var-search;
+            position: absolute;
+            font-size: 16px;
+            color: $colorGrey;
+            top: 12px;
+            right: 12px;
+        }
+    }
+    .chosen-drop {
+        margin-top: -1px;
+        @include border-radius(0 0 2px 2px);
+        border-color: $colorLightGrey;
+        background-clip: padding-box;
+    }
+    &.chosen-container-single-nosearch .chosen-search {
+        position: absolute;
+        left: -9999px;
+    }
+    &.chosen-container-single-nosearch .chosen-drop {
+        //padding-top: 10px;
+    }
+}
+/* @end */
+
+/* @group Results */
+.chosen-container .chosen-results {
+    color: $colorText;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 5px 5px 0;
+    padding: 0 0 0 5px;
+    max-height: 240px;
+    -webkit-overflow-scrolling: touch;
+    li {
+        display: none;
+        margin: 0;
+        padding: 5px;
+        list-style: none;
+        line-height: 20px;
+        word-wrap: break-word;
+        -webkit-touch-callout: none;
+        &.active-result {
+            display: list-item;
+            cursor: pointer;
+        }
+        &.disabled-result {
+            display: list-item;
+            color: #ccc;
+            cursor: default;
+        }
+        &.highlighted {
+            background-color: $colorGrey;
+            color: #fff;
+        }
+        &.no-results {
+            color: #777;
+            display: list-item;
+            background: #f4f4f4;
+        }
+        &.group-result {
+            display: list-item;
+            font-weight: bold;
+            cursor: default;
+            background: $colorGrey;
+        }
+        &.group-option {
+            padding-left: 15px;
+        }
+        em {
+            font-style: normal;
+            font-size: 16px;
+            font-family: $fontRegular;
+            color: $colorLink;
+        }
+    }
+}
+/* @end */
+
+/* @group Multi Chosen */
+.chosen-container-multi{
+    .chosen-choices {
+        position: relative;
+        overflow: hidden;
+        @include border-radius(2px);
+        @include box-sizing(border-box);
+        margin: 0;
+        padding: 0px 30px 0 5px;
+        width: 100%;
+        height: auto !important;
+        height: 1%;
+        border: 1px solid $colorLightGrey;
+        background-color: #fff;
+        cursor: text;
+        &:before {
+            content: "";
+            position: absolute;
+            right: 30px;
+            top: 9px;
+            bottom: 9px;
+            width: 0px;
+            border-left: 1px solid $colorLightGrey;
+        }
+        &:after {
+            @extend .fa;
+            content: $fa-var-search;
+            position: absolute;
+            font-size: 16px;
+            color: $colorLightGrey;
+            top: 50%;
+            right: 8px;
+            margin-top: -8px;
+        }
+    }
+    .chosen-choices li {
+        float: left;
+        list-style: none;
+        &.search-field {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            input[type="text"] {
+                padding: 0 0 0 10px;
+                height: 36px;
+                outline: 0;
+                border: 0 !important;
+                background: transparent !important;
+                box-shadow: none;
+                color: $colorLabel;
+                font-size: 100%;
+                font-family: $fontRegular;
+                line-height: normal;
+                border-radius: 0;
+            }
+        }
+        &.search-choice {
+            position: relative;
+            margin: 4px 5px 4px 0;
+            padding: 5px 30px 5px 12px;
+            max-width: 100%;
+            @include box-sizing(border-box);
+            @include border-radius(2px);
+            background-color: $colorGrey;
+            background-size: 100% 19px;
+            background-repeat: repeat-x;
+            background-clip: padding-box;
+            @include transition(background-color .2s);
+            color: #fff;
+            line-height: 18px;
+            cursor: default;
+            &:hover {
+                background-color: $colorLightGrey;
+            }
+            &:active {
+                background-color: $colorText;
+            }
+            span {
+                word-wrap: break-word;
+            }
+            .search-choice-close {
+                @extend .fa;
+                position: absolute;
+                top: 5px;
+                right: 6px;
+                display: block;
+                font-size: 19px;
+                color: #fff;
+                text-decoration: none;
+                &:hover {
+                    color: $colorText;
+                }
+                &:before {
+                    content: "\f057";
+                }
+            }
+        }
+        &.search-choice + .chosen-choices input[type="text"] {
+            color: $colorText;
+        }
+        &.search-choice-disabled {
+            padding-right: 5px;
+            border: 1px solid #ccc;
+            background-color: #c4cad1;
+            color: #666;
+            .search-choice-close {
+                display: none;
+            }
+        }
+        &.search-choice-focus {
+            background: #d4d4d4;
+        }
+    }
+    .chosen-results {
+        margin: 0;
+        padding: 0;
+    }
+    .chosen-drop .result-selected {
+        display: list-item;
+        color: #ccc;
+        cursor: default;
+    }
+}
+/* @end */
+
+/* @group Active  */
+.chosen-container-active{
+    .chosen-single {
+        //border: 1px solid $colorLightGrey;
+        @include box-shadow(2px 2px 2px 0 rgba(34,31,31,0.1));
+    }
+    &.chosen-with-drop{
+        .chosen-single {
+            border-color: $colorLightGrey;
+            @include border-radius(2px 2px 0 0);
+        }
+        .chosen-choices {
+            @include border-radius(2px 2px 0 0);
+        }
+        .chosen-single div {
+            b {
+                &:before {
+                    content: "\f106";
+                }
+            }
+        }
+        &.select-tags {
+            .chosen-single {
+                //border: 0 none;
+            }
+            .chosen-single div {
+                background: inherit;
+                b {
+                    &:before {
+                        content: $fa-var-search;
+                    }
+                }
+            }
+        }
+    }
+    .chosen-choices {
+        border: 1px solid $colorLightGrey;
+        box-shadow: 0 0 5px rgba($colorLightGrey,.3);
+        li.search-field input[type="text"] {
+            color: #222 !important;
+            font-family: $fontRegular;
+        }
+    }
+}
+/* @end */
+
+/* @group Disabled Support */
+.chosen-disabled {
+    opacity: 0.5 !important;
+    cursor: default;
+    .chosen-single {
+        cursor: default;
+    }
+    .chosen-choices .search-choice .search-choice-close {
+        cursor: default;
+    }
+}
+/* @end */
+

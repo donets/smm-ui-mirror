@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
-    .controller('EventCtrl', ['$scope', '$rootScope', 'getEvent', 'Suppliers', '$window', '$location', 'GoogleMapApi'.ns(), 'ezfb', function ($scope, $rootScope, getEvent, Suppliers, $window, $location, GoogleMapApi, ezfb) {
+    .controller('EventCtrl', ['$scope', '$rootScope', 'getEvent', 'Suppliers', 'Events', '$window', '$location', 'GoogleMapApi'.ns(), 'ezfb', function ($scope, $rootScope, getEvent, Suppliers, Events, $window, $location, GoogleMapApi, ezfb) {
         $scope.event = getEvent;
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/main-2880.jpg' : '/images/main-1080.jpg';
 
@@ -28,8 +28,8 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
 
             $scope.map = {
                 center: {
-                    latitude: getEvent.occurrence.parent_event.location.latitude,  // jshint ignore:line
-                    longitude: getEvent.occurrence.parent_event.location.longitude // jshint ignore:line
+                    latitude: $scope.event.location.latitude,
+                    longitude: $scope.event.location.longitude
                 },
                 zoom: 16,
                 options: {
@@ -44,8 +44,8 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
             $scope.marker = {
                 id: getEvent.occurrence.id,
                 coords: {
-                    latitude: getEvent.occurrence.parent_event.location.latitude,  // jshint ignore:line
-                    longitude: getEvent.occurrence.parent_event.location.longitude // jshint ignore:line
+                    latitude: $scope.event.location.latitude,
+                    longitude: $scope.event.location.longitude
                 },
                 options: {
                     icon: {
@@ -63,18 +63,18 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
 
         getEvent.$promise.then(function () {
             getEvent.eventLoad = false;
-            $('html head title').text(getEvent.occurrence.parent_event.title);
-            var start = moment(getEvent.occurrence.start_date);
-            var end = moment(getEvent.occurrence.end_date);
-            moment.relativeTimeThreshold('m', 1000);
-            $scope.duration = moment.duration(end.diff(start)).asMinutes();
-            $scope.date = start;
-            //$scope.minPrice = _.min(getEvent.event.tickets, function (ticket) {
-            //    return ticket.ticket.display_price;
-            //});
-            Suppliers.get({supplierId: getEvent.occurrence.parent_event.teacher_id}).$promise.then(function (res) {
-                console.log(res);
-                $scope.teacher = res;
+            Events.get({eventId: getEvent.occurrence.parent_event_id}).$promise.then(function (res) {
+                $scope.event = res;
+                $('html head title').text($scope.event.title);
+                var start = moment(getEvent.occurrence.start_date);
+                var end = moment(getEvent.occurrence.end_date);
+                moment.relativeTimeThreshold('m', 1000);
+                $scope.duration = moment.duration(end.diff(start)).asMinutes();
+                $scope.date = start;
+                Suppliers.get({supplierId: $scope.event.teacher_id}).$promise.then(function (res) {
+                    console.log(res);
+                    $scope.teacher = res;
+                });
             });
 
         });
@@ -84,7 +84,7 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
             console.log($location.absUrl());
 
             var callback = function(response) {
-                if (response && !response.error_code) // jshint ignore:line
+                if (response && !response.error_code)
                 {
                     console.log('Posting completed');
                 }
