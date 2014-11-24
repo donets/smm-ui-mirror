@@ -272,10 +272,10 @@ angular.module('boltApp')
             })
             .state('home', {
                 url : '/',
-                templateUrl: '../views/homepage.html',
+                templateUrl: 'views/homepage.html',
                 onEnter: function($rootScope){
                     $rootScope.autoscroll = false;
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight * 0.8) : 0;
                 },
                 onExit: function($rootScope){
                     $rootScope.autoscroll = true;

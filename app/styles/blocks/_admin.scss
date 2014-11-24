@@ -2,18 +2,11 @@
 
 .admin {
     &.b-header {
-        top: 0;
-        left: 0;
-        height: 80px;
         background: $colorText;
-        @media (max-width: $containerMobileWidth) {
-            height: 90px;
-            background: none;
-        }
     }
 }
 .admin-panel {
-    padding: 80px 0 0;
+    padding: 60px 0 0;
     .b-studio-timetable {
         padding: 0 0 30px;
         margin: 0 0 30px;

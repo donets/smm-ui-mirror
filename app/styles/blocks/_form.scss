@@ -192,10 +192,10 @@ textarea {
     margin: 20px 0;
     width: 320px;
     &:first-child {
-        margin-top: 0;
+        margin-top: 0 !important;
     }
     &:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
     }
     &.auto {
         width: auto;

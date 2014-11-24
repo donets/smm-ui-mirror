@@ -1,22 +1,22 @@
 <ul class="b-header-nav">
-    <li id="login" toggle-popup ng-if="!userName">
-        <a href="" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
+    <li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
+        <a href="" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Anmelden</a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <div class="form-rel">
-                <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook"></i>Log in Facebook</a>
+                <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook-square"></i>Login with Facebook</a>
             </div>
             <div class="form-rel">
-                <span class="or">&mdash; or &mdash;</span>
+                <span class="or">oder</span>
             </div>
             <form name="loginForm" ng-hide="forgotView" ng-submit="login()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="Email Address" required />
+                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
                 </div>
                 <div class="form-rel">
-                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="Password" required />
+                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="Passwort" required />
                 </div>
                 <div class="form-rel">
-                    <button type="submit" class="form_button">Log in</button>
+                    <button type="submit" class="form_button">Anmelden</button>
                     <div class="form-response">
                         <div ng-show="loadingLogin" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="errorLogin" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
@@ -25,7 +25,7 @@
             </form>
             <form name="forgotForm" ng-show="forgotView" ng-submit="forgot()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="Email Address" required />
+                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
                 </div>
                 <div class="form-rel">
                     <button type="submit" class="form_button">Reset Password</button>
@@ -37,11 +37,11 @@
                 </div>
             </form>
             <div class="form-rel">
-                <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="">Forgot your password?</a>
+                <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="">Dein Passwort vergessen?</a>
                 <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="">Back to login</a>
             </div>
         </div>
-    </li><li id="account" toggle-popup ng-mouseover="isPopupVisible = true" ng-mouseleave="isPopupVisible = false" ng-if="userName">
+    </li><li id="account" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-mouseover="isPopupVisible = true" ng-mouseleave="isPopupVisible = false" ng-if="userName">
         <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="admin-nav">
