@@ -57,28 +57,33 @@
     position: relative;
     z-index: 1;
     h2 {
-        font-size: 50px;
-        color: #fff;
+        font-size: 60px;
         font-family: $fontBold;
-        margin: 0;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
+        letter-spacing: 0;
+        color: #fff;
+        margin: 0 0 20px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 64px;
+            line-height: 1.1;
+        }
         @media (max-width: $containerMobileWidth640) {
             font-size: 32px;
+            margin-bottom: 10px;
         }
     }
     p {
-        font-size: 18px;
+        width: 860px;
+        margin: 0 auto;
+        font-size: 20px;
         color: #fff;
         font-family: $fontBold;
-        width: 680px;
-        margin: 0 auto;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.5px;
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
             width: auto; 
         }
         @media (max-width: $containerMobileWidth640) {
+            line-height: 1.2;
             font-size: 14px;
         }
         a {

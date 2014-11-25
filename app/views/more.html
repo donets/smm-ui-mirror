@@ -6,7 +6,7 @@
                 vg-stretch="video.stretch"
                 disable-animate>
         <vg-video vg-src="video.sources" ng-if="desktop"></vg-video>
-        <vg-video vg-src="video.sources" ng-if="mobile" ng-style="{ height: (platformMobile ? windowWidth : windowWidthScroll)/1.777777 }"></vg-video>
+        <vg-video vg-src="video.sources" ng-if="mobile" ng-style="{ height: (platformMobile ? windowWidth : documentWidth)/1.777777 }"></vg-video>
 
         <vg-controls vg-autohide="video.autoHide" vg-autohide-time="video.autoHideTime">
 

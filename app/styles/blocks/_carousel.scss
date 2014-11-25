@@ -1,13 +1,43 @@
 @import "../_base/base";
 
+.b-facts {
+
+.carousel {
+    @media (max-width: $containerMobileWidth) {
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            @include background-image(linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.25)));
+        }
+    }
+    @media (max-width: $containerMobileWidth640) {
+        &:after {
+            height: 40px;
+        }
+    }
+}
 .carousel-inner > .item {
     width: 100%;
+    @media (max-width: $containerMobileWidth) {
+        height: 640px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 320px;
+    }
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     position: absolute;
     top: 0;
     bottom: 0;
+    @media (max-width: $containerMobileWidth) {
+        height: 100%;
+        max-width: none;
+    }
 }
 .carousel-inner > .active,
 .carousel-inner > .next,
@@ -25,6 +55,9 @@
     z-index: 10;
     cursor: pointer;
     text-shadow: none;
+    @media (max-width: $containerMobileWidth) {
+        display: none;
+    }
 }
 .carousel-control.left {
     background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.25) 0%), color-stop(rgba(0, 0, 0, 0.0001) 100%));
@@ -75,6 +108,9 @@
 .carousel-control .glyphicon-chevron-right:before {
     content: "";
 }
+
+}
+
 .carousel-indicators {
     position: absolute;
     bottom: 10px;
@@ -86,24 +122,43 @@
     padding-left: 0;
     list-style: none;
     text-align: center;
+    @media (max-width: $containerMobileWidth) {
+        display: block;
+        margin-bottom: 20px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        display: block;
+        margin-bottom: 0;
+    }
 }
 .carousel-indicators li {
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 1px;
+    width: 16px;
+    height: 16px;
+    margin: 0 8px;
     text-indent: -999px;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
+    border: 0 none;
+    @include border-radius(16px);
     cursor: pointer;
-    background-color: #000 \9;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: getRgba(#fff, 0.3);
+    @media (max-width: $containerMobileWidth640) {
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        @include border-radius(8px);
+    }
 }
 .carousel-indicators .active {
-    margin: 0;
-    width: 12px;
-    height: 12px;
-    background-color: #ffffff;
+    margin: 0 8px;
+    width: 16px;
+    height: 16px;
+    @media (max-width: $containerMobileWidth640) {
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        @include border-radius(8px);
+    }
+    background-color: #fff;
 }
 .carousel-thumbnails {
     @include my-resetList;
@@ -148,6 +203,9 @@
             text-align: right;
         }
     }
+    @media (max-width: $containerMobileWidth) {
+        display: none;
+    }
 }
 .carousel-caption {
     position: relative;
@@ -161,12 +219,27 @@
     color: #ffffff;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    @media (max-width: $containerMobileWidth) {
+        padding: 0 5%;
+    }
     h4 {
         font-size: 48px;
         font-family: $fontItalic;
         font-style: italic;
+        @media (max-width: $containerMobileWidth) {
+            margin-top: 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 24px;
+        }
     }
     p {
         font-size: 20px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 32px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 18px;
+        }
     }
 }

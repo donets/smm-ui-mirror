@@ -117,9 +117,11 @@ textarea {
     margin-top: 20px;
     @media (max-width: $containerMobileWidth) {
         margin-top: 90px;
+        padding: 0 40px;
     }
     @media (max-width: $containerMobileWidth640) {
         margin-top: 60px;
+        padding: 0 20px;
     }
     input[type="text"], input[type="email"], input[type="password"] {
         @extend %input-text;
@@ -130,6 +132,7 @@ textarea {
             padding: 5px 20px;
         }
         @media (max-width: $containerMobileWidth) {
+            text-align: center;
             width: 100%;
         }
     }
@@ -140,12 +143,15 @@ textarea {
             @include border-left-radius(0px);
         }
         @media (max-width: $containerMobileWidth) {
-            margin: 20px 0;
+            margin: 20px 0 0;
             width: 100%;
         }
         @media (max-width: $containerMobileWidth640) {
-            margin: 10px 0;
+            margin: 10px 0 0;
         }
+    }
+    .form-success {
+        color: $colorText;
     }
     span {
         position: absolute;
