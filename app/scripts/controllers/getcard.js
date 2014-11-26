@@ -115,23 +115,23 @@ angular.module('boltApp.controllers.Getcard', [])
 
         $scope.slides = [
             {
-                image: '/images/fact_01-' + $rootScope.resolution + '.jpg',
+                image: '/images/static/fact_01-' + $rootScope.resolution + '.jpg',
                 title: 'Meditation kann Dir die Gehirnkapazität eines 25-jährigen erhalten.',
                 text: '— NCBI (National Center for Biotechnology Information)'
             }, {
-                image: '/images/fact_02-' + $rootScope.resolution + '.jpg',
+                image: '/images/static/fact_02-' + $rootScope.resolution + '.jpg',
                 title: 'Yoga kann schon nach 3 Monaten Dein Selbstbild anheben.',
                 text: '— WSU (Washington State University)'
             }, {
-                image: '/images/fact_03-' + $rootScope.resolution + '.jpg',
+                image: '/images/static/fact_03-' + $rootScope.resolution + '.jpg',
                 title: 'Tanzen hilft gegen Depressionen.',
                 text: '— NCBI (National Center for Biotechnology Information)'
             }, {
-                image: '/images/fact_04-' + $rootScope.resolution + '.jpg',
+                image: '/images/static/fact_04-' + $rootScope.resolution + '.jpg',
                 title: 'Menschen, die meditieren, lösen Herausforderungen des Alltags kreativer.',
                 text: '— NCBI (National Center for Biotechnology Information)'
             }, {
-                image: '/images/fact_05-' + $rootScope.resolution + '.jpg',
+                image: '/images/static/fact_05-' + $rootScope.resolution + '.jpg',
                 title: 'Yoga kann Angst dauerhaft reduzieren.',
                 text: '— NCBI (National Center for Biotechnology Information)'
             }
