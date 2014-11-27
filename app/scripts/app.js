@@ -48,6 +48,8 @@ angular
         'boltApp.controllers.Login',
         'boltApp.controllers.Admin',
         'boltApp.controllers.Classes',
+        'boltApp.controllers.Signup',
+        'boltApp.controllers.Dashboard',
         'boltApp.services.events',
         'boltApp.services.occurrences',
         'boltApp.services.suppliers',
@@ -281,12 +283,52 @@ angular.module('boltApp')
                     $rootScope.autoscroll = true;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 },
-                controller : 'GetcardCtrl'
+                controller : 'GetcardCtrl',
+                resolve: {
+
+                    getStudios: function($http) {
+
+                        return $http.get('scripts/custom/json/studios.json', {cache: true});
+
+                    }
+
+                }
             })
             .state('signup', {
                 url : '/signup/',
                 templateUrl: 'views/signup.html',
-                controller : 'SignupCtrl'
+                controller : 'SignupCtrl',
+                resolve: {
+
+                    getStudios: function($http) {
+
+                        return $http.get('scripts/custom/json/studios.json', {cache: true});
+
+                    }
+
+                }
+            })
+            .state('dashboard', {
+                url : '/my/',
+                abstract: true,
+                templateUrl: 'views/userDashboard.html',
+                controller : 'DashboardCtrl',
+                onEnter: function($rootScope){
+                    $rootScope.autoscroll = false;
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '350px') : 0;
+                },
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
+                }
+            })
+            .state('dashboard.account', {
+                url : 'account/',
+                templateUrl: 'views/userAccount.html'
+            })
+            .state('dashboard.membership', {
+                url : 'membership/',
+                templateUrl: 'views/userMembership.html'
             })
             .state('admin', {
                 url : '/admin/v2/',
@@ -296,7 +338,7 @@ angular.module('boltApp')
             })
             .state('admin.dashboard', {
                 url : 'dashboard/',
-                templateUrl: 'views/dashboard.html'
+                templateUrl: 'views/adminDashboard.html'
             })
             .state('admin.classes', {
                 url : 'classes/',

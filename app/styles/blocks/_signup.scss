@@ -133,37 +133,11 @@
     }
 }
 .form-signup {
-    display: inline-block;
-    width: 500px;
-    padding: 0 0 100px;
-    input[type="text"], input[type="password"],  input[type="email"] {
-        @extend %input-text;
-        width: 100%;
-    }
-    button {
-        @extend %form-button;
-        min-width: 0;
-        width: 260px;
-        padding: 0;
-        letter-spacing: 0.5px;
-    }
-    .form-rel {
-        margin: 6px 0;
-        width: 100%;
-    }
+    @extend %form-custom;
     .form-group {
-        margin: 40px 0;
-        text-align: left;
         &:first-child {
             margin-top: 0;
         }
-    }
-    .form-title {
-        font-size: 20px;
-        font-family: $fontItalic;
-        font-style: italic;
-        color: $colorGrey;
-        text-align: center;
     }
 }
 .select-card {

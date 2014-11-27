@@ -8,12 +8,9 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', [])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'navigator', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, navigator, $window, $modal) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'getStudios', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, getStudios, $window, $modal) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
-        if (navigator.platform() === 'Mac' && navigator.browser() === 'firefox') {
-            $scope.hiddenFF = true;
-        }
         $scope.subscribeCard = function (locate) {
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
@@ -30,9 +27,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 console.error(status);
             });
         };
-        $scope.studios = [
-            'Ashtanga Yoga','Aum Yoga','Axt','Bikram Mitte','Chimosa','Die Yogapraxis','FlyingYoga','Ginger Bar','Iyengar','Jivamukti','Kalaa Yoga berlin','Lagao Yoga','LOVT','Middendorf','Open Arms Yoga','Padma Yoga','Peace Yoga','Rafaela Rarisch Concept Store','Randori Pro','Raum für Yoga','Remedy','Spirit Yoga','SunYoga','Tayome','Tri Yoga Akademie Berlin','Yellow','Yoga & More','Yoga 4 all','Yoga für Dich','Yoga im Graefekiez','Yoga School Berlin','YOGA SKY','Yoga Team Berlin','Yogacircle','YogaDelta','Yogaraum Berlin','Yogaschule Kreuzberg','Yogastudio Körperklang','Yogatribe','YogaZentrum Akazienhof','Yogibar'
-        ];
+        $scope.studios = getStudios.data;
         $scope.bookCard = function (type) {
             $modal.open({
                 templateUrl: 'views/modalSubscribe.html',

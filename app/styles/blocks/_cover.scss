@@ -59,6 +59,16 @@
             background-image: url("/images/price-1080.jpg");
         }
     }
+    &.dashboard-cover {
+        height: 350px;
+        background-image: url("/images/dashboard-1440.jpg");
+        @media (max-width: 1440px) {
+            background-image: url("/images/dashboard-1440.jpg");
+        }
+        @media (max-width: $containerMobileWidth) {
+            background-image: url("/images/dashboard-1080.jpg");
+        }
+    }
 }
 .b-main-slogan {
     display: table-cell;

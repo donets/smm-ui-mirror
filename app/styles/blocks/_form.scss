@@ -193,6 +193,18 @@ textarea {
     }
 
 }
+
+.form-group {
+    margin: 40px 0;
+    text-align: left;
+}
+.form-title {
+    font-size: 20px;
+    font-family: $fontItalic;
+    font-style: italic;
+    color: $colorGrey;
+    text-align: center;
+}
 .form-rel {
     position: relative;
     margin: 20px 0;
@@ -214,7 +226,36 @@ textarea {
         margin: 10px 0;
     }
 }
-
+%form-custom {
+    display: inline-block;
+    width: 500px;
+    padding: 0 0 100px;
+    input[type="text"], input[type="password"],  input[type="email"] {
+        @extend %input-text;
+        width: 100%;
+    }
+    button {
+        @extend %form-button;
+        min-width: 260px;
+        letter-spacing: 0.5px;
+    }
+    label {
+        font-size: 18px;
+        font-weight: normal;
+        a {
+            color: $colorText;
+            font-size: 18px;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .form-rel {
+        margin: 6px 0;
+        width: 100%;
+    }
+}
 .form-input, .form-textarea {
     @extend %input-text;
     width: 100%;
@@ -306,36 +347,26 @@ input:-webkit-autofill {
     -webkit-box-shadow: none;
 }
 
-%label {
-    font-size: 12px;
-    font-family: $fontBold;
-    text-transform: uppercase;
-    color: $colorLabel;
-}
-
 .form-radio, .form-check {
     display: inline-block;
     position: relative;
     input[type='radio'], input[type='checkbox'] {
         position: absolute;
         left: 0;
-        top: 50%;
-        height: 20px;
-        width: 20px;
+        top: 5px;
+        height: 15px;
+        width: 15px;
         z-index: 1;
-        margin-top: -10px;
         visibility: hidden;
+        margin: 0;
         opacity: 0;
     }
     > .fa {
         position: absolute;
         left: 0;
-        top: 50%;
-        font-size: 20px;
-        height: 20px;
-        width: 20px;
+        top: 5px;
+        font-size: 16px;
         z-index: 0;
-        margin-top: -10px;
         cursor: pointer;
     }
     label {
@@ -343,22 +374,8 @@ input:-webkit-autofill {
         display: block;
         padding: 0 0 0 25px;
         cursor: pointer;
-        font-size: 18px;
-        font-weight: normal;
         margin: 0;
         z-index: 2;
-        //background: url(../img/icons/form/checkbox.png) no-repeat;
-    }
-    a {
-        color: $colorText;
-        font-size: 18px;
-        text-decoration: underline;
-        &:hover {
-            text-decoration: none;
-        }
-    }
-    input:checked ~ label {
-        background-position: 0 -23px;
     }
 }
 
@@ -390,12 +407,15 @@ input:-webkit-autofill {
 .form-check {
     > .fa {
         &:before {
-            content: "\f096";
+            content: $fa-var-square-o;
         }
     }
     input:checked ~ .fa {
+        color: $colorLink;
+        font-size: 15px;
+        line-height: 14px;
         &:before {
-            content: "\f046";
+            content: $fa-var-check-square;
         }
     }
 }
