@@ -288,7 +288,7 @@ angular.module('boltApp')
 
                     getStudios: function($http) {
 
-                        return $http.get('scripts/custom/json/studios.json', {cache: true});
+                        return $http.get('json/studios.json', {cache: true});
 
                     }
 
@@ -302,7 +302,7 @@ angular.module('boltApp')
 
                     getStudios: function($http) {
 
-                        return $http.get('scripts/custom/json/studios.json', {cache: true});
+                        return $http.get('json/studios.json', {cache: true});
 
                     }
 

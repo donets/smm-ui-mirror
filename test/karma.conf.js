@@ -50,6 +50,8 @@ module.exports = function(config) {
       'bower_components/angular-cache/dist/angular-cache.min.js',
       'bower_components/ng-parallax/angular-parallax.min.js',
       'bower_components/angular-permission/dist/angular-permission.js',
+      'bower_components/chosen-bower/chosen.jquery.js',
+      'bower_components/angular-chosen-localytics/chosen.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
