@@ -343,12 +343,19 @@ input:-webkit-autofill {
         display: block;
         padding: 0 0 0 25px;
         cursor: pointer;
-        font-size: 15px;
-        font-family: $fontLight;
+        font-size: 18px;
+        font-weight: normal;
         margin: 0;
-        color: $colorText;
         z-index: 2;
         //background: url(../img/icons/form/checkbox.png) no-repeat;
+    }
+    a {
+        color: $colorText;
+        font-size: 18px;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
     }
     input:checked ~ label {
         background-position: 0 -23px;

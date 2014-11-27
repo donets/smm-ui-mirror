@@ -120,7 +120,7 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-class="{'offer': $state.includes('home'), 'admin': $state.includes('admin')}">
+        <div class="b-header" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
                 <!--<div class="b-header-badge">BETA</div>-->
@@ -139,7 +139,7 @@
                 <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-show="!$state.includes('reset')"></ng-include>
             </div>
         </div>
-        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('home'), 'admin': $state.includes('admin')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
     </div>
     <div class="b-footer">
@@ -189,7 +189,8 @@
                 <ul class="b-footer-nav__menu">
                     <li><a ui-sref="about">Über uns</a></li><li>
                     <a ui-sref="impressum">Impressum</a></li><li>
-                    <a ui-sref="agb">AGB</a></li>
+                    <a ui-sref="agb">AGB</a></li><li>
+                    <a ui-sref="faq">faq</a></li>
                 </ul>
                 <p class="b-footer-copyright">&copy; Somuchmore Marketplace UG, 2014</p>
             </nav>
@@ -295,6 +296,7 @@
 <script src="scripts/directives/resizable.js"></script>
 <script src="scripts/directives/sticky.js"></script>
 <script src="scripts/directives/togglePopup.js"></script>
+<script src="scripts/controllers/signup.js"></script>
 <!-- endbuild -->
 
 </body>

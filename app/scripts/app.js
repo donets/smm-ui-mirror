@@ -283,6 +283,11 @@ angular.module('boltApp')
                 },
                 controller : 'GetcardCtrl'
             })
+            .state('signup', {
+                url : '/signup/',
+                templateUrl: 'views/signup.html',
+                controller : 'SignupCtrl'
+            })
             .state('admin', {
                 url : '/admin/v2/',
                 abstract: true,
@@ -336,6 +341,10 @@ angular.module('boltApp')
 	        .state('impressum', {
 	            url : '/p/impressum/',
 	            templateUrl: 'views/impressum.html'
+	        })
+	        .state('faq', {
+	            url : '/p/faq/',
+	            templateUrl: 'views/faq.html'
 	        })
 	        .state('agb', {
 	            url : '/p/agb/',
