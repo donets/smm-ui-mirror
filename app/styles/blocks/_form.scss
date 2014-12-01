@@ -195,7 +195,7 @@ textarea {
 }
 
 .form-group {
-    margin: 40px 0;
+    margin: 35px 0;
     text-align: left;
 }
 .form-title {
@@ -214,6 +214,10 @@ textarea {
     }
     &:last-child {
         margin-bottom: 0 !important;
+    }
+    &.flex {
+        display: flex;
+        justify-content: space-between;
     }
     &.auto {
         width: auto;
@@ -279,6 +283,15 @@ textarea {
     position: absolute;
     left: 0;
     top: 100%;
+    .fa {
+        font-size: 20px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 40px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 20px;
+        }
+    }
     @media (max-width: $containerMobileWidth) {
         position: static;
     }
@@ -298,14 +311,7 @@ textarea {
         margin: 5px;
     }
     .fa-spinner {
-        font-size: 20px;
         color: $colorLink;
-        @media (max-width: $containerMobileWidth) {
-            font-size: 40px;
-        }
-        @media (max-width: $containerMobileWidth640) {
-            font-size: 20px;
-        }
     }
 
 }

@@ -139,6 +139,18 @@
             margin-top: 0;
         }
     }
+    .form-response {
+        top: 0;
+        left: 100%;
+        width: 200px;
+        line-height: 30px;
+        margin: 0 15px;
+    }
+    input[type="text"] {
+        &.short {
+            width: 160px;
+        }
+    }
 }
 .select-card {
     @extend %form-button;

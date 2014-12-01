@@ -95,27 +95,6 @@
     text-align: center;
     margin: 50px 0;
 }
-.admin-nav {
-    @include my-resetList();
-    margin: 50px 0;
-    li {
-        width: 200px;
-        height: 40px;
-        a {
-            display: block;
-            font-size: 18px;
-            @include transition(padding 0.2s);
-            color: $colorText;
-            line-height: 40px;
-            outline: none;
-            &:hover {
-                color: $colorLink;
-                padding-left: 10px;
-                text-decoration: none;
-            }
-        }
-    }
-}
 .b-class-block {
     background: $colorBackTimetable;
     padding: 20px 0;

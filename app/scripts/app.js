@@ -49,11 +49,12 @@ angular
         'boltApp.controllers.Admin',
         'boltApp.controllers.Classes',
         'boltApp.controllers.Signup',
-        'boltApp.controllers.Dashboard',
+        'boltApp.controllers.Profile',
         'boltApp.services.events',
         'boltApp.services.occurrences',
         'boltApp.services.suppliers',
         'boltApp.services.user',
+        'boltApp.services.membership',
         'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
@@ -295,7 +296,7 @@ angular.module('boltApp')
                 }
             })
             .state('signup', {
-                url : '/signup/',
+                url : '/p/signup/:id/',
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
@@ -308,11 +309,20 @@ angular.module('boltApp')
 
                 }
             })
-            .state('dashboard', {
+            .state('profile', {
                 url : '/my/',
                 abstract: true,
-                templateUrl: 'views/userDashboard.html',
-                controller : 'DashboardCtrl',
+                templateUrl: '../views/userProfile.html',
+                controller : 'ProfileCtrl',
+                resolve: {
+
+                    getMembership: function(Membership) {
+
+                        return Membership.get().$promise;
+
+                    }
+
+                },
                 onEnter: function($rootScope){
                     $rootScope.autoscroll = false;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '350px') : 0;
@@ -322,11 +332,11 @@ angular.module('boltApp')
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 }
             })
-            .state('dashboard.account', {
+            .state('profile.account', {
                 url : 'account/',
                 templateUrl: 'views/userAccount.html'
             })
-            .state('dashboard.membership', {
+            .state('profile.membership', {
                 url : 'membership/',
                 templateUrl: 'views/userMembership.html'
             })

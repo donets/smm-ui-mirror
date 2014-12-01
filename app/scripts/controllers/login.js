@@ -14,7 +14,7 @@ angular.module('boltApp.controllers.Login', [])
             console.log(res);
             $http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function (response) {
                 console.log(response);
-                $scope.userName = response.user.name;
+                $rootScope.userName = response.user.name;
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
@@ -34,7 +34,7 @@ angular.module('boltApp.controllers.Login', [])
         User.get().$promise.then(function (res) {
             console.log(res);
             if (res.currentUser) {
-                $scope.userName = res.currentUser.name;
+                $rootScope.userName = res.currentUser.name;
             } else {
                 updateLoginStatus();
             }
@@ -55,7 +55,7 @@ angular.module('boltApp.controllers.Login', [])
 
             $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
                 console.log(response);
-                $scope.userName = null;
+                $rootScope.userName = null;
                 $rootScope.$state.go('get');
             }).error(function (response, status) {
                 console.error(response);
@@ -77,8 +77,8 @@ angular.module('boltApp.controllers.Login', [])
             $http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
                 console.log(response);
                 $scope.loadingLogin = false;
-                $scope.userName = response.user.name;
-                $rootScope.$state.go('admin.dashboard');
+                $rootScope.userName = response.user.name;
+                $rootScope.$state.go('profile.account');
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);

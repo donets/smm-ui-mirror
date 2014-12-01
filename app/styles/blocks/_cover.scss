@@ -59,14 +59,14 @@
             background-image: url("/images/price-1080.jpg");
         }
     }
-    &.dashboard-cover {
+    &.profile-cover {
         height: 350px;
-        background-image: url("/images/dashboard-1440.jpg");
+        background-image: url("/images/profile-1440.jpg");
         @media (max-width: 1440px) {
-            background-image: url("/images/dashboard-1440.jpg");
+            background-image: url("/images/profile-1440.jpg");
         }
         @media (max-width: $containerMobileWidth) {
-            background-image: url("/images/dashboard-1080.jpg");
+            background-image: url("/images/profile-1080.jpg");
         }
     }
 }

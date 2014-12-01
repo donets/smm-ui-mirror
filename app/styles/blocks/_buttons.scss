@@ -16,6 +16,7 @@
     @include border-radius(2px);
     text-align: center;
     padding: 0 20px;
+    outline: none;
     text-decoration: none;
     &.small {
         @media (min-width: $containerMobileWidth) {
@@ -44,6 +45,9 @@
     }
     &:active {
         background: $colorActive;
+        color: #fff;
+    }
+    &:focus {
         color: #fff;
     }
     &[disabled] {
