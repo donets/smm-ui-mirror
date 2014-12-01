@@ -212,12 +212,6 @@
             padding: 0;
         }
     }
-    .b-card-carousel {
-        height: 550px;
-        @media (max-width: $containerMobileWidth640) {
-            height: 300px;
-        }
-    }
 }
 .b-benefits {
     .b-card-carousel {
