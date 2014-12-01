@@ -89,10 +89,18 @@ article {
             text-align: center;
         }
     }
-    .subtitle {
-        font-family: $fontRegular;
-        font-style: normal;
-        margin: 20px 0 30px;
+    p {
+        font-size: 20px;
+        margin: 20px 0;
+        color: $colorGrey;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
     }
 }
 .about .b-main-sidebar {
