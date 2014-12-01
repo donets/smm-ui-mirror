@@ -89,9 +89,9 @@
     z-index: 10;
     .cards-image {
         margin: -40px 0 -100px;
+        width: 100%;
         @media (max-width: $containerMobileWidth) {
             margin: 0 0 -40px;
-            width: 100%;
         }
         @media (max-width: $containerMobileWidth640) {
             margin: -20px 0;
@@ -144,14 +144,14 @@
     }
 }
 .b-price {
-    background: url("/images/price-2880.jpg") no-repeat center center;
+    background: url("/images/cards-2880.jpg") no-repeat center center;
     @include background-size(cover);
     padding-bottom: 70px;
     @media (max-width: 1440px) {
-        background-image: url("/images/price-1440.jpg");
+        background-image: url("/images/cards-1440.jpg");
     }
     @media (max-width: $containerMobileWidth) {
-        background-image: url("/images/price-1080.jpg");
+        background-image: url("/images/cards-1080.jpg");
     }
     .b-card-subscribe {
         @media (max-width: $containerMobileWidth) {
