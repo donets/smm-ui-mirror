@@ -8,12 +8,13 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, getStudios, Membership) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios, Membership) {
         $scope.studios = getStudios.data;
         $scope.order = {
             deliveryAddress: {
                 countryCode: 'DE'
-            }
+            },
+            newsletter: true
         };
 
         $scope.checkVoucher = function () {
@@ -45,35 +46,17 @@ angular.module('boltApp.controllers.Signup', [])
             }
         };
 
+        $scope.changeType = function () {
+            $scope.typeMessage = false;
+        };
+
         $scope.signupSubmit = function () {
-            if (!$rootScope.userName) {
-                createUser($scope.newUser).then(function () {
-                    createOrder($scope.order);
-                });
+            if ($scope.order.type) {
+                console.log($scope.order);
             } else {
-                createOrder($scope.order);
+                $document.scrollToElementAnimated($('#cards'), 0, 800);
+                $scope.typeMessage = true;
             }
         };
-        
-        var createUser = function (user) {
-            var def = $q.defer();
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/signupAndLogin?name=' + user.name + ' ' + user.surname + '&email=' + user.email + '&password=' + user.password).success(function (response) {
-                console.log(response);
-                $rootScope.userName = response.user.name;
-                def.resolve();
-            }).error(function (response, status) {
-                console.error(response);
-                console.error(status);
-                $scope.errorLogin = true;
-                def.reject();
-            });
-            return def.promise;
-        };
-
-        var createOrder = function (order) {
-            console.log(order);
-        };
-
-        $scope.newsletterChecked = true;
         
     });

@@ -42,14 +42,6 @@
         }
     }
 }
-.a-more {
-    font-size: 18px;
-    font-family: $fontBold;
-    color: #fff;
-    &:hover {
-        color: #fff;
-    }
-}
 .b-order {
     font-size: 18px;
     text-align: center;
@@ -155,6 +147,10 @@
 .select-card {
     @extend %form-button;
     margin: 20px 0 0;
+}
+.type-message {
+    margin: -40px 0 20px;
+    line-height: 20px;
 }
 .signup {
     .b-studios {

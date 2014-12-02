@@ -1,68 +1,67 @@
 <div class="b-main-cover signup-cover">
     <div class="container">
         <div class="signup-title">
-            <h2>Schön, dass Du hier bist!</h2>
-            <p class="subtitle">Jetzt kannst Du deine Somuchmore Mitgliedschaft abschließen.</p>
+            <h2>Herzlich willkommen!</h2>
+            <p class="subtitle">Hier kannst Du Deine Karte bestellen.</p>
         </div>
         <ul class="b-signup-list">
             <li>
-                <b>14 Tage kostenlos ausprobieren</b>
-                <span>(bis zu drei Kursbesuche)</span>
+                <b>Kostenlose Probezeit</b>
+                <span>(14 Tage und bis zu drei Kursbesuche)</span>
             </li><li>
                 <b>Keine <br> Aufnahmegebühr</b>
             </li><li>
                 <b>Keine lange Vertragslaufzeit</b>
-                <span>(monatlich kündbar nach 3 Monaten)</span>
             </li><li>
-                <b>Jeder Anbieter zertifiziert und persönlich geprüft</b>
+                <b>Nur die besten Studios</b>
             </li>
         </ul>
-        <a class="a-more" href="">Learn more &rsaquo;</a>
     </div>
 </div>
 <div class="b-order">
     <div class="container">
         <div class="special-offer"><p><b>20%</b> zur Begrüßung</p></div>
-        <p>Melde Dich vor dem 1.1.2015 an - und erhalte 20% Ermäßigung für bis zu 6 Monate.</p>
+        <p>Melde Dich vor dem 1. Januar an und zahle 6 Monate lang 20% weniger.</p>
         <ul class="b-select-card" id="cards">
             <li>
                 <img class="card-image" src="images/card-lite.png" alt=""/>
                 <h3>White Card Lite<p><strong>39€</strong> <b>31€</b> /Monat</p></h3>
                 <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dd>Kurse / Monat:</dd>
                     <dt>4x</dt>
                     <dd>Kurse pro Anbieter / Monat:</dd>
                     <dt>3x</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 1 Monat</dt>
+                    <dd>Mindestlaufzeit:</dd>
+                    <dt>keine</dt>
                 </dl>
-                <button ng-model="order.type" btn-radio="'LITE'"><i class="fa"></i>{{cardType === 'lite' ? 'Ausgewählt' : 'Auswählen'}}</button>
+                <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'LITE'"><i class="fa"></i>{{cardType === 'lite' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li><li>
                 <img class="card-image" src="images/card-white.png" alt=""/>
                 <h3>White Card<p><strong>69€</strong> <b>55€</b> /Monat</p></h3>
                 <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dd>Kurse / Monat:</dd>
                     <dt>unbegrenzt</dt>
                     <dd>Kurse pro Anbieter / Monat:</dd>
                     <dt>3x</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 3 Monaten</dt>
+                    <dd>Mindestlaufzeit:</dd>
+                    <dt>nur 3 Monate</dt>
                 </dl>
-                <button ng-model="order.type" btn-radio="'WHITE'"><i class="fa"></i>{{cardType === 'white' ? 'Ausgewählt' : 'Auswählen'}}</button>
+                <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'WHITE'"><i class="fa"></i>{{cardType === 'white' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li><li>
                 <img class="card-image" src="images/card-black.png" alt=""/>
                 <h3>Black Card<p><strong>99€</strong> <b>79€</b> /Monat</p></h3>
                 <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
+                    <dd>Kurse / Monat:</dd>
                     <dt>unbegrenzt</dt>
                     <dd>Kurse pro Anbieter / Monat:</dd>
                     <dt>unbegrenzt</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 3 Monaten</dt>
+                    <dd>Mindestlaufzeit:</dd>
+                    <dt>nur 3 Monate</dt>
                 </dl>
-                <button ng-model="order.type" btn-radio="'BLACK'"><i class="fa"></i>{{cardType === 'black' ? 'Ausgewählt' : 'Auswählen'}}</button>
+                <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'BLACK'"><i class="fa"></i>{{cardType === 'black' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li>
         </ul>
+        <div class="type-message form-error" ng-if="typeMessage">Please choose type Card Membership</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <div class="form-group">
                 <div class="form-rel">
@@ -76,98 +75,98 @@
             </div>
             <div class="form-group" ng-if="!userName">
                 <div class="form-rel">
-                    <input type="text" ng-model="newUser.name" name="name" placeholder="Vorname" required />
+                    <input type="text" ng-model="order.firstName" name="name" placeholder="Vorname" required />
                 </div>
                 <div class="form-rel">
-                    <input type="text" ng-model="newUser.surname" name="surname" placeholder="Nachname"/>
+                    <input type="text" ng-model="order.lastName" name="surname" placeholder="Nachname" required/>
                 </div>
                 <div class="form-rel">
-                    <input type="email" ng-model="newUser.email" name="email" placeholder="Email"/>
+                    <input type="email" ng-model="order.email" name="email" placeholder="Email" required/>
                 </div>
                 <div class="form-rel">
-                    <input type="password" ng-model="newUser.password" name="password" placeholder="Passwort"/>
+                    <input type="password" ng-model="order.password" name="password" placeholder="Passwort" required/>
                 </div>
             </div>
-            <h3 class="form-title">Versand-Adresse für die Member-Card:</h3>
+            <h3 class="form-title">Adresse</h3>
             <div class="form-group">
                 <div class="form-rel">
-                    <input type="text" ng-model="order.deliveryAddress.prefix" name="prefix" placeholder="Adresszusatz"/>
+                    <input type="text" ng-model="order.deliveryAddress.streetAndHouse" name="street" placeholder="Straße & Hausnummer" required />
                 </div>
                 <div class="form-rel">
-                    <input type="text" ng-model="order.deliveryAddress.streetAndHouse" name="street" placeholder="Straße & Hausnummer"/>
+                    <input type="text" ng-model="order.deliveryAddress.prefix" name="prefix" placeholder="Adress-Zusatz (z.B. Etage, Eingang, c/o)"/>
                 </div>
                 <div class="form-rel">
-                    <input type="text" ng-model="order.deliveryAddress.zip" name="zip" placeholder="PLZ"/>
+                    <input type="text" ng-model="order.deliveryAddress.zip" ng-pattern="/\d{5}/" name="zip" placeholder="PLZ" required />
                 </div>
                 <div class="form-rel">
-                    <input type="text" ng-model="order.deliveryAddress.city" name="city" placeholder="Stadt"/>
+                    <input type="text" ng-model="order.deliveryAddress.city" name="city" placeholder="Stadt" required/>
                 </div>
                 <div class="form-rel">
-                    <input type="text" name="country" readonly value="Deutschland" />
+                    <input type="text" name="country" readonly value="Deutschland" required />
                 </div>
             </div>
             <h3 class="form-title">Bezahlung</h3>
             <div class="form-group">
                 <div class="form-rel">
-                    <input type="text" ng-model="order.card.number" ng-pattern="/\d{16}/" ng-maxlength="16" name="number" placeholder="Kreditkartennummer" required />
+                    <input type="text" ng-model="order.card.number" ng-pattern="/\d{16}/" ng-maxlength="16" name="number" placeholder="Kreditkarten-Nummer" required />
                 </div>
                 <div class="form-rel">
-                    <input type="text" ng-model="order.card.name" ng-pattern="/[a-zA-Z]+/" name="name" placeholder="Full name" required />
+                    <input type="text" ng-model="order.card.name" ng-pattern="/[a-zA-Z]+/" name="name" placeholder="Kreditkarten-Inhaber (voller Name)" required />
                 </div>
                 <div class="form-rel flex">
-                    <input type="text" ng-model="order.card.month" ng-pattern="/(0[1-9]|1[012])/" ng-maxlength="2" class="short" name="month" placeholder="Monat"/><input type="text" ng-model="order.card.year" ng-pattern="/2\d{3}/" ng-maxlength="4" class="short" name="year" placeholder="Jahr"/><input type="text" ng-model="order.card.cvc" ng-pattern="/\d{3}/" ng-maxlength="3" class="short" name="cvc" placeholder="CVV"/>
+                    <input type="text" ng-model="order.card.month" ng-pattern="/(0[1-9]|1[012])/" ng-maxlength="2" class="short" name="month" placeholder="Monat" required/><input type="text" ng-model="order.card.year" ng-pattern="/2\d{3}/" ng-maxlength="4" class="short" name="year" placeholder="Jahr" required/><input type="text" ng-model="order.card.cvc" ng-pattern="/\d{3}/" ng-maxlength="3" class="short" name="cvc" placeholder="CVV" required/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-rel">
                     <div class="form-check">
-                        <input type="checkbox" id="approve" value="true" ng-model="approveChecked" name="approve" required/>
+                        <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
                         <i class="fa"></i><label for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und den Datenschutzbestimmungen zu.</label>
                     </div>
                 </div>
                 <div class="form-rel">
                     <div class="form-check">
-                        <input type="checkbox" id="newsletter" value="true" ng-model="newsletterChecked" checked name="newsletter" />
+                        <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
                         <i class="fa"></i>
-                        <label for="newsletter">Ich möchte den Newsletter mit Inspirationen und Qualitäts-Angeboten Eurer Partner bestellen (spam-frei!)</label>
+                        <label for="newsletter">Ich möchte den Newsletter erhalten</label>
                     </div>
                 </div>
             </div>
-            <button type="submit" ng-disabled="!approveChecked">Kostenpflichtig Bestellen</button>
+            <button type="submit" ng-disabled="!approve">Karte bestellen</button>
         </form>
     </div>
 </div>
 <div class="b-card b-benefits">
     <div class="container" disable-animate>
         <h2>Eine Karte für ganz Berlin.</h2>
-        <p class="subtitle">Trainiere mit einer Mitgliedschaft in allen Studios.</p>
+        <p class="subtitle">Besuche die besten Studios mit einer Karte.</p>
         <ul ng-if="desktop" class="b-card-list">
             <li>
-                <h3>Grenzenlose Auswahl</h3>
-                <p>Wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
+                <h3>Auswahl</h3>
+                <p>Besuche hunderte Kurse für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
             </li><li>
-                <h3>Effektives Training</h3>
-                <p>Entdecke Neues, lass Dich inspirieren und trainiere mit spürbar mehr Erfolg und Motivation.</p>
+                <h3>Freiheit</h3>
+                <p>Entdecke die neue Vielfalt und trainiere mit mehr Motivation und Erfolg - ohne Bindung an ein Studio.</p>
             </li><li>
                 <h3>Persönliches Wachstum</h3>
-                <p>Entfalte Körper, Geist und Seele - und Deine gesunde, glückliche und entspannteste Seite.</p>
+                <p>Entfalte Körper, Geist und Seele - und lebe gesund, glücklich und entspannt.</p>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
-                <h3>Grenzenlose Auswahl</h3>
-                <p>Wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
+                <h3>Auswahl</h3>
+                <p>Besuche hunderte Kurse für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
             </slide>
             <slide>
-                <h3>Effektives Training</h3>
-                <p>Entdecke Neues, lass Dich inspirieren und trainiere mit spürbar mehr Erfolg und Motivation.</p>
+                <h3>Freiheit</h3>
+                <p>Entdecke die neue Vielfalt und trainiere mit mehr Motivation und Erfolg - ohne Bindung an ein Studio.</p>
             </slide>
             <slide>
                 <h3>Persönliches Wachstum</h3>
-                <p>Entfalte Körper, Geist und Seele - und Deine gesunde, glückliche und entspannteste Seite.</p>
+                <p>Entfalte Körper, Geist und Seele - und lebe gesund, glücklich und entspannt.</p>
             </slide>
         </carousel>
-        <a class="select-card" href="#cards" du-smooth-scroll duration="800">Select your card</a>
+        <a class="select-card" href="#cards" du-smooth-scroll duration="800">Wähle Deine Karte</a>
     </div>
 </div>
 <div class="b-card b-hiw">
@@ -175,24 +174,24 @@
         <ul class="b-card-list">
             <li>
                 <img class="card-image" src="images/hiw_01.svg" alt=""/>
-                <h3>1. Werde Mitglied</h3>
-                <p>Deine Mitgliedschaft deckt die Kosten für alle Kurse in allen unseren Studios ab.</p>
+                <h3>1. Bestell die Karte</h3>
+                <p>Deine Karte deckt die Kosten ab für alle Kurse in allen Studios, die bei uns gelistet sind.</p>
             </li><li>
                 <img class="card-image" src="images/hiw_02.svg" alt=""/>
-                <h3>2. Entdecke neue Lieblings-Studios</h3>
+                <h3>2. Entdecke neue Studios</h3>
                 <p>Wähle online aus hunderten Kursen - wöchentlich kommen neue Studios hinzu.</p>
             </li><li>
                 <img class="card-image" src="images/hiw_03.svg" alt=""/>
-                <h3>3. Genieße jeden Kurs</h3>
-                <p>Zeige Deine Karte - und werde überall wie ein Mitglied begrüßt.</p>
+                <h3>3. Besuche jeden Kurs</h3>
+                <p>Werde mit Deiner Karte überall wie ein Mitglied begrüßt.</p>
             </li>
         </ul>
     </div>
 </div>
 <div id="studios" class="b-studios">
     <div class="container">
-        <h2>Unsere Partner.</h2>
-        <p class="subtitle">22 Studios in Berlin - und jede Woche mehr.</p>
+        <h2>Unsere Partner</h2>
+        <p class="subtitle">Unsere Studios in Berlin - jede Woche werden es mehr.</p>
         <ul class="b-studios-list">
             <li ng-repeat="studio in studios">{{studio}}</li>
         </ul>
@@ -200,8 +199,8 @@
 </div>
 <div class="b-card b-cta">
     <div class="container">
-        <h2>Ich möchte Mitglied werden.</h2>
-        <a class="select-card" href="#cards" du-smooth-scroll duration="800">Select your card</a>
+        <h2>Ich möchte mitmachen.</h2>
+        <a class="select-card" href="#cards" du-smooth-scroll duration="800">Wähle Deine Karte</a>
     </div>
 </div>
 

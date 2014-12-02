@@ -1,6 +1,6 @@
 <div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight*0.8 }">
-    <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele.</h2>
-        <p>Trainiere in den besten Studios Deiner Stadt mit einer Mitgliedschaft.</p>
+    <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele</h2>
+        <p>Besuche die besten Studios Berlins mit einer Karte.</p>
         <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('header')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Erhalte Deine Einladung"/>
             <div class="form-response">
@@ -15,32 +15,32 @@
 <div id="card" class="b-card b-benefits" ng-style="{ 'padding-top' : desktop && windowHeight*0.1 }">
     <div class="container" disable-animate>
         <h2 ng-style="{ 'line-height' : desktop && windowHeight*0.1 + 'px', 'margin-top' : 0 }">Eine Karte für ganz Berlin.</h2>
-        <p class="subtitle">Trainiere mit einer Mitgliedschaft in allen Studios.</p>
+        <p class="subtitle">Besuche die besten Studios mit einer Karte.</p>
         <img class="cards-image" ng-if="mobile" src="images/falling-cards-1440.jpg" />
         <ul ng-if="desktop" class="b-card-list">
             <li>
-                <h3>Grenzenlose Auswahl</h3>
-                <p>Wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
+                <h3>Auswahl</h3>
+                <p>Besuche hunderte Kurse für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
             </li><li>
-                <h3>Effektives Training</h3>
-                <p>Entdecke Neues, lass Dich inspirieren und trainiere mit spürbar mehr Erfolg und Motivation.</p>
+                <h3>Freiheit</h3>
+                <p>Entdecke die neue Vielfalt und trainiere mit mehr Motivation und Erfolg - ohne Bindung an ein Studio.</p>
             </li><li>
                 <h3>Persönliches Wachstum</h3>
-                <p>Entfalte Körper, Geist und Seele - und Deine gesunde, glückliche und entspannteste Seite.</p>
+                <p>Entfalte Körper, Geist und Seele - und lebe gesund, glücklich und entspannt.</p>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
-                <h3>Grenzenlose Auswahl</h3>
-                <p>Wähle aus hunderten Kursen für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
+                <h3>Auswahl</h3>
+                <p>Besuche hunderte Kurse für Yoga, Pilates, Fitness, Kampfkunst, Tanz, Meditation, Ernährung, Entspannung und Gesundheit.</p>
             </slide>
             <slide>
-                <h3>Effektives Training</h3>
-                <p>Entdecke Neues, lass Dich inspirieren und trainiere mit spürbar mehr Erfolg und Motivation.</p>
+                <h3>Freiheit</h3>
+                <p>Entdecke die neue Vielfalt und trainiere mit mehr Motivation und Erfolg - ohne Bindung an ein Studio.</p>
             </slide>
             <slide>
                 <h3>Persönliches Wachstum</h3>
-                <p>Entfalte Körper, Geist und Seele - und Deine gesunde, glückliche und entspannteste Seite.</p>
+                <p>Entfalte Körper, Geist und Seele - und lebe gesund, glücklich und entspannt.</p>
             </slide>
         </carousel>
         <img class="cards-image" ng-if="desktop" src="images/falling-cards-2880.jpg" du-parallax y="background" opacity="fadeIn" alt=""/>
@@ -48,8 +48,8 @@
 </div>
 <div id="studios" class="b-studios">
     <div class="container">
-        <h2>Unsere Lieblingsstudios in Berlin</h2>
-        <p class="subtitle">22 Studios in Berlin - und jede Woche mehr.</p>
+        <h2>Unsere Partner</h2>
+        <p class="subtitle">Unsere Studios in Berlin - jede Woche werden es mehr.</p>
         <ul class="b-studios-list">
             <li ng-repeat="studio in studios">{{studio}}</li>
         </ul>
@@ -61,16 +61,16 @@
         <ul class="b-card-list">
             <li>
                 <img class="card-image" src="images/hiw_01.svg" alt=""/>
-                <h3>1. Werde Mitglied</h3>
-                <p>Deine Mitgliedschaft deckt die Kosten für alle Kurse in allen unseren Studios ab.</p>
+                <h3>1. Bestell die Karte</h3>
+                <p>Deine Karte deckt die Kosten ab für alle Kurse in allen Studios, die bei uns gelistet sind.</p>
             </li><li>
                 <img class="card-image" src="images/hiw_02.svg" alt=""/>
-                <h3>2. Entdecke neue Lieblings-Studios</h3>
+                <h3>2. Entdecke neue Studios</h3>
                 <p>Wähle online aus hunderten Kursen - wöchentlich kommen neue Studios hinzu.</p>
             </li><li>
                 <img class="card-image" src="images/hiw_03.svg" alt=""/>
-                <h3>3. Genieße jeden Kurs</h3>
-                <p>Zeige Deine Karte - und werde überall wie ein Mitglied begrüßt.</p>
+                <h3>3. Besuche jeden Kurs</h3>
+                <p>Werde mit Deiner Karte überall wie ein Mitglied begrüßt.</p>
             </li>
         </ul>
         <form class="b-card-subscribe" ng-submit="subscribeCard('body')">
@@ -85,9 +85,9 @@
 </div>
 <div class="b-card b-price">
     <div class="container" disable-animate>
-        <h2>Deine Karte.</h2>
-        <p class="subtitle">Werde Mitglied und entfalte ganzheitlich Dein Potenzial.</p>
-        <b class="discount">Get 20% off*</b>
+        <h2>Deine Karte</h2>
+        <p class="subtitle">Bestelle Deine Karte – und entfalte Körper, Geist und Seele.</p>
+        <b class="discount">Get 20% off *</b>
         <ul ng-if="desktop" class="b-price-list">
             <li>
                 <img class="card-image" src="images/card-lite.png" alt=""/>
@@ -164,7 +164,7 @@
         </carousel>
         <form class="b-card-subscribe" ng-submit="subscribeCard('price')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Erhalte Deine Einladung"/>
-            <span>* Melde Dich vor dem 1.1.2015 an - und erhalte 20% für die ersten 6 Monate.</span>
+            <span>* Melde Dich vor dem 1. Januar an und zahle 6 Monate lang 20% weniger.</span>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
@@ -175,38 +175,36 @@
 </div>
 <div class="b-card b-testimonial">
     <div class="container" disable-animate>
-        <h2>Wir sind Somuchmore.</h2>
-        <p class="subtitle">Was unsere Mitglieder sagen.</p>
         <ul ng-if="desktop" class="b-card-list">
             <li>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird einfacher, was mir wichtig ist: meditieren oder etwas über Ernährung oder persönliches Wachstum lernen.</em>
-                <p>– Alexandra Lia, Regisseurin</p>
-            </li><li>
-                <img class="circle-image" src="images/konard.jpg" alt=""/>
-                <em>Ganzheitliche Lebensweise istder Schlüssel für Langlebigkeitund Glück. Somuchmore öffnet Räume. Die Karte gibt mirdie Freiheit, nicht an ein Studio gebunden zu sein.</em>
-                <p>– Konrad Knops, Osteopath</p>
-            </li><li>
                 <img class="circle-image" src="images/sonia.jpg" alt=""/>
                 <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
                 <p>– Sonja Reifenhäuser, Food Coach</p>
+            </li><li>
+                <img class="circle-image" src="images/konard.jpg" alt=""/>
+                <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
+                <p>– Konrad Knops, Osteopath</p>
+            </li><li>
+                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                <p>– Alexandra Liakou, Regisseurin</p>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird einfacher, was mir wichtig ist: meditieren oder etwas über Ernährung oder persönliches Wachstum lernen.</em>
-                <p>– Alexandra Lia, Regisseurin</p>
-            </slide>
-            <slide>
-                <img class="circle-image" src="images/konard.jpg" alt=""/>
-                <em>Ganzheitliche Lebensweise istder Schlüssel für Langlebigkeitund Glück. Somuchmore öffnet Räume. Die Karte gibt mirdie Freiheit, nicht an ein Studio gebunden zu sein.</em>
-                <p>– Konrad Knops, Osteopath</p>
-            </slide>
-            <slide>
                 <img class="circle-image" src="images/sonia.jpg" alt=""/>
                 <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
                 <p>– Sonja Reifenhäuser, Food Coach</p>
+            </slide>
+            <slide>
+                <img class="circle-image" src="images/konard.jpg" alt=""/>
+                <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
+                <p>– Konrad Knops, Osteopath</p>
+            </slide>
+            <slide>
+                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                <p>– Alexandra Liakou, Regisseurin</p>
             </slide>
         </carousel>
     </div>
@@ -225,14 +223,18 @@
 </div>
 <div class="b-card">
     <div class="container">
-        <h2>Worum es geht.</h2>
-        <p class="subtitle">Unsere Philosophie, Dein Potenzial.</p>
-        <p class="text">Es gibt so viel in Dir, was Du entfalten kannst. So viel im Leben zu entdecken. Und Du musst nichts machen, um wertvoll zu sein - Du bist es schon. Bei ganzheitlicher Lebensweise geht es nicht nicht um 10 x Yoga pro Tag oder stundenlang Meditation im Morgengrauen oder Fitnesstraining bis zum Umfallen. Sondern um bewusstes Leben, Miteinander, Bewegung, Gesundheit - und ganz viel Spaß. Deshalb haben wir eine Karte entwickelt, mit der Du Dein Potenzial ganzheitlich entfalten kannst: Yoga, Meditation, Pilates, Tanz, Kampfkunst, Fitness, Gesundheit, Ernährung und persönliches Wachstum. Finde heraus, wie ein entspanntes, gesundes und glückliches Leben für Dich aussehen kann. Wir freuen uns auf Dich! </p>
+        <h2>Dein Potenzial</h2>
+        <p class="subtitle">Entdecke, wie Du es entfaltest.</p>
+        <p class="text">Es gibt so viel zu entdecken: im Leben und in Dir selbst.
+            Du musst nichts machen, um wertvoll zu sein. Du bist es schon.
+            Ganzheitliche Lebensweise bedeutet Bewegung, Gesundheit, Bewusstsein - und ganz viel Spaß.
+            Wir haben eine Karte entwickelt, mit der Du Dich unbegrenzt entfalten kannst: Yoga, Meditation, Pilates, Tanz, Kampfkunst, Fitness, Gesundheit, Ernährung oder persönliches Wachstum.
+            Lass Dich inspirieren zu einem entspannten, gesunden, glücklichen Leben.</p>
     </div>
 </div>
 <div class="b-card b-cta">
     <div class="container">
-        <h2>Ich möchte Mitglied werden.</h2>
+        <h2>Ich möchte mitmachen.</h2>
         <form class="b-card-subscribe" ng-submit="subscribeCard('final')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Erhalte Deine Einladung"/>
             <div class="form-response">

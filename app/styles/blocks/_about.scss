@@ -166,12 +166,12 @@ article {
             }
             input[type="submit"] {
                 width: 100%;
-                margin: 5px 0 0;
+                margin: 10px 0 0;
             }
         }
     }
 }
-.b-manifest-list {
+.b-about-list {
     margin: 20px 0;
     padding-left: 18px;
     @media (max-width: $containerMobileWidth) {
@@ -179,8 +179,8 @@ article {
     }
     li {
         font-size: 15px;
-        padding-left: 20px;
-        margin: 20px 0;
+        padding-left: 10px;
+        margin: 10px 0;
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
         }

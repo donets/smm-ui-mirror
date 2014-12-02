@@ -51,6 +51,13 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     &[disabled] {
         opacity: 0.5;
     }
+    &[readonly] {
+        cursor: default;
+        &:focus {
+            outline: none;
+            border-color: $colorLightGrey;
+        }
+    }
 }
 
 .input-search {
