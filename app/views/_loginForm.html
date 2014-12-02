@@ -2,12 +2,12 @@
     <li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
         <a href="" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Anmelden</a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
-            <div class="form-rel">
+            <!--<div class="form-rel">
                 <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook-square"></i>Login with Facebook</a>
             </div>
             <div class="form-rel">
                 <span class="or">oder</span>
-            </div>
+            </div>-->
             <form name="loginForm" ng-hide="forgotView" ng-submit="login()">
                 <div class="form-rel">
                     <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="E-Mail-Adresse" required />

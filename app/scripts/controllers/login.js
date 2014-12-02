@@ -56,7 +56,7 @@ angular.module('boltApp.controllers.Login', [])
             $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
                 console.log(response);
                 $rootScope.userName = null;
-                $rootScope.$state.go('get');
+                $rootScope.$state.go('home');
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
