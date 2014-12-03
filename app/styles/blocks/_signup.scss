@@ -140,13 +140,16 @@
     }
     input[type="text"] {
         &.short {
-            width: 160px;
+            width: 162px;
         }
     }
 }
 .select-card {
     @extend %form-button;
     margin: 20px 0 0;
+    @media (max-width: $containerMobileWidth) {
+        margin-top: 60px;
+    }
 }
 .type-message {
     margin: -40px 0 20px;
