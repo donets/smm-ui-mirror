@@ -114,9 +114,10 @@
                     <input type="text" ng-model="order.card.name" ng-pattern="/[a-zA-Z]+/" name="name" placeholder="Kreditkarten-Inhaber (voller Name)" required />
                 </div>
                 <div class="form-rel flex">
-                    <input type="text" ng-model="order.card.month" ng-pattern="/(0[1-9]|1[012])/" ng-maxlength="2" class="short" name="month" placeholder="Monat" required/><input type="text" ng-model="order.card.year" ng-pattern="/2\d{3}/" ng-maxlength="4" class="short" name="year" placeholder="Jahr" required/><input type="text" ng-model="order.card.cvc" ng-pattern="/\d{3}/" ng-maxlength="3" class="short" name="cvc" placeholder="CVV" required/>
+                    <input type="text" ng-model="order.card.exp_month" ng-pattern="/(0[1-9]|1[012])/" ng-maxlength="2" class="short" name="month" placeholder="Monat" required/><input type="text" ng-model="order.card.exp_year" ng-pattern="/2\d{3}/" ng-maxlength="4" class="short" name="year" placeholder="Jahr" required/><input type="text" ng-model="order.card.cvc" ng-pattern="/\d{3}/" ng-maxlength="3" class="short" name="cvc" placeholder="CVV" required/>
                 </div>
             </div>
+            <div class="form-error" ng-if="error === 'CardException'">Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}</div>
             <div class="form-group">
                 <div class="form-rel">
                     <div class="form-check">

@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios, Membership) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios) {
         $scope.studios = getStudios.data;
         $scope.order = {
             deliveryAddress: {
@@ -52,7 +52,17 @@ angular.module('boltApp.controllers.Signup', [])
 
         $scope.signupSubmit = function () {
             if ($scope.order.type) {
-                console.log($scope.order);
+                $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
+
+                    console.log(response);
+                    $rootScope.userName = response.user.name;
+                    $rootScope.$state.go('profile.account');
+
+                }).error(function (response, status) {
+                    console.error(status);
+                    $scope.error = response.type;
+                    $scope.errorMsg = response.message;
+                });
             } else {
                 $document.scrollToElementAnimated($('#cards'), 0, 800);
                 $scope.typeMessage = true;
