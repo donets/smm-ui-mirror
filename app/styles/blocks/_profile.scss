@@ -1,0 +1,62 @@
+@import "../_base/base";
+
+.profile-title {
+    padding: 150px 0 0;
+    line-height: 1;
+    color: #fff;
+    h2 {
+        @extend %title-light;
+    }
+    .subtitle {
+        color: #fff;
+    }
+}
+.profile-nav {
+    @include my-resetList();
+    display: inline-block;
+    margin: 60px 0;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: -1px;
+        a {
+            display: block;
+            color: $colorGrey;
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px;
+            width: 210px;
+            height: 42px;
+            background: #fff;
+            border: 1px solid $colorGrey;
+            outline: none;
+            text-decoration: none;
+            &.active {
+                background: $colorGrey;
+                color: #fff;
+            }
+        }
+        &:first-child {
+            a {
+                @include border-left-radius(2px);
+            }
+        }
+        &:last-child {
+            a {
+                @include border-right-radius(2px);
+            }
+        }
+    }
+}
+.profile {
+    text-align: center;
+}
+.form-profile {
+    @extend %form-custom;
+    button {
+        margin-bottom: 60px;
+    }
+    .cancel {
+        margin: 20px 0 0;
+    }
+}

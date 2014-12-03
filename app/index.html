@@ -22,7 +22,7 @@
         window.smmConfig = {
             "restUrlBaseOld": "https://smm-dev.herokuapp.com",
             "restUrlBase": "https://stage-smm-api.herokuapp.com",
-            "fbClientId": "1403268876590849"
+            "fbClientId": "1500112250239844"
         }
     </script>
     <script>window.prerenderReady = false;</script>
@@ -71,15 +71,11 @@
         @media (max-width: 1080px) {
             .pre-cover {
                 background-image: url("/images/landing-1080.jpg");
+                height: 306px;
             }
         }
         .pre-cover.hide-cover {
             opacity: 0;
-        }
-        @media (max-width: 1080px) {
-            .pre-cover {
-                height: 306px;
-            }
         }
     </style>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -90,7 +86,22 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-48122590-1', 'so-much-more.de');
+        ga('set', 'anonymizeIp', true);
     </script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 968958845;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/968958845/?value=0&amp;guid=ON&amp;script=0"/>
+        </div>
+    </noscript>
 </head>
 <body>
 <!-- Google Tag Manager -->
@@ -125,45 +136,44 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-controller="SocialCtrl" ng-class="{'offer': $state.includes('get')}">
-            <div class="b-header-logo" ng-class="{'black': $state.includes('more') || desktop && $state.includes('get')}"><a ui-sref="get">Somuchmore</a></div>
-            <div class="b-header-badge">BETA</div>
-            <a class="b-header-likes" ng-show="desktop && !$state.includes('get') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
-                <div ng-show="popover" class="b-popover">
-                    <div class="fb-like-box"
-                         data-href="https://www.facebook.com/somuchmoredeutsch"
-                         data-width="300"
-                         data-colorscheme="light"
-                         data-show-faces="true"
-                         data-header="false"
-                         data-stream="false"
-                         data-show-border="false"></div>
-                </div>
-            </a>
-            <!--<ul class="b-header-nav">-->
-                <!--<li>-->
-                    <!--<a href="" ng-click="login()" ng-hide="loginStatus.status == 'connected'" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>-->
-                    <!--<a href="" ng-show="loginStatus.status == 'connected'">{{apiMe.first_name}}</a>-->
-                <!--</li><li>-->
-                    <!--<a href="" ng-click="logout()" ng-hide="!loginStatus || loginStatus.status != 'connected'" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Logout</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--<ul ng-show="$state.includes('get') && desktop" class="b-header-nav">-->
-                <!--<li>-->
-                    <!--<a href="#card" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_card" analytics-category="card_page">Card</a>-->
-                <!--</li><li>-->
-                    <!--<a href="#studios" du-smooth-scroll duration="800" analytics-on="click" analytics-event="navmenu_studio" analytics-category="card_page">Studios</a>-->
-                <!--</li>-->
-            <!--</ul>-->
+        <div class="b-header" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">
+            <div class="container">
+                <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
+                <!--<div class="b-header-badge">BETA</div>-->
+                <!--<a class="b-header-likes" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
+                    <div ng-show="popover" class="b-popover">
+                        <div class="fb-like-box"
+                             data-href="https://www.facebook.com/somuchmoredeutsch"
+                             data-width="300"
+                             data-colorscheme="light"
+                             data-show-faces="true"
+                             data-header="false"
+                             data-stream="false"
+                             data-show-border="false"></div>
+                    </div>
+                </a>-->
+                <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-show="!$state.includes('reset')"></ng-include>
+            </div>
         </div>
-        <div class="b-main" ng-class="{'white': $state.includes('more'), 'offer': $state.includes('get')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
     </div>
     <div class="b-footer">
         <div class="container">
             <div class="b-footer-top cf">
-                <div class="b-footer-block w-left">
-                    <h3>Bleib mit uns in Kontakt</h3>
+                <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
+                    <h3>Lass Dich inspirieren</h3>
+                    <form name="form" class="app-email" ng-submit="subscribe()">
+                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Deine E-Mail-Adresse" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
+                        <div class="form-response">
+                            <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                            <div ng-show="successUpdate" class="form-message form-success">Danke!</div>
+                            <div ng-show="errorUpdate" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="b-footer-block w-left" ng-show="desktop">
+                    <h3>Folge uns</h3>
                     <div class="fb-like"
                          data-href="https://www.facebook.com/somuchmoredeutsch"
                          data-width="120"
@@ -174,28 +184,29 @@
                     </div>
                 </div>
                 <div class="b-footer-block w-left">
-                    <h3>Hast Du Fragen?</h3>
+                    <h3>Kontaktiere uns</h3>
                     <div class="contact">
-                        <p class="phone">030 - 577023100</p><span ng-show="mobile"> – </span><a class="email" href="mailto:info@somuchmore.org">info@somuchmore.org</a>
+                        <p class="phone">030 - 577023100</p><a class="email" href="mailto:info@somuchmore.org">info@somuchmore.org</a>
                     </div>
                 </div>
-                <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
-                    <h3>Halt Dich auf dem Laufenden</h3>
-                    <form name="form" class="app-email" ng-submit="subscribe()">
-                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Email-Adresse" name="email" required /><button type="submit">Newsletter Bestellen</button>
-                        <div class="form-response">
-                            <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                            <div ng-show="successUpdate" class="form-message form-success">Danke!</div>
-                            <div ng-show="errorUpdate" class="form-message form-error">Die Email-Addresse ist nicht korrekt</div>
-                        </div>
-                    </form>
-                </div>
+                <!--<div class="b-footer-block w-left">
+                    <h3>Moneyback guarantee</h3>
+                    <div class="contact">
+                        <span>Cancel within 2 weeks</span>
+                        <ul class="payment-icons">
+                            <li><img src="/images/mastercard-icon.svg" alt="mastercard"/></li><li>
+                            <img src="/images/visa-icon.svg" alt="visa"/></li><li>
+                            <img src="/images/paypal-icon.svg" alt="paypal"/></li>
+                        </ul>
+                    </div>
+                </div>-->
             </div>
             <nav class="b-footer-nav cf">
                 <ul class="b-footer-nav__menu">
                     <li><a ui-sref="about">Über uns</a></li><li>
                     <a ui-sref="impressum">Impressum</a></li><li>
-                    <a ui-sref="agb">AGB</a></li>
+                    <a class="upp" ui-sref="agb">agb</a></li><li>
+                    <a class="upp" ui-sref="faq">faq</a></li>
                 </ul>
                 <p class="b-footer-copyright">&copy; Somuchmore Marketplace UG, 2014</p>
             </nav>
@@ -266,14 +277,21 @@
 <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
 <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
 <script src="bower_components/ng-parallax/angular-parallax.min.js"></script>
+<script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+<script src="bower_components/chosen-bower/chosen.jquery.js"></script>
+<script src="bower_components/angular-chosen-localytics/chosen.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/services/events.js"></script>
+<script src="scripts/services/occurrences.js"></script>
 <script src="scripts/services/suppliers.js"></script>
 <script src="scripts/services/navigator.js"></script>
+<script src="scripts/services/user.js"></script>
+<script src="scripts/custom/helper.js"></script>
+<script src="scripts/custom/moment/de.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/event.js"></script>
 <script src="scripts/controllers/studio.js"></script>
@@ -283,12 +301,21 @@
 <script src="scripts/controllers/subscribe.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/more.js"></script>
-<script src="scripts/custom/moment/de.js"></script>
+<script src="scripts/controllers/reset.js"></script>
+<script src="scripts/controllers/admin.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/classes.js"></script>
+<script src="scripts/controllers/class.js"></script>
 <script src="scripts/filters/cutstring.js"></script>
 <script src="scripts/filters/datafilter.js"></script>
 <script src="scripts/directives/disableAnimate.js"></script>
 <script src="scripts/directives/resizable.js"></script>
 <script src="scripts/directives/sticky.js"></script>
+<script src="scripts/directives/togglePopup.js"></script>
+<script src="scripts/controllers/signup.js"></script>
+<script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/profile.js"></script>
+<script src="scripts/services/membership.js"></script>
 <!-- endbuild -->
 
 </body>

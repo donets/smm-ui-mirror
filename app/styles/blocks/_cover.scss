@@ -46,8 +46,50 @@
     &.about-cover {
         background-image: url("/images/about-2880.jpg");
         @extend %shadow-cover-top;
+        @media (max-width: 1440px) {
+            background-image: url("/images/about-1440.jpg");
+        }
         @media (max-width: $containerMobileWidth) {
             background-image: url("/images/about-1080.jpg");
+        }
+    }
+    &.signup-cover {
+        background-image: url("/images/signup-2880.jpg");
+        @media (max-width: 1440px) {
+            background-image: url("/images/signup-1440.jpg");
+        }
+        @media (max-width: $containerMobileWidth) {
+            background-image: url("/images/signup-1080.jpg");
+        }
+    }
+    &.profile-cover {
+        height: 550px;
+        background-image: url("/images/profile-2880.jpg");
+        @media (max-width: 1440px) {
+            height: 350px;
+            background-image: url("/images/profile-1440.jpg");
+        }
+        @media (max-width: $containerMobileWidth) {
+            height: 250px;
+            background-image: url("/images/profile-1080.jpg");
+        }
+    }
+    &.faq-cover {
+        background-image: url("/images/faq-2880.jpg");
+        @media (max-width: 1440px) {
+            background-image: url("/images/faq-1440.jpg");
+        }
+        @media (max-width: $containerMobileWidth) {
+            background-image: url("/images/faq-1080.jpg");
+        }
+    }
+    &.contact-cover {
+        background-image: url("/images/contact-2880.jpg");
+        @media (max-width: 1440px) {
+            background-image: url("/images/contact-1440.jpg");
+        }
+        @media (max-width: $containerMobileWidth) {
+            background-image: url("/images/contact-1080.jpg");
         }
     }
 }
@@ -57,27 +99,33 @@
     position: relative;
     z-index: 1;
     h2 {
-        font-size: 50px;
-        color: #fff;
+        font-size: 60px;
         font-family: $fontBold;
-        margin: 0;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
+        letter-spacing: 0;
+        color: #fff;
+        margin: 0 0 20px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 64px;
+            line-height: 1.1;
+        }
         @media (max-width: $containerMobileWidth640) {
             font-size: 32px;
+            margin-bottom: 10px;
         }
     }
     p {
-        font-size: 18px;
-        color: #fff;
-        width: 680px;
+        width: 860px;
         margin: 0 auto;
-        letter-spacing: 0.1em;
+        font-size: 20px;
+        color: #fff;
+        font-family: $fontBold;
+        letter-spacing: 0.5px;
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
             width: auto; 
         }
         @media (max-width: $containerMobileWidth640) {
+            line-height: 1.2;
             font-size: 14px;
         }
         a {

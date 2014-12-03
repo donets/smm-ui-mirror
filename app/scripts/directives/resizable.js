@@ -12,7 +12,7 @@ angular.module('boltApp')
             $rootScope.initializeWindowSize = function() {
                 $rootScope.windowWidth = $window.innerWidth;
                 $rootScope.windowHeight = $window.innerHeight;
-                $rootScope.windowWidthScroll = 2*$window.innerWidth - $window.outerWidth;
+                $rootScope.documentWidth = $window.innerWidth - getScrollbarWidth(); // jshint ignore:line
                 if($window.innerWidth > 1080) {
                     $rootScope.desktop = true;
                     $rootScope.mobile = false;
@@ -21,6 +21,13 @@ angular.module('boltApp')
                     $rootScope.desktop = false;
                     $rootScope.mobile = true;
                     $rootScope.offset = $window.innerWidth > 640 ? 120 : 60;
+                }
+                if ($window.innerWidth <= 1080) {
+                    $rootScope.resolution = 1080;
+                } else if ($window.innerWidth <= 1440) {
+                    $rootScope.resolution = 1440;
+                } else if ($window.innerWidth <= 2880) {
+                    $rootScope.resolution = 2880;
                 }
             };
             $rootScope.initializeWindowSize();

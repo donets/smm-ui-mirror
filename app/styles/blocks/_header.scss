@@ -5,20 +5,38 @@
     left: 0;
     right: 0;
     top: 0;
-    z-index: 5;
+    z-index: 15;
+    height: 60px;
+    background: getRgba($colorText, 0.5);
+    @media (max-width: $containerMobileWidth) {
+        position: absolute;
+        height: 90px;
+        background: rgba(0,0,0,0.6);
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 60px;
+    }
 }
 .b-header-logo {
-    width: 186px;
-    height: 50px;
+    width: 157px;
+    height: 42px;
     background: url("/images/logo.svg") no-repeat;
     position: absolute;
-    left: 40px;
-    top: 16px;
+    left: 0;
+    top: 10px;
     overflow: hidden;
     z-index: 2;
     @media (max-width: $containerMobileWidth) {
-        left: 15px;
+        width: 246px;
+        height: 66px;
         top: 12px;
+        left: 30px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        width: 157px;
+        height: 42px;
+        top: 10px;
+        left: 15px;
     }
     &.black {
         background: url("/images/logo-black.svg") no-repeat;
@@ -36,24 +54,206 @@
 
 .b-header-badge {
     position: absolute;
-    top: 34px;
-    left: 234px;
+    top: 24px;
+    left: 200px;
     width: 35px;
     height: 14px;
     background: #fff;
     padding: 1px 3px;
     @include border-radius(2px);
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
     line-height: 1;
-    color: $colorBlack;
+    color: $colorLink;
     @media (max-width: $containerMobileWidth) {
-        font-size: 12px;
-        width: 34px;
-        height: 14px;
-        top: 30px;
         padding: 1px 2px;
-        left: 210px;
+        color: $colorText;
+        font-size: 20px;
+        width: 56px;
+        height: 22px;
+        top: 33px;
+        left: 245px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        font-size: 13px;
+        width: 35px;
+        height: 14px;
+        top: 24px;
+        left: 180px;
+    }
+}
+
+.b-header-nav {
+    @include my-resetList();
+    position: absolute;
+    top: 0;
+    right: 0;
+    @media (max-width: $containerMobileWidth) {
+        left: 0;
+        text-align: right;
+    }
+    > li {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 60px;
+        @media (max-width: $containerMobileWidth) {
+            line-height: 90px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            line-height: 60px;
+        }
+        > a {
+            display: block;
+            font-size: 16px;
+            color: #fff;
+            padding: 0 20px;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 28px;
+                padding: 0 30px;
+                color: $colorLink;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+            outline: none;
+            text-decoration: none;
+        }
+        &.ng-animate {
+            @include transition(none);
+        }
+    }
+}
+
+.b-header-nav_login-widget {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 20px;
+    background: #fff;
+    @include border-radius(2px);
+    @include box-shadow(0 3px 5px getRgba($colorGrey, 0.5));
+    line-height: $fontLine;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 50px;
+        bottom: 100%;
+        border-width: 9px 5px;
+        border-style: solid;
+        border-color: transparent;
+        border-bottom-color: #fff;
+    }
+    @media (max-width: $containerMobileWidth) {
+        left: 0;
+        padding: 30px;
+        margin: 30px;
+        &:before {
+            display: none;
+        }
+    }
+    @media (max-width: $containerMobileWidth640) {
+        padding: 15px;
+        margin: 15px;
+    }
+    .fb_button, .form_button {
+        @extend %form-button;
+        min-width: 0;
+        display: block;
+        @media (min-width: $containerMobileWidth) {
+            height: 50px;
+            font-size: 18px;
+            line-height: 50px;
+        }
+    }
+    .fb_button {
+        background: $colorFacebook;
+        outline: none;
+        padding: 0;
+        .fa {
+            margin-right: 10px;
+        }
+        &:hover {
+            background: #4d6ca8;
+        }
+        &:active {
+            background: #37538c;
+        }
+    }
+    .form_button {
+        width: 100%;
+    }
+    .form-input {
+        display: block;
+    }
+    .form-rel {
+        width: 320px;
+        margin: 10px 0;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
+    }
+    .or {
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        line-height: 30px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+            line-height: 60px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 16px;
+            line-height: 30px;
+        }
+    }
+    .forgot-password {
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        padding: 10px 0 0;
+        color: $colorGrey;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 16px;
+        }
+        outline: none;
+    }
+    .user-nav {
+        margin: -15px;
+    }
+}
+
+.user-nav {
+    @include my-resetList();
+    margin: 50px 0;
+    @include border-radius(2px);
+    li {
+        width: 200px;
+        height: 42px;
+        a {
+            display: block;
+            font-size: 18px;
+            color: $colorGrey;
+            padding: 0 16px;
+            @include border-radius(2px);
+            line-height: 42px;
+            outline: none;
+            &:hover {
+                background: #f4f7f9;
+                text-decoration: none;
+            }
+            &.logout {
+                color: $colorLink;
+            }
+        }
     }
 }
 

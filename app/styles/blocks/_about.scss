@@ -47,9 +47,23 @@ article {
     h1 {
         margin-bottom: 30px;
     }
+    h3 {
+        font-size: 26px;
+    }
     p {
         font-size: 18px;
         margin: 20px 0;
+    }
+    ul {
+        text-align: left;
+        padding: 0 0 0 20px;
+        li {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    }
+    a {
+        font-size: 18px;
     }
     @media (max-width: $containerMobileWidth) {
         width: auto;
@@ -57,6 +71,14 @@ article {
             font-size: 40px;
         }
         p {
+            font-size: 26px;
+        }
+        ul {
+            li {
+                font-size: 26px;
+            }
+        }
+        a {
             font-size: 26px;
         }
     }
@@ -67,12 +89,17 @@ article {
         p {
             font-size: 14px;
         }
+        ul {
+            li {
+                font-size: 14px;
+            }
+        }
+        a {
+            font-size: 14px;
+        }
     }
 }
 .about article {
-    h3 {
-        @extend h1;
-    }
     p {
         text-align: left;
     }
@@ -87,6 +114,19 @@ article {
         @extend %title-light;
         @media (max-width: $containerMobileWidth) {
             text-align: center;
+        }
+    }
+    p {
+        font-size: 20px;
+        margin: 20px 0;
+        color: $colorGrey;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 18px;
+            margin-bottom: 20px;
         }
     }
 }
@@ -126,12 +166,12 @@ article {
             }
             input[type="submit"] {
                 width: 100%;
-                margin: 5px 0 0;
+                margin: 10px 0 0;
             }
         }
     }
 }
-.b-manifest-list {
+.b-about-list {
     margin: 20px 0;
     padding-left: 18px;
     @media (max-width: $containerMobileWidth) {
@@ -139,8 +179,8 @@ article {
     }
     li {
         font-size: 15px;
-        padding-left: 20px;
-        margin: 20px 0;
+        padding-left: 10px;
+        margin: 10px 0;
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
         }

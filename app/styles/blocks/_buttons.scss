@@ -9,60 +9,79 @@
     border: 0 none;
     @include transition(all .2s);
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-family: $fontLight;
     @include box-sizing(border-box);
     letter-spacing: 1px;
     @include border-radius(2px);
     text-align: center;
-    padding: 0 21px;
+    padding: 0 20px;
+    outline: none;
     text-decoration: none;
     &.small {
         @media (min-width: $containerMobileWidth) {
             height: 36px;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 36px;
             min-width: 132px;
-            padding: 0 11px;
+            padding: 0 10px;
         }
     }
     @media (max-width: $containerMobileWidth) {
         height: 80px;
-        font-size: 30px;
+        font-size: 32px;
         line-height: 80px;
     }
     @media (max-width: $containerMobileWidth640) {
         height: 40px;
         min-width: 0;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 40px;
     }
     &:hover {
         background: $colorHover;
+        color: #fff;
         text-decoration: none;
     }
     &:active {
         background: $colorActive;
+        color: #fff;
+    }
+    &:focus {
+        color: #fff;
     }
     &[disabled] {
         background: $colorLink;
-        opacity: 0.5;
         &:hover {
             background: $colorLink;
+        }
+    }
+    &.white {
+        background: #fff;
+        color: $colorLink;
+        &:hover {
+            background: #fff;
+        }
+        &:active {
+            background: #fff;
+        }
+        &[disabled] {
+            background: #fff;
+            &:hover {
+                background: #fff;
+            }
         }
     }
     &.dark {
         background: $colorText;
         &:hover {
             background: #4d4d4d;
-            text-decoration: none;
         }
         &:active {
             background: #333;
         }
         &[disabled] {
             background: $colorText;
-            opacity: 0.5;
             &:hover {
                 background: $colorText;
             }
@@ -121,10 +140,15 @@
     }
     &[disabled] {
         border-color: $colorGrey;
-        opacity: 0.5;
         &:hover {
             border-color: $colorGrey;
         }
+    }
+}
+
+button, input[type="submit"] {
+    &[disabled] {
+        opacity: 0.5;
     }
 }
 

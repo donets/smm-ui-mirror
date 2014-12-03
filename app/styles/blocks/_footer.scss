@@ -8,37 +8,43 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 150px;
+        height: 180px;
     }
 }
 .b-footer-top {
-    padding: 20px 0 6px;
+    padding: 20px 0 3px;
 }
 .b-footer-block {
     position: relative;
-    min-width: 240px;
+    min-width: 220px;
     @media (max-width: $containerMobileWidth) {
         float: none;
         display: block;
         width: 100%;
         padding: 20px 0;
+        &.w-left {
+            float: left !important;
+            width: 60%;
+            min-width: 0;
+            &:last-child {
+                width: 40%; 
+            }
+        }
     }
     @media (max-width: $containerMobileWidth640) {
         padding: 10px 0 20px;
     }
     h3 {
         display: inline-block;
-        color: $colorGrey;
         letter-spacing: 0;
-        margin: 0 0 2px;
-        font-size: 12px;
+        margin: 0 0 10px;
+        font-size: 18px;
         @media (max-width: $containerMobileWidth) {
             line-height: inherit;
-            font-size: 24px;
-            margin: 0 0 5px;
+            font-size: 28px;
         }
         @media (max-width: $containerMobileWidth640) {
-            font-size: 16px;
+            font-size: 18px;
         }
     }
     .fb-like {
@@ -62,20 +68,47 @@
 }
 .contact {
     .phone, .email, span {
-        font-size: 15px;
+        font-size: 14px;
         color: $colorGrey;
         letter-spacing: 0.5px;
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
-            display: inline-block;
-            vertical-align: top;
         }
         @media (max-width: $containerMobileWidth640) {
             font-size: 14px;
         }
     }
-    span {
-        margin: 0 10px;
+    .phone {
+        font-size: 16px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 28px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 16px;
+        }
+    }
+    .moneyback {
+        display: block;
+        margin: -20px 0 20px;
+    }
+    .payment-icons {
+        @include my-resetList();
+        li {
+            display: inline-block;
+            vertical-align: top;
+            img {
+                width: 30px;
+                margin: 5px 6px 0 0;
+                @media (max-width: $containerMobileWidth) {
+                    width: 60px;
+                    margin: 5px 10px 0 0;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    width: 30px;
+                    margin: 5px 6px 0 0;
+                }
+            }
+        }
     }
 }
 .email {
@@ -87,15 +120,15 @@
     position: relative;
     input[type='email'] {
         @extend %input-text;
-        width: 238px;
+        width: 282px;
         height: 36px;
-        font-size: 12px;
+        font-size: 16px;
         background: #fff;
         line-height: 26px;
         @include border-right-radius(0);
         @media (max-width: $containerMobileWidth) {
             height: 80px;
-            width: 68%;
+            width: 86%;
             background: $colorLightGrey;
             border-width: 0px;
             line-height: 56px;
@@ -116,8 +149,8 @@
         min-width: 0;
         line-height: 36px;
         font-size: 15px;
-        padding: 0 10px;
-        letter-spacing: 0.5px;
+        padding: 0;
+        width: 36px;
         margin-left: -1px;
         @include border-left-radius(0);
         &:hover {
@@ -129,10 +162,8 @@
         }
         @media (max-width: $containerMobileWidth) {
             height: 80px;
-            width: 32%;
-            padding: 0 3.5%;
+            width: 14%;
             margin: 0;
-            text-align: left;
             font-size: 28px;
             line-height: 1;
         }

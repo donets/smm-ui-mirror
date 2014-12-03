@@ -1,0 +1,165 @@
+@import "../_base/base";
+
+.signup-title {
+    padding: 150px 0 0;
+    line-height: 1;
+    h2 {
+        @extend %title-light;
+    }
+}
+.b-signup-list {
+    @include my-resetList();
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $containerMobileWidth) {
+        display: block;
+        width: 100%;
+    }
+    li {
+        width: 235px;
+        margin: 50px 0;
+        text-align: center;
+        color: #fff;
+        background: url("/images/check-circle.svg") center top no-repeat;
+        background-size: 50px 50px;
+        padding-top: 60px;
+        @media (max-width: $containerMobileWidth) {
+            display: block;
+        }
+        b {
+            display: block;
+            font-size: 18px;
+            line-height: 1.2;
+            padding: 0 10px;
+        }
+        span {
+            font-size: 14px;
+        }
+        .check-circle {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+    }
+}
+.b-order {
+    font-size: 18px;
+    text-align: center;
+    padding: 30px 0 0;
+    .container {
+        border-bottom: 1px solid $colorGrey;
+    }
+}
+.special-offer {
+    background: url("/images/offer.svg") no-repeat;
+    width: 110px;
+    height: 110px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1;
+    display: table;
+    margin: 0 auto 10px;
+    p {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    b {
+        font-family: $fontBold;
+    }
+}
+.b-select-card {
+    @include my-resetList();
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 0;
+    @media (max-width: $containerMobileWidth) {
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    li {
+        @extend %price-li;
+        border: 1px solid $colorLightGrey;
+        dl {
+            padding-bottom: 10px;
+        }
+        button {
+            @extend %form-button;
+            background: $colorGrey;
+            min-width: 0;
+            width: 150px;
+            font-size: 18px;
+            letter-spacing: 0;
+            padding: 0;
+            margin: 0 0 30px;
+            &:hover {
+                background: $colorGrey;
+            }
+            &:active {
+                background: $colorGrey;
+            }
+            &.active {
+                background: $colorLink;
+                &:hover {
+                    background: $colorLink;
+                }
+                &:active {
+                    background: $colorLink;
+                }
+                .fa {
+                    &:before {
+                        content: $fa-var-check-circle;
+                    }
+                }
+            }
+            .fa {
+                margin-right: 10px;
+                &:before {
+                    content: $fa-var-circle-thin;
+                }
+            }
+        }
+        @media (max-width: $containerMobileWidth) {
+            display: block;
+        }
+    }
+}
+.form-signup {
+    @extend %form-custom;
+    .form-group {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    .form-response {
+        top: 0;
+        left: 100%;
+        width: 200px;
+        line-height: 30px;
+        margin: 0 15px;
+    }
+    input[type="text"] {
+        &.short {
+            width: 160px;
+        }
+    }
+}
+.select-card {
+    @extend %form-button;
+    margin: 20px 0 0;
+}
+.type-message {
+    margin: -40px 0 20px;
+    line-height: 20px;
+}
+.signup {
+    .b-studios {
+        padding: 100px 0 60px;
+    }
+    .b-hiw {
+        padding-top: 0;
+    }
+    .b-cta {
+        padding-top: 100px;
+    }
+}

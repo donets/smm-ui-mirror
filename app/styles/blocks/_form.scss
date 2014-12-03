@@ -2,8 +2,8 @@
 
 %input-text {
     height: 42px;
-    border: 1px solid #ddd;
-    font-size: 15px;
+    border: 1px solid $colorLightGrey;
+    font-size: 18px;
     font-family: $fontRegular;
     color: $colorText;
     padding: 5px 12px;
@@ -26,14 +26,14 @@
         height: 80px;
         border-width: 2px;
         line-height: 56px;
-        font-size: 30px;
+        font-size: 28px;
         padding: 10px 26px;
     }
     @media (max-width: $containerMobileWidth640) {
         height: 40px;
         border-width: 1px;
         line-height: 28px;
-        font-size: 15px;
+        font-size: 18px;
         padding: 5px 16px;
     }
 }
@@ -49,9 +49,66 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
         @include my-placeholder(transparent!important);
     }
     &[disabled] {
-        background: $colorGrey;
         opacity: 0.5;
     }
+    &[readonly] {
+        cursor: default;
+        &:focus {
+            outline: none;
+            border-color: $colorLightGrey;
+        }
+    }
+}
+
+.input-search {
+    position: relative;
+    display: inline-block;
+    &:before {
+        @extend .fa;
+        content: $fa-var-search;
+        position: absolute;
+        top: 0;
+        right: 12px;
+        line-height: 40px;
+        color: $colorGrey;
+        font-size: 15px;
+    }
+    input {
+        @extend %input-text;
+    }
+}
+
+.input-date {
+    position: relative;
+    display: inline-block;
+    &.form-rel {
+        margin: 0;
+        width: auto;
+    }
+    &.disabled {
+        &:before {
+            opacity: 0.5;
+        }
+    }
+    &:before {
+        @extend .fa;
+        content: $fa-var-calendar-o;
+        position: absolute;
+        top: 0;
+        right: 16px;
+        line-height: 42px;
+        color: $colorText;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    input {
+        @extend %input-text;
+    }
+}
+
+.dropdown-menu {
+    min-width: 260px;
+    padding: 5px;
 }
 
 textarea {
@@ -67,51 +124,51 @@ textarea {
     margin-top: 20px;
     @media (max-width: $containerMobileWidth) {
         margin-top: 90px;
+        padding: 0 40px;
     }
     @media (max-width: $containerMobileWidth640) {
         margin-top: 60px;
+        padding: 0 20px;
     }
-    input[type="email"] {
+    input[type="text"], input[type="email"], input[type="password"] {
         @extend %input-text;
         vertical-align: top;
-        width: 420px;
-        border: 0 none;
+        width: 400px;
         @media (min-width: $containerMobileWidth) {
             @include border-right-radius(0px);
-            height: 50px;
-            font-size: 18px;
-            line-height: 38px;
             padding: 5px 20px;
         }
         @media (max-width: $containerMobileWidth) {
+            text-align: center;
             width: 100%;
         }
     }
-    input[type="submit"] {
+    button, input[type="submit"] {
         @extend %form-button;
         min-width: 0;
         @media (min-width: $containerMobileWidth) {
             @include border-left-radius(0px);
-            height: 50px;
         }
         @media (max-width: $containerMobileWidth) {
-            margin: 20px 0;
+            margin: 20px 0 0;
             width: 100%;
         }
         @media (max-width: $containerMobileWidth640) {
-            margin: 10px 0;
+            margin: 10px 0 0;
         }
+    }
+    .form-success {
+        color: $colorText;
     }
     span {
         position: absolute;
         left: 0;
         bottom: 100%;
         width: 100%;
-        text-align: left;
-        color: $colorGrey;
-        font-size: 15px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 40px;
         @media (max-width: $containerMobileWidth) {
-            text-align: center;
             font-size: 26px;
             margin: 0 0 20px;
         }
@@ -121,22 +178,95 @@ textarea {
         }
     }
 }
+.reset .b-card-subscribe {
+
+    @media (max-width: $containerMobileWidth) {
+        display: block;
+        margin: 0;
+    }
+    input[type="password"] {
+        display: block;
+        width: 320px;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
+    }
+    button {
+        display: block;
+        margin: 20px 0 0;
+        @media (max-width: $containerMobileWidth640) {
+            margin: 10px 0 0;
+        }
+    }
+
+}
+
+.form-group {
+    margin: 35px 0;
+    text-align: left;
+}
+.form-title {
+    font-size: 20px;
+    font-family: $fontItalic;
+    font-style: italic;
+    color: $colorGrey;
+    text-align: center;
+}
 .form-rel {
     position: relative;
     margin: 20px 0;
     width: 320px;
     &:first-child {
-        margin-top: 0;
+        margin-top: 0 !important;
     }
     &:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
+    }
+    &.flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    &.auto {
+        width: auto;
     }
     @media (max-width: $containerMobileWidth) {
         width: auto;
         margin: 30px 0;
     }
+    @media (max-width: $containerMobileWidth640) {
+        margin: 10px 0;
+    }
 }
-
+%form-custom {
+    display: inline-block;
+    width: 500px;
+    padding: 0 0 100px;
+    input[type="text"], input[type="password"],  input[type="email"] {
+        @extend %input-text;
+        width: 100%;
+    }
+    button {
+        @extend %form-button;
+        min-width: 260px;
+        letter-spacing: 0.5px;
+    }
+    label {
+        font-size: 18px;
+        font-weight: normal;
+        a {
+            color: $colorText;
+            font-size: 18px;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .form-rel {
+        margin: 6px 0;
+        width: 100%;
+    }
+}
 .form-input, .form-textarea {
     @extend %input-text;
     width: 100%;
@@ -151,11 +281,24 @@ textarea {
     @extend %form-button;
     width: 100%;
 }
+.form-label {
+    font-size: 15px;
+    color: $colorGrey;
+}
 
 .form-response {
     position: absolute;
     left: 0;
     top: 100%;
+    .fa {
+        font-size: 20px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 40px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 20px;
+        }
+    }
     @media (max-width: $containerMobileWidth) {
         position: static;
     }
@@ -175,14 +318,7 @@ textarea {
         margin: 5px;
     }
     .fa-spinner {
-        font-size: 20px;
         color: $colorLink;
-        @media (max-width: $containerMobileWidth) {
-            font-size: 40px;
-        }
-        @media (max-width: $containerMobileWidth640) {
-            font-size: 20px;
-        }
     }
 
 }
@@ -224,51 +360,35 @@ input:-webkit-autofill {
     -webkit-box-shadow: none;
 }
 
-%label {
-    font-size: 12px;
-    font-family: $fontBold;
-    text-transform: uppercase;
-    color: $colorLabel;
-}
-
 .form-radio, .form-check {
     display: inline-block;
     position: relative;
     input[type='radio'], input[type='checkbox'] {
         position: absolute;
         left: 0;
-        top: 50%;
-        height: 20px;
-        width: 20px;
+        top: 5px;
+        height: 15px;
+        width: 15px;
         z-index: 1;
-        margin-top: -10px;
         visibility: hidden;
+        margin: 0;
         opacity: 0;
     }
     > .fa {
         position: absolute;
         left: 0;
-        top: 50%;
-        font-size: 20px;
-        height: 20px;
-        width: 20px;
+        top: 5px;
+        font-size: 16px;
         z-index: 0;
-        margin-top: -10px;
         cursor: pointer;
     }
     label {
         position: relative;
         display: block;
-        padding: 0 0 0 36px;
+        padding: 0 0 0 25px;
         cursor: pointer;
-        font-family: $fontRegular;
-        font-size: 13px;
-        color: $colorLabel;
+        margin: 0;
         z-index: 2;
-        //background: url(../img/icons/form/checkbox.png) no-repeat;
-    }
-    input:checked ~ label {
-        background-position: 0 -23px;
     }
 }
 
@@ -300,12 +420,15 @@ input:-webkit-autofill {
 .form-check {
     > .fa {
         &:before {
-            content: "\f096";
+            content: $fa-var-square-o;
         }
     }
     input:checked ~ .fa {
+        color: $colorLink;
+        font-size: 15px;
+        line-height: 14px;
         &:before {
-            content: "\f046";
+            content: $fa-var-check-square;
         }
     }
 }

@@ -1,6 +1,7 @@
 
 @import "../_base/base";
 @import "fonts";
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400italic);
 
 /*******************************************************************************
  global rules
@@ -98,13 +99,17 @@ button {
     outline: none;
 }
 
+.upp {
+    text-transform: uppercase;
+}
+
 .wrapper {
     overflow: hidden;
     position: relative;
     z-index: 1;
     width: 100%;
     @media (min-width: $containerMobileWidth) {
-        padding-bottom: 150px;
+        padding-bottom: 180px;
     }
 }
 
@@ -129,11 +134,11 @@ button {
     background: #fff; 
 }
 %gradient {
-    @include filter-gradient(#533576, #4970b9, horizontal);
-    @include background-image(linear-gradient(70deg, #533576 0%, #4296a5 58%, #4970b9 100%));
+    @include filter-gradient(#8d2526, #cb863b, horizontal);
+    @include background-image(linear-gradient(24deg, #8d2526 0%, #c84236 50%, #cb863b 100%));
     @media (max-width: $containerMobileWidth) {
-        @include filter-gradient(#7e9c9e, #699bb2, horizontal);
-        @include background-image(linear-gradient(70deg, #7e9c9e 0%, #699bb2 100%));
+        @include filter-gradient(#8d2526, #cb863b, horizontal);
+        @include background-image(linear-gradient(24deg, #8d2526 0%, #c84236 50%, #cb863b 100%));
     }
 }
 .b-main-sidebar {
@@ -187,8 +192,7 @@ button {
     &.ng-move,
     &.ng-enter,
     &.ng-leave {
-        -webkit-transition: all linear 0.5s;
-        transition: all linear 0.5s;
+        @include transition(all linear 0.5s);
     }
 
     &.ng-leave.ng-leave-active,
@@ -226,6 +230,15 @@ button {
     display: none !important;
 }
 
+iframe[name='google_conversion_frame'] {
+    height: 0 !important;
+    width: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    margin-top: -13px;
+    float: left;
+}
+
 /* clearfix */
 
 .cf {
@@ -255,6 +268,10 @@ button {
 @import "buttons";
 @import "form";
 @import "title";
+@import "chosen";
+@import "alert";
+@import "ngProgress";
+@import "carousel";
 @import "header";
 @import "cover";
 @import "nav";
@@ -263,10 +280,11 @@ button {
 @import "event";
 @import "studio";
 @import "sidebar";
-@import "offer";
 @import "about";
 @import "video";
-@import "alert";
-@import "ngProgress";
+@import "home";
+@import "signup";
+@import "profile";
+@import "admin";
 @import "modal";
 
