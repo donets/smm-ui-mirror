@@ -26,6 +26,7 @@ angular
         'duParallax',
         'localytics.directives',
         'ezfb',
+        'permission',
         'angulartics',
         'angulartics.google.analytics',
         'angulartics.google.tagmanager',
@@ -158,6 +159,39 @@ angular.module('boltApp')
             };
         }];
     })
+    .run(function (Permission, User) {
+        Permission
+            .defineRole('anonymous', function () {
+                return User.get().$promise.then(function (res) {
+                    if(!res.currentUser) {
+                        return true;
+                    }
+                });
+            })
+            .defineRole('member', function () {
+
+                return User.get().$promise.then(function (res) {
+
+                    if(res.currentUser && _.include(res.currentUser.roles, 'member')) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+            })
+            .defineRole('admin', function () {
+
+                return User.get().$promise.then(function (res) {
+
+                    if(res.currentUser && _.include(res.currentUser.roles, 'admin')) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+            });
+    })
     .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$analyticsProvider', function ($stateProvider, $locationProvider, $urlRouterProvider, $analyticsProvider) {
 
         $urlRouterProvider
@@ -179,7 +213,6 @@ angular.module('boltApp')
                     // A function value resolves to the return
                     // value of the function
                     getEvents: function(Occurrences) {
-                        //$location.search('schedule', $location.search().schedule || 'today');
                         return Occurrences.query();
                     }
                 },
@@ -329,6 +362,13 @@ angular.module('boltApp')
                 onExit: function($rootScope){
                     $rootScope.autoscroll = true;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
+                },
+                data: {
+                    permissions: {
+                        only: ['admin', 'member'],
+                        except: ['anonymous'],
+                        redirectTo: 'signup'
+                    }
                 }
             })
             .state('profile.account', {
@@ -343,7 +383,14 @@ angular.module('boltApp')
                 url : '/admin/v2/',
                 abstract: true,
                 templateUrl: 'views/admin.html',
-                controller : 'AdminCtrl'
+                controller : 'AdminCtrl',
+                data: {
+                    permissions: {
+                        only: ['admin'],
+                        except: ['member', 'anonymous'],
+                        redirectTo: 'home'
+                    }
+                }
             })
             .state('admin.dashboard', {
                 url : 'dashboard/',

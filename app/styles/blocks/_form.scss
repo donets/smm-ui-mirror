@@ -204,6 +204,11 @@ textarea {
 .form-group {
     margin: 35px 0;
     text-align: left;
+    &.error {
+        input[type="text"], input[type="password"],  input[type="email"], textarea {
+            border-color: $colorError;
+        }
+    }
 }
 .form-title {
     font-size: 20px;

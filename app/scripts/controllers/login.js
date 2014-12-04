@@ -35,8 +35,6 @@ angular.module('boltApp.controllers.Login', [])
             console.log(res);
             if (res.currentUser) {
                 $rootScope.userName = res.currentUser.name;
-            } else {
-                updateLoginStatus();
             }
         });
 
