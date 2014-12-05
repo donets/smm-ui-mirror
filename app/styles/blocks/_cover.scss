@@ -45,7 +45,6 @@
     }
     &.about-cover {
         background-image: url("/images/about-2880.jpg");
-        @extend %shadow-cover-top;
         @media (max-width: 1440px) {
             background-image: url("/images/about-1440.jpg");
         }

@@ -10,14 +10,14 @@
 angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios) {
         $scope.studios = getStudios.data;
-        /*$scope.order = {
+        $scope.order = {
             deliveryAddress: {
                 countryCode: 'DE'
             },
             newsletter: true
-        };*/
+        };
 
-        $scope.order = {
+        /*$scope.order = {
             "firstName": "Vlad",
             "lastName": "Donets",
             "email": "test3@somuchmore.org",
@@ -39,7 +39,7 @@ angular.module('boltApp.controllers.Signup', [])
                 "exp_year": "2015",
                 "name": "Max Musterman"
             }
-        };
+        };*/
 
         $scope.checkVoucher = function () {
             if ($scope.voucher) {

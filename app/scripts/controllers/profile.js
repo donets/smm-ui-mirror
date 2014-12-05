@@ -31,7 +31,7 @@ angular.module('boltApp.controllers.Profile', [])
                 $scope.loading = false;
                 $scope.errorPass = response.type;
             });
-        }
+        };
 
     });
 
