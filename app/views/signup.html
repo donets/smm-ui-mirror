@@ -61,7 +61,7 @@
                 <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'BLACK'"><i class="fa"></i>{{order.type === 'BLACK' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li>
         </ul>
-        <div class="type-message form-error" ng-if="typeMessage">Please choose type Card Membership</div>
+        <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <div ng-class="{ 'error': errorVoucher }" class="form-group">
                 <div class="form-rel">
@@ -69,7 +69,7 @@
                     <div class="form-response">
                         <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i></div>
-                        <div ng-show="errorVoucher" class="form-message form-error">Invalid voucher code</div>
+                        <div ng-show="errorVoucher" class="form-message form-error">Kein gültiger Code</div>
                     </div>
                 </div>
             </div>
@@ -77,28 +77,28 @@
                 <div class="form-rel">
                     <input type="text" ng-model="order.firstName" name="name" placeholder="Vorname" required />
                     <div class="form-response" ng-show="formSignup.name.$dirty && formSignup.name.$invalid">
-                        <div ng-show="formSignup.name.$error.required" class="form-message form-error">This field is required</div>
+                        <div ng-show="formSignup.name.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <input type="text" ng-model="order.lastName" name="surname" placeholder="Nachname" required/>
                     <div class="form-response" ng-show="formSignup.surname.$dirty && formSignup.surname.$invalid">
-                        <div ng-show="formSignup.surname.$error.required" class="form-message form-error">This field is required</div>
+                        <div ng-show="formSignup.surname.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <input type="email" ng-model="order.email" name="email" placeholder="Email" required/>
                     <div class="form-response" ng-show="formSignup.email.$dirty && formSignup.email.$invalid">
-                        <div ng-show="formSignup.email.$error.required" class="form-message form-error">This field is required</div>
-                        <div ng-show="formSignup.email.$error.email" class="form-message form-error">This is not valid email</div>
+                        <div ng-show="formSignup.email.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                        <div ng-show="formSignup.email.$error.email" class="form-message form-error">Keine gültige E-Mail-Adresse</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <input type="password" ng-model="order.password" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*/" ng-minlength="8" name="password" placeholder="Passwort" required/>
                     <div class="form-response" ng-show="formSignup.password.$dirty && formSignup.password.$invalid">
-                        <div ng-show="formSignup.password.$error.required" class="form-message form-error">This field is required</div>
-                        <div ng-show="formSignup.password.$error.minlength" class="form-message form-error">Password needs to be at least 8 characters</div>
-                        <div ng-show="formSignup.password.$error.pattern" class="form-message form-error">Password contain at least 1 digit and 1 letter lower and uppercase</div>
+                        <div ng-show="formSignup.password.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                        <div ng-show="formSignup.password.$error.minlength" class="form-message form-error">Das Passwort muss mindestens 8 Zeichen enthalten</div>
+                        <div ng-show="formSignup.password.$error.pattern" class="form-message form-error">Das Passwort muss eine Zahl und einen Großbuchstaben enthalten</div>
                     </div>
                 </div>
             </div>
@@ -107,23 +107,23 @@
                 <div class="form-rel">
                     <input type="text" ng-model="order.deliveryAddress.streetAndHouse" name="street" placeholder="Straße & Hausnummer" required />
                     <div class="form-response" ng-show="formSignup.street.$dirty && formSignup.street.$invalid">
-                        <div ng-show="formSignup.street.$error.required" class="form-message form-error">This field is required</div>
+                        <div ng-show="formSignup.street.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <input type="text" ng-model="order.deliveryAddress.prefix" ng-pattern="/[a-zA-Z]+/" name="prefix" placeholder="Adress-Zusatz (z.B. Etage, Eingang, c/o)"/>
                 </div>
                 <div class="form-rel">
-                    <input type="text" ng-model="order.deliveryAddress.zip" ng-pattern="/^\d{5,5}$/" name="zip" placeholder="PLZ" required />
+                    <input type="text" ng-model="order.deliveryAddress.zip" ng-pattern="/^\d{5}$/" name="zip" placeholder="PLZ" required />
                     <div class="form-response" ng-show="formSignup.zip.$dirty && formSignup.zip.$invalid">
-                        <div ng-show="formSignup.zip.$error.required" class="form-message form-error">This field is required</div>
-                        <div ng-show="formSignup.zip.$error.pattern" class="form-message form-error">This field needs contain 5 digit</div>
+                        <div ng-show="formSignup.zip.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                        <div ng-show="formSignup.zip.$error.pattern" class="form-message form-error">Keine gültige Postleitzahl (immer 5 Ziffern)</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <input type="text" ng-model="order.deliveryAddress.city" ng-pattern="/[a-zA-Z]+/" name="city" placeholder="Stadt" required/>
                     <div class="form-response" ng-show="formSignup.city.$dirty && formSignup.city.$invalid">
-                        <div ng-show="formSignup.city.$error.required" class="form-message form-error">This field is required</div>
+                        <div ng-show="formSignup.city.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     </div>
                 </div>
                 <div class="form-rel">
@@ -135,42 +135,42 @@
                 <div class="form-rel">
                     <input type="text" ng-model="order.card.number" ng-pattern="/^\d{16}$/" ng-change="orderChange('card')" name="cardNumber" placeholder="Kreditkarten-Nummer" required />
                     <div class="form-response" ng-show="formSignup.cardNumber.$dirty && formSignup.cardNumber.$invalid">
-                        <div ng-show="formSignup.cardNumber.$error.required" class="form-message form-error">This field is required</div>
-                        <div ng-show="formSignup.cardNumber.$error.pattern" class="form-message form-error">This field needs contain 16 digit</div>
+                        <div ng-show="formSignup.cardNumber.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                        <div ng-show="formSignup.cardNumber.$error.pattern" class="form-message form-error">Das Feld soll eine 16-stellige Zahl haben</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <input type="text" ng-model="order.card.name" ng-change="orderChange('card')" name="cardName" placeholder="Kreditkarten-Inhaber (voller Name)" required />
                     <div class="form-response" ng-show="formSignup.cardName.$dirty && formSignup.cardName.$invalid">
-                        <div ng-show="formSignup.cardName.$error.required" class="form-message form-error">This field is required</div>
+                        <div ng-show="formSignup.cardName.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     </div>
                 </div>
                 <div class="form-rel flex">
                     <div class="short">
                         <input type="text" ng-model="order.card.exp_month" ng-pattern="/(^[1-9]$|0[1-9]|1[012])/" ng-maxlength="2" ng-change="orderChange('card')" class="short" name="cardMonth" placeholder="Monat" required/>
                         <div ng-show="formSignup.cardMonth.$dirty && formSignup.cardMonth.$invalid">
-                            <div ng-show="formSignup.cardMonth.$error.required" class="form-message form-error">This field is required</div>
-                            <div ng-show="formSignup.cardMonth.$error.pattern" class="form-message form-error">This is not valid number of month</div>
+                            <div ng-show="formSignup.cardMonth.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                            <div ng-show="formSignup.cardMonth.$error.pattern" class="form-message form-error">Bitte Monat im Format MM angeben, z.B. "01" oder "11" an</div>
                         </div>
                     </div>
                     <div class="short">
-                        <input type="text" ng-model="order.card.exp_year" ng-pattern="/^2\d{3}$/" ng-change="orderChange('card')" class="short" name="cardYear" placeholder="Jahr" required/>
+                        <input type="text" ng-model="order.card.exp_year" ng-pattern="/^20(?:1[4-9]|[2-9]\d)$/" ng-change="orderChange('card')" class="short" name="cardYear" placeholder="Jahr" required/>
                         <div ng-show="formSignup.cardYear.$dirty && formSignup.cardYear.$invalid">
-                            <div ng-show="formSignup.cardYear.$error.required" class="form-message form-error">This field is required</div>
-                            <div ng-show="formSignup.cardYear.$error.pattern" class="form-message form-error">This field needs to be according pattern 2xxx</div>
+                            <div ng-show="formSignup.cardYear.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                            <div ng-show="formSignup.cardYear.$error.pattern" class="form-message form-error">Bitte Jahr im Format JJJJ angeben, z.B. "2018"</div>
                         </div>
                     </div>
                     <div class="short">
                         <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3}$/" ng-change="orderChange('card')" class="short" name="cardCVC" placeholder="CVV" required/>
                         <div ng-show="formSignup.cardCVC.$dirty && formSignup.cardCVC.$invalid">
-                            <div ng-show="formSignup.cardCVC.$error.required" class="form-message form-error">This field is required</div>
-                            <div ng-show="formSignup.cardCVC.$error.pattern" class="form-message form-error">This field needs contain 3 digit</div>
+                            <div ng-show="formSignup.cardCVC.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                            <div ng-show="formSignup.cardCVC.$error.pattern" class="form-message form-error">Das Feld soll eine 3-stellige Zahl haben</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-error" ng-if="error === 'CardException'">Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}</div>
-            <div class="form-error" ng-if="error === 'AccountExists'">This account already exists</div>
+            <div class="form-error" ng-if="error === 'AccountExists'">Diesen Account gibt es schon</div>
             <div class="form-group">
                 <div class="form-rel">
                     <div class="form-check">
@@ -186,7 +186,10 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" ng-disabled="!formSignup.$valid">Karte bestellen</button>
+            <div class="form-rel" ng-show="showSpinner">
+                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
+            </div>
+            <button type="submit" ng-hide="showSpinner" ng-disabled="!formSignup.$valid">Karte bestellen</button>
         </form>
     </div>
 </div>

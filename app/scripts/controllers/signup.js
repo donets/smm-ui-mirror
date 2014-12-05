@@ -10,17 +10,17 @@
 angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios) {
         $scope.studios = getStudios.data;
-        $scope.order = {
+        /*$scope.order = {
             deliveryAddress: {
                 countryCode: 'DE'
             },
             newsletter: true
-        };
+        };*/
 
-        /*$scope.order = {
+        $scope.order = {
             "firstName": "Vlad",
             "lastName": "Donets",
-            "email": "test1@somuchmore.org",
+            "email": "test3@somuchmore.org",
             "password": "TestTEST1234",
             "newsletter": true,
             "type": "BLACK",
@@ -39,7 +39,7 @@ angular.module('boltApp.controllers.Signup', [])
                 "exp_year": "2015",
                 "name": "Max Musterman"
             }
-        };*/
+        };
 
         $scope.checkVoucher = function () {
             if ($scope.voucher) {
@@ -76,14 +76,17 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.formSignup.$setPristine();
                 $scope.error = null;
                 $scope.errorMsg = '';
+                $scope.showSpinner = true;
                 $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
                     console.log(response);
+                    $scope.showSpinner = false;
                     $rootScope.userName = response.user.name;
                     $rootScope.$state.go('profile.account');
 
                 }).error(function (response) {
 
+                    $scope.showSpinner = false;
                     $scope.error = response.type;
                     $scope.errorMsg = response.message;
                 });

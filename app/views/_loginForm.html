@@ -45,12 +45,9 @@
         <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="user-nav">
-                <li><a ui-sref="profile.membership">Profil</a></li>
-                <li><a ui-sref="profile.account">Settings</a></li>
-                <li><a ui-sref="studios">Studios</a></li>
-                <li><a ui-sref="locations">Locations</a></li>
-                <li><a ui-sref="teachers">Teachers</a></li>
-                <li><a ui-sref="admin.classes">Classes</a></li>
+                <li><a ui-sref="profile.account">Account</a></li>
+                <li ng-if="roleMember"><a ui-sref="profile.membership">Profil</a></li>
+                <li ng-if="roleAdmin"><a ui-sref="admin.classes">Classes</a></li>
                 <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Abmelden</a></li>
             </ul>
         </div>

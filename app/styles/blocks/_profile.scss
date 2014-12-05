@@ -14,7 +14,7 @@
 .profile-nav {
     @include my-resetList();
     display: inline-block;
-    margin: 60px 0;
+    margin: 0 0 60px;
     li {
         display: inline-block;
         vertical-align: top;
@@ -50,9 +50,23 @@
 }
 .profile {
     text-align: center;
+    margin: 60px 0;
 }
 .form-profile {
     @extend %form-custom;
+    padding: 0;
+    .form-response {
+        top: 0;
+        left: 100%;
+        width: 290px;
+        line-height: 30px;
+        margin: 0 15px;
+    }
+    .message {
+        margin: -20px 0 20px;
+        line-height: 20px;
+        font-size: 18px;
+    }
     button {
         margin-bottom: 60px;
     }

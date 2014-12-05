@@ -28,45 +28,6 @@ angular.module('boltApp.controllers.Getcard', [])
             });
         };
         $scope.studios = getStudios.data;
-        $scope.bookCard = function (type) {
-            $modal.open({
-                templateUrl: 'views/modalSubscribe.html',
-                controller: ['$scope', '$modalInstance', '$http', 'cardType',
-
-                    function ($scope, $modalInstance, $http, cardType) {
-
-                        $scope.subscribeCard = function () {
-                            $scope.loadingSubscribe = true;
-                            $scope.successSubscribe = false;
-                            $scope.errorSubscribe = false;
-                            $http.post($window.smmConfig.restUrlBaseOld + '/api/subscribtion/subscribe', { email: this.email, interestedInProduct: true }).success(function () {
-                                $scope.loadingSubscribe = false;
-                                $scope.successSubscribe = true;
-                                $window.ga('send', 'event', 'card_page', 'submitemail_' + cardType);
-                                setTimeout(function () {
-                                    $modalInstance.dismiss();
-                                }, 200);
-                            }).error(function (response, status) {
-                                $scope.loadingSubscribe = false;
-                                $scope.errorSubscribe = true;
-                                console.error(status);
-                            });
-                        };
-
-                        $scope.close = function () {
-                            $modalInstance.close(true);
-                        };
-
-                    }],
-                backdrop: 'static',
-                windowClass: 'modal-subscribe',
-                resolve: {
-                    cardType: function () {
-                        return type;
-                    }
-                }
-            });
-        };
 
         $scope.suggestStudio = function () {
             $modal.open({

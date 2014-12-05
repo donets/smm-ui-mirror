@@ -31,12 +31,18 @@ angular.module('boltApp.controllers.Login', [])
             });
         }
 
-        User.get().$promise.then(function (res) {
-            console.log(res);
-            if (res.currentUser) {
-                $rootScope.userName = res.currentUser.name;
-            }
-        });
+        var checkUser = function () {
+            User.get().$promise.then(function (response) {
+                console.log(response);
+                if (response.currentUser) {
+                    $rootScope.userName = response.currentUser.name;
+                    $rootScope.roleMember = _.include(response.currentUser.roles, 'member') ? true : false;
+                    $rootScope.roleAdmin = _.include(response.currentUser.roles, 'admin') ? true : false;
+                }
+            });
+        };
+
+        checkUser();
 
         $scope.loginFB = function () {
 
@@ -76,6 +82,8 @@ angular.module('boltApp.controllers.Login', [])
                 console.log(response);
                 $scope.loadingLogin = false;
                 $rootScope.userName = response.user.name;
+                $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
+                $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                 $rootScope.$state.go('profile.account');
             }).error(function (response, status) {
                 console.error(response);
