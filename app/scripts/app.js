@@ -68,6 +68,7 @@ angular.module('boltApp')
             $('.pre-cover').addClass('hide-cover');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
+            $rootScope.autoscroll = true;
             $rootScope.mainTitle = 'Somuchmore | Bewege Körper, Geist und Seele';
             $rootScope.$on('$viewContentLoading', function(){
                 $window.rendering = true;
@@ -309,11 +310,9 @@ angular.module('boltApp')
                 url : '/',
                 templateUrl: 'views/homepage.html',
                 onEnter: function($rootScope){
-                    $rootScope.autoscroll = false;
                     return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight * 0.8) : 0;
                 },
                 onExit: function($rootScope){
-                    $rootScope.autoscroll = true;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 },
                 controller : 'GetcardCtrl',
@@ -356,11 +355,9 @@ angular.module('boltApp')
 
                 },
                 onEnter: function($rootScope){
-                    $rootScope.autoscroll = false;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '350px') : 0;
                 },
                 onExit: function($rootScope){
-                    $rootScope.autoscroll = true;
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 },
                 data: {

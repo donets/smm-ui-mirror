@@ -88,6 +88,8 @@ angular.module('boltApp.controllers.Signup', [])
                     console.log(response);
                     $scope.showSpinner = false;
                     $rootScope.userName = response.user.name;
+                    $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
+                    $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                     $rootScope.$state.go('profile.dashboard');
 
                 }).error(function (response) {
