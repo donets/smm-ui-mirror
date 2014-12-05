@@ -375,6 +375,10 @@ angular.module('boltApp')
                 url : 'account/',
                 templateUrl: 'views/userAccount.html'
             })
+            .state('profile.dashboard', {
+                url : 'dashboard/',
+                templateUrl: 'views/userDashboard.html'
+            })
             .state('profile.membership', {
                 url : 'membership/',
                 templateUrl: 'views/userMembership.html'

@@ -72,6 +72,21 @@
             }
         }
     }
+    &.grey {
+        background: $colorGrey;
+        &:hover {
+            background: #888;
+        }
+        &:active {
+            background: #757575;
+        }
+        &[disabled] {
+            background: $colorGrey;
+            &:hover {
+                background: $colorGrey;
+            }
+        }
+    }
     &.dark {
         background: $colorText;
         &:hover {

@@ -161,11 +161,6 @@
         @extend %form-button;
         min-width: 0;
         display: block;
-        @media (min-width: $containerMobileWidth) {
-            height: 50px;
-            font-size: 18px;
-            line-height: 50px;
-        }
     }
     .fb_button {
         background: $colorFacebook;
@@ -183,6 +178,7 @@
     }
     .form_button {
         width: 100%;
+        @extend .grey;
     }
     .form-input {
         display: block;

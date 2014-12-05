@@ -46,7 +46,8 @@
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="user-nav">
                 <li><a ui-sref="profile.account">Account</a></li>
-                <li ng-if="roleMember"><a ui-sref="profile.membership">Profil</a></li>
+                <li ng-if="roleMember"><a ui-sref="profile.membership">Karten-Typ</a></li>
+                <li ng-if="roleMember"><a ui-sref="profile.dashboard">Dashboard</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.classes">Classes</a></li>
                 <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Abmelden</a></li>
             </ul>

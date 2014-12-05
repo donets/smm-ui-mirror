@@ -45,9 +45,9 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     &.ng-valid.ng-dirty {
         border-color: $colorSuccess;
     }
-    &:focus {
-        @include my-placeholder(transparent!important);
-    }
+    //&:focus {
+    //    @include my-placeholder(transparent!important);
+    //}
     &[disabled] {
         opacity: 0.5;
     }
@@ -206,7 +206,9 @@ textarea {
     text-align: left;
     &.error {
         input[type="text"], input[type="password"],  input[type="email"], textarea {
-            border-color: $colorError;
+            &.ng-dirty {
+                border-color: $colorError;
+            }
         }
     }
 }

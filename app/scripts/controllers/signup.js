@@ -45,30 +45,36 @@ angular.module('boltApp.controllers.Signup', [])
             if ($scope.voucher) {
                 $scope.loadingVoucher = true;
                 $scope.successVoucher = false;
-                $scope.errorVoucher = false;
+                $scope.errorValidVoucher = false;
+                $scope.errorTypeVoucher = false;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.voucher).success(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
                     if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
                         $scope.order.voucher = $scope.voucher;
+                    } else if(res.valid && res.subscriptionType !== $scope.order.type) {
+                        $scope.errorTypeVoucher = true;
+                        $scope.typeVoucher = res.subscriptionType;
                     } else {
-                        $scope.errorVoucher = true;
+                        $scope.errorValidVoucher = true;
                     }
                 }).error(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
-                    $scope.errorVoucher = true;
+                    $scope.errorValidVoucher = true;
                 });
             } else {
                 $scope.formSignup.voucher.$setPristine();
                 $scope.successVoucher = false;
-                $scope.errorVoucher = false;
+                $scope.errorValidVoucher = false;
+                $scope.errorTypeVoucher = false;
             }
         };
 
         $scope.changeType = function () {
             $scope.typeMessage = false;
+            $scope.checkVoucher();
         };
 
         $scope.signupSubmit = function () {
@@ -82,7 +88,7 @@ angular.module('boltApp.controllers.Signup', [])
                     console.log(response);
                     $scope.showSpinner = false;
                     $rootScope.userName = response.user.name;
-                    $rootScope.$state.go('profile.account');
+                    $rootScope.$state.go('profile.dashboard');
 
                 }).error(function (response) {
 

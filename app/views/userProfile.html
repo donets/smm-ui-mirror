@@ -1,15 +1,16 @@
 <div class="b-main-cover profile-cover">
     <div class="container">
         <div class="profile-title">
-            <h2>Hallo! {{userName}},</h2>
+            <h2>Hallo, {{userName}}!</h2>
             <p class="subtitle">Hier kannst Du den Karten-Typ oder Account ändern und Deine Rechnungen einsehen.</p>
         </div>
     </div>
 </div>
 <div class="profile">
     <ul class="profile-nav" ng-if="roleMember || roleAdmin">
-        <li><a ng-class="{'active': $state.includes('profile.membership')}" ui-sref="profile.membership">Karten-Typ</a></li><li>
+        <li><a ng-class="{'active': $state.includes('profile.dashboard')}" ui-sref="profile.dashboard">Dashboard</a></li><li>
+        <a ng-class="{'active': $state.includes('profile.membership')}" ui-sref="profile.membership">Karten-Typ</a></li><li>
         <a ng-class="{'active': $state.includes('profile.account')}" ui-sref="profile.account">Account</a></li>
     </ul>
-    <div class="container" ui-view></div>
+    <div ui-view></div>
 </div>

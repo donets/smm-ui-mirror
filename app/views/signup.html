@@ -34,7 +34,7 @@
                     <dd>Mindestlaufzeit:</dd>
                     <dt>keine</dt>
                 </dl>
-                <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'LITE'"><i class="fa"></i>{{order.type === 'LITE' ? 'Ausgewählt' : 'Auswählen'}}</button>
+                <button ng-model="order.type" ng-change="changeType()" btn-radio="'LITE'"><i class="fa"></i>{{order.type === 'LITE' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li><li>
                 <img class="card-image" src="images/card-white.png" alt=""/>
                 <h3>White Card<p><strong>69€</strong> <b>55€</b> /Monat</p></h3>
@@ -46,7 +46,7 @@
                     <dd>Mindestlaufzeit:</dd>
                     <dt>nur 3 Monate</dt>
                 </dl>
-                <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'WHITE'"><i class="fa"></i>{{order.type === 'WHITE' ? 'Ausgewählt' : 'Auswählen'}}</button>
+                <button ng-model="order.type" ng-change="changeType()" btn-radio="'WHITE'"><i class="fa"></i>{{order.type === 'WHITE' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li><li>
                 <img class="card-image" src="images/card-black.png" alt=""/>
                 <h3>Black Card<p><strong>99€</strong> <b>79€</b> /Monat</p></h3>
@@ -58,18 +58,19 @@
                     <dd>Mindestlaufzeit:</dd>
                     <dt>nur 3 Monate</dt>
                 </dl>
-                <button ng-model="order.type" ng-change="typeMessage = false" btn-radio="'BLACK'"><i class="fa"></i>{{order.type === 'BLACK' ? 'Ausgewählt' : 'Auswählen'}}</button>
+                <button ng-model="order.type" ng-change="changeType()" btn-radio="'BLACK'"><i class="fa"></i>{{order.type === 'BLACK' ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li>
         </ul>
         <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
-            <div ng-class="{ 'error': errorVoucher }" class="form-group">
+            <div ng-class="{ 'error': errorValidVoucher || errorTypeVoucher }" class="form-group">
                 <div class="form-rel">
                     <input type="text" ng-model="voucher" ng-blur="checkVoucher()" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
                     <div class="form-response">
                         <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i></div>
-                        <div ng-show="errorVoucher" class="form-message form-error">Kein gültiger Code</div>
+                        <div ng-show="errorValidVoucher" class="form-message form-error">Kein gültiger Code</div>
+                        <div ng-show="errorTypeVoucher" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
                     </div>
                 </div>
             </div>
