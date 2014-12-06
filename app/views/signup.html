@@ -63,14 +63,15 @@
         </ul>
         <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
-            <div ng-class="{ 'error': errorValidVoucher || errorTypeVoucher }" class="form-group">
+            <div ng-class="{ 'error': errorVoucher }" class="form-group">
                 <div class="form-rel">
                     <input type="text" ng-model="voucher" ng-blur="checkVoucher()" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
                     <div class="form-response">
                         <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i></div>
-                        <div ng-show="errorValidVoucher" class="form-message form-error">Kein gültiger Code</div>
-                        <div ng-show="errorTypeVoucher" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
+                        <div ng-show="errorVoucher === 'valid'" class="form-message form-error">Kein gültiger Code</div>
+                        <div ng-show="errorVoucher === 'type'" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
+                        <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error">Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden</div>
                     </div>
                 </div>
             </div>

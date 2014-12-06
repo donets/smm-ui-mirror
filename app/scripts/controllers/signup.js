@@ -45,30 +45,30 @@ angular.module('boltApp.controllers.Signup', [])
             if ($scope.voucher) {
                 $scope.loadingVoucher = true;
                 $scope.successVoucher = false;
-                $scope.errorValidVoucher = false;
-                $scope.errorTypeVoucher = false;
+                $scope.errorVoucher = false;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.voucher).success(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
-                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
+                    if(res.valid && res.freeSubscriptionGranted) {
+                        $scope.errorVoucher = 'notStarted';
+                    } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
                         $scope.order.voucher = $scope.voucher;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
-                        $scope.errorTypeVoucher = true;
+                        $scope.errorVoucher = 'type';
                         $scope.typeVoucher = res.subscriptionType;
                     } else {
-                        $scope.errorValidVoucher = true;
+                        $scope.errorVoucher = 'valid';
                     }
                 }).error(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
-                    $scope.errorValidVoucher = true;
+                    $scope.errorVoucher = 'valid';
                 });
             } else {
                 $scope.formSignup.voucher.$setPristine();
                 $scope.successVoucher = false;
-                $scope.errorValidVoucher = false;
-                $scope.errorTypeVoucher = false;
+                $scope.errorVoucher = false;
             }
         };
 
