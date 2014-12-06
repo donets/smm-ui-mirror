@@ -56,6 +56,10 @@ angular.module('boltApp.controllers.About', [])
                         google_remarketing_only: false
                     });
                 });
+                $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
+                    $window._fbq = $window._fbq || [];
+                    $window._fbq.push(['track', '6021957047725', {'value': '0.00','currency': 'EUR'}]);
+                });
             }).error(function (response, status) {
                 $scope.loadingFeedback = false;
                 $scope.errorFeedback = true;

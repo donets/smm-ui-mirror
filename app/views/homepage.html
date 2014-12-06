@@ -1,4 +1,15 @@
 <div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight*0.8 }">
+    <videogular vg-autoplay="video.autoPlay"
+                vg-player-ready="video.onPlayerReady"
+                vg-complete="video.onCompleteVideo"
+                vg-responsive="video.responsive"
+                vg-stretch="video.stretch"
+                disable-animate>
+        <vg-video vg-src="video.sources" vg-preload="video.preload" vg-loop="video.loop" ng-if="desktop"></vg-video>
+
+        <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
+
+    </videogular>
     <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele</h2>
         <p>Besuche die besten Studios Berlins mit einer Karte.</p>
         <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('header')">

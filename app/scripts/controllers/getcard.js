@@ -8,9 +8,28 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', [])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'getStudios', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, getStudios, $window, $modal) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'getStudios', '$sce', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, getStudios, $sce, $window, $modal) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
+
+        $scope.video = {
+            sources: [
+                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/mainvideo.mp4'), type: 'video/mp4'},
+                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/mainvideo.webm'), type: 'video/webm'}
+            ],
+            autoPlay: true,
+            preload: true,
+            loop: true,
+            stretch: 'fill',
+            responsive: true,
+            poster: {
+                url: '/images/mainvideo.jpg'
+            },
+            onPlayerReady: function(videoAPI) {
+                $scope.videoAPI = videoAPI;
+            }
+        };
+
         $scope.subscribeCard = function (locate) {
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
@@ -67,7 +86,7 @@ angular.module('boltApp.controllers.Getcard', [])
                                 message: 'A user ' + ($scope.suggest.userName + ' ' || '') + 'suggest we should add studio: ' + $scope.suggest.studioName
                             };
                             $scope.loadingStudio = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/message/', suggestedStudio).success(function () {
+                            $http.post($window.smmConfig.restUrlBase + '/api/message', suggestedStudio).success(function () {
                                 $scope.loadingStudio = false;
                                 $scope.successStudio = true;
                                 $window.ga('send', 'event', 'card_page', 'studio_suggestion');

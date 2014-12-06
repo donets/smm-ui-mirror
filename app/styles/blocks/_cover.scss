@@ -27,14 +27,20 @@
         line-height: 35px;
         background: rgba(255,255,255,0.8);
     }
-    .photo-copyright {
+    videogular {
         position: absolute;
-        left: 5px;
-        bottom: 5px;
-        z-index: 1;
-        outline: none;
-        color: #fff;
-        text-decoration: none;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        vg-video {
+            height: auto;
+        }
+        vg-poster-image {
+            img {
+                width: 100%;
+                max-height: none;
+            }
+        }
     }
     &.event-cover.desktop {
         @extend %shadow-cover-top;
