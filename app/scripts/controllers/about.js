@@ -32,7 +32,7 @@ angular.module('boltApp.controllers.About', [])
                 message: $scope.feedback
             };
             $scope.loadingFeedback = true;
-            $http.post($window.smmConfig.restUrlBase + '/api/message/', feedback).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/message', feedback).success(function () {
                 $scope.loadingFeedback = false;
                 $scope.successFeedback = true;
                 $scope.feedback = '';
