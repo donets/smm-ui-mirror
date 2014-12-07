@@ -3,7 +3,7 @@
 .b-main-cover {
     background: url("/images/main-2880.jpg") no-repeat center center;
     height: 550px;
-    min-height: 250px;
+    min-height: 350px;
     position: relative;
     display: table;
     width: 100%;
@@ -34,6 +34,9 @@
         z-index: -1;
         vg-video {
             height: auto;
+            video {
+                max-height: none;
+            }
         }
         vg-poster-image {
             img {

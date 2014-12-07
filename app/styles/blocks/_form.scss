@@ -177,6 +177,17 @@ textarea {
             margin: 0 0 10px;
         }
     }
+    b {
+        display: block;
+        font-size: 15px;
+        text-align: left;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 20px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+        }
+    }
 }
 .reset .b-card-subscribe {
 

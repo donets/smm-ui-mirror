@@ -49,8 +49,10 @@
     }
     .b-classes-list {
         width: 800px;
-        h2 {
-            margin: 60px 0;
+        .info {
+            font-size: 22px;
+            text-align: justify;
+            margin: 0 50px;
         }
     }
     .timetable {
