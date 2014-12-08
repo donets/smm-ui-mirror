@@ -107,6 +107,9 @@
             font-size: 16px;
             color: #fff;
             padding: 0 20px;
+            &.grey {
+                color: $colorGrey;
+            }
             @media (max-width: $containerMobileWidth) {
                 font-size: 28px;
                 padding: 0 30px;
@@ -138,7 +141,7 @@
         content: "";
         display: block;
         position: absolute;
-        right: 50px;
+        right: 35px;
         bottom: 100%;
         border-width: 9px 5px;
         border-style: solid;
@@ -178,7 +181,6 @@
     }
     .form_button {
         width: 100%;
-        @extend .grey;
     }
     .form-input {
         display: block;

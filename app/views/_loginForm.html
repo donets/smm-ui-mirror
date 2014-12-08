@@ -1,6 +1,6 @@
 <ul class="b-header-nav">
     <li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
-        <a href="" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Anmelden</a>
+        <a href="" class="grey" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <!--<div class="form-rel">
                 <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook-square"></i>Login with Facebook</a>
@@ -16,7 +16,7 @@
                     <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="Passwort" required />
                 </div>
                 <div class="form-rel">
-                    <button type="submit" class="form_button">Anmelden</button>
+                    <button type="submit" class="form_button">Login</button>
                     <div class="form-response">
                         <div ng-show="loadingLogin" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="errorLogin" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
