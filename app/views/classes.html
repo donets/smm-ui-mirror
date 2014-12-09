@@ -4,16 +4,16 @@
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
-            <button class="control-button" type="button"><i class="fa fa-plus"></i>New Class</button>
+            <button class="control-button" ui-sref="admin.new" type="button"><i class="fa fa-plus"></i>New Class</button>
             <div class="input-search"><input type="text" placeholder="Filter name"/></div>
             <select chosen
-                    data-placeholder="All levels"
+                    id="level"
+                    ng-model="level"
+                    data-placeholder="Alle Levels"
                     disable-search="true"
-                    allow-single-deselect="true">
+                    allow-single-deselect="true"
+                    ng-options="item for item in levels">
                 <option value=""></option>
-                <option>Junior</option>
-                <option>Medium</option>
-                <option>Expert</option>
             </select>
             <div class="form-check">
                 <input type="checkbox" id="1"
@@ -35,14 +35,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><span class="status green">Live</span></td>
-                        <td>Jivamukti Open 60 English</td>
-                        <td>Jivamukti Yoga</td>
-                        <td>Reto Halme</td>
-                        <td>Prenzlauer Berg</td>
-                        <td><button class="green" ui-sref="admin.class({classId: 54})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
-                    </tr>
                     <tr ng-repeat="c in classes | limitTo: 15">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>

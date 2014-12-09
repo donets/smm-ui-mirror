@@ -43,6 +43,7 @@ angular
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Getcard',
         'boltApp.controllers.Class',
+        'boltApp.controllers.CreateClass',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
@@ -51,6 +52,7 @@ angular
         'boltApp.controllers.Classes',
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
+        'boltApp.services.restApi',
         'boltApp.services.events',
         'boltApp.services.occurrences',
         'boltApp.services.suppliers',
@@ -400,6 +402,15 @@ angular.module('boltApp')
             .state('admin.classes', {
                 url : 'classes/',
                 templateUrl: 'views/classes.html',
+                resolve: {
+
+                    getClasses: function(RestApi) {
+
+                        return RestApi.query({route: 'events'}).$promise;
+
+                    }
+
+                },
                 controller : 'ClassesCtrl'
             })
             .state('admin.class', {
@@ -407,20 +418,40 @@ angular.module('boltApp')
                 templateUrl: 'views/class.html',
                 resolve: {
 
-                    getClass: function(Events, $stateParams) {
+                    getClass: function(RestApi, $stateParams) {
 
-                        return Events.get({eventId: $stateParams.classId}).$promise;
+                        return RestApi.get({route: 'events'}, {id: $stateParams.classId}).$promise;
 
                     },
 
-                    getOccurrences: function(Occurrences, $stateParams) {
+                    getOccurrences: function(RestApi, $stateParams) {
 
-                        return Occurrences.query({parentId: $stateParams.classId}).$promise;
+                        return RestApi.query({route: 'occurrences', parentId: $stateParams.classId}).$promise;
+
+                    },
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'}).$promise;
 
                     }
 
                 },
                 controller : 'ClassCtrl'
+            })
+            .state('admin.new', {
+                url : 'new/',
+                templateUrl: 'views/class.html',
+                resolve: {
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'}).$promise;
+
+                    }
+
+                },
+                controller : 'CreateClassCtrl'
             })
             .state('more', {
                 url : '/p/more/',

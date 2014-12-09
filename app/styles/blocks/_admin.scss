@@ -10,8 +10,7 @@
 }
 .dashboard {
     @extend .b-studio-timetable;
-    padding: 50px 0 30px;
-    margin: 0 0 30px;
+    padding: 60px 0;
     .b-sidebar-filters {
         width: 170px;
         text-align: left;
@@ -49,6 +48,7 @@
     }
     .b-classes-list {
         width: 800px;
+        margin-top: -50px;
         .info {
             font-size: 22px;
             text-align: justify;
@@ -97,6 +97,9 @@
         .status {
             &.green {
                 color: $colorGreen;
+            }
+            &.orange {
+                color: $colorLink;
             }
         }
     }

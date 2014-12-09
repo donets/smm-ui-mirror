@@ -8,8 +8,13 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Classes', [])
-    .controller('ClassesCtrl', function ($scope, Events) {
-        Events.query().$promise.then(function (res) {
+    .controller('ClassesCtrl', function ($scope, getClasses) {
+        getClasses.$promise.then(function (res) {
             $scope.classes = res;
         });
+        $scope.levels = [
+            'Anfänger',
+            'Medium',
+            'Fortgeschrittene'
+        ];
     });

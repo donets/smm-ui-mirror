@@ -1,15 +1,15 @@
 <div class="b-class-block" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
-            <h2>{{class.title}}</h2>
-            <div class="info">
+            <h2>{{class.title || 'New Class'}}</h2>
+            <div class="info" ng-if="$stateParams.classId">
                 <p>{{occurrences.length}} Classes scheduled</p>
                 <p>Studio Mitte</p>
                 <p class="status" ng-class="{'green': class.status === 'LIVE'}">{{class.status}}</p>
             </div>
         </div>
         <div class="w-right">
-            <button type="button"><i class="fa fa-eye"></i>Preview</button><button type="button"><i class="fa fa-save"></i>Save as draft</button><button class="green" type="button"><i class="fa fa-save"></i>Save & go live</button>
+            <button ng-if="$stateParams.classId" type="button"><i class="fa fa-eye"></i>Preview</button><button type="button" ng-click="saveDraft()"><i class="fa fa-save"></i>Save as draft</button><button class="green" ng-if="$stateParams.classId" type="button" ng-click="savePublic()"><i class="fa fa-save"></i>Save & go live</button>
         </div>
     </div>
 </div>
@@ -24,15 +24,14 @@
             <label class="form-label" for="location">Location</label>
             <select chosen
                     id="location"
+                    ng-model="class.locationId"
                     data-placeholder="Select Location"
-                    disable-search="false">
+                    disable-search="false"
+                    ng-options="item.id as item.name for item in locations">
                 <option value=""></option>
-                <option>Berlin Mitte</option>
-                <option>Studio</option>
-                <option>Prenzlauer Berg</option>
             </select>
         </div>
-        <div class="form-rel auto" id="datesSchedule" disable-animate>
+        <div class="form-rel auto" ng-if="$stateParams.classId" id="datesSchedule" disable-animate>
             <label class="form-label">Event dates</label>
             <table class="b-date-group" ng-if="!showSchedule" ng-repeat="(key, value) in groupByAll">
                 <thead>
@@ -65,7 +64,7 @@
                 <button class="green" ng-click="addDates()" type="button">Add Dates</button>
             </div>
             <span class="spinner" ng-show="showSpinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
-            <form name="form" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
+            <form name="formSchedule" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
                 <h3 ng-if="newEvent">Schedule dates</h3>
                 <h3 ng-if="schedule.repeat === 'Single' && !newEvent">Edit a single date</h3>
                 <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat | lowercase}} repeating dates</h3>
@@ -147,15 +146,23 @@
                     <button class="green" ng-disabled="form.$invalid" type="submit">Save</button><button type="button" ng-click="fetchOccurrences()">Cancel</button>
                 </div>
             </form>
-            <!--<pre style="position: absolute; right: 0; top: 0; ">{{schedule | json}}</pre>-->
         </div>
+        <!--<pre style="position: absolute; right: 0; top: 0; ">{{class | json}}</pre>-->
         <div class="form-rel">
             <label class="form-label" for="level">Event level</label>
-            <input class="form-input" type="text" ng-model="class.level" id="level"/>
+            <select chosen
+                    id="level"
+                    ng-model="class.level"
+                    data-placeholder="Alle Levels"
+                    disable-search="true"
+                    allow-single-deselect="true"
+                    ng-options="item for item in levels">
+                <option value=""></option>
+            </select>
         </div>
         <div class="form-rel">
             <label class="form-label" for="teacher">Event teacher</label>
-            <input class="form-input" type="text" ng-model="class.teacher_name" id="teacher"/>
+            <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
         <div class="form-rel">
             <label class="form-label" for="studio">Event studio</label>

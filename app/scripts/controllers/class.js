@@ -11,11 +11,15 @@
 /* jshint undef:false */
 
 angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, Occurrences) {
+    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, RestApi) {
         $scope.moment = moment();
         $scope._ = _;
+        console.log($rootScope.$stateParams);
         getClass.$promise.then(function () {
             $scope.class = getClass;
+        });
+        getLocations.$promise.then(function () {
+            $scope.locations = getLocations;
         });
         getOccurrences.$promise.then(function () {
             $scope.occurrences = getOccurrences;
@@ -38,6 +42,12 @@ angular.module('boltApp.controllers.Class', [])
             'Daily',
             'Weekly',
             'Single'
+        ];
+
+        $scope.levels = [
+            'Anfänger',
+            'Medium',
+            'Fortgeschrittene'
         ];
 
         setWeekdayList($scope.weekdayList);
@@ -136,9 +146,9 @@ angular.module('boltApp.controllers.Class', [])
                     }
                     if ($scope.schedule.startDateWeekly && $scope.schedule.endDateWeekly) {
                         $scope.schedule.times = moment($scope.schedule.endDateWeekly).diff(moment($scope.schedule.startDateWeekly), 'weeks');
-                        $scope.form.$setValidity('times', true);
+                        $scope.formSchedule.$setValidity('times', true);
                     } else {
-                        $scope.form.$setValidity('times', false);
+                        $scope.formSchedule.$setValidity('times', false);
                     }
                     break;
                 }
@@ -150,11 +160,11 @@ angular.module('boltApp.controllers.Class', [])
             $scope.newEvent = false;
             $scope.showSpinner = false;
             $scope.schedule = null;
-            $scope.form.$setPristine();
+            $scope.formSchedule.$setPristine();
         };
 
         $scope.fetchOccurrences = function() {
-            Occurrences.query({parentId: $rootScope.$stateParams.classId}).$promise.then(function (res) {
+            RestApi.query({route: 'occurrences', parentId: $rootScope.$stateParams.classId}).$promise.then(function (res) {
                 groupOccurrences(res);
                 $scope.clearSchedule();
             });
@@ -166,7 +176,7 @@ angular.module('boltApp.controllers.Class', [])
                 arrGroup.push({id: c.id});
                 return arrGroup;
             });
-            Occurrences.deleteList(arrGroup).$promise.then(function () {
+            RestApi.deleteList({route: 'occurrences'}, arrGroup).$promise.then(function () {
                 saveList(repeat);
             });
         };
@@ -194,7 +204,7 @@ angular.module('boltApp.controllers.Class', [])
                 };
                 arr.push(obj);
             }
-            Occurrences.saveList(arr).$promise.then(function () {
+            RestApi.saveList({route: 'occurrences'}, arr).$promise.then(function () {
                 $scope.fetchOccurrences();
             });
         };
@@ -203,16 +213,16 @@ angular.module('boltApp.controllers.Class', [])
             $scope.showSpinner = true;
             switch ($scope.schedule.repeat) {
                 case 'Single': {
-                    var obj = new Occurrences();
+                    var obj = new RestApi();
                     obj.start_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z';
                     obj.end_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z';
                     if ($scope.newEvent) {
                         obj.parent_event_id = +$rootScope.$stateParams.classId;
-                        obj.$save().then(function () {
+                        obj.$save({route: 'occurrences'}).then(function () {
                             $scope.fetchOccurrences();
                         });
                     } else {
-                        obj.$update({occurrenceId: $scope.schedule.id}).then(function () {
+                        obj.$update({route: 'occurrences', id: $scope.schedule.id}).then(function () {
                             $scope.fetchOccurrences();
                         });
                     }
@@ -269,15 +279,15 @@ angular.module('boltApp.controllers.Class', [])
                     return arrGroup;
                 });
                 $scope.schedule = arrGroup;
-                Occurrences.deleteList(arrGroup).$promise.then(function () {
+                RestApi.deleteList({route: 'occurrences'}, arrGroup).$promise.then(function () {
                     $scope.fetchOccurrences();
                 });
             }
         };
 
         $scope.deleteSingle = function(c) {
-            var obj = new Occurrences();
-            obj.$delete({occurrenceId: c.id}).then(function () {
+            var obj = new RestApi();
+            obj.$delete({route: 'occurrences', id: c.id}).then(function () {
                 $scope.fetchOccurrences();
             });
         };
