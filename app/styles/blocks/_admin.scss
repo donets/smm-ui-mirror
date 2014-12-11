@@ -41,10 +41,6 @@
                 width: 100%;
             }
         }
-        label {
-            font-size: 18px;
-            font-weight: normal;
-        }
     }
     .b-classes-list {
         width: 800px;
@@ -195,8 +191,7 @@
         width: 100%;
     }
     textarea {
-        width: 620px;
-        min-height: 120px;
+        @extend .form-textarea;
     }
     .spinner {
         top: 50%;

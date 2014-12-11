@@ -4,7 +4,7 @@
             <h2>{{class.title || 'New Class'}}</h2>
             <div class="info" ng-if="$stateParams.classId">
                 <p>{{occurrences.length}} Classes scheduled</p>
-                <p>Studio Mitte</p>
+                <p>{{class.location}}</p>
                 <p class="status" ng-class="{'green': class.status === 'LIVE'}">{{class.status}}</p>
             </div>
         </div>
@@ -160,6 +160,16 @@
                 <option value=""></option>
             </select>
         </div>
+        <div class="form-rel flex">
+            <div class="form-row">
+                <label class="form-label" for="capacity">Event capacity</label>
+                <input class="form-input" type="text" ng-model="class.capacity" id="capacity"/>
+            </div>
+            <div class="form-row">
+                <label class="form-label" for="dropInPrice">Event price</label>
+                <div class="input-euro"><input class="form-input" type="text" ng-model="class.dropInPrice" id="dropInPrice"/></div>
+            </div>
+        </div>
         <div class="form-rel">
             <label class="form-label" for="teacher">Event teacher</label>
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
@@ -168,17 +178,31 @@
             <label class="form-label" for="studio">Event studio</label>
             <input class="form-input" type="text" ng-model="class.studio" id="studio"/>
         </div>
-        <div class="form-rel">
-            <label class="form-label" for="discipline">Event discipline</label>
-            <input class="form-input" type="text" ng-model="class.tags" id="discipline"/>
+        <div class="form-rel large" disable-animate>
+            <label class="form-label">Event discipline</label>
+            <tags-input ng-model="tags" on-tag-added="importTag('tags')" on-tag-removed="importTag('tags')"></tags-input>
         </div>
-        <div class="form-rel">
-            <label class="form-label" for="subDiscipline">Event sub-discipline</label>
-            <input class="form-input" type="text" ng-model="class.sub" id="subDiscipline"/>
+        <div class="form-rel large" disable-animate>
+            <label class="form-label">Event sub-discipline</label>
+            <tags-input ng-model="sub" on-tag-added="importTag('sub')" on-tag-removed="importTag('sub')"></tags-input>
         </div>
-        <div class="form-rel">
+        <div class="form-rel large">
             <label class="form-label" for="description">Event description</label>
             <textarea ng-model="class.description" id="description"></textarea>
+        </div>
+        <div class="form-rel">
+            <div class="form-check">
+                <input type="checkbox" id="requiresRegistration" value="true" ng-model="class.requiresRegistration" name="requiresRegistration" />
+                <i class="fa"></i>
+                <label for="requiresRegistration">needs prior registration</label>
+            </div>
+        </div>
+        <div class="form-rel">
+            <div class="form-check">
+                <input type="checkbox" id="blackOnly" value="true" ng-model="class.blackOnly" name="blackOnly" />
+                <i class="fa"></i>
+                <label for="blackOnly">black card only</label>
+            </div>
         </div>
         <!--<div ng-repeat="(key, value) in groupByTime">-->
             <!--<h1>{{key}}</h1>-->

@@ -39,6 +39,48 @@ angular.module('boltApp.controllers.Profile', [])
             });
         };
 
+        $scope.upload = function (target) {
+            $scope.modalInstance = $modal.open({
+                templateUrl: 'views/modalUpload.html',
+                controller: function ($scope, target, $modalInstance) {
+
+                    $scope.target = target;
+                    $scope.photo = {};
+
+                    $scope.close = function () {
+                        $modalInstance.close($scope.photo.flow);
+                    };
+
+                    $scope.$watch('$flow.files[0].currentSpeed', function (val ,old) {
+                        if (val < old && val === 0) {
+                            console.log('stop');
+                            setTimeout(function () {
+                                $modalInstance.close($scope.photo.flow);
+                            }, 1000);
+                        }
+                    });
+
+                },
+                backdrop: 'static',
+                windowClass: 'modal-upload',
+                resolve: {
+                    target: function () {
+                        return target;
+                    }
+                }
+            }).result.then(function (flow) {
+                    if(flow.files.length) {
+                        if(flow.files[0].chunks[0].loaded) {
+                            getMembership.$promise.then(function () {
+                                $scope.membership.photo = getMembership.membership.photo;
+                            });
+                        }
+                    }
+                }, function () {
+
+                });
+        };
+
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',

@@ -26,4 +26,9 @@ angular.module('boltApp.controllers.CreateClass', [])
             });
         };
 
+        $scope.importTag = function (name) {
+            console.log(name);
+            $scope.class[name] = _.map($scope[name], function(tag) { return tag.text; });
+        };
+
     });
