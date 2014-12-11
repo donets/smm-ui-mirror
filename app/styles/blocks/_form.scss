@@ -106,20 +106,6 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     }
 }
 
-.input-euro {
-    position: relative;
-    display: inline-block;
-    &:before {
-        content: "€";
-        position: absolute;
-        top: 0;
-        right: 10px;
-        line-height: 42px;
-        color: $colorText;
-        font-size: 18px;
-    }
-}
-
 .dropdown-menu {
     min-width: 260px;
     padding: 5px;
