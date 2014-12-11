@@ -17,7 +17,18 @@ angular.module('boltApp.controllers.Class', [])
         console.log($rootScope.$stateParams);
         getClass.$promise.then(function () {
             $scope.class = getClass;
+            exportTag('tags');
+            exportTag('sub');
         });
+
+        $scope.saveDraft = function () {
+            var currentClass = new RestApi();
+            currentClass = $scope.class;
+            currentClass.$update({route: 'events'}).then(function (res) {
+                console.log(res);
+                $rootScope.$state.go('admin.class', {classId: res.id});
+            });
+        };
         getLocations.$promise.then(function () {
             $scope.locations = getLocations;
         });
@@ -49,6 +60,15 @@ angular.module('boltApp.controllers.Class', [])
             'Medium',
             'Fortgeschrittene'
         ];
+
+        var exportTag = function (name) {
+            $scope[name] = _.map($scope.class[name], function(tag) { return { text: tag }; });
+            console.log($scope[name]);
+        };
+
+        $scope.importTag = function (name) {
+            $scope.class[name] = _.map($scope[name], function(tag) { return tag.text; });
+        };
 
         setWeekdayList($scope.weekdayList);
 

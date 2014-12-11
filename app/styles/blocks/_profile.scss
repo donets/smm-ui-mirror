@@ -81,3 +81,16 @@
         margin: 20px 0 0;
     }
 }
+.photo {
+    width: 400px;
+    margin: 40px auto;
+    img {
+        width: 400px;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+    button {
+        min-width: 0;
+        width: 260px;
+    }
+}

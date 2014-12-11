@@ -20,6 +20,7 @@
 }
 .modal-content {
     border-radius: 2px;
+    @include box-shadow(0 1px 3px getRgba(#1b171a, 0.2));
     .form-spinner {
         text-align: center;
         height: 50px;
@@ -40,6 +41,27 @@
 .modal-body {
     @media (max-width: $containerMobileWidth) {
         padding-top: 60px;
+    }
+}
+.modal-close {
+    background: url('/images/close.svg') no-repeat;
+    border: 0 none;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 20px;
+    right: 20px;
+    @media (max-width: $containerMobileWidth) {
+        height: 40px;
+        width: 40px;
+        top: 30px;
+        right: 30px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 20px;
+        width: 20px;
+        top: 15px;
+        right: 15px;
     }
 }
 .modal-subscribe {
@@ -243,6 +265,7 @@
         width: 20px;
         top: 20px;
         right: 20px;
+        z-index: 1;
         @media (max-width: $containerMobileWidth) {
             height: 40px;
             width: 40px;
@@ -254,6 +277,65 @@
             width: 20px;
             top: 15px;
             right: 15px;
+        }
+    }
+}
+.modal-upload {
+    .modal-dialog {
+        width: 950px;
+        .upload-area {
+            width: 100%;
+            text-align: center;
+            border: 2px dashed transparent;
+            &.drop {
+                border-color: $colorLightGrey;
+            }
+            .controls {
+                display: inline-block;
+                vertical-align: top;
+                margin: 50px auto;
+                b {
+                    display: block;
+                    margin: 20px 0;
+                }
+                .or {
+                    display: block;
+                    text-align: center;
+                    font-size: 18px;
+                }
+                .button_upload {
+                    margin: 20px 0 0;
+                    cursor: pointer;
+                }
+            }
+            .preview {
+                position: relative;
+                .button-wrapper {
+                    position: absolute;
+                    right: 0px;
+                    bottom: 5px;
+                }
+                .action {
+                    position: relative;
+                    text-align: center;
+                    height: 44px;
+                    .upload_button {
+                        display: inline-block;
+                        width: 300px;
+                        line-height: 30px;
+                        font-size: 18px;
+                    }
+                }
+            }
+            .loading {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 26px;
+                margin: 3px 5px;
+                height: 26px;
+                color: $colorLightGrey;
+            }
+
         }
     }
 }
