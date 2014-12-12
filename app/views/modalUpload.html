@@ -1,14 +1,14 @@
 <div flow-prevent-drop ng-init="dropEnabled = true"
      flow-init = "{
-            target: '/api/membership/uploadPhoto',
+            target: $window.smmConfig.restUrlBase + '/api/membership/uploadPhoto',
+            withCredentials: true,
             singleFile: true,
             testChunks: false,
             chunkSize: 5*1024*1024
          }"
      flow-name="photo.flow"
      flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
-     flow-upload-started="console.info('start')"
-     flow-complete="console.info('complete')">
+     flow-file-success="uploader.success($flow, $file, $message)">
     <div class="modal-body">
         <button  class="modal-close" type="button" ng-disabled="$flow.isUploading()" ng-click="close()">
             <span class="sr-only">Close</span>
@@ -24,9 +24,9 @@
             <div class="preview" ng-show="$flow.files.length">
                 <img crop flow-img="$flow.files[0]" selected='selected(cords)'/>
                 <div class="progress progress-striped" ng-class="{'active': $flow.isUploading()}">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" ng-style="{width: ($flow.progress() * 100) + '%'}"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$flow.progress() * 100}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: ($flow.progress() * 100) + '%'}"></div>
                 </div>
-                <p class="action">
+                <div class="action">
                     <a class="btn btn-small btn-success upload_button" ng-hide="$flow.isUploading()" ng-click="$flow.upload()">Upload</a>
                     <div class="button-wrapper">
                     <span class="btn btn-small btn-info change_button" ng-hide="$flow.isUploading()" flow-btn>Change</span>
@@ -35,7 +35,7 @@
                     <span class="spinner" ng-show="$flow.isUploading()" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff6a4c', left: 0, top: 0}"></span>
                     <!--<a class="btn btn-small btn-info" ng-click="$flow.cancel()">Change Photo</a>-->
                     <a class="btn btn-small btn-danger" ng-click="$flow.upload()" ng-show="$flow.error">Retry</a>
-                </p>
+                </div>
             </div>
 
         </div>

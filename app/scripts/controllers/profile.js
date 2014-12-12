@@ -42,23 +42,25 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.upload = function (target) {
             $scope.modalInstance = $modal.open({
                 templateUrl: 'views/modalUpload.html',
-                controller: function ($scope, target, $modalInstance) {
+                controller: function ($scope, target, $window, $modalInstance) {
 
                     $scope.target = target;
+                    $scope.$window = $window;
                     $scope.photo = {};
 
                     $scope.close = function () {
                         $modalInstance.close($scope.photo.flow);
                     };
 
-                    $scope.$watch('$flow.files[0].currentSpeed', function (val ,old) {
-                        if (val < old && val === 0) {
-                            console.log('stop');
+                    $scope.uploader = {
+                        success: function ($flow, $file, $message) {
+                            var message = angular.fromJson($message);
                             setTimeout(function () {
-                                $modalInstance.close($scope.photo.flow);
+                                $modalInstance.close(message.url);
                             }, 1000);
                         }
-                    });
+                    };
+
 
                 },
                 backdrop: 'static',
@@ -68,16 +70,10 @@ angular.module('boltApp.controllers.Profile', [])
                         return target;
                     }
                 }
-            }).result.then(function (flow) {
-                    if(flow.files.length) {
-                        if(flow.files[0].chunks[0].loaded) {
-                            getMembership.$promise.then(function () {
-                                $scope.membership.photo = getMembership.membership.photo;
-                            });
-                        }
+            }).result.then(function (url) {
+                    if(url) {
+                        $scope.membership.photo = url; 
                     }
-                }, function () {
-
                 });
         };
 
