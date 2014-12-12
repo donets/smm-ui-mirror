@@ -72,7 +72,7 @@ angular.module('boltApp.controllers.Profile', [])
                 }
             }).result.then(function (url) {
                     if(url) {
-                        $scope.membership.photo = url; 
+                        $scope.membership.photo = url;
                     }
                 });
         };
