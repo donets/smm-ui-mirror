@@ -507,7 +507,11 @@ angular.module('boltApp')
                 url : 'location/new/',
                 templateUrl: 'views/location.html',
                 resolve: {
+                    getNeigbourhood: function($http) {
 
+                        return $http.get('json/neigbourhood.json', {cache: true});
+
+                    }
                 },
                 controller : 'CreateLocationCtrl'
             })

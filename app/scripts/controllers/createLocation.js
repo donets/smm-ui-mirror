@@ -12,7 +12,7 @@ angular.module('boltApp.controllers.CreateLocation', [])
 
         $scope.location = new RestApi();
 
-        $scope.neigbourhood = getNeigbourhood.data;
+        $scope.neigbourhood = getNeigbourhood.data; 
 
         $scope.save = function () {
             $scope.location.$save({route: 'locations'}).then(function (res) {
