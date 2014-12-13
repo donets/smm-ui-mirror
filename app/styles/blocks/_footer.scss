@@ -3,7 +3,6 @@
 .b-footer {
     background: $colorFooter;
     position: relative;
-    z-index: 9;
     @media (min-width: $containerMobileWidth) {
         position: absolute;
         bottom: 0;

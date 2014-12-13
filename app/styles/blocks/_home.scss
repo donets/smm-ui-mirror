@@ -91,13 +91,32 @@
     padding: 100px 0;
     z-index: 10;
     .cards-image {
-        margin: -20px 0 -100px;
+        margin: -30px 0 -60px;
         width: 100%;
+        padding: 0 20px 0 50px;
         @media (max-width: $containerMobileWidth) {
-            margin: 0 0 -20px;
+            width: 100%;
+            margin: -20px -5%;
+            padding: 0;
         }
         @media (max-width: $containerMobileWidth640) {
-            margin: 0;
+            margin-top: -7px;
+        }
+    }
+    .trial {
+        @media (min-width: $containerMobileWidth) {
+            height: 240px;
+            width: 240px;
+            margin: 0 auto;
+            p {
+                padding: 0 35px;
+            }
+            b {
+                font-size: 30px;
+            }
+            span {
+                font-size: 15px;
+            }
         }
     }
     .text {
@@ -172,57 +191,17 @@
         }
     }
     .trial {
-        position: absolute;
-        top: -30px;
-        right: 0; 
-        height: 200px;
-        width: 200px;
-        display: table;
-        @include border-radius(50%);
-        @include filter-gradient(#c84236, #cb863b, horizontal);
-        @include background-image(linear-gradient(24deg, #c84236 0%, #c84236 19%, #cb863b 100%));
-        p {
-            display: table-cell;
-            vertical-align: middle;
-            padding: 0 25px;
-        }
-        b {
-            display: block;
-            font-size: 26px;
-            color: #fff;
-            line-height: 1;
-            margin: 0 0 5px;
-        }
-        span {
-            display: block;
-            font-size: 14px;
-            font-family: $fontItalic;
-            font-style: italic;
-            color: #4f1400;
-            line-height: 1.2;
-        }
-        @media (max-width: $containerMobileWidth) {
-            position: static;
-            margin: 0 auto;
-            height: 360px;
-            width: 360px;
-            b {
-                font-size: 40px;
-                margin: 0 0 10px;
-            }
-            span {
-                font-size: 28px;
-            }
-        }
-        @media (max-width: $containerMobileWidth640) {
+        @media (min-width: $containerMobileWidth) {
+            position: absolute;
+            top: -30px;
+            right: 0;
             height: 200px;
             width: 200px;
             p {
-                padding: 0 30px;
+                padding: 0 25px;
             }
             b {
                 font-size: 26px;
-                margin: 0 0 5px;
             }
             span {
                 font-size: 14px;
@@ -401,6 +380,60 @@
     }
 }
 
+.trial {
+    display: table;
+    @include border-radius(50%);
+    @include filter-gradient(#c84236, #cb863b, horizontal);
+    @include background-image(linear-gradient(24deg, #c84236 0%, #c84236 19%, #cb863b 100%));
+    p {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 25px;
+    }
+    b {
+        display: block;
+        font-size: 26px;
+        color: #fff;
+        line-height: 1;
+        margin: 0 0 5px;
+    }
+    span {
+        display: block;
+        font-size: 14px;
+        font-family: $fontItalic;
+        font-style: italic;
+        color: #4f1400;
+        line-height: 1.2;
+    }
+    @media (max-width: $containerMobileWidth) {
+        position: static;
+        margin: 0 auto;
+        height: 360px;
+        width: 360px;
+        b {
+            font-size: 40px;
+            margin: 0 0 10px;
+        }
+        span {
+            font-size: 28px;
+        }
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 200px;
+        width: 200px;
+        p {
+            padding: 0 30px;
+        }
+        b {
+            font-size: 26px;
+            margin: 0 0 5px;
+        }
+        span {
+            font-size: 14px;
+        }
+    }
+}
+
 %price-li {
     background: getRgba(#fff, 0.8);
     width: 318px;
@@ -532,9 +565,9 @@
 }
 
 .b-price-carousel {
-    padding: 40px 0 0;
+    margin: -40px 0 0;
     @media (max-width: $containerMobileWidth640) {
-        padding: 30px 0 0;
+        margin: -20px 0 0;
     }
     .carousel-inner > .item {
         @extend %price-li;

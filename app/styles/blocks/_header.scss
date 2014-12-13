@@ -151,14 +151,12 @@
     @media (max-width: $containerMobileWidth) {
         left: 0;
         padding: 30px;
-        margin: 30px;
         &:before {
             display: none;
         }
     }
     @media (max-width: $containerMobileWidth640) {
         padding: 15px;
-        margin: 15px;
     }
     .fb_button, .form_button {
         @extend %form-button;
@@ -226,6 +224,16 @@
     }
     .user-nav {
         margin: -15px;
+        @media (max-width: $containerMobileWidth) {
+            margin: -30px;
+            li {
+                width: auto;
+                text-align: center;
+            }
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: -15px;
+        }
     }
 }
 
@@ -236,6 +244,12 @@
     li {
         width: 200px;
         height: 42px;
+        @media (max-width: $containerMobileWidth) {
+            height: 80px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            height: 42px;
+        }
         a {
             display: block;
             font-size: 18px;
@@ -244,6 +258,14 @@
             @include border-radius(2px);
             line-height: 42px;
             outline: none;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 36px;
+                line-height: 80px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 18px;
+                line-height: 42px;
+            }
             &:hover {
                 background: #f4f7f9;
                 text-decoration: none;

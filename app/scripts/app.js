@@ -44,14 +44,17 @@ angular
         'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Getcard',
+        'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
+        'boltApp.controllers.Locations',
+        'boltApp.controllers.Location',
+        'boltApp.controllers.CreateLocation',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
         'boltApp.controllers.Login',
         'boltApp.controllers.Admin',
-        'boltApp.controllers.Classes',
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.services.restApi',
@@ -132,6 +135,7 @@ angular.module('boltApp')
     }])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
+        $httpProvider.interceptors.push('errorHttpInterceptor');
         $httpProvider.defaults.withCredentials = true;
     }])
     .provider('HttpProgressInterceptor', function HttpProgressInterceptor(){
@@ -164,6 +168,16 @@ angular.module('boltApp')
             };
         }];
     })
+    .factory('errorHttpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
+        return {
+            responseError: function responseError(rejection) {
+                $rootScope.rejection = rejection;
+                $rootScope.rejection.show = true;
+                console.error(rejection);
+                return $q.reject(rejection);
+            }
+        };
+    }])
     .run(function (Permission, User) {
         Permission
             .defineRole('anonymous', function () {
@@ -366,7 +380,7 @@ angular.module('boltApp')
                 },
                 data: {
                     permissions: {
-                        only: ['admin', 'member'],
+                        only: ['member'],
                         except: ['anonymous'],
                         redirectTo: 'signup'
                     }
@@ -441,8 +455,8 @@ angular.module('boltApp')
                 },
                 controller : 'ClassCtrl'
             })
-            .state('admin.new', {
-                url : 'new/',
+            .state('admin.newClass', {
+                url : 'class/new/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -454,6 +468,48 @@ angular.module('boltApp')
 
                 },
                 controller : 'CreateClassCtrl'
+            })
+            .state('admin.locations', {
+                url : 'locations/',
+                templateUrl: 'views/locations.html',
+                resolve: {
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'}).$promise;
+
+                    }
+
+                },
+                controller : 'LocationsCtrl'
+            })
+            .state('admin.location', {
+                url : 'locations/:locationId/',
+                templateUrl: 'views/location.html',
+                resolve: {
+
+                    getLocation: function(RestApi, $stateParams) {
+
+                        return RestApi.get({route: 'locations'}, {id: $stateParams.locationId}).$promise;
+
+                    },
+
+                    getNeigbourhood: function($http) {
+
+                        return $http.get('json/neigbourhood.json', {cache: true});
+
+                    }
+
+                },
+                controller : 'LocationCtrl'
+            })
+            .state('admin.newLocation', {
+                url : 'location/new/',
+                templateUrl: 'views/location.html',
+                resolve: {
+
+                },
+                controller : 'CreateLocationCtrl'
             })
             .state('more', {
                 url : '/p/more/',

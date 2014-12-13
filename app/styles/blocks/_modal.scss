@@ -20,11 +20,13 @@
 }
 .modal-content {
     border-radius: 2px;
+    background: #fff;
+    border: 0 none;
     @include box-shadow(0 1px 3px getRgba(#1b171a, 0.2));
     .form-spinner {
         text-align: center;
         height: 50px;
-        margin: 0;
+        margin: 5px;
         @media (max-width: $containerMobileWidth) {
             margin: 0;
             height: 80px;
@@ -142,15 +144,11 @@
 }
 .modal-cancel {
     .modal-dialog {
-        width: 480px;
-        @media (max-width: $containerMobileWidth) {
-            width: 92%;
+        @media (min-width: $containerMobileWidth) {
+            width: 480px;
         }
     }
     .modal-content {
-        background: #fff;
-        border: 0 none;
-        @include box-shadow(0 1px 3px getRgba(#1b171a, 0.2));
         .form-response {
             position: static;
         }
@@ -186,17 +184,8 @@
 }
 .modal-suggest {
     .modal-dialog {
-        width: 660px;
-        @media (max-width: $containerMobileWidth) {
-            width: 92%;
-        }
-    }
-    .modal-content {
-        background: #fff;
-        border: 0 none;
-        @include box-shadow(0 1px 3px getRgba(#1b171a, 0.2));
-        .form-spinner {
-            margin: 5px;
+        @media (min-width: $containerMobileWidth) {
+            width: 660px;
         }
     }
     .modal-body {
@@ -218,6 +207,14 @@
             @media (max-width: $containerMobileWidth640) {
                 margin-top: 30px;
             }
+        }
+        p {
+            font-size: 18px;
+        }
+        .form-button {
+            min-width: 0;
+            width: 250px;
+            margin: 20px 0;
         }
     }
     .b-studios-submit {
@@ -339,6 +336,43 @@
                 color: $colorLightGrey;
             }
 
+        }
+    }
+}
+.modal-message {
+    .modal-dialog {
+        @media (min-width: $containerMobileWidth) {
+            width: 660px;
+        }
+    }
+    .modal-body {
+        padding: 80px;
+        text-align: center;
+        @media (max-width: $containerMobileWidth) {
+            padding: 30px;
+        }
+        @media (max-width: $containerMobileWidth) {
+            padding: 15px;
+        }
+        h2 {
+            @extend %title-light;
+            line-height: 1;
+            margin: 0;
+            @media (max-width: $containerMobileWidth) {
+                margin-top: 80px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                margin-top: 30px;
+            }
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .form-button {
+            min-width: 0;
+            width: 250px;
+            margin: 20px 0;
         }
     }
 }

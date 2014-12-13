@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Locations</h2>
+</div>
+<div class="dashboard cf">
+    <div class="container">
+        <div class="w-left b-sidebar-filters">
+            <button class="control-button" ui-sref="admin.newLocation" type="button"><i class="fa fa-plus"></i>New Location</button>
+            <div class="input-search"><input type="text" placeholder="Filter name"/></div>
+        </div>
+        <div class="w-right b-classes-list">
+            <table class="timetable" ng-show="desktop">
+                <thead>
+                    <tr>
+                        <th>Ortname</th>
+                        <th>Strasse und Hausnummer</th>
+                        <th>Bezirk</th>
+                        <th>PLZ</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in locations">
+                        <td>{{c.name}}</td>
+                        <td>{{c.address}}</td>
+                        <td>{{c.neigbourhood}}</td>
+                        <td>{{c.postal_code}}</td>
+                        <td><button class="green" ui-sref="admin.location({locationId: c.id})" type="button"><i class="fa fa-pencil"></i>Manage</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
