@@ -132,7 +132,7 @@ angular.module('boltApp')
     }])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
-        $httpProvider.interceptors.push('errorHttpInterceptor');
+        $httpProvider.interceptors.push('myHttpInterceptor');
         $httpProvider.defaults.withCredentials = true;
     }])
     .provider('HttpProgressInterceptor', function HttpProgressInterceptor(){
@@ -165,7 +165,16 @@ angular.module('boltApp')
             };
         }];
     })
-    .factory('errorHttpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
+    .factory('resourceInterceptor', function($rootScope) {
+        return {
+            response: function (response) {
+                $rootScope.success = response;
+                $rootScope.success.show = true;
+                return response;
+            }
+        }
+    })
+    .factory('myHttpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
         return {
             responseError: function responseError(rejection) {
                 $rootScope.rejection = rejection;
@@ -177,7 +186,7 @@ angular.module('boltApp')
     }])
     .run(function (Permission, User) {
         Permission
-            .defineRole('anonymous', function () {
+            .defineRole('anon', function () {
                 return User.get().$promise.then(function (res) {
                     if(!res.currentUser) {
                         return true;
@@ -378,7 +387,7 @@ angular.module('boltApp')
                 data: {
                     permissions: {
                         only: ['member'],
-                        except: ['anonymous'],
+                        except: ['anon'],
                         redirectTo: 'signup'
                     }
                 }
@@ -402,7 +411,7 @@ angular.module('boltApp')
                 data: {
                     permissions: {
                         only: ['admin'],
-                        except: ['member', 'anonymous'],
+                        except: ['anon', 'member'],
                         redirectTo: 'home'
                     }
                 }
@@ -493,6 +502,19 @@ angular.module('boltApp')
                         $rootScope.discountDuarationInMonths = _.range(1,13);
                         $rootScope.subscriptionType = ['BLACK', 'WHITE', 'LITE'];
 
+                        $rootScope.showDatepicker = {};
+                        $rootScope.openDatepicker = function($event, type) {
+                            $event.preventDefault();
+                            $event.stopPropagation();
+                            $rootScope.showDatepicker[type] = true;
+                        };
+                        $rootScope.minStartDate = new Date();
+                        $rootScope.dateOptions = {
+                            startingDay: 1,
+                            showWeekNumbers: false,
+                            showWeeks: false
+                        };
+
                     }
             })
             .state('admin.entity.list', {
@@ -517,7 +539,7 @@ angular.module('boltApp')
                     }
             })
             .state('admin.entity.item', {
-                url : '/{entityId:[0-9]+}/',
+                url : '/{entityId:[0-9A-Z]+}/',
                 templateUrl: 'views/entity.html',
                 resolve: {
 
@@ -557,9 +579,21 @@ angular.module('boltApp')
                         $scope.save = function () {
                             $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
                                 console.log(res);
-                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: res.id});
+                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.id || res.data.code)});
                             });
                         };
+
+                        if ($rootScope.$stateParams.route === 'vouchers') {
+                            RestApi.query({route: 'vouchers'}).$promise.then(function (res) {
+                                $scope.vouchersList = _.pluck(res, 'code');
+                            });
+                            $scope.checkVoucherUnique = function (voucher) {
+                                $scope.errorVoucher = _.include($scope.vouchersList, voucher);
+                            };
+                            $scope.toUpperCase = function (string) {
+                                $scope.entity.code = string.toUpperCase();
+                            }
+                        }
 
                     }
             })

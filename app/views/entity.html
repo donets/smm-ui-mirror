@@ -1,33 +1,45 @@
 <div class="b-class-block" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
-            <h2>{{entity.name || 'New ' + $stateParams.route}}</h2>
+            <h2>{{entity.name || entity.code || 'New ' + $stateParams.route}}</h2>
         </div>
         <div class="w-right">
-            <button type="button" class="green" ng-click="save()"><i class="fa fa-save"></i>Save</button>
+            <button type="button" ng-disabled="errorVoucher" class="green" ng-click="save()"><i class="fa fa-save"></i>Save</button>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="b-class-edit">
         <h3>Main info</h3>
-        <div class="form-rel" ng-repeat="field in fields | filter: { readonly: '!'+true }">
+        <div class="form-rel" ng-repeat="field in fields | filter: {readonly: '!'+true && '!'+$stateParams.entityId}">
             <label class="form-label" ng-if="field.type !== 'checkbox'" for="{{field.model}}">{{field.title}}</label>
-            <input class="form-input" type="text" ng-model="entity[field.model]" ng-if="!field.type" id="{{field.model}}"/>
+            <input class="form-input" type="text" ng-model="entity[field.model]" ng-if="!field.type && !field.format" id="{{field.model}}" ng-readonly="field.readonly || ($stateParams.entityId && $stateParams.route === 'vouchers' && field.model === 'code')"/>
+            <input class="form-input" type="text" value="{{entity[field.model] | date: field.format}}" ng-if="!field.type && field.format" id="{{field.model}}" ng-readonly="field.readonly"/>
+            <div class="form-group" ng-class="{'error': errorVoucher}" ng-if="field.type === 'voucher'">
+                <input class="form-input" type="text" ng-change="toUpperCase(entity[field.model]);checkVoucherUnique(entity[field.model])" ng-model="entity[field.model]" id="{{field.model}}" ng-readonly="$stateParams.entityId"/>
+                <div ng-show="errorVoucher" class="form-message form-error">Dieser Code existiert bereits</div>
+            </div>
+            <div class="form-rel input-date" ng-if="field.type === 'date'" ng-click="openDatepicker($event, field.model)">
+                <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, field.model)" is-open="showDatepicker[field.model]"
+                       datepicker-options="dateOptions" min-date="minStartDate"
+                       class="form-input" ng-model="entity[field.model]" type="text" placeholder="Select date" clear-text="Clear"/>
+            </div>
             <select chosen
                     ng-model="entity[field.model]" ng-if="field.type === 'select'"
-                    data-placeholder="Auswählen {{fields.title}}"
+                    data-placeholder="{{field.placeholder || 'Auswählen'}}"
+                    allow-single-deselect="true"
                     disable-search="{{field.model !== 'neigbourhood'}}"
                     ng-options="item for item in {{field.model}}">
                 <option value=""></option>
             </select>
             <div class="form-rel" ng-if="field.type === 'checkbox'">
-                <div class="form-check">
-                    <input type="checkbox" id="{{field.model}}" value="true" ng-model="entity[field.model]" name="{{field.model}}" />
+                <div class="form-check" ng-class="{'disabled': !entity[field.disabled] }">
+                    <input type="checkbox" ng-disabled="!entity[field.disabled]" id="{{field.model}}" value="true" ng-model="entity[field.model]" name="{{field.model}}" />
                     <i class="fa"></i>
                     <label for="{{field.model}}">{{field.title}}</label>
                 </div>
             </div>
+            <textarea ng-model="entity[field.model]" ng-if="field.type === 'textarea'" id="{{field.model}}"></textarea>
         </div>
     </div>
 </div>

@@ -135,15 +135,20 @@
             </button>
         </div>
     </div>
-    <div>
-        <div class="b-alert error" ng-if="rejection.show">
-            <span>Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
-                Fehlerdetails: {{rejection.data.message}}</span>
-            <button ng-click="rejection.show = false" class="b-close" type="button">
-                <i class="fa fa-times"></i>
-                <span class="sr-only">Close</span>
-            </button>
-        </div>
+    <div class="b-alert error" ng-if="rejection.show">
+        <span>Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
+            Fehlerdetails: {{rejection.data.message}}</span>
+        <button ng-click="rejection.show = false" class="b-close" type="button">
+            <i class="fa fa-times"></i>
+            <span class="sr-only">Close</span>
+        </button>
+    </div>
+    <div class="b-alert success" ng-if="success.show">
+        <span>Erfolgreich gespeichert. </span>
+        <button ng-click="success.show = false" class="b-close" type="button">
+            <i class="fa fa-times"></i>
+            <span class="sr-only">Close</span>
+        </button>
     </div>
     <div class="wrapper">
         <div class="b-header" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">

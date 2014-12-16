@@ -4,7 +4,7 @@
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
-            <button class="control-button" ui-sref="admin.entity.new({route: $stateParams.route})" type="button"><i class="fa fa-plus"></i>New {{$stateParams.route}}</button>
+            <button class="control-button" ui-sref="admin.entity.new({route: $stateParams.route})" type="button"><i class="fa fa-plus"></i>New {{$stateParams.route.slice(0, -1)}}</button>
             <div class="input-search"><input type="text" placeholder="Filter name"/></div>
         </div>
         <div class="w-right b-classes-list">
@@ -18,10 +18,10 @@
                 <tbody>
                     <tr ng-repeat="e in entities">
                         <td ng-repeat="field in fields | filter: {listed: '!'+false}">
-                            <div ng-if="field.format !== 'date'">{{e[field.model]}}</div>
-                            <div ng-if="field.format === 'date'" class="w-100">{{e[field.model] | date : 'MMM d, y h:mm'}}</div>
+                            <div ng-if="!field.format">{{e[field.model]}}</div>
+                            <div ng-if="field.format" class="w-100">{{e[field.model] | date : field.format}}</div>
                         </td>
-                        <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id})" type="button"><i class="fa fa-pencil"></i>Manage</button></td>
+                        <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button"><i class="fa fa-pencil"></i>Manage</button></td>
                     </tr>
                 </tbody>
             </table>

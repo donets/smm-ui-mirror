@@ -24,6 +24,9 @@
     &.error {
         background: #cc5252;
     }
+    &.success {
+        background: $colorGreen;
+    }
     @media (max-width: $containerMobileWidth) {
         font-size: 26px;
         line-height: $fontLine;

@@ -32,21 +32,29 @@
                "model": "website",
                "title": "Website",
                "listed": false
+           }, {
+               "model": "terms",
+               "title": "Voraussetzungen der Teilnahme",
+               "type": "textarea",
+               "listed": false
            }
        ],
        "vouchers": [
            {
                "model": "code",
-               "title": "Code"
+               "title": "Code",
+               "type": "voucher"
            }, {
                "model": "created",
                "title": "Erstellt",
+               "format": "dd.MM.yyyy",
                "listed": false,
                "readonly": true
            }, {
                "model": "validUntil",
                "title": "Gültig bis",
-               "format": "date"
+               "format": "dd.MM.yyyy",
+               "type": "date"
            }, {
                "model": "subscriptionType",
                "title": "Nur für Kartenart",
@@ -54,10 +62,12 @@
            }, {
                "model": "freeSubscriptionDuarationInMonths",
                "title": "Freie Monate Gutschrift",
+               "placeholder": "Keine",
                "type": "select"
            }, {
                "model": "deactivateProlongation",
                "title": "Nicht verlängern",
+               "disabled": "freeSubscriptionDuarationInMonths",
                "type": "checkbox",
                "listed": false
            }, {
@@ -77,6 +87,7 @@
            }, {
                "model": "discountDuarationInMonths",
                "title": "Rabattlänge in Monaten",
+               "placeholder": "Keine",
                "type": "select"
            }
        ]

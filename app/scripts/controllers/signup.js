@@ -83,6 +83,9 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.error = null;
                 $scope.errorMsg = '';
                 $scope.showSpinner = true;
+                if (moment().isBefore('2015-01-01', 'year') && !$scope.order.voucher) {
+                    $scope.order.voucher = 'EARLY_BIRD_2014';
+                }
                 $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
                     console.log(response);

@@ -44,7 +44,7 @@
     </li><li id="account" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-mouseover="isPopupVisible = true" ng-mouseleave="isPopupVisible = false" ng-if="userName">
         <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
-            <ul class="user-nav">
+            <ul class="user-nav" ng-click="togglePopup()">
                 <li><a ui-sref="profile.account">Account</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.membership">Meine Karte</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.dashboard">Dashboard</a></li>
