@@ -47,9 +47,6 @@ angular
         'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
-        'boltApp.controllers.Locations',
-        'boltApp.controllers.Location',
-        'boltApp.controllers.CreateLocation',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
@@ -402,7 +399,6 @@ angular.module('boltApp')
                 url : '/admin/v2/',
                 abstract: true,
                 templateUrl: 'views/admin.html',
-                controller : 'AdminCtrl',
                 data: {
                     permissions: {
                         only: ['admin'],
@@ -430,7 +426,7 @@ angular.module('boltApp')
                 controller : 'ClassesCtrl'
             })
             .state('admin.class', {
-                url : 'class/:classId/',
+                url : 'classes/{classId:[0-9]+}/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -456,7 +452,7 @@ angular.module('boltApp')
                 controller : 'ClassCtrl'
             })
             .state('admin.newClass', {
-                url : 'class/new/',
+                url : 'classes/new/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -469,28 +465,15 @@ angular.module('boltApp')
                 },
                 controller : 'CreateClassCtrl'
             })
-            .state('admin.locations', {
-                url : 'locations/',
-                templateUrl: 'views/locations.html',
+            .state('admin.entity', {
+                url : ':route',
+                template: '<div ui-view></div>',
+                abstract: true,
                 resolve: {
 
-                    getLocations: function(RestApi) {
+                    getEntityFields: function($http) {
 
-                        return RestApi.query({route: 'locations'}).$promise;
-
-                    }
-
-                },
-                controller : 'LocationsCtrl'
-            })
-            .state('admin.location', {
-                url : 'locations/:locationId/',
-                templateUrl: 'views/location.html',
-                resolve: {
-
-                    getLocation: function(RestApi, $stateParams) {
-
-                        return RestApi.get({route: 'locations'}, {id: $stateParams.locationId}).$promise;
+                        return $http.get('json/entityFields.json', {cache: true});
 
                     },
 
@@ -501,19 +484,84 @@ angular.module('boltApp')
                     }
 
                 },
-                controller : 'LocationCtrl'
-            })
-            .state('admin.newLocation', {
-                url : 'location/new/',
-                templateUrl: 'views/location.html',
-                resolve: {
-                    getNeigbourhood: function($http) {
+                controller :
+                    function ($rootScope, getEntityFields, getNeigbourhood) {
 
-                        return $http.get('json/neigbourhood.json', {cache: true});
+                        $rootScope.fields = getEntityFields.data.entities[$rootScope.$stateParams.route];
+                        $rootScope.neigbourhood = getNeigbourhood.data;
+                        $rootScope.freeSubscriptionDuarationInMonths = _.range(1,13);
+                        $rootScope.discountDuarationInMonths = _.range(1,13);
+                        $rootScope.subscriptionType = ['BLACK', 'WHITE', 'LITE'];
 
                     }
+            })
+            .state('admin.entity.list', {
+                url : '/',
+                templateUrl: 'views/entityList.html',
+                resolve: {
+
+                    getEntityList: function(RestApi, $stateParams) {
+
+                        return RestApi.query({route: $stateParams.route}).$promise;
+
+                    }
+
                 },
-                controller : 'CreateLocationCtrl'
+                controller :
+                    function ($scope, $rootScope, getEntityList) {
+
+                        getEntityList.$promise.then(function (res) {
+                            $scope.entities = res;
+                        });
+
+                    }
+            })
+            .state('admin.entity.item', {
+                url : '/{entityId:[0-9]+}/',
+                templateUrl: 'views/entity.html',
+                resolve: {
+
+                    getEntity: function(RestApi, $stateParams) {
+
+                        return RestApi.get({route: $stateParams.route}, {id: $stateParams.entityId}).$promise;
+
+                    }
+
+                },
+                controller :
+
+                    function ($scope, $rootScope, getEntity) {
+
+                        getEntity.$promise.then(function () {
+                            $scope.entity = getEntity;
+                        });
+
+                        $scope.save = function () {
+                            $scope.entity.$update({route: $rootScope.$stateParams.route}).then(function (res) {
+                                console.log(res);
+                            });
+                        };
+
+                    }
+
+            })
+            .state('admin.entity.new', {
+                url : '/new/',
+                templateUrl: 'views/entity.html',
+                controller :
+
+                    function ($scope, $rootScope, RestApi) {
+
+                        $scope.entity = new RestApi();
+
+                        $scope.save = function () {
+                            $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
+                                console.log(res);
+                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: res.id});
+                            });
+                        };
+
+                    }
             })
             .state('more', {
                 url : '/p/more/',

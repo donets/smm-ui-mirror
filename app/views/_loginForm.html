@@ -49,7 +49,9 @@
                 <li ng-if="roleMember"><a ui-sref="profile.membership">Meine Karte</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.dashboard">Dashboard</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.classes">Classes</a></li>
-                <li ng-if="roleAdmin"><a ui-sref="admin.locations">Locations</a></li>
+                <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'locations'})">Locations</a></li>
+                <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'studios'})">Studios</a></li>
+                <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'vouchers'})">Vouchers</a></li>
                 <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page">Abmelden</a></li>
             </ul>
         </div>

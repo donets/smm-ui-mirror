@@ -6,7 +6,11 @@
     }
 }
 .admin-panel {
+    background: #fff;
     padding: 60px 0 0;
+    h2 {
+        text-transform: capitalize;
+    }
 }
 .dashboard {
     @extend .b-studio-timetable;
@@ -66,6 +70,9 @@
             padding: 0 12px;
             &:nth-child(1), &:nth-child(2) {
                 font-size: 15px;
+            }
+            .w-100 {
+                width: 100px;
             }
         }
         tr {

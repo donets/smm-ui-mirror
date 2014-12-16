@@ -1,0 +1,33 @@
+<div class="b-class-block" sticky use-placeholder>
+    <div class="container cf">
+        <div class="w-left">
+            <h2>{{entity.name || 'New ' + $stateParams.route}}</h2>
+        </div>
+        <div class="w-right">
+            <button type="button" class="green" ng-click="save()"><i class="fa fa-save"></i>Save</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="b-class-edit">
+        <h3>Main info</h3>
+        <div class="form-rel" ng-repeat="field in fields | filter: { readonly: '!'+true }">
+            <label class="form-label" ng-if="field.type !== 'checkbox'" for="{{field.model}}">{{field.title}}</label>
+            <input class="form-input" type="text" ng-model="entity[field.model]" ng-if="!field.type" id="{{field.model}}"/>
+            <select chosen
+                    ng-model="entity[field.model]" ng-if="field.type === 'select'"
+                    data-placeholder="Auswählen {{fields.title}}"
+                    disable-search="{{field.model !== 'neigbourhood'}}"
+                    ng-options="item for item in {{field.model}}">
+                <option value=""></option>
+            </select>
+            <div class="form-rel" ng-if="field.type === 'checkbox'">
+                <div class="form-check">
+                    <input type="checkbox" id="{{field.model}}" value="true" ng-model="entity[field.model]" name="{{field.model}}" />
+                    <i class="fa"></i>
+                    <label for="{{field.model}}">{{field.title}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
