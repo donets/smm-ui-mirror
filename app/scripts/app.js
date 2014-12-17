@@ -172,7 +172,7 @@ angular.module('boltApp')
                 $rootScope.success.show = true;
                 return response;
             }
-        }
+        };
     })
     .factory('myHttpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
         return {
@@ -592,7 +592,7 @@ angular.module('boltApp')
                             };
                             $scope.toUpperCase = function (string) {
                                 $scope.entity.code = string.toUpperCase();
-                            }
+                            };
                         }
 
                     }

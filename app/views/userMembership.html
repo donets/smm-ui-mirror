@@ -1,9 +1,38 @@
 <div class="container">
-    <h3 class="card-number">Meine Kartennummer: {{membership.cardNumber}}</h3>
-    <h3 class="form-title">Mein Foto auf der Karte</h3>
-    <div class="photo">
-        <img ng-if="membership.photo" ng-src="{{membership.photo}}" alt=""/>
-        <button class="form-button" ng-click="upload('avatar')">Hochladen</button>
+    <div class="overview cf">
+        <div class="photo">
+            <h3 class="form-title">Mein Foto auf der Karte</h3>
+            <img ng-if="membership.photo" ng-src="{{membership.photo}}" alt=""/>
+            <button class="form-button" ng-click="upload('avatar')">Hochladen</button>
+        </div>
+        <div class="form-overview" ng-if="membership.discountGranted">
+            <ul>
+                <li>
+                    <b>Meine Kartennummer::</b>
+                    <p>{{membership.cardNumber}}</p>
+                </li><li>
+                    <b>Regulärer Preis:</b>
+                    <p ng-if="!voucher.freeSubscriptionGranted">{{overview.price}}€ / Monat</p>
+                    <p ng-if="voucher.freeSubscriptionGranted">0€ / Monat</p>
+                </li><li ng-if="!voucher.freeSubscriptionGranted">
+                    <b>Ermäßigter Preis:</b>
+                    <p class="green"><span ng-if="voucher.percentOff">{{overview.price * (1 - voucher.percentOff / 100)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> / Monat für {{voucher.discountDuarationInMonths}} Monate</p>
+                </li><li>
+                    <b>Beginn Mitgliedschaft:</b>
+                    <p>1.1.2015</p>
+                </li><li>
+                    <b>Laufzeit:</b>
+                    <p ng-if="!voucher.freeSubscriptionGranted">unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat</p>
+                    <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
+                </li><li ng-if="!voucher.freeSubscriptionGranted">
+                    <b>Abbuchung:</b>
+                    <p>Monatlich beginnend mit dem Tag der Mitgliedschaft</p>
+                </li><li ng-if="!voucher.freeSubscriptionGranted">
+                    <b>Kündigung:</b>
+                    <p>Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende</p>
+                </li>
+            </ul>
+        </div>
     </div>
     <h3 class="form-title">Willst Du Deinen Karten-Typ ändern?</h3>
     <ul class="b-select-card" id="cards">
@@ -45,6 +74,9 @@
             <button ng-model="type" ng-change="changeCard()" btn-radio="'BLACK'"><i class="fa"></i>{{type === 'BLACK' ? 'Ausgewählt' : 'Auswählen'}}</button>
         </li>
     </ul>
+    <div class="profile-info">
+        <h3>Beginn der Mietgliedschaft: 1.1.2015</h3>
+    </div>
     <form class="form-profile">
         <button type="button" ng-hide="loading" ng-disabled="notChanged" ng-click="changeMembership(type)">Änderung bestätigen</button>
         <div class="form-rel spinner-wrapper" ng-show="loading">

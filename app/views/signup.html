@@ -65,7 +65,7 @@
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <div ng-class="{ 'error': errorVoucher }" class="form-group">
                 <div class="form-rel">
-                    <input type="text" ng-model="voucher" ng-blur="checkVoucher()" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
+                    <input type="text" ng-model="code" ng-blur="checkVoucher()" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
                     <div class="form-response">
                         <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                         <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i></div>
@@ -184,9 +184,38 @@
                     <div class="form-check">
                         <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
                         <i class="fa"></i>
-                        <label for="newsletter">Ich möchte den Newsletter erhalten</label>
+                        <label for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
                     </div>
                 </div>
+            </div>
+            <div class="form-overview" ng-if="voucher && overview">
+                <h3 class="form-title">Schließe Deine Bestellung ab!</h3>
+                <ul>
+                    <li>
+                        <b>Karte:</b>
+                        <p>{{overview.card}}</p>
+                    </li><li>
+                        <b>Regulärer Preis:</b>
+                        <p ng-if="!voucher.freeSubscriptionGranted">{{overview.price}}€ / Monat</p>
+                        <p ng-if="voucher.freeSubscriptionGranted">0€ / Monat</p>
+                    </li><li ng-if="!voucher.freeSubscriptionGranted">
+                        <b>Ermäßigter Preis:</b>
+                        <p class="green"><span ng-if="voucher.percentOff">{{overview.price * (1 - voucher.percentOff / 100)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> / Monat für {{voucher.discountDuarationInMonths}} Monate</p>
+                    </li><li>
+                        <b>Beginn Mitgliedschaft:</b>
+                        <p>1.1.2015</p>
+                    </li><li>
+                        <b>Laufzeit:</b>
+                        <p ng-if="!voucher.freeSubscriptionGranted">unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat</p>
+                        <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
+                    </li><li ng-if="!voucher.freeSubscriptionGranted">
+                        <b>Abbuchung:</b>
+                        <p>Monatlich beginnend mit dem Tag der Mitgliedschaft</p>
+                    </li><li ng-if="!voucher.freeSubscriptionGranted">
+                        <b>Kündigung:</b>
+                        <p>Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende</p>
+                    </li>
+                </ul>
             </div>
             <div class="form-rel" ng-show="showSpinner">
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>

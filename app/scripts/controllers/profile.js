@@ -9,10 +9,28 @@
  */
 angular.module('boltApp.controllers.Profile', [])
     .controller('ProfileCtrl', function ($scope, $window, $http, $modal, getMembership) {
+
+        var getVoucher = function (code) {
+            $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
+                console.log(res);
+                $scope.voucher = res;
+            }).error(function (res) {
+                console.log(res);
+                $scope.voucher = null;
+            });
+        };
+
         getMembership.$promise.then(function () {
             $scope.membership = getMembership.membership;
             console.log($scope.membership);
             $scope.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
+            if ($scope.membership.discountGranted) {
+                getVoucher($scope.membership.discount.voucherCode);
+            }
+            $scope.overview = {
+                card: _.findWhere($scope.cards, {type: $scope.type}).name,
+                price: _.findWhere($scope.cards, {type: $scope.type}).price
+            };
             $scope.member = {
                 name: $scope.membership.firstName + ' ' + $scope.membership.lastName,
                 email: $scope.membership.email
@@ -21,6 +39,21 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.password = {};
         $scope.notChanged = true;
+        $scope.cards = [
+            {
+                type: 'LITE',
+                name: 'White Card Lite',
+                price: '39'
+            }, {
+                type: 'WHITE',
+                name: 'White Card',
+                price: '69'
+            }, {
+                type: 'BLACK',
+                name: 'Black Card',
+                price: '99'
+            }
+        ];
 
         $scope.changePass = function (formPass) {
             $scope.loading = true;
@@ -49,7 +82,7 @@ angular.module('boltApp.controllers.Profile', [])
                     $scope.photo = {};
 
                     $scope.close = function () {
-                        $modalInstance.close($scope.photo.flow);
+                        $modalInstance.dismiss('close');
                     };
 
                     $scope.uploader = {
@@ -129,6 +162,10 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.changeCard = function () {
             $scope.notChanged = false;
+            $scope.overview = {
+                card: _.findWhere($scope.cards, {type: $scope.type}).name,
+                price: _.findWhere($scope.cards, {type: $scope.type}).price
+            };
         };
 
         $scope.changeMembership = function(type) {

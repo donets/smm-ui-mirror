@@ -10,6 +10,21 @@
 angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios) {
         $scope.studios = getStudios.data;
+        $scope.cards = [
+            {
+                type: 'LITE',
+                name: 'White Card Lite',
+                price: '39'
+            }, {
+                type: 'WHITE',
+                name: 'White Card',
+                price: '69'
+            }, {
+                type: 'BLACK',
+                name: 'Black Card',
+                price: '99'
+            }
+        ];
         $scope.order = {
             deliveryAddress: {
                 countryCode: 'DE'
@@ -42,18 +57,18 @@ angular.module('boltApp.controllers.Signup', [])
         };*/
 
         $scope.checkVoucher = function () {
-            if ($scope.voucher) {
+            if ($scope.code) {
                 $scope.loadingVoucher = true;
                 $scope.successVoucher = false;
                 $scope.errorVoucher = false;
-                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.voucher).success(function (res) {
-                    console.log(res);
+                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.code).success(function (res) {
+                    $scope.voucher = res;
                     $scope.loadingVoucher = false;
                     if(res.valid && res.freeSubscriptionGranted) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
-                        $scope.order.voucher = $scope.voucher;
+                        $scope.order.voucher = $scope.code;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
                         $scope.typeVoucher = res.subscriptionType;
@@ -62,6 +77,7 @@ angular.module('boltApp.controllers.Signup', [])
                     }
                 }).error(function (res) {
                     console.log(res);
+                    $scope.voucher = null;
                     $scope.loadingVoucher = false;
                     $scope.errorVoucher = 'valid';
                 });
@@ -69,12 +85,17 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.formSignup.voucher.$setPristine();
                 $scope.successVoucher = false;
                 $scope.errorVoucher = false;
+                $scope.voucher = null;
             }
         };
 
         $scope.changeType = function () {
             $scope.typeMessage = false;
             $scope.checkVoucher();
+            $scope.overview = {
+                card: _.findWhere($scope.cards, {type: $scope.order.type}).name,
+                price: _.findWhere($scope.cards, {type: $scope.order.type}).price
+            };
         };
 
         $scope.signupSubmit = function () {
