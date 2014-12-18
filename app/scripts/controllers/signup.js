@@ -48,9 +48,8 @@ angular.module('boltApp.controllers.Signup', [])
 
         var setVoucher = function (code) {
             if (moment().isBefore('2015-01-01', 'year') && !$scope.order.voucher) {
-                $http.get('https://smm-api.herokuapp.com/api/rest/vouchers/' + code).success(function (res) {
+                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
-                        res.freeSubscriptionGranted = false;
                         $scope.order.voucher = $scope.code;
                         $scope.voucher = res;
                     }

@@ -79,6 +79,10 @@
         li {
             margin-bottom: 20px;
             @include column-break(inside, avoid);
+            &.column-break {
+                @include break-after(always);
+                page-break-after: always;
+            }
         }
     }
     b {

@@ -173,14 +173,16 @@
                     <li>
                         <b>Karte:</b>
                         <p>{{overview.card}}</p>
-                    </li><li>
+                    </li><li ng-if="!voucher || (!voucher.freeSubscriptionGranted && voucher.discountDuarationInMonths)">
                         <b>Regulärer Preis:</b>
-                        <p ng-if="!voucher.freeSubscriptionGranted || !voucher">{{overview.price}}€ / Monat</p>
-                        <p ng-if="voucher.freeSubscriptionGranted">0€ / Monat</p>
+                        <p>{{overview.price}}€ / Monat</p>
+                    </li><li ng-if="voucher.freeSubscriptionGranted">
+                        <b>Sonderpreis:</b>
+                        <p>0€ / Monat</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted && voucher">
                         <b>Ermäßigter Preis:</b>
-                        <p class="green"><span ng-if="voucher.percentOff">{{Math.ceil(overview.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> / Monat für {{voucher.discountDuarationInMonths}} Monate</p>
-                    </li><li>
+                        <p class="green"><span ng-if="voucher.percentOff">{{Math.ceil(overview.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths">/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
+                    </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
                         <b>Beginn Mitgliedschaft:</b>
                         <p>{{startDate}}</p>
                     </li><li>
