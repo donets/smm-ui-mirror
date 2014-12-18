@@ -56,6 +56,7 @@ module.exports = function(config) {
       'bower_components/flow.js/dist/flow.js',
       'bower_components/ng-flow/dist/ng-flow.js',
       'bower_components/jcrop/js/jquery.Jcrop.js',
+      'bower_components/angular-validation-match/dist/angular-input-match.min.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

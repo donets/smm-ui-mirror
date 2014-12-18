@@ -286,6 +286,10 @@
             padding: 3px 0;
             text-align: center;
             font-size: 15px;
+            a {
+                font-size: 15px;
+                color: #fff;
+            }
             @media (max-width: $containerMobileWidth) {
                 font-size: 28px;
             }
@@ -453,11 +457,22 @@
         color: $colorText;
         strong {
             font-weight: normal;
-            text-decoration: line-through;
+            font-size: 22px;
+            &.old {
+                text-decoration: line-through;
+                font-size: 16px;
+            }
         }
         b {
             font-family: $fontBold;
             font-size: 22px;
+            &.ng-animate, .ng-animate {
+                &.ng-move,
+                &.ng-enter,
+                &.ng-leave {
+                    @include transition(none);
+                }
+            }
             @media (max-width: $containerMobileWidth) {
                 font-size: 42px;
             }
@@ -465,7 +480,8 @@
                 font-size: 22px;
             }
         }
-        p, span {
+        p {
+            margin: 5px 0;
             font-size: 16px;
             @media (max-width: $containerMobileWidth) {
                 font-size: 28px;
@@ -474,9 +490,6 @@
             @media (max-width: $containerMobileWidth640) {
                 font-size: 16px;
             }
-        }
-        p {
-            margin: 5px 0;
         }
         @media (max-width: $containerMobileWidth) {
             font-family: $fontRegular;

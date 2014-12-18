@@ -66,7 +66,10 @@
         <h2>Unsere Partner</h2>
         <p class="subtitle">Unsere Studios in Berlin - jede Woche werden es mehr.</p>
         <ul class="b-studios-list">
-            <li ng-repeat="studio in studios">{{studio}}</li>
+            <li ng-repeat="studio in studios | orderBy: 'id'">
+                <a ng-href="{{studio.website}}" ng-if="studio.website" target="_blank">{{studio.name}}</a>
+                <span ng-if="!studio.website">{{studio.name}}</span>
+            </li>
         </ul>
         <button ng-click="suggestStudio()" type="button" class="suggest_btn white">Studio vorschlagen</button>
     </div>
@@ -108,7 +111,7 @@
         <ul ng-if="desktop" class="b-price-list">
             <li>
                 <img class="card-image" src="images/card-lite.png" alt=""/>
-                <h3>White Card Lite - <strong>39€</strong><span> / Monat</span><p><b>31€</b> /Monat</p></h3>
+                <h3>White Card Lite<p><strong class="old">39€</strong> <b>32€</b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse insgesamt / Monat:</dd>
                     <dt>4x</dt>
@@ -119,7 +122,7 @@
                 </dl>
             </li><li>
                 <img class="card-image" src="images/card-white.png" alt=""/>
-                <h3>White Card - <strong>69€</strong><span> / Monat</span><p><b>55€</b> /Monat</p></h3>
+                <h3>White Card<p><strong class="old">69€</strong> <b>56€</b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse insgesamt / Monat:</dd>
                     <dt>unbegrenzt</dt>
@@ -130,7 +133,7 @@
                 </dl>
             </li><li>
                 <img class="card-image" src="images/card-black.png" alt=""/>
-                <h3>Black Card - <strong>99€</strong><span> / Monat</span><p><b>79€</b> /Monat</p></h3>
+                <h3>Black Card<p><strong class="old">99€</strong> <b>80€</b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse insgesamt / Monat:</dd>
                     <dt>unbegrenzt</dt>
@@ -144,7 +147,7 @@
         <carousel ng-if="mobile" class="b-price-carousel" interval="-1">
             <slide>
                 <img class="card-image" src="images/card-lite-1080.png" alt=""/>
-                <h3>White Card Lite - <strong>39€</strong><span> / Monat</span><p><b>31€</b> /Monat</p></h3>
+                <h3>White Card Lite<p><strong class="old">39€</strong> <b>32€</b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse insgesamt / Monat:</dd>
                     <dt>4x</dt>
@@ -156,7 +159,7 @@
             </slide>
             <slide>
                 <img class="card-image" src="images/card-white-1080.png" alt=""/>
-                <h3>White Card - <strong>69€</strong><span> / Monat</span><p><b>55€</b> /Monat</p></h3>
+                <h3>White Card<p><strong class="old">69€</strong> <b>56€</b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse insgesamt / Monat:</dd>
                     <dt>unbegrenzt</dt>
@@ -168,7 +171,7 @@
             </slide>
             <slide>
                 <img class="card-image" src="images/card-black-1080.png" alt=""/>
-                <h3>Black Card - <strong>99€</strong><span> / Monat</span><p><b>79€</b> /Monat</p></h3>
+                <h3>Black Card<p><strong class="old">99€</strong> <b>80€</b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse insgesamt / Monat:</dd>
                     <dt>unbegrenzt</dt>

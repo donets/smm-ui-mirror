@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="e in entities">
+                    <tr ng-repeat="e in entities | orderBy: 'id'">
                         <td ng-repeat="field in fields | filter: {listed: '!'+false}">
                             <div ng-if="!field.format">{{e[field.model]}}</div>
                             <div ng-if="field.format" class="w-100">{{e[field.model] | date : field.format}}</div>

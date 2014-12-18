@@ -18,6 +18,12 @@
                     <div ng-show="formPass.newPassword.$error.pattern" class="form-message form-error">Das Passwort muss eine Zahl und einen Großbuchstaben enthalten</div>
                 </div>
             </div>
+            <div class="form-rel">
+                <input type="password" ng-model="password.confirm" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*/" ng-minlength="8" match="password.new" name="confirmPassword" placeholder="Confirm Passwort" required />
+                <div class="form-response" ng-show="formPass.confirmPassword.$dirty && formPass.confirmPassword.$invalid">
+                    <div ng-show="formPass.confirmPassword.$error.match" class="form-message form-error">Passwords do not match</div>
+                </div>
+            </div>
         </div>
         <div class="message form-error" ng-if="errorPass === 'WrongUsernameOrPassword'">Benutzername oder Passwort falsch</div>
         <button type="submit" ng-hide="loading" ng-disabled="!formPass.$valid">Passwort ändern</button>

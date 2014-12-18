@@ -26,6 +26,7 @@ angular
         'duParallax',
         'ngTagsInput',
         'localytics.directives',
+        'validation.match',
         'ezfb',
         'flow',
         'permission',
@@ -342,9 +343,9 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl',
                 resolve: {
 
-                    getStudios: function($http) {
+                    getStudios: function(RestApi) {
 
-                        return $http.get('json/studios.json', {cache: true});
+                        return RestApi.query({route: 'studios'}).$promise;
 
                     }
 
@@ -356,9 +357,15 @@ angular.module('boltApp')
                 controller : 'SignupCtrl',
                 resolve: {
 
-                    getStudios: function($http) {
+                    getStudios: function(RestApi) {
 
-                        return $http.get('json/studios.json', {cache: true});
+                        return RestApi.query({route: 'studios'}).$promise;
+
+                    },
+
+                    getCards: function($http) {
+
+                        return $http.get('json/cards.json', {cache: true});
 
                     }
 
@@ -374,6 +381,12 @@ angular.module('boltApp')
                     getMembership: function(Membership) {
 
                         return Membership.get().$promise;
+
+                    },
+
+                    getCards: function($http) {
+
+                        return $http.get('json/cards.json', {cache: true});
 
                     }
 

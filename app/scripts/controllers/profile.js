@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Profile', [])
-    .controller('ProfileCtrl', function ($scope, $window, $http, $modal, getMembership) {
+    .controller('ProfileCtrl', function ($scope, $window, $http, $modal, getMembership, getCards) {
 
         var getVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -23,13 +23,13 @@ angular.module('boltApp.controllers.Profile', [])
         getMembership.$promise.then(function () {
             $scope.membership = getMembership.membership;
             console.log($scope.membership);
-            $scope.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
+            $scope.membership.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
             if ($scope.membership.discountGranted) {
                 getVoucher($scope.membership.discount.voucherCode);
             }
             $scope.overview = {
-                card: _.findWhere($scope.cards, {type: $scope.type}).name,
-                price: _.findWhere($scope.cards, {type: $scope.type}).price
+                card: _.findWhere($scope.cards, {type: $scope.membership.type}).name,
+                price: _.findWhere($scope.cards, {type: $scope.membership.type}).price
             };
             $scope.member = {
                 name: $scope.membership.firstName + ' ' + $scope.membership.lastName,
@@ -39,21 +39,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.password = {};
         $scope.notChanged = true;
-        $scope.cards = [
-            {
-                type: 'LITE',
-                name: 'White Card Lite',
-                price: '39'
-            }, {
-                type: 'WHITE',
-                name: 'White Card',
-                price: '69'
-            }, {
-                type: 'BLACK',
-                name: 'Black Card',
-                price: '99'
-            }
-        ];
+        $scope.cards = getCards.data;
 
         $scope.changePass = function (formPass) {
             $scope.loading = true;
@@ -162,10 +148,6 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.changeCard = function () {
             $scope.notChanged = false;
-            $scope.overview = {
-                card: _.findWhere($scope.cards, {type: $scope.type}).name,
-                price: _.findWhere($scope.cards, {type: $scope.type}).price
-            };
         };
 
         $scope.changeMembership = function(type) {
