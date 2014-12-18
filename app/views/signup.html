@@ -24,7 +24,9 @@
         <p>Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</p>
         <ul class="b-select-card" id="cards">
             <li ng-repeat="card in cards">
-                <img class="card-image" ng-src="{{'images/card-' + card.type.toLowerCase() + '.png'}}" alt=""/>
+                <img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/>
                 <h3>{{card.name}}<p><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.ceil(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
                 <dl>
