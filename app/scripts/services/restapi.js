@@ -8,14 +8,14 @@
  * Factory in the boltApp.
  */
 angular.module('boltApp.services.restApi', [])
-    .factory('RestApi', ['$resource', '$window', function($resource, $window) {
+    .factory('RestApi', ['$resource', '$window', 'resourceInterceptor', function($resource, $window, resourceInterceptor) {
         return $resource($window.smmConfig.restUrlBase + '/api/rest/:route/:id', {route: '@route', id: '@id'}, {
             'query': {method: 'GET', isArray: true, cache: false},
             'get': {method: 'GET', cache: false},
-            'update': {method: 'PUT', cache: false},
-            'save': {method: 'POST', cache: false},
-            'delete': {method: 'DELETE', cache: false },
-            'saveList': {method: 'POST', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/:route/bulk' },
-            'deleteList': {method: 'POST', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/:route/bulk/delete' }
+            'update': {method: 'PUT', cache: false, interceptor: resourceInterceptor},
+            'save': {method: 'POST', cache: false, interceptor: resourceInterceptor},
+            'delete': {method: 'DELETE', cache: false, interceptor: resourceInterceptor},
+            'saveList': {method: 'POST', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/:route/bulk', interceptor: resourceInterceptor },
+            'deleteList': {method: 'POST', isArray: false, cache: false, url: $window.smmConfig.restUrlBase + '/api/rest/:route/bulk/delete', interceptor: resourceInterceptor }
         });
     }]);

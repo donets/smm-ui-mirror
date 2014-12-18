@@ -1,9 +1,4 @@
 <div class="container">
-    <h3 class="form-title">Your photo card</h3>
-    <div class="photo">
-        <img ng-if="membership.photo" ng-src="membership.photo" alt=""/>
-        <button class="form-button" ng-click="upload('avatar')">Upload</button>
-    </div>
     <h3 class="form-title">Willst Du Dein Passwort ändern?</h3>
     <form name="formPass" class="form-profile" ng-submit="changePass(formPass)">
         <div ng-class="{'error': errorPass}" class="form-group">
@@ -21,6 +16,12 @@
                     <div ng-show="formPass.newPassword.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     <div ng-show="formPass.newPassword.$error.minlength" class="form-message form-error">Das Passwort muss mindestens 8 Zeichen enthalten</div>
                     <div ng-show="formPass.newPassword.$error.pattern" class="form-message form-error">Das Passwort muss eine Zahl und einen Großbuchstaben enthalten</div>
+                </div>
+            </div>
+            <div class="form-rel">
+                <input type="password" ng-model="password.confirm" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*/" ng-minlength="8" match="password.new" name="confirmPassword" placeholder="Confirm Passwort" required />
+                <div class="form-response" ng-show="formPass.confirmPassword.$dirty && formPass.confirmPassword.$invalid">
+                    <div ng-show="formPass.confirmPassword.$error.match" class="form-message form-error">Passwords do not match</div>
                 </div>
             </div>
         </div>

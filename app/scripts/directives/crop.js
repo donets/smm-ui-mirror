@@ -7,7 +7,7 @@
  * # crop
  */
 angular.module('boltApp')
-    .directive('crop', function() {
+    .directive('crop', function($window) {
         return {
             restrict: 'A',
             replace: true,
@@ -41,7 +41,7 @@ angular.module('boltApp')
 
                                 if (x.x >= 0 && x.y >= 0 && x.w > 0 && x.h > 0) {
                                     scope.$parent.$flow.opts.query = {x: Math.floor(x.x), y: Math.floor(x.y), w: Math.floor(x.w), h: Math.floor(x.h)};
-                                    scope.$parent.$flow.opts.target = '/api/membership/uploadPhoto' +
+                                    scope.$parent.$flow.opts.target = $window.smmConfig.restUrlBase + '/api/membership/uploadPhoto' +
                                         '?x=' + Math.floor(x.x) +
                                         '&y=' + Math.floor(x.y) +
                                         '&w=' + Math.floor(x.w) +

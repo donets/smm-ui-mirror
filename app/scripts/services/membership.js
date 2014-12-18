@@ -12,7 +12,7 @@ angular.module('boltApp.services.membership', [])
 
         return $resource($window.smmConfig.restUrlBase + '/api/membership', {
             'get': {method: 'GET', cache: false},
-            'save': {method: 'POST', url: $window.smmConfig.restUrlBase +'/api/membership/order', cache: false}
+            'save': {method: 'POST', url: $window.smmConfig.restUrlBase + '/api/membership/order', cache: false}
         });
 
     }]);

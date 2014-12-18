@@ -120,14 +120,14 @@
                 </div>
                 <div class="form-rel">
                     <label class="form-label" for="location" ng-bind="schedule.repeat === 'Single' ? 'On' : 'Repeat from'"></label>
-                    <div class="form-rel input-date" ng-click="openDatepicker($event, 'from')">
+                    <div class="form-rel input-date date" ng-click="openDatepicker($event, 'from')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
                                datepicker-options="dateOptions" min-date="minStartDate"
                                ng-model="schedule.startDate" ng-change="updateSchedule();checkDate('startDate')"
                                class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
                     </div>
                     <span ng-if="schedule.repeat !== 'Single'">to</span>
-                    <div class="form-rel input-date" ng-if="schedule.repeat !== 'Single'" ng-click="openDatepicker($event, 'to')">
+                    <div class="form-rel input-date date" ng-if="schedule.repeat !== 'Single'" ng-click="openDatepicker($event, 'to')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'to')" is-open="showDatepicker.to"
                                datepicker-options="dateOptions" min-date="minEndDate" ng-disabled="!schedule.startDate"
                                ng-model="schedule.endDate" ng-change="updateSchedule();checkDate('endDate')"

@@ -1,0 +1,95 @@
+{
+   "entities": {
+       "locations": [
+           {
+               "model": "name",
+               "title": "Ortname"
+           }, {
+               "model": "address",
+               "title": "Strasse und Hausnummer"
+           }, {
+               "model": "neigbourhood",
+               "title": "Bezirk",
+               "type": "select"
+           }, {
+               "model": "postal_code",
+               "title": "PLZ"
+           }, {
+               "model": "city",
+               "title": "Stadt",
+               "listed": false
+           }
+       ],
+       "studios": [
+           {
+               "model": "studioNumber",
+               "title": "ID",
+               "readonly": true
+           }, {
+               "model": "name",
+               "title": "Studioname"
+           }, {
+               "model": "website",
+               "title": "Website",
+               "listed": false
+           }, {
+               "model": "terms",
+               "title": "Voraussetzungen der Teilnahme",
+               "type": "textarea",
+               "listed": false
+           }
+       ],
+       "vouchers": [
+           {
+               "model": "code",
+               "title": "Code",
+               "type": "voucher"
+           }, {
+               "model": "created",
+               "title": "Erstellt",
+               "format": "dd.MM.yyyy",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "validUntil",
+               "title": "Gültig bis",
+               "format": "dd.MM.yyyy",
+               "type": "date"
+           }, {
+               "model": "subscriptionType",
+               "title": "Nur für Kartenart",
+               "type": "select"
+           }, {
+               "model": "freeSubscriptionDuarationInMonths",
+               "title": "Freie Monate Gutschrift",
+               "placeholder": "Keine",
+               "type": "select"
+           }, {
+               "model": "deactivateProlongation",
+               "title": "Nicht verlängern",
+               "disabled": "freeSubscriptionDuarationInMonths",
+               "type": "checkbox",
+               "listed": false
+           }, {
+               "model": "maxRedemptions",
+               "title": "Max Einlösungen (mal)",
+               "listed": false
+           }, {
+               "model": "redeemed",
+               "title": "Eingelöst (mal)",
+               "readonly": true
+           }, {
+               "model": "percentOff",
+               "title": "Rabatt in %"
+           }, {
+               "model": "amountOff",
+               "title": "Rabatt in €"
+           }, {
+               "model": "discountDuarationInMonths",
+               "title": "Rabattlänge in Monaten",
+               "placeholder": "Keine",
+               "type": "select"
+           }
+       ]
+   }
+}

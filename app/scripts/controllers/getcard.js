@@ -30,6 +30,10 @@ angular.module('boltApp.controllers.Getcard', [])
             }
         };
 
+        getStudios.$promise.then(function (res) {
+            $scope.studios = res;
+        });
+
         $scope.subscribeCard = function (locate) {
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
@@ -39,7 +43,7 @@ angular.module('boltApp.controllers.Getcard', [])
                 $scope.successSubscribe = true;
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
-                $window.ga('send', 'event', 'card_page', 'submitemail_' + locate);
+                $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
                     $window.google_trackConversion({
                         google_conversion_id: 970072239,
@@ -68,7 +72,6 @@ angular.module('boltApp.controllers.Getcard', [])
                 console.error(status);
             });
         };
-        $scope.studios = getStudios.data;
 
         $scope.suggestStudio = function () {
             $modal.open({

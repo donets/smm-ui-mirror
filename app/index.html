@@ -135,6 +135,21 @@
             </button>
         </div>
     </div>
+    <div class="b-alert error" ng-if="rejection.show">
+        <span>Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
+            Fehlerdetails: {{rejection.data.message}}</span>
+        <button ng-click="rejection.show = false" class="b-close" type="button">
+            <i class="fa fa-times"></i>
+            <span class="sr-only">Close</span>
+        </button>
+    </div>
+    <div class="b-alert success" ng-if="success.show">
+        <span>Erfolgreich gespeichert. </span>
+        <button ng-click="success.show = false" class="b-close" type="button">
+            <i class="fa fa-times"></i>
+            <span class="sr-only">Close</span>
+        </button>
+    </div>
     <div class="wrapper">
         <div class="b-header" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">
             <div class="container">
@@ -283,6 +298,7 @@
 <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
 <script src="bower_components/flow.js/dist/flow.js"></script>
 <script src="bower_components/ng-flow/dist/ng-flow.js"></script>
+<script src="bower_components/angular-validation-match/dist/angular-input-match.min.js"></script>
 <!-- endbower -->
 <script src="bower_components/jcrop/js/jquery.Jcrop.js"></script>
 <!-- endbuild -->
@@ -293,6 +309,8 @@
 <script src="scripts/services/occurrences.js"></script>
 <script src="scripts/services/suppliers.js"></script>
 <script src="scripts/services/navigator.js"></script>
+<script src="scripts/services/membership.js"></script>
+<script src="scripts/services/restapi.js"></script>
 <script src="scripts/services/user.js"></script>
 <script src="scripts/custom/helper.js"></script>
 <script src="scripts/custom/moment/de.js"></script>
@@ -310,19 +328,17 @@
 <script src="scripts/controllers/login.js"></script>
 <script src="scripts/controllers/classes.js"></script>
 <script src="scripts/controllers/class.js"></script>
+<script src="scripts/controllers/createClass.js"></script>
+<script src="scripts/controllers/signup.js"></script>
+<script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/profile.js"></script>
 <script src="scripts/filters/cutstring.js"></script>
 <script src="scripts/filters/datafilter.js"></script>
 <script src="scripts/directives/disableAnimate.js"></script>
 <script src="scripts/directives/resizable.js"></script>
 <script src="scripts/directives/sticky.js"></script>
-<script src="scripts/directives/togglePopup.js"></script>
-<script src="scripts/controllers/signup.js"></script>
-<script src="scripts/controllers/dashboard.js"></script>
-<script src="scripts/controllers/profile.js"></script>
-<script src="scripts/services/membership.js"></script>
-<script src="scripts/services/restapi.js"></script>
-<script src="scripts/controllers/createClass.js"></script>
 <script src="scripts/directives/crop.js"></script>
+<script src="scripts/directives/togglePopup.js"></script>
 <!-- endbuild -->
 
 </body>

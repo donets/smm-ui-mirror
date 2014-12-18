@@ -10,14 +10,37 @@
         display: inline-block;
         width: 80%;
     }
+    a {
+        font-size: 18px;
+        color: #fff;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
     &.info {
         background: $colorBlue;
+    }
+    &.error {
+        background: #cc5252;
+    }
+    &.success {
+        background: $colorGreen;
     }
     @media (max-width: $containerMobileWidth) {
         font-size: 26px;
         line-height: $fontLine;
+        a {
+            font-size: 26px;
+        }
         span {
             padding: 20px 30px;
+        }
+    }
+    @media (max-width: $containerMobileWidth640) {
+        font-size: 18px;
+        a {
+            font-size: 18px;
         }
     }
 }

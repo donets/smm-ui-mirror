@@ -8,11 +8,29 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Profile', [])
-    .controller('ProfileCtrl', function ($scope, $window, $http, $modal, getMembership) {
+    .controller('ProfileCtrl', function ($scope, $window, $http, $modal, getMembership, getCards) {
+
+        var getVoucher = function (code) {
+            $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
+                console.log(res);
+                $scope.voucher = res;
+            }).error(function (res) {
+                console.log(res);
+                $scope.voucher = null;
+            });
+        };
+
         getMembership.$promise.then(function () {
             $scope.membership = getMembership.membership;
             console.log($scope.membership);
-            $scope.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
+            $scope.membership.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
+            if ($scope.membership.discountGranted) {
+                getVoucher($scope.membership.discount.voucherCode);
+            }
+            $scope.overview = {
+                card: _.findWhere($scope.cards, {type: $scope.membership.type}).name,
+                price: _.findWhere($scope.cards, {type: $scope.membership.type}).price
+            };
             $scope.member = {
                 name: $scope.membership.firstName + ' ' + $scope.membership.lastName,
                 email: $scope.membership.email
@@ -21,6 +39,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.password = {};
         $scope.notChanged = true;
+        $scope.cards = getCards.data;
 
         $scope.changePass = function (formPass) {
             $scope.loading = true;
@@ -42,23 +61,25 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.upload = function (target) {
             $scope.modalInstance = $modal.open({
                 templateUrl: 'views/modalUpload.html',
-                controller: function ($scope, target, $modalInstance) {
+                controller: function ($scope, target, $window, $modalInstance) {
 
                     $scope.target = target;
+                    $scope.$window = $window;
                     $scope.photo = {};
 
                     $scope.close = function () {
-                        $modalInstance.close($scope.photo.flow);
+                        $modalInstance.dismiss('close');
                     };
 
-                    $scope.$watch('$flow.files[0].currentSpeed', function (val ,old) {
-                        if (val < old && val === 0) {
-                            console.log('stop');
+                    $scope.uploader = {
+                        success: function ($flow, $file, $message) {
+                            var message = angular.fromJson($message);
                             setTimeout(function () {
-                                $modalInstance.close($scope.photo.flow);
+                                $modalInstance.close(message.url);
                             }, 1000);
                         }
-                    });
+                    };
+
 
                 },
                 backdrop: 'static',
@@ -68,16 +89,10 @@ angular.module('boltApp.controllers.Profile', [])
                         return target;
                     }
                 }
-            }).result.then(function (flow) {
-                    if(flow.files.length) {
-                        if(flow.files[0].chunks[0].loaded) {
-                            getMembership.$promise.then(function () {
-                                $scope.membership.photo = getMembership.membership.photo;
-                            });
-                        }
+            }).result.then(function (url) {
+                    if(url) {
+                        $scope.membership.photo = url;
                     }
-                }, function () {
-
                 });
         };
 

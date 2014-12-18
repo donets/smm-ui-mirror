@@ -26,6 +26,7 @@ angular
         'duParallax',
         'ngTagsInput',
         'localytics.directives',
+        'validation.match',
         'ezfb',
         'flow',
         'permission',
@@ -44,6 +45,7 @@ angular
         'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Getcard',
+        'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
         'boltApp.controllers.Reset',
@@ -51,7 +53,6 @@ angular
         'boltApp.controllers.More',
         'boltApp.controllers.Login',
         'boltApp.controllers.Admin',
-        'boltApp.controllers.Classes',
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.services.restApi',
@@ -132,6 +133,7 @@ angular.module('boltApp')
     }])
     .config(['$httpProvider',  function($httpProvider){
         $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
+        $httpProvider.interceptors.push('myHttpInterceptor');
         $httpProvider.defaults.withCredentials = true;
     }])
     .provider('HttpProgressInterceptor', function HttpProgressInterceptor(){
@@ -164,9 +166,28 @@ angular.module('boltApp')
             };
         }];
     })
+    .factory('resourceInterceptor', function($rootScope) {
+        return {
+            response: function (response) {
+                $rootScope.success = response;
+                $rootScope.success.show = true;
+                return response;
+            }
+        };
+    })
+    .factory('myHttpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
+        return {
+            responseError: function responseError(rejection) {
+                $rootScope.rejection = rejection;
+                $rootScope.rejection.show = true;
+                console.error(rejection);
+                return $q.reject(rejection);
+            }
+        };
+    }])
     .run(function (Permission, User) {
         Permission
-            .defineRole('anonymous', function () {
+            .defineRole('anon', function () {
                 return User.get().$promise.then(function (res) {
                     if(!res.currentUser) {
                         return true;
@@ -322,9 +343,9 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl',
                 resolve: {
 
-                    getStudios: function($http) {
+                    getStudios: function(RestApi) {
 
-                        return $http.get('json/studios.json', {cache: true});
+                        return RestApi.query({route: 'studios'}).$promise;
 
                     }
 
@@ -336,9 +357,15 @@ angular.module('boltApp')
                 controller : 'SignupCtrl',
                 resolve: {
 
-                    getStudios: function($http) {
+                    getStudios: function(RestApi) {
 
-                        return $http.get('json/studios.json', {cache: true});
+                        return RestApi.query({route: 'studios'}).$promise;
+
+                    },
+
+                    getCards: function($http) {
+
+                        return $http.get('json/cards.json', {cache: true});
 
                     }
 
@@ -355,6 +382,12 @@ angular.module('boltApp')
 
                         return Membership.get().$promise;
 
+                    },
+
+                    getCards: function($http) {
+
+                        return $http.get('json/cards.json', {cache: true});
+
                     }
 
                 },
@@ -366,8 +399,8 @@ angular.module('boltApp')
                 },
                 data: {
                     permissions: {
-                        only: ['admin', 'member'],
-                        except: ['anonymous'],
+                        only: ['member'],
+                        except: ['anon'],
                         redirectTo: 'signup'
                     }
                 }
@@ -388,11 +421,10 @@ angular.module('boltApp')
                 url : '/admin/v2/',
                 abstract: true,
                 templateUrl: 'views/admin.html',
-                controller : 'AdminCtrl',
                 data: {
                     permissions: {
                         only: ['admin'],
-                        except: ['member', 'anonymous'],
+                        except: ['anon', 'member'],
                         redirectTo: 'home'
                     }
                 }
@@ -416,7 +448,7 @@ angular.module('boltApp')
                 controller : 'ClassesCtrl'
             })
             .state('admin.class', {
-                url : 'class/:classId/',
+                url : 'classes/{classId:[0-9]+}/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -441,8 +473,8 @@ angular.module('boltApp')
                 },
                 controller : 'ClassCtrl'
             })
-            .state('admin.new', {
-                url : 'new/',
+            .state('admin.newClass', {
+                url : 'classes/new/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -454,6 +486,129 @@ angular.module('boltApp')
 
                 },
                 controller : 'CreateClassCtrl'
+            })
+            .state('admin.entity', {
+                url : ':route',
+                template: '<div ui-view></div>',
+                abstract: true,
+                resolve: {
+
+                    getEntityFields: function($http) {
+
+                        return $http.get('json/entityFields.json', {cache: true});
+
+                    },
+
+                    getNeigbourhood: function($http) {
+
+                        return $http.get('json/neigbourhood.json', {cache: true});
+
+                    }
+
+                },
+                controller :
+                    function ($rootScope, getEntityFields, getNeigbourhood) {
+
+                        $rootScope.fields = getEntityFields.data.entities[$rootScope.$stateParams.route];
+                        $rootScope.neigbourhood = getNeigbourhood.data;
+                        $rootScope.freeSubscriptionDuarationInMonths = _.range(1,13);
+                        $rootScope.discountDuarationInMonths = _.range(1,13);
+                        $rootScope.subscriptionType = ['BLACK', 'WHITE', 'LITE'];
+
+                        $rootScope.showDatepicker = {};
+                        $rootScope.openDatepicker = function($event, type) {
+                            $event.preventDefault();
+                            $event.stopPropagation();
+                            $rootScope.showDatepicker[type] = true;
+                        };
+                        $rootScope.minStartDate = new Date();
+                        $rootScope.dateOptions = {
+                            startingDay: 1,
+                            showWeekNumbers: false,
+                            showWeeks: false
+                        };
+
+                    }
+            })
+            .state('admin.entity.list', {
+                url : '/',
+                templateUrl: 'views/entityList.html',
+                resolve: {
+
+                    getEntityList: function(RestApi, $stateParams) {
+
+                        return RestApi.query({route: $stateParams.route}).$promise;
+
+                    }
+
+                },
+                controller :
+                    function ($scope, $rootScope, getEntityList) {
+
+                        getEntityList.$promise.then(function (res) {
+                            $scope.entities = res;
+                        });
+
+                    }
+            })
+            .state('admin.entity.item', {
+                url : '/{entityId:[0-9A-Z]+}/',
+                templateUrl: 'views/entity.html',
+                resolve: {
+
+                    getEntity: function(RestApi, $stateParams) {
+
+                        return RestApi.get({route: $stateParams.route}, {id: $stateParams.entityId}).$promise;
+
+                    }
+
+                },
+                controller :
+
+                    function ($scope, $rootScope, getEntity) {
+
+                        getEntity.$promise.then(function () {
+                            $scope.entity = getEntity;
+                        });
+
+                        $scope.save = function () {
+                            $scope.entity.$update({route: $rootScope.$stateParams.route}).then(function (res) {
+                                console.log(res);
+                            });
+                        };
+
+                    }
+
+            })
+            .state('admin.entity.new', {
+                url : '/new/',
+                templateUrl: 'views/entity.html',
+                controller :
+
+                    function ($scope, $rootScope, RestApi) {
+
+                        $scope.entity = new RestApi();
+
+                        $scope.save = function () {
+                            $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
+                                console.log(res);
+                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.id || res.data.code)});
+                            });
+                        };
+
+                        if ($rootScope.$stateParams.route === 'vouchers') {
+                            RestApi.query({route: 'vouchers'}).$promise.then(function (res) {
+                                $scope.vouchersList = _.pluck(res, 'code');
+                            });
+                            $scope.checkVoucherUnique = function (voucher) {
+                                $scope.errorVoucher = _.include($scope.vouchersList, voucher);
+                            };
+                            $scope.toUpperCase = function (string) {
+                                $scope.entity.code = string.toUpperCase();
+                            };
+                        }
+
+                    }
             })
             .state('more', {
                 url : '/p/more/',

@@ -19,25 +19,7 @@ angular.module('boltApp.controllers.About', [])
                 $scope.successSubscribe = true;
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
-                $window.ga('send', 'event', 'about_page', 'submitemail_' + locate);
-            }).error(function (response, status) {
-                $scope.loadingSubscribe = false;
-                $scope.errorSubscribe = true;
-                console.error(status);
-            });
-        };
-        $scope.sendMessage = function () {
-            var feedback = {
-                email: $scope.email,
-                message: $scope.feedback
-            };
-            $scope.loadingFeedback = true;
-            $http.post($window.smmConfig.restUrlBase + '/api/message', feedback).success(function () {
-                $scope.loadingFeedback = false;
-                $scope.successFeedback = true;
-                $scope.feedback = '';
-                $scope.feedbackForm.$setPristine();
-                $window.ga('send', 'event', 'about_page', 'about_question');
+                $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
                     $window.google_trackConversion({
                         google_conversion_id: 970072239,
@@ -60,6 +42,24 @@ angular.module('boltApp.controllers.About', [])
                     $window._fbq = $window._fbq || [];
                     $window._fbq.push(['track', '6021957047725', {'value': '0.00','currency': 'EUR'}]);
                 });
+            }).error(function (response, status) {
+                $scope.loadingSubscribe = false;
+                $scope.errorSubscribe = true;
+                console.error(status);
+            });
+        };
+        $scope.sendMessage = function () {
+            var feedback = {
+                email: $scope.email,
+                message: $scope.feedback
+            };
+            $scope.loadingFeedback = true;
+            $http.post($window.smmConfig.restUrlBase + '/api/message', feedback).success(function () {
+                $scope.loadingFeedback = false;
+                $scope.successFeedback = true;
+                $scope.feedback = '';
+                $scope.feedbackForm.$setPristine();
+                $window.ga('send', 'event', 'about_page', 'about_question');
             }).error(function (response, status) {
                 $scope.loadingFeedback = false;
                 $scope.errorFeedback = true;

@@ -67,6 +67,31 @@
         font-family: $fontBold;
     }
 }
+.form-overview {
+    border: 1px solid $colorGrey;
+    margin: 0 -80px 50px;
+    padding: 20px 30px;
+    ul {
+        @include my-resetList();
+        @include column-count(2);
+        text-align: left;
+        margin: 30px 0 0;
+        li {
+            margin-bottom: 20px;
+            @include column-break(inside, avoid);
+        }
+    }
+    b {
+        font-size: 14px;
+        color: $colorGrey;
+    }
+    p {
+        font-size: 18px;
+        &.green {
+            color: $colorGreen;
+        }
+    }
+}
 .b-select-card {
     @include my-resetList();
     display: flex;

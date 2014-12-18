@@ -83,7 +83,6 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     display: inline-block;
     &.form-rel {
         margin: 0;
-        width: auto;
     }
     &.disabled {
         &:before {
@@ -106,23 +105,16 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     }
 }
 
-.input-euro {
-    position: relative;
-    display: inline-block;
-    &:before {
-        content: "€";
-        position: absolute;
-        top: 0;
-        right: 10px;
-        line-height: 42px;
-        color: $colorText;
-        font-size: 18px;
-    }
-}
-
 .dropdown-menu {
     min-width: 260px;
     padding: 5px;
+    .ng-animate {
+        &.ng-move,
+        &.ng-enter,
+        &.ng-leave {
+            @include transition(none); 
+        }
+    }
 }
 
 textarea {
@@ -429,6 +421,12 @@ input:-webkit-autofill {
         cursor: pointer;
         margin: 0;
         z-index: 2;
+    }
+    &.disabled {
+        opacity: 0.5;
+        label {
+            cursor: default;
+        }
     }
 }
 

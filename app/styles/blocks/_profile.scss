@@ -81,16 +81,31 @@
         margin: 20px 0 0;
     }
 }
+.overview {
+    margin-bottom: 30px;
+    .form-overview {
+        width: 690px;
+        float: right;
+        margin: 0;
+        border: 0 none;
+    }
+}
 .photo {
-    width: 400px;
-    margin: 40px auto;
+    width: 200px;
+    float: left;
+    h3 {
+        white-space: nowrap;
+        margin: 0 0 20px;
+    }
     img {
-        width: 400px;
-        height: 400px;
+        width: 200px;
+        height: 200px;
+        @include border-radius(50%);
         margin-bottom: 20px;
     }
     button {
         min-width: 0;
-        width: 260px;
+        width: 200px;
+        font-size: 18px;
     }
 }

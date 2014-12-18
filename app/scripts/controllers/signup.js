@@ -8,8 +8,13 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getStudios) {
-        $scope.studios = getStudios.data;
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getCards, getStudios) {
+        $scope.Math = $window.Math;
+        $scope.startDate = moment.max(moment('2015-01-01'), moment()).format('DD.MM.YYYY');
+        getStudios.$promise.then(function (res) {
+            $scope.studios = res;
+        });
+        $scope.cards = getCards.data;
         $scope.order = {
             deliveryAddress: {
                 countryCode: 'DE'
@@ -41,19 +46,39 @@ angular.module('boltApp.controllers.Signup', [])
             }
         };*/
 
-        $scope.checkVoucher = function () {
-            if ($scope.voucher) {
-                $scope.loadingVoucher = true;
-                $scope.successVoucher = false;
-                $scope.errorVoucher = false;
-                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.voucher).success(function (res) {
+        var setVoucher = function (code) {
+            if (moment().isBefore('2015-01-01', 'year') && !$scope.order.voucher) {
+                $http.get('https://smm-api.herokuapp.com/api/rest/vouchers/' + code).success(function (res) {
+                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
+                        res.freeSubscriptionGranted = false;
+                        $scope.order.voucher = $scope.code;
+                        $scope.voucher = res;
+                    }
+                }).error(function (res) {
                     console.log(res);
+                    $scope.voucher = null;
+                });
+            }
+        };
+
+        setVoucher('EARLY_BIRD_2014');
+
+        $scope.checkVoucher = function () {
+            $scope.successVoucher = false;
+            $scope.errorVoucher = false;
+            $scope.voucher = null;
+            $scope.order.voucher = null;
+            setVoucher('EARLY_BIRD_2014');
+            if ($scope.code) {
+                $scope.loadingVoucher = true;
+                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.code).success(function (res) {
                     $scope.loadingVoucher = false;
                     if(res.valid && res.freeSubscriptionGranted) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
-                        $scope.order.voucher = $scope.voucher;
+                        $scope.order.voucher = $scope.code;
+                        $scope.voucher = res;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
                         $scope.typeVoucher = res.subscriptionType;
@@ -67,14 +92,17 @@ angular.module('boltApp.controllers.Signup', [])
                 });
             } else {
                 $scope.formSignup.voucher.$setPristine();
-                $scope.successVoucher = false;
-                $scope.errorVoucher = false;
             }
         };
 
         $scope.changeType = function () {
             $scope.typeMessage = false;
+            setVoucher('EARLY_BIRD_2014');
             $scope.checkVoucher();
+            $scope.overview = {
+                card: _.findWhere($scope.cards, {type: $scope.order.type}).name,
+                price: _.findWhere($scope.cards, {type: $scope.order.type}).price
+            };
         };
 
         $scope.signupSubmit = function () {
@@ -87,6 +115,7 @@ angular.module('boltApp.controllers.Signup', [])
 
                     console.log(response);
                     $scope.showSpinner = false;
+                    $window.ga('send', 'event', 'Signup', 'onOrder');
                     $rootScope.userName = response.user.name;
                     $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                     $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;

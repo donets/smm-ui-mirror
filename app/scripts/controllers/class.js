@@ -14,7 +14,6 @@ angular.module('boltApp.controllers.Class', [])
     .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, RestApi) {
         $scope.moment = moment();
         $scope._ = _;
-        console.log($rootScope.$stateParams);
         getClass.$promise.then(function () {
             $scope.class = getClass;
             exportTag('tags');
@@ -25,7 +24,6 @@ angular.module('boltApp.controllers.Class', [])
             var currentClass = new RestApi();
             currentClass = $scope.class;
             currentClass.$update({route: 'events'}).then(function (res) {
-                console.log(res);
                 $rootScope.$state.go('admin.class', {classId: res.id});
             });
         };
@@ -63,7 +61,6 @@ angular.module('boltApp.controllers.Class', [])
 
         var exportTag = function (name) {
             $scope[name] = _.map($scope.class[name], function(tag) { return { text: tag }; });
-            console.log($scope[name]);
         };
 
         $scope.importTag = function (name) {
@@ -75,8 +72,7 @@ angular.module('boltApp.controllers.Class', [])
         $scope.checkDate = function(date) {
 
             var currentDate = moment($scope.schedule[date]);
-            console.log($scope.schedule[date]);
-            console.log(currentDate.zone());
+
             $scope.schedule[date] = currentDate.format();
 
             if(date === 'startDate' && currentDate.isSame(moment(), 'days') && moment().hours() > 5) {
