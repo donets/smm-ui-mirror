@@ -1,4 +1,4 @@
 {
   "directory": "bower_components",
-  "registry": "http://github.com"
+  "strict-ssl": false
 }
