@@ -195,28 +195,6 @@ textarea {
         }
     }
 }
-.reset .b-card-subscribe {
-
-    @media (max-width: $containerMobileWidth) {
-        display: block;
-        margin: 0;
-    }
-    input[type="password"] {
-        display: block;
-        width: 320px;
-        @media (max-width: $containerMobileWidth) {
-            width: 100%;
-        }
-    }
-    button {
-        display: block;
-        margin: 20px 0 0;
-        @media (max-width: $containerMobileWidth640) {
-            margin: 10px 0 0;
-        }
-    }
-
-}
 
 .form-group {
     margin: 35px 0;

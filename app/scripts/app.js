@@ -29,7 +29,6 @@ angular
         'validation.match',
         'ezfb',
         'flow',
-        'permission',
         'angulartics',
         'angulartics.google.analytics',
         'angulartics.google.tagmanager',
@@ -64,8 +63,8 @@ angular
         'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
-    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window',
-        function ($rootScope, $state, $stateParams, amMoment, $window) {
+    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$q', 'User',
+        function ($rootScope, $state, $stateParams, amMoment, $window, $q, User) {
             // It's very handy to add references to $state and $stateParams to the $rootScope
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -81,7 +80,33 @@ angular.module('boltApp')
             $rootScope.$on('$viewContentLoaded', function(){
                 return $window.rendering ? $window.prerenderReady = true : 0;
             });
-            amMoment.changeLanguage('en'); 
+            var checkUser = function () {
+                var deferred = $q.defer();
+                User.get().$promise.then(function (response) {
+                    console.log(response);
+                    if (response.currentUser) {
+                        $rootScope.userName = response.currentUser.name;
+                        $rootScope.roleMember = _.include(response.currentUser.roles, 'member') ? true : false;
+                        $rootScope.roleAdmin = _.include(response.currentUser.roles, 'admin') ? true : false;
+                    } else {
+                        $rootScope.userName = null;
+                        $rootScope.roleMember = null;
+                        $rootScope.roleAdmin = null;
+                    }
+                    deferred.resolve();
+                });
+                return deferred.promise;
+            };
+            var checkRule = function (event, toState) {
+                if (toState.name.split('.')[0] === 'profile' && !$rootScope.roleMember || toState.name.split('.')[0] === 'admin' && !$rootScope.roleAdmin) {
+                    event.preventDefault();
+                    $rootScope.$state.go('login', {notify: false});
+                }
+            };
+            $rootScope.$on('$stateChangeStart', function(event, toState) {
+                checkRule(event, toState);
+            });
+            amMoment.changeLanguage('en');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
                 $window._fbq.push(['addPixelId', '1461407927469396']);
@@ -185,39 +210,6 @@ angular.module('boltApp')
             }
         };
     }])
-    .run(function (Permission, User) {
-        Permission
-            .defineRole('anon', function () {
-                return User.get().$promise.then(function (res) {
-                    if(!res.currentUser) {
-                        return true;
-                    }
-                });
-            })
-            .defineRole('member', function () {
-
-                return User.get().$promise.then(function (res) {
-
-                    if(res.currentUser && _.include(res.currentUser.roles, 'member')) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-            })
-            .defineRole('admin', function () {
-
-                return User.get().$promise.then(function (res) {
-
-                    if(res.currentUser && _.include(res.currentUser.roles, 'admin')) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-
-            });
-    })
     .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$analyticsProvider', function ($stateProvider, $locationProvider, $urlRouterProvider, $analyticsProvider) {
 
         $urlRouterProvider
@@ -396,13 +388,6 @@ angular.module('boltApp')
                 },
                 onExit: function($rootScope){
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
-                },
-                data: {
-                    permissions: {
-                        only: ['member'],
-                        except: ['anon'],
-                        redirectTo: 'signup'
-                    }
                 }
             })
             .state('profile.account', {
@@ -420,14 +405,7 @@ angular.module('boltApp')
             .state('admin', {
                 url : '/admin/v2/',
                 abstract: true,
-                templateUrl: 'views/admin.html',
-                data: {
-                    permissions: {
-                        only: ['admin'],
-                        except: ['anon', 'member'],
-                        redirectTo: 'home'
-                    }
-                }
+                templateUrl: 'views/admin.html'
             })
             .state('admin.dashboard', {
                 url : 'dashboard/',
@@ -620,8 +598,13 @@ angular.module('boltApp')
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
+            .state('login', {
+                url : '/p/login/',
+                templateUrl: 'views/login.html',
+                controller: 'LoginCtrl'
+            })
             .state('reset', {
-                url : '/p/password/reset/:token',
+                url : '/p/password/reset/:token/',
                 templateUrl: 'views/resetPassword.html',
                 controller: 'ResetCtrl'
             })

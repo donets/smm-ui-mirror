@@ -38,19 +38,26 @@ angular.module('boltApp.controllers.Login', [])
                     $rootScope.userName = response.currentUser.name;
                     $rootScope.roleMember = _.include(response.currentUser.roles, 'member') ? true : false;
                     $rootScope.roleAdmin = _.include(response.currentUser.roles, 'admin') ? true : false;
+                } else {
+                    $rootScope.userName = null;
+                    $rootScope.roleMember = null;
+                    $rootScope.roleAdmin = null;
                 }
             });
         };
 
-        checkUser();
+        if ($rootScope.$state.current.name !== 'login') {
+            checkUser();
+        }
 
         $scope.loginFB = function () {
 
             ezfb.login(function (res) {
 
                 if (res.authResponse) {
-                    updateLoginStatus($rootScope.$state.go('admin.dashboard'));
+                    updateLoginStatus($rootScope.$state.go('profile.membership'));
                 }
+
             }, {scope: 'email,user_likes'});
 
         };
@@ -60,6 +67,8 @@ angular.module('boltApp.controllers.Login', [])
             $http.get($window.smmConfig.restUrlBase + '/api/auth/logout').success(function (response) {
                 console.log(response);
                 $rootScope.userName = null;
+                $rootScope.roleMember = null;
+                $rootScope.roleAdmin = null;
                 $rootScope.$state.go('home');
             }).error(function (response, status) {
                 console.error(response);
@@ -84,7 +93,7 @@ angular.module('boltApp.controllers.Login', [])
                 $rootScope.userName = response.user.name;
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
-                $rootScope.$state.go('profile.account');
+                $rootScope.$state.go('profile.membership');
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);

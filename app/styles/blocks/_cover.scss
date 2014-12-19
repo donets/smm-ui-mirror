@@ -1,20 +1,27 @@
 @import "../_base/base";
 
 .b-main-cover {
-    background: url("/images/main-2880.jpg") no-repeat center center;
+    background: url("/images/landing-2880.jpg") no-repeat center center;
     height: 550px;
     min-height: 350px;
+    padding: 60px 0 0;
     position: relative;
     display: table;
     width: 100%;
     text-align: center;
+    z-index: 0;
     @include background-size(cover);
     @media (max-width: 1440px) {
-        background-image: url("/images/main-1440.jpg");
+        background-image: url("/images/landing-1440.jpg");
     }
     @media (max-width: $containerMobileWidth) {
-        height: 400px;
-        background-image: url("/images/main-1080.jpg");
+        height: 600px;
+        padding: 90px 5% 0;
+        background-image: url("/images/landing-1080.jpg");
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 300px;
+        padding-top: 60px;
     }
     .cover-name {
         position: absolute;

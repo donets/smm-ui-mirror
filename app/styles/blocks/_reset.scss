@@ -1,0 +1,32 @@
+@import "../_base/base";
+
+.reset {
+    .b-card-subscribe {
+        @media (max-width: $containerMobileWidth) {
+            padding: 0;
+            display: block;
+            margin: 0;
+        }
+        input[type="password"] {
+            display: inline-block;
+            vertical-align: top;
+            width: 320px;
+            @media (max-width: $containerMobileWidth) {
+                display: block;
+                width: 100%;
+            }
+        }
+        button {
+            display: inline-block;
+            vertical-align: top;
+            @media (max-width: $containerMobileWidth) {
+                display: block;
+                margin: 20px 0 0;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                margin: 10px 0 0;
+            }
+        }
+
+    }
+}

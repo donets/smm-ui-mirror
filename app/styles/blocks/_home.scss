@@ -2,14 +2,7 @@
 
 .home {
     .b-main-cover {
-        background-image: url("/images/landing-2880.jpg");
-        padding: 60px 0 0;
-        z-index: 0;
-        @media (max-width: 1440px) {
-            background-image: url("/images/landing-1440.jpg");
-        }
         @media (max-width: $containerMobileWidth) {
-            background-image: url("/images/landing-1080.jpg");
             padding: 90px 10% 0;
             height: 980px;
             &:before {
@@ -25,7 +18,6 @@
         }
         @media (max-width: $containerMobileWidth640) {
             height: 480px;
-            padding-top: 60px;
         }
         .b-card-subscribe {
             margin-top: 35px;

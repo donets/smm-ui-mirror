@@ -1,0 +1,38 @@
+<div class="b-main-cover login">
+<div class="b-main-slogan">
+        <div class="container">
+            <form name="loginForm" class="form-login" ng-hide="forgotView" ng-submit="login()">
+                <div class="form-rel">
+                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
+                </div>
+                <div class="form-rel">
+                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="Passwort" required />
+                </div>
+                <div class="form-rel">
+                    <button type="submit" class="form_button">Login</button>
+                    <div class="form-response">
+                        <div ng-show="loadingLogin" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                        <div ng-show="errorLogin" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                    </div>
+                </div>
+            </form>
+            <form name="forgotForm" class="form-login" ng-show="forgotView" ng-submit="forgot()">
+                <div class="form-rel">
+                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
+                </div>
+                <div class="form-rel">
+                    <button type="submit" class="form_button">Reset Password</button>
+                    <div class="form-response">
+                        <div ng-show="loadingForgot" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                        <div ng-show="successSubscribe" class="form-message form-success">Wir haben die Instruktionen zum Zurücksetzen des Passworts auf die Email Adresse EMAIL gesendet.</div>
+                        <div ng-show="errorForgot" class="form-message form-error">Die Email Adresse wurde nicht gefunden</div>
+                    </div>
+                </div>
+            </form>
+            <div class="form-rel">
+                <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="">Dein Passwort vergessen?</a>
+                <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="">Back to login</a>
+            </div>
+        </div>
+    </div>
+</div>

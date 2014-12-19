@@ -137,6 +137,9 @@ button {
     @include filter-gradient(#8d2526, #cb863b, horizontal);
     @include background-image(linear-gradient(24deg, #8d2526 0%, #c84236 50%, #cb863b 100%));
 }
+.b-main {
+    min-height: 200px;
+}
 .b-main-sidebar {
     width: 320px;
     @media (max-width: $containerMobileWidth) {
@@ -281,6 +284,8 @@ iframe[name='google_conversion_frame'] {
 @import "about";
 @import "video";
 @import "home";
+@import "login";
+@import "reset";
 @import "signup";
 @import "profile";
 @import "admin";

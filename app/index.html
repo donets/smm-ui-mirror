@@ -167,7 +167,7 @@
                              data-show-border="false"></div>
                     </div>
                 </a>-->
-                <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-show="!$state.includes('reset')"></ng-include>
+                <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-hide="$state.includes('reset') || $state.includes('login')"></ng-include>
             </div>
         </div>
         <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>

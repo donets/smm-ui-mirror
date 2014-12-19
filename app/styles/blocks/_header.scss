@@ -148,6 +148,9 @@
         border-color: transparent;
         border-bottom-color: #fff;
     }
+    &.ng-animate {
+        @include transition(none);
+    }
     @media (max-width: $containerMobileWidth) {
         left: 0;
         padding: 30px;

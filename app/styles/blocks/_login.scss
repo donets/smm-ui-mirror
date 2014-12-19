@@ -1,0 +1,52 @@
+@import "../_base/base";
+
+.login {
+    .form_button {
+        @extend %form-button;
+        min-width: 0;
+        width: 100%;
+        display: block;
+    }
+    .form-input {
+        display: block;
+    }
+    .form-rel {
+        width: 320px;
+        margin: 10px auto;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
+    }
+    .or {
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        line-height: 30px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+            line-height: 60px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 16px;
+            line-height: 30px;
+        }
+    }
+    .forgot-password {
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        padding: 10px 0 0;
+        color: $colorGrey;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 16px;
+        }
+        outline: none;
+    }
+}
