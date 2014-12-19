@@ -28,7 +28,7 @@
                 <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
                 <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/>
                 <h3>{{card.name}}<p><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.ceil(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
                 <dl>
                     <dd>Kurse / Monat:</dd>
                     <dt>{{card.courses}}</dt>
@@ -156,7 +156,7 @@
                 <div class="form-rel">
                     <div class="form-check">
                         <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
-                        <i class="fa"></i><label for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und den Datenschutzbestimmungen zu.</label>
+                        <i class="fa"></i><label for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
                     </div>
                 </div>
                 <div class="form-rel">
@@ -181,7 +181,7 @@
                         <p>0€ / Monat</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted && voucher">
                         <b>Ermäßigter Preis:</b>
-                        <p class="green"><span ng-if="voucher.percentOff">{{Math.ceil(overview.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths">/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
+                        <p class="green"><span ng-if="voucher.percentOff">{{Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths">/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
                     </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
                         <b>Beginn Mitgliedschaft:</b>
                         <p>{{startDate}}</p>
