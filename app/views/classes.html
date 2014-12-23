@@ -4,8 +4,16 @@
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
-            <button class="control-button" ui-sref="admin.newClass" type="button"><i class="fa fa-plus"></i>New Class</button>
+            <button class="control-button" ui-sref="admin.classes.new" type="button"><i class="fa fa-plus"></i>New Class</button>
             <div class="input-search"><input type="text" ng-model="search.title" placeholder="Filter name"/></div>
+            <select chosen
+                    id="studio"
+                    ng-model="search.studioId"
+                    data-placeholder="Alle Studios"
+                    disable-search="false"
+                    ng-options="item.id as item.name for item in studios">
+                <option value=""></option>
+            </select>
             <select chosen
                     id="level"
                     ng-model="level"
@@ -21,6 +29,7 @@
                 <i class="fa"></i>
                 <label for="draft">Draft</label>
             </div>
+            <button class="control-button" ng-click="clearFilters()" type="button">Filter zurücksetzen</button>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable classes" ng-show="desktop">
@@ -29,17 +38,19 @@
                         <th>Status</th>
                         <th>Name der Stunde</th>
                         <th>Disziplin</th>
+                        <th>Studio</th>
                         <th>Lehrer</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="c in classes | filter: search">
+                    <tr ng-repeat="c in classes | filter: search | dataFilter: 'studioId': search.studioId">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>
                         <td>{{c.discipline}}</td>
+                        <td>{{c.studio}}</td>
                         <td>{{c.teacherName}}</td>
-                        <td><button class="green" ui-sref="admin.class({classId: c.id})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
+                        <td><button class="green" ui-sref="admin.classes.class({classId: c.id})" type="button"><i class="fa fa-pencil"></i>Manage</button></td>
                     </tr>
                 </tbody>
             </table>

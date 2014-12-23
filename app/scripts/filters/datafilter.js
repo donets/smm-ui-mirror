@@ -28,9 +28,6 @@ angular.module('boltApp')
         return function(list, property, target) {
             if(list && property) {
                 if (target) {
-                    console.log(list);
-                    console.log(property);
-                    console.log(target);
                     var properties = parseString(property);
                     return _.filter(list, function(item){
                         var value = getValue(item, properties);

@@ -29,24 +29,24 @@
     .b-sidebar-filters {
         width: 170px;
         text-align: left;
+        .chosen-container, .form-check, .control-button, .input-search {
+            margin: 0 0 20px;
+        }
         select {
             width: 100%;
         }
         .chosen-container {
             width: 100%;
-            margin: 0 0 20px;
         }
         .control-button {
             @extend %custom-button;
             display: block;
             min-width: 0;
             width: 100%;
-            margin-bottom: 20px;
             font-size: 15px;
             font-family: $fontRegular;
         }
         .input-search {
-            margin-bottom: 20px;
             input {
                 width: 100%;
                 border-color: $colorLightGrey;
@@ -118,17 +118,6 @@
                 color: $colorLink;
             }
         }
-        &.classes {
-            tr {
-                th:last-child, td:last-child {
-                    width: 200px;
-                    button:first-child {
-                        @include border-right-radius(0px);
-                        @include border-left-radius(2px);
-                    }
-                }
-            }
-        }
         &.user-classes {
             tr {
                 th:last-child, td:last-child {
@@ -173,6 +162,11 @@
             font-family: inherit;
             font-size: inherit;
             color: inherit;
+            outline: none;
+            text-decoration: underline;
+            &:hover {
+                color: $colorLink;
+            }
         }
     }
     p {

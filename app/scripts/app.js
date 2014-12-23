@@ -439,20 +439,43 @@ angular.module('boltApp')
             })
             .state('admin.classes', {
                 url : 'classes/',
-                templateUrl: 'views/classes.html',
+                template: '<div ui-view></div>',
+                abstract: true,
                 resolve: {
 
                     getClasses: function(RestApi) {
 
                         return RestApi.query({route: 'events'}).$promise;
 
+                    },
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'}).$promise;
+
+                    },
+
+                    getStudios: function(RestApi) {
+
+                        return RestApi.query({route: 'studios'}).$promise;
+
+                    },
+
+                    getNeigbourhood: function($http) {
+
+                        return $http.get('json/neigbourhood.json', {cache: true});
+
                     }
 
-                },
+                }
+            })
+            .state('admin.classes.list', {
+                url : '',
+                templateUrl: 'views/classes.html',
                 controller : 'ClassesCtrl'
             })
-            .state('admin.class', {
-                url : 'classes/{classId:[0-9]+}/',
+            .state('admin.classes.class', {
+                url : '{classId:[0-9]+}/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -466,41 +489,14 @@ angular.module('boltApp')
 
                         return RestApi.query({route: 'occurrences', parentId: $stateParams.classId}).$promise;
 
-                    },
-
-                    getLocations: function(RestApi) {
-
-                        return RestApi.query({route: 'locations'}).$promise;
-
-                    },
-
-                    getStudios: function(RestApi) {
-
-                        return RestApi.query({route: 'studios'}).$promise;
-
                     }
 
                 },
                 controller : 'ClassCtrl'
             })
-            .state('admin.newClass', {
-                url : 'classes/new/',
+            .state('admin.classes.new', {
+                url : 'new/',
                 templateUrl: 'views/class.html',
-                resolve: {
-
-                    getLocations: function(RestApi) {
-
-                        return RestApi.query({route: 'locations'}).$promise;
-
-                    },
-
-                    getStudios: function(RestApi) {
-
-                        return RestApi.query({route: 'studios'}).$promise;
-
-                    }
-
-                },
                 controller : 'CreateClassCtrl'
             })
             .state('admin.entity', {

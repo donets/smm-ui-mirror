@@ -20,13 +20,6 @@ angular.module('boltApp.controllers.Class', [])
             exportTag('sub');
         });
 
-        $scope.saveDraft = function () {
-            var currentClass = new RestApi();
-            currentClass = $scope.class;
-            currentClass.$update({route: 'events'}).then(function (res) {
-                $rootScope.$state.go('admin.class', {classId: res.id});
-            });
-        };
         getLocations.$promise.then(function () {
             $scope.locations = getLocations;
         });
@@ -37,6 +30,21 @@ angular.module('boltApp.controllers.Class', [])
             $scope.occurrences = getOccurrences;
             groupOccurrences(getOccurrences);
         });
+
+        $scope.save = function (status) {
+            $scope.class = new RestApi();
+            $scope.class.status = status;
+            $scope.class.$update({route: 'events'}).then(function (res) {
+                $rootScope.$state.go('admin.classes.class', {classId: res.id});
+            });
+        };
+        $scope.remove = function () {
+            $scope.class = new RestApi();
+            $scope.class.$delete({route: 'events'}).then(function (res) {
+                console.log(res);
+                $rootScope.$state.go('admin.classes.list');
+            });
+        };
 
         $scope.toggleGroup = function(obj) {
             obj.hide = !obj.hide;

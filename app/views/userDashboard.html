@@ -16,7 +16,7 @@
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
-            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="Alle Kurs"/></div>
+            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="Alle Kurse"/></div>
             <select chosen
                     id="neigbourhood"
                     ng-model="search.class.location"
@@ -30,13 +30,14 @@
                     id="studio"
                     ng-model="search.class.studioId"
                     data-placeholder="Alle Studios"
-                    disable-search="true"
+                    disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item.id as item.name for item in studios">
                 <option value=""></option>
             </select>
+            {{search | json}}
             <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="Alle Lehrer"/></div>
-            <button class="control-button" ng-click="clearFilters()" type="button">Clear filters</button>
+            <button class="control-button" ng-click="clearFilters()" type="button">Filter zurücksetzen</button>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable user-classes" ng-show="desktop">

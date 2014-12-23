@@ -22,10 +22,11 @@ angular.module('boltApp.controllers.CreateClass', [])
         ];
         $scope.class = new RestApi();
 
-        $scope.saveDraft = function () {
+        $scope.save = function (status) {
+            $scope.class.status = status;
             $scope.class.$save({route: 'events'}).then(function (res) {
                 console.log(res);
-                $rootScope.$state.go('admin.class', {classId: res.id});
+                $rootScope.$state.go('admin.classes.class', {classId: res.id});
             });
         };
 
