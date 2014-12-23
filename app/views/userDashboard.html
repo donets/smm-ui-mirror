@@ -1,33 +1,84 @@
+<div class="dashboard-title">
+    <div class="container">
+        <h1>Finde einen Kurs.</h1>
+        <p class="subtitle">Heute, Do 01.01.</p>
+        <ul class="weekdays">
+            <li class="current">Heute, Do 01</li>
+            <li>Morgen, Fr 02</li>
+            <li>Sa 03</li>
+            <li>So 04</li>
+            <li>Mo 05</li>
+            <li>Di 06</li>
+            <li>Mi 07</li>
+        </ul>
+    </div>
+</div>
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
-            <div class="input-search"><input type="text" placeholder="Filter name"/></div>
+            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="Alle Kurs"/></div>
             <select chosen
-                    data-placeholder="All levels"
+                    id="neigbourhood"
+                    ng-model="search.class.location"
+                    data-placeholder="Alle Stadtteile"
                     disable-search="true"
-                    allow-single-deselect="true">
+                    allow-single-deselect="true"
+                    ng-options="item for item in neigbourhood">
                 <option value=""></option>
-                <option>Junior</option>
-                <option>Medium</option>
-                <option>Expert</option>
             </select>
-            <div class="form-check">
-                <input type="checkbox" id="1"
-                       value="draft" name="status"/>
-                <i class="fa"></i>
-                <label for="1">Draft</label>
-            </div>
+            <select chosen
+                    id="studio"
+                    ng-model="search.class.studioId"
+                    data-placeholder="Alle Studios"
+                    disable-search="true"
+                    allow-single-deselect="true"
+                    ng-options="item.id as item.name for item in studios">
+                <option value=""></option>
+            </select>
+            <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="Alle Lehrer"/></div>
+            <button class="control-button" ng-click="clearFilters()" type="button">Clear filters</button>
         </div>
         <div class="w-right b-classes-list">
-
+            <table class="timetable user-classes" ng-show="desktop">
+                <thead>
+                <tr>
+                    <th>Zeit</th>
+                    <th>Kurs</th>
+                    <th>Disziplinen</th>
+                    <th>Stile</th>
+                    <th>Lehrer</th>
+                    <th>Studio</th>
+                    <th>Stadtteil</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="e in events
+                        | filter: {class: {title: search.class.title}}
+                        | filter: {class: {teacherName: search.class.teacherName}}
+                        | dataFilter: 'class.studioId': search.class.studioId ">
+                    <td>
+                        <p>{{e.start_date | date: 'HH:mm'}}</p>
+                        <p>{{e.end_date | date: 'HH:mm'}}</p>
+                    </td>
+                    <td>{{e.class.title}}</td>
+                    <td>{{e.class.discipline}}</td>
+                    <td>{{e.class.style}}</td>
+                    <td>{{e.class.teacherName}}</td>
+                    <td>{{e.class.studio}}</td>
+                    <td>{{e.class.location}}</td>
+                    <td><button class="default" type="button"></i>Merken</button></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="modal-backdrop fade in" style="position: absolute; z-index: 1040;"></div>
-    <div class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
+    <div ng-if="false" class="modal-backdrop fade in" style="position: absolute; z-index: 1040;"></div>
+    <div ng-if="false" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body ng-scope">
-                    <h2>Es geht bald los!</h2>
+                    <h2>Danke für Deine Anmeldung!</h2>
                     <p class="subtitle">Januar 2015</p>
                     <p>Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar.</p>
                     <a class="form-button" ui-sref="home">See partner studios</a>

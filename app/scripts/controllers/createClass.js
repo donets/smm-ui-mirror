@@ -8,9 +8,12 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.CreateClass', [])
-    .controller('CreateClassCtrl', function ($scope, $rootScope, getLocations, RestApi) {
+    .controller('CreateClassCtrl', function ($scope, $rootScope, getLocations, getStudios, RestApi) {
         getLocations.$promise.then(function () {
             $scope.locations = getLocations;
+        });
+        getStudios.$promise.then(function () {
+            $scope.studios = getStudios;
         });
         $scope.levels = [
             'Anfänger',

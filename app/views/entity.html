@@ -1,10 +1,11 @@
 <div class="b-class-block" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
-            <h2>{{entity.name || entity.code || 'New ' + $stateParams.route}}</h2>
+            <h2><a ui-sref="admin.entity.list({route: $stateParams.route})">{{$stateParams.route}}</a> / {{entity.name || entity.code || 'New ' + $stateParams.route}}</h2>
         </div>
         <div class="w-right">
             <button type="button" ng-disabled="errorVoucher" class="green" ng-click="save()"><i class="fa fa-save"></i>Save</button>
+            <button type="button" ng-if="$stateParams.entityId" class="red" ng-confirm-click="remove()"><i class="fa fa-trash"></i>Delete</button>
         </div>
     </div>
 </div>

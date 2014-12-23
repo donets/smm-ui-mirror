@@ -28,6 +28,20 @@ function setWeekdayList (weekdayList) {
     return (weekdayList);
 }
 
+function toggleSelection (name, sel) {
+
+    var idx = sel.indexOf(name.id);
+
+    if (idx > -1) {
+        sel.splice(idx, 1);
+    }
+
+    else {
+        sel.push(name.id);
+    }
+
+};
+
 function getScrollbarWidth() {
     var outer = document.createElement('div');
     outer.style.visibility = 'hidden';

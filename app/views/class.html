@@ -1,7 +1,7 @@
-<div class="b-class-block" sticky use-placeholder>
+<div class="b-class-block class" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
-            <h2>{{class.title || 'New Class'}}</h2>
+            <h2><a ui-sref="admin.classes">Classes</a> / {{class.title || 'New Class'}}</h2>
             <div class="info" ng-if="$stateParams.classId">
                 <p>{{occurrences.length}} Classes scheduled</p>
                 <p>{{class.location}}</p>
@@ -9,7 +9,9 @@
             </div>
         </div>
         <div class="w-right">
-            <button ng-if="$stateParams.classId" type="button"><i class="fa fa-eye"></i>Preview</button><button type="button" ng-click="saveDraft()"><i class="fa fa-save"></i>Save as draft</button><button class="green" ng-if="$stateParams.classId" type="button" ng-click="savePublic()"><i class="fa fa-save"></i>Save & go live</button>
+            <button type="button" ng-click="saveDraft()"><i class="fa fa-save"></i>Save as draft</button>
+            <button ng-if="$stateParams.classId" class="green" type="button" ng-click="savePublic()"><i class="fa fa-save"></i>Save & go live</button>
+            <button ng-if="$stateParams.classId" type="button" class="red" ng-confirm-click="remove()"><i class="fa fa-trash"></i>Delete</button>
         </div>
     </div>
 </div>
@@ -17,11 +19,11 @@
     <div class="b-class-edit">
         <h3>Main info</h3>
         <div class="form-rel">
-            <label class="form-label" for="title">Event title</label>
+            <label class="form-label" for="title">Name der Stunde</label>
             <input class="form-input" type="text" ng-model="class.title" id="title"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="location">Location</label>
+            <label class="form-label" for="location">Standort</label>
             <select chosen
                     id="location"
                     ng-model="class.locationId"
@@ -149,7 +151,7 @@
         </div>
         <!--<pre style="position: absolute; right: 0; top: 0; ">{{class | json}}</pre>-->
         <div class="form-rel">
-            <label class="form-label" for="level">Event level</label>
+            <label class="form-label" for="level">Level</label>
             <select chosen
                     id="level"
                     ng-model="class.level"
@@ -162,46 +164,53 @@
         </div>
         <div class="form-rel flex">
             <div class="form-row">
-                <label class="form-label" for="capacity">Event capacity</label>
+                <label class="form-label" for="capacity">Max. Teilnehmer</label>
                 <input class="form-input" type="text" ng-model="class.capacity" id="capacity"/>
             </div>
             <div class="form-row">
-                <label class="form-label" for="dropInPrice">Event price</label>
+                <label class="form-label" for="dropInPrice">Preis vom Drop-in</label>
                 <div class="input-euro"><input class="form-input" type="text" ng-model="class.dropInPrice" id="dropInPrice"/></div>
             </div>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="teacher">Event teacher</label>
+            <label class="form-label" for="teacher">Lehrer</label>
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="studio">Event studio</label>
-            <input class="form-input" type="text" ng-model="class.studio" id="studio"/>
+            <label class="form-label" for="studio">Studio</label>
+            <select chosen
+                    id="studio"
+                    ng-model="class.studioId"
+                    data-placeholder="Select Studio"
+                    disable-search="false"
+                    ng-options="item.id as item.name for item in studios">
+                <option value=""></option>
+            </select>
         </div>
         <div class="form-rel large" disable-animate>
-            <label class="form-label">Event discipline</label>
+            <label class="form-label">Disziplin</label>
             <tags-input ng-model="tags" on-tag-added="importTag('tags')" on-tag-removed="importTag('tags')"></tags-input>
         </div>
         <div class="form-rel large" disable-animate>
-            <label class="form-label">Event sub-discipline</label>
+            <label class="form-label">Stil</label>
             <tags-input ng-model="sub" on-tag-added="importTag('sub')" on-tag-removed="importTag('sub')"></tags-input>
         </div>
         <div class="form-rel large">
-            <label class="form-label" for="description">Event description</label>
+            <label class="form-label" for="description">Beschreibung</label>
             <textarea ng-model="class.description" id="description"></textarea>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="requiresRegistration" value="true" ng-model="class.requiresRegistration" name="requiresRegistration" />
                 <i class="fa"></i>
-                <label for="requiresRegistration">needs prior registration</label>
+                <label for="requiresRegistration">Anmeldung erforderlich</label>
             </div>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="blackOnly" value="true" ng-model="class.blackOnly" name="blackOnly" />
                 <i class="fa"></i>
-                <label for="blackOnly">black card only</label>
+                <label for="blackOnly">Nur Black Card</label>
             </div>
         </div>
         <!--<div ng-repeat="(key, value) in groupByTime">-->

@@ -47,6 +47,7 @@ angular
         'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
+        'boltApp.controllers.Dashboard',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
@@ -104,7 +105,7 @@ angular.module('boltApp')
                 }
             };
             $rootScope.$on('$stateChangeStart', function(event, toState) {
-                checkRule(event, toState);
+                //checkRule(event, toState);
             });
             amMoment.changeLanguage('en');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
@@ -396,7 +397,36 @@ angular.module('boltApp')
             })
             .state('profile.dashboard', {
                 url : 'dashboard/',
-                templateUrl: 'views/userDashboard.html'
+                templateUrl: 'views/userDashboard.html',
+                resolve: {
+
+                    getClasses: function(RestApi) {
+
+                        return RestApi.query({route: 'events'}).$promise;
+
+                    },
+
+                    getOccurrences: function(RestApi) {
+
+                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
+
+                    },
+
+                    getStudios: function(RestApi) {
+
+                        return RestApi.query({route: 'studios'}).$promise;
+
+                    },
+
+                    getNeigbourhood: function($http) {
+
+                        return $http.get('json/neigbourhood.json', {cache: true});
+
+                    }
+
+
+                },
+                controller : 'DashboardCtrl'
             })
             .state('profile.membership', {
                 url : 'membership/',
@@ -406,10 +436,6 @@ angular.module('boltApp')
                 url : '/admin/v2/',
                 abstract: true,
                 templateUrl: 'views/admin.html'
-            })
-            .state('admin.dashboard', {
-                url : 'dashboard/',
-                templateUrl: 'views/adminDashboard.html'
             })
             .state('admin.classes', {
                 url : 'classes/',
@@ -446,6 +472,12 @@ angular.module('boltApp')
 
                         return RestApi.query({route: 'locations'}).$promise;
 
+                    },
+
+                    getStudios: function(RestApi) {
+
+                        return RestApi.query({route: 'studios'}).$promise;
+
                     }
 
                 },
@@ -459,6 +491,12 @@ angular.module('boltApp')
                     getLocations: function(RestApi) {
 
                         return RestApi.query({route: 'locations'}).$promise;
+
+                    },
+
+                    getStudios: function(RestApi) {
+
+                        return RestApi.query({route: 'studios'}).$promise;
 
                     }
 
@@ -552,6 +590,13 @@ angular.module('boltApp')
                         $scope.save = function () {
                             $scope.entity.$update({route: $rootScope.$stateParams.route}).then(function (res) {
                                 console.log(res);
+                            });
+                        };
+
+                        $scope.remove = function () {
+                            $scope.entity.$delete({route: $rootScope.$stateParams.route}).then(function (res) {
+                                console.log(res);
+                                $rootScope.$state.go('admin.entity.list', {route: $rootScope.$stateParams.route});
                             });
                         };
 

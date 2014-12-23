@@ -11,7 +11,7 @@
 /* jshint undef:false */
 
 angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, RestApi) {
+    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, getStudios, RestApi) {
         $scope.moment = moment();
         $scope._ = _;
         getClass.$promise.then(function () {
@@ -29,6 +29,9 @@ angular.module('boltApp.controllers.Class', [])
         };
         getLocations.$promise.then(function () {
             $scope.locations = getLocations;
+        });
+        getStudios.$promise.then(function () {
+            $scope.studios = getStudios;
         });
         getOccurrences.$promise.then(function () {
             $scope.occurrences = getOccurrences;

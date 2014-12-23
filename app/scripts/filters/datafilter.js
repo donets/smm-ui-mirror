@@ -27,9 +27,10 @@ angular.module('boltApp')
     .filter('dataFilter', function() {
         return function(list, property, target) {
             if(list && property) {
-                //$location.search(_.last(property.split('.')), null);
                 if (target) {
-                    //$location.search(_.last(property.split('.')), target);
+                    console.log(list);
+                    console.log(property);
+                    console.log(target);
                     var properties = parseString(property);
                     return _.filter(list, function(item){
                         var value = getValue(item, properties);

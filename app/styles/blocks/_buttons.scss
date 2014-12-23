@@ -109,7 +109,7 @@
     min-width: 320px;
     height: 42px;
     line-height: 40px;
-    background: none;
+    background: #fff;
     border: 1px solid $colorLightGrey;
     @include transition(all .2s);
     color: $colorGrey;

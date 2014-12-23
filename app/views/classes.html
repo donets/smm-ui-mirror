@@ -5,7 +5,7 @@
     <div class="container">
         <div class="w-left b-sidebar-filters">
             <button class="control-button" ui-sref="admin.newClass" type="button"><i class="fa fa-plus"></i>New Class</button>
-            <div class="input-search"><input type="text" placeholder="Filter name"/></div>
+            <div class="input-search"><input type="text" ng-model="search.title" placeholder="Filter name"/></div>
             <select chosen
                     id="level"
                     ng-model="level"
@@ -16,10 +16,10 @@
                 <option value=""></option>
             </select>
             <div class="form-check">
-                <input type="checkbox" id="1"
-                       value="draft" name="status"/>
+                <input type="checkbox" id="draft" ng-model="search.status"
+                       ng-true-value="DRAFT" ng-false-value="" name="status"/>
                 <i class="fa"></i>
-                <label for="1">Draft</label>
+                <label for="draft">Draft</label>
             </div>
         </div>
         <div class="w-right b-classes-list">
@@ -27,20 +27,18 @@
                 <thead>
                     <tr>
                         <th>Status</th>
-                        <th>Class</th>
-                        <th>Sub-Discipline</th>
-                        <th>Teacher</th>
-                        <th>Neighborhood</th>
+                        <th>Name der Stunde</th>
+                        <th>Disziplin</th>
+                        <th>Lehrer</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="c in classes | limitTo: 15">
+                    <tr ng-repeat="c in classes | filter: search">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>
-                        <td><span ng-repeat="t in c.tags">{{t}}, </span></td>
-                        <td>{{c.teacher_name}}</td>
-                        <td>{{c.location.name}}</td>
+                        <td>{{c.discipline}}</td>
+                        <td>{{c.teacherName}}</td>
                         <td><button class="green" ui-sref="admin.class({classId: c.id})" type="button"><i class="fa fa-pencil"></i>Manage</button><button type="button"><i class="fa fa-eye"></i>Preview</button></td>
                     </tr>
                 </tbody>

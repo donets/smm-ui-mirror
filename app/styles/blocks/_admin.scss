@@ -12,9 +12,20 @@
         text-transform: capitalize;
     }
 }
+.dashboard-title {
+    position: relative;
+    h2 {
+        @extend %title-light;
+    }
+    .weekdays {
+        display: inline-block;
+        margin: 40px 0 20px;
+    }
+}
 .dashboard {
     @extend .b-studio-timetable;
     padding: 60px 0;
+    text-align: left;
     .b-sidebar-filters {
         width: 170px;
         text-align: left;
@@ -23,11 +34,7 @@
         }
         .chosen-container {
             width: 100%;
-            background: $colorBackTimetable;
             margin: 0 0 20px;
-        }
-        .chosen-drop {
-            background: $colorBackTimetable;
         }
         .control-button {
             @extend %custom-button;
@@ -41,8 +48,8 @@
         .input-search {
             margin-bottom: 20px;
             input {
-                background: none;
                 width: 100%;
+                border-color: $colorLightGrey;
             }
         }
     }
@@ -65,9 +72,7 @@
             padding: 0 12px;
         }
         td {
-            font-size: 12px;
-            height: 50px;
-            padding: 0 12px;
+            line-height: 1.2;
             &:nth-child(1), &:nth-child(2) {
                 font-size: 15px;
             }
@@ -77,12 +82,18 @@
         }
         tr {
             th:first-child, td:first-child {
-                padding-left: 12px;
                 @include border-left-radius(2px);
             }
             th:last-child, td:last-child {
                 padding: 0;
                 width: 100px;
+            }
+            &.ng-animate {
+                &.ng-move,
+                &.ng-enter,
+                &.ng-leave {
+                    @include transition(none);
+                }
             }
         }
         button {
@@ -92,10 +103,11 @@
             i {
                 margin-right: 8px;
             }
+            &.default {
+                background: $colorGrey;
+            }
             &.green {
                 background: $colorGreen;
-                @include border-right-radius(0px);
-                @include border-left-radius(2px);
             }
         }
         .status {
@@ -110,6 +122,20 @@
             tr {
                 th:last-child, td:last-child {
                     width: 200px;
+                    button:first-child {
+                        @include border-right-radius(0px);
+                        @include border-left-radius(2px);
+                    }
+                }
+            }
+        }
+        &.user-classes {
+            tr {
+                th:last-child, td:last-child {
+                    width: 125px;
+                    button {
+                        width: 125px;
+                    }
                 }
             }
         }
@@ -136,15 +162,18 @@
             margin: 10px 0 0;
             line-height: 28px;
         }
-        a {
-            display: inline-block;
-        }
     }
     h2 {
         @include transition(all .2s);
         display: inline-block;
         margin: 15px 0 5px;
-        width: 480px;
+        max-width: 640px;
+        a {
+            display: inline-block;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+        }
     }
     p {
         display: inline-block;
@@ -165,14 +194,23 @@
         font-size: 16px;
         color: #fff;
         margin: 15px 10px;
+        float: left;
         .fa {
             margin-right: 8px;
         }
         &.green {
             background: $colorGreen;
         }
+        &.red {
+            background: $colorRed;
+        }
         &.disabled {
             background: $colorLightGrey;
+        }
+    }
+    &.class {
+        h2 {
+            max-width: 480px;
         }
     }
 }
