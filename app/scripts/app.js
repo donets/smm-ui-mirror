@@ -106,7 +106,7 @@ angular.module('boltApp')
                 }
             };
             $rootScope.$on('$stateChangeStart', function(event, toState) {
-                //checkRule(event, toState);
+                checkRule(event, toState);
             });
             amMoment.changeLanguage('en');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
