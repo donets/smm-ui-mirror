@@ -44,4 +44,22 @@ angular.module('boltApp')
         };
     });
 
+angular.module('boltApp')
+    .filter('isAfter', function() {
+        return function(list, property, target) {
+            return _.filter(list, function(item) {
+                var value = item[property];
+                return moment(value).isAfter(moment(value).hours(target).minutes(0)) || moment(value).isSame(moment(value).hours(target).minutes(0));
+            });
+        };
+    })
+    .filter('isBefore', function() {
+        return function(list, property, target) {
+            return _.filter(list, function(item){
+                var value = item[property];
+                return moment(value).isBefore(moment(value).hours(target).minutes(0)) || moment(value).isSame(moment(value).hours(target).minutes(0));
+            });
+        };
+    });
+
 

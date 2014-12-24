@@ -18,9 +18,20 @@ angular.module('boltApp.controllers.Dashboard', [])
                 event.class = _.findWhere(res[0], {id: event.parent_event_id});
             });
         });
+        $scope.showPopap = moment().isBefore('2015-01-01', 'year');
         $scope.neigbourhood = getNeigbourhood.data;
+        $scope.changeSlide = function () {
+            console.log($scope.start);
+            console.log($scope.end);
+        };
+        $scope.trans = function (value) {
+            var pad = '00';
+            return value === '24' ? '00:00' : pad.substring(0, pad.length - value.length) + value + ':00';
+        };
         $scope.clearFilters = function () {
             $scope.search = {
+                start: 6,
+                end: 24,
                 class: {
                     title: '',
                     teacherName: ''

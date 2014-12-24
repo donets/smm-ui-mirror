@@ -16,6 +16,17 @@
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
+            <slider
+                    ng-model="search.start"
+                    ng-model-range="search.end"
+                    floor="6"
+                    ceiling="24"
+                    buffer="1"
+                    step-width="1"
+                    stretch="1"
+                    translate-fn="trans"
+                    translate-range-fn="transRange">
+            </slider>
             <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="Alle Kurse"/></div>
             <select chosen
                     id="neigbourhood"
@@ -35,7 +46,6 @@
                     ng-options="item.id as item.name for item in studios">
                 <option value=""></option>
             </select>
-            {{search | json}}
             <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="Alle Lehrer"/></div>
             <button class="control-button" ng-click="clearFilters()" type="button">Filter zurücksetzen</button>
         </div>
@@ -55,6 +65,9 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="e in events
+                        | limitTo: showPopap ? 15 : events.length
+                        | isAfter: 'start_date': search.start
+                        | isBefore: 'end_date': search.end
                         | filter: {class: {title: search.class.title}}
                         | filter: {class: {teacherName: search.class.teacherName}}
                         | dataFilter: 'class.studioId': search.class.studioId ">
@@ -74,8 +87,8 @@
             </table>
         </div>
     </div>
-    <div ng-if="false" class="modal-backdrop fade in" style="position: absolute; z-index: 1040;"></div>
-    <div ng-if="false" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
+    <div ng-if="showPopap" class="modal-backdrop fade in" style="position: absolute; z-index: 1040;"></div>
+    <div ng-if="showPopap" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body ng-scope">

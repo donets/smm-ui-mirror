@@ -229,6 +229,10 @@ button {
     display: none !important;
 }
 
+::-ms-tooltip {
+    display: none;
+}
+
 iframe[name='google_conversion_frame'] {
     height: 0 !important;
     width: 0 !important;
@@ -270,6 +274,7 @@ iframe[name='google_conversion_frame'] {
 @import "chosen";
 @import "alert";
 @import "jcrop";
+@import "slider";
 @import "tagsinput";
 @import "ngProgress";
 @import "carousel";

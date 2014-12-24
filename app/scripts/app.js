@@ -25,6 +25,7 @@ angular
         'duScroll',
         'duParallax',
         'ngTagsInput',
+        'vr.directives.slider',
         'localytics.directives',
         'validation.match',
         'ezfb',
@@ -317,7 +318,7 @@ angular.module('boltApp')
                 url : '/p/studio/:studioId/',
                 templateUrl: 'views/studio.html',
                 onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight - 350) : 0;
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight * 0.8) : 0;
                 },
                 onExit: function($rootScope){
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;

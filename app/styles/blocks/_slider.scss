@@ -1,0 +1,67 @@
+@import "../_base/base";
+
+slider {
+    display: inline-block;
+    position: relative;
+    height: 2px;
+    width: 100%;
+    margin: 30px 0;
+    vertical-align: middle;
+    span {
+        white-space: nowrap;
+        position: absolute;
+        display: inline-block;
+        &.base {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+        &.bar {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            @include border-radius(1em);
+            background: $colorLightGrey;
+            &.unselected {
+                &.high {
+                    width: 0;
+                }
+            }
+            &.selection {
+                width: 0%;
+                background: $colorLink;
+                z-index: 2;
+            }
+        }
+        &.pointer {
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+            top: -6px;
+            background-color: $colorGrey;
+            border: 1px solid #fff;
+            z-index: 3;
+            @include border-radius(1em);
+            &.active:after {
+                background-color: $colorLink;
+            }
+        }
+        &.bubble {
+            cursor: default;
+            bottom: 100%;
+            margin: 10px 0;
+            padding: 1px 3px 1px 3px;
+            font-size: 15px;
+            line-height: 20px;
+            &.selection {
+                top: 100%;
+            }
+            &.limit {
+
+            }
+        }
+    }
+
+}
+
+
