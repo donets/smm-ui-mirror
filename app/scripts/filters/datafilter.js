@@ -45,6 +45,14 @@ angular.module('boltApp')
     });
 
 angular.module('boltApp')
+    .filter('isSame', function() {
+        return function(list, property, target) {
+            return _.filter(list, function(item) {
+                var value = item[property];
+                return value.isSame(target, 'day');
+            });
+        };
+    })
     .filter('isAfter', function() {
         return function(list, property, target) {
             return _.filter(list, function(item) {

@@ -8,26 +8,41 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getNeigbourhood, $q) {
-        $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise]).then(function (res) {
+    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q) {
+        $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
                 obj.studio = obj.studioId ? _.findWhere(res[2], {id: obj.studioId}).name : '';
+                obj.location = obj.locationId ? _.findWhere(res[3], {id: obj.locationId}).neigbourhood : '';
             });
+            $scope.disciplines = _.uniq(_.pluck(res[0], 'discipline'));
+            $scope.styles = _.uniq(_.pluck(res[0], 'style'));
             $scope.events = _.each(res[1], function (event) {
+                event.start_date = moment(event.start_date);
+                event.end_date = moment(event.end_date);
                 event.class = _.findWhere(res[0], {id: event.parent_event_id});
             });
         });
+        $scope.weekdays = [];
+        $scope.today = moment();
+        $scope.changeDay = function (day) {
+            $scope.currDay = day;
+        };
+        $scope.changeDay($scope.today);
+        for (var d = 0; d < 7; d++) {
+            $scope.weekdays.push(moment().add(d, 'day'));
+        }
         $scope.showPopap = moment().isBefore('2015-01-01', 'year');
         $scope.neigbourhood = getNeigbourhood.data;
-        $scope.changeSlide = function () {
-            console.log($scope.start);
-            console.log($scope.end);
-        };
         $scope.trans = function (value) {
             var pad = '00';
             return value === '24' ? '00:00' : pad.substring(0, pad.length - value.length) + value + ':00';
         };
+        $scope.levels = [
+            {id: 1, text: 'Anfänger'},
+            {id: 2, text: 'Medium'},
+            {id: 3, text: 'Fortgeschrittene'}
+        ];
         $scope.clearFilters = function () {
             $scope.search = {
                 start: 6,

@@ -24,11 +24,30 @@
 }
 .dashboard {
     @extend .b-studio-timetable;
-    padding: 60px 0;
+    padding: 0 0 60px;
     text-align: left;
+    .b-top-filters {
+        text-align: center;
+        background: $colorBackTimetable;
+        padding: 20px 0;
+        &.stuck {
+            width: 100%;
+            z-index: 1; 
+        }
+        select {
+            width: 230px;
+        }
+        .chosen-container {
+            display: inline-block;
+            width: 230px;
+            margin: 0 10px;
+            text-align: left;
+        }
+    }
     .b-sidebar-filters {
         width: 170px;
         text-align: left;
+        padding: 50px 0 0;
         .chosen-container, .form-check, .control-button, .input-search {
             margin: 0 0 20px;
         }
@@ -46,6 +65,17 @@
             font-size: 15px;
             font-family: $fontRegular;
         }
+        .clear-button {
+            display: block;
+            font-size: 15px;
+            text-align: center;
+            color: $colorText;
+            outline: none;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
         .input-search {
             input {
                 width: 100%;
@@ -55,8 +85,6 @@
     }
     .b-classes-list {
         width: 800px;
-        min-height: 500px;
-        margin-top: -50px;
         .info {
             font-size: 22px;
             text-align: justify;

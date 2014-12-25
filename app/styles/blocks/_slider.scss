@@ -49,10 +49,28 @@ slider {
         &.bubble {
             cursor: default;
             bottom: 100%;
-            margin: 10px 0;
+            margin: 8px 0;
             padding: 1px 3px 1px 3px;
             font-size: 15px;
             line-height: 20px;
+            &:before {
+                font-size: 12px;
+                margin: 0 3px -8px;
+                position: absolute;
+                bottom: 100%;
+                left: 0;
+            }
+            &.low:before {
+                content: 'Beginn';
+            }
+            &.high:before {
+                content: 'Ende';
+                left: initial;
+                right: 0;
+            }
+            &.middle:before {
+                content: 'Beginn - Ende';
+            }
             &.selection {
                 top: 100%;
             }

@@ -1,21 +1,37 @@
 <div class="dashboard-title">
     <div class="container">
         <h1>Finde einen Kurs.</h1>
-        <p class="subtitle">Heute, Do 01.01.</p>
-        <ul class="weekdays">
-            <li class="current">Heute, Do 01</li>
-            <li>Morgen, Fr 02</li>
-            <li>Sa 03</li>
-            <li>So 04</li>
-            <li>Mo 05</li>
-            <li>Di 06</li>
-            <li>Mi 07</li>
+        <p class="subtitle">Heute {{today | amDateFormat: 'dd DD.MM.'}}</p>
+        <ul class="weekdays" ng-repeat="w in weekdays">
+            <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
     </div>
 </div>
 <div class="dashboard cf">
+    <div class="b-top-filters" sticky disable="{{showPopap}}" use-placeholder>
+        <div class="container">
+            <select chosen
+                    id="discipline"
+                    ng-model="search.class.discipline"
+                    data-placeholder="Alle Disziplinen"
+                    disable-search="false"
+                    allow-single-deselect="true"
+                    ng-options="item for item in disciplines">
+                <option value=""></option>
+            </select>
+            <select chosen
+                    id="style"
+                    ng-model="search.class.style"
+                    data-placeholder="Alle Stile"
+                    disable-search="false"
+                    allow-single-deselect="true"
+                    ng-options="item for item in styles">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
     <div class="container">
-        <div class="w-left b-sidebar-filters">
+        <div class="w-left b-sidebar-filters" sticky disable="{{showPopap}}" offset="82">
             <slider
                     ng-model="search.start"
                     ng-model-range="search.end"
@@ -23,7 +39,7 @@
                     ceiling="24"
                     buffer="1"
                     step-width="1"
-                    stretch="1"
+                    stretch="5"
                     translate-fn="trans"
                     translate-range-fn="transRange">
             </slider>
@@ -32,7 +48,7 @@
                     id="neigbourhood"
                     ng-model="search.class.location"
                     data-placeholder="Alle Stadtteile"
-                    disable-search="true"
+                    disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item for item in neigbourhood">
                 <option value=""></option>
@@ -46,8 +62,17 @@
                     ng-options="item.id as item.name for item in studios">
                 <option value=""></option>
             </select>
+            <select chosen
+                    id="level"
+                    ng-model="search.class.levels"
+                    data-placeholder="Alle Levels"
+                    disable-search="true"
+                    allow-single-deselect="true"
+                    ng-options="item.id as item.text for item in levels">
+                <option value=""></option>
+            </select>
             <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="Alle Lehrer"/></div>
-            <button class="control-button" ng-click="clearFilters()" type="button">Filter zurücksetzen</button>
+            <a class="clear-button" href="" ng-click="clearFilters()">Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable user-classes" ng-show="desktop">
@@ -66,14 +91,19 @@
                 <tbody>
                 <tr ng-repeat="e in events
                         | limitTo: showPopap ? 15 : events.length
+                        | isSame: 'start_date': currDay
                         | isAfter: 'start_date': search.start
                         | isBefore: 'end_date': search.end
                         | filter: {class: {title: search.class.title}}
                         | filter: {class: {teacherName: search.class.teacherName}}
-                        | dataFilter: 'class.studioId': search.class.studioId ">
+                        | dataFilter: 'class.discipline': search.class.discipline
+                        | dataFilter: 'class.style': search.class.style
+                        | dataFilter: 'class.location': search.class.location
+                        | dataFilter: 'class.studioId': search.class.studioId
+                        | dataFilter: 'class.levels': search.class.levels" >
                     <td>
-                        <p>{{e.start_date | date: 'HH:mm'}}</p>
-                        <p>{{e.end_date | date: 'HH:mm'}}</p>
+                        <p>{{e.start_date | amDateFormat: 'HH:mm'}}</p>
+                        <p>{{e.end_date | amDateFormat: 'HH:mm'}}</p>
                     </td>
                     <td>{{e.class.title}}</td>
                     <td>{{e.class.discipline}}</td>

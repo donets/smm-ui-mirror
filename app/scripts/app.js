@@ -106,9 +106,9 @@ angular.module('boltApp')
                 }
             };
             $rootScope.$on('$stateChangeStart', function(event, toState) {
-                checkRule(event, toState);
+                //checkRule(event, toState);
             });
-            amMoment.changeLanguage('en');
+            amMoment.changeLocale('de');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
                 $window._fbq.push(['addPixelId', '1461407927469396']);
@@ -133,6 +133,9 @@ angular.module('boltApp')
                 }
             });
         }])
+    .constant('angularMomentConfig', {
+        timezone: 'Europe/Berlin'
+    })
     .config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
         GoogleMapApi.configure({
             v: '3.17',
@@ -410,6 +413,12 @@ angular.module('boltApp')
                     getOccurrences: function(RestApi) {
 
                         return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
+
+                    },
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'}).$promise;
 
                     },
 

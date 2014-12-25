@@ -111,8 +111,8 @@
                     <input type="text" name="country" readonly value="Deutschland" required />
                 </div>
             </div>
-            <h3 class="form-title">Bezahlung</h3>
-            <div ng-class="{'error': error === 'CardException'}" class="form-group">
+            <h3 ng-if="!voucher.freeSubscriptionGranted" class="form-title">Bezahlung</h3>
+            <div ng-if="!voucher.freeSubscriptionGranted" ng-class="{'error': error === 'CardException'}" class="form-group">
                 <div class="form-rel">
                     <input type="text" ng-model="order.card.number" ng-pattern="/^\d{16}$/" ng-change="orderChange('card')" name="cardNumber" placeholder="Kreditkarten-Nummer" required />
                     <div class="form-response" ng-show="formSignup.cardNumber.$dirty && formSignup.cardNumber.$invalid">
