@@ -60,6 +60,12 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     }
 }
 
+.chosen-valid {
+    .chosen-single {
+        border-color: $colorSuccess;
+    }
+}
+
 .input-search {
     position: relative;
     display: inline-block;
@@ -200,11 +206,12 @@ textarea {
     margin: 35px 0;
     text-align: left;
     &.error {
-        input[type="text"], input[type="password"],  input[type="email"], textarea {
-            &.ng-dirty {
-                border-color: $colorError;
-            }
+        input[type="text"], input[type="password"],  input[type="email"], textarea, .chosen-single {
+            border-color: $colorError!important;
         }
+    }
+    &.center {
+        text-align: center;
     }
 }
 .form-title {
@@ -270,6 +277,18 @@ textarea {
             }
         }
     }
+    .form-label {
+        font-size: 15px;
+        color: $colorGrey;
+        font-weight: normal;
+        &.required {
+            &:before {
+                content: "*";
+                padding-right: 5px;
+                color: $colorError;
+            }
+        }
+    }
     .form-rel {
         margin: 6px 0;
         width: 100%;
@@ -288,10 +307,6 @@ textarea {
 .form-button {
     @extend %form-button;
     width: 100%;
-}
-.form-label {
-    font-size: 15px;
-    color: $colorGrey;
 }
 
 .form-response {
@@ -334,6 +349,9 @@ textarea {
 .form-message {
     font-size: 15px;
     margin: 5px;
+    .fa {
+        margin-right: 5px; 
+    }
     @media (max-width: $containerMobileWidth) {
         font-size: 26px;
         margin: 10px;

@@ -344,6 +344,12 @@ angular.module('boltApp')
 
                         return RestApi.query({route: 'studios'}).$promise;
 
+                    },
+
+                    getCards: function($http) {
+
+                        return $http.get('json/cards.json', {cache: true});
+
                     }
 
                 }

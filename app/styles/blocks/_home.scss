@@ -450,9 +450,21 @@
         strong {
             font-weight: normal;
             font-size: 22px;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 42px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 22px;
+            }
             &.old {
                 text-decoration: line-through;
                 font-size: 16px;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 28px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 16px;
+                }
             }
         }
         b {

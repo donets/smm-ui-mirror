@@ -114,7 +114,7 @@
         }
         button {
             @extend %form-button;
-            background: $colorGrey;
+            background: $colorLink;
             min-width: 0;
             width: 150px;
             font-size: 18px;
@@ -122,18 +122,18 @@
             padding: 0;
             margin: 0 0 30px;
             &:hover {
-                background: $colorGrey;
+                background: $colorGreen;
             }
             &:active {
-                background: $colorGrey;
+                background: $colorGreen;
             }
             &.active {
-                background: $colorLink;
+                background: $colorGreen;
                 &:hover {
-                    background: $colorLink;
+                    background: $colorGreen;
                 }
                 &:active {
-                    background: $colorLink;
+                    background: $colorGreen;
                 }
                 .fa {
                     &:before {
@@ -160,20 +160,52 @@
             margin-top: 0;
         }
     }
-    .form-response {
-        top: 0;
-        left: 100%;
-        width: 290px;
-        line-height: 30px;
-        margin: 0 15px;
+    .form-rel {
+        margin: 0 0 10px;
     }
-    input[type="text"] {
-        &.short {
-            width: 162px;
+    .form-label {
+        height: 20px;
+        vertical-align: top;
+    }
+    .form-response {
+        display: table;
+        bottom: 0;
+        left: 100%;
+        top: initial;
+        width: 290px;
+        height: 42px;
+        margin: 0 15px;
+        .form-message {
+            vertical-align: middle;
+            display: table-cell;
         }
     }
-    .short {
-        width: 162px;
+    input[type="text"] {
+        &.two-third {
+            width: 320px;
+        }
+        &.third {
+            width: 160px;
+        }
+        &.half {
+            width: 240px;
+        }
+    }
+    .two-third {
+        width: 320px;
+    }
+    .third {
+        width: 160px;
+    }
+    .half {
+        width: 240px;
+    }
+    .show-voucher {
+        font-size: 18px;
+        font-family: $fontBold;
+        outline: none;
+        color: $colorGreen;
+        text-decoration: none;
     }
 }
 .select-card {
@@ -186,6 +218,9 @@
 .type-message {
     margin: -40px 0 20px;
     line-height: 20px;
+}
+.stripe {
+    background: url("/images/stripe.svg") top right no-repeat;
 }
 .signup {
     .b-studios {

@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', [])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'getStudios', '$sce', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, getStudios, $sce, $window, $modal) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$http', 'parallaxHelper', 'getStudios', 'getCards', '$sce', '$window', '$modal', function ($scope, $rootScope, $http, parallaxHelper, getStudios, getCards, $sce, $window, $modal) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -30,9 +30,29 @@ angular.module('boltApp.controllers.Getcard', [])
             }
         };
 
+        $scope.Math = $window.Math;
+        $scope.cards = getCards.data;
+        $scope.showDiscount = moment().isBefore('2015-01-01', 'year');
+
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
         });
+
+        var setVoucher = function (code) {
+            if ($scope.showDiscount) {
+                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
+                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
+                        $scope.voucher = res;
+                    }
+                }).error(function (res) {
+                    console.log(res);
+                    $scope.voucher = null;
+                });
+            }
+        };
+
+        setVoucher('EARLY_BIRD_2014');
+
 
         $scope.subscribeCard = function (locate) {
             $scope.loadingSubscribe = true;

@@ -109,82 +109,42 @@
         <p class="subtitle">Kurse besuchen ab 1. Januar.</p>
         <div class="trial"><p><b>Kostenloser Probemonat!</b><span>Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld komplett zurück.</span></p></div>
         <ul ng-if="desktop" class="b-price-list">
-            <li>
-                <img class="card-image" src="images/card-lite.png" alt=""/>
-                <h3>White Card Lite<p><strong class="old">39€</strong> <b>31€</b> /Monat</p></h3>
+            <li ng-repeat="card in cards">
+                <img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/>
+                <h3>{{card.name}}<p><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
                 <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
-                    <dt>4x</dt>
+                    <dd>Kurse / Monat:</dd>
+                    <dt>{{card.courses}}</dt>
                     <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>3x</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 1 Monat</dt>
-                </dl>
-            </li><li>
-                <img class="card-image" src="images/card-white.png" alt=""/>
-                <h3>White Card<p><strong class="old">69€</strong> <b>55€</b> /Monat</p></h3>
-                <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
-                    <dt>unbegrenzt</dt>
-                    <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>3x</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 3 Monaten</dt>
-                </dl>
-            </li><li>
-                <img class="card-image" src="images/card-black.png" alt=""/>
-                <h3>Black Card<p><strong class="old">99€</strong> <b>79€</b> /Monat</p></h3>
-                <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
-                    <dt>unbegrenzt</dt>
-                    <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>unbegrenzt</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 3 Monaten</dt>
+                    <dt>{{card.coursesPerSupplier}}</dt>
+                    <dd>Mindestlaufzeit:</dd>
+                    <dt>{{card.minimumTerm}}</dt>
                 </dl>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-price-carousel" interval="-1">
-            <slide>
-                <img class="card-image" src="images/card-lite-1080.png" alt=""/>
-                <h3>White Card Lite<p><strong class="old">39€</strong> <b>31€</b> /Monat</p></h3>
+            <slide ng-repeat="card in cards">
+                <img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite-1080.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white-1080.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black-1080.png" alt=""/>
+                <h3>{{card.name}}<p><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
                 <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
-                    <dt>4x</dt>
+                    <dd>Kurse / Monat:</dd>
+                    <dt>{{card.courses}}</dt>
                     <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>3x</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 1 Monat</dt>
-                </dl>
-            </slide>
-            <slide>
-                <img class="card-image" src="images/card-white-1080.png" alt=""/>
-                <h3>White Card<p><strong class="old">69€</strong> <b>55€</b> /Monat</p></h3>
-                <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
-                    <dt>unbegrenzt</dt>
-                    <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>3x</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 3 Monaten</dt>
-                </dl>
-            </slide>
-            <slide>
-                <img class="card-image" src="images/card-black-1080.png" alt=""/>
-                <h3>Black Card<p><strong class="old">99€</strong> <b>79€</b> /Monat</p></h3>
-                <dl>
-                    <dd>Kurse insgesamt / Monat:</dd>
-                    <dt>unbegrenzt</dt>
-                    <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>unbegrenzt</dt>
-                    <dd>Laufzeit:</dd>
-                    <dt>Monatlich kündbar nach 3 Monaten</dt>
+                    <dt>{{card.coursesPerSupplier}}</dt>
+                    <dd>Mindestlaufzeit:</dd>
+                    <dt>{{card.minimumTerm}}</dt>
                 </dl>
             </slide>
         </carousel>
         <form class="b-card-subscribe" ng-submit="subscribeCard('price')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Kostenlos anmelden"/>
-            <span>Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</span>
+            <span ng-if="showDiscount">Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</span>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>

@@ -11,18 +11,22 @@ angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getCards, getStudios) {
         $scope.Math = $window.Math;
         $scope.startDate = moment.max(moment('2015-01-01'), moment()).format('DD.MM.YYYY');
+        $scope.showDiscount = moment().isBefore('2015-01-01', 'year');
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
         });
         $scope.cards = getCards.data;
+        $scope.month = _.range(1, 13);
+        $scope.year = _.range(2014, 2033);
         $scope.order = {
             deliveryAddress: {
+                city: "Berlin",
                 countryCode: 'DE'
             },
             newsletter: true
         };
 
-        /*$scope.order = {
+        $scope.order = {
             "firstName": "Vlad",
             "lastName": "Donets",
             "email": "test3@somuchmore.org",
@@ -40,14 +44,14 @@ angular.module('boltApp.controllers.Signup', [])
             "card": {
                 "number": "5555555555554444",
                 "cvc": "123",
-                "exp_month": "8",
-                "exp_year": "2015",
+                "exp_month": 8,
+                "exp_year": 2015,
                 "name": "Max Musterman"
             }
-        };*/
+        };
 
         var setVoucher = function (code) {
-            if (moment().isBefore('2015-01-01', 'year') && !$scope.order.voucher) {
+            if ($scope.showDiscount && !$scope.order.voucher) {
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.order.voucher = $scope.code;
@@ -72,7 +76,7 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.loadingVoucher = true;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.code).success(function (res) {
                     $scope.loadingVoucher = false;
-                    if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01', 'year')) {
+                    if(res.valid && res.freeSubscriptionGranted && $scope.showDiscount) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
