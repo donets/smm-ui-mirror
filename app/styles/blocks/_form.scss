@@ -276,11 +276,6 @@ textarea {
                 text-decoration: none;
             }
         }
-    }
-    .form-label {
-        font-size: 15px;
-        color: $colorGrey;
-        font-weight: normal;
         &.required {
             &:before {
                 content: "*";
@@ -288,6 +283,11 @@ textarea {
                 color: $colorError;
             }
         }
+    }
+    .form-label {
+        font-size: 15px;
+        color: $colorGrey;
+        font-weight: normal;
     }
     .form-rel {
         margin: 6px 0;

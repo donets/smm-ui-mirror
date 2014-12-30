@@ -1,27 +1,10 @@
 <div class="b-main-cover signup-cover">
-    <div class="container">
-        <div class="signup-title">
-            <h2>Herzlich willkommen!</h2>
-            <p class="subtitle">Hier kannst Du Deine Karte bestellen.</p>
-        </div>
-        <ul class="b-signup-list">
-            <li>
-                <b>Probemonat!</b>
-                <span>(Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück)</span>
-            </li><li>
-                <b>Keine <br> Aufnahmegebühr</b>
-            </li><li>
-                <b>Keine lange Vertragslaufzeit</b>
-            </li><li>
-                <b>+30 Premium-Studios</b>
-            </li>
-        </ul>
+    <div class="b-main-slogan">
+        <h2>Wähle Deine Karte</h2>
     </div>
 </div>
 <div class="b-order">
     <div class="container">
-        <div class="special-offer" ng-if="showDiscount"><p><b>20%</b> zur Begrüßung</p></div>
-        <p ng-if="showDiscount">Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</p>
         <ul class="b-select-card" id="cards">
             <li ng-repeat="card in cards">
                 <img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
@@ -40,10 +23,11 @@
                 <button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li>
         </ul>
+        <p ng-if="showDiscount">Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</p>
         <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <div class="form-group">
-                <label class="form-label required" for="name">Name</label>
+                <label class="form-label required" for="name">Rechnungsinformationen</label>
                 <div class="form-rel flex">
                     <div class="half">
                         <input type="text" ng-model="order.firstName" id="name" name="name" class="half" placeholder="Vorname" required />
@@ -82,10 +66,6 @@
                     <div class="form-response" ng-show="formSignup.street.$dirty && formSignup.street.$invalid">
                         <div ng-show="formSignup.street.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                     </div>
-                </div>
-                <div class="form-rel">
-                    <label class="form-label" for="prefix">Adress-Zusatz</label>
-                    <input type="text" ng-model="order.deliveryAddress.prefix" ng-pattern="/[a-zA-Z]+/" id="prefix" name="prefix" placeholder="Etage, Eingang, c/o"/>
                 </div>
                 <div class="form-rel">
                     <label class="form-label required" for="zip">Postleitzahl</label>
@@ -167,36 +147,21 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-rel">
-                    <div class="form-check">
-                        <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
-                        <i class="fa"></i><label for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
-                    </div>
-                </div>
-                <div class="form-rel">
-                    <div class="form-check">
-                        <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
-                        <i class="fa"></i>
-                        <label for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
-                    </div>
-                </div>
-            </div>
             <div class="form-overview" ng-if="overview">
-                <h3 class="form-title">Schließe Deine Bestellung ab!</h3>
+                <h3 class="form-title">Deine Bestellung</h3>
                 <ul>
                     <li>
                         <b>Karte:</b>
                         <p>{{overview.card}}</p>
                     </li><li ng-if="!voucher || (!voucher.freeSubscriptionGranted && voucher.discountDuarationInMonths)">
-                        <b>Regulärer Preis:</b>
-                        <p>{{overview.price}}€ / Monat</p>
+                        <b>Monatlicher Preis:</b>
+                        <p>{{overview.price}}€</p>
                     </li><li ng-if="voucher.freeSubscriptionGranted">
                         <b>Sonderpreis:</b>
-                        <p>0€ / Monat</p>
+                        <p>0€</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <b>Ermäßigter Preis:</b>
-                        <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths">/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
+                        <b>Monatlicher Preis (ermäßigt):</b>
+                        <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths"> für {{voucher.discountDuarationInMonths}} Monate</span></p>
                     </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
                         <b>Beginn Mitgliedschaft:</b>
                         <p>{{startDate}}</p>
@@ -213,17 +178,46 @@
                     </li>
                 </ul>
             </div>
+            <div class="form-group">
+                <div class="form-rel">
+                    <div class="form-check">
+                        <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
+                        <i class="fa"></i><label for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
+                    </div>
+                </div>
+                <div class="form-rel">
+                    <div class="form-check">
+                        <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
+                        <i class="fa"></i>
+                        <label class="required" for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
+                    </div>
+                </div>
+            </div>
             <div class="form-rel" ng-show="showSpinner">
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             </div>
-            <button type="submit" ng-hide="showSpinner" ng-disabled="!formSignup.$valid">Karte bestellen</button>
+            <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formSignup.$valid">Kostenpflichtig bestellen</button>
             <div class="form-group center">
                 <div class="form-error" ng-if="error === 'CardException'">Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}</div>
                 <div class="form-error" ng-if="error === 'AccountExists'">Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail</div>
-                <div ng-if="!formSignup.$valid">Bitte wähle die Art Deiner Karte und fülle alle mit <span class="form-error">*</span> markierten Felder aus</div>
+                <div ng-if="!formSignup.$valid">Bitte wähle die Art Deiner Karte, fülle alle mit <span class="form-error">*</span> markierten Felder aus und akzeptiere AGB und Datenschutzbestimmung.</div>
             </div>
         </form>
     </div>
+</div>
+<div class="container">
+    <ul class="b-signup-list">
+        <li>
+            <b>Probemonat!</b>
+            <span>(Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück)</span>
+        </li><li>
+            <b>Keine <br> Aufnahmegebühr</b>
+        </li><li>
+            <b>Keine lange Vertragslaufzeit</b>
+        </li><li>
+            <b>+30 Premium-Studios</b>
+        </li>
+    </ul>
 </div>
 <div class="b-card b-benefits">
     <div class="container" disable-animate>

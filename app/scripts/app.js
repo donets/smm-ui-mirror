@@ -372,6 +372,12 @@ angular.module('boltApp')
 
                     }
 
+                },
+                onEnter: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '350px') : 0;
+                },
+                onExit: function($rootScope){
+                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 }
             })
             .state('profile', {

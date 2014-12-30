@@ -5,12 +5,12 @@
 <g>
 	<g>
 		<g>
-			<path fill="#FFFFFF" d="M25,2c12.7,0,23,10.3,23,23S37.7,48,25,48S2,37.7,2,25S12.3,2,25,2 M25,0C11.2,0,0,11.2,0,25
+			<path fill="#79BD8F" d="M25,2c12.7,0,23,10.3,23,23S37.7,48,25,48S2,37.7,2,25S12.3,2,25,2 M25,0C11.2,0,0,11.2,0,25
 				c0,13.8,11.2,25,25,25s25-11.2,25-25C50,11.2,38.8,0,25,0L25,0z"/>
 		</g>
 	</g>
 	
-		<polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		<polyline fill="none" stroke="#79BD8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
 		16.2,26 21.4,31.2 33.8,18.8 	"/>
 </g>
 </svg>

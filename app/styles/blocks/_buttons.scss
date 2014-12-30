@@ -18,6 +18,15 @@
     padding: 0 20px;
     outline: none;
     text-decoration: none;
+    &.large {
+        @media (min-width: $containerMobileWidth) {
+            height: 48px;
+            font-size: 20px;
+            line-height: 48px;
+            min-width: 320px;
+            padding: 0 20px;
+        }
+    }
     &.small {
         @media (min-width: $containerMobileWidth) {
             height: 36px;

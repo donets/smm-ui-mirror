@@ -26,7 +26,7 @@ angular.module('boltApp.controllers.Signup', [])
             newsletter: true
         };
 
-        $scope.order = {
+        /*$scope.order = {
             "firstName": "Vlad",
             "lastName": "Donets",
             "email": "test3@somuchmore.org",
@@ -48,7 +48,7 @@ angular.module('boltApp.controllers.Signup', [])
                 "exp_year": 2015,
                 "name": "Max Musterman"
             }
-        };
+        };*/
 
         var setVoucher = function (code) {
             if ($scope.showDiscount && !$scope.order.voucher) {

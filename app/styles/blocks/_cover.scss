@@ -75,6 +75,7 @@
     }
     &.signup-cover {
         background-image: url("/images/signup-2880.jpg");
+        height: 350px;
         @media (max-width: 1440px) {
             background-image: url("/images/signup-1440.jpg");
         }
@@ -83,7 +84,6 @@
         }
     }
     &.profile-cover {
-        height: 550px;
         background-image: url("/images/profile-2880.jpg");
         @media (max-width: 1440px) {
             height: 350px;
