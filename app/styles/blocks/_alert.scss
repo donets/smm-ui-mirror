@@ -1,7 +1,11 @@
 @import "../_base/base";
 
 .b-alert {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
     font-size: 18px;
     line-height: 20px;
     color: #fff;

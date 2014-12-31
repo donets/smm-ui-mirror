@@ -1,29 +1,29 @@
 
-@mixin my-placeholder($color) {
+@mixin my-placeholder($color, $opacity) {
     @if $ie > 9 {
         &:-moz-placeholder {
             color: $color;
-            opacity: 1;
+            opacity: $opacity;
             @content;
         }
         &::-moz-placeholder {
             color: $color;
-            opacity: 1;
+            opacity: $opacity;
             @content;
         }
         &:-ms-placeholder {
             color: $color;
-            opacity: 1;
+            opacity: $opacity;
             @content;
         }
         &::-webkit-input-placeholder {
             color: $color;
-            opacity: 1;
+            opacity: $opacity;
             @content;
         }
         &.placeholder {
             color: $color;
-            opacity: 1;
+            opacity: $opacity;
             @content;
         }
     }

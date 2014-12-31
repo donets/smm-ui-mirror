@@ -196,21 +196,31 @@ angular.module('boltApp')
             };
         }];
     })
-    .factory('resourceInterceptor', function($rootScope) {
+    .factory('resourceInterceptor', function($rootScope, $timeout) {
         return {
             response: function (response) {
                 $rootScope.success = response;
                 $rootScope.success.show = true;
+                $timeout(function () {
+                    $rootScope.success = null;
+                }, 60000);
                 return response;
             }
         };
     })
-    .factory('myHttpInterceptor', ['$q', '$rootScope', function ($q, $rootScope) {
+    .factory('myHttpInterceptor', ['$q', '$rootScope', '$timeout', function ($q, $rootScope, $timeout) {
         return {
             responseError: function responseError(rejection) {
                 $rootScope.rejection = rejection;
-                $rootScope.rejection.show = true;
-                console.error(rejection);
+                console.log(rejection.data.type);
+                var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'NotFoundException'];
+                $rootScope.handledType = _.include(types, rejection.data.type);
+                console.log($rootScope.handledError);
+                console.log($rootScope.handledType);
+                $rootScope.rejection.show = !($rootScope.handledError && $rootScope.handledType);
+                $timeout(function () {
+                    $rootScope.rejection = null;
+                }, 60000);
                 return $q.reject(rejection);
             }
         };

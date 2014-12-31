@@ -74,8 +74,10 @@ angular.module('boltApp.controllers.Signup', [])
             setVoucher('EARLY_BIRD_2014');
             if ($scope.code) {
                 $scope.loadingVoucher = true;
+                $rootScope.handledError = true;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.code).success(function (res) {
                     $scope.loadingVoucher = false;
+                    $rootScope.handledError = false;
                     if(res.valid && res.freeSubscriptionGranted && $scope.showDiscount) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
@@ -91,7 +93,8 @@ angular.module('boltApp.controllers.Signup', [])
                 }).error(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
-                    $scope.errorVoucher = 'valid';
+                    $rootScope.handledError = false;
+                    $scope.errorVoucher = res.type === 'NotFoundException' ? 'valid' : true;
                 });
             } else {
                 $scope.formSignup.voucher.$setPristine();
@@ -114,10 +117,12 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.error = null;
                 $scope.errorMsg = '';
                 $scope.showSpinner = true;
+                $rootScope.handledError = true;
                 $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
-                    console.log(response);
                     $scope.showSpinner = false;
+                    $rootScope.handledError = false;
+                    console.log(response);
                     $window.ga('send', 'event', 'Signup', 'onOrder');
                     $rootScope.userName = response.user.name;
                     $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
@@ -127,6 +132,7 @@ angular.module('boltApp.controllers.Signup', [])
                 }).error(function (response) {
 
                     $scope.showSpinner = false;
+                    $rootScope.handledError = false;
                     $scope.error = response.type;
                     $scope.errorMsg = response.message;
                 });

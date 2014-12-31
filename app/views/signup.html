@@ -26,8 +26,9 @@
         <p ng-if="showDiscount">Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</p>
         <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
+            <h3 class="form-title">Rechnungsinformationen</h3>
             <div class="form-group">
-                <label class="form-label required" for="name">Rechnungsinformationen</label>
+                <label class="form-label required" for="name">Name</label>
                 <div class="form-rel flex">
                     <div class="half">
                         <input type="text" ng-model="order.firstName" id="name" name="name" class="half" placeholder="Vorname" required />
@@ -182,14 +183,13 @@
                 <div class="form-rel">
                     <div class="form-check">
                         <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
-                        <i class="fa"></i><label for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
+                        <i class="fa"></i><label class="required" for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
                     </div>
                 </div>
                 <div class="form-rel">
                     <div class="form-check">
                         <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
-                        <i class="fa"></i>
-                        <label class="required" for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
+                        <i class="fa"></i><label for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
                     </div>
                 </div>
             </div>

@@ -86,10 +86,12 @@ angular.module('boltApp.controllers.Login', [])
         $scope.login = function () {
             $scope.loadingLogin = true;
             $scope.errorLogin = false;
+            $rootScope.handledError = true;
             console.log($scope.isPopupVisible);
             $http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
                 console.log(response);
                 $scope.loadingLogin = false;
+                $rootScope.handledError = false;
                 $rootScope.userName = response.user.name;
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
@@ -98,7 +100,8 @@ angular.module('boltApp.controllers.Login', [])
                 console.error(response);
                 console.error(status);
                 $scope.loadingLogin = false;
-                $scope.errorLogin = true;
+                $scope.errorLogin = response.type === 'WrongUsernameOrPassword';
+                $rootScope.handledError = false;
             });
         };
 
