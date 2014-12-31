@@ -62,7 +62,7 @@
                 <tbody ng-if="!value.hide">
                     <tr ng-repeat="c in value">
                         <td></td>
-                        <td>{{c.start_date | amDateFormat: 'dddd, D MMMM YYYY'}} ({{c.startTime}} to {{c.endTime}})</td>
+                        <td>{{c.start_date | amDateFormat: 'dddd, D MMMM YYYY HH:mm'}} ({{c.startTime}} to {{c.endTime}}) {{c.start_date}}</td>
                         <td>
                             <div class="controls">
                                 <a href="" ng-click="editSingle(c)"><i class="fa fa-pencil"></i></a>

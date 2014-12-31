@@ -127,7 +127,7 @@ angular.module('boltApp.controllers.Class', [])
         $scope.updateSchedule = function() {
             var et = moment(moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z');
             var st = moment(moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z');
-            if($scope.schedule.endDate && !moment($scope.schedule.endDate).hours(0).minutes(0).utc().isAfter(moment($scope.schedule.startDate).hours(0).minutes(0).utc(), 'days')) {
+            if($scope.schedule.endDate && !moment($scope.schedule.endDate).hours(0).minutes(0).isAfter(moment($scope.schedule.startDate).hours(0).minutes(0), 'days')) {
                 $scope.schedule.endDate = null;
             }
             $scope.minEndDate = moment($scope.schedule.startDate).add(1, 'd');
@@ -222,8 +222,8 @@ angular.module('boltApp.controllers.Class', [])
             }
             for (var d = 0; d<= $scope.schedule.times; d++) {
                 var obj = {
-                    start_date: moment(date).add(d, step).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z',
-                    end_date: moment(date).add(d, step).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z',
+                    start_date: moment.tz(date, 'Europe/Berlin').add(d, step).hours($scope.schedule.startTime.split(':')[0]).minutes($scope.schedule.startTime.split(':')[1]),
+                    end_date: moment.tz(date, 'Europe/Berlin').add(d, step).hours($scope.schedule.endTime.split(':')[0]).minutes($scope.schedule.endTime.split(':')[1]),
                     parent_event_id: +$rootScope.$stateParams.classId
                 };
                 arr.push(obj);
@@ -238,8 +238,8 @@ angular.module('boltApp.controllers.Class', [])
             switch ($scope.schedule.repeat) {
                 case 'Single': {
                     var obj = new RestApi();
-                    obj.start_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.startTime + ':00.000Z';
-                    obj.end_date = moment($scope.schedule.startDate).format('YYYY-MM-DD[T]') + $scope.schedule.endTime + ':00.000Z';
+                    obj.start_date = moment.tz($scope.schedule.startDate, 'Europe/Berlin').hours($scope.schedule.startTime.split(':')[0]).minutes($scope.schedule.startTime.split(':')[1]);
+                    obj.end_date = moment.tz($scope.schedule.startDate, 'Europe/Berlin').hours($scope.schedule.endTime.split(':')[0]).minutes($scope.schedule.endTime.split(':')[1]);
                     if ($scope.newEvent) {
                         obj.parent_event_id = +$rootScope.$stateParams.classId;
                         obj.$save({route: 'occurrences'}).then(function () {
@@ -286,7 +286,6 @@ angular.module('boltApp.controllers.Class', [])
 
         $scope.editSingle = function(c) {
             $scope.showScheduleFunc();
-            c.startDate = c.start_date;
             c.repeat = 'Single';
             $scope.schedule = c;
             $scope.updateSchedule();
@@ -319,8 +318,10 @@ angular.module('boltApp.controllers.Class', [])
         var groupOccurrences = function (occurrences) {
             occurrences = _.sortBy(occurrences, 'start_date');
             _.each(occurrences, function(obj) {
-                var startDate = moment(obj.start_date).utc();
-                var endDate = moment(obj.end_date).utc();
+                var startDate = moment.tz(obj.start_date, 'Europe/Berlin');
+                var endDate = moment.tz(obj.end_date, 'Europe/Berlin');
+                obj.startDate = startDate;
+                obj.endDate = endDate;
                 obj.startTime = startDate.format('HH:mm');
                 obj.endTime = endDate.format('HH:mm');
                 obj.duration = moment.duration(endDate.diff(startDate)).asMinutes();
@@ -340,11 +341,11 @@ angular.module('boltApp.controllers.Class', [])
                     obj[et] = _.groupBy(val, 'weekday');
                     var memo = null;
                     _.each(val, function (c, j) {
-                        var curr = moment(c.start_date);
-                        if (memo && curr.isSame(moment(memo.start_date).add(1, 'w'))) {
+                        var curr = moment(c.startDate);
+                        if (memo && curr.isSame(moment(memo.startDate).add(1, 'w'))) {
                             c.weekly = memo.weekly;
                             c.daily = c.year + '' + c.day + '' + st.replace(':','') + '' + et.replace(':','') + j;
-                        } else if (memo && curr.isSame(moment(memo.start_date).add(1, 'd'))) {
+                        } else if (memo && curr.isSame(moment(memo.startDate).add(1, 'd'))) {
                             c.weekly = c.year + '' + c.day + '' + st.replace(':','') + '' + et.replace(':','') + j;
                             c.daily = memo.daily;
                         } else {
@@ -394,7 +395,7 @@ angular.module('boltApp.controllers.Class', [])
             $scope.groupByWeekly = _.groupBy($scope.groupByWeekly, 'weekly');
             _.map($scope.groupByWeekly, function (obj) {
                 obj.repeat = 'Weekly';
-                obj.day = 'on ' + moment(_.first(obj).start_date).utc().format('dddd');
+                obj.day = 'on ' + moment(_.first(obj).startDate).format('dddd');
                 obj.weekday = _.first(obj).weekday;
             });
             $scope.groupByAll = _.extend(_.clone($scope.groupByDaily), _.clone($scope.groupByWeekly));
@@ -402,9 +403,9 @@ angular.module('boltApp.controllers.Class', [])
                 return +key;
             });
             _.map($scope.groupByAll, function (obj) {
-                obj.frame = 'Starting ' + moment(_.first(obj).start_date).utc().format('MMMM D YYYY') + (obj.length > 1 ? ' through ' + moment(_.last(obj).start_date).utc().format('MMMM D YYYY') : '');
-                obj.startDate = _.first(obj).start_date;
-                obj.endDate = _.last(obj).end_date;
+                obj.frame = 'Starting ' + moment(_.first(obj).startDate).format('MMMM D YYYY HH:mm') + (obj.length > 1 ? ' through ' + moment(_.last(obj).startDate).format('MMMM D YYYY') : '');
+                obj.startDate = _.first(obj).startDate;
+                obj.endDate = _.last(obj).endDate;
                 obj.startTime = _.first(obj).startTime;
                 obj.endTime = _.last(obj).endTime;
                 obj.hide = true;
