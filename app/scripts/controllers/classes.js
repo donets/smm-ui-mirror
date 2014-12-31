@@ -13,15 +13,12 @@ angular.module('boltApp.controllers.Classes', [])
             $scope.classes = res[0];
             $scope.studios = res[1];
             _.map($scope.classes, function (obj) {
-                obj.studio = obj.studioId ? _.findWhere($scope.studios, {id: obj.studioId}).name : '';
+                var studio = _.findWhere($scope.studios, {id: obj.studioId});
+                obj.studio = obj.studioId && studio ? studio.name : '';
             });
         });
         $scope.clearFilters = function () {
-            $scope.search = {
-                title: '',
-                teacherName: '',
-                studioId: ''
-            };
+            $scope.search = {};
         };
         $scope.clearFilters();
         $scope.levels = [

@@ -12,8 +12,10 @@ angular.module('boltApp.controllers.Dashboard', [])
         $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
-                obj.studio = obj.studioId ? _.findWhere(res[2], {id: obj.studioId}).name : '';
-                obj.location = obj.locationId ? _.findWhere(res[3], {id: obj.locationId}).neigbourhood : '';
+                var studio = _.findWhere(res[2], {id: obj.studioId});
+                var location = _.findWhere(res[3], {id: obj.locationId});
+                obj.studio = obj.studioId && studio ? studio.name : '';
+                obj.location = obj.locationId && location ? location.neigbourhood : '';
             });
             $scope.disciplines = _.uniq(_.pluck(res[0], 'discipline'));
             $scope.styles = _.uniq(_.pluck(res[0], 'style'));

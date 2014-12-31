@@ -26,7 +26,7 @@ angular.module('boltApp.controllers.CreateClass', [])
             $scope.class.status = status;
             $scope.class.$save({route: 'events'}).then(function (res) {
                 console.log(res);
-                $rootScope.$state.go('admin.classes.class', {classId: res.id});
+                $rootScope.$state.go('admin.classes.class', {classId: res.data.id});
             });
         };
 

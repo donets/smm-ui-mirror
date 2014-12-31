@@ -4,7 +4,6 @@
             <h2><a ui-sref="admin.classes.list">Classes</a> / {{class.title || 'New Class'}}</h2>
             <div class="info" ng-if="$stateParams.classId">
                 <p>{{occurrences.length}} Classes scheduled</p>
-                <p>{{class.location}}</p>
                 <p class="status" ng-class="{'green': class.status === 'LIVE'}">{{class.status}}</p>
             </div>
         </div>

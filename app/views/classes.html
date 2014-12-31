@@ -16,10 +16,9 @@
             </select>
             <select chosen
                     id="level"
-                    ng-model="level"
+                    ng-model="search.levels"
                     data-placeholder="Alle Levels"
                     disable-search="true"
-                    allow-single-deselect="true"
                     ng-options="item.id as item.text for item in levels">
                 <option value=""></option>
             </select>

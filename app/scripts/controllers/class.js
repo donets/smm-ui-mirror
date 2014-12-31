@@ -30,14 +30,13 @@ angular.module('boltApp.controllers.Class', [])
         });
 
         $scope.save = function (status) {
-            $scope.class = new RestApi();
             $scope.class.status = status;
             $scope.class.$update({route: 'events'}).then(function (res) {
-                $rootScope.$state.go('admin.classes.class', {classId: res.id});
+                console.log(res);
+                $rootScope.$state.go('admin.classes.class', {classId: $rootScope.$stateParams.classId});
             });
         };
         $scope.remove = function () {
-            $scope.class = new RestApi();
             $scope.class.$delete({route: 'events'}).then(function (res) {
                 console.log(res);
                 $rootScope.$state.go('admin.classes.list');

@@ -643,7 +643,7 @@ angular.module('boltApp')
                         $scope.save = function () {
                             $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
                                 console.log(res);
-                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.id || res.data.code)});
+                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.data.id || res.data.code)});
                             });
                         };
 
