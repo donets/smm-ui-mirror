@@ -32,7 +32,7 @@ angular.module('boltApp.controllers.Getcard', [])
 
         $scope.Math = $window.Math;
         $scope.cards = getCards.data;
-        $scope.showDiscount = moment().isBefore('2015-01-01', 'year');
+        $scope.showDiscount = moment().isBefore('2015-02-01');
 
         getStudios.$promise.then(function (res) {
             $scope.studios = res;

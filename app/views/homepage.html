@@ -28,7 +28,6 @@
     <div class="container" disable-animate>
         <h2 ng-style="{ 'line-height' : desktop && windowHeight*0.1 + 'px', 'margin-top' : 0 }">Eine Karte für ganz Berlin.</h2>
         <p class="subtitle">Entdecke mit nur einer Mitgliedschaft immer wieder neue Studios und Kurse in der ganzen Stadt.</p>
-        <p class="subtitle">Start ab 1. Januar.</p>
         <div class="trial" ng-if="mobile"><p><b>Kostenloser Probemonat!</b><span>Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld komplett zurück.</span></p></div>
         <img class="cards-image" ng-if="mobile" src="images/falling-cards.png" />
         <ul ng-if="desktop" class="b-card-list">
@@ -106,7 +105,6 @@
     <div class="container" disable-animate>
         <h2>Deine Karte</h2>
         <p class="subtitle">Bestelle Deine Karte – und entfalte Körper, Geist und Seele.</p>
-        <p class="subtitle">Kurse besuchen ab 1. Januar.</p>
         <div class="trial"><p><b>Kostenloser Probemonat!</b><span>Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld komplett zurück.</span></p></div>
         <ul ng-if="desktop" class="b-price-list">
             <li ng-repeat="card in cards">
@@ -144,7 +142,7 @@
         </carousel>
         <form class="b-card-subscribe" ng-submit="subscribeCard('price')">
             <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Kostenlos anmelden"/>
-            <span ng-if="showDiscount">Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</span>
+            <span ng-if="showDiscount">Melde Dich vor dem 1. Februar an und zahle 3 Monate lang 20% weniger.</span>
             <div class="form-response">
                 <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>

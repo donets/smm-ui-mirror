@@ -11,7 +11,7 @@ angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getCards, getStudios) {
         $scope.Math = $window.Math;
         $scope.startDate = moment.max(moment('2015-01-01'), moment()).format('DD.MM.YYYY');
-        $scope.showDiscount = moment().isBefore('2015-01-01', 'year');
+        $scope.showDiscount = moment().isBefore('2015-02-01');
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
         });
@@ -54,7 +54,7 @@ angular.module('boltApp.controllers.Signup', [])
             if ($scope.showDiscount && !$scope.order.voucher) {
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
-                        $scope.order.voucher = $scope.code;
+                        $scope.order.voucher = code;
                         $scope.voucher = res;
                     }
                 }).error(function (res) {
@@ -66,23 +66,23 @@ angular.module('boltApp.controllers.Signup', [])
 
         setVoucher('EARLY_BIRD_2014');
 
-        $scope.checkVoucher = function () {
+        $scope.checkVoucher = function (code) {
             $scope.successVoucher = false;
             $scope.errorVoucher = false;
             $scope.voucher = null;
             $scope.order.voucher = null;
             setVoucher('EARLY_BIRD_2014');
-            if ($scope.code) {
+            if (code) {
                 $scope.loadingVoucher = true;
                 $rootScope.handledError = true;
-                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + $scope.code).success(function (res) {
+                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
-                    if(res.valid && res.freeSubscriptionGranted && $scope.showDiscount) {
+                    if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01')) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
-                        $scope.order.voucher = $scope.code;
+                        $scope.order.voucher = code;
                         $scope.voucher = res;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
@@ -104,7 +104,7 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.changeType = function () {
             $scope.typeMessage = false;
             setVoucher('EARLY_BIRD_2014');
-            $scope.checkVoucher();
+            $scope.checkVoucher($scope.code);
             $scope.overview = {
                 card: _.findWhere($scope.cards, {type: $scope.order.type}).name,
                 price: _.findWhere($scope.cards, {type: $scope.order.type}).price

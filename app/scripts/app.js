@@ -213,7 +213,7 @@ angular.module('boltApp')
             responseError: function responseError(rejection) {
                 $rootScope.rejection = rejection;
                 console.log(rejection.data.type);
-                var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'NotFoundException'];
+                var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException'];
                 $rootScope.handledType = _.include(types, rejection.data.type);
                 console.log($rootScope.handledError);
                 console.log($rootScope.handledType);

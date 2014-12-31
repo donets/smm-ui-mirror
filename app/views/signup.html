@@ -1,6 +1,7 @@
 <div class="b-main-cover signup-cover">
     <div class="b-main-slogan">
         <h2>Wähle Deine Karte!</h2>
+        <p>Hier kannst Du Deine Karte wählen, um mit einem monatlichen Betrag 500+ Kurse pro Woche bei 30+ Premium-Anbietern für Yoga, Pilates, Fitness, Wellness, Kampfkunst, Tanz, Meditation, Ernährung und Gesundheit zu besuchen. </p>
     </div>
 </div>
 <div class="b-order">
@@ -23,7 +24,7 @@
                 <button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button>
             </li>
         </ul>
-        <p ng-if="showDiscount">Melde Dich vor dem 1. Januar an und zahle 3 Monate lang 20% weniger.</p>
+        <p ng-if="showDiscount">Melde Dich vor dem 1. Februar an und zahle 3 Monate lang 20% weniger.</p>
         <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
         <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <h3 class="form-title">Rechnungsinformationen</h3>
@@ -88,19 +89,6 @@
                 </div>
             </div>
             <h3 ng-if="!voucher.freeSubscriptionGranted" class="form-title stripe">Bezahlung</h3>
-            <div ng-class="{ 'error': errorVoucher }" class="form-group">
-                <a href="" class="show-voucher" ng-click="showVoucher = !showVoucher">Aktionscode hinzufügen</a>
-                <div class="form-rel" ng-show="showVoucher">
-                    <input type="text" ng-model="code" ng-blur="checkVoucher()" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
-                    <div class="form-response">
-                        <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i>Code akzeptiert</div>
-                        <div ng-show="errorVoucher === 'valid'" class="form-message form-error">Kein gültiger Code</div>
-                        <div ng-show="errorVoucher === 'type'" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
-                        <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error">Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden</div>
-                    </div>
-                </div>
-            </div>
             <div ng-if="!voucher.freeSubscriptionGranted" ng-class="{'error': error === 'CardException'}" class="form-group">
                 <div class="form-rel">
                     <label class="form-label required" for="cardNumber">Kreditkarte</label>
@@ -145,6 +133,19 @@
                             <div ng-show="formSignup.cardCVC.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                             <div ng-show="formSignup.cardCVC.$error.pattern" class="form-message form-error">Bitte die 3-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-class="{ 'error': errorVoucher }" class="form-group">
+                <a href="" class="show-voucher" ng-click="showVoucher = !showVoucher">Aktionscode hinzufügen</a>
+                <div class="form-rel" ng-show="showVoucher">
+                    <input type="text" ng-model="code" ng-blur="checkVoucher(code)" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
+                    <div class="form-response">
+                        <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                        <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i>Code akzeptiert</div>
+                        <div ng-show="errorVoucher === 'valid'" class="form-message form-error">Kein gültiger Code</div>
+                        <div ng-show="errorVoucher === 'type'" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
+                        <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error">Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden</div>
                     </div>
                 </div>
             </div>
@@ -196,7 +197,7 @@
             <div class="form-rel" ng-show="showSpinner">
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             </div>
-            <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formSignup.$valid">Kostenpflichtig bestellen</button>
+            <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formSignup.$valid || errorVoucher">Kostenpflichtig bestellen</button>
             <div class="form-group center">
                 <div class="form-error" ng-if="error === 'CardException'">Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}</div>
                 <div class="form-error" ng-if="error === 'AccountExists'">Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail</div>
@@ -223,7 +224,6 @@
     <div class="container" disable-animate>
         <h2>Eine Karte für ganz Berlin.</h2>
         <p class="subtitle">Entdecke mit nur einer Mitgliedschaft immer wieder neue Studios und Kurse in der ganzen Stadt.</p>
-        <p class="subtitle">Start ab 1. Januar.</p>
         <ul ng-if="desktop" class="b-card-list">
             <li>
                 <h3>Auswahl</h3>

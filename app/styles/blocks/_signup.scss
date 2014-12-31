@@ -5,6 +5,10 @@
         @extend %title-light;
         color: $colorText;
     }
+    p {
+        color: $colorText;
+        font-family: $fontRegular;
+    }
 }
 .b-signup-list {
     @include my-resetList();

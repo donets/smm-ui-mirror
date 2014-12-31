@@ -396,9 +396,11 @@ input:-webkit-autofill {
         height: 15px;
         width: 15px;
         z-index: 1;
-        visibility: hidden;
         margin: 0;
         opacity: 0;
+        &:focus ~ .fa {
+            outline: 1px dotted;
+        }
     }
     > .fa {
         position: absolute;
