@@ -188,12 +188,12 @@
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
         <div class="form-rel large" disable-animate>
-            <label class="form-label">Disziplin</label>
-            <tags-input ng-model="tags" on-tag-added="importTag('tags')" on-tag-removed="importTag('tags')"></tags-input>
+            <label class="form-label" for="discipline">Disziplin</label>
+            <input class="form-input" type="text" ng-model="class.discipline" id="discipline"/>
         </div>
         <div class="form-rel large" disable-animate>
-            <label class="form-label">Stil</label>
-            <tags-input ng-model="sub" on-tag-added="importTag('sub')" on-tag-removed="importTag('sub')"></tags-input>
+            <label class="form-label" for="style">Stil</label>
+            <input class="form-input" type="text" ng-model="class.style" id="style"/>
         </div>
         <div class="form-rel large">
             <label class="form-label" for="description">Beschreibung</label>

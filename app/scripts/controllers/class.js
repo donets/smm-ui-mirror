@@ -16,8 +16,6 @@ angular.module('boltApp.controllers.Class', [])
         $scope._ = _;
         getClass.$promise.then(function () {
             $scope.class = getClass;
-            exportTag('tags');
-            exportTag('sub');
         });
 
         getLocations.$promise.then(function () {
@@ -70,13 +68,13 @@ angular.module('boltApp.controllers.Class', [])
             'Fortgeschrittene'
         ];
 
-        var exportTag = function (name) {
+        /*var exportTag = function (name) {
             $scope[name] = _.map($scope.class[name], function(tag) { return { text: tag }; });
         };
 
         $scope.importTag = function (name) {
             $scope.class[name] = _.map($scope[name], function(tag) { return tag.text; });
-        };
+        };*/
 
         setWeekdayList($scope.weekdayList);
 
