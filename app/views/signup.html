@@ -110,13 +110,6 @@
                         <div ng-show="formSignup.cardNumber.$error.pattern" class="form-message form-error">Bitte eine 16-stellige Kartennummer eingeben</div>
                     </div>
                 </div>
-                <! -- <div class="form-rel">
-                    <label class="form-label required" for="cardName">Kreditkarten-Inhaber</label>
-                    <input type="text" ng-model="order.card.name" ng-change="orderChange('card')" id="cardName" name="cardName" placeholder="Max Musterman" required />
-                    <div class="form-response" ng-show="formSignup.cardName.$dirty && formSignup.cardName.$invalid">
-                        <div ng-show="formSignup.cardName.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                    </div>
-                </div> -->
                 <div class="form-rel flex">
                     <div class="third" ng-class="{'chosen-valid': formSignup.cardMonth.$dirty && formSignup.cardMonth.$valid}">
                         <label class="form-label required">Gültig bis</label>
