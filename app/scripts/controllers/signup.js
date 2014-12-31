@@ -71,8 +71,8 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.errorVoucher = false;
             $scope.voucher = null;
             $scope.order.voucher = null;
-            setVoucher('EARLY_BIRD_2014');
             if (code) {
+                $scope.order.voucher = code;
                 $scope.loadingVoucher = true;
                 $rootScope.handledError = true;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -82,7 +82,6 @@ angular.module('boltApp.controllers.Signup', [])
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
-                        $scope.order.voucher = code;
                         $scope.voucher = res;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
@@ -98,12 +97,12 @@ angular.module('boltApp.controllers.Signup', [])
                 });
             } else {
                 $scope.formSignup.voucher.$setPristine();
+                setVoucher('EARLY_BIRD_2014');
             }
         };
 
         $scope.changeType = function () {
             $scope.typeMessage = false;
-            setVoucher('EARLY_BIRD_2014');
             $scope.checkVoucher($scope.code);
             $scope.overview = {
                 card: _.findWhere($scope.cards, {type: $scope.order.type}).name,
