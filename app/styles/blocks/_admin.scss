@@ -104,6 +104,13 @@
             &:nth-child(1), &:nth-child(2) {
                 font-size: 15px;
             }
+            &.empty {
+                background: none;
+                border: 0 none;
+                padding: 60px 20px!important;
+                font-size: 22px;
+                text-align: center;
+            }
             .w-100 {
                 width: 100px;
             }

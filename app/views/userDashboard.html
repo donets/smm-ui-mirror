@@ -75,22 +75,45 @@
             <a class="clear-button" href="" ng-click="clearFilters()">Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
-            <table class="timetable user-classes" ng-show="desktop">
+            <table class="timetable user-classes">
                 <thead>
-                <tr>
-                    <th>Zeit</th>
-                    <th>Kurs</th>
-                    <th>Disziplinen</th>
-                    <th>Stile</th>
-                    <th>Lehrer</th>
-                    <th>Studio</th>
-                    <th>Stadtteil</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>Zeit</th>
+                        <th>Kurs</th>
+                        <th>Disziplinen</th>
+                        <th>Stile</th>
+                        <th>Lehrer</th>
+                        <th>Studio</th>
+                        <th>Stadtteil</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="e in events
-                        | limitTo: showPopap ? 15 : events.length
+                    <tr ng-repeat="e in events
+                            | limitTo: showPopap ? 15 : events.length
+                            | isSame: 'start_date': currDay
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
+                            | filter: {class: {title: search.class.title}}
+                            | filter: {class: {teacherName: search.class.teacherName}}
+                            | dataFilter: 'class.discipline': search.class.discipline
+                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.studioId': search.class.studioId
+                            | dataFilter: 'class.levels': search.class.levels" >
+                        <td>
+                            <p>{{e.start_date | amDateFormat: 'HH:mm'}}</p>
+                            <p>{{e.end_date | amDateFormat: 'HH:mm'}}</p>
+                        </td>
+                        <td>{{e.class.title}}</td>
+                        <td>{{e.class.discipline}}</td>
+                        <td>{{e.class.style}}</td>
+                        <td>{{e.class.teacherName}}</td>
+                        <td>{{e.class.studio}}</td>
+                        <td>{{e.class.location}}</td>
+                        <td><button class="default" type="button"></i>Merken</button></td>
+                    </tr>
+                    <tr ng-if="!(events
                         | isSame: 'start_date': currDay
                         | isAfter: 'start_date': search.start
                         | isBefore: 'end_date': search.end
@@ -100,19 +123,9 @@
                         | dataFilter: 'class.style': search.class.style
                         | dataFilter: 'class.location': search.class.location
                         | dataFilter: 'class.studioId': search.class.studioId
-                        | dataFilter: 'class.levels': search.class.levels" >
-                    <td>
-                        <p>{{e.start_date | amDateFormat: 'HH:mm'}}</p>
-                        <p>{{e.end_date | amDateFormat: 'HH:mm'}}</p>
-                    </td>
-                    <td>{{e.class.title}}</td>
-                    <td>{{e.class.discipline}}</td>
-                    <td>{{e.class.style}}</td>
-                    <td>{{e.class.teacherName}}</td>
-                    <td>{{e.class.studio}}</td>
-                    <td>{{e.class.location}}</td>
-                    <td><button class="default" type="button"></i>Merken</button></td>
-                </tr>
+                        | dataFilter: 'class.levels': search.class.levels).length">
+                        <td class="empty" colspan="7">Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
