@@ -17,6 +17,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                 obj.studio = obj.studioId && studio ? studio.name : '';
                 obj.location = obj.locationId && location ? location.neigbourhood : '';
             });
+            $scope.locations = _.uniq(_.pluck(res[3], 'neigbourhood'));
             $scope.disciplines = _.uniq(_.pluck(res[0], 'discipline'));
             $scope.styles = _.uniq(_.pluck(res[0], 'style'));
             $scope.events = _.each(res[1], function (event) {

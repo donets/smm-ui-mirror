@@ -50,7 +50,7 @@
                     data-placeholder="Alle Stadtteile"
                     disable-search="false"
                     allow-single-deselect="true"
-                    ng-options="item for item in neigbourhood">
+                    ng-options="item for item in locations">
                 <option value=""></option>
             </select>
             <select chosen
@@ -85,7 +85,7 @@
                         <th>Lehrer</th>
                         <th>Studio</th>
                         <th>Stadtteil</th>
-                        <th></th>
+                        <!--<th></th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -111,7 +111,7 @@
                         <td>{{e.class.teacherName}}</td>
                         <td>{{e.class.studio}}</td>
                         <td>{{e.class.location}}</td>
-                        <td><button class="default" type="button"></i>Merken</button></td>
+                        <!--<td><button class="default" type="button"></i>Merken</button></td>-->
                     </tr>
                     <tr ng-if="!(events
                         | isSame: 'start_date': currDay
