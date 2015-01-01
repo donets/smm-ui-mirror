@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q) {
+    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $modal) {
         $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
@@ -35,7 +35,6 @@ angular.module('boltApp.controllers.Dashboard', [])
         for (var d = 0; d < 7; d++) {
             $scope.weekdays.push(moment().add(d, 'day'));
         }
-        $scope.showPopap = moment().isBefore('2015-01-01', 'year');
         $scope.neigbourhood = getNeigbourhood.data;
         $scope.trans = function (value) {
             var pad = '00';
@@ -57,4 +56,38 @@ angular.module('boltApp.controllers.Dashboard', [])
             };
         };
         $scope.clearFilters();
+
+        $scope.attend = function (event) {
+            $modal.open({
+                templateUrl: 'views/modalAttend.html',
+                controller: ['$scope', '$modalInstance', 'event', 'studio',
+
+                    function ($scope, $modalInstance, event, studio) {
+
+                        $scope.event = event;
+
+                        $scope.studio = studio;
+
+                        $scope.close = function () {
+                            $modalInstance.close(true);
+                        };
+
+                    }],
+                backdrop: 'static',
+                resolve: {
+                    event: function () {
+                        return event;
+                    },
+                    studio: function () {
+                        var studio = _.findWhere($scope.studios, {id: event.class.studioId});
+                        if (event.class.studioId && studio) {
+                            return studio;
+                        }
+                    }
+                },
+                windowClass: 'modal-attend'
+            });
+        };
+
+        $scope.showPopap = moment().isBefore('2015-01-01', 'year');
     });
