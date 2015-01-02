@@ -49,7 +49,6 @@ module.exports = function(config) {
       'bower_components/angular-scroll/angular-scroll.min.js',
       'bower_components/angular-cache/dist/angular-cache.min.js',
       'bower_components/ng-parallax/angular-parallax.min.js',
-      'bower_components/angular-permission/dist/angular-permission.js',
       'bower_components/chosen-bower/chosen.jquery.js',
       'bower_components/angular-chosen-localytics/chosen.js',
       'bower_components/ng-tags-input/ng-tags-input.min.js',
@@ -57,6 +56,7 @@ module.exports = function(config) {
       'bower_components/ng-flow/dist/ng-flow.js',
       'bower_components/jcrop/js/jquery.Jcrop.js',
       'bower_components/angular-validation-match/dist/angular-input-match.min.js',
+      'bower_components/venturocket-angular-slider/build/angular-slider.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
