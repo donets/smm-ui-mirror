@@ -677,7 +677,7 @@ angular.module('boltApp')
                 controller: 'LoginCtrl'
             })
             .state('reset', {
-                url : '/p/password/reset/:token/',
+                url : '/p/password/reset/:token',
                 templateUrl: 'views/resetPassword.html',
                 controller: 'ResetCtrl'
             })
