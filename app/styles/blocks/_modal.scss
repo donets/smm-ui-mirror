@@ -107,6 +107,9 @@
     }
 }
 .modal-attend {
+    &.fade .modal-dialog {
+        @include transition-transform(0.2s ease-out);
+    }
     .modal-dialog {
         @media (min-width: $containerMobileWidth) {
             width: 360px;

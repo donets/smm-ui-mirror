@@ -60,13 +60,11 @@ angular.module('boltApp.controllers.Dashboard', [])
         $scope.attend = function (event) {
             $modal.open({
                 templateUrl: 'views/modalAttend.html',
-                controller: ['$scope', '$modalInstance', 'event', 'studio',
+                controller: ['$scope', '$modalInstance', 'event',
 
-                    function ($scope, $modalInstance, event, studio) {
+                    function ($scope, $modalInstance, event) {
 
                         $scope.event = event;
-
-                        $scope.studio = studio;
 
                         $scope.close = function () {
                             $modalInstance.close(true);
@@ -76,12 +74,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                 resolve: {
                     event: function () {
                         return event;
-                    },
-                    studio: function () {
-                        var studio = _.findWhere($scope.studios, {id: event.class.studioId});
-                        if (event.class.studioId && studio) {
-                            return studio;
-                        }
                     }
                 },
                 windowClass: 'modal-attend'
