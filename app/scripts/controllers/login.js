@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$window', function ($rootScope, $scope, $http, ezfb, User, $window) {
+    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', function ($rootScope, $scope, $http, ezfb, User, $cookieStore, $window) {
 
         function sendLoginFB (res) {
             console.log(res);
@@ -31,7 +31,7 @@ angular.module('boltApp.controllers.Login', [])
             });
         }
 
-        var checkUser = function () {
+        /*var checkUser = function () {
             User.get().$promise.then(function (response) {
                 console.log(response);
                 if (response.currentUser) {
@@ -44,11 +44,7 @@ angular.module('boltApp.controllers.Login', [])
                     $rootScope.roleAdmin = null;
                 }
             });
-        };
-
-        if ($rootScope.$state.current.name !== 'login') {
-            checkUser();
-        }
+        };*/
 
         $scope.loginFB = function () {
 
@@ -69,6 +65,8 @@ angular.module('boltApp.controllers.Login', [])
                 $rootScope.userName = null;
                 $rootScope.roleMember = null;
                 $rootScope.roleAdmin = null;
+                $cookieStore.remove('session');
+                $rootScope.requestedState = null;
                 $rootScope.$state.go('home');
             }).error(function (response, status) {
                 console.error(response);
@@ -87,7 +85,6 @@ angular.module('boltApp.controllers.Login', [])
             $scope.loadingLogin = true;
             $scope.errorLogin = false;
             $rootScope.handledError = true;
-            console.log($scope.isPopupVisible);
             $http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + this.emailLogin + '&password=' + this.passwordLogin).success(function (response) {
                 console.log(response);
                 $scope.loadingLogin = false;
@@ -95,7 +92,12 @@ angular.module('boltApp.controllers.Login', [])
                 $rootScope.userName = response.user.name;
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
-                $rootScope.$state.go('profile.membership');
+                $cookieStore.put('session', response.user);
+                if($rootScope.requestedState) {
+                    $rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
+                } else {
+                    $rootScope.$state.go('profile.membership');
+                }
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);

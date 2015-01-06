@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $window, $document, getCards, getStudios) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, getCards, getStudios) {
         $scope.Math = $window.Math;
         $scope.startDate = moment.max(moment('2015-01-01'), moment()).format('DD.MM.YYYY');
         $scope.showDiscount = moment().isBefore('2015-02-01');
@@ -20,7 +20,7 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.year = _.range(2014, 2033);
         $scope.order = {
             deliveryAddress: {
-                city: "Berlin",
+                city: 'Berlin',
                 countryCode: 'DE'
             },
             newsletter: true
@@ -126,6 +126,7 @@ angular.module('boltApp.controllers.Signup', [])
                     $rootScope.userName = response.user.name;
                     $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                     $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
+                    $cookieStore.put('session', response.user);
                     $rootScope.$state.go('profile.dashboard');
 
                 }).error(function (response) {

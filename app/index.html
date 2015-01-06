@@ -136,8 +136,9 @@
         </div>
     </div>
     <div class="b-alert error" ng-if="rejection.show">
-        <span>Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
+        <span ng-if="rejection.data.type !== 'AccessDenied'">Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
             Fehlerdetails: {{rejection.data.message}}</span>
+        <span ng-if="rejection.data.type === 'AccessDenied'">Sie haben keine Berechtigung für die Seite {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
         <button ng-click="rejection.show = false" class="b-close" type="button">
             <i class="fa fa-times"></i>
             <span class="sr-only">Close</span>

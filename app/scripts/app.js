@@ -65,8 +65,8 @@ angular
         'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
-    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$q', 'User',
-        function ($rootScope, $state, $stateParams, amMoment, $window, $q, User) {
+    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$q', '$cookieStore',
+        function ($rootScope, $state, $stateParams, amMoment, $window, $q, $cookieStore) {
             // It's very handy to add references to $state and $stateParams to the $rootScope
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -82,31 +82,38 @@ angular.module('boltApp')
             $rootScope.$on('$viewContentLoaded', function(){
                 return $window.rendering ? $window.prerenderReady = true : 0;
             });
-            var checkUser = function () {
-                var deferred = $q.defer();
-                User.get().$promise.then(function (response) {
-                    console.log(response);
-                    if (response.currentUser) {
-                        $rootScope.userName = response.currentUser.name;
-                        $rootScope.roleMember = _.include(response.currentUser.roles, 'member') ? true : false;
-                        $rootScope.roleAdmin = _.include(response.currentUser.roles, 'admin') ? true : false;
-                    } else {
-                        $rootScope.userName = null;
-                        $rootScope.roleMember = null;
-                        $rootScope.roleAdmin = null;
-                    }
-                    deferred.resolve();
-                });
-                return deferred.promise;
-            };
-            var checkRule = function (event, toState) {
+            var checkRule = function (event, toState, toParams, redirectState) {
                 if (toState.name.split('.')[0] === 'profile' && !$rootScope.roleMember || toState.name.split('.')[0] === 'admin' && !$rootScope.roleAdmin) {
                     event.preventDefault();
-                    $rootScope.$state.go('login', {notify: false});
+                    if (redirectState === 'login') {
+                        $rootScope.requestedState = {params: toParams, state: toState};
+                        $rootScope.$state.go(redirectState, {notify: false});
+                    } else {
+                        $rootScope.rejection = {
+                            data: {
+                                type: 'AccessDenied'
+                            },
+                            show : true
+                        };
+                    }
                 }
             };
-            $rootScope.$on('$stateChangeStart', function(event, toState) {
-                //checkRule(event, toState);
+            $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
+                $rootScope.rejection = null;
+                $rootScope.success = null;
+                var session = $cookieStore.get('session');
+                console.log(session);
+                if (session) {
+                    $rootScope.userName = session.name;
+                    $rootScope.roleMember = _.include(session.roles, 'member') ? true : false;
+                    $rootScope.roleAdmin = _.include(session.roles, 'admin') ? true : false;
+                    checkRule(event, toState, toParams, 'accessDenied');
+                } else {
+                    $rootScope.userName = null;
+                    $rootScope.roleMember = null;
+                    $rootScope.roleAdmin = null;
+                    checkRule(event, toState, toParams, 'login');
+                }
             });
             amMoment.changeLocale('de');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
@@ -203,21 +210,23 @@ angular.module('boltApp')
                 $rootScope.success.show = true;
                 $timeout(function () {
                     $rootScope.success = null;
-                }, 60000);
+                }, 5000);
                 return response;
             }
         };
     })
-    .factory('myHttpInterceptor', ['$q', '$rootScope', '$timeout', function ($q, $rootScope, $timeout) {
+    .factory('myHttpInterceptor', ['$q', '$rootScope', '$cookieStore', '$timeout', function ($q, $rootScope, $cookieStore, $timeout) {
         return {
             responseError: function responseError(rejection) {
                 $rootScope.rejection = rejection;
-                console.log(rejection.data.type);
                 var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException'];
                 $rootScope.handledType = _.include(types, rejection.data.type);
-                console.log($rootScope.handledError);
-                console.log($rootScope.handledType);
-                $rootScope.rejection.show = !($rootScope.handledError && $rootScope.handledType);
+                if (rejection.data.type === 'NoLoggedInUser') {
+                    $rootScope.$state.go('login', {notify: false});
+                    $cookieStore.remove('session');
+                } else {
+                    $rootScope.rejection.show = !($rootScope.handledError && $rootScope.handledType);
+                }
                 $timeout(function () {
                     $rootScope.rejection = null;
                 }, 60000);
