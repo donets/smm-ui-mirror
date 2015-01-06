@@ -105,7 +105,7 @@
                             <p>{{e.start_date | amDateFormat: 'HH:mm'}}</p>
                             <p>{{e.end_date | amDateFormat: 'HH:mm'}}</p>
                         </td>
-                        <td>{{e.class.title}}</td>
+                        <td><a class="link-description" ng-click="attend(e)" href="" ng-if="e.class.description">{{e.class.title}}</a><span ng-if="!e.class.description">{{e.class.title}}</span></td>
                         <td>{{e.class.discipline}}</td>
                         <td>{{e.class.style}}</td>
                         <td>{{e.class.teacherName}}</td>

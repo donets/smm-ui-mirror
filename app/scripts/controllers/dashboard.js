@@ -73,7 +73,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                         };
 
                     }],
-                backdrop: 'static',
                 resolve: {
                     event: function () {
                         return event;

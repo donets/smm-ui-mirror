@@ -74,9 +74,7 @@ angular.module('boltApp')
                     start: element.offset().top
                 };
 
-                console.log(attrs.disable);
-
-                attrs.disable !== 'true' ? scope._stickyElements.push(item) : 0;
+                return attrs.disable !== 'true' ? scope._stickyElements.push(item) : 0;
 
             }
         };
