@@ -14,6 +14,7 @@ angular.module('boltApp.controllers.Class', [])
     .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, getStudios, RestApi) {
         $scope.moment = moment();
         $scope._ = _;
+        $scope.form = {};
         getClass.$promise.then(function () {
             $scope.class = getClass;
         });
@@ -170,9 +171,9 @@ angular.module('boltApp.controllers.Class', [])
                     }
                     if ($scope.schedule.startDateWeekly && $scope.schedule.endDateWeekly) {
                         $scope.schedule.times = moment($scope.schedule.endDateWeekly).diff(moment($scope.schedule.startDateWeekly), 'weeks');
-                        $scope.formSchedule.$setValidity('times', true);
+                        $scope.form.schedule.$setValidity('times', true);
                     } else {
-                        $scope.formSchedule.$setValidity('times', false);
+                        $scope.form.schedule.$setValidity('times', false);
                     }
                     break;
                 }
@@ -184,7 +185,7 @@ angular.module('boltApp.controllers.Class', [])
             $scope.newEvent = false;
             $scope.showSpinner = false;
             $scope.schedule = null;
-            $scope.formSchedule.$setPristine();
+            $scope.form.schedule.$setPristine();
         };
 
         $scope.fetchOccurrences = function() {
@@ -286,6 +287,7 @@ angular.module('boltApp.controllers.Class', [])
 
         $scope.editSingle = function(c) {
             $scope.showScheduleFunc();
+            c.startDate = c.startDate.format();
             c.repeat = 'Single';
             $scope.schedule = c;
             $scope.updateSchedule();
@@ -404,8 +406,8 @@ angular.module('boltApp.controllers.Class', [])
             });
             _.map($scope.groupByAll, function (obj) {
                 obj.frame = 'Starting ' + moment(_.first(obj).startDate).format('MMMM D YYYY HH:mm') + (obj.length > 1 ? ' through ' + moment(_.last(obj).startDate).format('MMMM D YYYY') : '');
-                obj.startDate = _.first(obj).startDate;
-                obj.endDate = _.last(obj).endDate;
+                obj.startDate = _.first(obj).startDate.format();
+                obj.endDate = _.last(obj).endDate.format();
                 obj.startTime = _.first(obj).startTime;
                 obj.endTime = _.last(obj).endTime;
                 obj.hide = true;

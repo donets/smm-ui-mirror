@@ -49,7 +49,7 @@
                 <thead>
                     <tr>
                         <th><p>{{value.length}}</p><p>Date{{value.length > 1 ? 's' : ''}}</p></th>
-                        <th><p>{{value.repeat}} {{value.day}} {{value.startTime}} - {{value.endTime}}</p><p><span>{{value.frame}}</span></p></th>
+                        <th><p>{{value.repeat}} {{value.day}} {{value.startTime}} - {{value.endTime}}</p><p><span ng-if="value.length > 1">{{value.frame}}</span><span ng-if="value.length === 1">{{value.startDate | amDateFormat: 'dddd, D MMMM YYYY'}}</span></p></th>
                         <th>
                             <div class="controls">
                                 <a href="" ng-click="toggleGroup(value)"><i class="fa fa-list"></i></a>
@@ -62,7 +62,7 @@
                 <tbody ng-if="!value.hide">
                     <tr ng-repeat="c in value">
                         <td></td>
-                        <td>{{c.start_date | amDateFormat: 'dddd, D MMMM YYYY HH:mm'}} ({{c.startTime}} to {{c.endTime}}) {{c.start_date}}</td>
+                        <td>{{c.start_date | amDateFormat: 'dddd, D MMMM YYYY HH:mm'}} ({{c.startTime}} to {{c.endTime}})</td>
                         <td>
                             <div class="controls">
                                 <a href="" ng-click="editSingle(c)"><i class="fa fa-pencil"></i></a>
@@ -72,11 +72,12 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="form-rel" ng-if="!showSchedule">
+            <div class="form-rel large" ng-if="!showSchedule">
                 <button class="green" ng-click="addDates()" type="button">Add Dates</button>
+                <button class="red" ng-confirm-click="deleteGroup(occurrences)" type="button">Delete Dates</button>
             </div>
             <span class="spinner" ng-show="showSpinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
-            <form name="formSchedule" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
+            <form name="form.schedule" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
                 <h3 ng-if="newEvent">Schedule dates</h3>
                 <h3 ng-if="schedule.repeat === 'Single' && !newEvent">Edit a single date</h3>
                 <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat | lowercase}} repeating dates</h3>
@@ -146,16 +147,16 @@
                                class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
                     </div>
                 </div>
-                <div class="form-rel" ng-if="form.$valid">
+                <div class="form-rel" ng-if="form.schedule.$valid">
                     <p><span ng-if="schedule.repeat !== 'Single' && schedule.times">{{schedule.times + 1 + ' dates'}}</span><span ng-if="schedule.repeat === 'Single' || schedule.times === 0">1 Date</span> ( {{schedule.duration.hours}} {{schedule.duration.minutes}} <span ng-if="schedule.times">each </span>)</p>
                     <p ng-if="schedule.repeat !== 'Weekly'">Starting {{schedule.startDate | amDateFormat: 'MMMM D YYYY'}} <span ng-if="schedule.times">through {{schedule.endDate | amDateFormat: 'MMMM D YYYY'}}</span></p>
                     <p ng-if="schedule.repeat === 'Weekly'">Starting {{schedule.startDateWeekly | amDateFormat: 'MMMM D YYYY'}} <span ng-if="schedule.times">through {{schedule.endDateWeekly | amDateFormat: 'MMMM D YYYY'}}</span></p>
                 </div>
-                <div class="form-rel" ng-if="form.$invalid">
+                <div class="form-rel" ng-if="form.schedule.$invalid">
                     <p>No dates created by schedule</p>
                 </div>
                 <div class="form-rel">
-                    <button class="green" ng-disabled="form.$invalid" type="submit">Save</button><button type="button" ng-click="fetchOccurrences()">Cancel</button>
+                    <button class="green" ng-disabled="form.schedule.$invalid" type="submit">Save</button><button type="button" ng-click="fetchOccurrences()">Cancel</button>
                 </div>
             </form>
         </div>

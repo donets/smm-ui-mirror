@@ -95,9 +95,7 @@ angular.module('boltApp.controllers.Login', [])
                 $cookieStore.put('session', response.user);
                 if($rootScope.requestedState) {
                     $rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
-                } else {
-                    $rootScope.$state.go('profile.membership');
-                }
+                } 
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);

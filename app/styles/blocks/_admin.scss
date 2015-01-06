@@ -141,20 +141,6 @@
             i {
                 margin-right: 8px;
             }
-            &.default {
-                background: $colorGrey;
-            }
-            &.green {
-                background: $colorGreen;
-            }
-        }
-        .status {
-            &.green {
-                color: $colorGreen;
-            }
-            &.orange {
-                color: $colorLink;
-            }
         }
         &.user-classes {
             tr {
@@ -171,6 +157,14 @@
 .admin-title {
     text-align: center;
     margin: 50px 0;
+}
+.status {
+    &.green {
+        color: $colorGreen;
+    }
+    &.orange {
+        color: $colorLink;
+    }
 }
 .b-class-block {
     background: $colorBackTimetable;
@@ -213,14 +207,10 @@
     }
     .status {
         font-size: 15px;
-        &.green {
-            color: $colorGreen;
-        }
     }
     button {
         width: 150px;
         height: 40px;
-        background: $colorGrey;
         border: 0 none;
         @include border-radius(5px);
         font-size: 16px;
@@ -229,12 +219,6 @@
         float: left;
         .fa {
             margin-right: 8px;
-        }
-        &.green {
-            background: $colorGreen;
-        }
-        &.red {
-            background: $colorRed;
         }
         &.disabled {
             background: $colorLightGrey;
@@ -267,7 +251,6 @@
         > button {
             width: 150px;
             height: 40px;
-            background: $colorGrey;
             border: 0 none;
             @include border-radius(5px);
             font-size: 16px;
@@ -275,12 +258,6 @@
             margin: 15px 10px 15px 0;
             .fa {
                 margin-right: 8px;
-            }
-            &.green {
-                background: $colorGreen;
-            }
-            &.disabled {
-                background: $colorLightGrey;
             }
         }
     }
