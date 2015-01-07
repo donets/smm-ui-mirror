@@ -127,7 +127,8 @@ angular.module('boltApp.controllers.Signup', [])
                     $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                     $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                     $cookieStore.put('session', response.user);
-                    $rootScope.$state.go('profile.dashboard');
+                    $cookieStore.put('signupPopap', true);
+                    $rootScope.$state.go('dashboard');
 
                 }).error(function (response) {
 

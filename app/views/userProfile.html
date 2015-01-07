@@ -8,8 +8,7 @@
 </div>
 <div class="profile">
     <ul class="profile-nav" ng-if="roleMember || roleAdmin">
-        <li><a ng-class="{'active': $state.includes('profile.dashboard')}" ui-sref="profile.dashboard">Dashboard</a></li><li>
-        <a ng-class="{'active': $state.includes('profile.membership')}" ui-sref="profile.membership">Meine Karte</a></li><li>
+        <li><a ng-class="{'active': $state.includes('profile.membership')}" ui-sref="profile.membership">Meine Karte</a></li><li>
         <a ng-class="{'active': $state.includes('profile.account')}" ui-sref="profile.account">Account</a></li>
     </ul>
     <div ui-view></div>

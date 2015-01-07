@@ -45,9 +45,9 @@
         <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="user-nav" ng-click="togglePopup()">
+                <li><a ui-sref="dashboard">Kurse</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.account">Account</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.membership">Meine Karte</a></li>
-                <li ng-if="roleMember"><a ui-sref="profile.dashboard">Dashboard</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.classes.list">Classes</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'locations'})">Locations</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'studios'})">Studios</a></li>

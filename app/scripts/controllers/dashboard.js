@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $modal) {
+    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $cookieStore, $modal) {
         $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
@@ -80,5 +80,11 @@ angular.module('boltApp.controllers.Dashboard', [])
             });
         };
 
-        $scope.showPopap = moment().isBefore('2015-01-01', 'year');
+        $scope.showPopap = $cookieStore.get('signupPopap');
+        
+        $scope.hidePopap = function () {
+            $scope.showPopap = false;
+            $cookieStore.remove('signupPopap');
+        } 
+        
     });

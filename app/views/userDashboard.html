@@ -1,6 +1,6 @@
 <div class="dashboard-title">
     <div class="container">
-        <h1>Finde einen Kurs.</h1>
+        <h1>Finde einen Kurs</h1>
         <p class="subtitle">Heute {{today | amDateFormat: 'dd DD.MM.'}}</p>
         <ul class="weekdays" ng-repeat="w in weekdays">
             <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-click="changeDay(w)">{{w | amCalendar}}</li>
@@ -136,9 +136,8 @@
             <div class="modal-content">
                 <div class="modal-body ng-scope">
                     <h2>Danke für Deine Anmeldung!</h2>
-                    <p class="subtitle">Januar 2015</p>
                     <p>Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar.</p>
-                    <a class="form-button" ui-sref="home">See partner studios</a>
+                    <button class="form-button" ng-click="hidePopap()">Weiter zu den Kursen</button>
                 </div>
             </div>
         </div>

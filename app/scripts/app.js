@@ -430,8 +430,12 @@ angular.module('boltApp')
                 url : 'account/',
                 templateUrl: 'views/userAccount.html'
             })
-            .state('profile.dashboard', {
-                url : 'dashboard/',
+            .state('profile.membership', {
+                url : 'membership/',
+                templateUrl: 'views/userMembership.html'
+            })
+            .state('dashboard', {
+                url : '/p/kurse/',
                 templateUrl: 'views/userDashboard.html',
                 resolve: {
 
@@ -468,10 +472,6 @@ angular.module('boltApp')
 
                 },
                 controller : 'DashboardCtrl'
-            })
-            .state('profile.membership', {
-                url : 'membership/',
-                templateUrl: 'views/userMembership.html'
             })
             .state('admin', {
                 url : '/admin/v2/',
