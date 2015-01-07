@@ -625,7 +625,7 @@ angular.module('boltApp')
                         });
 
                         $scope.save = function () {
-                            $scope.entity.$update({route: $rootScope.$stateParams.route}).then(function (res) {
+                            $scope.entity.$update({route: $rootScope.$stateParams.route, id: $rootScope.$stateParams.entityId}).then(function (res) {
                                 console.log(res);
                             });
                         };
