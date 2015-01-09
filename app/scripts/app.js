@@ -628,13 +628,15 @@ angular.module('boltApp')
                         });
 
                         $scope.save = function () {
+                            $scope.showSpinner = true;
                             $scope.entity.$update({route: $rootScope.$stateParams.route, id: $rootScope.$stateParams.entityId}).then(function (res) {
                                 console.log(res);
+                                $scope.showSpinner = false;
                             });
                         };
 
                         $scope.remove = function () {
-                            $scope.entity.$delete({route: $rootScope.$stateParams.route}).then(function (res) {
+                            $scope.entity.$delete({route: $rootScope.$stateParams.route, id: $rootScope.$stateParams.entityId}).then(function (res) {
                                 console.log(res);
                                 $rootScope.$state.go('admin.entity.list', {route: $rootScope.$stateParams.route});
                             });
@@ -653,8 +655,10 @@ angular.module('boltApp')
                         $scope.entity = new RestApi();
 
                         $scope.save = function () {
+                            $scope.showSpinner = true;
                             $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
                                 console.log(res);
+                                $scope.showSpinner = false;
                                 $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.data.id || res.data.code)});
                             });
                         };

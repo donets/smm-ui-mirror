@@ -11,6 +11,12 @@
     h2 {
         text-transform: capitalize;
     }
+    .spinner-wrapper {
+        position: relative;
+        width: 150px;
+        height: 40px;
+        margin: 5px 10px;
+    }
 }
 .dashboard-title {
     position: relative;
@@ -202,6 +208,9 @@
                 color: $colorLink;
             }
         }
+    }
+    .w-right {
+        min-width: 350px;
     }
     p {
         display: inline-block;

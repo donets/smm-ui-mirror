@@ -23,9 +23,11 @@ angular.module('boltApp.controllers.CreateClass', [])
         $scope.class = new RestApi();
 
         $scope.save = function (status) {
+            $scope.showSpinner = true;
             $scope.class.status = status;
             $scope.class.$save({route: 'events'}).then(function (res) {
                 console.log(res);
+                $scope.showSpinner = false;
                 $rootScope.$state.go('admin.classes.class', {classId: res.data.id});
             });
         };

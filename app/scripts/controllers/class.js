@@ -31,10 +31,11 @@ angular.module('boltApp.controllers.Class', [])
         });
 
         $scope.save = function (status) {
+            $scope.showSpinner = true;
             $scope.class.status = status;
             $scope.class.$update({route: 'events'}).then(function (res) {
                 console.log(res);
-                $rootScope.$state.go('admin.classes.class', {classId: $rootScope.$stateParams.classId});
+                $scope.showSpinner = false;
             });
         };
         $scope.remove = function () {

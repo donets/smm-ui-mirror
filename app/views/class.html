@@ -8,9 +8,10 @@
             </div>
         </div>
         <div class="w-right">
-            <button type="button" ng-click="save('DRAFT')"><i class="fa fa-save"></i>Save as draft</button>
-            <button ng-if="$stateParams.classId" class="green" type="button" ng-click="save('LIVE')"><i class="fa fa-save"></i>Save & go live</button>
-            <button ng-if="$stateParams.classId" type="button" class="red" ng-confirm-click="remove()"><i class="fa fa-trash"></i>Delete</button>
+            <button type="button" ng-hide="showSpinner" ng-click="save('DRAFT')"><i class="fa fa-save"></i>Save as draft</button>
+            <button ng-if="$stateParams.classId" ng-hide="showSpinner" class="green" type="button" ng-click="save('LIVE')"><i class="fa fa-save"></i>Save & go live</button>
+            <button ng-if="$stateParams.classId" ng-hide="showSpinner" type="button" class="red" ng-confirm-click="remove()"><i class="fa fa-trash"></i>Delete</button>
+            <div ng-show="showSpinner" class="spinner-wrapper"><span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span></div>
         </div>
     </div>
 </div>
