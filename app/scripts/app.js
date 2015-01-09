@@ -96,6 +96,9 @@ angular.module('boltApp')
                             show : true
                         };
                     }
+                } else if (toState.name === 'home' && $rootScope.roleMember) {
+                    event.preventDefault();
+                    $rootScope.$state.go('dashboard', {notify: false});
                 }
             };
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {

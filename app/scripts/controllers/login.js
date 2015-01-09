@@ -93,9 +93,11 @@ angular.module('boltApp.controllers.Login', [])
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                 $cookieStore.put('session', response.user);
-                if($rootScope.requestedState) {
+                if ($rootScope.requestedState) {
                     $rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
-                } 
+                } else if ($rootScope.roleMember) {
+                    $rootScope.$state.go('dashboard', {notify: false}); 
+                }
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);
@@ -109,7 +111,7 @@ angular.module('boltApp.controllers.Login', [])
             $scope.loadingForgot = true;
             $scope.successSubscribe = false;
             $scope.errorForgot = false;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + this.emailForgot).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + encodeURIComponent(this.emailForgot)).success(function (response) {
                 console.log(response);
                 $scope.loadingForgot = false;
                 $scope.successSubscribe = true;

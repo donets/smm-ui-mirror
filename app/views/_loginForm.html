@@ -19,7 +19,7 @@
                     <button type="submit" class="form_button">Login</button>
                     <div class="form-response">
                         <div ng-show="loadingLogin" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="errorLogin" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                        <div ng-show="errorLogin" class="form-message form-error">Falsche E-Mail oder Passwort</div>
                     </div>
                 </div>
             </form>
@@ -31,7 +31,7 @@
                     <button type="submit" class="form_button">Reset Password</button>
                     <div class="form-response">
                         <div ng-show="loadingForgot" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="successSubscribe" class="form-message form-success">Wir haben die Instruktionen zum Zurücksetzen des Passworts auf die Email Adresse EMAIL gesendet.</div>
+                        <div ng-show="successSubscribe" class="form-message form-success">E-Mail zum Zurücksetzen gesendet</div>
                         <div ng-show="errorForgot" class="form-message form-error">Die Email Adresse wurde nicht gefunden</div>
                     </div>
                 </div>
