@@ -24,6 +24,9 @@
             margin-top: 25px;
             padding: 40px 30px;
             background: rgba(0,0,0,0.30);
+            &.invited {
+                padding: 20px;
+            }
             .form-response {
                 text-align: left;
             }
@@ -36,7 +39,7 @@
         .signup-button {
             @media (min-width: $containerMobileWidth) {
                 height: 50px;
-                width: 230px;
+                width: 480px;
                 line-height: 50px;
                 outline: none;
             }
@@ -289,9 +292,90 @@
     }
 }
 .b-map {
+    padding: 40px 0;
     .angular-google-map-container {
         margin: 20px 0 0;
         height: 480px;
+    }
+    .info-window {
+        font-size: 15px;
+        font-family: $fontRegular;
+    }
+    .gm-style .gm-style-iw {
+        width: auto!important;
+    }
+    .toggle-list {
+        @include my-resetList();
+        margin: 50px 0 0;
+        text-align: right;
+        li {
+            display: inline-block;
+            vertical-align: top;
+            &:first-child {
+                a {
+                    @include border-left-radius(2px);
+                }
+            }
+            &:last-child {
+                a {
+                    @include border-right-radius(2px);
+                }
+            }
+            a {
+                display: block;
+                color: $colorGrey;
+                font-size: 18px;
+                text-align: center;
+                line-height: 34px;
+                width: 34px;
+                height: 34px;
+                background: #fff;
+                border: 1px solid $colorGrey;
+                outline: none;
+                text-decoration: none;
+                &.active {
+                    background: $colorGrey;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .b-studios-list {
+        @include my-resetList();
+        @include column-count(4);
+        @include column-gap(40px);
+        margin: 40px 0;
+        text-align: left;
+        @media (max-width: $containerMobileWidth) {
+            @include column-count(2);
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 20px 0;
+        }
+        li {
+            padding: 3px 0;
+            font-size: 18px;
+            color: $colorGrey;
+            a {
+                font-size: 18px;
+                color: $colorGrey;
+            }
+            @media (max-width: $containerMobileWidth) {
+                font-size: 32px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 18px;
+            }
+        }
+    }
+    .suggest_btn {
+        @extend %form-button;
+        width: 230px;
+        min-width: 0;
+        margin: 50px 0 0;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
     }
 }
 .b-benefits {
@@ -309,6 +393,14 @@
 }
 .b-hiw {
     padding-top: 60px;
+}
+.b-faq {
+    &.b-card .b-card-list li p {
+        font-size: 15px;
+    }
+    .faq-link {
+        font-size: 20px;
+    }
 }
 .b-cta {
     padding-top: 0;

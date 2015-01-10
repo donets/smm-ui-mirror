@@ -37,30 +37,22 @@ angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
                     latitude: 52.520007,
                     longitude: 	13.404954
                 },
-                zoom: 16,
+                zoom: 12,
                 options: {
                     mapTypeControl: false,
                     overviewMapControl: false,
                     panControl: false,
                     zoomControl : true,
-                    streetViewControl : true,
-                    scrollwheel: false
+                    streetViewControl : true
                 }
-            };
-
-            $scope.marker = {
-                id: 1,
-                coords: {
-                    latitude: 52.520007,
-                    longitude: 	13.404954
-                },
-                icon: '/images/marker.svg'
             };
 
 
         });
 
         $scope.invitation = $location.search().invitation;
+        $scope.invite = {};
+        $scope.form = {};
 
         $scope.Math = $window.Math;
         $scope.cards = getCards.data;
@@ -70,7 +62,15 @@ angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
             $scope.studios = res;
         });
 
-        $scope.locations = getLocations;
+        getLocations.$promise.then(function (res) {
+            $scope.locations = res;
+            _.map($scope.locations, function (obj) {
+                obj.icon = '/images/marker.svg';
+                obj.onClick = function() {
+                    obj.show = true;
+                };
+            });
+        });
 
         var setVoucher = function (code) {
             if ($scope.showDiscount) {
@@ -92,11 +92,11 @@ angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
             $scope.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, interestedInProduct: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, interestedInProduct: true, postalCode: $scope.invite.postalCode }).success(function () {
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
-                $scope.email = '';
-                $scope.subscribeForm.$setPristine();
+                $scope.invite = {};
+                $scope.form.subscribeForm.$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
                     $window.google_trackConversion({

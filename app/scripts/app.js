@@ -376,7 +376,7 @@ angular.module('boltApp')
 
                     getLocations: function(RestApi) {
 
-                        return RestApi.query({route: 'locations'});
+                        return RestApi.query({route: 'locations'}).$promise;
 
                     }
 
