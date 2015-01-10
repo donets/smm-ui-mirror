@@ -59,6 +59,10 @@ h3 {
     font-style: italic;
     margin: 10px 0;
     color: $colorGrey;
+    b {
+        color: $colorText;
+        font-family: $fontItalic;
+    }
     @media (max-width: $containerMobileWidth) {
         font-size: 32px;
         margin-bottom: 30px;

@@ -343,7 +343,7 @@ angular.module('boltApp')
                 url : '/p/studio/:studioId/',
                 templateUrl: 'views/studio.html',
                 onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight * 0.8) : 0;
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
                 },
                 onExit: function($rootScope){
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
@@ -354,7 +354,7 @@ angular.module('boltApp')
                 url : '/',
                 templateUrl: 'views/homepage.html',
                 onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight * 0.8) : 0;
+                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
                 },
                 onExit: function($rootScope){
                     return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
@@ -371,6 +371,12 @@ angular.module('boltApp')
                     getCards: function($http) {
 
                         return $http.get('json/cards.json', {cache: true});
+
+                    },
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'});
 
                     }
 

@@ -124,6 +124,7 @@
         letter-spacing: 0;
         color: #fff;
         margin: 0 0 20px;
+        @include text-shadow(0px 1px 1px rgba(27, 23, 26, 0.75));
         @media (max-width: $containerMobileWidth) {
             font-size: 64px;
             line-height: 1.1;
@@ -134,12 +135,12 @@
         }
     }
     p {
-        width: 860px;
+        width: 720px; 
         margin: 0 auto;
         font-size: 20px;
-        color: #fff;
-        font-family: $fontBold;
         letter-spacing: 0.5px;
+        color: #fff;
+        @include text-shadow(0px 1px 1px rgba(27, 23, 26, 0.75));
         @media (max-width: $containerMobileWidth) {
             font-size: 26px;
             width: auto; 
@@ -147,6 +148,9 @@
         @media (max-width: $containerMobileWidth640) {
             line-height: 1.2;
             font-size: 14px;
+        }
+        b {
+            font-family: $fontBold;
         }
         a {
             font-size: 18px;

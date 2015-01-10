@@ -4,10 +4,12 @@
     h2 {
         @extend %title-light;
         color: $colorText;
+        @include text-shadow(none);
     }
     p {
         color: $colorText;
         font-family: $fontRegular;
+        @include text-shadow(none);
     }
 }
 .b-signup-list {
@@ -49,9 +51,6 @@
     font-size: 18px;
     text-align: center;
     padding: 30px 0 0;
-    .container {
-        border-bottom: 1px solid $colorGrey;
-    }
 }
 .special-offer {
     background: url("/images/offer.svg") no-repeat;

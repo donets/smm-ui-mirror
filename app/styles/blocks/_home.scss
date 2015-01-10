@@ -19,25 +19,59 @@
         @media (max-width: $containerMobileWidth640) {
             height: 480px;
         }
+        .subscribe-wrapper {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 40px 30px;
+            background: rgba(0,0,0,0.30);
+            .form-response {
+                text-align: left;
+            }
+            b {
+                position: absolute;
+                left: 0;
+                bottom: 100%;
+            }
+        }
+        .signup-button {
+            @media (min-width: $containerMobileWidth) {
+                height: 50px;
+                width: 230px;
+                line-height: 50px;
+                outline: none;
+            }
+        }
         .b-card-subscribe {
-            margin-top: 35px;
+            margin: 0;
             @media (max-width: $containerMobileWidth) {
                 padding: 0;
             }
             @media (max-width: $containerMobileWidth640) {
-                margin-top: 15px;
+                margin: 15px 0;
             }
-            input[type="email"] {
+            input[type="text"], input[type="email"] {
                 @media (min-width: $containerMobileWidth) {
                     height: 50px;
+                    margin-right: 20px;
                     font-size: 18px;
                     line-height: 38px;
-                    border: 0 none;
+                    @include border-radius(2px);
+                    &.zip {
+                        width: 150px;
+                    }
+                }
+                @media (max-width: $containerMobileWidth) {
+                    margin-bottom: 20px;
                 }
             }
             input[type="submit"] {
                 @media (min-width: $containerMobileWidth) {
                     height: 50px;
+                    width: 230px;
+                    @include border-radius(2px);
+                }
+                @media (max-width: $containerMobileWidth) {
+                    margin: 0;
                 }
             }
             .form-success, b {
@@ -223,6 +257,41 @@
         p {
             padding: 0;
         }
+    }
+}
+.b-equipment {
+    background: url("/images/equip-2880.jpg") no-repeat center center;
+    @include background-size(cover);
+    @media (max-width: 1440px) {
+        background-image: url("/images/equip-1440.jpg");
+    }
+    @media (max-width: $containerMobileWidth) {
+        background-image: url("/images/equip-1080.jpg");
+    }
+    .container {
+        width: 600px;
+    }
+    h2 {
+        line-height: 1;
+        margin-bottom: 50px;
+    }
+    p {
+        font-size: 18px;
+        margin: 0 0 30px;
+    }
+    b {
+        font-family: $fontBold;
+    }
+    a {
+        font-size: 20px;
+        display: inline-block;
+        margin: 20px 0;
+    }
+}
+.b-map {
+    .angular-google-map-container {
+        margin: 20px 0 0;
+        height: 480px;
     }
 }
 .b-benefits {

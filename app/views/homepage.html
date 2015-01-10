@@ -1,4 +1,4 @@
-<div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight*0.8 }">
+<div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
                 vg-player-ready="video.onPlayerReady"
                 vg-complete="video.onCompleteVideo"
@@ -10,23 +10,45 @@
         <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
     </videogular>
-    <div class="b-main-slogan"><h2>Bewege Körper, Geist und Seele</h2>
-        <p>Besuche die besten Studios Berlins mit einer Karte.</p>
-        <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-            <b>Erhalte Deine Einladung</b>
-            <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" value="Kostenlos anmelden"/>
-            <div class="form-response">
-                <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
-                <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
-            </div>
-        </form>
+    <div class="b-main-slogan"><h2>Eine Karte für ganz Berlin</h2>
+        <p>Entdecke <b>30 Studios</b> und <b>500 Kurse</b> pro Woche mit <b>1 Beitrag</b> und entfalte Dein körperliches und seelisches Potenzial so ganzheitlich wie noch nie.</p>
+        <div class="subscribe-wrapper">
+            <form name="subscribeForm" ng-if="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
+                <b>Erhalte heute Deine Einladung</b>
+                <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="E-Mail-Adresse"/>
+                <input type="text" class="zip" name="zip" ng-model="zip" ng-change="successSubscribe = false" placeholder="PLZ"/>
+                <input type="submit" value="Mitmachen"/>
+                <div class="form-response">
+                    <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                    <div ng-show="successSubscribe" class="form-message form-success">Danke!</div>
+                    <div ng-show="errorSubscribe" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                </div>
+            </form>
+            <a class="form-button signup-button" ng-if="invitation" ui-sref="signup">Jetzt Karte erhalten</a>
+        </div>
         <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
     </div>
 </div>
-<div id="card" class="b-card b-benefits" ng-style="{ 'padding-top' : desktop && windowHeight*0.1 }">
+<div class="b-card b-equipment">
+    <div class="container">
+        <h2>Unendliche Auswahl, tägliche Inspiration</h2>
+        <p>Beweglichkeit und das gewisse OM von <b>Yoga</b> oder <b>Pilates</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b> oder <b>TRX</b>. Schwung und Sinnlichkeit von <b></b> oder <b>Hip-Hop</b>. Körperbewusstsein und wahre Stärke von <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Konzentration und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung von <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
+        <p>All das. Und so viel mehr. Mit einer Karte.</p>
+        <a ui-sref="dashboard">Entdecke unsere Studios und Kurse ›</a>
+    </div>
+</div>
+<div class="b-card b-map">
+    <div class="container">
+        <h2>Trainiere in der ganzen Stadt</h2>
+        <p class="subtitle">Wähle unter mehr als <b>30 Studios</b> und <b>500 Kursen</b> in Deiner Umgebung.</p>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+            <ui-gmap-markers models='locations' coords="'self'" icon="'marker.icon'"></ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+</div>
+<div id="card" class="b-card b-benefits">
     <div class="container" disable-animate>
-        <h2 ng-style="{ 'line-height' : desktop && windowHeight*0.1 + 'px', 'margin-top' : 0 }">Eine Karte für ganz Berlin.</h2>
+        <h2>Eine Karte für ganz Berlin.</h2>
         <p class="subtitle">Entdecke mit nur einer Mitgliedschaft immer wieder neue Studios und Kurse in der ganzen Stadt.</p>
         <div class="trial" ng-if="mobile"><p><b>Kostenloser Probemonat!</b><span>Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld komplett zurück.</span></p></div>
         <img class="cards-image" ng-if="mobile" src="images/falling-cards.png" />
