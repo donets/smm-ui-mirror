@@ -13,7 +13,7 @@
     <div class="b-main-slogan"><h2>Eine Karte für ganz Berlin</h2>
         <p>Entdecke <b>30 Studios</b> und <b>500 Kurse</b> pro Woche mit <b>1 Beitrag</b> und entfalte Dein körperliches und seelisches Potenzial so ganzheitlich wie noch nie.</p>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
-            <form name="form.subscribeForm" id="original" ng-if="!invitation" class="b-card-subscribe optimizely" ng-submit="subscribeCard('header')">
+            <form name="form.subscribeForm" id="variant_1" ng-if="!invitation" class="b-card-subscribe variant" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
                 <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="PLZ"/>
@@ -24,8 +24,8 @@
                     <div ng-show="errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
-            <a class="form-button signup-button" id="Jetzt kostenlos anmelden" ng-if="!invitation" ui-sref="signup" class="optimizely">Jetzt kostenlos anmelden</a>
-            <a class="form-button signup-button" id="14 Tage kostenlos testen" ng-if="!invitation" ui-sref="signup" class="optimizely">14 Tage kostenlos testen</a>
+            <a class="form-button signup-button variant" id="variant_2" ng-if="!invitation" ui-sref="signup">Jetzt kostenlos anmelden</a>
+            <a class="form-button signup-button variant" id="variant_3" ng-if="!invitation" ui-sref="signup">14 Tage kostenlos testen</a>
             <a class="form-button signup-button" ng-if="invitation" ui-sref="signup">Jetzt Karte erhalten</a>
         </div>
         <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
