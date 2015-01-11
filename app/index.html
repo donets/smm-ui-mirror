@@ -52,30 +52,15 @@
             left: 0;
             right: 0;
         }
-        .pre-cover {
-            background: url("/images/landing-2880.jpg") no-repeat center center;
-            position: relative;
-            top: 0;
-            height: 550px;
-            left: 0;
-            right: 0;
-            background-size: cover;
-            opacity: 1;
-            transition: opacity 1s linear 2s;
-        }
-        @media (max-width: 1440px) {
-            .pre-cover {
-                background-image: url("/images/landing-1440.jpg");
-            }
-        }
-        @media (max-width: 1080px) {
-            .pre-cover {
-                background-image: url("/images/landing-1080.jpg");
-                height: 306px;
-            }
-        }
-        .pre-cover.hide-cover {
-            opacity: 0;
+        .pre:before {
+            content: '';
+            background: url("/images/loader.gif");
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -64px;
+            width: 128px;
+            height: 15px;
         }
     </style>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -120,9 +105,7 @@
 
 <!-- Add your site or application content here -->
 <div class="pre">
-    <div class="pre-cover">
 
-    </div>
 </div>
 
 <div ng-cloak resizable ng-app="boltApp">

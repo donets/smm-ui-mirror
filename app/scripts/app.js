@@ -72,11 +72,9 @@ angular.module('boltApp')
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
             // to active whenever 'contacts.list' or one of its decendents is active.
-            $('.pre-cover').addClass('hide-cover');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             $rootScope.autoscroll = true;
-            $rootScope.mainTitle = 'Somuchmore | Bewege Körper, Geist und Seele';
             $rootScope.$on('$viewContentLoading', function(){
                 $window.rendering = true;
             });
@@ -287,13 +285,6 @@ angular.module('boltApp')
                         return Occurrences.get({occurrenceId: $stateParams.eventId}).$promise;
                     }
                 },
-                onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight - 200) : 0;
-                },
-                onExit: function($rootScope){
-                    $('html head title').text($rootScope.mainTitle);
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
-                },
                 controller : 'EventCtrl'
             })
             .state('view.contact', {
@@ -346,23 +337,11 @@ angular.module('boltApp')
             .state('studio', {
                 url : '/p/studio/:studioId/',
                 templateUrl: 'views/studio.html',
-                onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
-                },
-                onExit: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
-                },
                 controller : 'StudioCtrl'
             })
             .state('home', {
                 url : '/',
                 templateUrl: 'views/homepage.html',
-                onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', $rootScope.windowHeight) : 0;
-                },
-                onExit: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
-                },
                 controller : 'GetcardCtrl',
                 resolve: {
 
@@ -404,12 +383,6 @@ angular.module('boltApp')
 
                     }
 
-                },
-                onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '350px') : 0;
-                },
-                onExit: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 }
             })
             .state('profile', {
