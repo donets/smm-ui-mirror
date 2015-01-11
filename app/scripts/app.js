@@ -30,6 +30,7 @@ angular
         'validation.match',
         'ezfb',
         'flow',
+        'ng-optimizely',
         'angulartics',
         'angulartics.google.analytics',
         'angulartics.google.tagmanager',
@@ -125,6 +126,9 @@ angular.module('boltApp')
                 $window._fbq.push(['track', 'PixelInitialized', {}]);
             });
         }])
+    .run(['optimizely', function(optimizely) {
+        optimizely.loadProject('2367521283');
+    }])
     .run(['$http', 'DSCacheFactory',
         function ($http, DSCacheFactory) {
             var defaultCache = DSCacheFactory('defaultCache', { // jshint ignore:line

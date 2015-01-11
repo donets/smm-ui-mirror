@@ -123,6 +123,7 @@ angular.module('boltApp.controllers.Signup', [])
                     $rootScope.handledError = false;
                     console.log(response);
                     $window.ga('send', 'event', 'Signup', 'onOrder');
+                    $window.optimizely.push(['trackEvent', 'signup_completed']);
                     $rootScope.userName = response.user.name;
                     $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                     $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
