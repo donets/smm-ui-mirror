@@ -26,7 +26,7 @@
             </form>
             <a class="form-button signup-button variant" id="variant_2" ng-if="!invitation" ui-sref="signup">Jetzt kostenlos anmelden</a>
             <a class="form-button signup-button variant" id="variant_3" ng-if="!invitation" ui-sref="signup">14 Tage kostenlos testen</a>
-            <a class="form-button signup-button" ng-if="invitation" ui-sref="signup">Jetzt Karte erhalten</a>
+            <a class="form-button signup-button" ng-if="invitation" ui-sref="signup">Deine Karte erhalten</a>
         </div>
         <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
     </div>
@@ -34,7 +34,7 @@
 <div class="b-card b-equipment">
     <div class="container">
         <h2>Unendliche Auswahl, tägliche Inspiration</h2>
-        <p>Beweglichkeit und das gewisse OM von <b>Yoga</b> oder <b>Pilates</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b> oder <b>TRX</b>. Schwung und Sinnlichkeit von <b></b> oder <b>Hip-Hop</b>. Körperbewusstsein und wahre Stärke von <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Konzentration und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung von <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
+        <p>Beweglichkeit und das gewisse OM von <b>Yoga</b> oder <b>Pilates</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b> oder <b>TRX</b>. Schwung und Sinnlichkeit von <b>Tango</b> oder <b>Hip-Hop</b>. Körperbewusstsein und wahre Stärke von <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Konzentration und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung von <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
         <p>All das. Und so viel mehr. Mit einer Karte.</p>
         <a ui-sref="dashboard">Entdecke unsere Kurse</a>
     </div>
@@ -48,14 +48,14 @@
             <a ng-class="{'active': showStudioList}" href="" ng-click="showStudioList = true"><i class="fa fa-list"></i></a></li>
         </ul>
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-hide="showStudioList">
-            <ui-gmap-markers models='locations' coords="'self'" fit="false" icon="'icon'" click="'onClick'">
-                <ui-gmap-windows show="show">
+            <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
+                <ui-gmap-windows show="'show'">
                     <p class="info-window" ng-non-bindable>{{name}}</p>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
         <ul class="b-studios-list" ng-show="showStudioList">
-            <li ng-repeat="studio in studios | orderBy: 'id'">
+            <li ng-repeat="studio in studios | orderBy: 'name'">
                 <a ng-href="{{studio.website}}" ng-if="studio.website" target="_blank">{{studio.name}}</a>
                 <span ng-if="!studio.website">{{studio.name}}</span>
             </li>

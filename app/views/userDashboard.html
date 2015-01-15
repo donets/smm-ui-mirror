@@ -16,7 +16,7 @@
                     data-placeholder="Alle Disziplinen"
                     disable-search="false"
                     allow-single-deselect="true"
-                    ng-options="item for item in disciplines">
+                    ng-options="item for item in disciplines | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
             <select chosen
@@ -25,7 +25,7 @@
                     data-placeholder="Alle Stile"
                     disable-search="false"
                     allow-single-deselect="true"
-                    ng-options="item for item in styles">
+                    ng-options="item for item in styles | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
         </div>
@@ -50,7 +50,7 @@
                     data-placeholder="Alle Stadtteile"
                     disable-search="false"
                     allow-single-deselect="true"
-                    ng-options="item for item in locations">
+                    ng-options="item for item in locations | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
             <select chosen
@@ -59,7 +59,7 @@
                     data-placeholder="Alle Studios"
                     disable-search="false"
                     allow-single-deselect="true"
-                    ng-options="item.id as item.name for item in studios">
+                    ng-options="item.id as item.name for item in studios | orderBy: 'name'">
                 <option value=""></option>
             </select>
             <select chosen

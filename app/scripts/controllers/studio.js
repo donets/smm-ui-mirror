@@ -7,11 +7,11 @@
  * # StudioCtrl
  * Controller of the boltApp
  */
-angular.module('boltApp.controllers.Studio', ['google-maps'.ns()])
-    .controller('StudioCtrl', [ '$scope', '$rootScope', 'GoogleMapApi'.ns(), function ($scope, $rootScope, GoogleMapApi) {
+angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
+    .controller('StudioCtrl', [ '$scope', '$rootScope', 'uiGmapGoogleMapApi', function ($scope, $rootScope, uiGmapGoogleMapApi) {
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/main-2880.jpg' : '/images/main-1080.jpg';
 
-        GoogleMapApi.then(function(maps) {
+        uiGmapGoogleMapApi.then(function(maps) {
 
             $scope.map = {
                 center: {

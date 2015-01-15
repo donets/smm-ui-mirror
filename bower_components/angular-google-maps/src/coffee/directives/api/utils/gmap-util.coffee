@@ -1,16 +1,10 @@
-angular.module("google-maps.directives.api.utils".ns())
-.service "GmapUtil".ns(), ["Logger".ns(), "$compile", (Logger, $compile) ->
-  DEFAULT_EVENT_OPTS =
-    debounceMs: 5
+angular.module('uiGmapgoogle-maps.directives.api.utils')
+.service 'uiGmapGmapUtil', ['uiGmapLogger', '$compile', (Logger, $compile) ->
   #BEGIN Private Methods
-  debounce = (fn, delay = DEFAULT_EVENT_OPTS.debounceMs) ->
-    # true in debounce is the key to making the function execute on this iteration w/ a delay
-    _.debounce  fn , delay, true
-
   getLatitude = (value) ->
     if Array.isArray(value) and value.length is 2
       value[1]
-    else if angular.isDefined(value.type) and value.type is "Point"
+    else if angular.isDefined(value.type) and value.type is 'Point'
       value.coordinates[1]
     else
       value.latitude
@@ -18,7 +12,7 @@ angular.module("google-maps.directives.api.utils".ns())
   getLongitude = (value) ->
     if Array.isArray(value) and value.length is 2
       value[0]
-    else if angular.isDefined(value.type) and value.type is "Point"
+    else if angular.isDefined(value.type) and value.type is 'Point'
       value.coordinates[0]
     else
       value.longitude
@@ -27,7 +21,7 @@ angular.module("google-maps.directives.api.utils".ns())
     return unless value
     if Array.isArray(value) and value.length is 2
       new google.maps.LatLng(value[1], value[0])
-    else if angular.isDefined(value.type) and value.type is "Point"
+    else if angular.isDefined(value.type) and value.type is 'Point'
       new google.maps.LatLng(value.coordinates[1], value.coordinates[0])
     else
       new google.maps.LatLng(value.latitude, value.longitude)
@@ -38,7 +32,7 @@ angular.module("google-maps.directives.api.utils".ns())
     if _.isArray(coords)
       return true if coords.length is 2
     else if coords? and coords?.type
-      return true if coords.type is "Point" and _.isArray(coords.coordinates) and coords.coordinates.length is 2
+      return true if coords.type is 'Point' and _.isArray(coords.coordinates) and coords.coordinates.length is 2
     return true if coords and angular.isDefined coords?.latitude and angular.isDefined coords?.longitude
     false
   #END Private Methods
@@ -49,7 +43,7 @@ angular.module("google-maps.directives.api.utils".ns())
     if Array.isArray(prevValue) and prevValue.length is 2
       prevValue[1] = newLatLon.lat()
       prevValue[0] = newLatLon.lng()
-    else if angular.isDefined(prevValue.type) and prevValue.type is "Point"
+    else if angular.isDefined(prevValue.type) and prevValue.type is 'Point'
       prevValue.coordinates[1] = newLatLon.lat()
       prevValue.coordinates[0] = newLatLon.lng()
     else
@@ -84,8 +78,8 @@ angular.module("google-maps.directives.api.utils".ns())
       options
     else
       unless defaults
-        Logger.error "infoWindow defaults not defined"
-        Logger.error "infoWindow content not defined" unless content
+        Logger.error 'infoWindow defaults not defined'
+        Logger.error 'infoWindow content not defined' unless content
       else
         return defaults
 
@@ -94,7 +88,10 @@ angular.module("google-maps.directives.api.utils".ns())
       ret = defaults.content
     else
       if $compile?
-        parsed = $compile(content)(scope)
+        # replace leading/trailing whitespace
+        content = content.replace /^\s+|\s+$/g, ''
+        #avoid jqlite selector error on passing an empty string to $compile
+        parsed = if content == '' then '' else $compile(content)(scope)
         if parsed.length > 0
           ret = parsed[0] #must be one element with children or angular bindings get lost
       else
@@ -104,7 +101,7 @@ angular.module("google-maps.directives.api.utils".ns())
   defaultDelay: 50
 
   isTrue: (val) ->
-    angular.isDefined(val) and val isnt null and val is true or val is "1" or val is "y" or val is "true"
+    angular.isDefined(val) and val isnt null and val is true or val is '1' or val is 'y' or val is 'true'
 
   isFalse: (value) ->
     ['false', 'FALSE', 0, 'n', 'N', 'no', 'NO'].indexOf(value) != -1
@@ -125,7 +122,7 @@ angular.module("google-maps.directives.api.utils".ns())
 
       #Arrays of latitude/longitude objects or Google Maps LatLng objects are allowed
       while i < path.length
-        if not ((angular.isDefined(path[i].latitude) and angular.isDefined(path[i].longitude)) or (typeof path[i].lat == "function" and typeof path[i].lng == "function"))
+        if not ((angular.isDefined(path[i].latitude) and angular.isDefined(path[i].longitude)) or (typeof path[i].lat == 'function' and typeof path[i].lng == 'function'))
           return false
 
         i++
@@ -134,11 +131,11 @@ angular.module("google-maps.directives.api.utils".ns())
     else
       return false if angular.isUndefined(path.coordinates)
 
-      if path.type is "Polygon"
+      if path.type is 'Polygon'
         return false if path.coordinates[0].length < 4
         #Note: At this time, we only support the outer polygon and ignore the inner 'holes'
         array = path.coordinates[0]
-      else if path.type is "MultiPolygon"
+      else if path.type is 'MultiPolygon'
         #Note: At this time, we will display the polygon with the most vertices
         trackMaxVertices = { max: 0, index: 0 }
         _.forEach(path.coordinates, (polygon, index) ->
@@ -153,7 +150,7 @@ angular.module("google-maps.directives.api.utils".ns())
         array = polygon[0]
 
         return false if array.length < 4
-      else if path.type is "LineString"
+      else if path.type is 'LineString'
         return false if path.coordinates.length < 2
         array = path.coordinates
       else
@@ -177,17 +174,17 @@ angular.module("google-maps.directives.api.utils".ns())
         latlng
         if angular.isDefined(path[i].latitude) and angular.isDefined(path[i].longitude) # latitude/longitude object
           latlng = new google.maps.LatLng(path[i].latitude, path[i].longitude)
-        else if typeof path[i].lat == "function" and typeof path[i].lng == "function" # LatLng object
+        else if typeof path[i].lat == 'function' and typeof path[i].lng == 'function' # LatLng object
           latlng = path[i]
 
         result.push latlng
         i++
     else
       array
-      if path.type is "Polygon"
+      if path.type is 'Polygon'
         #Note: At this time, we only support the outer polygon and ignore the inner 'holes'
         array = path.coordinates[0]
-      else if path.type is "MultiPolygon"
+      else if path.type is 'MultiPolygon'
         #Note: At this time we will display the polygon with the most vertices
         trackMaxVertices = { max: 0, index: 0 }
         _.forEach(path.coordinates, (polygon, index) ->
@@ -198,7 +195,7 @@ angular.module("google-maps.directives.api.utils".ns())
 
         #TODO: Properly support MultiPolygons
         array = path.coordinates[trackMaxVertices.index][0]
-      else if path.type is "LineString"
+      else if path.type is 'LineString'
         array = path.coordinates
 
       while i < array.length
@@ -218,7 +215,7 @@ angular.module("google-maps.directives.api.utils".ns())
 
   getPath: (object, key) ->
     obj = object
-    _.each key.split("."), (value) ->
+    _.each key.split('.'), (value) ->
       if obj then obj = obj[value]
 
     obj
@@ -237,11 +234,5 @@ angular.module("google-maps.directives.api.utils".ns())
 
   fitMapBounds: (map, bounds) ->
     map.fitBounds bounds
-
-
-  debounce: debounce
-
-  debounceNow:(fn, delay = DEFAULT_EVENT_OPTS.debounceMs) ->
-    debounce(fn, delay = DEFAULT_EVENT_OPTS.debounceMs)()
   #end Public Methods
 ]

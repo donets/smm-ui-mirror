@@ -1,10 +1,7 @@
-###
-	- interface directive for all window(s) to derive from
-###
-angular.module("google-maps.directives.api".ns())
-.factory "IWindow".ns(), [
-  "BaseObject".ns(), "ChildEvents".ns(), "Logger".ns(), "CtrlHandle".ns(),
-  (BaseObject, ChildEvents, Logger, CtrlHandle) ->
+angular.module('uiGmapgoogle-maps.directives.api')
+.factory 'uiGmapIWindow', [
+  'uiGmapBaseObject', 'uiGmapChildEvents', 'uiGmapCtrlHandle',
+  (BaseObject, ChildEvents, CtrlHandle) ->
     class IWindow extends BaseObject
       @include ChildEvents
       @extend CtrlHandle
@@ -13,19 +10,16 @@ angular.module("google-maps.directives.api".ns())
         @template = undefined
         @transclude = true
         @priority = -100
-        @require = '^' + 'GoogleMap'.ns()
+        @require = '^' + 'uiGmapGoogleMap'
         @replace = true
-        @scope = {
+        @scope =
           coords: '=coords',
           template: '=template',
           templateUrl: '=templateurl',
           templateParameter: '=templateparameter',
           isIconVisibleOnClick: '=isiconvisibleonclick',
-          closeClick: '&closeclick', #scope glue to gmap InfoWindow closeclick
+          closeClick: '&closeclick',
           options: '=options'
           control: '=control'
-          #show is not part of options, (https://developers.google.com/maps/documentation/javascript/reference#InfoWindowOptions) we need it then
           show: '=show'
-        }
-        @$log = Logger
 ]

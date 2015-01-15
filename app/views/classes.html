@@ -11,7 +11,7 @@
                     ng-model="search.studioId"
                     data-placeholder="Alle Studios"
                     disable-search="false"
-                    ng-options="item.id as item.name for item in studios">
+                    ng-options="item.id as item.name for item in studios | orderBy: 'name'">
                 <option value=""></option>
             </select>
             <select chosen
@@ -28,7 +28,7 @@
                 <i class="fa"></i>
                 <label for="draft">Draft</label>
             </div>
-            <button class="control-button" ng-click="clearFilters()" type="button">Filter zurücksetzen</button>
+            <a class="clear-button" href="" ng-click="clearFilters()">Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable classes" ng-show="desktop">

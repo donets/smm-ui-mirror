@@ -56,6 +56,9 @@
         width: 170px;
         text-align: left;
         padding: 50px 0 0;
+        &.stuck {
+            z-index: 1;
+        }
         .chosen-container, .form-check, .control-button, .input-search {
             margin: 0 0 20px;
         }

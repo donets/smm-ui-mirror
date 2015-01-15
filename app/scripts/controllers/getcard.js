@@ -7,8 +7,8 @@
  * # GetcardCtrl
  * Controller of the boltApp
  */
-angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$modal', 'GoogleMapApi'.ns(), function ($scope, $rootScope, $location, $http, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $modal, GoogleMapApi) {
+angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$modal', 'uiGmapGoogleMapApi', function ($scope, $rootScope, $location, $http, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $modal, uiGmapGoogleMapApi) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -30,7 +30,7 @@ angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
             }
         };
 
-        GoogleMapApi.then(function() {
+        uiGmapGoogleMapApi.then(function() {
 
             $scope.map = {
                 center: {
@@ -47,7 +47,29 @@ angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
                 }
             };
 
+            var markerIcon = new Image().src = '/images/marker.svg';
+            var markerIconHover = new Image().src = '/images/marker-hover.svg';
 
+            $scope.markerEvents = {
+                mouseover : function(marker, eventName, model) {
+                    marker.setIcon(markerIconHover);
+                    model.show = true;
+                },
+                mouseout : function(marker, eventName, model) {
+                    marker.setIcon(markerIcon);
+                    model.show = false;
+                }
+            };
+
+        });
+
+        getLocations.$promise.then(function (res) {
+            $scope.locations = _.reject(res, function (obj) {
+                return obj.latitude === null || obj.longitude === null;
+            });
+            _.map($scope.locations, function (obj) {
+                obj.icon = '/images/marker.svg';
+            });
         });
 
         $scope.invitation = $location.search().invitation;
@@ -60,16 +82,6 @@ angular.module('boltApp.controllers.Getcard', ['google-maps'.ns()])
 
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
-        });
-
-        getLocations.$promise.then(function (res) {
-            $scope.locations = res;
-            _.map($scope.locations, function (obj) {
-                obj.icon = '/images/marker.svg';
-                obj.onClick = function() {
-                    obj.show = true;
-                };
-            });
         });
 
         var setVoucher = function (code) {

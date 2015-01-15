@@ -105,10 +105,11 @@
             <div ng-if="!voucher.freeSubscriptionGranted" ng-class="{'error': error === 'CardException'}" class="form-group">
                 <div class="form-rel">
                     <label class="form-label required" for="cardNumber">Kreditkarte</label>
-                    <input type="text" ng-model="order.card.number" ng-pattern="/^\d{16}$/" ng-change="orderChange('card')" id="cardNumber" name="cardNumber" placeholder="Kartennummer" required />
+                    <input type="text" ng-model="order.card.number" ng-change="orderChange('card')" id="cardNumber" name="cardNumber" placeholder="Kartennummer"
+                           ng-pattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/" required />
                     <div class="form-response" ng-show="formSignup.cardNumber.$dirty && formSignup.cardNumber.$invalid">
                         <div ng-show="formSignup.cardNumber.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                        <div ng-show="formSignup.cardNumber.$error.pattern" class="form-message form-error">Bitte eine 16-stellige Kartennummer eingeben</div>
+                        <div ng-show="formSignup.cardNumber.$error.pattern" class="form-message form-error">Bitte eine gültige Kreditkartennummer eintragen</div>
                     </div>
                 </div>
                 <div class="form-rel flex">

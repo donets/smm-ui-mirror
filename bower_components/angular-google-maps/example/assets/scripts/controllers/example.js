@@ -1,10 +1,11 @@
-angular.module("angular-google-maps-example", ["google-maps".ns()])
+'use strict';
+angular.module("angular-google-maps-example", ['uiGmapgoogle-maps'])
 
 .value("rndAddToLatLon", function () {
   return Math.floor(((Math.random() < 0.5 ? -1 : 1) * 2) + 1);
 })
 
-.config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
+.config(['uiGmapGoogleMapApiProvider', function (GoogleMapApi) {
   GoogleMapApi.configure({
 //    key: 'your api key',
     v: '3.17',
@@ -25,9 +26,10 @@ angular.module("angular-google-maps-example", ["google-maps".ns()])
   };
 })
 
-.controller("ExampleController",['$scope', '$timeout', 'Logger'.ns(), '$http', 'rndAddToLatLon','GoogleMapApi'.ns()
+.controller("ExampleController",['$scope', '$timeout', 'uiGmapLogger', '$http', 'rndAddToLatLon','uiGmapGoogleMapApi'
     , function ($scope, $timeout, $log, $http, rndAddToLatLon,GoogleMapApi) {
-  $log.doLog = true
+  $log.doLog = true;
+//  $log.currentLevel = $log.LEVELS.debug;
 
   GoogleMapApi.then(function(maps) {
     $scope.googleVersion = maps.version;
@@ -283,25 +285,17 @@ angular.module("angular-google-maps-example", ["google-maps".ns()])
           mid: 1,
           latitude: 29.302567,
           longitude: -106.248779,
-          onClicked: function(gMarker,eventName, model){
 
-          }
         },
         {
           mid: 2,
           latitude: 30.369913,
           longitude: -109.434814,
-          onClicked: function(gMarker,eventName, model){
-
-          }
         },
         {
           mid: 3,
           latitude: 26.739478,
           longitude: -108.61084,
-          onClicked: function(gMarker,eventName, model){
-
-          }
         }
       ],
       clickMarkers: [
@@ -323,6 +317,9 @@ angular.module("angular-google-maps-example", ["google-maps".ns()])
         }
       },
       events: {
+//This turns of events and hits against scope from gMap events this does speed things up
+// adding a blacklist for watching your controller scope should even be better
+//        blacklist: ['drag', 'dragend','dragstart','zoom_changed', 'center_changed'],
         tilesloaded: function (map, eventName, originalEventArgs) {
         },
         click: function (mapModel, eventName, originalEventArgs) {
@@ -346,7 +343,6 @@ angular.module("angular-google-maps-example", ["google-maps".ns()])
           $scope.$apply();
         },
         dragend: function () {
-          self = this;
           $timeout(function () {
             var markers = [];
 
@@ -634,7 +630,7 @@ angular.module("angular-google-maps-example", ["google-maps".ns()])
 
   $timeout(function () {
     $scope.map.infoWindow.show = true;
-    dynamicMarkers = [
+    var dynamicMarkers = [
       {
         id: 1,
         latitude: 46,

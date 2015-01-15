@@ -7,8 +7,8 @@
  * # EventCtrl
  * Controller of the boltApp
  */
-angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
-    .controller('EventCtrl', ['$scope', '$rootScope', 'getEvent', 'Suppliers', 'Events', '$window', '$location', 'GoogleMapApi'.ns(), 'ezfb', function ($scope, $rootScope, getEvent, Suppliers, Events, $window, $location, GoogleMapApi, ezfb) {
+angular.module('boltApp.controllers.Event', ['uiGmapgoogle-maps'])
+    .controller('EventCtrl', ['$scope', '$rootScope', 'getEvent', 'Suppliers', 'Events', '$window', '$location', 'uiGmapGoogleMapApi', 'ezfb', function ($scope, $rootScope, getEvent, Suppliers, Events, $window, $location, uiGmapGoogleMapApi, ezfb) {
         $scope.event = getEvent;
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/main-2880.jpg' : '/images/main-1080.jpg';
 
@@ -24,7 +24,7 @@ angular.module('boltApp.controllers.Event', ['google-maps'.ns()])
 
         // map init
 
-        GoogleMapApi.then(function(maps) {
+        uiGmapGoogleMapApi.then(function(maps) {
 
             $scope.map = {
                 center: {

@@ -72,6 +72,7 @@ angular.module('boltApp')
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
             // to active whenever 'contacts.list' or one of its decendents is active.
+            $('.pre').addClass('hide_loader');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             $rootScope.autoscroll = true;
@@ -148,12 +149,12 @@ angular.module('boltApp')
     .constant('angularMomentConfig', {
         timezone: 'Europe/Berlin'
     })
-    .config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
-        GoogleMapApi.configure({
+    .config(function (uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
             v: '3.17',
             libraries: 'weather,geometry,visualization'
         });
-    }])
+    })
     //.config(['ezfbProvider', function(ezfbProvider) {
     //     ezfbProvider.setInitParams({
     //         appId: '1403268876590849'
@@ -470,12 +471,6 @@ angular.module('boltApp')
                 abstract: true,
                 resolve: {
 
-                    getClasses: function(RestApi) {
-
-                        return RestApi.query({route: 'events'}).$promise;
-
-                    },
-
                     getLocations: function(RestApi) {
 
                         return RestApi.query({route: 'locations'}).$promise;
@@ -499,7 +494,16 @@ angular.module('boltApp')
             .state('admin.classes.list', {
                 url : '',
                 templateUrl: 'views/classes.html',
-                controller : 'ClassesCtrl'
+                controller : 'ClassesCtrl',
+                resolve: {
+
+                    getClasses: function(RestApi) {
+
+                        return RestApi.query({route: 'events'}).$promise;
+
+                    }
+
+                }
             })
             .state('admin.classes.class', {
                 url : '{classId:[0-9]+}/',

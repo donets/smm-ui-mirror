@@ -6,8 +6,11 @@
 
 function setTimeList (timeList, start, end) {
     _.clearArray(timeList);
-    if (start && +start.split(':')[1] < 30) {
-        timeList.push(start.split(':')[0] + ':30');
+    for (var minutes = 15; minutes <= 45; minutes = minutes + 15) {
+        if (start && +start.split(':')[1] < minutes) {
+            console.log(minutes);
+            timeList.push(start.split(':')[0] + ':' + minutes);
+        }
     }
     for (var hour = start ? +start.split(':')[0] + 1 : 6; hour <= (end ? end : 23); hour++) {
         if (hour < 10) {
@@ -15,7 +18,9 @@ function setTimeList (timeList, start, end) {
         }
         timeList.push(hour + ':00');
         if(hour !== end) {
-            timeList.push(hour + ':30');
+            for (var min = 15; min <= 45; min = min + 15) {
+                timeList.push(hour + ':' + min);
+            }
         }
     }
     return (timeList);
@@ -40,7 +45,7 @@ function toggleSelection (name, sel) {
         sel.push(name.id);
     }
 
-};
+}
 
 function getScrollbarWidth() {
     var outer = document.createElement('div');

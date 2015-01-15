@@ -1,6 +1,6 @@
-angular.module("search-box-example", ["google-maps".ns()])
+angular.module("search-box-example", ['uiGmapgoogle-maps'])
 
-.config(['GoogleMapApiProvider'.ns(), function (GoogleMapApi) {
+.config(['uiGmapGoogleMapApiProvider', function (GoogleMapApi) {
   GoogleMapApi.configure({
 //    key: 'your api key',
     v: '3.16',
@@ -9,7 +9,7 @@ angular.module("search-box-example", ["google-maps".ns()])
 }])
 
 .run(['$templateCache', function ($templateCache) {
-  $templateCache.put('searchbox.tpl.html', '<input id="pac-input" class="pac-controls" type="text" placeholder="Search Box">');
+  $templateCache.put('searchbox.tpl.html', '<input id="pac-input" class="pac-controls" type="text" placeholder="Search">');
   $templateCache.put('window.tpl.html', '<div ng-controller="WindowCtrl" ng-init="showPlaceDetails(parameter)">{{place.name}}</div>');
 }])
 
@@ -20,12 +20,12 @@ angular.module("search-box-example", ["google-maps".ns()])
   }
 })
 
-.controller("SearchBoxController",['$scope', '$timeout', 'Logger'.ns(), '$http','GoogleMapApi'.ns()
+.controller("SearchBoxController",['$scope', '$timeout', 'uiGmapLogger', '$http','uiGmapGoogleMapApi'
     , function ($scope, $timeout, $log, $http, GoogleMapApi) {
   $log.doLog = true
 
-  
-  
+
+
 
   GoogleMapApi.then(function(maps) {
     maps.visualRefresh = true;
@@ -33,7 +33,7 @@ angular.module("search-box-example", ["google-maps".ns()])
       new google.maps.LatLng(40.82148, -73.66450),
       new google.maps.LatLng(40.66541, -74.31715));
 
-    
+
     $scope.map.bounds = {
       northeast: {
         latitude:$scope.defaultBounds.getNorthEast().lat(),
@@ -52,7 +52,7 @@ angular.module("search-box-example", ["google-maps".ns()])
     selected: {
       options: {
         visible:false
-        
+
       },
       templateurl:'window.tpl.html',
       templateparameter: {}
@@ -70,19 +70,24 @@ angular.module("search-box-example", ["google-maps".ns()])
       idkey: 'place_id',
       events: {
         idle: function (map) {
+                   
+        },
+        dragend: function(map) {
+          //update the search box bounds after dragging the map
           var bounds = map.getBounds();
-          var ne = bounds.getNorthEast(); // LatLng of the north-east corner
-          //console.log("ne bounds " + ne.lat() + ", " + ne.lng());
-          var sw = bounds.getSouthWest(); // LatLng of the south-west corder
-          //console.log("sw bounds " + sw.lat() + ", " + sw.lng());
+          var ne = bounds.getNorthEast();
+          var sw = bounds.getSouthWest(); 
+          $scope.searchbox.options.bounds = new google.maps.LatLngBounds(sw, ne);
+          //$scope.searchbox.options.visible = true;
         }
       }
     },
     searchbox: {
       template:'searchbox.tpl.html',
+      //position:'top-right',
       position:'top-left',
       options: {
-        bounds: {} 
+        bounds: {}
       },
       //parentdiv:'searchBoxParent',
       events: {
@@ -109,7 +114,7 @@ angular.module("search-box-example", ["google-maps".ns()])
               templateparameter: place
             };
             newMarkers.push(marker);
-            
+
             bounds.extend(place.geometry.location);
           }
 
@@ -126,26 +131,27 @@ angular.module("search-box-example", ["google-maps".ns()])
 
           _.each(newMarkers, function(marker) {
             marker.closeClick = function() {
-              $scope.selected.options.visible = false
+              $scope.selected.options.visible = false;
               marker.options.visble = false;
               return $scope.$apply();
             };
             marker.onClicked = function() {
               $scope.selected.options.visible = false;
               $scope.selected = marker;
-              $scope.selected.options.visible = true
+              $scope.selected.options.visible = true;
             };
           });
 
-          $scope.map.markers = newMarkers
+          $scope.map.markers = newMarkers;
+          //$scope.searchbox.options.visible = false;
         }
       }
 
-      
+
     }
   });
 
 
-  
+
 
 }]);

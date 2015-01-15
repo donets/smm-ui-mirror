@@ -59,12 +59,6 @@
     &:focus {
         color: #fff;
     }
-    &[disabled] {
-        background: $colorLink;
-        &:hover {
-            background: $colorLink;
-        }
-    }
     &.white {
         background: #fff;
         color: $colorLink;
@@ -73,12 +67,6 @@
         }
         &:active {
             background: #fff;
-        }
-        &[disabled] {
-            background: #fff;
-            &:hover {
-                background: #fff;
-            }
         }
     }
     &.grey {
@@ -89,12 +77,6 @@
         &:active {
             background: #757575;
         }
-        &[disabled] {
-            background: $colorGrey;
-            &:hover {
-                background: $colorGrey;
-            }
-        }
     }
     &.dark {
         background: $colorText;
@@ -103,12 +85,6 @@
         }
         &:active {
             background: #333;
-        }
-        &[disabled] {
-            background: $colorText;
-            &:hover {
-                background: $colorText;
-            }
         }
     }
 }
@@ -162,17 +138,12 @@
             color: $colorActive;
         }
     }
-    &[disabled] {
-        border-color: $colorGrey;
-        &:hover {
-            border-color: $colorGrey;
-        }
-    }
 }
 
 button, input[type="submit"] {
     &[disabled] {
         opacity: 0.5;
+        background: $colorLightGrey !important;
     }
     background: $colorGrey;
     &.default {

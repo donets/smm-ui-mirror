@@ -1,6 +1,6 @@
 describe "directives.api.Window", ->
     beforeEach ->
-        window["Initiator".ns()].initMock()
+        window['uiGmapInitiator'].initMock()
         @mocks =
             scope:
                 coords:
@@ -10,6 +10,8 @@ describe "directives.api.Window", ->
                 $watch:()->
                 $on:()->
                 control: {}
+                $evalAsync: (fn) ->
+                  fn()
             element:
                 html: ->
                     "<p>test html</p>"
@@ -19,7 +21,7 @@ describe "directives.api.Window", ->
             ctrls: [{getMap:()->{}}]
         @gmap = {}
         inject ['$rootScope','$q', '$compile', '$http',
-          '$templateCache', 'ExtendGWin'.ns(), 'Window'.ns(),
+        '$templateCache', 'uiGmapExtendGWin', 'uiGmapWindow',
           (_$rootScope_,$q, $compile, $http, $templateCache, ExtendGWin, Window) =>
             ExtendGWin.init()
             @$rootScope =  _$rootScope_

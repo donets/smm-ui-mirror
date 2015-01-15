@@ -1,38 +1,38 @@
-angular.module("google-maps.directives.api.managers".ns())
-.factory "ClustererMarkerManager".ns(), ["Logger".ns(), "FitHelper".ns(), "PropMap".ns(), ($log, FitHelper, PropMap) ->
+angular.module('uiGmapgoogle-maps.directives.api.managers')
+.factory 'uiGmapClustererMarkerManager', ['uiGmapLogger',
+'uiGmapFitHelper', 'uiGmapPropMap', ($log, FitHelper, PropMap) ->
   class ClustererMarkerManager extends FitHelper
     @type = 'ClustererMarkerManager'
-    constructor: (gMap, opt_markers, opt_options, @opt_events) ->
+    constructor: (gMap, opt_markers={}, @opt_options = {}, @opt_events) ->
       super()
       @type = ClustererMarkerManager.type
-      self = @
-      @opt_options = opt_options
-      if opt_options? and opt_markers == undefined
-        @clusterer = new NgMapMarkerClusterer(gMap, undefined, opt_options)
-      else if opt_options? and opt_markers?
-        @clusterer = new NgMapMarkerClusterer(gMap, opt_markers, opt_options)
-      else
-        @clusterer = new NgMapMarkerClusterer(gMap)
+
+      @clusterer = new NgMapMarkerClusterer gMap, opt_markers, @opt_options
+
       @propMapGMarkers = new PropMap() #keep in sync with cluster.markers_
 
-      @attachEvents @opt_events, "opt_events"
+      @attachEvents @opt_events, 'opt_events'
 
-      @clusterer.setIgnoreHidden(true)
+      @clusterer.setIgnoreHidden true
       @noDrawOnSingleAddRemoves = true
-      $log.info(@)
+      $log.info @
 
     checkKey: (gMarker) ->
       unless gMarker.key?
-        msg = "gMarker.key undefined and it is REQUIRED!!"
+        msg = 'gMarker.key undefined and it is REQUIRED!!'
         Logger.error msg
 
     add: (gMarker)=>
       @checkKey gMarker
-      exists = @propMapGMarkers.get(gMarker.key)?
-
-      @clusterer.addMarker(gMarker, @noDrawOnSingleAddRemoves)
+      @clusterer.addMarker gMarker, @noDrawOnSingleAddRemoves
       @propMapGMarkers.put gMarker.key, gMarker
       @checkSync()
+
+    #if you want flashing as in remove and then re-add use this
+    #otherwise leave the marker in the map and just edit its properties (coords, icon etc)
+    update: (gMarker) =>
+      @remove gMarker
+      @add gMarker
 
     addMany: (gMarkers)=>
       gMarkers.forEach (gMarker) =>
@@ -76,14 +76,14 @@ angular.module("google-maps.directives.api.managers".ns())
       @clearEvents @opt_internal_events
       @clear()
 
-    fit: ()=>
+    fit: =>
       super @getGMarkers(), @clusterer.getMap()
 
     getGMarkers: =>
       @clusterer.getMarkers().values()
 
     checkSync: =>
-      throw "GMarkers out of Sync in MarkerClusterer" if @getGMarkers().length != @propMapGMarkers.length
+#      throw 'GMarkers out of Sync in MarkerClusterer' if @getGMarkers().length != @propMapGMarkers.length
 
   ClustererMarkerManager
 ]

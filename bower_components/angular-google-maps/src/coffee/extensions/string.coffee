@@ -1,7 +1,6 @@
-String::contains = (value,fromIndex) ->
-  @indexOf(value,fromIndex) != -1
-
-String::flare = (flare = 'uiGmap') ->
-  flare + @
-
-String::ns = String::flare
+angular.module('uiGmapgoogle-maps.extensions')
+.factory 'uiGmapString', ->
+  (str) ->
+    @contains = (value, fromIndex) ->
+      str.indexOf(value, fromIndex) != -1
+    @

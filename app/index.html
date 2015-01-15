@@ -45,7 +45,7 @@
             visibility: hidden;
         }
         .pre {
-            /*background: url("/images/bg.jpg");*/
+            background: url("/images/bg.jpg");
             position: absolute;
             top: 0;
             bottom: 0;
@@ -54,13 +54,18 @@
         }
         .pre:before {
             content: '';
-            /*background: url("/images/loader.gif");*/
+            background: url("/images/loader.gif");
             position: absolute;
             top: 50%;
             left: 50%;
             margin: -8px 0 0 -64px;
             width: 128px;
             height: 15px;
+            opacity: 1;
+            transition: opacity 1s linear 0s;
+        }
+        .pre.hide_loader:before {
+            opacity: 0;
         }
     </style>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -207,7 +212,7 @@
                     <a class="upp" ui-sref="agb">agb</a></li><li>
                     <a class="upp" ui-sref="faq">faq</a></li>
                 </ul>
-                <p class="b-footer-copyright">&copy; Somuchmore Marketplace UG, 2014</p>
+                <p class="b-footer-copyright">&copy; Somuchmore Marketplace UG, 2015</p>
             </nav>
         </div>
     </div>
@@ -269,7 +274,6 @@
 <script src="bower_components/angulartics/src/angulartics-marketo.js"></script>
 <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
 <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-<script src="bower_components/bluebird/js/browser/bluebird.js"></script>
 <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 <script src="bower_components/ngprogress/build/ngProgress.js"></script>
 <script src="bower_components/spin.js/spin.js"></script>

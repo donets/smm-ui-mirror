@@ -1,6 +1,6 @@
-describe "directives.api.Marker", ->
+describe "uiGmapMarker", ->
   beforeEach ->
-    module "google-maps.mocks".ns()
+    module "uiGmapgoogle-maps.mocks"
 
     @mocks =
       scope:
@@ -24,7 +24,7 @@ describe "directives.api.Marker", ->
     @timeOutNoW = (fnc, time) =>
       fnc()
 
-    inject ['GoogleApiMock','$rootScope', '$q', 'Marker'.ns(),(GoogleApiMock,$rootScope, $q, Marker) =>
+    inject ['GoogleApiMock','$rootScope', '$q', 'uiGmapMarker',(GoogleApiMock,$rootScope, $q, Marker) =>
       @gmap = new GoogleApiMock()
       @gmap.initAll()
       @$rootScope = $rootScope
@@ -46,7 +46,7 @@ describe "directives.api.Marker", ->
     it 'gMarkerManager exists', ->
       @subject.link(@mocks.scope, @mocks.element, @mocks.attrs, @mocks.ctrl)
       @$rootScope.$apply()
-      expect(@subject.gMarkerManager).toBeDefined()
+      expect(@mocks.scope.control.getGMarkers()).toBeDefined()
 
     it 'slaps control functions when a control is available', ->
       @subject.link(@mocks.scope, @mocks.element, @mocks.attrs, @mocks.ctrl)
