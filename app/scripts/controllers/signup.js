@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, getCards, getStudios) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $modal, $timeout, getCards, getStudios) {
         $scope.Math = $window.Math;
         $scope.startDate = moment.max(moment('2015-01-01'), moment()).format('DD.MM.YYYY');
         $scope.showDiscount = moment().isBefore('2015-02-01');
@@ -26,7 +26,7 @@ angular.module('boltApp.controllers.Signup', [])
             newsletter: true
         };
 
-        /*$scope.order = {
+        $scope.order = {
             "firstName": "Vlad",
             "lastName": "Donets",
             "email": "test3@somuchmore.org",
@@ -48,7 +48,7 @@ angular.module('boltApp.controllers.Signup', [])
                 "exp_year": 2015,
                 "name": "Max Musterman"
             }
-        };*/
+        };
 
         var setVoucher = function (code) {
             if ($scope.showDiscount && !$scope.order.voucher) {
@@ -96,57 +96,146 @@ angular.module('boltApp.controllers.Signup', [])
                     $scope.errorVoucher = res.type === 'NotFoundException' ? 'valid' : true;
                 });
             } else {
-                $scope.formSignup.voucher.$setPristine();
+                $scope.formCheckout.voucher.$setPristine();
                 setVoucher('EARLY_BIRD_2014');
             }
         };
 
+        $scope.signupSubmit = function () {
+            $scope.formSignup.$setPristine();
+            $scope.error = null;
+            $scope.showSpinner = true;
+            $rootScope.handledError = true;
+            var invitation = {
+                firstName: $scope.order.firstName,
+                lastName: $scope.order.lastName,
+                email: $scope.order.email,
+                name: $scope.order.firstName + ' ' + $scope.order.lastName,
+                checkoutStarted: true
+            };
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
+
+                $scope.showSpinner = false;
+                $rootScope.handledError = false;
+                $scope.showCards = true;
+                $timeout(function () {
+                    $document.scrollToElementAnimated($('#step2'), 220, 800);
+                }, 0);
+                console.log(response);
+
+            }).error(function (response) {
+
+                $scope.showSpinner = false;
+                $rootScope.handledError = false;
+                $scope.error = response.type;
+            });
+        };
+
         $scope.changeType = function () {
-            $scope.typeMessage = false;
             $scope.checkVoucher($scope.code);
             $scope.overview = {
                 card: _.findWhere($scope.cards, {type: $scope.order.type}).name,
                 price: _.findWhere($scope.cards, {type: $scope.order.type}).price
             };
+            $scope.showCheckout = true;
+            $timeout(function () {
+                $document.scrollToElementAnimated($('#step3'), 60, 800);
+            }, 0);
         };
 
-        $scope.signupSubmit = function () {
-            if ($scope.order.type) {
-                $scope.formSignup.$setPristine();
-                $scope.error = null;
-                $scope.errorMsg = '';
-                $scope.showSpinner = true;
-                $rootScope.handledError = true;
-                $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
+        $scope.checkoutSubmit = function () {
+            $scope.formCheckout.$setPristine();
+            $scope.error = null;
+            $scope.errorMsg = '';
+            $scope.showSpinner = true;
+            $rootScope.handledError = true;
+            $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
-                    $scope.showSpinner = false;
-                    $rootScope.handledError = false;
-                    console.log(response);
-                    $window.ga('send', 'event', 'Signup', 'onOrder');
-                    $window.optimizely.push(['trackEvent', 'signup_completed']);
-                    $rootScope.userName = response.user.name;
-                    $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
-                    $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
-                    $cookieStore.put('session', response.user);
-                    $cookieStore.put('signupPopap', true);
-                    $rootScope.$state.go('dashboard');
+                $scope.showSpinner = false;
+                $rootScope.handledError = false;
+                console.log(response);
+                $window.ga('send', 'event', 'Signup', 'onOrder');
+                $window.optimizely.push(['trackEvent', 'signup_completed']);
+                $rootScope.userName = response.user.name;
+                $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
+                $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
+                $cookieStore.put('session', response.user);
+                $cookieStore.put('signupPopap', true);
+                $rootScope.$state.go('dashboard');
 
-                }).error(function (response) {
+            }).error(function (response) {
 
-                    $scope.showSpinner = false;
-                    $rootScope.handledError = false;
-                    $scope.error = response.type;
-                    $scope.errorMsg = response.message;
-                });
-            } else {
-                $document.scrollToElementAnimated($('#cards'), 0, 800);
-                $scope.typeMessage = true;
-            }
+                $scope.showSpinner = false;
+                $rootScope.handledError = false;
+                $scope.error = response.type;
+                $scope.errorMsg = response.message;
+            });
+        };
+
+        $scope.missingCard = function () {
+            $modal.open({
+                templateUrl: 'views/modalMessage.html',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'name', 'email',
+
+                    function ($scope, $modalInstance, $http, $window, name, email) {
+
+                        $scope.message = {
+                            name: name,
+                            email: email,
+                            message: 'Ich habe keine Kreditkarte, möchte die Somuchmore Card aber trotzdem bestellen. Bitte kontaktiert mich dazu!'
+                        };
+
+                        $scope.sendMessage = function() {
+                            $scope.loading = true;
+                            $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.message).success(function () {
+                                $scope.loading = false;
+                                $scope.success = true;
+                            }).error(function (response, status) {
+                                $scope.loading = false;
+                                $scope.error = true;
+                                console.error(status);
+                            });
+                        };
+
+                        $scope.close = function () {
+                            $modalInstance.close(false);
+                        };
+
+                    }],
+                backdrop: 'static',
+                windowClass: 'modal-suggest',
+                resolve: {
+                    name: function () {
+                        return $scope.order.firstName && $scope.order.lastName && $scope.order.firstName + ' ' + $scope.order.lastName;
+                    },
+                    email: function () {
+                        return $scope.order.email;
+                    }
+                }
+            });
         };
 
         $scope.orderChange = function (type) {
             if (type === 'card' && $scope.error === 'CardException') {
                 $scope.error = null;
+            }
+        };
+
+        $scope.checkCard = function (card) {
+            var patts = [
+                {regex: /^4[0-9]{12}(?:[0-9]{3})?$/g, type: 'visa'},
+                {regex: /^5[1-5]\d{14}$/g, type: 'masterCard'},
+                {regex: /^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/g, type: 'maestroCard'}
+            ];
+            if (card) {
+                _.each(patts, function (patt) {
+                    var valid = patt.regex.test(card);
+                    if (valid) {
+                        $scope.creditCard = patt.type;
+                    }
+                });
+            } else {
+                $scope.creditCard = null;
             }
         };
         

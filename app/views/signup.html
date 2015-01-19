@@ -1,33 +1,32 @@
-<div class="b-main-cover signup-cover">
-    <div class="b-main-slogan">
-        <h2>Wähle Deine Karte!</h2>
-        <p>Hier kannst Du Deine Karte wählen, um mit einem monatlichen Betrag 500+ Kurse pro Woche bei 30+ Premium-Anbietern für Yoga, Pilates, Fitness, Wellness, Kampfkunst, Tanz, Meditation, Ernährung und Gesundheit zu besuchen. </p>
+<div class="container">
+    <div class="signup-title">
+        <h2>Bestelle die Somuchmore Card</h2>
+        <p class="subtitle">Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs.</p>
     </div>
+    <ul class="b-signup-list">
+        <li>
+            <b>Keine Aufnahmegebühr</b>
+        </li><li>
+            <b>Keine Mindestlaufzeit</b>
+            <span>(Monatlich Kündigen)</span>
+        </li><li>
+            <b>14 Tage Testen</b>
+        </li><li>
+            <b>Garantierte Zufriedenheit</b>
+            <span>(Geld zurück, wenn Du nicht mehr als 3 Kurse besucht hast)</span>
+        </li>
+    </ul>
 </div>
 <div class="b-order">
-    <div class="container">
-        <ul class="b-select-card" id="cards">
-            <li ng-repeat="card in cards">
-                <img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
-                <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
-                <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/>
-                <h3>{{card.name}}<p><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
-                <dl>
-                    <dd>Kurse / Monat:</dd>
-                    <dt>{{card.courses}}</dt>
-                    <dd>Kurse pro Anbieter / Monat:</dd>
-                    <dt>{{card.coursesPerSupplier}}</dt>
-                    <dd>Mindestlaufzeit:</dd>
-                    <dt>{{card.minimumTerm}}</dt>
-                </dl>
-                <button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button>
-            </li>
+    <nav class="signup-nav" sticky use-placeholder>
+        <ul>
+            <li><a class="active" href="#step1" du-smooth-scroll du-scrollspy offset="60">1. Registrierung</a></li><li>
+            <a href="#step2" du-smooth-scroll du-scrollspy offset="220">2. Produktwahl</a></li><li>
+            <a href="#step3" du-smooth-scroll du-scrollspy offset="60">3. Bezahlung</a></li>
         </ul>
-        <p ng-if="showDiscount">Melde Dich vor dem 1. Februar an und zahle 3 Monate lang 20% weniger.</p>
-        <div class="type-message form-error" ng-if="typeMessage">Bitte wähle die Art Deiner Karte</div>
-        <form name="formSignup" class="form-signup" ng-submit="signupSubmit()">
-            <h3 class="form-title">Rechnungsinformationen</h3>
+    </nav>
+    <div class="container">
+        <form id="step1" name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <div class="form-group">
                 <label class="form-label required" for="name">Name</label>
                 <div class="form-rel flex">
@@ -61,141 +60,188 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-rel">
-                    <label class="form-label required" for="street">Straße & Hausnummer</label>
-                    <input type="text" ng-model="order.deliveryAddress.streetAndHouse" id="street" name="street" placeholder="z.B. Münzstr. 1" required />
-                    <div class="form-response" ng-show="formSignup.street.$dirty && formSignup.street.$invalid">
-                        <div ng-show="formSignup.street.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                    </div>
-                </div>
-                <div class="form-rel">
-                    <label class="form-label required" for="zip">Postleitzahl</label>
-                    <input type="text" ng-model="order.deliveryAddress.zip" ng-pattern="/^\d{5}$/" id="zip" name="zip" placeholder="z.B. 10115" required />
-                    <div class="form-response" ng-show="formSignup.zip.$dirty && formSignup.zip.$invalid">
-                        <div ng-show="formSignup.zip.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                        <div ng-show="formSignup.zip.$error.pattern" class="form-message form-error">Keine gültige Postleitzahl (immer 5 Ziffern)</div>
-                    </div>
-                </div>
-                <div class="form-rel">
-                    <label class="form-label required" for="city">Stadt</label>
-                    <input type="text" ng-model="order.deliveryAddress.city" ng-pattern="/[a-zA-Z]+/" id="city" name="city" placeholder="Berlin" required/>
-                    <div class="form-response" ng-show="formSignup.city.$dirty && formSignup.city.$invalid">
-                        <div ng-show="formSignup.city.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                    </div>
-                </div>
-                <div class="form-rel">
-                    <input type="text" name="country" readonly value="Deutschland" required />
-                </div>
+            <div class="form-rel" ng-show="showSpinner">
+                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             </div>
-            <h3 ng-if="!voucher.freeSubscriptionGranted" class="form-title stripe">Bezahlung</h3>
-            <div ng-class="{ 'error': errorVoucher }" class="form-group">
-                <a href="" class="show-voucher" ng-click="showVoucher = !showVoucher">Aktionscode hinzufügen</a>
-                <div class="form-rel" ng-show="showVoucher">
-                    <input type="text" ng-model="code" ng-blur="checkVoucher(code)" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
-                    <div class="form-response">
-                        <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i>Code akzeptiert</div>
-                        <div ng-show="errorVoucher === 'valid'" class="form-message form-error">Kein gültiger Code</div>
-                        <div ng-show="errorVoucher === 'type'" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
-                        <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error">Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden</div>
-                    </div>
-                </div>
-            </div>
-            <div ng-if="!voucher.freeSubscriptionGranted" ng-class="{'error': error === 'CardException'}" class="form-group">
-                <div class="form-rel">
-                    <label class="form-label required" for="cardNumber">Kreditkarte</label>
-                    <input type="text" ng-model="order.card.number" ng-change="orderChange('card')" id="cardNumber" name="cardNumber" placeholder="Kartennummer"
-                           ng-pattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/" required />
-                    <div class="form-response" ng-show="formSignup.cardNumber.$dirty && formSignup.cardNumber.$invalid">
-                        <div ng-show="formSignup.cardNumber.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                        <div ng-show="formSignup.cardNumber.$error.pattern" class="form-message form-error">Bitte eine gültige Kreditkartennummer eintragen</div>
-                    </div>
-                </div>
-                <div class="form-rel flex">
-                    <div class="third" ng-class="{'chosen-valid': formSignup.cardMonth.$dirty && formSignup.cardMonth.$valid}">
-                        <label class="form-label required">Gültig bis</label>
-                        <select chosen required name="cardMonth" id="exp_month" class="third"
-                                ng-model="order.card.exp_month" ng-change="orderChange('card')"
-                                data-placeholder="Monat"
-                                disable-search="true"
-                                ng-options="item for item in month">
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div class="third" ng-class="{'chosen-valid': formSignup.cardYear.$dirty && formSignup.cardYear.$valid}">
-                        <label class="form-label"></label>
-                        <select chosen required name="cardYear" id="exp_year" class="third"
-                                ng-model="order.card.exp_year" ng-change="orderChange('card')"
-                                data-placeholder="Jahr"
-                                disable-search="true"
-                                ng-options="item for item in year">
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div class="third">
-                        <label class="form-label required" for="cardCVC">CVV</label>
-                        <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="z.B. 123" required/>
-                        <div ng-show="formSignup.cardCVC.$dirty && formSignup.cardCVC.$invalid">
-                            <div ng-show="formSignup.cardCVC.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                            <div ng-show="formSignup.cardCVC.$error.pattern" class="form-message form-error">Bitte die 3-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)</div>
+            <button type="submit" ng-hide="showSpinner || showCards" ng-disabled="!formSignup.$valid">Weiter</button>
+        </form>
+        <div id="step2" class="select-cards" ng-show="showCards">
+            <ul class="select-cards__title">
+                <li></li>
+                <li></li>
+                <li>Preis pro Monat</li>
+                <li>Kurse pro Monat</li>
+                <li>Kurse pro Anbieter / Monat</li>
+                <li>Kündigen / Pausieren</li>
+            </ul>
+            <ul class="select-cards__card" ng-repeat="card in cards">
+                <li><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></li>
+                <li class="name">{{card.name}}</li>
+                <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
+                <li>{{card.courses}}</li>
+                <li>{{card.coursesPerSupplier}}</li>
+                <li>{{card.minimumTerm}}</li>
+                <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></li>
+            </ul>
+        </div>
+        <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-submit="checkoutSubmit()">
+            <div class="w-left">
+                <div ng-class="{ 'error': errorVoucher }" class="form-group">
+                    <a href="" class="form-link" ng-click="showVoucher = !showVoucher">Aktionscode hinzufügen</a>
+                    <div class="form-rel" ng-show="showVoucher">
+                        <input type="text" ng-model="code" ng-blur="checkVoucher(code)" name="voucher" placeholder="Voucher Code (falls vorhanden)"/>
+                        <div class="form-response">
+                            <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                            <div ng-show="successVoucher" class="form-message form-success"><i class="fa fa-check-circle"></i>Code akzeptiert</div>
+                            <div ng-show="errorVoucher === 'valid'" class="form-message form-error">Kein gültiger Code</div>
+                            <div ng-show="errorVoucher === 'type'" class="form-message form-error">Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig</div>
+                            <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error">Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden</div>
                         </div>
                     </div>
                 </div>
+                <h3 ng-if="!voucher.freeSubscriptionGranted" class="form-title cf">Zahlungsinformationen
+                    <a class="stripe-link" target="_blank" href="https://stripe.com"><img src="images/stripe.svg" alt="stripe"/></a>
+                </h3>
+                <div ng-if="!voucher.freeSubscriptionGranted" ng-class="{'error': error === 'CardException'}" class="form-group">
+                    <div class="form-rel">
+                        <label class="form-label required" for="cardNumber">Kreditkarte</label>
+                        <input type="text" ng-model="order.card.number" ng-change="orderChange('card');checkCard(order.card.number)" id="cardNumber" name="cardNumber" placeholder="Kartennummer" ng-pattern="/^\d{8,}$/" required />
+                        <img class="credit-card" ng-show="creditCard === 'visa'" src="images/visa-icon.svg" alt=""/>
+                        <img class="credit-card" ng-show="creditCard === 'masterCard'" src="images/mastercard-icon.svg" alt=""/>
+                        <img class="credit-card" ng-show="creditCard === 'maestroCard'" src="images/maestro-icon.svg" alt=""/>
+                        <div ng-show="formCheckout.cardNumber.$dirty && formCheckout.cardNumber.$invalid">
+                            <div ng-show="formCheckout.cardNumber.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                            <div ng-show="formCheckout.cardNumber.$error.pattern" class="form-message form-error">Bitte eine gültige Kreditkartennummer eintragen</div>
+                        </div>
+                        <i ng-show="formCheckout.cardNumber.$valid" class="fa fa-check check-valid"></i>
+                    </div>
+                    <div class="form-rel flex">
+                        <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
+                            <label class="form-label required">Gültig bis</label>
+                            <select chosen required name="cardMonth" width="'160px'" id="exp_month" class="third"
+                                    ng-model="order.card.exp_month" ng-change="orderChange('card')"
+                                    data-placeholder="Monat"
+                                    disable-search="true"
+                                    ng-options="item for item in month">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="third" ng-class="{'chosen-valid': formCheckout.cardYear.$dirty && formCheckout.cardYear.$valid}">
+                            <label class="form-label"></label>
+                            <select chosen required name="cardYear" width="'160px'" id="exp_year" class="third"
+                                    ng-model="order.card.exp_year" ng-change="orderChange('card')"
+                                    data-placeholder="Jahr"
+                                    disable-search="true"
+                                    ng-options="item for item in year">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="third">
+                            <label class="form-label required" for="cardCVC">CVV</label>
+                            <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="z.B. 123" required/>
+                            <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid">
+                                <div ng-show="formCheckout.cardCVC.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                                <div ng-show="formCheckout.cardCVC.$error.pattern" class="form-message form-error">Bitte die 3-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="!voucher.freeSubscriptionGranted" class="form-group">
+                    <a class="form-link" href="" ng-click="missingCard()">Keine Kreditkarte?</a>
+                </div>
+                <h3 class="form-title">Rechnungsanschrift</h3>
+                <div class="form-group">
+                    <div class="form-rel">
+                        <label class="form-label required" for="street">Straße & Hausnummer</label>
+                        <input type="text" ng-model="order.deliveryAddress.streetAndHouse" id="street" name="street" placeholder="z.B. Münzstr. 1" required />
+                        <div class="form-response" ng-show="formCheckout.street.$dirty && formCheckout.street.$invalid">
+                            <div ng-show="formCheckout.street.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                        </div>
+                    </div>
+                    <div class="form-rel flex">
+                        <div class="half">
+                            <label class="form-label required" for="zip">Postleitzahl</label>
+                            <input type="text" ng-model="order.deliveryAddress.zip" class="half" ng-pattern="/^\d{5}$/" id="zip" name="zip" placeholder="z.B. 10115" required />
+                            <div ng-show="formCheckout.zip.$dirty && formCheckout.zip.$invalid">
+                                <div ng-show="formCheckout.zip.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                                <div ng-show="formCheckout.zip.$error.pattern" class="form-message form-error">Keine gültige Postleitzahl (immer 5 Ziffern)</div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <label class="form-label required" for="city">Stadt</label>
+                            <input type="text" ng-model="order.deliveryAddress.city" class="half" ng-pattern="/[a-zA-Z]+/" id="city" name="city" placeholder="Berlin" required/>
+                            <div ng-show="formCheckout.city.$dirty && formCheckout.city.$invalid">
+                                <div ng-show="formCheckout.city.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-rel">
+                        <label class="form-label required" for="city">Land</label>
+                        <input type="text" name="country" readonly value="Deutschland" required />
+                    </div>
+                </div>
             </div>
-            <div class="form-overview" ng-if="overview">
-                <h3 class="form-title">Deine Bestellung</h3>
+            <div class="form-overview w-right" ng-if="overview">
+                <h3 class="form-title">Bestellübersicht</h3>
                 <ul>
                     <li>
                         <b>Karte:</b>
                         <p>{{overview.card}}</p>
-                    </li><li ng-if="!voucher || (!voucher.freeSubscriptionGranted && voucher.discountDuarationInMonths)">
-                        <b>Monatlicher Preis:</b>
-                        <p>{{overview.price}}€</p>
-                    </li><li ng-if="voucher.freeSubscriptionGranted">
-                        <b>Sonderpreis:</b>
-                        <p>0€</p>
-                    </li><li ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <b>Monatlicher Preis (ermäßigt):</b>
-                        <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths"> für {{voucher.discountDuarationInMonths}} Monate</span></p>
-                    </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
-                        <b>Beginn Mitgliedschaft:</b>
-                        <p>{{startDate}}</p>
                     </li><li>
                         <b>Laufzeit:</b>
-                        <p ng-if="!voucher.freeSubscriptionGranted || !voucher">unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat</p>
+                        <p ng-if="!voucher.freeSubscriptionGranted || !voucher">Unbefristet <span class="details">(Verlängerung um je einen Monat, solange nicht gekündigt)</span></p>
                         <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b>Abbuchung:</b>
-                        <p>Monatlich beginnend mit dem Tag der Mitgliedschaft</p>
+                        <p>Monatlich <span class="details">(beginnend mit dem Tag der Mitgliedschaft)</span></p>
+                    </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
+                        <b>Beginn:</b>
+                        <p>{{startDate}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b>Kündigung:</b>
-                        <p>Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende</p>
+                        <p>Jederzeit <span class="details">(monatlich bis zum Monatsende für den Folgemonat)</span></p>
+                    </li>
+                </ul>
+                <ul>
+                    <li ng-if="!voucher || (!voucher.freeSubscriptionGranted && voucher.discountDuarationInMonths)">
+                        <b>Monatlicher Preis:</b>
+                        <p class="price">{{overview.price}}€</p>
+                    </li><li ng-if="voucher.freeSubscriptionGranted">
+                        <b>Sonderpreis:</b>
+                        <p class="price">0€</p>
+                    </li><li ng-if="!voucher.freeSubscriptionGranted && voucher">
+                        <b>Ermäßigter Preis:</b>
+                        <p class="price discount"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths" class="details"> (für {{voucher.discountDuarationInMonths}} Monate)</span></p>
                     </li>
                 </ul>
             </div>
-            <div class="form-group">
-                <div class="form-rel">
-                    <div class="form-check">
-                        <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
-                        <i class="fa"></i><label class="required" for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
+            <div class="w-clear">
+                <div class="form-group">
+                    <div class="form-rel">
+                        <div class="form-check">
+                            <input type="checkbox" id="approve" value="true" ng-model="approve" name="approve" required/>
+                            <i class="fa"></i><label class="required" for="approve">Ich stimme den <a ui-sref="agb">AGB</a> und <a ui-sref="agb">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref="agb">Widerrufsrecht</a> zur Kenntnis genommen.</label>
+                        </div>
+                    </div>
+                    <div class="form-rel">
+                        <div class="form-check">
+                            <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
+                            <i class="fa"></i><label for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
+                        </div>
                     </div>
                 </div>
-                <div class="form-rel">
-                    <div class="form-check">
-                        <input type="checkbox" id="newsletter" value="true" ng-model="order.newsletter" checked name="newsletter" />
-                        <i class="fa"></i><label for="newsletter">Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen</label>
-                    </div>
+                <div class="form-rel" ng-show="showSpinner">
+                    <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
                 </div>
-            </div>
-            <div class="form-rel" ng-show="showSpinner">
-                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
-            </div>
-            <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formSignup.$valid || errorVoucher">Kostenpflichtig bestellen</button>
-            <div class="form-group center">
-                <div class="form-error" ng-if="error === 'CardException'">Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}</div>
-                <div class="form-error" ng-if="error === 'AccountExists'">Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail</div>
-                <div ng-if="!formSignup.$valid">Bitte wähle die Art Deiner Karte, fülle alle mit <span class="form-error">*</span> markierten Felder aus und akzeptiere AGB und Datenschutzbestimmung.</div>
+                <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid || errorVoucher">Kostenpflichtig bestellen</button>
+                <div class="form-group center">
+                    <div class="form-error" ng-if="error === 'CardException'">Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}</div>
+                    <div class="form-error" ng-if="error === 'AccountExists'">Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail</div>
+                    <div ng-if="!formCheckout.$valid">Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und Datenschutzbestimmung.</div>
+                </div>
             </div>
         </form>
     </div>

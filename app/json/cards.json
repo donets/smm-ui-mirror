@@ -3,22 +3,22 @@
         "type": "LITE",
         "name": "White Card Lite",
         "price": "39",
-        "courses": "4x",
-        "coursesPerSupplier": "3x",
-        "minimumTerm": "keine"
+        "courses": "4",
+        "coursesPerSupplier": "3",
+        "minimumTerm": "Jederzeit"
     }, {
         "type": "WHITE",
         "name": "White Card",
         "price": "69",
-        "courses": "unbegrenzt",
-        "coursesPerSupplier": "3x",
-        "minimumTerm": "nur 3 Monate"
+        "courses": "Unbegrenzt",
+        "coursesPerSupplier": "3",
+        "minimumTerm": "Jederzeit"
     }, {
         "type": "BLACK",
         "name": "Black Card",
         "price": "99",
-        "courses": "unbegrenzt",
-        "coursesPerSupplier": "unbegrenzt",
-        "minimumTerm": "nur 3 Monate"
+        "courses": "Unbegrenzt",
+        "coursesPerSupplier": "Unbegrenzt",
+        "minimumTerm": "Jederzeit"
     }
 ]
