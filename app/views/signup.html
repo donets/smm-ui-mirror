@@ -141,10 +141,10 @@
                         </div>
                         <div class="third">
                             <label class="form-label required" for="cardCVC">CVV</label>
-                            <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="z.B. 123" required/>
+                            <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3,4}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="z.B. 123" required/>
                             <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid">
                                 <div ng-show="formCheckout.cardCVC.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
-                                <div ng-show="formCheckout.cardCVC.$error.pattern" class="form-message form-error">Bitte die 3-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)</div>
+                                <div ng-show="formCheckout.cardCVC.$error.pattern" class="form-message form-error">Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)</div>
                             </div>
                         </div>
                     </div>
