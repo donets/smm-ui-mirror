@@ -176,10 +176,10 @@
                     <h3 class="form-title cf">SEPA-Lastschrift</h3>
                     <div class="form-group">
                         <div class="form-rel">
-                            <label class="form-label required" for="account">Kontoinhaber/in</label>
-                            <input type="text" ng-model="order.card.account" id="account" name="account" placeholder="Dein Name" required />
-                            <div ng-show="formCheckout.account.$dirty && formCheckout.account.$invalid">
-                                <div ng-show="formCheckout.account.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
+                            <label class="form-label required" for="name">Kontoinhaber/in</label>
+                            <input type="text" ng-model="order.card.name" id="name" name="name" placeholder="Dein Name" required />
+                            <div ng-show="formCheckout.name.$dirty && formCheckout.name.$invalid">
+                                <div ng-show="formCheckout.name.$error.required" class="form-message form-error">Dies ist eine Pflichtfeld</div>
                             </div>
                         </div>
                         <div class="form-rel">
