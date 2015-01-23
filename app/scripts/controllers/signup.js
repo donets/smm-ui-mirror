@@ -123,7 +123,6 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.formSignup.$setPristine();
             $scope.error = null;
             $scope.showSpinner = true;
-            $rootScope.handledError = true;
             $scope.order.freeTrialGranted = $('#freeTrialGranted').val();
             $window.optimizely.push(['trackEvent', 'signup_step_click_1']);
             var invitation = {
@@ -136,17 +135,14 @@ angular.module('boltApp.controllers.Signup', [])
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
 
                 $scope.showSpinner = false;
-                $rootScope.handledError = false;
                 $scope.showCards = true;
                 $timeout(function () {
                     $document.scrollToElementAnimated($('#step2'), 90, 800);
                 }, 0);
-                console.log(response);
 
             }).error(function (response) {
 
                 $scope.showSpinner = false;
-                $rootScope.handledError = false;
                 $scope.error = response.type;
             });
         };
@@ -173,7 +169,6 @@ angular.module('boltApp.controllers.Signup', [])
             $window.optimizely.push(['trackEvent', 'signup_step_click_3']);
             $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
-                $scope.showSpinner = false;
                 $rootScope.handledError = false;
                 console.log(response);
                 $window.ga('send', 'event', 'Signup', 'onOrder');
