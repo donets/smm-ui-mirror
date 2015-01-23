@@ -163,7 +163,7 @@
         <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
     </div>
-    <div class="b-footer">
+    <div class="b-footer" ng-class="{'hidden': $state.includes('signup')}">
         <div class="container">
             <div class="b-footer-top cf">
                 <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">

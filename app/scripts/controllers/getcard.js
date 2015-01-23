@@ -30,10 +30,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         };
 
-        var scrollPos = $('.subscribe-wrapper').offset().top + 130;
+        var scrollPos = $('#subscribeMain').offset().top + 130;
 
         angular.element($window).bind('resize', function() {
-            scrollPos = $('.subscribe-wrapper').offset().top + 130;
+            scrollPos = $('#subscribeMain').offset().top + 130;
         });
 
         $document.on('scroll', function() {
