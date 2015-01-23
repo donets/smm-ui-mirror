@@ -177,7 +177,11 @@ angular.module('boltApp.controllers.Signup', [])
                 $rootScope.handledError = false;
                 console.log(response);
                 $window.ga('send', 'event', 'Signup', 'onOrder');
-                $scope.invitation ? $window.optimizely.push(['trackEvent', 'invited_signup_completed']) : $window.optimizely.push(['trackEvent', 'direct_signup_completed']);
+                if ($scope.invitation) {
+                    $window.optimizely.push(['trackEvent', 'invited_signup_completed']);
+                } else {
+                    $window.optimizely.push(['trackEvent', 'direct_signup_completed']);
+                }
                 $rootScope.userName = response.user.name;
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;

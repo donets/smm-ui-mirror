@@ -111,7 +111,7 @@ angular.module('boltApp.controllers.Login', [])
             $scope.loadingForgot = true;
             $scope.successSubscribe = false;
             $scope.errorForgot = false;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + encodeURIComponent(this.emailForgot)).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + encodeURIComponent(this.emailForgot), {cache: false}).success(function (response) {
                 console.log(response);
                 $scope.loadingForgot = false;
                 $scope.successSubscribe = true;
