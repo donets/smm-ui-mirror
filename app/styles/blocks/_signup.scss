@@ -99,6 +99,15 @@
         }
         .input-date {
             width: 140px;
+            .form-input {
+                background: none;
+                height: 26px;
+                border: 0 none;
+                line-height: 26px;
+            }
+            &:before {
+                line-height: 23px;
+            }
         }
     }
 }
