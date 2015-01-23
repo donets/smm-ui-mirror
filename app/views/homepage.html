@@ -57,13 +57,13 @@
         <h2>Unendliche Auswahl, tägliche Inspiration</h2>
         <p>Beweglichkeit und das gewisse OM von <b>Yoga</b> oder <b>Pilates</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b> oder <b>TRX</b>. Schwung und Sinnlichkeit von <b>Tango</b> oder <b>Hip-Hop</b>. Körperbewusstsein und wahre Stärke von <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Konzentration und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung von <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
         <p>All das. Und so viel mehr. Mit einer Karte.</p>
-        <a ui-sref="dashboard">Entdecke unsere Kurse</a>
+        <a ui-sref="dashboard" target="_blank">Entdecke unsere Kurse ›</a>
     </div>
 </div>
 <div class="b-card b-map" id="studios">
     <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
-        <p class="subtitle">Wähle unter mehr als <b>30 Studios</b> und <a ui-sref="dashboard">500 Kursen</a> in Deiner Umgebung.</p>
+        <p class="subtitle">Wähle unter mehr als <b>30 Studios</b> und <b>500 Kursen</b> in Deiner Umgebung.</p>
         <ul class="tab-nav">
             <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
             <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
@@ -83,8 +83,8 @@
                     <span ng-if="!studio.website">{{studio.name}}</span>
                 </li>
             </ul>
-            <button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
         </div>
+        <button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
     </div>
     <!--<div ng-show="tab === 'classes'" ui-view></div>-->
 </div>
@@ -140,7 +140,7 @@
 <div class="b-card b-price">
     <div class="container">
         <h2>Lebe gesund und erfüllt</h2>
-        <p class="subtitle">Entfalte Dein körperliches und geistiges Potenzial - schon ab <b>39&euro;</b> im Monat.</p>
+        <p class="subtitle">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis 1. Februar</p>
         <div class="select-cards">
             <ul class="select-cards__title">
                 <li></li>
