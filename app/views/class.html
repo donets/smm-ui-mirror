@@ -133,7 +133,7 @@
                     </select>
                 </div>
                 <div class="form-rel">
-                    <label class="form-label" for="location" ng-bind="schedule.repeat === 'Single' ? 'On' : 'Repeat from'"></label>
+                    <label class="form-label" ng-bind="schedule.repeat === 'Single' ? 'On' : 'Repeat from'"></label>
                     <div class="form-rel input-date date" ng-click="openDatepicker($event, 'from')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
                                datepicker-options="dateOptions" min-date="minStartDate"

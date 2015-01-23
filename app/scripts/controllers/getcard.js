@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$modal', 'uiGmapGoogleMapApi', function ($scope, $rootScope, $location, $http, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $modal, uiGmapGoogleMapApi) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', function ($scope, $rootScope, $location, $http, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -29,6 +29,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.videoAPI = videoAPI;
             }
         };
+
+        $document.on('scroll', function() {
+            $scope.showTopHeader = $document.scrollTop() > $window.innerHeight;
+        });
 
         uiGmapGoogleMapApi.then(function() {
 
@@ -80,6 +84,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.cards = getCards.data;
         $scope.showDiscount = moment().isBefore('2015-02-01');
 
+        $scope.tab = 'map';
+
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
         });
@@ -110,6 +116,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.invite = {};
                 $scope.form.subscribeForm.$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
+                $window.optimizely.push(['trackEvent', 'engagement_invitation_requested']);
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
                     $window.google_trackConversion({
                         google_conversion_id: 970072239,
@@ -137,6 +144,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.errorSubscribe = true;
                 console.error(status);
             });
+        };
+        
+        $scope.pushOptimizelyEvent = function (n) {
+            $window.optimizely.push(['trackEvent', 'engagement_cta_click_' + n]);
         };
 
         $scope.suggestStudio = function () {

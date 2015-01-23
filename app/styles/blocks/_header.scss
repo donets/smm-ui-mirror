@@ -8,6 +8,75 @@
     z-index: 15;
     height: 60px;
     background: getRgba($colorText, 0.5);
+    &.stick {
+        position: fixed;
+        height: 80px;
+        opacity: 0;
+        visibility: hidden;
+        @include transition(all linear .3s);
+        &.show-top {
+            opacity: 1;
+            visibility: visible;
+        }
+        .b-header-logo {
+            top: 20px;
+        }
+        .subscribe-wrapper {
+            padding: 22px 0;
+            text-align: right;
+            .form-response {
+                text-align: left;
+                .form-spinner {
+                    margin: 0 5px;
+                }
+                .form-message {
+                    margin: 0;
+                }
+            }
+            b {
+                position: absolute;
+                left: 0;
+                bottom: 100%;
+            }
+        }
+        .signup-button {
+            @media (min-width: $containerMobileWidth) {
+                display: inline-block;
+                width: auto;
+                height: 36px;
+                line-height: 36px;
+                outline: none;
+            }
+        }
+        .b-card-subscribe {
+            margin: 0;
+            input[type="text"], input[type="email"] {
+                @media (min-width: $containerMobileWidth) {
+                    width: 370px;
+                    height: 36px;
+                    margin-right: 10px;
+                    font-size: 18px;
+                    line-height: 24px;
+                    @include border-radius(2px);
+                    &.zip {
+                        width: 130px;
+                    }
+                }
+            }
+            input[type="submit"] {
+                @media (min-width: $containerMobileWidth) {
+                    height: 36px;
+                    width: 136px;
+                    line-height: 36px;
+                    @include border-radius(2px);
+                }
+            }
+            .form-success, b {
+                font-size: 13px;
+                color: #fff;
+            }
+        }
+    }
     @media (max-width: $containerMobileWidth) {
         position: absolute;
         height: 90px;

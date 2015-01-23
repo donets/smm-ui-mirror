@@ -13,7 +13,7 @@
     <div class="b-main-slogan"><h2>Eine Karte für ganz Berlin</h2>
         <p>Entdecke <b>30 Studios</b> und <b>500 Kurse</b> pro Woche mit <b>1 Beitrag</b> und entfalte Dein körperliches und seelisches Potenzial so ganzheitlich wie noch nie.</p>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
-            <form name="form.subscribeForm" id="variant_1" ng-if="!invitation" class="b-card-subscribe variant" ng-submit="subscribeCard('header')">
+            <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe variant variant_1" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
                 <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="PLZ"/>
@@ -24,11 +24,32 @@
                     <div ng-show="errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
-            <a class="form-button signup-button variant" id="variant_2" ng-if="!invitation" ui-sref="signup">Jetzt kostenlos anmelden</a>
-            <a class="form-button signup-button variant" id="variant_3" ng-if="!invitation" ui-sref="signup">14 Tage kostenlos testen</a>
-            <a class="form-button signup-button" ng-if="invitation" ui-sref="signup">Deine Karte erhalten</a>
+            <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('1')" ui-sref="signup">Jetzt kostenlos anmelden</a>
+            <a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('1')" ui-sref="signup">14 Tage kostenlos testen</a>
+            <a class="form-button signup-button" ng-if="invitation" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
         </div>
         <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
+    </div>
+</div>
+<div class="b-header stick" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
+    <div class="container">
+        <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
+        <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
+            <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe variant variant_1" ng-submit="subscribeCard('header')">
+                <b>Erhalte heute Deine Einladung</b>
+                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="PLZ"/>
+                <input type="submit" value="Mitmachen"/>
+                <div class="form-response">
+                    <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                    <div ng-show="successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
+                    <div ng-show="errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                </div>
+            </form>
+            <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('0')" ui-sref="signup">Jetzt kostenlos anmelden</a>
+            <a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('0')" ui-sref="signup">14 Tage kostenlos testen</a>
+            <a class="form-button signup-button" ng-if="invitation" ui-sref="signup">Deine Karte erhalten</a>
+        </div>
     </div>
 </div>
 <div class="b-card b-equipment">
@@ -39,29 +60,36 @@
         <a ui-sref="dashboard">Entdecke unsere Kurse</a>
     </div>
 </div>
-<div class="b-card b-map">
-    <div class="container cf">
+<div class="b-card b-map" id="studios">
+    <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>30 Studios</b> und <b>500 Kursen</b> in Deiner Umgebung.</p>
-        <ul class="toggle-list">
-            <li><a ng-class="{'active': !showStudioList}" ng-click="showStudioList = false" href=""><i class="fa fa-map-marker"></i></a></li><li>
-            <a ng-class="{'active': showStudioList}" href="" ng-click="showStudioList = true"><i class="fa fa-list"></i></a></li>
+        <ul class="tab-nav">
+            <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
+            <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><li>
+            <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes';showSpinner = true" ui-sref="home.classes">Kurse</a></li>
         </ul>
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-hide="showStudioList">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-show="tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
                     <p class="info-window" ng-non-bindable>{{name}}</p>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
-        <ul class="b-studios-list" ng-show="showStudioList">
-            <li ng-repeat="studio in studios | orderBy: 'name'">
-                <a ng-href="{{studio.website}}" ng-if="studio.website" target="_blank">{{studio.name}}</a>
-                <span ng-if="!studio.website">{{studio.name}}</span>
-            </li>
-        </ul>
-        <button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
+        <div ng-show="tab === 'list'">
+            <ul class="b-studios-list">
+                <li ng-repeat="studio in studios | orderBy: 'name'">
+                    <a ng-href="{{studio.website}}" ng-if="studio.website" target="_blank">{{studio.name}}</a>
+                    <span ng-if="!studio.website">{{studio.name}}</span>
+                </li>
+            </ul>
+            <button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
+        </div>
+        <div class="form-rel" ng-show="showSpinner">
+            <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
+        </div>
     </div>
+    <div ng-show="tab === 'classes'" ui-view></div>
 </div>
 <!--<div id="card" class="b-card b-benefits">
     <div class="container" disable-animate>
@@ -112,6 +140,34 @@
         <button ng-click="suggestStudio()" type="button" class="suggest_btn white">Studio vorschlagen</button>
     </div>
 </div>-->
+<div class="b-card b-price">
+    <div class="container">
+        <h2>Lebe gesund und erfüllt</h2>
+        <p class="subtitle">Entfalte Dein körperliches und geistiges Potenzial - schon ab <b>39&euro;</b> im Monat.</p>
+        <div class="select-cards">
+            <ul class="select-cards__title">
+                <li></li>
+                <li></li>
+                <li>Preis pro Monat</li>
+                <li>Kurse pro Monat</li>
+                <li>Kurse pro Anbieter / Monat</li>
+                <li>Kündigen / Pausieren</li>
+            </ul>
+            <ul class="select-cards__card" ng-repeat="card in cards">
+                <li><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></li>
+                <li class="name">{{card.name}}</li>
+                <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
+                <li>{{card.courses}}</li>
+                <li>{{card.coursesPerSupplier}}</li>
+                <li>{{card.minimumTerm}}</li>
+            </ul>
+        </div>
+        <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p>
+    </div>
+</div>
 <div class="b-card b-hiw">
     <div class="container">
         <h2>Es geht so einfach!</h2>
@@ -130,7 +186,26 @@
         </ul>
     </div>
 </div>
-<div class="b-card b-price">
+<div class="b-card b-advantages">
+    <div class="container">
+        <ul>
+            <li>
+                <h3>Ganzheitliche Vielfalt</h3>
+                <p>Entdecke die größte ganzheitliche Auswahl Berlins mit mehr Yoga, Pilates, Meditation, Fitness, Wellness, Kampfkunst, Tanzen, Gesundheit, Ernährung und persönlicher Entfaltung als je zuvor – ohne Bindung anein Studio.</p>
+            </li><li>
+                <h3>Außergewöhnliche Qualität</h3>
+                <p>Erlebe die außergewöhnliche Qualität unserer handverlesenen, persönlich geprüften Premium-Studios und Lehrer.</p>
+            </li><li>
+                <h3>Persönliche Entfaltung</h3>
+                <p>Lerne eine moderne ganzheitliche Lebensweise kennen, entfalte Körper, Geist und Seele und trainiere mit spürbar mehr Abwechslung, Motivation und Erfolg.</p>
+            </li><li>
+                <h3>Entspannte Freiheit</h3>
+                <p>Probier es 14 Tage KOSTENLOS aus - und genieße danach eine entspannte Mitgliedschaft, die Du jederzeit kündigen oder pausieren kannst.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--<div class="b-card b-price">
     <div class="container" disable-animate>
         <h2>Deine Karte</h2>
         <p class="subtitle">Bestelle Deine Karte – und entfalte Körper, Geist und Seele.</p>
@@ -170,29 +245,29 @@
             </slide>
         </carousel>
     </div>
-</div>
+</div>-->
 <div class="b-card b-testimonial">
     <div class="container" disable-animate>
         <ul ng-if="desktop" class="b-card-list">
             <li>
-                <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
-                <p>– Sonja Reifenhäuser, Food Coach</p>
+                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                <p>– Alexandra Liakou, Regisseurin</p>
             </li><li>
                 <img class="circle-image" src="images/konard.jpg" alt=""/>
                 <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
                 <p>– Konrad Knops, Osteopath</p>
             </li><li>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
-                <p>– Alexandra Liakou, Regisseurin</p>
+                <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
+                <p>– Sonja Reifenhäuser, Food Coach</p>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
-                <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
-                <p>– Sonja Reifenhäuser, Food Coach</p>
+                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                <p>– Alexandra Liakou, Regisseurin</p>
             </slide>
             <slide>
                 <img class="circle-image" src="images/konard.jpg" alt=""/>
@@ -200,9 +275,9 @@
                 <p>– Konrad Knops, Osteopath</p>
             </slide>
             <slide>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
-                <p>– Alexandra Liakou, Regisseurin</p>
+                <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
+                <p>– Sonja Reifenhäuser, Food Coach</p>
             </slide>
         </carousel>
     </div>
@@ -250,7 +325,8 @@
         <ul class="b-card-list">
             <li>
                 <h3>Welche Studios <br/> sind dabei?</h3>
-                <p>Ob Yoga, Pilates, Fitness, Wellness, Meditation, Tanzen, Kampfkunst - wir kooperieren nur mit Premium-Anbietern, die für ganzheitliche Werte stehen und deren Qualität wir persönlich geprüft haben. Es werden wöchentlich mehr.</p>
+                <p>Ob Yoga, Pilates, Fitness, Wellness, Meditation, Tanzen, Kampfkunst - wir kooperieren nur mit Premium-Anbietern, die für ganzheitliche Werte stehen und deren Qualität wir persönlich geprüft haben. Es werden wöchentlich mehr.
+                    <a href="#studios" du-smooth-scroll>Hier geht´s zur Studio-Übersicht ›</a></p>
             </li><li>
                 <h3>Kann ich in jedem Studio alle <br/> Kurse besuchen?</h3>
                 <p>Mit den White Cards kannst Du drei Kurse pro Studio und Monat besuchen - mit der Black Card unbegrenzt. Alle Kurse? Ja - bis auf ganz wenige Ausnahmen. Fast alle Studios machen alle ihre Kurse zugänglich.</p>

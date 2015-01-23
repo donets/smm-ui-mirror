@@ -11,7 +11,7 @@
         color: #fff;
     }
 }
-.profile-nav {
+.tab-nav {
     @include my-resetList();
     display: inline-block;
     margin: 0 0 60px;
@@ -24,9 +24,9 @@
             color: $colorGrey;
             font-size: 18px;
             text-align: center;
-            line-height: 40px;
-            width: 210px;
-            height: 42px;
+            line-height: 34px;
+            width: 190px;
+            height: 36px;
             background: #fff;
             border: 1px solid $colorGrey;
             outline: none;

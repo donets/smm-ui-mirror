@@ -31,6 +31,7 @@ angular
         'ezfb',
         'flow',
         'ng-optimizely',
+        'ngshowvariant',
         'angulartics',
         'angulartics.google.analytics',
         'angulartics.google.tagmanager',
@@ -76,6 +77,9 @@ angular.module('boltApp')
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             $rootScope.autoscroll = true;
+            $rootScope.pageReload = function () {
+                $window.location.reload();
+            };
             $rootScope.$on('$viewContentLoading', function(){
                 $window.rendering = true;
             });
@@ -365,6 +369,32 @@ angular.module('boltApp')
                     }
 
                 }
+            })
+            .state('home.classes', {
+                templateUrl: 'views/homeClasses.html',
+                resolve: {
+
+                    getClasses: function(RestApi) {
+
+                        return RestApi.query({route: 'events'}).$promise;
+
+                    },
+
+                    getOccurrences: function(RestApi) {
+
+                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
+
+                    },
+
+                    getNeigbourhood: function($http) {
+
+                        return $http.get('json/neigbourhood.json', {cache: true});
+
+                    }
+
+
+                },
+                controller : 'DashboardCtrl'
             })
             .state('signup', {
                 url : '/p/signup/',

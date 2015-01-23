@@ -12,7 +12,7 @@ angular.module('boltApp.controllers.Reset', [])
         $scope.resetPassword = function () {
             $scope.loadingReset = true;
             $scope.errorReset = false;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/changePasswordWithTokenAndLogin?token=' + $rootScope.$stateParams.token + '&newPassword=' + this.passwordReset).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/auth/changePasswordWithTokenAndLogin?token=' + $rootScope.$stateParams.token + '&newPassword=' + encodeURIComponent(this.passwordReset)).success(function (response) {
                 console.log(response);
                 $scope.loadingReset = false;
                 $rootScope.$state.transitionTo('home');

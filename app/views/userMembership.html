@@ -37,26 +37,30 @@
         </div>
     </div>
     <h3 class="form-title">Willst Du Deinen Karten-Typ ändern?</h3>
-    <ul class="b-select-card" id="cards">
-        <li ng-repeat="card in cards">
-            <img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
-            <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
-            <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/>
-            <h3>{{card.name}}<p><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b> /Monat</p></h3>
-            <dl>
-                <dd>Kurse / Monat:</dd>
-                <dt>{{card.courses}}</dt>
-                <dd>Kurse pro Anbieter / Monat:</dd>
-                <dt>{{card.coursesPerSupplier}}</dt>
-                <dd>Mindestlaufzeit:</dd>
-                <dt>{{card.minimumTerm}}</dt>
-            </dl>
-            <button ng-model="membership.type" ng-change="changeCard()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button>
-        </li>
-    </ul>
+    <div class="select-cards">
+        <ul class="select-cards__title">
+            <li></li>
+            <li></li>
+            <li>Preis pro Monat</li>
+            <li>Kurse pro Monat</li>
+            <li>Kurse pro Anbieter / Monat</li>
+            <li>Kündigen / Pausieren</li>
+        </ul>
+        <ul class="select-cards__card" ng-repeat="card in cards">
+            <li><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></li>
+            <li class="name">{{card.name}}</li>
+            <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
+            <li>{{card.courses}}</li>
+            <li>{{card.coursesPerSupplier}}</li>
+            <li>{{card.minimumTerm}}</li>
+            <li class="card-button"><button ng-model="membership.type" ng-disabled="true" ng-change="changeCard()" btn-radio="card.type"><i class="fa"></i>{{membership.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></li>
+        </ul>
+    </div>
     <form class="form-profile">
-        <button type="button" ng-hide="loading" ng-disabled="notChanged" ng-click="changeMembership(type)">Änderung bestätigen</button>
+        <!--<button type="button" ng-hide="loading" ng-disabled="notChanged" ng-click="changeMembership(membership.type)">Änderung bestätigen</button>-->
         <div class="form-rel spinner-wrapper" ng-show="loading">
             <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
         </div>

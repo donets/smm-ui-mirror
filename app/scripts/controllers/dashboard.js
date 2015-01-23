@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $cookieStore, $modal) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $cookieStore, $modal) {
         $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
@@ -79,6 +79,12 @@ angular.module('boltApp.controllers.Dashboard', [])
                 windowClass: 'modal-attend'
             });
         };
+
+        console.log($rootScope.$state.current.name.split('.')[0] === 'home');
+
+        if ($rootScope.$state.current.name.split('.')[0] === 'home') {
+            $scope.$parent.showSpinner = false;
+        }
 
         $scope.showPopap = $cookieStore.get('signupPopap');
         

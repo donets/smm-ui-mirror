@@ -90,6 +90,17 @@
     background: $colorBackTimetable;
     padding: 30px 0 0;
     margin: 120px 0 0;
+    .member-activate {
+        label {
+            color: $colorGrey;
+            font-family: $fontRegular;
+            font-weight: normal;
+            margin: 0 10px 0 0;
+        }
+        .input-date {
+            width: 140px;
+        }
+    }
 }
 .special-offer {
     background: url("/images/offer.svg") no-repeat;
@@ -160,6 +171,20 @@
 .form-signup {
     @extend %form-custom;
     padding: 60px 0;
+    &.form-checkout {
+        width: 100%;
+        .w-left, .w-clear {
+            width: 500px;
+        }
+        .w-clear {
+            margin: 0 auto;
+        }
+        .info {
+            font-size: 15px;
+            margin: 10px 0 0;
+            color: $colorGrey;
+        }
+    }
     .form-group {
         &:first-child {
             margin-top: 0;
@@ -188,14 +213,8 @@
             display: table-cell;
         }
     }
-    &.form-checkout {
-        width: 100%;
-        .w-left, .w-clear {
-            width: 500px;
-        }
-        .w-clear {
-            margin: 0 auto;
-        }
+    .form-error {
+        font-size: 15px;
     }
     input[type="text"], input[type="email"], input[type="password"], .chosen-container, .chosen-drop {
         background: #fbfbfb;
@@ -219,6 +238,10 @@
         color: $colorGreen;
         outline: none;
         text-decoration: none;
+    }
+    .text {
+        font-size: 15px;
+        text-align: left;
     }
     .credit-card {
         position: absolute;
@@ -332,6 +355,13 @@
             }
         }
     }
+}
+.b-signup-info {
+    width: 600px;
+    margin: 50px auto -50px;
+    font-size: 13px;
+    text-align: center;
+    color: $colorGrey;
 }
 .stripe-link {
     display: block;

@@ -124,9 +124,10 @@
         </div>
     </div>
     <div class="b-alert error" ng-if="rejection.show">
-        <span ng-if="rejection.data.type !== 'AccessDenied'">Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
+        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'">Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
             Fehlerdetails: {{rejection.data.message}}</span>
-        <span ng-if="rejection.data.type === 'AccessDenied'">Sie haben keine Berechtigung für die Seite {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
+        <span ng-if="rejection.data.type && rejection.data.type === 'AccessDenied'">Sie haben keine Berechtigung für die Seite {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
+        <span ng-if="!rejection.data.type && (rejection.status === 404 || rejection.status === 0)">Tut uns leid, der Server konnte nicht erreicht werden! Bitte drücke Strg+R (Cmd+R für Mac) oder clicke <a href="" ng-click="pageReload()">hier</a> um es erneut zu versuchen.</span>
         <button ng-click="rejection.show = false" class="b-close" type="button">
             <i class="fa fa-times"></i>
             <span class="sr-only">Close</span>
@@ -289,6 +290,7 @@
 <script src="bower_components/angular-validation-match/dist/angular-input-match.min.js"></script>
 <script src="bower_components/venturocket-angular-slider/build/angular-slider.js"></script>
 <script src="bower_components/ng-optimizely/ng-optimizely.js"></script>
+<script src="bower_components/angular-optimizely/ngshowvariant.js"></script>
 <!-- endbower -->
 <script src="bower_components/jcrop/js/jquery.Jcrop.js"></script>
 <!-- endbuild -->
