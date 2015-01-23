@@ -63,11 +63,11 @@
 <div class="b-card b-map" id="studios">
     <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
-        <p class="subtitle">Wähle unter mehr als <b>30 Studios</b> und <b>500 Kursen</b> in Deiner Umgebung.</p>
+        <p class="subtitle">Wähle unter mehr als <b>30 Studios</b> und <a ui-sref="dashboard">500 Kursen</a> in Deiner Umgebung.</p>
         <ul class="tab-nav">
             <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
-            <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><li>
-            <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes';showSpinner = true" ui-sref="home.classes">Kurse</a></li>
+            <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
+            <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
         </ul>
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-show="tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
@@ -85,11 +85,8 @@
             </ul>
             <button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
         </div>
-        <div class="form-rel" ng-show="showSpinner">
-            <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
-        </div>
     </div>
-    <div ng-show="tab === 'classes'" ui-view></div>
+    <!--<div ng-show="tab === 'classes'" ui-view></div>-->
 </div>
 <!--<div id="card" class="b-card b-benefits">
     <div class="container" disable-animate>

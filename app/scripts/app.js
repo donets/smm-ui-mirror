@@ -392,7 +392,6 @@ angular.module('boltApp')
 
                     }
 
-
                 },
                 controller : 'DashboardCtrl'
             })

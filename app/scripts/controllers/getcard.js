@@ -32,11 +32,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         var scrollPos = $('.subscribe-wrapper').offset().top + 130;
 
-        console.log(scrollPos);
-
         angular.element($window).bind('resize', function() {
             scrollPos = $('.subscribe-wrapper').offset().top + 130;
-            console.log(scrollPos);
         });
 
         $document.on('scroll', function() {

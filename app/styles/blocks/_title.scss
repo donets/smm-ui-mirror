@@ -63,6 +63,10 @@ h3 {
         color: $colorText;
         font-family: $fontItalic;
     }
+    a {
+        font-size: 20px;
+        font-family: $fontItalic;
+    }
     @media (max-width: $containerMobileWidth) {
         font-size: 32px;
         margin-bottom: 30px;

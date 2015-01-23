@@ -80,12 +80,6 @@ angular.module('boltApp.controllers.Dashboard', [])
             });
         };
 
-        console.log($rootScope.$state.current.name.split('.')[0] === 'home');
-
-        if ($rootScope.$state.current.name.split('.')[0] === 'home') {
-            $scope.$parent.showSpinner = false;
-        }
-
         $scope.showPopap = $cookieStore.get('signupPopap');
         
         $scope.hidePopap = function () {
