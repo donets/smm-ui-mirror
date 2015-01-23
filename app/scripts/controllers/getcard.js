@@ -30,8 +30,17 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         };
 
+        var scrollPos = $('.subscribe-wrapper').offset().top + 130;
+
+        console.log(scrollPos);
+
+        angular.element($window).bind('resize', function() {
+            scrollPos = $('.subscribe-wrapper').offset().top + 130;
+            console.log(scrollPos);
+        });
+
         $document.on('scroll', function() {
-            $scope.showTopHeader = $document.scrollTop() > $window.innerHeight;
+            $scope.showTopHeader = $document.scrollTop() > scrollPos;
             if ($document.scrollTop() > $window.innerHeight) {
                 $scope.videoAPI.pause();
             } else {

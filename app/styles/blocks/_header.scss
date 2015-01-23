@@ -10,10 +10,10 @@
     background: getRgba($colorText, 0.5);
     &.stick {
         position: fixed;
+        background: getRgba($colorText, 0.8);
         height: 80px;
         opacity: 0;
         visibility: hidden;
-        @include transition(all linear .3s);
         &.show-top {
             opacity: 1;
             visibility: visible;
