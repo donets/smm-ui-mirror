@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Profile', [])
-    .controller('ProfileCtrl', function ($scope, $window, $http, $modal, getMembership, getCards) {
+    .controller('ProfileCtrl', function ($scope, $rootScope, $window, $http, $modal, getMembership, getCards) {
 
         var getVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -45,14 +45,17 @@ angular.module('boltApp.controllers.Profile', [])
             $scope.loading = true;
             $scope.errorPass = false;
             $scope.successPass = false;
+            $rootScope.handledError = true;
             $http.get($window.smmConfig.restUrlBase + '/api/auth/changePassword?oldPassword=' + $scope.password.old + '&newPassword=' + $scope.password.new).success(function (response) {
                 console.log(response);
+                $rootScope.handledError = false;
                 $scope.loading = false;
                 $scope.successPass = true;
                 $scope.password = {};
                 formPass.$setPristine();
             }).error(function (response) {
                 console.log(response);
+                $rootScope.handledError = false;
                 $scope.loading = false;
                 $scope.errorPass = response.type;
             });
