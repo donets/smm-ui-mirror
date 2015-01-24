@@ -253,7 +253,7 @@
                         <p>Monatlich <span class="details">(beginnend mit dem Tag der Mitgliedschaft)</span></p>
                     </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
                         <b>Beginn:</b>
-                        <p>{{startDate}}</p>
+                        <p>{{order.membershipActivatesOn | amDateFormat: 'DD.MM.YYYY'}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b>Kündigung:</b>
                         <p>Jederzeit <span class="details">(monatlich bis zum Monatsende für den Folgemonat)</span></p>

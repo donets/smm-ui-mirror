@@ -10,7 +10,6 @@
 angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards, getStudios) {
         $scope.Math = $window.Math;
-        $scope.startDate = moment.max(moment('2015-01-01'), moment()).format('DD.MM.YYYY');
         $scope.showDiscount = moment().isBefore('2015-02-01');
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
@@ -23,7 +22,7 @@ angular.module('boltApp.controllers.Signup', [])
                 city: 'Berlin',
                 countryCode: 'DE'
             },
-            membershipActivatesOn: moment().format(),
+            membershipActivatesOn: moment.tz('Europe/Berlin').format(),
             paymentProvider: 'STRIPE',
             newsletter: true
         };
