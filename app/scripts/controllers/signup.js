@@ -124,14 +124,17 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.showSpinner = true;
             $scope.order.freeTrialGranted = $('#freeTrialGranted').val();
             $window.optimizely.push(['trackEvent', 'signup_step_click_1']);
+            var tracking = $cookieStore.get('invitation') ? 'invitation' : 'direct';
+            var platform = $rootScope.desktop ? 'web' : 'mobile';
             var invitation = {
                 firstName: $scope.order.firstName,
                 lastName: $scope.order.lastName,
                 email: $scope.order.email,
                 name: $scope.order.firstName + ' ' + $scope.order.lastName,
-                checkoutStarted: true
+                checkoutStarted: true,
+                tracking: tracking + ',' + platform
             };
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
 
                 $scope.showSpinner = false;
                 $scope.showCards = true;

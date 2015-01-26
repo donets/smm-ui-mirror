@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', function ($scope, $rootScope, $location, $http, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -88,6 +88,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         });
 
         $scope.invitation = $location.search().invitation;
+        $scope.invitation ? $cookieStore.put('invitation', true) : 0;
         $scope.invite = {};
         $scope.form = {};
 
@@ -121,7 +122,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
             $scope.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, interestedInProduct: true, postalCode: $scope.invite.postalCode }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, interestedInProduct: true }).success(function () {
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
                 $scope.invite = {};
