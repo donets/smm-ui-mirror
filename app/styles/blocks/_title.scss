@@ -47,9 +47,10 @@ h3 {
     font-family: $fontLight;
     @media (max-width: $containerMobileWidth) {
         margin-top: 0;
+        font-size: 60px;
     }
     @media (max-width: $containerMobileWidth640) {
-        font-size: 24px;
+        font-size: 30px;
     }
 }
 .subtitle {

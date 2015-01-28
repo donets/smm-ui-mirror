@@ -35,6 +35,21 @@
                 background: $colorGrey;
                 color: #fff;
             }
+            @media (max-width: $containerMobileWidth) {
+                border-width: 2px;
+                height: 60px;
+                font-size: 26px;
+                line-height: 58px;
+                padding: 0 20px;
+                width: auto;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                border-width: 1px;
+                height: 36px;
+                font-size: 16px;
+                line-height: 34px;
+                padding: 0 10px;
+            }
         }
         &:first-child {
             a {

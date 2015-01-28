@@ -186,10 +186,15 @@
     .studios-submit {
         @extend %modal-form;
         width: 320px;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
     }
     .message-submit {
         @extend %modal-form;
-        width: 480px;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%;
+        }
     }
 }
 %modal-form {

@@ -38,10 +38,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $document.on('scroll', function() {
             $scope.showTopHeader = $document.scrollTop() > scrollPos;
-            if ($document.scrollTop() > $window.innerHeight) {
-                $scope.videoAPI.pause();
-            } else {
-                $scope.videoAPI.play();
+            if ($rootScope.desktop) {
+                if ($document.scrollTop() > $window.innerHeight) {
+                    $scope.videoAPI.pause();
+                } else {
+                    $scope.videoAPI.play();
+                }
             }
         });
 
@@ -58,7 +60,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                     overviewMapControl: false,
                     panControl: false,
                     zoomControl : true,
-                    streetViewControl : true
+                    streetViewControl : true,
+                    scrollwheel: $rootScope.desktop
                 }
             };
 
@@ -88,7 +91,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         });
 
         $scope.invitation = $location.search().invitation;
-        $scope.invitation ? $cookieStore.put('invitation', true) : 0;
+        if ($scope.invitation) {
+            $cookieStore.put('invitation', true);
+        }
         $scope.invite = {};
         $scope.form = {};
 

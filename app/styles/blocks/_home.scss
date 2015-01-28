@@ -24,6 +24,10 @@
             margin-top: 25px;
             padding: 40px 30px;
             background: rgba(0,0,0,0.30);
+            @media (max-width: $containerMobileWidth) {
+                padding: 0;
+                background: none;
+            }
             &.invited {
                 padding: 20px;
             }
@@ -34,6 +38,14 @@
                 position: absolute;
                 left: 0;
                 bottom: 100%;
+                @media (max-width: $containerMobileWidth) {
+                    position: static;
+                    text-align: center;
+                    margin: 10px 0;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    margin: 5px 0;
+                }
             }
         }
         .signup-button {
@@ -58,7 +70,6 @@
                     margin-right: 20px;
                     font-size: 18px;
                     line-height: 38px;
-                    @include border-radius(2px);
                     &.zip {
                         width: 150px;
                     }
@@ -66,12 +77,14 @@
                 @media (max-width: $containerMobileWidth) {
                     margin-bottom: 20px;
                 }
+                @media (max-width: $containerMobileWidth640) {
+                    margin-bottom: 10px;
+                }
             }
             input[type="submit"] {
                 @media (min-width: $containerMobileWidth) {
                     height: 50px;
                     width: 230px;
-                    @include border-radius(2px);
                 }
                 @media (max-width: $containerMobileWidth) {
                     margin: 0;
@@ -168,15 +181,6 @@
             }
         }
     }
-    .b-card-subscribe {
-        margin-top: 20px;
-        @media (max-width: $containerMobileWidth) {
-            margin-top: 30px;
-        }
-        @media (max-width: $containerMobileWidth640) {
-            margin-top: 20px;
-        }
-    }
 }
 .b-price {
     background: $colorBackTimetable;
@@ -189,6 +193,13 @@
         text-align: center;
         font-size: 18px;
         color: $colorLink;
+        @media (max-width: $containerMobileWidth) {
+            width: auto;
+            font-size: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+        }
     }
 }
 .b-advantages {
@@ -199,6 +210,7 @@
         background-image: url("/images/berlin-1440.jpg");
     }
     @media (max-width: $containerMobileWidth) {
+        padding: 60px 0;
         background-image: url("/images/berlin-1080.jpg");
     }
     ul {
@@ -239,10 +251,16 @@
         background-image: url("/images/equip-1440.jpg");
     }
     @media (max-width: $containerMobileWidth) {
+        padding: 200px 0;
         background-image: url("/images/equip-1080.jpg");
     }
+    @media (max-width: $containerMobileWidth640) {
+        padding: 100px 0;
+    }
     .container {
-        width: 600px;
+        @media (min-width: $containerMobileWidth) {
+            width: 600px;
+        }
     }
     h2 {
         line-height: 1;
@@ -251,6 +269,12 @@
     p {
         font-size: 18px;
         margin: 0 0 30px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+        }
     }
     b {
         font-family: $fontBold;
@@ -259,12 +283,24 @@
         font-size: 20px;
         display: inline-block;
         margin: 20px 0;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+        }
     }
 }
 .b-map {
     .angular-google-map-container {
         margin: 20px 0 0;
         height: 480px;
+        @media (max-width: $containerMobileWidth) {
+            height: 580px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            height: 300px;
+        }
     }
     .info-window {
         font-size: 15px;
@@ -318,15 +354,15 @@
             padding: 3px 0;
             font-size: 18px;
             color: $colorGrey;
-            a {
+            a, span {
                 font-size: 18px;
                 color: $colorGrey;
-            }
-            @media (max-width: $containerMobileWidth) {
-                font-size: 32px;
-            }
-            @media (max-width: $containerMobileWidth640) {
-                font-size: 18px;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 28px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 14px;
+                }
             }
         }
     }
@@ -367,60 +403,15 @@
     }
     .faq-link {
         font-size: 20px;
-    }
-}
-.b-studios {
-    position: relative;
-    z-index: 10;
-    background-color: rgba(163,187,171,1);
-    @extend %gradient;
-    text-align: center;
-    padding: 100px 0;
-    color: #fff;
-    @media (max-width: $containerMobileWidth640) {
-        padding: 50px 0;
-    }
-    h2 {
-        @extend %title-light;
-        margin-top: 0;
-    }
-    .subtitle {
-        color: #fff;
-    }
-    .b-studios-list {
-        @include my-resetList();
-        @include column-count(4);
-        @include column-gap(0);
-        margin: 40px 0;
-        text-align: left;
+        margin: 20px 0 0;
         @media (max-width: $containerMobileWidth) {
-            @include column-count(2);
+            display: block;
+            font-size: 30px;
+            margin: 50px 0 0;
         }
         @media (max-width: $containerMobileWidth640) {
-            margin: 20px 0;
-        }
-        li {
-            padding: 3px 0;
-            text-align: center;
-            font-size: 15px;
-            a {
-                font-size: 15px;
-                color: #fff;
-            }
-            @media (max-width: $containerMobileWidth) {
-                font-size: 28px;
-            }
-            @media (max-width: $containerMobileWidth640) {
-                font-size: 14px;
-            }
-        }
-    }
-    .suggest_btn {
-        @extend %form-button;
-        width: 230px;
-        min-width: 0;
-        @media (max-width: $containerMobileWidth) {
-            width: 100%;
+            font-size: 18px;
+            margin: 30px 0 0;
         }
     }
 }
@@ -460,7 +451,7 @@
             padding: 0;
         }
         @media (max-width: $containerMobileWidth640) {
-            font-size: 14px;
+            font-size: 18px;
         }
     }
     em {
@@ -527,5 +518,59 @@
         background-color: $colorGrey;
     }
     @extend %carousel-mobile;
+}
+.b-advantages .b-card-carousel {
+    .carousel-inner > .item {
+        margin: 40px 0;
+        color: #fff;
+        height: 400px;
+        @media (max-width: $containerMobileWidth640) {
+            margin: 20px 0;
+            height: 200px;
+        }
+        h3 {
+            font-family: $fontItalic;
+            font-style: italic;
+            font-size: 32px;
+            margin: 0 0 60px;
+            color: #fff;
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 18px;
+                margin: 0 0 30px;
+            }
+        }
+        p {
+            font-size: 30px;
+            padding: 0 20px;
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 15px;
+            }
+        }
+    }
+    .carousel-indicators li {
+        background-color: getRgba(#fff, 0.3);
+    }
+    .carousel-indicators .active {
+        background-color: #fff;
+    }
+}
+.b-faq .b-card-carousel {
+    .carousel-inner > .item {
+        p {
+            font-size: 30px;
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 18px;
+            }
+            a {
+                display: block;
+                font-size: 30px;
+                margin: 30px 0 0;
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 18px;
+                    margin: 20px 0 0;
+                }
+            }
+        }
+    }
 }
 

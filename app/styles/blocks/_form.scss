@@ -147,7 +147,6 @@ textarea {
         vertical-align: top;
         width: 400px;
         @media (min-width: $containerMobileWidth) {
-            @include border-right-radius(0px);
             padding: 5px 20px;
         }
         @media (max-width: $containerMobileWidth) {
@@ -158,9 +157,6 @@ textarea {
     button, input[type="submit"] {
         @extend %form-button;
         min-width: 0;
-        @media (min-width: $containerMobileWidth) {
-            @include border-left-radius(0px);
-        }
         @media (max-width: $containerMobileWidth) {
             margin: 20px 0 0;
             width: 100%;

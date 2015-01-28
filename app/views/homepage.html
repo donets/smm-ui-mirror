@@ -15,7 +15,7 @@
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe variant variant_1" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
-                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
+                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" value="Mitmachen"/>
                 <div class="form-response">
@@ -31,7 +31,7 @@
         <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
     </div>
 </div>
-<div class="b-header stick" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
+<div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
     <div class="container">
         <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
@@ -93,7 +93,7 @@
         <h2>Lebe gesund und erfüllt</h2>
         <p class="subtitle">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis 1. Februar</p>
         <div class="select-cards">
-            <ul class="select-cards__title">
+            <ul class="select-cards__title" ng-if="desktop">
                 <li></li>
                 <li></li>
                 <li>Preis pro Monat</li>
@@ -135,8 +135,8 @@
     </div>
 </div>
 <div class="b-card b-advantages">
-    <div class="container">
-        <ul>
+    <div class="container" disable-animate>
+        <ul ng-if="desktop">
             <li>
                 <h3>Ganzheitliche Vielfalt</h3>
                 <p>Entdecke die größte ganzheitliche Vielfalt Berlins mit mehr Yoga, Pilates, Meditation, Fitness, Wellness, Kampfkunst, Tanzen, Gesundheit, Ernährung und persönlicher Entfaltung als je zuvor – ohne Bindung an ein Studio.</p>
@@ -151,6 +151,24 @@
                 <p>Probiere es 14 Tage aus, erhalte Dein Geld zurück, falls es Dir nicht gefällt und genieße danach eine entspannte Mitgliedschaft, die Du jederzeit monatlich kündigen oder pausieren kannst.</p>
             </li>
         </ul>
+        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+            <slide>
+                <h3>Ganzheitliche Vielfalt</h3>
+                <p>Entdecke die größte ganzheitliche Vielfalt Berlins mit mehr Yoga, Pilates, Meditation, Fitness, Wellness, Kampfkunst, Tanzen, Gesundheit, Ernährung und persönlicher Entfaltung als je zuvor – ohne Bindung an ein Studio.</p>
+            </slide>
+            <slide>
+                <h3>Außergewöhnliche Qualität</h3>
+                <p>Erlebe die außergewöhnliche Qualität unserer handverlesenen, persönlich geprüften Premium-Studios und Lehrer.</p>
+            </slide>
+            <slide>
+                <h3>Persönliche Entfaltung</h3>
+                <p>Lerne eine moderne ganzheitliche Lebensweise kennen, entfalte Körper, Geist und Seele und trainiere mit spürbar mehr Abwechslung, Motivation und Erfolg.</p>
+            </slide>
+            <slide>
+                <h3>Entspannte Freiheit</h3>
+                <p>Probiere es 14 Tage aus, erhalte Dein Geld zurück, falls es Dir nicht gefällt und genieße danach eine entspannte Mitgliedschaft, die Du jederzeit monatlich kündigen oder pausieren kannst.</p>
+            </slide>
+        </carousel>
     </div>
 </div>
 <div class="b-card b-testimonial">
@@ -202,9 +220,9 @@
     </carousel>
 </div>
 <div class="b-card b-faq">
-    <div class="container">
+    <div class="container" disable-animate>
         <h2>Welche Fragen hast Du noch?</h2>
-        <ul class="b-card-list">
+        <ul ng-if="desktop" class="b-card-list">
             <li>
                 <h3>Welche Studios <br/> sind dabei?</h3>
                 <p>Ob Yoga, Pilates, Fitness, Wellness, Meditation, Tanzen, Kampfkunst - wir kooperieren nur mit Premium-Anbietern, die für ganzheitliche Werte stehen und deren Qualität wir persönlich geprüft haben. Es werden wöchentlich mehr.
@@ -217,6 +235,21 @@
                 <p>Um es kurz zu machen: Jederzeit! Du kannst jederzeit bis 7 Tage vor Ablauf eines Monats zum Folgemonat kündigen. Und Deine Mitgliedschaft jederzeit für einen Monat pausieren, zum Beispiel wenn Du in den Urlaub fährst.</p>
             </li>
         </ul>
+        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+            <slide>
+                <h3>Welche Studios sind dabei?</h3>
+                <p>Ob Yoga, Pilates, Fitness, Wellness, Meditation, Tanzen, Kampfkunst - wir kooperieren nur mit Premium-Anbietern, die für ganzheitliche Werte stehen und deren Qualität wir persönlich geprüft haben. Es werden wöchentlich mehr.
+                    <a href="#studios" du-smooth-scroll>Hier geht´s zur Studio-Übersicht ›</a></p>
+            </slide>
+            <slide>
+                <h3>Kann ich in jedem Studio alle Kurse besuchen?</h3>
+                <p>Mit den White Cards kannst Du drei Kurse pro Studio und Monat besuchen - mit der Black Card unbegrenzt. Die meisten Studios akzeptieren alle Karten für alle Kurse. Da es aber Ausnahmen gibt, schau bitte immer im aktuellen Kursplan und auf den Studioprofilen nach.</p>
+            </slide>
+            <slide>
+                <h3>Wie kündige und pausiere ich meine Mitgliedschaft?</h3>
+                <p>Um es kurz zu machen: Jederzeit! Du kannst jederzeit bis 7 Tage vor Ablauf eines Monats zum Folgemonat kündigen. Und Deine Mitgliedschaft jederzeit für einen Monat pausieren, zum Beispiel wenn Du in den Urlaub fährst.</p>
+            </slide>
+        </carousel>
         <a class="faq-link" ui-sref="faq">Mehr Fragen? Hier geht es zu unseren FAQ ›</a>
     </div>
 </div>

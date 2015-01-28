@@ -270,9 +270,15 @@
     display: flex;
     justify-content: space-between;
     margin: 150px 0 80px;
+    @media (max-width: $containerMobileWidth) {
+        display: block;
+    }
     ul {
         width: 234px;
         text-align: left;
+        @media (max-width: $containerMobileWidth) {
+            width: auto;
+        }
     }
     .select-cards__title {
         @include my-resetList();
@@ -293,6 +299,9 @@
     }
     .select-cards__card {
         @include my-resetList();
+        @media (max-width: $containerMobileWidth) {
+            margin: 150px 0 0;
+        }
         li {
             background: #fff;
             height: 42px;
@@ -317,6 +326,10 @@
             }
             .card-image {
                 margin: -100px 0 0 -92px;
+                @media (max-width: $containerMobileWidth) {
+                    margin: -80px 0 0 -42px;
+                    width: 300px; 
+                }
             }
             strong, b {
                 font-family: $fontBold;
