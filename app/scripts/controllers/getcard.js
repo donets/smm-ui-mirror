@@ -158,8 +158,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             });
         };
         
-        $scope.pushOptimizelyEvent = function (n) {
-			if ($scope.invitation) {
+        $scope.pushOptimizelyEvent = function (type) {
+			if (type === 'invitation') {
 				$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
 			} else {
 				$window.optimizely.push(['trackEvent', 'engagement_cta_direct']);
