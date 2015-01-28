@@ -163,8 +163,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             });
         };
         
-        $scope.pushOptimizelyEvent = function (n) {
-            $window.optimizely.push(['trackEvent', 'engagement_cta_click_' + n]);
+        $scope.pushOptimizelyEvent = function (type) {
+			if (type === 'invitation' || $scope.invitation) {
+				$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
+			} else {
+				$window.optimizely.push(['trackEvent', 'engagement_cta_direct']);
+			}
         };
 
         $scope.suggestStudio = function () {
