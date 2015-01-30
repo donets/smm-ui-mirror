@@ -14,8 +14,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $scope.video = {
             sources: [
-                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/mainvideo.mp4'), type: 'video/mp4'},
-                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/mainvideo.webm'), type: 'video/webm'}
+                {src: $sce.trustAsResourceUrl('//http://test.assets.so-much-more.net/video/header2_ohneblende.mp4'), type: 'video/mp4'}
+                //{src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/mainvideo.webm'), type: 'video/webm'}
             ],
             autoPlay: true,
             preload: true,
