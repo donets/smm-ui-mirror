@@ -13,9 +13,7 @@ angular.module('boltApp.controllers.More', [])
         $scope.platformMobile = navigator.platform() === 'mobile';
         $scope.video = {
             sources: [
-                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/somuchmore.mp4'), type: 'video/mp4'},
-                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/somuchmore.webm'), type: 'video/webm'},
-                {src: $sce.trustAsResourceUrl('//assets.so-much-more.de/video/somuchmore.ogg'), type: 'video/ogg'}
+                {src: $sce.trustAsResourceUrl('//test.assets.so-much-more.net/video/header2_ohneblende.mp4'), type: 'video/mp4'}
             ],
             autoHide: true,
             autoHideTime: 3000,
