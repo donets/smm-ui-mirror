@@ -360,7 +360,7 @@
         height: 42px;
         margin: 0 15px;
         @media (max-width: $containerMobileWidth) {
-            width: 100%; 
+            width: 100%;
         }
         .form-message {
             vertical-align: middle;
@@ -682,9 +682,11 @@
     text-align: center;
     color: $colorGrey;
     @media (max-width: $containerMobileWidth) {
+        width: auto;
         font-size: 26px;
     }
     @media (max-width: $containerMobileWidth640) {
+        margin: 20px auto -20px;
         font-size: 13px;
     }
 }
