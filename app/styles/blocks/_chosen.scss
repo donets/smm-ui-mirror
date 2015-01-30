@@ -7,6 +7,12 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 15px;
+    @media (max-width: $containerMobileWidth) {
+        font-size: 24px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        font-size: 15px;
+    }
     font-family: $fontRegular;
     background: #fff;
     zoom: 1;
@@ -25,6 +31,12 @@
         background: #fff;
         //box-shadow: 0 4px 5px rgba(#000,.15);
         @include box-shadow(2px 2px 2px 0 rgba(34,31,31,0.1));
+        @media (max-width: $containerMobileWidth) {
+            border-width: 2px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            border-width: 1px;
+        }
     }
     &.chosen-with-drop .chosen-drop {
         left: 0;
@@ -47,6 +59,14 @@
         background-clip: padding-box;
         text-decoration: none;
         white-space: nowrap;
+        @media (max-width: $containerMobileWidth) {
+            line-height: 76px;
+            padding: 0 0 0 20px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            line-height: 40px;
+            padding: 0 0 0 10px;
+        }
     }
     .chosen-default {
         color: $colorGrey;
@@ -57,6 +77,12 @@
         margin-right: 40px;
         text-overflow: ellipsis;
         white-space: nowrap;
+        @media (max-width: $containerMobileWidth) {
+            margin-right: 60px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin-right: 40px;
+        }
     }
     .chosen-single-with-deselect span {
         margin-right: 38px;
@@ -85,12 +111,26 @@
         width: 40px;
         text-align: center;
         height: 100%;
+        @media (max-width: $containerMobileWidth) {
+            width: 60px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            width: 40px;
+        }
         b {
             @extend .fa;
             color: $colorGrey;
             height: 22px;
             vertical-align: middle;
             font-size: 20px;
+            @media (max-width: $containerMobileWidth) {
+                height: 33px;
+                font-size: 30px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                height: 22px;
+                font-size: 20px;
+            }
             &:before {
                 content: "\f107";
             }
@@ -170,6 +210,12 @@
         @include border-radius(0 0 2px 2px);
         border-color: $colorLightGrey;
         background-clip: padding-box;
+        @media (max-width: $containerMobileWidth) {
+            margin-top: -2px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin-top: -1px;
+        }
     }
     &.chosen-container-single-nosearch .chosen-search {
         position: absolute;
@@ -191,6 +237,16 @@
     padding: 0 0 0 5px;
     max-height: 180px;
     -webkit-overflow-scrolling: touch;
+    @media (max-width: $containerMobileWidth) {
+        margin: 0 10px 10px 0;
+        padding: 0 0 0 10px;
+        max-height: 250px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        margin: 0 5px 5px 0;
+        padding: 0 0 0 5px;
+        max-height: 180px;
+    }
     li {
         display: none;
         margin: 0;
@@ -199,6 +255,14 @@
         line-height: 20px;
         word-wrap: break-word;
         -webkit-touch-callout: none;
+        @media (max-width: $containerMobileWidth) {
+            padding: 10px;
+            line-height: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            padding: 5px;
+            line-height: 20px;
+        }
         &.active-result {
             display: list-item;
             cursor: pointer;

@@ -11,7 +11,7 @@
 
     </videogular>
     <div class="b-main-slogan"><h2>Eine Karte für ganz Berlin</h2>
-        <p>Entdecke <b>600 Kurse</b> in <b>35 Studios</b> mit <b>1 Beitrag</b> und entfalte Körper, Geist und Seele.</p>
+        <p>Entdecke <b>600 Kurse</b> in <b>35 Studios</b> mit <b>1 Beitrag</b>.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe variant variant_1" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
@@ -92,8 +92,8 @@
     <div class="container">
         <h2>Lebe gesund und erfüllt</h2>
         <p class="subtitle">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis 1. Februar</p>
-        <div class="select-cards">
-            <ul class="select-cards__title" ng-if="desktop">
+        <div class="select-cards" ng-if="desktop">
+            <ul class="select-cards__title">
                 <li></li>
                 <li></li>
                 <li>Preis pro Monat</li>
@@ -113,6 +113,31 @@
                 <li>{{card.minimumTerm}}</li>
             </ul>
         </div>
+        <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
+            <tr>
+                <td><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></td>
+                <td>{{card.name}}</td>
+            </tr>
+            <tr>
+                <td>Preis pro Monat</td>
+                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></td>
+            </tr>
+            <tr>
+                <td>Kurse pro Monat</td>
+                <td>{{card.courses}}</td>
+            </tr>
+            <tr>
+                <td>Kurse pro Anbieter / Monat</td>
+                <td>{{card.coursesPerSupplier}}</td>
+            </tr>
+            <tr>
+                <td>Kündigen / Pausieren</td>
+                <td>{{card.minimumTerm}}</td>
+            </tr>
+        </table>
         <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p>
     </div>
 </div>

@@ -201,6 +201,9 @@ textarea {
 .form-group {
     margin: 35px 0;
     text-align: left;
+    @media (max-width: $containerMobileWidth640) {
+        margin: 15px 0;
+    }
     &.error {
         input[type="text"], input[type="password"],  input[type="email"], textarea, .chosen-single {
             border-color: $colorError!important;
@@ -216,6 +219,12 @@ textarea {
     font-style: italic;
     color: $colorGrey;
     text-align: center;
+    @media (max-width: $containerMobileWidth) {
+        font-size: 32px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        font-size: 16px;
+    }
 }
 .form-rel {
     position: relative;
@@ -230,6 +239,9 @@ textarea {
     &.flex {
         display: flex;
         justify-content: space-between;
+        @media (max-width: $containerMobileWidth) {
+            display: block;
+        }
     }
     &.large {
         width: 640px;
@@ -252,6 +264,9 @@ textarea {
     display: inline-block;
     width: 500px;
     padding: 0 0 100px;
+    @media (max-width: $containerMobileWidth) {
+        width: 100%;
+    }
     input[type="text"], input[type="password"],  input[type="email"] {
         @extend %input-text;
         width: 100%;
@@ -264,10 +279,22 @@ textarea {
     label {
         font-size: 15px;
         font-weight: normal;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+        }
         a {
             color: $colorText;
             font-size: 15px;
             text-decoration: underline;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 26px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 15px;
+            }
             &:hover {
                 text-decoration: none;
             }
@@ -284,6 +311,12 @@ textarea {
         font-size: 15px;
         color: $colorGrey;
         font-weight: normal;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 24px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 12px;
+        }
     }
     .form-rel {
         margin: 6px 0;
@@ -405,6 +438,14 @@ input:-webkit-autofill {
         font-size: 16px;
         z-index: 0;
         cursor: pointer;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 28px;
+            top: 6px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 16px;
+            top: 4px;
+        }
     }
     label {
         position: relative;
@@ -415,6 +456,14 @@ input:-webkit-autofill {
         cursor: pointer;
         margin: 0;
         z-index: 2;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+            padding: 0 0 0 40px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+            padding: 0 0 0 25px;
+        }
     }
     &.disabled {
         opacity: 0.5;
@@ -459,6 +508,14 @@ input:-webkit-autofill {
         color: $colorLink;
         font-size: 15px;
         line-height: 14px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+            line-height: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+            line-height: 14px;
+        }
         &:before {
             content: $fa-var-check-square;
         }

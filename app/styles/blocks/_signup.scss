@@ -12,8 +12,7 @@
     display: flex;
     justify-content: space-between;
     @media (max-width: $containerMobileWidth) {
-        display: block;
-        width: 100%;
+        flex-wrap: wrap;
     }
     li {
         width: 235px;
@@ -23,17 +22,29 @@
         background-size: 50px 50px;
         padding-top: 70px;
         @media (max-width: $containerMobileWidth) {
-            display: block;
+            width: 50%;
         }
         b {
             display: block;
             font-size: 15px;
             line-height: 1.2;
             padding: 0 10px;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 30px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 15px;
+            }
         }
         span {
             font-size: 13px;
             color: $colorGrey;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 26px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 13px;
+            }
         }
         .check-circle {
             width: 50px;
@@ -46,10 +57,20 @@
     background: $colorBackTimetable;
     width: 100%;
     height: 60px;
+    @media (max-width: $containerMobileWidth) {
+        background: $colorText;
+        height: 80px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 40px;
+    }
     &.stuck {
         z-index: 5;
         ul li:first-child a {
             color: $colorGrey;
+            @media (max-width: $containerMobileWidth) {
+                color: #fff;
+            }
             &.active {
                 color: $colorLink;
             }
@@ -61,10 +82,17 @@
         margin: 0 auto;
         text-align: center;
         border-bottom: 1px solid $colorGrey;
+        @media (max-width: $containerMobileWidth) {
+            border: 0 none;
+            width: 100%;
+        }
         li {
             display: inline-block;
             vertical-align: top;
             width: 330px;
+            @media (max-width: $containerMobileWidth) {
+                width: 33%;
+            }
             a {
                 font-size: 20px;
                 color: $colorGrey;
@@ -72,6 +100,15 @@
                 display: block;
                 line-height: 60px;
                 outline: none;
+                @media (max-width: $containerMobileWidth) {
+                    color: #fff;
+                    font-size: 24px;
+                    line-height: 80px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 12px;
+                    line-height: 40px;
+                }
                 &.active {
                     color: $colorLink;
                 }
@@ -90,23 +127,60 @@
     background: $colorBackTimetable;
     padding: 30px 0 0;
     margin: 120px 0 0;
+    @media (max-width: $containerMobileWidth) {
+        padding: 0;
+        margin: 100px 0 0;
+        font-size: 30px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        margin: 50px 0 0;
+        font-size: 15px;
+    }
     .member-activate {
         label {
             color: $colorGrey;
             font-family: $fontRegular;
             font-weight: normal;
             margin: 0;
+            @media (max-width: $containerMobileWidth) {
+                display: block;
+            }
         }
         .input-date {
             width: 140px;
+            @media (max-width: $containerMobileWidth) {
+                width: 210px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                width: 140px;
+            }
             .form-input {
                 background: none;
                 height: 26px;
                 border: 0 none;
                 line-height: 26px;
+                @media (max-width: $containerMobileWidth) {
+                    height: 52px;
+                    font-size: 30px;
+                    line-height: 52px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    height: 26px;
+                    font-size: 15px;
+                    line-height: 26px;
+                }
             }
             &:before {
                 line-height: 23px;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 24px;
+                    line-height: 48px;
+                    right: 8px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 18px;
+                    line-height: 23px;
+                }
             }
         }
     }
@@ -130,36 +204,80 @@
 }
 .form-overview {
     width: 400px;
+    @media (max-width: $containerMobileWidth) {
+        width: auto;
+        margin: 80px 0 60px;
+    }
     ul {
         @include my-resetList();;
         background: #fff;
         text-align: left;
         padding: 20px 30px;
         margin: 2px 0;
+        @media (max-width: $containerMobileWidth) {
+            padding: 20px 40px;
+            margin: 4px 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            padding: 10px 20px;
+            margin: 2px 0;
+        }
         li {
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
+            @media (max-width: $containerMobileWidth640) {
+                margin-bottom: 10px;
+            }
             b {
                 font-size: 14px;
                 color: $colorGrey;
                 line-height: 26px;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 24px;
+                    line-height: 43px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 12px;
+                    line-height: 26px;
+                }
             }
             p {
                 font-size: 18px;
                 line-height: 26px;
                 text-align: right;
                 max-width: 220px;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 30px;
+                    line-height: 43px;
+                    max-width: 60%;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 15px;
+                    line-height: 26px;
+                }
                 .details {
                     display: block;
                     font-size: 14px;
                     font-family: $fontRegular;
                     color: $colorGrey;
                     line-height: 1.2;
+                    @media (max-width: $containerMobileWidth) {
+                        font-size: 24px;
+                    }
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 12px;
+                    }
                 }
                 &.price {
                     font-family: $fontBold;
                     font-size: 24px;
+                    @media (max-width: $containerMobileWidth) {
+                        font-size: 32px;
+                    }
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 16px;
+                    }
                     &.discount {
                         color: $colorLink;
                     }
@@ -170,11 +288,18 @@
             }
         }
     }
-    .form-title {;
+    .form-title {
         background: #fff;
         line-height: 52px;
         margin: 0;
         padding: 0 30px;
+        @media (max-width: $containerMobileWidth) {
+            line-height: 80px;
+            text-align: center!important;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            line-height: 40px;
+        }
     }
 }
 .form-signup {
@@ -184,14 +309,26 @@
         width: 100%;
         .w-left, .w-clear {
             width: 500px;
+            @media (max-width: $containerMobileWidth) {
+                width: auto;
+            }
         }
         .w-clear {
             margin: 0 auto;
         }
         .info {
+            display: block;
             font-size: 15px;
             margin: 10px 0 0;
             color: $colorGrey;
+            @media (max-width: $containerMobileWidth) {
+                font-size: 26px;
+                margin: 20px 0 0;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                font-size: 13px;
+                margin: 10px 0 0;
+            }
         }
     }
     .form-group {
@@ -201,13 +338,18 @@
     }
     .form-rel {
         margin: 0 0 10px;
+        @media (max-width: $containerMobileWidth640) {
+            margin: 0 0 5px;
+        }
     }
     .form-title {
         text-align: left;
     }
     .form-label {
-        height: 20px;
-        vertical-align: top;
+        @media (min-width: $containerMobileWidth) {
+            height: 20px;
+            vertical-align: top;
+        }
     }
     .form-response {
         display: table;
@@ -224,6 +366,12 @@
     }
     .form-error {
         font-size: 15px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 24px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 12px;
+        }
     }
     input[type="text"], input[type="email"], input[type="password"], .chosen-container, .chosen-drop {
         background: #fbfbfb;
@@ -236,9 +384,20 @@
     }
     .third {
         width: 160px;
+        @media (max-width: $containerMobileWidth) {
+            width: auto;
+            margin: 0 0 10px;
+        }
     }
     .half {
         width: 240px;
+        @media (max-width: $containerMobileWidth) {
+            width: auto;
+            margin: 0 0 10px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 0 0 5px;
+        }
     }
     .form-link {
         font-size: 18px;
@@ -247,16 +406,41 @@
         color: $colorGreen;
         outline: none;
         text-decoration: none;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 30px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 15px;
+        }
     }
     .text {
         font-size: 15px;
         text-align: left;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 24px; 
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 12px;
+        }
     }
     .credit-card {
         position: absolute;
         left: 100%;
         bottom: 0;
         margin: 6px 10px;
+        @media (max-width: $containerMobileWidth) {
+            width: 74px;
+            height: 48px;
+            left: initial;
+            right: 60px;
+            margin: 16px 10px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            width: 46px;
+            height: 30px;
+            right: 30px;
+            margin: 5px 10px;
+        }
     }
     .check-valid {
         position: absolute;
@@ -264,6 +448,12 @@
         bottom: 0;
         margin: 13px;
         color: $colorGreen;
+        @media (max-width: $containerMobileWidth) {
+            margin: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 13px;
+        }
     }
 }
 .select-cards {
@@ -326,10 +516,6 @@
             }
             .card-image {
                 margin: -100px 0 0 -92px;
-                @media (max-width: $containerMobileWidth) {
-                    margin: -80px 0 0 -42px;
-                    width: 300px; 
-                }
             }
             strong, b {
                 font-family: $fontBold;
@@ -378,18 +564,140 @@
         }
     }
 }
+.select-cards_table {
+    width: 100%;
+    margin: 120px 0 70px;
+    text-align: left;
+    @media (max-width: $containerMobileWidth640) {
+        margin: 60px 0 30px;
+    }
+    tr {
+        td {
+            width: 50%;
+            background: #fff;
+            height: 80px;
+            font-size: 30px;
+            padding: 0 22px;
+            border-bottom: 2px solid $colorBackTimetable;
+            @media (max-width: $containerMobileWidth640) {
+                height: 60px;
+                font-size: 20px;
+                padding: 0 16px;
+                border-bottom: 2px solid $colorBackTimetable;
+            }
+            &.button {
+                border-top: 8px solid $colorBackTimetable;
+                padding: 0;
+                @media (max-width: $containerMobileWidth640) {
+                    border-width: 6px;
+                }
+                button {
+                    background: $colorLink;
+                    height: 80px;
+                    width: 100%;
+                    border: 0 none;
+                    font-family: $fontLight;
+                    font-size: 30px;
+                    color: #fff;
+                    padding: 0;
+                    @media (max-width: $containerMobileWidth640) {
+                        height: 60px;
+                        font-size: 20px;
+                    }
+                    &:hover {
+                        background: $colorGreen;
+                    }
+                    &:active {
+                        background: $colorGreen;
+                    }
+                    &.active {
+                        background: $colorGreen;
+                        &:hover {
+                            background: $colorGreen;
+                        }
+                        &:active {
+                            background: $colorGreen;
+                        }
+                        .fa {
+                            &:before {
+                                content: $fa-var-check-circle;
+                            }
+                        }
+                    }
+                    .fa {
+                        margin-right: 10px;
+                        &:before {
+                            content: $fa-var-circle-thin;
+                        }
+                    }
+                }
+            }
+            &:first-child {
+                font-size: 24px;
+                color: $colorGrey;
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 16px;
+                }
+            }
+        }
+        &:first-child {
+            td {
+                height: 120px;
+                font-size: 32px;
+                font-family: $fontItalic;
+                font-style: italic;
+                @media (max-width: $containerMobileWidth640) {
+                    height: 80px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .card-image {
+        @media (max-width: $containerMobileWidth) {
+            margin: -60px -10px 0 -42px;
+            width: 300px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: -30px -5px 0 -21px;
+            width: 150px;
+        }
+    }
+    strong, b {
+        font-family: $fontBold;
+        color: $colorLink;
+        &.old {
+            text-decoration: line-through;
+            color: $colorText;
+        }
+    }
+}
 .b-signup-info {
     width: 600px;
     margin: 50px auto -50px;
     font-size: 13px;
     text-align: center;
     color: $colorGrey;
+    @media (max-width: $containerMobileWidth) {
+        font-size: 26px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        font-size: 13px;
+    }
 }
 .stripe-link {
     display: block;
     float: right;
     width: 100px;
     height: 22px;
+    @media (max-width: $containerMobileWidth) {
+        width: 200px;
+        height: 44px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        width: 100px;
+        height: 22px;
+    }
     &:focus {
         outline: none;
     }

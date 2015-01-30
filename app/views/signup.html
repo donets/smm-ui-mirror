@@ -82,7 +82,7 @@
                            class="form-input" ng-model="order.membershipActivatesOn" type="text" clear-text="Clear"/>
                 </div>
             </div>
-            <div class="select-cards">
+            <div class="select-cards" ng-if="desktop">
                 <ul class="select-cards__title">
                     <li></li>
                     <li></li>
@@ -104,6 +104,34 @@
                     <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></li>
                 </ul>
             </div>
+            <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
+                <tr>
+                    <td><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                        <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                        <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></td>
+                    <td>{{card.name}}</td>
+                </tr>
+                <tr>
+                    <td>Preis pro Monat</td>
+                    <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                        <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></td>
+                </tr>
+                <tr>
+                    <td>Kurse pro Monat</td>
+                    <td>{{card.courses}}</td>
+                </tr>
+                <tr>
+                    <td>Kurse pro Anbieter / Monat</td>
+                    <td>{{card.coursesPerSupplier}}</td>
+                </tr>
+                <tr>
+                    <td>Kündigen / Pausieren</td>
+                    <td>{{card.minimumTerm}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></td>
+                </tr>
+            </table>
         </div>
         <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-submit="checkoutSubmit()">
             <div class="w-left">
@@ -140,7 +168,7 @@
                         <div class="form-rel flex">
                             <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
                                 <label class="form-label required">Gültig bis</label>
-                                <select chosen required name="cardMonth" width="'160px'" id="exp_month" class="third"
+                                <select chosen required name="cardMonth" width="'100%'" id="exp_month" class="third"
                                         ng-model="order.card.exp_month" ng-change="orderChange('card')"
                                         data-placeholder="Monat"
                                         disable-search="true"
@@ -149,8 +177,8 @@
                                 </select>
                             </div>
                             <div class="third" ng-class="{'chosen-valid': formCheckout.cardYear.$dirty && formCheckout.cardYear.$valid}">
-                                <label class="form-label"></label>
-                                <select chosen required name="cardYear" width="'160px'" id="exp_year" class="third"
+                                <label class="form-label" ng-show="desktop"></label>
+                                <select chosen required name="cardYear" width="'100%'" id="exp_year" class="third"
                                         ng-model="order.card.exp_year" ng-change="orderChange('card')"
                                         data-placeholder="Jahr"
                                         disable-search="true"
