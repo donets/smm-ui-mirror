@@ -228,7 +228,7 @@
                     <p class="text">SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen.</p>
                     <p class="text">Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren Kundenservice widerrufen.</p>
                     <div class="form-group">
-                        <a class="form-link" href="" ng-click="order.paymentProvider = 'STRIPE';order.card = {}">Zahlung mit Kreditkarte?</a>
+                        <a class="form-link" href="" ng-click="order.paymentProvider = 'STRIPE';order.card = {};checkCard()">Zahlung mit Kreditkarte?</a>
                     </div>
                     <div class="form-group">
                         <a class="form-link" href="" ng-click="missingCard()">Anderes Zahlungsmittel</a>

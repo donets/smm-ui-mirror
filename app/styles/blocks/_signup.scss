@@ -359,6 +359,9 @@
         width: 290px;
         height: 42px;
         margin: 0 15px;
+        @media (max-width: $containerMobileWidth) {
+            width: 100%; 
+        }
         .form-message {
             vertical-align: middle;
             display: table-cell;
@@ -417,7 +420,7 @@
         font-size: 15px;
         text-align: left;
         @media (max-width: $containerMobileWidth) {
-            font-size: 24px; 
+            font-size: 24px;
         }
         @media (max-width: $containerMobileWidth640) {
             font-size: 12px;
