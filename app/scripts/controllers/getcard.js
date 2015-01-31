@@ -99,7 +99,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $scope.Math = $window.Math;
         $scope.cards = getCards.data;
-        $scope.showDiscount = moment().isBefore('2015-02-01');
+        $scope.showDiscount = moment().isBefore('2015-02-11');
 
         $scope.tab = 'map';
 

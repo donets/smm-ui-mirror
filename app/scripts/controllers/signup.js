@@ -10,7 +10,7 @@
 angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards, getStudios) {
         $scope.Math = $window.Math;
-        $scope.showDiscount = moment().isBefore('2015-02-01');
+        $scope.showDiscount = moment().isBefore('2015-02-11');
         getStudios.$promise.then(function (res) {
             $scope.studios = res;
         });
