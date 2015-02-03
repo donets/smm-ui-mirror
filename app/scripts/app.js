@@ -339,11 +339,6 @@ angular.module('boltApp')
                     });
                 }]
             })
-            .state('studio', {
-                url : '/p/studio/:studioId/',
-                templateUrl: 'views/studio.html',
-                controller : 'StudioCtrl'
-            })
             .state('home', {
                 url : '/',
                 templateUrl: 'views/homepage.html',
@@ -410,6 +405,20 @@ angular.module('boltApp')
                     getCards: function($http) {
 
                         return $http.get('json/cards.json', {cache: true});
+
+                    }
+
+                }
+            })
+            .state('studio', {
+                url : '/p/studio/:studioId/',
+                templateUrl: 'views/studio.html',
+                controller : 'StudioCtrl',
+                resolve: {
+
+                    getStudio: function(RestApi, $stateParams) {
+
+                        return RestApi.get({route: 'studios'}, {id: $stateParams.studioId}).$promise;
 
                     }
 
@@ -535,7 +544,7 @@ angular.module('boltApp')
                 }
             })
             .state('admin.classes.class', {
-                url : '{classId:[0-9]+}/',
+                url : ':classId/',
                 templateUrl: 'views/class.html',
                 resolve: {
 
@@ -624,7 +633,7 @@ angular.module('boltApp')
                     }
             })
             .state('admin.entity.item', {
-                url : '/{entityId:[0-9A-Z]+}/',
+                url : '/:entityId/',
                 templateUrl: 'views/entity.html',
                 resolve: {
 
