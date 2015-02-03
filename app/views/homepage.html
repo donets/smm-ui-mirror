@@ -16,12 +16,12 @@
             <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe variant variant_1" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="PLZ"/>
+                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" value="Mitmachen"/>
                 <div class="form-response">
-                    <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
-                    <div ng-show="errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                    <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                    <div ng-show="form.successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
+                    <div ng-show="form.errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
             <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>
@@ -38,12 +38,12 @@
             <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe variant variant_1" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="PLZ"/>
+                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" value="Mitmachen"/>
                 <div class="form-response">
-                    <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
-                    <div ng-show="errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                    <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                    <div ng-show="form.successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
+                    <div ng-show="form.errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
             <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>
@@ -51,6 +51,12 @@
             <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
         </div>
     </div>
+</div>
+<div class="mobile-stick" ng-show="mobile" ng-class="{'show-bottom': showBottomMobile}">
+    <a class="form-button signup-button variant variant_1" ng-if="!invitation" href="" ng-click="openSubscribe()">Erhalte heute Deine Einladung</a>
+    <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>
+    <a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>
+    <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
 </div>
 <div class="b-card b-equipment">
     <div class="container">

@@ -37,13 +37,15 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         });
 
         $document.on('scroll', function() {
-            $scope.showTopHeader = $document.scrollTop() > scrollPos;
             if ($rootScope.desktop) {
+                $scope.showTopHeader = $document.scrollTop() > scrollPos;
                 if ($document.scrollTop() > $window.innerHeight) {
                     $scope.videoAPI.pause();
                 } else {
                     $scope.videoAPI.play();
                 }
+            } else {
+                $scope.showBottomMobile = $document.scrollTop() > $('.b-main-cover').outerHeight();
             }
         });
 
@@ -124,12 +126,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
 
         $scope.subscribeCard = function (locate) {
-            $scope.loadingSubscribe = true;
-            $scope.successSubscribe = false;
-            $scope.errorSubscribe = false;
+            $scope.form.loadingSubscribe = true;
+            $scope.form.successSubscribe = false;
+            $scope.form.errorSubscribe = false;
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, interestedInProduct: true }).success(function () {
-                $scope.loadingSubscribe = false;
-                $scope.successSubscribe = true;
+                $scope.form.loadingSubscribe = false;
+                $scope.form.successSubscribe = true;
                 $scope.invite = {};
                 $scope.form.subscribeForm.$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
@@ -157,8 +159,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                     $window._fbq.push(['track', '6021957047725', {'value': '0.00','currency': 'EUR'}]);
                 });
             }).error(function (response, status) {
-                $scope.loadingSubscribe = false;
-                $scope.errorSubscribe = true;
+                $scope.form.loadingSubscribe = false;
+                $scope.form.errorSubscribe = true;
                 console.error(status);
             });
         };
@@ -207,6 +209,32 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
                     }],
                 backdrop: 'static',
+                windowClass: 'modal-suggest'
+            });
+        };
+
+        $scope.openSubscribe = function () {
+            $modal.open({
+                templateUrl: 'views/modalSubscribe.html',
+                controller: ['$scope', '$modalInstance', '$http', 'scope',
+
+                    function ($scope, $modalInstance, $http, scope) {
+
+                        $scope.subscribeCard = scope.subscribeCard;
+                        $scope.invite = scope.invite;
+                        $scope.form = scope.form;
+
+                        $scope.close = function () {
+                            $modalInstance.close(true);
+                        };
+
+                    }],
+                backdrop: 'static',
+                resolve: {
+                    scope : function () {
+                        return $scope;
+                    }
+                },
                 windowClass: 'modal-suggest'
             });
         };

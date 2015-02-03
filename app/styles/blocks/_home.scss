@@ -126,6 +126,24 @@
     }
 }
 
+.mobile-stick {
+    position: fixed;
+    bottom: 0;
+    height: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    @media (max-width: $containerMobileWidth640) {
+        height: 40px;
+    }
+    &.show-bottom {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 .b-card {
     text-align: center;
     position: relative;
