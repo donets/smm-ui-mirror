@@ -73,7 +73,6 @@ angular.module('boltApp')
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
             // to active whenever 'contacts.list' or one of its decendents is active.
-            $('.pre').addClass('hide_loader');
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
             $rootScope.autoscroll = true;
@@ -84,7 +83,11 @@ angular.module('boltApp')
                 $window.rendering = true;
             });
             $rootScope.$on('$viewContentLoaded', function(){
-                return $window.rendering ? $window.prerenderReady = true : 0;
+                if ($window.rendering) {
+                    $window.prerenderReady = true;
+                    $rootScope.prerenderReady = true;
+                    $('.pre').addClass('hide_loader');
+                }
             });
             var checkRule = function (event, toState, toParams, redirectState) {
                 if (toState.name.split('.')[0] === 'profile' && !$rootScope.roleMember || toState.name.split('.')[0] === 'admin' && !$rootScope.roleAdmin) {
@@ -229,7 +232,7 @@ angular.module('boltApp')
         return {
             responseError: function responseError(rejection) {
                 $rootScope.rejection = rejection;
-                var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException'];
+                var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException', 'UserNotFound'];
                 $rootScope.handledType = _.include(types, rejection.data.type);
                 if (rejection.data.type === 'NoLoggedInUser') {
                     $rootScope.$state.go('login', {notify: false});
@@ -345,21 +348,9 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl',
                 resolve: {
 
-                    getStudios: function(RestApi) {
-
-                        return RestApi.query({route: 'studios'}).$promise;
-
-                    },
-
                     getCards: function($http) {
 
                         return $http.get('json/cards.json', {cache: true});
-
-                    },
-
-                    getLocations: function(RestApi) {
-
-                        return RestApi.query({route: 'locations'}).$promise;
 
                     }
 
@@ -588,13 +579,79 @@ angular.module('boltApp')
 
                 },
                 controller :
-                    function ($rootScope, getEntityFields, getNeigbourhood) {
+                    function ($rootScope, getEntityFields, getNeigbourhood, RestApi, $http, $window, $modal) {
 
                         $rootScope.fields = getEntityFields.data.entities[$rootScope.$stateParams.route];
                         $rootScope.neigbourhood = getNeigbourhood.data;
                         $rootScope.freeSubscriptionDuarationInMonths = _.range(1,13);
                         $rootScope.discountDuarationInMonths = _.range(1,13);
                         $rootScope.subscriptionType = ['BLACK', 'WHITE', 'LITE'];
+                        $rootScope.coverage = ['NONE', 'PARTIAL', 'FULL'];
+
+                        if ($rootScope.$stateParams.route === 'studios') {
+                            RestApi.query({route: 'locations'}).$promise.then(function (response) {
+                                $rootScope.locations = response;
+                            });
+                            $rootScope.upload = function (target) {
+                                $rootScope.modalInstance = $modal.open({
+                                    templateUrl: 'views/modalUpload.html',
+                                    controller: function ($scope, target, id, $window, $modalInstance) {
+
+                                        $scope.target = target;
+                                        $scope.id = id;
+                                        $scope.$window = $window;
+                                        $scope.photo = {};
+
+                                        $scope.close = function () {
+                                            $modalInstance.dismiss('close');
+                                        };
+
+                                        $scope.changePhotoTitle = function (flow, title) {
+                                            flow.opts.target = flow.opts.target + title;
+                                        };
+
+                                        $scope.uploader = {
+                                            success: function ($flow, $file, $message) {
+                                                var message = angular.fromJson($message);
+                                                setTimeout(function () {
+                                                    $modalInstance.close(message.status);
+                                                }, 1000);
+                                            }
+                                        };
+
+
+                                    },
+                                    backdrop: 'static',
+                                    windowClass: 'modal-upload',
+                                    resolve: {
+                                        target: function () {
+                                            return target;
+                                        },
+                                        id: function () {
+                                            return $rootScope.$stateParams.entityId;
+                                        }
+                                    }
+                                }).result.then(function (status) {
+                                        if(status === 'success') {
+                                            $rootScope.autoscroll = false;
+                                            $rootScope.$state.go($rootScope.$state.current, {route: $rootScope.$stateParams.route, entityId: $rootScope.$stateParams.entityId}, {reload: true, inherit: false, notify: true});
+                                        }
+                                    });
+                            };
+
+                            $rootScope.removeCover = function (id) {
+                                $http.post($window.smmConfig.restUrlBase + '/api/studios/' + $rootScope.$stateParams.entityId + '/deleteCover?coverId=' + id, {cache: false}).success(function (response) {
+                                    console.log(response);
+                                    $rootScope.autoscroll = false;
+                                    $rootScope.$state.go($rootScope.$state.current, {route: $rootScope.$stateParams.route, entityId: $rootScope.$stateParams.entityId}, {reload: true, inherit: false, notify: true});
+
+                                }).error(function (response, status) {
+                                    console.error(response);
+                                    console.error(status);
+                                });
+                            };
+
+                        }
 
                         $rootScope.showDatepicker = {};
                         $rootScope.openDatepicker = function($event, type) {
@@ -667,7 +724,13 @@ angular.module('boltApp')
                             });
                         };
 
-                    }
+                    },
+                onEnter: function($rootScope){
+                    $rootScope.autoscroll = false;
+                },
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
 
             })
             .state('admin.entity.new', {

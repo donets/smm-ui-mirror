@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getLocations', 'getStudios', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getLocations, getStudios, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -63,7 +63,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                     panControl: false,
                     zoomControl : true,
                     streetViewControl : true,
-                    scrollwheel: $rootScope.desktop
+                    scrollwheel: false
                 }
             };
 
@@ -83,13 +83,17 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         });
 
-        getLocations.$promise.then(function (res) {
+        RestApi.query({route: 'locations'}).$promise.then(function (res) {
             $scope.locations = _.reject(res, function (obj) {
                 return obj.latitude === null || obj.longitude === null;
             });
             _.map($scope.locations, function (obj) {
                 obj.icon = '/images/marker.svg';
             });
+        });
+
+        RestApi.query({route: 'studios'}).$promise.then(function (res) {
+            $scope.studios = res;
         });
 
         $scope.invitation = $location.search().invitation;
@@ -104,10 +108,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.showDiscount = moment().isBefore('2015-02-11');
 
         $scope.tab = 'map';
-
-        getStudios.$promise.then(function (res) {
-            $scope.studios = res;
-        });
 
         var setVoucher = function (code) {
             if ($scope.showDiscount) {

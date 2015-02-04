@@ -279,6 +279,11 @@
                     right: 0px;
                     bottom: 5px;
                 }
+                .input-title {
+                    @extend %input-text;
+                    margin: 10px 0;
+                    width: 100%;
+                }
                 .action {
                     position: relative;
                     text-align: center;

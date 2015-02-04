@@ -1,57 +1,56 @@
 
-<div class="b-main-cover event-cover desktop" ng-if="desktop" ng-style="{ height: windowHeight - 350 }" style="background-image: url({{event.event.somuchmore.coverHD || coverMain}})">
-    <span class="cover-name"><div class="container">Jivamukti Berlin – Mitte</div></span>
-</div>
-<div class="b-main-cover event-cover mobile" ng-if="mobile" style="background-image: url({{event.event.somuchmore.coverMobile || coverMain}})">
-
-</div>
+<div class="b-main-cover desktop" ng-if="desktop" ng-style="{ 'height': windowHeight * 0.8 }" style="background-image: url({{studio.covers[0].cover2560 || coverMain}})"></div>
+<div class="b-main-cover mobile" ng-if="mobile" style="background-image: url({{studio.covers[0].cover1080 || coverMain}})"></div>
 <div class="container b-studio cf">
     <div class="w-left">
         <div class="b-main-content">
             <div class="b-studio-block">
-                <h1>Jivamukti Berlin</h1>
-                <a class="b-studio-likes" ng-show="desktop" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
-                    <div ng-show="popover" class="b-popover">
-                        <div class="fb-like-box"
-                             data-href="https://www.facebook.com/somuchmoredeutsch"
-                             data-width="300"
-                             data-colorscheme="light"
-                             data-show-faces="true"
-                             data-header="false"
-                             data-stream="false"
-                             data-show-border="false"></div>
-                    </div>
-                </a>
-                <p>In dieser Meditationsstunde lernst Du Deine Lebendigkeit kennen. Du spürst, wie Deine Gedanken und Gefühlen still werden. Alles darf so sein, wie es ist. Du bist einverstanden. So sinkst Du tiefer und tiefer wie eine Feder in dein Selbst. In dieser Meditationsstunde lernst Du Deine Lebendigkeit kennen. Du spürst, wie Deine Gedanken und Gefühlen still werden. Alles darf so sein, wie es ist. Du bist einverstanden. So sinkst Du tiefer und tiefer wie eine Feder in dein Selbst. </p>
+                <h1>{{studio.name}}</h1>
+                <p ng-if="studio.description">{{studio.description | cutString:cutVal:true}}
+                    <a class="a-more" href="" ng-show="studio.description.length > cutVal && cutVal > 0" ng-click="uncut()">Mehr &gt;</a>
+                    <a class="a-more" href="" ng-show="cutVal == 0" ng-click="cut()">&lt; Weniger</a>
+                </p>
+                <dl>
+                    <dd>Disziplinen:</dd><dt>{{studio.disciplines}}</dt>
+                    <dd>Ausstattung:</dd><dt>{{studio.equipment}}</dt>
+                    <dd>Adresse:</dd><dt><ul>
+                        <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
+                    </ul></dt>
+                </dl>
             </div>
         </div>
     </div>
     <div class="w-right">
         <div class="b-main-sidebar">
             <div class="b-studio-info">
-                <div class="info-row" ng-show="desktop">
-                    <span>Disciplines:</span><ul>
-                        <li>Tea & Snack Bar</li>
-                        <li>Changing Rooms</li>
-                        <li>Lockers</li>
-                        <li>Showers</li>
-                        <li>Backyard</li>
-                    </ul>
-                </div>
-                <div class="info-row" ng-show="desktop">
-                    <span>Additional services:</span><ul>
-                        <li>Yoga</li>
-                        <li>Meditation</li>
-                        <li>Pilates</li>
-                        <li>Martial Arts</li>
-                        <li>Ayurvedic Cooking</li>
-                    </ul>
-                </div>
-                <div class="info-row">
-                    <span>Adresse:</span><address>Brunnenstraße 29, 10119 Berlin</address>
-                </div>
+                <b>Akzeptierte Karten:</b>
+                <ul>
+                    <li><img src="images/black-ico.png" alt=""/>Black Card:
+                        <span ng-if="studio.coverageBlack === 'FULL'" class="full"><i class="fa fa-check"></i>Alle Kurse</span>
+                        <span ng-if="studio.coverageBlack === 'PARTIAL'" class="partial"><i class="fa fa-check"></i>Einige Kurse <span class="light">(siehe Kursplan)</span></span>
+                        <span ng-if="studio.coverageBlack === 'NONE'" class="none"><i class="fa fa-times"></i>Nicht akzeptiert</span>
+                    </li>
+                    <li><img src="images/white-ico.png" alt=""/>White Card:
+                        <span ng-if="studio.coverageWhite === 'FULL'" class="full"><i class="fa fa-check"></i>Alle Kurse</span>
+                        <span ng-if="studio.coverageWhite === 'PARTIAL'" class="partial"><i class="fa fa-check"></i>Einige Kurse <span class="light">(siehe Kursplan)</span></span>
+                        <span ng-if="studio.coverageWhite === 'NONE'" class="none"><i class="fa fa-times"></i>Nicht akzeptiert</span>
+                    </li>
+                    <li><img src="images/lite-ico.png" alt=""/>White Card Lite:
+                        <span ng-if="studio.coverageLite === 'FULL'" class="full"><i class="fa fa-check"></i>Alle Kurse</span>
+                        <span ng-if="studio.coverageLite === 'PARTIAL'" class="partial"><i class="fa fa-check"></i>Einige Kurse <span class="light">(siehe Kursplan)</span></span>
+                        <span ng-if="studio.coverageLite === 'NONE'" class="none"><i class="fa fa-times"></i>Nicht akzeptiert</span>
+                    </li>
+                </ul>
             </div>
-            <button type="button" class="contact_btn" ng-show="desktop">Contact us</button>
+            <div class="b-studio-info">
+                <b>Informationen:</b>
+                <p>{{studio.terms}}</p>
+            </div>
+            <div class="b-studio-info">
+                <b>Kontaktieren:</b>
+                <p>{{studio.phone}}</p>
+                <p>{{studio.website}}</p>
+            </div>
         </div>
     </div>
 </div>
@@ -190,45 +189,12 @@
     <div class="container">
         <div class="location">
             <h2>Location</h2>
-            <address><i class="fa fa-map-marker"></i>Brunnenstraße 29, 10119 Berlin</address>
+            <address><i class="fa fa-map-marker"></i>{{studio.locationsFull[0].fullAddress}}</address>
             <p><i class="fa fa-home"></i>Studio</p>
         </div>
     </div>
     <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
         <ui-gmap-marker coords="marker.coords" icon="marker.icon" events="marker.events" idkey="marker.id"></ui-gmap-marker>
     </ui-gmap-google-map>
-</div>
-<div class="container b-studio" ng-show="mobile">
-    <div class="b-main-sidebar">
-        <div class="b-studio-info">
-            <div class="info-row">
-                <span>Disciplines:</span><ul>
-                <li>Tea & Snack Bar</li>
-                <li>Changing Rooms</li>
-                <li>Lockers</li>
-                <li>Showers</li>
-                <li>Backyard</li>
-            </ul>
-            </div>
-            <div class="info-row">
-                <span>Additional services:</span><ul>
-                <li>Yoga</li>
-                <li>Meditation</li>
-                <li>Pilates</li>
-                <li>Martial Arts</li>
-                <li>Ayurvedic Cooking</li>
-            </ul>
-            </div>
-        </div>
-        <button type="button" class="contact_btn">Contact us</button>
-    </div>
-    <div class="fb-like"
-         data-href="https://www.facebook.com/somuchmoredeutsch"
-         data-width="280"
-         data-layout="standard"
-         data-action="like"
-         data-show-faces="true"
-         data-share="false">
-    </div>
 </div>
 

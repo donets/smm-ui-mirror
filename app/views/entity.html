@@ -13,7 +13,7 @@
 <div class="container">
     <div class="b-class-edit">
         <h3>Main info</h3>
-        <div class="form-rel" ng-repeat="field in fields | filter: {readonly: '!'+true && '!'+$stateParams.entityId}">
+        <div class="form-rel" ng-class="{'large': field.large}" ng-repeat="field in fields | filter: {readonly: '!'+true && '!'+$stateParams.entityId}">
             <label class="form-label" ng-if="field.type !== 'checkbox'" for="{{field.model}}">{{field.title}}</label>
             <input class="form-input" type="text" ng-model="entity[field.model]" ng-if="!field.type && !field.format" id="{{field.model}}" ng-readonly="field.readonly || ($stateParams.entityId && $stateParams.route === 'vouchers' && field.model === 'code')"/>
             <input class="form-input" type="text" value="{{entity[field.model] | date: field.format}}" ng-if="!field.type && field.format" id="{{field.model}}" ng-readonly="field.readonly"/>
@@ -31,7 +31,13 @@
                     data-placeholder="{{field.placeholder || 'Auswählen'}}"
                     allow-single-deselect="true"
                     disable-search="{{field.model !== 'neigbourhood'}}"
-                    ng-options="item for item in {{field.model}}">
+                    ng-options="item for item in {{field.modelSelect || field.model}} | orderBy: field.order">
+                <option value=""></option>
+            </select>
+            <select chosen multiple
+                    ng-model="entity[field.model]" ng-if="field.type === 'multiple'"
+                    data-placeholder="{{field.placeholder || 'Auswählen'}}"
+                    ng-options="item.id as item.displayName for item in {{field.model}} | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
             <div class="form-rel" ng-if="field.type === 'checkbox'">
@@ -40,6 +46,16 @@
                     <i class="fa"></i>
                     <label for="{{field.model}}">{{field.title}}</label>
                 </div>
+            </div>
+            <div class="form-rel" ng-if="field.type === 'upload'">
+                <ul class="cover-list">
+                    <li ng-repeat="cover in entity.covers">
+                        <img ng-src="{{cover.cover1080}}" alt="{{cover.title}}"/>
+                        <p class="subtitle">{{cover.title}}</p>
+                        <button class="dark" type="button" ng-click="removeCover(cover.id)"><i class="fa fa-trash"></i></button>
+                    </li>
+                </ul>
+                <button class="form-button" ng-click="upload('cover')">Hochladen</button>
             </div>
             <textarea ng-model="entity[field.model]" ng-if="field.type === 'textarea'" id="{{field.model}}"></textarea>
         </div>

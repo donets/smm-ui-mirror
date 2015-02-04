@@ -10,6 +10,7 @@
            }, {
                "model": "neigbourhood",
                "title": "Bezirk",
+               "order": "toString()",
                "type": "select"
            }, {
                "model": "postal_code",
@@ -33,9 +34,66 @@
                "title": "Website",
                "listed": false
            }, {
+               "model": "phone",
+               "title": "Phone",
+               "listed": false
+           }, {
+               "model": "locations",
+               "title": "Locations",
+               "placeholder": "Standort",
+               "type": "multiple",
+               "large": true,
+               "listed": false
+           }, {
+               "model": "intro",
+               "title": "Intro",
+               "type": "textarea",
+               "large": true,
+               "listed": false
+           }, {
+               "model": "description",
+               "title": "Description",
+               "type": "textarea",
+               "large": true,
+               "listed": false
+           }, {
+               "model": "disciplines",
+               "title": "Disciplines",
+               "large": true,
+               "listed": false
+           }, {
+               "model": "equipment",
+               "title": "Equipment",
+               "large": true,
+               "listed": false
+           }, {
+               "model": "covers",
+               "title": "Cover upload",
+               "type": "upload",
+               "listed": false
+           }, {
+               "model": "coverageBlack",
+               "modelSelect": "coverage",
+               "title": "Coverage Black",
+               "type": "select",
+               "listed": false
+           }, {
+               "model": "coverageWhite",
+               "modelSelect": "coverage",
+               "title": "Coverage White",
+               "type": "select",
+               "listed": false
+           }, {
+               "model": "coverageLite",
+               "modelSelect": "coverage",
+               "title": "Coverage Lite",
+               "type": "select",
+               "listed": false
+           }, {
                "model": "terms",
                "title": "Voraussetzungen der Teilnahme",
                "type": "textarea",
+               "large": true,
                "listed": false
            }
        ],

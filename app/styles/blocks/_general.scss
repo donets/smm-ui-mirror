@@ -107,9 +107,6 @@ button {
     position: relative;
     z-index: 1;
     width: 100%;
-    @media (min-width: $containerMobileWidth) {
-        padding-bottom: 180px;
-    }
 }
 
 .container {
@@ -226,6 +223,13 @@ button {
     display: none!important;
 }
 
+.variant {
+    display: none!important;
+}
+
+.variant_1 {
+    display: inline-block!important;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;

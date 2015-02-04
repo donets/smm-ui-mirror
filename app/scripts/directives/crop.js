@@ -31,23 +31,30 @@ angular.module('boltApp')
                         $(myImg).Jcrop({
                             trackDocument: true,
                             bgFade: true,
-                            aspectRatio: scope.$parent.target === 'cover' ? 4 : 1,
+                            aspectRatio: scope.$parent.target === 'cover' ? 1.5 : 1,
                             boxWidth: 910,
-                            minSize: scope.$parent.target === 'cover' ? [1440, 360] : [400, 400],
+                            minSize: scope.$parent.target === 'cover' ? [2560, 1708] : [400, 400],
                             setSelect: [0, 0, 150, 150],
                             onSelect: function(x) {
 
                                 console.info(x);
 
                                 if (x.x >= 0 && x.y >= 0 && x.w > 0 && x.h > 0) {
-                                    scope.$parent.$flow.opts.query = {x: Math.floor(x.x), y: Math.floor(x.y), w: Math.floor(x.w), h: Math.floor(x.h)};
-                                    scope.$parent.$flow.opts.target = $window.smmConfig.restUrlBase + '/api/membership/uploadPhoto' +
-                                        '?x=' + Math.floor(x.x) +
-                                        '&y=' + Math.floor(x.y) +
-                                        '&w=' + Math.floor(x.w) +
-                                        '&h=' + Math.floor(x.h);
+
+                                    if (scope.$parent.target === 'avatar') {
+                                        scope.$parent.$flow.opts.target = $window.smmConfig.restUrlBase + '/api/membership/uploadPhoto' +
+                                            '?x=' + Math.floor(x.x) +
+                                            '&y=' + Math.floor(x.y) +
+                                            '&w=' + Math.floor(x.w) +
+                                            '&h=' + Math.floor(x.h);
+                                    } else {
+                                        scope.$parent.$flow.opts.target = $window.smmConfig.restUrlBase + '/api/studios/' + scope.$parent.id + '/uploadCover' +
+                                            '?x=' + Math.floor(x.x) +
+                                            '&y=' + Math.floor(x.y) +
+                                            '&w=' + Math.floor(x.w) +
+                                            '&h=' + Math.floor(x.h) + '&title=';
+                                    }
                                 }
-                                console.log(scope.$parent.$flow);
                             }
                         });
                     }
