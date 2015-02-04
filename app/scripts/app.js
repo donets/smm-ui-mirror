@@ -534,6 +534,11 @@ angular.module('boltApp')
 
                 }
             })
+            .state('admin.classes.new', {
+                url : 'new/',
+                templateUrl: 'views/class.html',
+                controller : 'CreateClassCtrl'
+            })
             .state('admin.classes.class', {
                 url : ':classId/',
                 templateUrl: 'views/class.html',
@@ -553,11 +558,6 @@ angular.module('boltApp')
 
                 },
                 controller : 'ClassCtrl'
-            })
-            .state('admin.classes.new', {
-                url : 'new/',
-                templateUrl: 'views/class.html',
-                controller : 'CreateClassCtrl'
             })
             .state('admin.entity', {
                 url : ':route',
@@ -689,6 +689,38 @@ angular.module('boltApp')
 
                     }
             })
+            .state('admin.entity.new', {
+                url : '/new/',
+                templateUrl: 'views/entity.html',
+                controller :
+
+                    function ($scope, $rootScope, RestApi) {
+
+                        $scope.entity = new RestApi();
+
+                        $scope.save = function () {
+                            $scope.showSpinner = true;
+                            $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
+                                console.log(res);
+                                $scope.showSpinner = false;
+                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.data.id || res.data.code)});
+                            });
+                        };
+
+                        if ($rootScope.$stateParams.route === 'vouchers') {
+                            RestApi.query({route: 'vouchers'}).$promise.then(function (res) {
+                                $scope.vouchersList = _.pluck(res, 'code');
+                            });
+                            $scope.checkVoucherUnique = function (voucher) {
+                                $scope.errorVoucher = _.include($scope.vouchersList, voucher);
+                            };
+                            $scope.toUpperCase = function (string) {
+                                $scope.entity.code = string.toUpperCase();
+                            };
+                        }
+
+                    }
+            })
             .state('admin.entity.item', {
                 url : '/:entityId/',
                 templateUrl: 'views/entity.html',
@@ -732,38 +764,6 @@ angular.module('boltApp')
                     $rootScope.autoscroll = true;
                 }
 
-            })
-            .state('admin.entity.new', {
-                url : '/new/',
-                templateUrl: 'views/entity.html',
-                controller :
-
-                    function ($scope, $rootScope, RestApi) {
-
-                        $scope.entity = new RestApi();
-
-                        $scope.save = function () {
-                            $scope.showSpinner = true;
-                            $scope.entity.$save({route: $rootScope.$stateParams.route}).then(function (res) {
-                                console.log(res);
-                                $scope.showSpinner = false;
-                                $rootScope.$state.go('admin.entity.item', {route: $rootScope.$stateParams.route, entityId: (res.data.id || res.data.code)});
-                            });
-                        };
-
-                        if ($rootScope.$stateParams.route === 'vouchers') {
-                            RestApi.query({route: 'vouchers'}).$promise.then(function (res) {
-                                $scope.vouchersList = _.pluck(res, 'code');
-                            });
-                            $scope.checkVoucherUnique = function (voucher) {
-                                $scope.errorVoucher = _.include($scope.vouchersList, voucher);
-                            };
-                            $scope.toUpperCase = function (string) {
-                                $scope.entity.code = string.toUpperCase();
-                            };
-                        }
-
-                    }
             })
             .state('more', {
                 url : '/p/more/',

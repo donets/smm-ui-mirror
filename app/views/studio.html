@@ -6,14 +6,14 @@
         <div class="b-main-content">
             <div class="b-studio-block">
                 <h1>{{studio.name}}</h1>
-                <p ng-if="studio.description">{{studio.description | cutString:cutVal:true}}
-                    <a class="a-more" href="" ng-show="studio.description.length > cutVal && cutVal > 0" ng-click="uncut()">Mehr &gt;</a>
-                    <a class="a-more" href="" ng-show="cutVal == 0" ng-click="cut()">&lt; Weniger</a>
+                <p ng-if="studio.intro || studio.description">{{studio.intro}} <span ng-show="showDescription">{{studio.description}}</span>
+                    <a class="a-more" href="" ng-hide="showDescription" ng-click="showDescription = true">Mehr &gt;</a>
+                    <a class="a-more" href="" ng-show="showDescription" ng-click="showDescription = false">&lt; Weniger</a>
                 </p>
                 <dl>
-                    <dd>Disziplinen:</dd><dt>{{studio.disciplines}}</dt>
-                    <dd>Ausstattung:</dd><dt>{{studio.equipment}}</dt>
-                    <dd>Adresse:</dd><dt><ul>
+                    <dd ng-if="studio.disciplines">Disziplinen:</dd><dt>{{studio.disciplines}}</dt>
+                    <dd ng-if="studio.equipment">Ausstattung:</dd><dt>{{studio.equipment}}</dt>
+                    <dd ng-if="studio.locations">Adresse:</dd><dt><ul>
                         <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
                     </ul></dt>
                 </dl>
@@ -22,31 +22,31 @@
     </div>
     <div class="w-right">
         <div class="b-main-sidebar">
-            <div class="b-studio-info">
+            <div class="b-studio-info" ng-if="studio.coverageBlack || studio.coverageWhite || studio.coverageLite">
                 <b>Akzeptierte Karten:</b>
                 <ul>
-                    <li><img src="images/black-ico.png" alt=""/>Black Card:
+                    <li ng-if="studio.coverageBlack"><img src="images/black-ico.png" alt=""/>Black Card:
                         <span ng-if="studio.coverageBlack === 'FULL'" class="full"><i class="fa fa-check"></i>Alle Kurse</span>
                         <span ng-if="studio.coverageBlack === 'PARTIAL'" class="partial"><i class="fa fa-check"></i>Einige Kurse <span class="light">(siehe Kursplan)</span></span>
                         <span ng-if="studio.coverageBlack === 'NONE'" class="none"><i class="fa fa-times"></i>Nicht akzeptiert</span>
                     </li>
-                    <li><img src="images/white-ico.png" alt=""/>White Card:
+                    <li ng-if="studio.coverageWhite"><img src="images/white-ico.png" alt=""/>White Card:
                         <span ng-if="studio.coverageWhite === 'FULL'" class="full"><i class="fa fa-check"></i>Alle Kurse</span>
                         <span ng-if="studio.coverageWhite === 'PARTIAL'" class="partial"><i class="fa fa-check"></i>Einige Kurse <span class="light">(siehe Kursplan)</span></span>
                         <span ng-if="studio.coverageWhite === 'NONE'" class="none"><i class="fa fa-times"></i>Nicht akzeptiert</span>
                     </li>
-                    <li><img src="images/lite-ico.png" alt=""/>White Card Lite:
+                    <li ng-if="studio.coverageLite"><img src="images/lite-ico.png" alt=""/>White Card Lite:
                         <span ng-if="studio.coverageLite === 'FULL'" class="full"><i class="fa fa-check"></i>Alle Kurse</span>
                         <span ng-if="studio.coverageLite === 'PARTIAL'" class="partial"><i class="fa fa-check"></i>Einige Kurse <span class="light">(siehe Kursplan)</span></span>
                         <span ng-if="studio.coverageLite === 'NONE'" class="none"><i class="fa fa-times"></i>Nicht akzeptiert</span>
                     </li>
                 </ul>
             </div>
-            <div class="b-studio-info">
+            <div ng-if="studio.terms" class="b-studio-info">
                 <b>Informationen:</b>
                 <p>{{studio.terms}}</p>
             </div>
-            <div class="b-studio-info">
+            <div ng-if="studio.phone || studio.website" class="b-studio-info">
                 <b>Kontaktieren:</b>
                 <p>{{studio.phone}}</p>
                 <p>{{studio.website}}</p>

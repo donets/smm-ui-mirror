@@ -1,4 +1,4 @@
-<div class="b-class-block" sticky use-placeholder>
+<div class="b-class-block" ng-class="{'class': $stateParams.route === 'studios'}" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
             <h2><a ui-sref="admin.entity.list({route: $stateParams.route})">{{$stateParams.route}}</a> / {{entity.name || entity.code || 'New ' + $stateParams.route}}</h2>
@@ -6,6 +6,7 @@
         <div class="w-right">
             <button type="button" ng-disabled="errorVoucher" ng-hide="showSpinner" class="green" ng-click="save()"><i class="fa fa-save"></i>Save</button>
             <button type="button" ng-if="$stateParams.entityId" ng-hide="showSpinner" class="red" ng-confirm-click="remove()"><i class="fa fa-trash"></i>Delete</button>
+            <button type="button" ng-if="$stateParams.route === 'studios' && $stateParams.entityId" ng-hide="showSpinner" ui-sref="studio({studioId: $stateParams.entityId})"><i class="fa fa-save"></i>View</button>
             <div ng-show="showSpinner" class="spinner-wrapper"><span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span></div>
         </div>
     </div>
@@ -47,14 +48,15 @@
                     <label for="{{field.model}}">{{field.title}}</label>
                 </div>
             </div>
-            <div class="form-rel" ng-if="field.type === 'upload'">
+            <div class="form-rel" ng-if="field.type === 'upload' && $stateParams.entityId">
                 <ul class="cover-list">
                     <li ng-repeat="cover in entity.covers">
                         <img ng-src="{{cover.cover1080}}" alt="{{cover.title}}"/>
                         <p class="subtitle">{{cover.title}}</p>
-                        <button class="dark" type="button" ng-click="removeCover(cover.id)"><i class="fa fa-trash"></i></button>
+                        <button class="dark" type="button" ng-confirm-click="removeCover(cover.id)"><i class="fa fa-trash"></i></button>
                     </li>
                 </ul>
+                <p>(min resolution 2560x1706)</p>
                 <button class="form-button" ng-click="upload('cover')">Hochladen</button>
             </div>
             <textarea ng-model="entity[field.model]" ng-if="field.type === 'textarea'" id="{{field.model}}"></textarea>

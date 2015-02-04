@@ -9,7 +9,7 @@
  */
 angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
     .controller('StudioCtrl', function ($scope, $rootScope, getStudio, RestApi, uiGmapGoogleMapApi) {
-        $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/main-2880.jpg' : '/images/main-1080.jpg';
+        $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/landing-2880.jpg' : '/images/landing-1080.jpg';
 
         getStudio.$promise.then(function () {
             $scope.studio = getStudio;
@@ -21,15 +21,7 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
             });
         });
 
-        // cut string
-        var cutVal = $rootScope.windowWidth > 1080 ? 600 : 250;
-        $scope.cutVal = cutVal;
-        $scope.uncut = function () {
-            $scope.cutVal = 0;
-        };
-        $scope.cut = function () {
-            $scope.cutVal = cutVal;
-        };
+        $scope.showDescription = false;
 
         uiGmapGoogleMapApi.then(function() {
 
