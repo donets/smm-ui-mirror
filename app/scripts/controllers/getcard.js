@@ -26,7 +26,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 url: '/images/mainvideo.jpg'
             },
             onPlayerReady: function(videoAPI) {
-                $scope.videoAPI = videoAPI;
+                $rootScope.desktop ? $scope.videoAPI = videoAPI : 0;
             }
         };
 

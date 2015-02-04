@@ -8,7 +8,7 @@
         <input type="text" name="studio" ng-model="suggest.studioName" placeholder="Name des Studios" required/>
         <input type="text" name="name" ng-model="suggest.userName" placeholder="Dein Name (Optional)"/>
         <input type="email" name="email" ng-model="suggest.userEmail" placeholder="Deine E-Mail-Adresse" required/>
-        <input type="submit" value="Vorschlagen" ng-disabled="studioForm.$invalid" />
+        <input type="submit" value="Vorschlagen" ng-disabled="loadingStudio || studioForm.$invalid" />
         <div class="form-response">
             <div ng-show="loadingStudio" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
             <div ng-show="successStudio" class="form-message form-success">Danke!</div>

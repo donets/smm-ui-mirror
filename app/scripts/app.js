@@ -411,6 +411,12 @@ angular.module('boltApp')
 
                         return RestApi.get({route: 'studios'}, {id: $stateParams.studioId}).$promise;
 
+                    },
+
+                    getLocations: function(RestApi) {
+
+                        return RestApi.query({route: 'locations'}).$promise;
+
                     }
 
                 }

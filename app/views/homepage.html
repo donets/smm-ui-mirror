@@ -17,7 +17,7 @@
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
-                <input type="submit" value="Mitmachen"/>
+                <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                     <div ng-show="form.successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
@@ -39,7 +39,7 @@
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
-                <input type="submit" value="Mitmachen"/>
+                <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                     <div ng-show="form.successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>

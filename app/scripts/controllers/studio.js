@@ -18,38 +18,37 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                 _.each($scope.studio.locations, function (locationId) {
                     $scope.studio.locationsFull.push(_.findWhere(response, {id: locationId}));
                 });
+                uiGmapGoogleMapApi.then(function() {
+
+                    $scope.map = {
+                        center: {
+                            latitude: $scope.studio.locationsFull[0].latitude,
+                            longitude: 	$scope.studio.locationsFull[0].longitude
+                        },
+                        zoom: 16,
+                        options: {
+                            mapTypeControl: false,
+                            overviewMapControl: false,
+                            panControl: false,
+                            zoomControl : true,
+                            streetViewControl : true,
+                            scrollwheel: false
+                        }
+                    };
+
+                    $scope.marker = {
+                        id: 1,
+                        coords: {
+                            latitude: $scope.studio.locationsFull[0].latitude,
+                            longitude: 	$scope.studio.locationsFull[0].longitude
+                        },
+                        icon: '/images/marker.svg'
+                    };
+
+                });
             });
         });
 
         $scope.showDescription = false;
-
-        uiGmapGoogleMapApi.then(function() {
-
-            $scope.map = {
-                center: {
-                    latitude: $scope.studio.locationsFull[0].latitude,
-                    longitude: 	$scope.studio.locationsFull[0].longitude
-                },
-                zoom: 16,
-                options: {
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    panControl: false,
-                    zoomControl : true,
-                    streetViewControl : true,
-                    scrollwheel: false
-                }
-            };
-
-            $scope.marker = {
-                id: 1,
-                coords: {
-                    latitude: $scope.studio.locationsFull[0].latitude,
-                    longitude: 	$scope.studio.locationsFull[0].longitude
-                },
-                icon: '/images/marker.svg'
-            };
-
-        });
 
     });
