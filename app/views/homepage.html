@@ -72,7 +72,7 @@
     <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>42 Studios</b> und <b>700 Kursen</b> in Deiner Umgebung.</p>
-        <ul class="tab-nav" ng-if="!campaign.map">
+        <ul class="tab-nav" ng-show="!campaign.map">
             <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
             <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
             <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
@@ -93,6 +93,7 @@
                 <li ng-repeat="studio in studios | orderBy: 'name'">
                     <a ng-href="{{studio.website}}" ng-if="studio.website" target="_blank">{{studio.name}}</a>
                     <span ng-if="!studio.website">{{studio.name}}</span>
+                    <!--<a ui-sref="studio({studioId: studio.id})">{{studio.name}}</a>-->
                 </li>
             </ul>
         </div>
