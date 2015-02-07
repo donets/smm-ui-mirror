@@ -103,8 +103,13 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         });
 
         $scope.invitation = $location.search().invitation;
+        $scope.discipline = $location.search().discipline;
+        $scope.city = $location.search().discipline;
         if ($scope.invitation) {
             $cookieStore.put('invitation', true);
+        }
+        if ($scope.discipline || $scope.city) {
+            $cookieStore.put('landingUrl', $location.url());
         }
         $scope.invite = {};
         $scope.form = {};
@@ -135,7 +140,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, interestedInProduct: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), interestedInProduct: true }).success(function () {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $scope.invite = {};
