@@ -352,7 +352,21 @@ angular.module('boltApp')
 
                         return $http.get('json/cards.json', {cache: true});
 
+                    },
+
+                    getCities: function($http) {
+
+                        return $http.get('json/cities.json', {cache: true});
+
+                    },
+
+                    getDisciplines: function($http) {
+
+                        return $http.get('json/disciplines.json', {cache: true});
+
                     }
+
+
 
                 }
             })

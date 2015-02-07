@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -45,7 +45,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $document.on('scroll', function() {
             if ($rootScope.desktop) {
                 $scope.showTopHeader = $document.scrollTop() > $scope.scrollPos;
-                if ($document.scrollTop() > $window.innerHeight) {
+                if ($scope.videoAPI && ($document.scrollTop() > $window.innerHeight)) {
                     $scope.videoAPI.pause();
                 } else {
                     $scope.videoAPI.play();
@@ -101,24 +101,31 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         RestApi.query({route: 'studios'}).$promise.then(function (res) {
             $scope.studios = res;
         });
-
-        $scope.invitation = $location.search().invitation;
-        $scope.discipline = $location.search().discipline;
-        $scope.city = $location.search().discipline;
-        if ($scope.invitation) {
-            $cookieStore.put('invitation', true);
-        }
-        if ($scope.discipline || $scope.city) {
-            $cookieStore.put('landingUrl', $location.url());
-        }
         $scope.invite = {};
         $scope.form = {};
 
         $scope.Math = $window.Math;
         $scope.cards = getCards.data;
+        $scope.citiesList = getCities.data;
+        $scope.disciplinesList = getDisciplines.data;
         $scope.showDiscount = moment().isBefore('2015-02-11');
 
         $scope.tab = 'map';
+
+        $scope.invitation = $location.search().invitation;
+        $scope.discipline = $location.search().discipline;
+        $scope.city = $location.search().city;
+        if ($scope.invitation) {
+            $cookieStore.put('invitation', true);
+        }
+        if ($scope.discipline || $scope.city) {
+            if ($scope.city) {
+                $scope.campaign = $scope.citiesList.cities[$scope.city];
+            } else {
+                $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
+            }
+            $cookieStore.put('landingUrl', $location.url());
+        }
 
         var setVoucher = function (code) {
             if ($scope.showDiscount) {

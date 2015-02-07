@@ -1,0 +1,11 @@
+{
+    "cities": {
+        "B" : {
+            "title": "Eine Karte für ganz Berlin"
+        },
+        "M" : {
+            "title": "Eine Karte für ganz München",
+            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Munich&zoom=10&scale=2&size=600x300&maptype=roadmap&format=jpg&visual_refresh=true"
+        }
+    }
+}

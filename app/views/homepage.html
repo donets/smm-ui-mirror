@@ -10,8 +10,10 @@
         <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
     </videogular>
-    <div class="b-main-slogan"><h2>Eine Karte für ganz Berlin</h2>
-        <p>Entdecke <b>700 Kurse</b> in <b>42 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
+    <div class="b-main-slogan"><h2 ng-if="!campaign">Eine Karte für ganz Berlin</h2><h2 ng-if="campaign">{{campaign.title}}</h2>
+        <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>42 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
+        <p ng-if="campaign && !city">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
+        <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
@@ -70,18 +72,22 @@
     <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>42 Studios</b> und <b>700 Kursen</b> in Deiner Umgebung.</p>
-        <ul class="tab-nav">
+        <ul class="tab-nav" ng-if="!campaign.map">
             <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
             <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
             <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
         </ul>
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-show="tab === 'map'">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="!campaign.map" ng-show="tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
                     <p class="info-window" ng-non-bindable>{{name}}</p>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
+        <div class="static-map" ng-if="campaign.map">
+            <img src="{{campaign.map}}" alt=""/>
+            <div class="overlay"><h2>Start am 1.März!</h2></div>
+        </div>
         <div ng-show="tab === 'list'">
             <ul class="b-studios-list">
                 <li ng-repeat="studio in studios | orderBy: 'name'">

@@ -1,0 +1,10 @@
+{
+    "disciplines": {
+        "Yoga" : {
+            "title": "Ein Karte, unbegrenzt Yoga",
+            "amountCourses": "559",
+            "amountStudios": "22",
+            "termForStudios": "Yogastudios"
+        }
+    }
+}
