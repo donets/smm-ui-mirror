@@ -140,8 +140,8 @@
             <span class="sr-only">Close</span>
         </button>
     </div>
-    <div class="wrapper" ng-show="prerenderReady">
-        <div class="b-header" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">
+    <div class="wrapper">
+        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
                 <!--<div class="b-header-badge">BETA</div>-->
@@ -162,7 +162,7 @@
         </div>
         <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
-        <div class="b-footer" ng-class="{'hidden': $state.includes('signup')}">
+        <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">
             <div class="container">
                 <div class="b-footer-top cf">
                     <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
