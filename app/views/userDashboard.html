@@ -2,8 +2,8 @@
     <div class="container">
         <h1>Finde einen Kurs</h1>
         <p class="subtitle">Heute {{today | amDateFormat: 'dd DD.MM.'}}</p>
-        <ul class="weekdays" ng-repeat="w in weekdays">
-            <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-click="changeDay(w)">{{w | amCalendar}}</li>
+        <ul class="weekdays">
+            <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
     </div>
 </div>
@@ -30,8 +30,8 @@
             </select>
         </div>
     </div>
-    <div class="container">
-        <div class="w-left b-sidebar-filters" sticky disable="{{showPopap}}" offset="82">
+    <div class="container cf">
+        <div class="w-le1ft b-sidebar-filters" sticky disable="{{showPopap}}" offset="82">
             <slider
                     ng-model="search.start"
                     ng-model-range="search.end"

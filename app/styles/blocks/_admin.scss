@@ -112,6 +112,7 @@
         }
         td {
             line-height: 1.2;
+            border-width: 2px;
             &:nth-child(1), &:nth-child(2) {
                 font-size: 15px;
             }
@@ -132,6 +133,7 @@
         tr {
             th:first-child, td:first-child {
                 @include border-left-radius(2px);
+                width: auto;
             }
             th:last-child, td:last-child {
                 padding: 0;

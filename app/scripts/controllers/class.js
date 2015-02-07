@@ -64,9 +64,9 @@ angular.module('boltApp.controllers.Class', [])
         ];
 
         $scope.levels = [
-            'Anfänger',
-            'Medium',
-            'Fortgeschrittene'
+            {id: '1', text: 'Anfänger'},
+            {id: '2', text: 'Medium'},
+            {id: '3', text: 'Fortgeschrittene'}
         ];
 
         /*var exportTag = function (name) {

@@ -170,7 +170,7 @@
                     data-placeholder="Alle Levels"
                     disable-search="true"
                     allow-single-deselect="true"
-                    ng-options="item for item in levels">
+                    ng-options="item.id as item.text for item in levels">
                 <option value=""></option>
             </select>
         </div>

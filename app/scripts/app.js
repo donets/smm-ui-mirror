@@ -411,12 +411,6 @@ angular.module('boltApp')
 
                         return RestApi.get({route: 'studios'}, {id: $stateParams.studioId}).$promise;
 
-                    },
-
-                    getLocations: function(RestApi) {
-
-                        return RestApi.query({route: 'locations'}).$promise;
-
                     }
 
                 }
@@ -440,12 +434,6 @@ angular.module('boltApp')
 
                     }
 
-                },
-                onEnter: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '350px') : 0;
-                },
-                onExit: function($rootScope){
-                    return $rootScope.desktop ? $('.pre-cover').css('height', '550px') : 0;
                 }
             })
             .state('profile.account', {

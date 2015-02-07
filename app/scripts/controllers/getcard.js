@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -26,19 +26,25 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 url: '/images/mainvideo.jpg'
             },
             onPlayerReady: function(videoAPI) {
-                $rootScope.desktop ? $scope.videoAPI = videoAPI : 0;
+                if ($rootScope.desktop) {
+                    $scope.videoAPI = videoAPI;
+                }
             }
         };
 
-        var scrollPos = $('#subscribeMain').offset().top + 130;
+        var el = $('#subscribeMain');
+
+        $timeout(function () {
+            $scope.scrollPos = Math.round(el.offset().top + 130);
+        }, 0);
 
         angular.element($window).bind('resize', function() {
-            scrollPos = $('#subscribeMain').offset().top + 130;
+            $scope.scrollPos = Math.round(el.offset().top + 130);
         });
 
         $document.on('scroll', function() {
             if ($rootScope.desktop) {
-                $scope.showTopHeader = $document.scrollTop() > scrollPos;
+                $scope.showTopHeader = $document.scrollTop() > $scope.scrollPos;
                 if ($document.scrollTop() > $window.innerHeight) {
                     $scope.videoAPI.pause();
                 } else {

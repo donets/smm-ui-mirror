@@ -44,6 +44,9 @@
 .carousel-inner > .prev {
     display: table;
 }
+
+}
+
 .carousel-control {
     opacity: 1;
     filter: alpha(opacity=100);
@@ -107,8 +110,6 @@
 }
 .carousel-control .glyphicon-chevron-right:before {
     content: "";
-}
-
 }
 
 .carousel-indicators {

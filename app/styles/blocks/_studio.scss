@@ -31,6 +31,11 @@
         }
         ul {
             padding-left: 15px;
+            a {
+                font-size: 15px;
+                color: $colorText;
+                outline: none;
+            }
         }
     }
 }
@@ -83,20 +88,19 @@
     h2 {
         line-height: 1;
         margin: 0;
+        float: left;
     }
     h3 {
         margin-top: 10px;
         line-height: 1;
     }
     .weekdays {
-        position: absolute;
-        top: 38px;
-        right: 0;
+        margin: 4px -8px;
+        text-align: right;
     }
 }
 .weekdays {
     @include my-resetList();
-    margin: 0 -16px;
     li {
         display: inline-block;
         vertical-align: top;
@@ -172,27 +176,44 @@
         font-size: 12px;
         color: $colorGrey;
         height: 32px;
-        padding: 0 16px;
+        padding: 0 20px;
     }
     td {
         font-size: 18px;
-        height: 42px;
-        padding: 0 16px;
+        height: 80px;
+        padding: 0 20px;
         background: #fff;
-        border-bottom: 3px solid $colorBackTimetable;
+        border-bottom: 10px solid $colorBackTimetable;
+        &.empty {
+            background: none;
+            border: 0 none;
+            padding: 60px 20px!important;
+            font-size: 22px;
+            text-align: center;
+        }
+        .link-description {
+            font-size: 18px;
+        }
     }
     tr {
         th:first-child, td:first-child {
-            padding-left: 20px;
             @include border-left-radius(2px);
+            width: 150px; 
         }
         th:last-child, td:last-child {
-            padding: 0;
-            width: 148px;
+            @include border-right-radius(2px);
+            width: 100px;
         }
         &.disabled {
             td {
                 text-decoration: line-through;
+            }
+        }
+        &.ng-animate {
+            &.ng-move,
+            &.ng-enter,
+            &.ng-leave {
+                @include transition(none);
             }
         }
     }
@@ -338,6 +359,39 @@
                     width: 16px;
                     margin-right: 4px;
                 }
+            }
+        }
+    }
+}
+.level-stick {
+    width: 4px;
+    font-size: 14px;
+    margin: 0 1px;
+    vertical-align: super;
+    color: $colorLightGrey;
+    &.on {
+        color: $colorGrey;
+    }
+}
+.studio-tabs {
+    @include my-resetList();
+    text-align: center;
+    margin: 0 auto;
+    border-bottom: 1px solid $colorLightGrey;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 18px;
+            color: $colorGrey;
+            outline: none;
+            border-bottom: 2px solid transparent;
+            text-decoration: none;
+            &.active {
+                color: $colorText;
+                border-color: $colorText;
             }
         }
     }

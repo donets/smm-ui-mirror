@@ -1,5 +1,12 @@
 
-<div class="b-main-cover desktop" ng-if="desktop" ng-style="{ 'height': windowHeight * 0.8 }" style="background-image: url({{studio.covers[0].cover2560 || coverMain}})"></div>
+<div class="b-main-cover desktop" ng-if="desktop && studio.covers.length <= 1" ng-style="{ 'height': windowHeight * 0.8 }" style="background-image: url({{(resolution === 2880 ? studio.covers[0].cover2560 : studio.covers[0].cover1440) || coverMain}})">
+    <span class="cover-name" ng-if="studio.covers[0].title"><div class="container">{{studio.covers[0].title}}</div></span>
+</div>
+<carousel interval="5000" disable-animate>
+    <slide ng-repeat="cover in studio.covers" ng-if="desktop && studio.covers.length > 1" class="b-main-cover desktop" ng-if="desktop" active="cover.active" ng-style="{ 'height': windowHeight * 0.8 }" style="background-image: url({{resolution === 2880 ? cover.cover2560 : cover.cover1440}})">
+        <span class="cover-name" ng-if="cover.title"><div class="container">{{cover.title}}</div></span>
+    </slide>
+</carousel>
 <div class="b-main-cover mobile" ng-if="mobile" style="background-image: url({{studio.covers[0].cover1080 || coverMain}})"></div>
 <div class="container b-studio cf">
     <div class="w-left">
@@ -14,7 +21,7 @@
                     <dd ng-if="studio.disciplines">Disziplinen:</dd><dt>{{studio.disciplines}}</dt>
                     <dd ng-if="studio.equipment">Ausstattung:</dd><dt>{{studio.equipment}}</dt>
                     <dd ng-if="studio.locations">Adresse:</dd><dt><ul>
-                        <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
+                        <li ng-repeat="location in studio.locationsFull"><a ng-click="setLocation(location)" href="#map" du-smooth-scroll>{{location.fullAddress}}</a></li>
                     </ul></dt>
                 </dl>
             </div>
@@ -54,21 +61,41 @@
         </div>
     </div>
 </div>
+<ul class="studio-tabs" ng-if="studio.locations.length > 1">
+    <li ng-repeat="location in studio.locationsFull"><a ng-class="{'active': currLocation.id === location.id}" href="" ng-click="setLocation(location)">{{location.name}}</a></li>
+</ul>
 <div class="b-studio-timetable">
     <div class="container">
-        <h2>Classes</h2>
-        <h2>Heute, Sa. 27</h2>
-        <h3>September 2014</h3>
-        <ul class="weekdays" ng-show="desktop">
-            <li class="current">Sa 27</li>
-            <li>So 28</li>
-            <li>Mo 29</li>
-            <li>Di 30</li>
-            <li>Mi 01</li>
-            <li>Do 02</li>
-            <li>Fr 03</li>
+        <h2>Angebot</h2>
+        <ul class="weekdays">
+            <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
-        <table class="weekdays-mobile" ng-show="mobile">
+        <table class="timetable">
+            <thead>
+                <tr>
+                    <th>Zeit</th>
+                    <th>Kurs</th>
+                    <th>Disziplin</th>
+                    <th>Lehrer</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in events | isSame: 'start_date': currDay" >
+                    <td>
+                        <p>{{e.start_date | amDateFormat: 'HH:mm'}} - {{e.end_date | amDateFormat: 'HH:mm'}}</p>
+                    </td>
+                    <td><a class="link-description" ng-click="attend(e)" href="" ng-if="e.class.description">{{e.class.title}}</a><span ng-if="!e.class.description">{{e.class.title}}</span></td>
+                    <td>{{e.class.discipline}}</td>
+                    <td>{{e.class.teacherName}}</td>
+                    <td><i ng-repeat="l in [1,2,3]" ng-class="{'on': l <= _.last(e.class.levels)}" class="fa fa-minus fa-rotate-90 level-stick"></i></td>
+                </tr>
+                <tr ng-if="!(events | isSame: 'start_date': currDay).length">
+                    <td class="empty" colspan="7">Heute kein Angebot mehr.</td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<table class="weekdays-mobile" ng-show="mobile">
             <tr>
                 <th><b>Sa</b></th>
                 <th><b>So</b></th>
@@ -87,8 +114,8 @@
                 <td><b>02</b></td>
                 <td><b>03</b></td>
             </tr>
-        </table>
-        <table class="timetable" ng-show="desktop">
+        </table>-->
+        <!--<table class="timetable" ng-show="desktop">
             <thead>
                 <tr>
                     <th>Time</th>
@@ -149,8 +176,8 @@
                     <td><button type="button">Join</button></td>
                 </tr>
             </tbody>
-        </table>
-        <ul class="timetable-mobile" ng-show="mobile">
+        </table>-->
+        <!--<ul class="timetable-mobile" ng-show="mobile">
             <li>
                 <div class="time">
                     <b>08:00</b>
@@ -182,14 +209,14 @@
                     <button class="disabled" type="button" disabled>Cancelled</button>
                 </div>
             </li>
-        </ul>
+        </ul>-->
     </div>
 </div>
-<div ng-if="studio.locations" class="b-studio-map">
+<div id="map" class="b-studio-map" ng-if="studio.locations">
     <div class="container">
         <div class="location">
             <h2>Location</h2>
-            <address><i class="fa fa-map-marker"></i>{{studio.locationsFull[0].fullAddress}}</address>
+            <address><i class="fa fa-map-marker"></i>{{currLocation.fullAddress}}</address>
             <p><i class="fa fa-home"></i>Studio</p>
         </div>
     </div>
