@@ -45,10 +45,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $document.on('scroll', function() {
             if ($rootScope.desktop) {
                 $scope.showTopHeader = $document.scrollTop() > $scope.scrollPos;
-                if ($scope.videoAPI && ($document.scrollTop() > $window.innerHeight)) {
-                    $scope.videoAPI.pause();
-                } else {
-                    $scope.videoAPI.play();
+                if ($scope.videoAPI) {
+                    if ($document.scrollTop() > $window.innerHeight) {
+                        $scope.videoAPI.pause();
+                    } else {
+                        $scope.videoAPI.play();
+                    }
                 }
             } else {
                 $scope.showBottomMobile = $document.scrollTop() > $('.b-main-cover').outerHeight();
