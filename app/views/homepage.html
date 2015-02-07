@@ -16,7 +16,7 @@
         <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-                <b>Erhalte heute Deine Einladung</b>
+                <b>14 Tage ausprobieren?</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
@@ -30,7 +30,7 @@
             <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
             <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
         </div>
-        <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
+        <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
     </div>
 </div>
 <div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
@@ -38,7 +38,7 @@
         <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
-                <b>Erhalte heute Deine Einladung</b>
+                <b>14 Tage ausprobieren?</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
@@ -60,12 +60,31 @@
     <a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>
     <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
 </div>
-<div class="b-card b-equipment">
+<div class="b-card b-equipment" id="highligt">
     <div class="container">
         <h2>Unendliche Auswahl, tägliche Inspiration</h2>
         <p>Beweglichkeit und das OM von <b>Yoga</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b>, <b>TRX</b> und <b>Fitness</b>. Schwung und Sinnlichkeit von <b>Tango</b>, <b>Hip-Hop</b> und <b>Tanz</b>. Körperbewusstsein und Stärke von <b>Pilates</b>, <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Erkenntnis und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung in <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
         <p>All das. Und so viel mehr. Mit einer Karte.</p>
         <a ui-sref="dashboard" target="_blank">Entdecke unsere Kurse ›</a>
+    </div>
+</div>
+<div class="b-card b-features">
+    <div class="container">
+        <ul class="b-card-list">
+            <li>
+                <img class="card-image" src="images/f-01.svg" alt=""/>
+                <b>Einfach ausprobieren</b>
+                <span>(14 Tage ausprobieren, Geld zurück bei Nichtgefallen)</span>
+            </li><li>
+                <img class="card-image" src="images/f-02.svg" alt=""/>
+                <b>Keine Bindung</b>
+                <span>(Keine Mindestlaufzeit, monatlich kündigen und pausieren)</span>
+            </li><li>
+                <img class="card-image" src="images/f-03.svg" alt=""/>
+                <b>Kräftig sparen</b>
+                <span>(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts zahlen)</span>
+            </li>
+        </ul>
     </div>
 </div>
 <div class="b-card b-map" id="studios">
@@ -161,18 +180,20 @@
         <ul class="b-card-list">
             <li>
                 <img class="card-image" src="images/hiw_01.svg" alt=""/>
-                <p>1. Bestelle die <br/> Somuchmore Card.</p>
+                <p>1. Bestelle in unter 1 Minute Deine Somuchmore Card</p>
+                <span>(kommt in wenigen Tagen per Post – Du kannst schon vorher mit der Bestätigungs-E-Mail Kurse besuchen)</span>
             </li><li>
                 <img class="card-image" src="images/hiw_02.svg" alt=""/>
-                <p>2. Finde in Sekunden online <br/> den passenden Kurs.</p>
+                <p>2. Finde in unserem Kursplaner in Sekunden Deinen Lieblingskurs</p>
+                <span>(in der Regel keine Voranmeldung erforderlich)</span>
             </li><li>
                 <img class="card-image" src="images/hiw_03.svg" alt=""/>
-                <p>3. Zeige beim Kursbesuch einfach <br/> Deine Somuchmore Card vor.</p>
+                <p>3. Zeige im Studio die Somuchmore Card vor und nimm am Kurs teil</p>
             </li>
         </ul>
     </div>
 </div>
-<div class="b-card b-advantages">
+<!--<div class="b-card b-advantages">
     <div class="container" disable-animate>
         <ul ng-if="desktop">
             <li>
@@ -207,6 +228,21 @@
                 <p>Probiere es 14 Tage aus, erhalte Dein Geld zurück, falls es Dir nicht gefällt und genieße danach eine entspannte Mitgliedschaft, die Du jederzeit monatlich kündigen oder pausieren kannst.</p>
             </slide>
         </carousel>
+    </div>
+</div>-->
+<div class="b-card b-media">
+    <div class="container">
+        <ul class="b-card-list">
+            <li>
+                <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
+            </li><li>
+                <img src="images/vice.png" alt="vice"/>
+            </li><li>
+                <img src="images/ds.png" alt="ds"/>
+            </li><li>
+                <img src="images/zitty.png" alt="zitty"/>
+            </li>
+        </ul>
     </div>
 </div>
 <div class="b-card b-testimonial">
@@ -243,6 +279,15 @@
                 <p>– Sonja Reifenhäuser, Food Coach</p>
             </slide>
         </carousel>
+        <div class="fb-like-box"
+             data-href="https://www.facebook.com/somuchmoredeutsch"
+             data-width="{{fblikeboxWidth}}"
+             data-height="180"
+             data-colorscheme="light"
+             data-show-faces="true"
+             data-header="false"
+             data-stream="false"
+             data-show-border="false"></div>
     </div>
 </div>
 <div class="b-facts">
@@ -262,30 +307,32 @@
         <h2>Welche Fragen hast Du noch?</h2>
         <ul ng-if="desktop" class="b-card-list">
             <li>
-                <h3>Welche Studios <br/> sind dabei?</h3>
-                <p>Ob Yoga, Pilates, Fitness, Wellness, Meditation, Tanzen, Kampfkunst - wir kooperieren nur mit Premium-Anbietern, die für ganzheitliche Werte stehen und deren Qualität wir persönlich geprüft haben. Es werden wöchentlich mehr.
-                    <a href="#studios" du-smooth-scroll>Hier geht´s zur Studio-Übersicht ›</a></p>
+                <h3>Kann ich überall alle Kurse besuchen?</h3>
+                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im Kursplaner nach.</p>
             </li><li>
-                <h3>Kann ich in jedem Studio alle <br/> Kurse besuchen?</h3>
-                <p>Mit den White Cards kannst Du drei Kurse pro Studio und Monat besuchen - mit der Black Card unbegrenzt. Die meisten Studios akzeptieren alle Karten für alle Kurse. Da es aber Ausnahmen gibt, schau bitte immer im aktuellen Kursplan und auf den Studioprofilen nach.</p>
+                <h3>Muss ich mich vorher anmelden?</h3>
+                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im Kursplaner nach.</p>
             </li><li>
-                <h3>Wie kündige und pausiere ich <br/> meine Mitgliedschaft?</h3>
-                <p>Um es kurz zu machen: Jederzeit! Du kannst jederzeit bis 7 Tage vor Ablauf eines Monats zum Folgemonat kündigen. Und Deine Mitgliedschaft jederzeit für einen Monat pausieren, zum Beispiel wenn Du in den Urlaub fährst.</p>
+                <h3>Was kann mit meiner Karte noch machen?</h3>
+                <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
+            </li><li>
+                <h3>Kann ich einfach kündigen oder pausieren?</h3>
+                <p>Einfacher geht´s nicht. Du kannst monatlich bis 7 Tage vor Ablauf des Mitgliedschaftsmonats kündigen oder für einen Monat pausieren, zum Beispiel wenn Du länger in den Urlaub fährst.</p>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
-                <h3>Welche Studios sind dabei?</h3>
-                <p>Ob Yoga, Pilates, Fitness, Wellness, Meditation, Tanzen, Kampfkunst - wir kooperieren nur mit Premium-Anbietern, die für ganzheitliche Werte stehen und deren Qualität wir persönlich geprüft haben. Es werden wöchentlich mehr.
-                    <a href="#studios" du-smooth-scroll>Hier geht´s zur Studio-Übersicht ›</a></p>
-            </slide>
-            <slide>
-                <h3>Kann ich in jedem Studio alle Kurse besuchen?</h3>
-                <p>Mit den White Cards kannst Du drei Kurse pro Studio und Monat besuchen - mit der Black Card unbegrenzt. Die meisten Studios akzeptieren alle Karten für alle Kurse. Da es aber Ausnahmen gibt, schau bitte immer im aktuellen Kursplan und auf den Studioprofilen nach.</p>
-            </slide>
-            <slide>
-                <h3>Wie kündige und pausiere ich meine Mitgliedschaft?</h3>
-                <p>Um es kurz zu machen: Jederzeit! Du kannst jederzeit bis 7 Tage vor Ablauf eines Monats zum Folgemonat kündigen. Und Deine Mitgliedschaft jederzeit für einen Monat pausieren, zum Beispiel wenn Du in den Urlaub fährst.</p>
+                <h3>Kann ich überall alle Kurse besuchen?</h3>
+                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im Kursplaner nach.</p>
+            </slide><slide>
+                <h3>Muss ich mich vorher anmelden?</h3>
+                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im Kursplaner nach.</p>
+            </slide><slide>
+                <h3>Was kann mit meiner Karte noch machen?</h3>
+                <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
+            </slide><slide>
+                <h3>Kann ich einfach kündigen oder pausieren?</h3>
+                <p>Einfacher geht´s nicht. Du kannst monatlich bis 7 Tage vor Ablauf des Mitgliedschaftsmonats kündigen oder für einen Monat pausieren, zum Beispiel wenn Du länger in den Urlaub fährst.</p>
             </slide>
         </carousel>
         <a class="faq-link" ui-sref="faq">Mehr Fragen? Hier geht es zu unseren FAQ ›</a>

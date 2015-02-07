@@ -2,6 +2,11 @@
 
 .home {
     .b-main-cover {
+        @media (min-width: $containerMobileWidth) {
+            .b-main-slogan {
+                background: rgba(0,0,0,0.4);
+            }
+        }
         @media (max-width: $containerMobileWidth) {
             padding: 90px 10% 0;
             height: 980px;
@@ -12,7 +17,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(0,0,0,0.4);
+                background: rgba(0,0,0,0.6);
                 z-index: 0;
             }
         }
@@ -23,7 +28,6 @@
             display: inline-block;
             margin-top: 25px;
             padding: 40px 30px;
-            background: rgba(0,0,0,0.30);
             @media (max-width: $containerMobileWidth) {
                 padding: 0;
                 background: none;
@@ -66,12 +70,9 @@
             }
             input[type="text"], input[type="email"] {
                 @media (min-width: $containerMobileWidth) {
-                    height: 50px;
-                    margin-right: 20px;
-                    font-size: 18px;
-                    line-height: 38px;
+                    margin-right: 8px;
                     &.zip {
-                        width: 150px;
+                        width: 100px;
                     }
                 }
                 @media (max-width: $containerMobileWidth) {
@@ -83,8 +84,7 @@
             }
             input[type="submit"] {
                 @media (min-width: $containerMobileWidth) {
-                    height: 50px;
-                    width: 230px;
+
                 }
                 @media (max-width: $containerMobileWidth) {
                     margin: 0;
@@ -93,35 +93,6 @@
             b {
                 color: #fff;
             }
-        }
-    }
-    .cover-animated {
-        background: url("/images/landing-2880.jpg") center center no-repeat;
-        @include background-size(cover);
-        @media (max-width: 1440px) {
-            background-image: url("/images/landing-1440.jpg");
-        }
-        @media (max-width: $containerMobileWidth) {
-            background-image: url("/images/landing-1080.jpg");
-        }
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%!important;
-        height: 100%!important;
-        z-index: 0;
-        @include animation-name(move);
-        @include animation-duration(30s);
-        @include animation-fill-mode(both);
-        @include animation-iteration-count(1);
-        @include animation-direction(normal);
-    }
-    @include keyframes(move) {
-        from {
-            @include scale(1);
-        }
-        to {
-            @include scale(1.1);
         }
     }
 }
@@ -189,14 +160,97 @@
         display: flex;
         justify-content: space-between;
         @media (max-width: $containerMobileWidth) {
-            display: block;
-            width: 100%;
+            flex-wrap: wrap;
         }
         li {
             @extend %card-li;
             @media (max-width: $containerMobileWidth) {
                 display: block;
             }
+        }
+    }
+}
+%card-li {
+    width: 316px;
+    margin: 40px 0;
+    text-align: center;
+    @media (max-width: $containerMobileWidth) {
+        width: 100%;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        margin: 25px 0;
+    }
+    h3 {
+        display: block;
+        margin: 0 0 20px;
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        font-family: $fontItalic;
+        font-style: italic;
+        color: $colorGrey;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 32px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    }
+    p {
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 28px;
+            padding: 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 18px;
+        }
+    }
+    em {
+        display: block;
+        margin: 0 0 10px;
+        padding: 0 10px;
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        font-family: $fontItalic;
+        font-style: italic;
+        color: $colorGrey;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 32px;
+            margin: 0 0 20px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+    }
+    span {
+        color: $colorGrey;
+        font-size: 13px;
+        @media (max-width: $containerMobileWidth) {
+            font-size: 26px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            font-size: 13px;
+        }
+    }
+    .card-image {
+        width: 150px;
+        height: 150px;
+        margin: 0 0 40px;
+        @media (max-width: $containerMobileWidth) {
+            margin: 0 0 20px;
+        }
+    }
+    .circle-image {
+        width: 300px;
+        height: 300px;
+        margin: 0 0 20px;
+        @include border-radius(50%);
+        @media (max-width: $containerMobileWidth640) {
+            width: 150px;
+            height: 150px;
         }
     }
 }
@@ -220,7 +274,7 @@
         }
     }
 }
-.b-advantages {
+/*.b-advantages {
     padding: 120px 0;
     background: url("/images/berlin-2880.jpg") no-repeat center center;
     @include background-size(cover);
@@ -253,11 +307,14 @@
             }
         }
     }
-}
+}*/
 .b-testimonial {
-    %card-li {
-        p {
-            padding: 0;
+    .fb-like-box {
+        @media (max-width: $containerMobileWidth) {
+            margin: 50px 0 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 25px 0 0;
         }
     }
 }
@@ -419,11 +476,37 @@
         }
     }
 }
-.b-benefits {
-    .b-card-carousel {
-        height: 300px;
-        @media (max-width: $containerMobileWidth640) {
-            height: 150px;
+.b-features {
+    background: $colorLightRed;
+    .b-card-list {
+        li {
+            color: #fff;
+            margin: 20px 0;
+            b {
+                display: block;
+                font-size: 22px;
+                line-height: 1.2;
+                padding: 0 10px;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 32px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 22px;
+                }
+            }
+            span {
+                font-size: 15px;
+                color: #fff;
+                @media (max-width: $containerMobileWidth) {
+                    font-size: 26px;
+                }
+                @media (max-width: $containerMobileWidth640) {
+                    font-size: 15px;
+                }
+            }
+            .card-image {
+                margin: 0 0 30px;
+            }
         }
     }
 }
@@ -432,16 +515,36 @@
     background: #fff;
     z-index: 10;
 }
+.b-media {
+    background: $colorBackTimetable;
+    padding: 50px 0;
+    @media (max-width: $containerMobileWidth640) {
+        padding: 30px 0;
+    }
+    .b-card-list {
+        li {
+            margin: 0;
+            @media (max-width: $containerMobileWidth) {
+                width: 50%;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                width: 40%;
+                margin: 0 5%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
 .b-hiw {
     padding-top: 60px;
 }
 .b-faq {
-    &.b-card .b-card-list li p {
-        font-size: 15px;
-        a {
-            display: block;
+    &.b-card .b-card-list li {
+        margin: 40px 5px;
+        p {
             font-size: 15px;
-            margin: 20px 0 0;
         }
     }
     .faq-link {
@@ -459,81 +562,6 @@
     }
 }
 
-%card-li {
-    width: 316px;
-    margin: 40px 0;
-    text-align: center;
-    @media (max-width: $containerMobileWidth) {
-        width: 100%;
-    }
-    @media (max-width: $containerMobileWidth640) {
-        margin: 25px 0;
-    }
-    h3 {
-        display: block;
-        margin: 0 0 20px;
-        font-size: 20px;
-        letter-spacing: 0.5px;
-        font-family: $fontItalic;
-        font-style: italic;
-        color: $colorGrey;
-        @media (max-width: $containerMobileWidth) {
-            font-size: 32px;
-        }
-        @media (max-width: $containerMobileWidth640) {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-    }
-    p {
-        font-size: 18px;
-        padding: 0 10px;
-        letter-spacing: 0.5px;
-        @media (max-width: $containerMobileWidth) {
-            font-size: 28px;
-            padding: 0;
-        }
-        @media (max-width: $containerMobileWidth640) {
-            font-size: 18px;
-        }
-    }
-    em {
-        display: block;
-        margin: 0 0 10px;
-        padding: 0 10px;
-        font-size: 20px;
-        letter-spacing: 0.5px;
-        font-family: $fontItalic;
-        font-style: italic;
-        color: $colorGrey;
-        @media (max-width: $containerMobileWidth) {
-            font-size: 32px;
-            margin: 0 0 20px;
-        }
-        @media (max-width: $containerMobileWidth640) {
-            font-size: 18px;
-            margin: 0 0 10px;
-        }
-    }
-    .card-image {
-        width: 150px;
-        height: 150px;
-        margin: 0 0 40px;
-        @media (max-width: $containerMobileWidth) {
-            margin: 0 0 20px;
-        }
-    }
-    .circle-image {
-        width: 300px;
-        height: 300px;
-        margin: 0 0 20px;
-        @include border-radius(50%);
-        @media (max-width: $containerMobileWidth640) {
-            width: 150px;
-            height: 150px;
-        }
-    }
-}
 
 %carousel-mobile {
     .carousel-control {
@@ -562,7 +590,7 @@
     }
     @extend %carousel-mobile;
 }
-.b-advantages .b-card-carousel {
+/*.b-advantages .b-card-carousel {
     .carousel-inner > .item {
         margin: 40px 0;
         color: #fff;
@@ -596,7 +624,7 @@
     .carousel-indicators .active {
         background-color: #fff;
     }
-}
+}*/
 .b-faq .b-card-carousel {
     .carousel-inner > .item {
         p {

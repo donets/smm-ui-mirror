@@ -22,10 +22,15 @@ angular.module('boltApp')
                     $rootScope.mobile = true;
                     $rootScope.offset = $window.innerWidth > 640 ? 120 : 60;
                 }
-                if ($window.innerWidth <= 1080) {
+                if ($window.innerWidth <= 640) {
                     $rootScope.resolution = 1080;
+                    $rootScope.fblikeboxWidth = 285;
+                } else if ($window.innerWidth <= 1080) {
+                    $rootScope.resolution = 1080;
+                    $rootScope.fblikeboxWidth = 560;
                 } else if ($window.innerWidth <= 1440) {
                     $rootScope.resolution = 1440;
+                    $rootScope.fblikeboxWidth = 820;
                 } else if ($window.innerWidth <= 2880) {
                     $rootScope.resolution = 2880;
                 }

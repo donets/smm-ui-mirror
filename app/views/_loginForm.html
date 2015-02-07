@@ -1,6 +1,8 @@
 <ul class="b-header-nav">
-    <li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
-        <a href="" class="grey" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
+    <li ng-show="desktop">
+        <span><i class="fa fa-phone"></i>030 577023101</span>
+    </li><li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
+        <a href="" class="login-link" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page">Login</a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <!--<div class="form-rel">
                 <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook-square"></i>Login with Facebook</a>

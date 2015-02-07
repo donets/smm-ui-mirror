@@ -7,7 +7,9 @@
     top: 0;
     z-index: 15;
     height: 60px;
-    background: getRgba($colorText, 0.5);
+    @media (min-width: $containerMobileWidth) {
+        background: rgba(0,0,0,0.4);
+    }
     &.stick {
         position: fixed;
         background: getRgba($colorText, 0.8);
@@ -80,7 +82,6 @@
     @media (max-width: $containerMobileWidth) {
         position: absolute;
         height: 90px;
-        background: rgba(0,0,0,0.6);
     }
     @media (max-width: $containerMobileWidth640) {
         height: 60px;
@@ -165,6 +166,7 @@
         display: inline-block;
         vertical-align: top;
         line-height: 60px;
+        margin-left: 20px;
         @media (max-width: $containerMobileWidth) {
             line-height: 90px;
         }
@@ -172,17 +174,28 @@
             line-height: 60px;
         }
         > a {
-            display: block;
+            display: inline-block;
             font-size: 16px;
             color: #fff;
-            padding: 0 20px;
-            &.grey {
-                color: $colorGrey;
+            padding: 5px 8px;
+            line-height: 1;
+            @media (min-width: $containerMobileWidth) {
+                border: 1px solid $colorLightGrey;
+                @include border-radius(2px);
+                &.login-link {
+                    color: $colorLightGrey;
+                    &:hover {
+                        background: getRgba($colorLightGrey, 0.5);
+                    }
+                }
             }
             @media (max-width: $containerMobileWidth) {
                 font-size: 28px;
                 padding: 0 30px;
                 color: $colorLink;
+                &.login-link {
+                    color: #fff;
+                }
             }
             @media (max-width: $containerMobileWidth640) {
                 font-size: 16px;
@@ -190,6 +203,14 @@
             }
             outline: none;
             text-decoration: none;
+        }
+        > span {
+            display: inline-block;
+            font-size: 16px;
+            color: #fff;
+            .fa {
+                margin: 0 5px 0 0;
+            }
         }
         &.ng-animate {
             @include transition(none);
@@ -210,7 +231,7 @@
         content: "";
         display: block;
         position: absolute;
-        right: 35px;
+        right: 25px;
         bottom: 100%;
         border-width: 9px 5px;
         border-style: solid;

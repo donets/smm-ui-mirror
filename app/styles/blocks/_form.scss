@@ -145,7 +145,7 @@ textarea {
     input[type="text"], input[type="email"], input[type="password"] {
         @extend %input-text;
         vertical-align: top;
-        width: 400px;
+        width: 320px;
         @media (min-width: $containerMobileWidth) {
             padding: 5px 20px;
         }
@@ -184,13 +184,13 @@ textarea {
     }
     b {
         display: block;
-        font-size: 15px;
+        font-size: 13px;
         text-align: left;
         @media (max-width: $containerMobileWidth) {
-            font-size: 20px;
+            font-size: 24px;
         }
         @media (max-width: $containerMobileWidth640) {
-            font-size: 15px;
+            font-size: 13px;
         }
     }
 }
