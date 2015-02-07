@@ -4,7 +4,7 @@
         <span class="sr-only">Close</span>
     </button>
     <h2 ng-hide="form.successSubscribe">Erhalte heute Deine Einladung:</h2>
-    <form name="form.subscribeForm" ng-hide="form.successSubscribe" class="b-card-subscribe" ng-submit="subscribeCard('modal')">
+    <form name="subscribeForm.modal" ng-hide="form.successSubscribe" class="b-card-subscribe" ng-submit="subscribeCard('modal')">
         <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
         <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
         <input type="submit" ng-disabled="form.loadingSubscribe" value="MITMACHEN"/>

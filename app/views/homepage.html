@@ -15,20 +15,20 @@
         <p ng-if="campaign && !city">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
         <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
-            <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
+            <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <b>Erhalte heute Deine Einladung</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="form.successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
-                    <div ng-show="form.errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                    <div ng-show="form.successSubscribe && subscribeForm.header.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
+                    <div ng-show="form.errorSubscribe && subscribeForm.header.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
             <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
             <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
-            <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
+            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
         </div>
         <!--<a class="arrow-bottom" href="#card" du-smooth-scroll duration="800" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><i class="fa fa-angle-down"></i></a>-->
     </div>
@@ -37,20 +37,20 @@
     <div class="container">
         <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
-            <form name="form.subscribeForm" ng-if="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
+            <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
                 <b>Erhalte heute Deine Einladung</b>
-                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse"/>
+                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="form.successSubscribe && form.subscribeForm.$pristine" class="form-message form-success">Danke!</div>
-                    <div ng-show="form.errorSubscribe && form.subscribeForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                    <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
+                    <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
             <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
             <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
-            <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
+            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
         </div>
     </div>
 </div>

@@ -151,7 +151,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $scope.invite = {};
-                $scope.form.subscribeForm.$setPristine();
+                $scope.subscribeForm[locate].$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
                 $window.optimizely.push(['trackEvent', 'engagement_invitation_requested']);
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
