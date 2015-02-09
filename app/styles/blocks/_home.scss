@@ -526,6 +526,9 @@
     @media (max-width: $containerMobileWidth640) {
         padding: 30px 0;
     }
+    .subtitle {
+        margin: 0 0 20px;
+    }
     .b-card-list {
         justify-content: space-around;
         li {
