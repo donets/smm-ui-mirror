@@ -193,6 +193,23 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 			}
         };
 
+        $scope.contact = {};
+
+        $scope.contactSubmit = function() {
+            $scope.loadingContact = true;
+            $scope.contact.message = 'contact teacher partnership';
+            $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.contact).success(function () {
+                $scope.loadingContact = false;
+                $scope.successContact = true;
+                $scope.contact = {};
+                $scope.contactForm.$setPristine();
+            }).error(function (response, status) {
+                $scope.loadingContact = false;
+                $scope.errorContact = true;
+                console.error(status);
+            });
+        };
+
         $scope.suggestStudio = function () {
             $modal.open({
                 templateUrl: 'views/modalSuggest.html',

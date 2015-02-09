@@ -199,6 +199,11 @@
     p {
         font-size: 18px;
         letter-spacing: 0.5px;
+        a {
+            color: inherit;
+            font-size: inherit;
+            text-decoration: underline;
+        }
         @media (max-width: $containerMobileWidth) {
             font-size: 28px;
             padding: 0;
@@ -522,6 +527,7 @@
         padding: 30px 0;
     }
     .b-card-list {
+        justify-content: space-around;
         li {
             margin: 0;
             @media (max-width: $containerMobileWidth) {
@@ -539,6 +545,50 @@
 }
 .b-hiw {
     padding-top: 60px;
+}
+.b-contact {
+    background: $colorBackTimetable;
+    padding: 50px 0;
+    @media (max-width: $containerMobileWidth640) {
+        padding: 20px 0;
+    }
+    .subtitle {
+        margin: 0 0 30px;
+    }
+    .b-card-subscribe {
+        margin: 0;
+        @media (max-width: $containerMobileWidth) {
+            padding: 0;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 15px 0;
+        }
+        input[type="text"], input[type="email"] {
+            @media (min-width: $containerMobileWidth) {
+                margin-right: 8px;
+                &.phone {
+                    width: 200px;
+                }
+            }
+            @media (max-width: $containerMobileWidth) {
+                margin-bottom: 20px;
+            }
+            @media (max-width: $containerMobileWidth640) {
+                margin-bottom: 10px;
+            }
+        }
+        input[type="submit"] {
+            @media (min-width: $containerMobileWidth) {
+
+            }
+            @media (max-width: $containerMobileWidth) {
+                margin: 0;
+            }
+        }
+        b {
+            color: #fff;
+        }
+    }
 }
 .b-faq {
     &.b-card .b-card-list li {

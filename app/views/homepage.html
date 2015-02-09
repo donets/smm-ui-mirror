@@ -30,7 +30,7 @@
             <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
             <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
         </div>
-        <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
+        <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><span>MEHR ERFAHREN</span></a>
     </div>
 </div>
 <div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
@@ -184,7 +184,7 @@
                 <span>(kommt in wenigen Tagen per Post – Du kannst schon vorher mit der Bestätigungs-E-Mail Kurse besuchen)</span>
             </li><li>
                 <img class="card-image" src="images/hiw_02.svg" alt=""/>
-                <p>2. Finde in unserem Kursplaner in Sekunden Deinen Lieblingskurs</p>
+                <p>2. Finde in unserem <a ui-sref="dashboard" target="_blank">Kursplaner</a> in Sekunden Deinen Lieblingskurs</p>
                 <span>(in der Regel keine Voranmeldung erforderlich)</span>
             </li><li>
                 <img class="card-image" src="images/hiw_03.svg" alt=""/>
@@ -193,50 +193,11 @@
         </ul>
     </div>
 </div>
-<!--<div class="b-card b-advantages">
-    <div class="container" disable-animate>
-        <ul ng-if="desktop">
-            <li>
-                <h3>Ganzheitliche Vielfalt</h3>
-                <p>Entdecke die größte ganzheitliche Vielfalt Berlins mit mehr Yoga, Pilates, Meditation, Fitness, Wellness, Kampfkunst, Tanzen, Gesundheit, Ernährung und persönlicher Entfaltung als je zuvor – ohne Bindung an ein Studio.</p>
-            </li><li>
-                <h3>Außergewöhnliche Qualität</h3>
-                <p>Erlebe die außergewöhnliche Qualität unserer handverlesenen, persönlich geprüften Premium-Studios und Lehrer.</p>
-            </li><li>
-                <h3>Persönliche Entfaltung</h3>
-                <p>Lerne eine moderne ganzheitliche Lebensweise kennen, entfalte Körper, Geist und Seele und trainiere mit spürbar mehr Abwechslung, Motivation und Erfolg.</p>
-            </li><li>
-                <h3>Entspannte Freiheit</h3>
-                <p>Probiere es 14 Tage aus, erhalte Dein Geld zurück, falls es Dir nicht gefällt und genieße danach eine entspannte Mitgliedschaft, die Du jederzeit monatlich kündigen oder pausieren kannst.</p>
-            </li>
-        </ul>
-        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-            <slide>
-                <h3>Ganzheitliche Vielfalt</h3>
-                <p>Entdecke die größte ganzheitliche Vielfalt Berlins mit mehr Yoga, Pilates, Meditation, Fitness, Wellness, Kampfkunst, Tanzen, Gesundheit, Ernährung und persönlicher Entfaltung als je zuvor – ohne Bindung an ein Studio.</p>
-            </slide>
-            <slide>
-                <h3>Außergewöhnliche Qualität</h3>
-                <p>Erlebe die außergewöhnliche Qualität unserer handverlesenen, persönlich geprüften Premium-Studios und Lehrer.</p>
-            </slide>
-            <slide>
-                <h3>Persönliche Entfaltung</h3>
-                <p>Lerne eine moderne ganzheitliche Lebensweise kennen, entfalte Körper, Geist und Seele und trainiere mit spürbar mehr Abwechslung, Motivation und Erfolg.</p>
-            </slide>
-            <slide>
-                <h3>Entspannte Freiheit</h3>
-                <p>Probiere es 14 Tage aus, erhalte Dein Geld zurück, falls es Dir nicht gefällt und genieße danach eine entspannte Mitgliedschaft, die Du jederzeit monatlich kündigen oder pausieren kannst.</p>
-            </slide>
-        </carousel>
-    </div>
-</div>-->
 <div class="b-card b-media">
     <div class="container">
         <ul class="b-card-list">
             <li>
                 <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
-            </li><li>
-                <img src="images/vice.png" alt="vice"/>
             </li><li>
                 <img src="images/ds.png" alt="ds"/>
             </li><li>
@@ -308,10 +269,10 @@
         <ul ng-if="desktop" class="b-card-list">
             <li>
                 <h3>Kann ich überall alle Kurse besuchen?</h3>
-                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im Kursplaner nach.</p>
+                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
             </li><li>
                 <h3>Muss ich mich vorher anmelden?</h3>
-                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im Kursplaner nach.</p>
+                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
             </li><li>
                 <h3>Was kann mit meiner Karte noch machen?</h3>
                 <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
@@ -323,10 +284,10 @@
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
                 <h3>Kann ich überall alle Kurse besuchen?</h3>
-                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im Kursplaner nach.</p>
+                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
             </slide><slide>
                 <h3>Muss ich mich vorher anmelden?</h3>
-                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im Kursplaner nach.</p>
+                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
             </slide><slide>
                 <h3>Was kann mit meiner Karte noch machen?</h3>
                 <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
@@ -336,6 +297,21 @@
             </slide>
         </carousel>
         <a class="faq-link" ui-sref="faq">Mehr Fragen? Hier geht es zu unseren FAQ ›</a>
+    </div>
+</div>
+<div class="b-card b-contact">
+    <div class="container">
+        <p class="subtitle">Studio? Coach? Willst Du Kurse bei uns anbieten?</p>
+        <form name="contactForm" class="b-card-subscribe" ng-submit="contactSubmit()">
+            <input type="email" name="email" ng-change="successContact = false" ng-model="contact.email" placeholder="E-Mail-Adresse" required />
+            <input type="text" name="phone" ng-change="successContact = false" class="phone" ng-model="contact.phone" placeholder="Telefonnummer"/>
+            <input type="submit" ng-disabled="loadingContact" value="Kontaktiert mich"/>
+            <div class="form-response">
+                <div ng-show="loadingContact" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                <div ng-show="successContact && contactForm.$pristine" class="form-message form-success">Danke!</div>
+                <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+            </div>
+        </form>
     </div>
 </div>
 
