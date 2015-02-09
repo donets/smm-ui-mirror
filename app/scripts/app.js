@@ -75,7 +75,7 @@ angular.module('boltApp')
             // to active whenever 'contacts.list' or one of its decendents is active.
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
-            $rootScope.autoscroll = true;
+            $rootScope.autoscroll = false;
             $rootScope.pageReload = function () {
                 $window.location.reload();
             };
@@ -182,7 +182,7 @@ angular.module('boltApp')
         ezfbProvider.setLocale('de_DE');
     }])
     .config(['$httpProvider',  function($httpProvider){
-        $httpProvider.responseInterceptors.push('HttpProgressInterceptor');
+        //$httpProvider.responseInterceptors.push('HttpProgressInterceptor');
         $httpProvider.interceptors.push('myHttpInterceptor');
         $httpProvider.defaults.withCredentials = true;
     }])
@@ -366,8 +366,9 @@ angular.module('boltApp')
 
                     }
 
-
-
+                },
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
                 }
             })
             .state('home.classes', {
@@ -413,6 +414,9 @@ angular.module('boltApp')
 
                     }
 
+                },
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
                 }
             })
             .state('studio', {
@@ -427,6 +431,9 @@ angular.module('boltApp')
 
                     }
 
+                },
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
                 }
             })
             .state('profile', {
@@ -448,6 +455,9 @@ angular.module('boltApp')
 
                     }
 
+                },
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
                 }
             })
             .state('profile.account', {
@@ -461,6 +471,7 @@ angular.module('boltApp')
             .state('dashboard', {
                 url : '/p/kurse/',
                 templateUrl: 'views/userDashboard.html',
+                controller : 'DashboardCtrl',
                 resolve: {
 
                     getClasses: function(RestApi) {
@@ -495,12 +506,17 @@ angular.module('boltApp')
 
 
                 },
-                controller : 'DashboardCtrl'
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
             })
             .state('admin', {
                 url : '/admin/v2/',
                 abstract: true,
-                templateUrl: 'views/admin.html'
+                templateUrl: 'views/admin.html',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
             })
             .state('admin.classes', {
                 url : 'classes/',
@@ -776,33 +792,54 @@ angular.module('boltApp')
             .state('more', {
                 url : '/p/more/',
                 templateUrl: 'views/more.html',
-                controller : 'MoreCtrl'
+                controller : 'MoreCtrl',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
             })
             .state('about', {
                 url : '/p/about/',
                 templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
+                controller: 'AboutCtrl',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
             })
             .state('login', {
                 url : '/p/login/',
                 templateUrl: 'views/login.html',
-                controller: 'LoginCtrl'
+                controller: 'LoginCtrl',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
             })
             .state('reset', {
                 url : '/p/password/reset/:token',
                 templateUrl: 'views/resetPassword.html',
-                controller: 'ResetCtrl'
+                controller: 'ResetCtrl',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
             })
 	        .state('impressum', {
 	            url : '/p/impressum/',
-	            templateUrl: 'views/impressum.html'
+	            templateUrl: 'views/impressum.html',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
 	        })
 	        .state('faq', {
 	            url : '/p/faq/',
-	            templateUrl: 'views/faq.html'
+	            templateUrl: 'views/faq.html',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
 	        })
 	        .state('agb', {
 	            url : '/p/agb/',
-	            templateUrl: 'views/agb.html'
+	            templateUrl: 'views/agb.html',
+                onExit: function($rootScope){
+                    $rootScope.autoscroll = true;
+                }
 	        });
     }]);
