@@ -7,7 +7,7 @@
     top: 0;
     z-index: 15;
     height: 60px;
-    @media (min-width: $containerMobileWidth) {
+    &.opacity {
         background: rgba(0,0,0,0.4);
     }
     &.stick {
@@ -167,11 +167,14 @@
         vertical-align: top;
         line-height: 60px;
         margin-left: 20px;
+        height: 60px;
         @media (max-width: $containerMobileWidth) {
             line-height: 90px;
+            height: 90px;
         }
         @media (max-width: $containerMobileWidth640) {
             line-height: 60px;
+            height: 60px;
         }
         > a {
             display: inline-block;

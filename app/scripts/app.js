@@ -132,9 +132,9 @@ angular.module('boltApp')
                 $window._fbq.push(['track', 'PixelInitialized', {}]);
             });
         }])
-    .run(['optimizely', function(optimizely) {
+    /*.run(['optimizely', function(optimizely) {
         optimizely.loadProject('2367521283');
-    }])
+    }])*/
     .run(['$http', 'DSCacheFactory',
         function ($http, DSCacheFactory) {
             var defaultCache = DSCacheFactory('defaultCache', { // jshint ignore:line
@@ -401,12 +401,6 @@ angular.module('boltApp')
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
-
-                    getStudios: function(RestApi) {
-
-                        return RestApi.query({route: 'studios'}).$promise;
-
-                    },
 
                     getCards: function($http) {
 

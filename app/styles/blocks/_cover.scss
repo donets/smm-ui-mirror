@@ -4,7 +4,6 @@
     background: url("/images/landing-2880.jpg") no-repeat center center;
     height: 550px;
     min-height: 350px;
-    padding: 60px 0 0;
     position: relative;
     display: table;
     width: 100%;
@@ -49,6 +48,7 @@
         vg-poster-image {
             img {
                 width: 100%;
+                margin: 0;
                 max-height: none;
             }
         }
@@ -124,12 +124,13 @@
         font-family: $fontBold;
         letter-spacing: 0;
         color: #fff;
-        margin: 0 0 20px;
+        margin: 60px 0 20px;
         text-transform: uppercase;
         @include text-shadow(0px 1px 1px rgba(27, 23, 26, 0.75));
         @media (max-width: $containerMobileWidth) {
             font-size: 65px;
             line-height: 1.1;
+            margin: 0 0 20px;
         }
         @media (max-width: $containerMobileWidth640) {
             font-size: 32px;
