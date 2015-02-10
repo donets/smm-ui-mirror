@@ -188,17 +188,28 @@
             <label class="form-label" for="teacher">Lehrer</label>
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
-        <div class="form-rel" disable-animate>
+        <div class="form-rel">
             <label class="form-label" for="discipline">Disziplin</label>
             <input class="form-input" type="text" ng-model="class.discipline" id="discipline"/>
         </div>
-        <div class="form-rel" disable-animate>
+        <div class="form-rel">
             <label class="form-label" for="style">Stil</label>
             <input class="form-input" type="text" ng-model="class.style" id="style"/>
         </div>
         <div class="form-rel large">
             <label class="form-label" for="description">Beschreibung</label>
             <textarea ng-model="class.description" id="description"></textarea>
+        </div>
+        <div class="form-rel">
+            <div class="form-check">
+                <input type="checkbox" id="freeSchedule" value="true" ng-model="class.freeSchedule" name="freeSchedule" />
+                <i class="fa"></i>
+                <label for="freeSchedule">Freier Besuch?</label>
+            </div>
+        </div>
+        <div class="form-rel">
+            <label class="form-label" for="visitDurationMinutes">Feste Besuchslänge (in Minuten, leer = unbegrenzt)</label>
+            <input class="form-input" type="text" ng-model="class.visitDurationMinutes" id="visitDurationMinutes"/>
         </div>
         <div class="form-rel">
             <div class="form-check">

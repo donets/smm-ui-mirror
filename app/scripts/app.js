@@ -32,6 +32,7 @@ angular
         'flow',
         'ng-optimizely',
         'ngshowvariant',
+        'xeditable',
         'angulartics',
         'angulartics.google.analytics',
         'angulartics.google.tagmanager',
@@ -153,6 +154,9 @@ angular.module('boltApp')
                 }
             });
         }])
+    .run(function(editableOptions) {
+        editableOptions.theme = 'bs3';
+    })
     .constant('angularMomentConfig', {
         timezone: 'Europe/Berlin'
     })
@@ -666,6 +670,14 @@ angular.module('boltApp')
                                 }).error(function (response, status) {
                                     console.error(response);
                                     console.error(status);
+                                });
+                            };
+
+                            $rootScope.updateTitle = function (cover) {
+                                cover.showSpinner = true;
+                                RestApi.update({route: 'covers', id: cover.id}, cover).$promise.then(function (res) {
+                                    console.log(res);
+                                    cover.showSpinner = false;
                                 });
                             };
 

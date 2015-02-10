@@ -11,6 +11,7 @@
     }
     p {
         font-size: 18px;
+        white-space: pre-line;
     }
     dl {
         @include my-resetList();
@@ -31,11 +32,12 @@
         }
         ul {
             padding-left: 15px;
-            a {
-                font-size: 15px;
-                color: $colorText;
-                outline: none;
-            }
+        }
+        a {
+            font-size: 15px;
+            color: $colorText;
+            text-decoration: underline;
+            outline: none;
         }
     }
 }
@@ -198,7 +200,7 @@
     tr {
         th:first-child, td:first-child {
             @include border-left-radius(2px);
-            width: 150px; 
+            width: 152px;
         }
         th:last-child, td:last-child {
             @include border-right-radius(2px);

@@ -188,7 +188,7 @@
             display: block;
             width: 320px;
         }
-        button {
+        .remove {
             @extend %form-button;
             min-width: 0;
             width: 32px;
@@ -198,6 +198,22 @@
             position: absolute;
             top: 10px;
             right: 10px;
+        }
+        .editable-wrap {
+            margin: 10px 0;
+            display: block;
+            .form-group {
+                display: block;
+            }
+            .form-control {
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+        .fa-spinner {
+            font-size: 15px;
+            color: $colorLink;
+            margin: 0 5px;
         }
     }
 }

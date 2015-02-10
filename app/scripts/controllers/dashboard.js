@@ -14,7 +14,7 @@ angular.module('boltApp.controllers.Dashboard', [])
             _.map(res[0], function (obj) {
                 var studio = _.findWhere(res[2], {id: obj.studioId});
                 var location = _.findWhere(res[3], {id: obj.locationId});
-                obj.studio = obj.studioId && studio ? studio.name : '';
+                obj.studio = obj.studioId && studio ? studio : '';
                 obj.location = obj.locationId && location ? location.neigbourhood : '';
             });
             $scope.locations = _.uniq(_.pluck(res[3], 'neigbourhood'));

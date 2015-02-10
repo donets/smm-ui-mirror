@@ -3,7 +3,7 @@
     <span class="cover-name" ng-if="studio.covers[0].title"><div class="container">{{studio.covers[0].title}}</div></span>
 </div>
 <carousel interval="5000" disable-animate>
-    <slide ng-repeat="cover in studio.covers" ng-if="desktop && studio.covers.length > 1" class="b-main-cover desktop" ng-if="desktop" active="cover.active" ng-style="{ 'height': windowHeight * 0.8 }" style="background-image: url({{resolution === 2880 ? cover.cover2560 : cover.cover1440}})">
+    <slide ng-repeat="cover in studio.covers | orderBy: 'id'" ng-if="desktop && studio.covers.length > 1" class="b-main-cover desktop" ng-if="desktop" active="cover.active" ng-style="{ 'height': windowHeight * 0.8 }" style="background-image: url({{resolution === 2880 ? cover.cover2560 : cover.cover1440}})">
         <span class="cover-name" ng-if="cover.title"><div class="container">{{cover.title}}</div></span>
     </slide>
 </carousel>
@@ -13,16 +13,13 @@
         <div class="b-main-content">
             <div class="b-studio-block">
                 <h1>{{studio.name}}</h1>
-                <p ng-if="studio.intro || studio.description">{{studio.intro}} <span ng-show="showDescription">{{studio.description}}</span>
-                    <a class="a-more" href="" ng-hide="showDescription" ng-click="showDescription = true">Mehr &gt;</a>
-                    <a class="a-more" href="" ng-show="showDescription" ng-click="showDescription = false">&lt; Weniger</a>
-                </p>
+                <p ng-if="studio.intro || studio.description">{{studio.intro}} <a class="a-more" href="" ng-hide="showDescription" ng-click="showDescription = true">Mehr &gt;</a><span ng-show="showDescription"><br/>{{studio.description}}</span><a class="a-more" href="" ng-show="showDescription" ng-click="showDescription = false">&lt; Weniger</a></p>
                 <dl>
                     <dd ng-if="studio.disciplines">Disziplinen:</dd><dt>{{studio.disciplines}}</dt>
                     <dd ng-if="studio.equipment">Ausstattung:</dd><dt>{{studio.equipment}}</dt>
                     <dd ng-if="studio.locations">Adresse:</dd><dt><ul>
-                        <li ng-repeat="location in studio.locationsFull"><a ng-click="setLocation(location)" href="#map" du-smooth-scroll>{{location.fullAddress}}</a></li>
-                    </ul></dt>
+                        <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
+                    </ul><a href="#map" du-smooth-scroll>Auf Karte anzeigen</a></dt>
                 </dl>
             </div>
         </div>

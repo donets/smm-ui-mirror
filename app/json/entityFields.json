@@ -95,6 +95,11 @@
                "type": "textarea",
                "large": true,
                "listed": false
+           }, {
+               "model": "profileComplete",
+               "title": "Profile Complete",
+               "type": "checkbox",
+               "listed": false
            }
        ],
        "vouchers": [

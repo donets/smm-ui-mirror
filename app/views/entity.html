@@ -41,19 +41,26 @@
                     ng-options="item.id as item.displayName for item in {{field.model}} | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
-            <div class="form-rel" ng-if="field.type === 'checkbox'">
+            <div class="form-rel" ng-if="field.type === 'checkbox' && $stateParams.route !== 'studios'">
                 <div class="form-check" ng-class="{'disabled': !entity[field.disabled] }">
                     <input type="checkbox" ng-disabled="!entity[field.disabled]" id="{{field.model}}" value="true" ng-model="entity[field.model]" name="{{field.model}}" />
                     <i class="fa"></i>
                     <label for="{{field.model}}">{{field.title}}</label>
                 </div>
             </div>
+            <div class="form-rel" ng-if="field.type === 'checkbox' && $stateParams.route === 'studios' && $stateParams.entityId">
+                <div class="form-check">
+                    <input type="checkbox" id="{{field.model}}" value="true" ng-model="entity[field.model]" name="{{field.model}}" />
+                    <i class="fa"></i>
+                    <label for="{{field.model}}">{{field.title}}</label>
+                </div>
+            </div>
             <div class="form-rel" ng-if="field.type === 'upload' && $stateParams.entityId">
                 <ul class="cover-list">
-                    <li ng-repeat="cover in entity.covers">
+                    <li ng-repeat="cover in entity.covers | orderBy: 'id'">
                         <img ng-src="{{cover.cover1080}}" alt="{{cover.title}}"/>
-                        <p class="subtitle">{{cover.title}}</p>
-                        <button class="dark" type="button" ng-confirm-click="removeCover(cover.id)"><i class="fa fa-trash"></i></button>
+                        <p class="subtitle" editable-text="cover.title" e-form="editForm" onaftersave="updateTitle(cover)">{{cover.title || 'empty'}} <button class="btn btn-default" ng-click="editForm.$show()" ng-hide="editForm.$visible || cover.showSpinner"><i class="fa fa-pencil"></i></button><i class="fa fa-spinner fa-spin" ng-show="cover.showSpinner"></i></p>
+                        <button class="remove dark" type="button" ng-confirm-click="removeCover(cover.id)"><i class="fa fa-trash"></i></button>
                     </li>
                 </ul>
                 <p>(min resolution 2560x1706)</p>

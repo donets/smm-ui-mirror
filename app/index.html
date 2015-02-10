@@ -141,7 +141,7 @@
         </button>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-show="prerenderReady" ng-class="{'opacity': $state.includes('signup'), 'admin': $state.includes('admin')}">
+        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
                 <!--<a class="b-header-likes" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
@@ -220,6 +220,7 @@
 <!-- build:css(.) styles/vendor.css -->
 <!-- bower:css -->
 <link rel="stylesheet" href="bower_components/videogular-themes-default/videogular.css" />
+<link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
 <!-- endbower -->
 <!-- endbuild -->
 <!-- build:css(.tmp) styles/main.css -->
@@ -290,6 +291,7 @@
 <script src="bower_components/venturocket-angular-slider/build/angular-slider.js"></script>
 <script src="bower_components/ng-optimizely/ng-optimizely.js"></script>
 <script src="bower_components/angular-optimizely/ngshowvariant.js"></script>
+<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 <!-- endbower -->
 <script src="bower_components/jcrop/js/jquery.Jcrop.js"></script>
 <!-- endbuild -->

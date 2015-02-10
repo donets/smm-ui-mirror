@@ -109,8 +109,11 @@
                         <td>{{e.class.discipline}}</td>
                         <td>{{e.class.style}}</td>
                         <td>{{e.class.teacherName}}</td>
-                        <td>{{e.class.studio}}</td>
-                        <!--<td><a ui-sref="studio({studioId: e.class.studioId})">{{e.class.studio}}</a></td>-->
+                        <td>
+                            <a ui-sref="studio({studioId: e.class.studio.id})" ng-if="e.class.studio.profileComplete">{{e.class.studio.name}}</a>
+                            <a ng-href="{{e.class.studio.website}}" ng-if="!e.class.studio.profileComplete && e.class.studio.website" target="_blank">{{e.class.studio.name}}</a>
+                            <span ng-if="!e.class.studio.profileComplete && !e.class.studio.website">{{e.class.studio.name}}</span>
+                        </td>
                         <td>{{e.class.location}}</td>
                         <!--<td><button class="default" ng-click="attend(e)" type="button"></i>Teilnehmen</button></td>-->
                     </tr>

@@ -33,6 +33,7 @@ angular.module('boltApp')
                     $rootScope.fblikeboxWidth = 820;
                 } else if ($window.innerWidth <= 2880) {
                     $rootScope.resolution = 2880;
+                    $rootScope.fblikeboxWidth = 820;
                 }
             };
             $rootScope.initializeWindowSize();
