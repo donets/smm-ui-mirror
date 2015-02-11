@@ -21,7 +21,8 @@
                 <tbody>
                     <tr ng-repeat="e in entities | filter: search | orderBy: 'id'">
                         <td ng-repeat="field in fields | filter: {listed: '!'+false}">
-                            <div ng-if="!field.format">{{e[field.model]}}</div>
+                            <div ng-if="!field.format && field.type !== 'checkbox'">{{e[field.model]}}</div>
+                            <div class="status" ng-if="field.type === 'checkbox'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>
                             <div ng-if="field.format" class="w-100">{{e[field.model] | date : field.format}}</div>
                         </td>
                         <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button"><i class="fa fa-pencil"></i>Manage</button></td>

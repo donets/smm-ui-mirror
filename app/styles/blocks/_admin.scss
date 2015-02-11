@@ -178,6 +178,12 @@
     &.orange {
         color: $colorLink;
     }
+    .fa {
+        font-size: 16px;
+        &.fa-check {
+            color: $colorGreen;
+        }
+    }
 }
 .cover-list {
     @include my-resetList();
@@ -228,7 +234,7 @@
         height: 70px;
         padding: 0;
         h2 {
-            height: 28px;
+            height: 29px;
             overflow: hidden;
             font-size: 28px;
             margin: 10px 0 0;
@@ -246,9 +252,12 @@
             font-size: inherit;
             color: inherit;
             outline: none;
-            text-decoration: underline;
+            border-bottom: 1px solid $colorText;
+            line-height: 1;
+            text-decoration: none;
             &:hover {
                 color: $colorLink;
+                border-bottom: 1px solid $colorLink;
             }
         }
     }

@@ -98,8 +98,7 @@
            }, {
                "model": "profileComplete",
                "title": "Profile Complete",
-               "type": "checkbox",
-               "listed": false
+               "type": "checkbox"
            }
        ],
        "vouchers": [
