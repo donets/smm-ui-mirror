@@ -155,7 +155,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.invite = {};
                 $scope.subscribeForm[locate].$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
-                $window.optimizely.push(['trackEvent', 'engagement_invitation_requested']);
+                //$window.optimizely.push(['trackEvent', 'engagement_invitation_requested']);
                 $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
                     $window.google_trackConversion({
                         google_conversion_id: 970072239,
@@ -187,9 +187,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         
         $scope.pushOptimizelyEvent = function (type) {
 			if (type === 'invitation' || $scope.invitation) {
-				$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
+				//$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
 			} else {
-				$window.optimizely.push(['trackEvent', 'engagement_cta_direct']);
+				//$window.optimizely.push(['trackEvent', 'engagement_cta_direct']);
 			}
         };
 
