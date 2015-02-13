@@ -120,7 +120,7 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.error = null;
             $scope.showSpinner = true;
             $scope.order.freeTrialGranted = $('#freeTrialGranted').val();
-            $window.optimizely.push(['trackEvent', 'signup_step_click_1']);
+            //$window.optimizely.push(['trackEvent', 'signup_step_click_1']);
             var tracking = $cookieStore.get('invitation') ? 'invitation' : 'direct';
             var platform = $rootScope.desktop ? 'web' : 'mobile';
             var invitation = {
@@ -153,7 +153,7 @@ angular.module('boltApp.controllers.Signup', [])
                 price: _.findWhere($scope.cards, {type: $scope.order.type}).price
             };
             $scope.showCheckout = true;
-            $window.optimizely.push(['trackEvent', 'signup_step_click_2']);
+            //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
             $timeout(function () {
                 $document.scrollToElementAnimated($('#step3'), 60, 800);
             }, 0);
@@ -165,16 +165,16 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.errorMsg = '';
             $scope.showSpinner = true;
             $rootScope.handledError = true;
-            $window.optimizely.push(['trackEvent', 'signup_step_click_3']);
+            //$window.optimizely.push(['trackEvent', 'signup_step_click_3']);
             $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
                 $rootScope.handledError = false;
                 console.log(response);
                 $window.ga('send', 'event', 'Signup', 'onOrder');
                 if ($scope.invitation) {
-                    $window.optimizely.push(['trackEvent', 'invited_signup_completed']);
+                    //$window.optimizely.push(['trackEvent', 'invited_signup_completed']);
                 } else {
-                    $window.optimizely.push(['trackEvent', 'direct_signup_completed']);
+                    //$window.optimizely.push(['trackEvent', 'direct_signup_completed']);
                 }
                 $rootScope.userName = response.user.name;
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
