@@ -57,6 +57,9 @@ module.exports = function(config) {
       'bower_components/jcrop/js/jquery.Jcrop.js',
       'bower_components/angular-validation-match/dist/angular-input-match.min.js',
       'bower_components/venturocket-angular-slider/build/angular-slider.js',
+      'bower_components/ng-optimizely/ng-optimizely.js',
+      'bower_components/angular-optimizely/ngshowvariant.js',
+      'bower_components/angular-xeditable/dist/js/xeditable.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
