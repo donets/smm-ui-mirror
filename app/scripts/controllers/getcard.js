@@ -119,14 +119,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         if ($scope.invitation) {
             $cookieStore.put('invitation', true);
         }
-        if ($scope.discipline || $scope.city) {
-            if ($scope.city) {
-                $scope.campaign = $scope.citiesList.cities[$scope.city];
-            } else {
-                $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
-            }
-            $cookieStore.put('landingUrl', $location.url());
+        if ($scope.city) {
+            $scope.campaign = $scope.citiesList.cities[$scope.city];
+        } else {
+            $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
         }
+        $cookieStore.put('landingUrl', $location.url());
 
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {

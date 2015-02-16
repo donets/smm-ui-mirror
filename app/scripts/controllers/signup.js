@@ -20,7 +20,8 @@ angular.module('boltApp.controllers.Signup', [])
             },
             membershipActivatesOn: moment.tz('Europe/Berlin').format(),
             paymentProvider: 'STRIPE',
-            newsletter: true
+            newsletter: true,
+            landingUrl: $cookieStore.get('landingUrl')
         };
 
         /*$scope.order = {
@@ -128,7 +129,8 @@ angular.module('boltApp.controllers.Signup', [])
                 email: $scope.order.email,
                 name: $scope.order.firstName + ' ' + $scope.order.lastName,
                 checkoutStarted: true,
-                tracking: tracking + ',' + platform
+                tracking: tracking + ',' + platform,
+                landingUrl: $cookieStore.get('landingUrl')
             };
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
 
