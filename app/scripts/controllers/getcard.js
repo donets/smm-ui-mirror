@@ -110,7 +110,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.cards = getCards.data;
         $scope.citiesList = getCities.data;
         $scope.disciplinesList = getDisciplines.data;
-        $scope.showDiscount = moment().isBefore('2015-02-11');
 
         $scope.tab = 'map';
 
@@ -130,16 +129,16 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         }
 
         var setVoucher = function (code) {
-            if ($scope.showDiscount) {
-                $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
-                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
-                        $scope.voucher = res;
-                    }
-                }).error(function (res) {
-                    console.log(res);
-                    $scope.voucher = null;
-                });
-            }
+            $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
+                if(res.valid && res.subscriptionType === null) {
+                    $scope.showDiscount = moment().isBefore(moment(res.validUntil));
+                    $scope.voucher = res;
+                    $scope.validUntilIn = moment(res.validUntil).subtract(1, 'd');
+                }
+            }).error(function (res) {
+                console.log(res);
+                $scope.voucher = null;
+            });
         };
 
         setVoucher('EARLY_BIRD_2014');

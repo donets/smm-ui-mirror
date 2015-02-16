@@ -11,7 +11,7 @@
 
     </videogular>
     <div class="b-main-slogan"><h2 ng-if="!campaign">Eine Karte für ganz Berlin</h2><h2 ng-if="campaign">{{campaign.title}}</h2>
-        <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>42 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
+        <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>50 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
         <p ng-if="campaign && !city">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
         <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
@@ -90,7 +90,7 @@
 <div class="b-card b-map" id="studios">
     <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
-        <p class="subtitle">Wähle unter mehr als <b>42 Studios</b> und <b>700 Kursen</b> in Deiner Umgebung.</p>
+        <p class="subtitle">Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung.</p>
         <ul class="tab-nav" ng-show="!campaign.map">
             <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
             <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
@@ -123,7 +123,7 @@
 <div class="b-card b-price">
     <div class="container">
         <h2>Lebe gesund und erfüllt</h2>
-        <p class="subtitle">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis 10. Februar</p>
+        <p class="subtitle" ng-if="showDiscount">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis {{validUntilIn | amDateFormat: 'D. MMMM'}}</p>
         <div class="select-cards" ng-if="desktop">
             <ul class="select-cards__title">
                 <li></li>
