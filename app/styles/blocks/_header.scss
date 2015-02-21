@@ -11,6 +11,9 @@
     &.home {
         background: none; 
     }
+    &.black {
+        background: $colorText;
+    }
     &.stick {
         position: fixed;
         background: getRgba($colorText, 0.8);
@@ -374,6 +377,30 @@
     }
 }
 
+.b-top-nav {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    .top-nav {
+        @include my-resetList();
+        li {
+            display: inline-block;
+            vertical-align: top;
+            a {
+                display: block;
+                line-height: 60px;
+                padding: 0 20px;
+                font-size: 16px;
+                color: $colorGrey;
+                text-decoration: none;
+                outline: none;
+                &.active {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
 
 .b-header-likes {
     display: block;
