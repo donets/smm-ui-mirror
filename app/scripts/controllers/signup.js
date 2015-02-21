@@ -10,7 +10,6 @@
 angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards) {
         $scope.Math = $window.Math;
-        $scope.showDiscount = moment().isBefore('2015-02-11');
         $scope.cards = getCards.data;
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
@@ -21,7 +20,8 @@ angular.module('boltApp.controllers.Signup', [])
             },
             membershipActivatesOn: moment.tz('Europe/Berlin').format(),
             paymentProvider: 'STRIPE',
-            newsletter: true
+            newsletter: true,
+            landingUrl: $cookieStore.get('landingUrl')
         };
 
         /*$scope.order = {
@@ -65,9 +65,9 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.invitation = $location.search().invitation;
 
         var setVoucher = function (code) {
-            if ($scope.showDiscount && !$scope.order.voucher) {
+            if (!$scope.order.voucher) {
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
-                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
+                    if(res.valid && res.subscriptionType === null) {
                         $scope.order.voucher = code;
                         $scope.voucher = res;
                     }
@@ -129,7 +129,8 @@ angular.module('boltApp.controllers.Signup', [])
                 email: $scope.order.email,
                 name: $scope.order.firstName + ' ' + $scope.order.lastName,
                 checkoutStarted: true,
-                tracking: tracking + ',' + platform
+                tracking: tracking + ',' + platform,
+                landingUrl: $cookieStore.get('landingUrl')
             };
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
 
