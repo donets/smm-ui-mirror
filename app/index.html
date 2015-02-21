@@ -156,7 +156,7 @@
                              data-show-border="false"></div>
                     </div>
                 </a>-->
-                <nav class="b-top-nav">
+                <nav class="b-top-nav" ng-show="$state.includes('dashboard')">
                     <ul class="top-nav">
                         <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard">Kurse</a></li><li>
                         <a ui-sref="studios">Studios</a></li>
