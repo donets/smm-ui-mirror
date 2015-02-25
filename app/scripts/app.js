@@ -614,6 +614,10 @@ angular.module('boltApp')
                             RestApi.query({route: 'locations'}).$promise.then(function (response) {
                                 $rootScope.locations = response;
                             });
+                          RestApi.query({route: 'cities'}).$promise.then(function (response) {
+                            $rootScope.cities = response;
+                            $rootScope.cities.unshift({id:null, defaultName: "No location"});
+                          });
                             $rootScope.upload = function (target) {
                                 $rootScope.modalInstance = $modal.open({
                                     templateUrl: 'views/modalUpload.html',
@@ -683,6 +687,12 @@ angular.module('boltApp')
 
                         }
 
+                      if ($rootScope.$stateParams.route === 'locations') {
+                        RestApi.query({route: 'cities'}).$promise.then(function (response) {
+                          $rootScope.cities = response;
+                        });
+                      }
+
                         $rootScope.showDatepicker = {};
                         $rootScope.openDatepicker = function($event, type) {
                             $event.preventDefault();
@@ -695,6 +705,11 @@ angular.module('boltApp')
                             showWeekNumbers: false,
                             showWeeks: false
                         };
+
+                      $rootScope.clearFilters = function () {
+                        $rootScope.search = {};
+                      };
+                      $rootScope.clearFilters();
 
                     }
             })

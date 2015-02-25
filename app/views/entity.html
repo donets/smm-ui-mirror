@@ -35,6 +35,13 @@
                     ng-options="item for item in {{field.modelSelect || field.model}} | orderBy: field.order">
                 <option value=""></option>
             </select>
+            <select chosen
+                    ng-model="entity[field.model]" ng-if="field.type === 'select_object'"
+                    data-placeholder="{{field.placeholder || 'Auswählen'}}"
+                    allow-single-deselect="true"
+                    ng-options="item.id as item.defaultName for item in {{field.modelSelect || field.model}} | orderBy: 'toString()'">
+                <option value=""></option>
+            </select>
             <select chosen multiple
                     ng-model="entity[field.model]" ng-if="field.type === 'multiple'"
                     data-placeholder="{{field.placeholder || 'Auswählen'}}"
