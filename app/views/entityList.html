@@ -9,6 +9,16 @@
                 <input type="text" ng-hide="$stateParams.route === 'vouchers'" ng-model="search.name" placeholder="Filter name"/>
                 <input type="text" ng-show="$stateParams.route === 'vouchers'" ng-model="search.code" placeholder="Filter code"/>
             </div>
+            <select chosen
+                    ng-if="$stateParams.route === 'locations' || $stateParams.route === 'studios' "
+                    id="city"
+                    ng-model="search.cityId"
+                    data-placeholder="Alle Städte"
+                    disable-search="false"
+                    ng-options="item.id as item.defaultName for item in cities | orderBy: 'toString()'">
+                <option value=""></option>
+            </select>
+            <a class="clear-button" href="" ng-click="clearFilters()">Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable" ng-show="desktop">
