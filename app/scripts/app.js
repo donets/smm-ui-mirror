@@ -616,7 +616,7 @@ angular.module('boltApp')
                             });
                           RestApi.query({route: 'cities'}).$promise.then(function (response) {
                             $rootScope.cities = response;
-                            $rootScope.cities.unshift({id:null, defaultName: "No location"});
+                            $rootScope.cities.unshift({id:0, defaultName: "No location"});
                           });
                             $rootScope.upload = function (target) {
                                 $rootScope.modalInstance = $modal.open({
