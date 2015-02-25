@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalCancel.html:3
+msgid "Bist Du sicher, dass Du Deine Mitgliedschaft kündigen willst?"
+msgstr ""
+
+#: app/views/modalCancel.html:6
+msgid "Ja"
+msgstr ""
+
+#: app/views/modalCancel.html:5
+msgid "Nein"
+msgstr ""

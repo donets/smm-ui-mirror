@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/more.html:40
+msgid "Alles, was Du sein willst, ist schon da."
+msgstr ""
+
+#: app/views/more.html:53
+msgid "Anfänger oder Fortgeschrittener, in kleiner Gruppe oder alleine: Du erlebst eine wunderbare, auf Dich zugeschnittene Stunde."
+msgstr ""
+
+#: app/views/more.html:62
+msgid "Connection"
+msgstr ""
+
+#: app/views/more.html:60
+msgid "Core"
+msgstr ""
+
+#: app/views/more.html:46
+msgid "Du entscheidest!"
+msgstr ""
+
+#: app/views/more.html:61
+msgid "Du hast Talente, die kein anderer Mensch hat – und jedes Recht auf der Welt, Deinen wahren Kern ganz zu entfalten."
+msgstr ""
+
+#: app/views/more.html:39
+msgid "Du musst nichts machen, um gut, schön oder wertvoll zu sein. Du bist es schon!"
+msgstr ""
+
+#: app/views/more.html:47
+msgid "Entdecke Yoga, Meditieren, Klettern, ganzheitliche Fitness und Wellness, Singen, Sprechen, beruflich kommunizieren, spirituelle Weisheit - oder was Du immer schon mal machen wolltest."
+msgstr ""
+
+#: app/views/more.html:45
+msgid "Entspannt, fit und attraktiv sein? Genussvoll und gesund essen und leben? Dich persönlich oder beruflich verwirklichen? Intensive Gefühle, spannenden Sex haben und Glück mit Dir selbst und mit Partner, Familie und Freunden erleben?"
+msgstr ""
+
+#: app/views/more.html:50
+msgid "Es geht um Dich."
+msgstr ""
+
+#: app/views/more.html:58
+msgid "Holistic Lifestyle"
+msgstr ""
+
+#: app/views/more.html:59
+msgid "Körper, Geist, Seele und Gesundheit, Liebe, Arbeit, Familie: ein holistic lifestyle bedeutet Ausgewogenheit – und den Schlüssel zu Power, Gesundheit und tiefer Erfüllung."
+msgstr ""
+
+#: app/views/more.html:41
+msgid "Lass Dir zeigen, wie Du es entfaltest."
+msgstr ""
+
+#: app/views/more.html:63
+msgid "Menschen, Tiere, Natur, Kosmos sind tief verbunden – und aus dieser Verbundenheit mit dem Leben entspringen alle Kraft und Lebensfreude."
+msgstr ""
+
+#: app/views/more.html:51
+msgid "Unsere Lehrer sind außergewöhnliche Menschen – und die Besten ihres Fachs."
+msgstr ""
+
+#: app/views/more.html:38
+msgid "Wer willst Du sein?"
+msgstr ""
+
+#: app/views/more.html:52
+msgid "Wir wählen jeden persönlich aus, dass er sich persönlich um Dich kümmert."
+msgstr ""
+
+#: app/views/more.html:44
+msgid "You are so much more."
+msgstr ""

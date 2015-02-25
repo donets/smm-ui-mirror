@@ -1,19 +1,19 @@
 
 <div class="b-main-cover" ng-show="desktop">
-    <div class="b-main-slogan"><h2>Willkommen bei Dir</h2>
-        <p>Entdecke das Beste für Körper, Geist und Seele in kleinen Gruppen mit außergewöhnlichen Lehrern in Berlin.
-            <a ui-sref="more">Lerne mehr.</a></p></div>
+    <div class="b-main-slogan"><h2 translate>Willkommen bei Dir</h2>
+        <p translate>Entdecke das Beste für Körper, Geist und Seele in kleinen Gruppen mit außergewöhnlichen Lehrern in Berlin.
+            <a ui-sref="more" translate>Lerne mehr.</a></p></div>
     <a class="arrow-bottom" href="#today" du-smooth-scroll offset="{{offset}}"><i class="fa fa-angle-down"></i></a>
 </div>
 <div class="b-main-cover" ng-show="mobile">
-    <div class="b-main-slogan"><h2>Entfalte Dich.</h2>
-        <p><a ui-sref="more">Lerne mehr &gt;</a></p></div>
+    <div class="b-main-slogan"><h2 translate>Entfalte Dich.</h2>
+        <p><a ui-sref="more" translate>Lerne mehr &gt;</a></p></div>
 </div>
 <nav sticky use-placeholder class="b-main-nav">
     <ul>
-        <li><a ng-class="{'active' : schedule === 'today'}" analytics-on analytics-event="filter" analytics-category="eventfilter" analytics-label="today" ng-click="changeSchedule('today')" href="#today" du-smooth-scroll du-scrollspy offset="{{offset}}">Heute</a></li><li>
-            <a ng-class="{'active' : schedule === 'tomorrow'}" analytics-on analytics-event="filter" analytics-category="eventfilter" analytics-label="tomorrow" ng-click="changeSchedule('tomorrow')" href="#tomorrow" du-smooth-scroll du-scrollspy offset="0">Morgen</a></li><li>
-            <a ng-class="{'active' : schedule === 'later'}" analytics-on analytics-event="filter" analytics-category="eventfilter" analytics-label="later" ng-click="changeSchedule('later')" href="#later" du-smooth-scroll du-scrollspy offset="0">Später</a></li>
+        <li><a ng-class="{'active' : schedule === 'today'}" analytics-on analytics-event="filter" analytics-category="eventfilter" analytics-label="today" ng-click="changeSchedule('today')" href="#today" du-smooth-scroll du-scrollspy offset="{{offset}}" translate>Heute</a></li><li>
+            <a ng-class="{'active' : schedule === 'tomorrow'}" analytics-on analytics-event="filter" analytics-category="eventfilter" analytics-label="tomorrow" ng-click="changeSchedule('tomorrow')" href="#tomorrow" du-smooth-scroll du-scrollspy offset="0" translate>Morgen</a></li><li>
+            <a ng-class="{'active' : schedule === 'later'}" analytics-on analytics-event="filter" analytics-category="eventfilter" analytics-label="later" ng-click="changeSchedule('later')" href="#later" du-smooth-scroll du-scrollspy offset="0" translate>Später</a></li>
     </ul>
 </nav>
 <div class="container">
@@ -27,7 +27,7 @@
         </a>
     </div>
     <div class="b-events__list" id="tomorrow" ng-hide="loading">
-        <h3 ng-show="contentLoaded"><b>Morgen</b></h3>
+        <h3 ng-show="contentLoaded"><b translate>Morgen</b></h3>
         <a class="b-event-card"
            ng-repeat="event in events.occurrences | dataFilter: 'schedule': 'tomorrow' | limitTo: 15"
            ng-include="'views/_eventCard.html'"
@@ -36,7 +36,7 @@
         </a>
     </div>
     <div class="b-events__list" id="later" ng-hide="loading">
-        <h3 ng-show="contentLoaded"><b>Später</b></h3>
+        <h3 ng-show="contentLoaded"><b translate>Später</b></h3>
         <a class="b-event-card"
            ng-repeat="event in events.occurrences | dataFilter: 'schedule': 'later' | limitTo: 15"
            ng-include="'views/_eventCard.html'"

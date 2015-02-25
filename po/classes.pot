@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/classes.html:52
+msgid "<i class=\"fa fa-pencil\"></i>Manage"
+msgstr ""
+
+#: app/views/classes.html:7
+msgid "<i class=\"fa fa-plus\"></i>New Class"
+msgstr ""
+
+#: app/views/classes.html:2
+msgid "Classes"
+msgstr ""
+
+#: app/views/classes.html:39
+msgid "Disziplin"
+msgstr ""
+
+#: app/views/classes.html:29
+msgid "Draft"
+msgstr ""
+
+#: app/views/classes.html:31
+msgid "Filter zurücksetzen"
+msgstr ""
+
+#: app/views/classes.html:41
+msgid "Lehrer"
+msgstr ""
+
+#: app/views/classes.html:38
+msgid "Name der Stunde"
+msgstr ""
+
+#: app/views/classes.html:37
+msgid "Status"
+msgstr ""
+
+#: app/views/classes.html:40
+msgid "Studio"
+msgstr ""

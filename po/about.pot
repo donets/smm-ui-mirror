@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/about.html:20
+msgid "Bewegung, Ernährung, Entspannung, Atmung, Schlaf, Liebe, Arbeit und Spaß sind gleichermaßen wichtig"
+msgstr ""
+
+#: app/views/about.html:53
+msgid "Danke für Dein Feedback!"
+msgstr ""
+
+#: app/views/about.html:39
+#: app/views/about.html:66
+msgid "Danke!"
+msgstr ""
+
+#: app/views/about.html:24
+msgid "Deine Vorteile"
+msgstr ""
+
+#: app/views/about.html:40
+#: app/views/about.html:67
+msgid "Die Email-Adresse ist nicht korrekt"
+msgstr ""
+
+#: app/views/about.html:17
+msgid "Dieses Potenzial kannst Du entfalten"
+msgstr ""
+
+#: app/views/about.html:15
+msgid "Du bist wertvoll"
+msgstr ""
+
+#: app/views/about.html:16
+msgid "Du hast ein ganz eigenes Potenzial"
+msgstr ""
+
+#: app/views/about.html:28
+msgid "Du hast eine kostenlose Probezeit, kurze Vertragslaufzeiten und findest jeden Kurs in Sekunden."
+msgstr ""
+
+#: app/views/about.html:27
+msgid "Du zahlst einen Bruchteil dessen, was die Kurse einzeln kosten. Mit der Karte ist alles bezahlt."
+msgstr ""
+
+#: app/views/about.html:18
+msgid "Ein ganzheitliches Leben beginnt mit Achtsamkeit"
+msgstr ""
+
+#: app/views/about.html:3
+msgid "Entdecke Somuchmore"
+msgstr ""
+
+#: app/views/about.html:19
+msgid "Entfaltung gelingt nur mit Inspiration und Spaß"
+msgstr ""
+
+#: app/views/about.html:59
+msgid "Hast Du noch Fragen?"
+msgstr ""
+
+#: app/views/about.html:50
+msgid "Ist es uns gelungen, Dir Somuchmore zu erklären? Und gefällt Dir unser Ansatz?"
+msgstr ""
+
+#: app/views/about.html:52
+msgid "Jaaa!"
+msgstr ""
+
+#: app/views/about.html:22
+msgid "Jeder Mensch kann gesund und glücklich leben, wenn er will und man ihn lässt"
+msgstr ""
+
+#: app/views/about.html:26
+msgid "Jedes Studio erfüllt hohe Qualitätsstandards, jeder Lehrer ist zertifiziert. Wir prüfen alles persönlich."
+msgstr ""
+
+#: app/views/about.html:21
+msgid "Körper, Geist und Seele sind eins"
+msgstr ""
+
+#: app/views/about.html:52
+msgid "Leider nicht"
+msgstr ""
+
+#: app/views/about.html:11
+msgid "Mit der Somuchmore Card kannst Du hunderte Kurse für Yoga, Pilates, Kampfkunst, Fitness, Tanz, Meditation, Ernährung, Gesundheit und persönliches Wachstum besuchen, neue Studios entdecken und Dich täglich inspirieren lassen."
+msgstr ""
+
+#: app/views/about.html:12
+msgid "Mit einer Karte bist Du überall willkommen."
+msgstr ""
+
+#: app/views/about.html:10
+msgid "Somuchmore ist eine Plattform für ganzheitliche Lebensweise."
+msgstr ""
+
+#: app/views/about.html:13
+msgid "Unsere Überzeugung:"
+msgstr ""

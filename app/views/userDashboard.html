@@ -1,7 +1,7 @@
 <div class="dashboard-title">
     <div class="container">
-        <h1>Finde einen Kurs</h1>
-        <p class="subtitle">Heute {{today | amDateFormat: 'dd DD.MM.'}}</p>
+        <h1 translate>Finde einen Kurs</h1>
+        <p class="subtitle" translate>Heute {{today | amDateFormat: 'dd DD.MM.'}}</p>
         <ul class="weekdays">
             <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
@@ -72,19 +72,19 @@
                 <option value=""></option>
             </select>
             <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="Alle Lehrer"/></div>
-            <a class="clear-button" href="" ng-click="clearFilters()">Filter zurücksetzen</a>
+            <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable user-classes">
                 <thead>
                     <tr>
-                        <th>Zeit</th>
-                        <th>Kurs</th>
-                        <th>Disziplinen</th>
-                        <th>Stile</th>
-                        <th>Lehrer</th>
-                        <th>Studio</th>
-                        <th>Stadtteil</th>
+                        <th translate>Zeit</th>
+                        <th translate>Kurs</th>
+                        <th translate>Disziplinen</th>
+                        <th translate>Stile</th>
+                        <th translate>Lehrer</th>
+                        <th translate>Studio</th>
+                        <th translate>Stadtteil</th>
                         <!--<th></th>-->
                     </tr>
                 </thead>
@@ -128,7 +128,7 @@
                         | dataFilter: 'class.location': search.class.location
                         | dataFilter: 'class.studioId': search.class.studioId
                         | dataFilter: 'class.levels': search.class.levels).length">
-                        <td class="empty" colspan="7">Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück</td>
+                        <td class="empty" colspan="7" translate>Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück</td>
                     </tr>
                 </tbody>
             </table>
@@ -139,9 +139,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body ng-scope">
-                    <h2>Danke für Deine Anmeldung!</h2>
-                    <p>Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar.</p>
-                    <button class="form-button" ng-click="hidePopap()">Weiter zu den Kursen</button>
+                    <h2 translate>Danke für Deine Anmeldung!</h2>
+                    <p translate>Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar.</p>
+                    <button class="form-button" ng-click="hidePopap()" translate>Weiter zu den Kursen</button>
                 </div>
             </div>
         </div>

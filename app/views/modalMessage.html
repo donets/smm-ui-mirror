@@ -1,9 +1,9 @@
 
 <div class="modal-body">
     <button ng-click="close()" class="modal-close" type="button">
-        <span class="sr-only">Close</span>
+        <span class="sr-only" translate>Close</span>
     </button>
-    <h2 ng-hide="success">Nachricht an Somuchmore</h2>
+    <h2 ng-hide="success" translate>Nachricht an Somuchmore</h2>
     <form name="modalForm" class="message-submit" ng-hide="success" ng-submit="sendMessage()">
         <input type="text" name="name" ng-model="message.name" placeholder="Dein Name" required/>
         <input type="email" name="email" ng-model="message.email" placeholder="Deine E-Mail-Adresse" required/>
@@ -11,11 +11,11 @@
         <input type="submit" value="Senden" ng-disabled="modalForm.$invalid" />
         <div class="form-response">
             <div ng-show="loading" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-            <div ng-show="error" class="form-message form-error">Sorry your message not delivered. Please try later.</div>
+            <div ng-show="error" class="form-message form-error" translate>Sorry your message not delivered. Please try later.</div>
         </div>
     </form>
     <div ng-show="success">
-        <p class="subtitle">Danke, Deine Nachricht wurde an Somuchmore versendet!</p>
-        <button class="form-button" type="button" ng-click="close()">Ok</button>
+        <p class="subtitle" translate>Danke, Deine Nachricht wurde an Somuchmore versendet!</p>
+        <button class="form-button" type="button" ng-click="close()" translate>Ok</button>
     </div>
 </div>

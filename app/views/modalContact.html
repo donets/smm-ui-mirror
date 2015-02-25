@@ -2,7 +2,7 @@
 <div class="modal-body">
     <button ng-click="close()" class="modal-close" type="button">
         <i class="fa fa-times"></i>
-        <span class="sr-only">Close</span>
+        <span class="sr-only" translate>Close</span>
     </button>
     <form ng-submit="submitMessage()">
 
@@ -24,7 +24,7 @@
                 <button class="form-button" ng-hide="loadingUpdate" type="submit" translate>Absenden</button>
                 <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
             </div>
-            <div class="form-rel form-message form-error" ng-if="errorUpdate">Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut.</div>
+            <div class="form-rel form-message form-error" ng-if="errorUpdate" translate>Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut.</div>
         </div>
 
     </form>

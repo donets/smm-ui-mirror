@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/class.html:12
+msgid "<i class=\"fa fa-save\"></i>Save & go live"
+msgstr ""
+
+#: app/views/class.html:11
+msgid "<i class=\"fa fa-save\"></i>Save as draft"
+msgstr ""
+
+#: app/views/class.html:13
+msgid "<i class=\"fa fa-trash\"></i>Delete"
+msgstr ""
+
+#: app/views/class.html:77
+msgid "Add Dates"
+msgstr ""
+
+#: app/views/class.html:218
+msgid "Anmeldung erforderlich"
+msgstr ""
+
+#: app/views/class.html:160
+msgid "Cancel"
+msgstr ""
+
+#: app/views/class.html:4
+msgid "Classes"
+msgstr ""
+
+#: app/views/class.html:78
+msgid "Delete Dates"
+msgstr ""
+
+#: app/views/class.html:192
+msgid "Disziplin"
+msgstr ""
+
+#: app/views/class.html:83
+msgid "Edit a single date"
+msgstr ""
+
+#: app/views/class.html:84
+msgid "Edit {{schedule.repeat | lowercase}} repeating dates"
+msgstr ""
+
+#: app/views/class.html:86
+msgid "Event repeats"
+msgstr ""
+
+#: app/views/class.html:211
+msgid "Feste Besuchslänge (in Minuten, leer = unbegrenzt)"
+msgstr ""
+
+#: app/views/class.html:207
+msgid "Freier Besuch?"
+msgstr ""
+
+#: app/views/class.html:110
+msgid "From"
+msgstr ""
+
+#: app/views/class.html:188
+msgid "Lehrer"
+msgstr ""
+
+#: app/views/class.html:166
+msgid "Level"
+msgstr ""
+
+#: app/views/class.html:179
+msgid "Max. Teilnehmer"
+msgstr ""
+
+#: app/views/class.html:22
+msgid "Name der Stunde"
+msgstr ""
+
+#: app/views/class.html:157
+msgid "No dates created by schedule"
+msgstr ""
+
+#: app/views/class.html:225
+msgid "Nur Black Card"
+msgstr ""
+
+#: app/views/class.html:183
+msgid "Preis vom Drop-in"
+msgstr ""
+
+#: app/views/class.html:98
+msgid "Repeating every"
+msgstr ""
+
+#: app/views/class.html:160
+msgid "Save"
+msgstr ""
+
+#: app/views/class.html:82
+msgid "Schedule dates"
+msgstr ""
+
+#: app/views/class.html:37
+msgid "Standort"
+msgstr ""
+
+#: app/views/class.html:196
+msgid "Stil"
+msgstr ""
+
+#: app/views/class.html:26
+msgid "Studio"
+msgstr ""
+
+#: app/views/class.html:122
+msgid "to"
+msgstr ""
+
+#: app/views/class.html:6
+msgid "{{occurrences.length}} Classes scheduled"
+msgstr ""

@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/studio.html:16
+msgid "&lt; Weniger"
+msgstr ""
+
+#: app/views/studio.html:34
+#: app/views/studio.html:39
+#: app/views/studio.html:44
+msgid "(siehe Kursplan)"
+msgstr ""
+
+#: app/views/studio.html:33
+#: app/views/studio.html:38
+#: app/views/studio.html:43
+msgid "<i class=\"fa fa-check\"></i>Alle Kurse"
+msgstr ""
+
+#: app/views/studio.html:34
+#: app/views/studio.html:39
+#: app/views/studio.html:44
+msgid "<i class=\"fa fa-check\"></i>Einige Kurse <span class=\"light\" translate=\"\">(siehe Kursplan)</span>"
+msgstr ""
+
+#: app/views/studio.html:217
+msgid "<i class=\"fa fa-home\"></i>Studio"
+msgstr ""
+
+#: app/views/studio.html:35
+#: app/views/studio.html:40
+#: app/views/studio.html:45
+msgid "<i class=\"fa fa-times\"></i>Nicht akzeptiert"
+msgstr ""
+
+#: app/views/studio.html:20
+msgid "Adresse:"
+msgstr ""
+
+#: app/views/studio.html:30
+msgid "Akzeptierte Karten:"
+msgstr ""
+
+#: app/views/studio.html:66
+msgid "Angebot"
+msgstr ""
+
+#: app/views/studio.html:22
+msgid "Auf Karte anzeigen"
+msgstr ""
+
+#: app/views/studio.html:19
+msgid "Ausstattung:"
+msgstr ""
+
+#: app/views/studio.html:75
+msgid "Disziplin"
+msgstr ""
+
+#: app/views/studio.html:18
+msgid "Disziplinen:"
+msgstr ""
+
+#: app/views/studio.html:91
+msgid "Heute kein Angebot mehr."
+msgstr ""
+
+#: app/views/studio.html:50
+msgid "Informationen:"
+msgstr ""
+
+#: app/views/studio.html:54
+msgid "Kontaktieren:"
+msgstr ""
+
+#: app/views/studio.html:74
+msgid "Kurs"
+msgstr ""
+
+#: app/views/studio.html:76
+msgid "Lehrer"
+msgstr ""
+
+#: app/views/studio.html:77
+msgid "Level"
+msgstr ""
+
+#: app/views/studio.html:215
+msgid "Location"
+msgstr ""
+
+#: app/views/studio.html:16
+msgid "Mehr &gt;"
+msgstr ""
+
+#: app/views/studio.html:73
+msgid "Zeit"
+msgstr ""

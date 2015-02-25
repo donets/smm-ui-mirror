@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/userProfile.html:12
+msgid "Account"
+msgstr ""
+
+#: app/views/userProfile.html:4
+msgid "Hallo, {{userName}}!"
+msgstr ""
+
+#: app/views/userProfile.html:5
+msgid "Hier kannst Du den Karten-Typ oder Account ändern und Deine Rechnungen einsehen."
+msgstr ""
+
+#: app/views/userProfile.html:11
+msgid "Meine Karte"
+msgstr ""

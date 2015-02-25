@@ -1,9 +1,9 @@
 
 <div class="modal-body">
     <button ng-click="close()" class="modal-close" type="button">
-        <span class="sr-only">Close</span>
+        <span class="sr-only" translate>Close</span>
     </button>
-    <h2>Schlag ein Studio vor:</h2>
+    <h2 translate>Schlag ein Studio vor:</h2>
     <form name="studioForm" class="studios-submit" ng-submit="addStudio()">
         <input type="text" name="studio" ng-model="suggest.studioName" placeholder="Name des Studios" required/>
         <input type="text" name="name" ng-model="suggest.userName" placeholder="Dein Name (Optional)"/>
@@ -11,8 +11,8 @@
         <input type="submit" value="Vorschlagen" ng-disabled="loadingStudio || studioForm.$invalid" />
         <div class="form-response">
             <div ng-show="loadingStudio" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-            <div ng-show="successStudio" class="form-message form-success">Danke!</div>
-            <div ng-show="errorStudio" class="form-message form-error">Sorry your message not delivered. Please try later.</div>
+            <div ng-show="successStudio" class="form-message form-success" translate>Danke!</div>
+            <div ng-show="errorStudio" class="form-message form-error" translate>Sorry your message not delivered. Please try later.</div>
         </div>
     </form>
 </div>

@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/userDashboard.html:143
+msgid "Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar."
+msgstr ""
+
+#: app/views/userDashboard.html:142
+msgid "Danke für Deine Anmeldung!"
+msgstr ""
+
+#: app/views/userDashboard.html:83
+msgid "Disziplinen"
+msgstr ""
+
+#: app/views/userDashboard.html:75
+msgid "Filter zurücksetzen"
+msgstr ""
+
+#: app/views/userDashboard.html:3
+msgid "Finde einen Kurs"
+msgstr ""
+
+#: app/views/userDashboard.html:131
+msgid "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück"
+msgstr ""
+
+#: app/views/userDashboard.html:4
+msgid "Heute {{today | amDateFormat: 'dd DD.MM.'}}"
+msgstr ""
+
+#: app/views/userDashboard.html:82
+msgid "Kurs"
+msgstr ""
+
+#: app/views/userDashboard.html:85
+msgid "Lehrer"
+msgstr ""
+
+#: app/views/userDashboard.html:87
+msgid "Stadtteil"
+msgstr ""
+
+#: app/views/userDashboard.html:84
+msgid "Stile"
+msgstr ""
+
+#: app/views/userDashboard.html:86
+msgid "Studio"
+msgstr ""
+
+#: app/views/userDashboard.html:144
+msgid "Weiter zu den Kursen"
+msgstr ""
+
+#: app/views/userDashboard.html:81
+msgid "Zeit"
+msgstr ""

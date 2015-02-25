@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/event.html:38
+msgid "&lt; Weniger"
+msgstr ""
+
+#: app/views/event.html:67
+msgid ", {{teacher.teacherProfile.numberOfClassesTaught}} Stunden"
+msgstr ""
+
+#: app/views/event.html:24
+msgid "<i class=\"fa fa-calendar\"></i>Buche einen anderen Termin"
+msgstr ""
+
+#: app/views/event.html:47
+msgid "<i class=\"fa fa-clock-o\"></i>{{duration}} Minuten"
+msgstr ""
+
+#: app/views/event.html:62
+#: app/views/event.html:71
+msgid "<i class=\"fa fa-envelope\"></i>Fragen zum Event?"
+msgstr ""
+
+#: app/views/event.html:19
+msgid "Ausverkauft"
+msgstr ""
+
+#: app/views/event.html:22
+msgid "Buche dieses Event"
+msgstr ""
+
+#: app/views/event.html:23
+msgid "Buche dieses Event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span>"
+msgstr ""
+
+#: app/views/event.html:59
+msgid "Erfahrener Lehrer"
+msgstr ""
+
+#: app/views/event.html:58
+msgid "Lehrer"
+msgstr ""
+
+#: app/views/event.html:37
+msgid "Mehr &gt;"
+msgstr ""
+
+#: app/views/event.html:60
+msgid "Meister Lehrer"
+msgstr ""
+
+#: app/views/event.html:20
+msgid "Privatstunde"
+msgstr ""
+
+#: app/views/event.html:66
+msgid "Seit {{2014 - teacher.teacherProfile.teachingSince}}"
+msgstr ""
+
+#: app/views/event.html:18
+msgid "{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} Plätzen frei"
+msgstr ""

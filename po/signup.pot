@@ -1,0 +1,335 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/signup.html:19
+msgid "(Geld zurück, wenn Du nicht mehr als 3 Kurse besucht hast)"
+msgstr ""
+
+#: app/views/signup.html:21
+msgid "(Keine Mindestlaufzeit)"
+msgstr ""
+
+#: app/views/signup.html:12
+msgid "(Monatlich Kündigen)"
+msgstr ""
+
+#: app/views/signup.html:277
+msgid "(Verlängerung um je einen Monat, solange nicht gekündigt)"
+msgstr ""
+
+#: app/views/signup.html:281
+msgid "(beginnend mit dem Tag der Mitgliedschaft)"
+msgstr ""
+
+#: app/views/signup.html:299
+msgid "(für {{voucher.discountDuarationInMonths}} Monate)"
+msgstr ""
+
+#: app/views/signup.html:287
+msgid "(monatlich bis zum Monatsende für den Folgemonat)"
+msgstr ""
+
+#: app/views/signup.html:29
+msgid "1. Registrierung"
+msgstr ""
+
+#: app/views/signup.html:9
+msgid "14 Tage KOSTENLOS testen"
+msgstr ""
+
+#: app/views/signup.html:15
+msgid "14 Tage Testen"
+msgstr ""
+
+#: app/views/signup.html:30
+msgid "2. Produktwahl"
+msgstr ""
+
+#: app/views/signup.html:31
+msgid "3. Bezahlung"
+msgstr ""
+
+#: app/views/signup.html:280
+msgid "Abbuchung:"
+msgstr ""
+
+#: app/views/signup.html:139
+msgid "Aktionscode hinzufügen"
+msgstr ""
+
+#: app/views/signup.html:234
+msgid "Anderes Zahlungsmittel"
+msgstr ""
+
+#: app/views/signup.html:221
+msgid "BIC"
+msgstr ""
+
+#: app/views/signup.html:283
+msgid "Beginn:"
+msgstr ""
+
+#: app/views/signup.html:3
+msgid "Bestelle die Somuchmore Card"
+msgstr ""
+
+#: app/views/signup.html:270
+msgid "Bestellübersicht"
+msgstr ""
+
+#: app/views/signup.html:194
+msgid "Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)"
+msgstr ""
+
+#: app/views/signup.html:164
+msgid "Bitte eine gültige Kreditkartennummer eintragen"
+msgstr ""
+
+#: app/views/signup.html:326
+msgid "Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und Datenschutzbestimmung."
+msgstr ""
+
+#: app/views/signup.html:324
+msgid "Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}"
+msgstr ""
+
+#: app/views/signup.html:190
+msgid "CVV"
+msgstr ""
+
+#: app/views/signup.html:322
+msgid "Danach kostenpflichtig"
+msgstr ""
+
+#: app/views/signup.html:66
+msgid "Das Passwort muss mindestens 5 Zeichen enthalten"
+msgstr ""
+
+#: app/views/signup.html:78
+msgid "Deine Mitgliedschaft begint am:"
+msgstr ""
+
+#: app/views/signup.html:163
+#: app/views/signup.html:193
+#: app/views/signup.html:210
+#: app/views/signup.html:217
+#: app/views/signup.html:224
+#: app/views/signup.html:243
+#: app/views/signup.html:251
+#: app/views/signup.html:259
+#: app/views/signup.html:42
+#: app/views/signup.html:49
+#: app/views/signup.html:57
+#: app/views/signup.html:65
+msgid "Dies ist eine Pflichtfeld"
+msgstr ""
+
+#: app/views/signup.html:145
+msgid "Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig"
+msgstr ""
+
+#: app/views/signup.html:146
+msgid "Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden"
+msgstr ""
+
+#: app/views/signup.html:54
+msgid "E-Mail"
+msgstr ""
+
+#: app/views/signup.html:325
+msgid "Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail"
+msgstr ""
+
+#: app/views/signup.html:298
+msgid "Ermäßigter Preis:"
+msgstr ""
+
+#: app/views/signup.html:18
+msgid "Garantierte Zufriedenheit"
+msgstr ""
+
+#: app/views/signup.html:170
+msgid "Gültig bis"
+msgstr ""
+
+#: app/views/signup.html:229
+msgid "Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren Kundenservice widerrufen."
+msgstr ""
+
+#: app/views/signup.html:24
+msgid "Hinweise zum Angebot: Nach 14 Tagen erfolgt der automatische Übergang in eine kostenpflichtige Somuchmore Mitgliedschaft (39€, 69€, 99€ /Monat, inkl. MwSt., jederzeit kündbar)."
+msgstr ""
+
+#: app/views/signup.html:214
+msgid "IBAN"
+msgstr ""
+
+#: app/views/signup.html:314
+msgid "Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen"
+msgstr ""
+
+#: app/views/signup.html:308
+msgid "Ich stimme den <a ui-sref=\"agb\">AGB</a> und <a ui-sref=\"agb\">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref=\"agb\">Widerrufsrecht</a> zur Kenntnis genommen."
+msgstr ""
+
+#: app/views/signup.html:287
+msgid "Jederzeit <span class=\"details\" translate=\"\">(monatlich bis zum Monatsende für den Folgemonat)</span>"
+msgstr ""
+
+#: app/views/signup.html:20
+msgid "Jederzeit kündigen"
+msgstr ""
+
+#: app/views/signup.html:321
+msgid "Jetzt KOSTENLOS testen"
+msgstr ""
+
+#: app/views/signup.html:273
+msgid "Karte:"
+msgstr ""
+
+#: app/views/signup.html:144
+msgid "Kein gültiger Code"
+msgstr ""
+
+#: app/views/signup.html:13
+#: app/views/signup.html:8
+msgid "Keine Aufnahmegebühr"
+msgstr ""
+
+#: app/views/signup.html:200
+msgid "Keine Kreditkarte?"
+msgstr ""
+
+#: app/views/signup.html:11
+msgid "Keine Mindestlaufzeit"
+msgstr ""
+
+#: app/views/signup.html:58
+msgid "Keine gültige E-Mail-Adresse"
+msgstr ""
+
+#: app/views/signup.html:252
+msgid "Keine gültige Postleitzahl (immer 5 Ziffern)"
+msgstr ""
+
+#: app/views/signup.html:207
+msgid "Kontoinhaber/in"
+msgstr ""
+
+#: app/views/signup.html:321
+msgid "Kostenpflichtig Bestellen"
+msgstr ""
+
+#: app/views/signup.html:157
+msgid "Kreditkarte"
+msgstr ""
+
+#: app/views/signup.html:16
+msgid "Kreditkarte wird nicht belastet"
+msgstr ""
+
+#: app/views/signup.html:124
+#: app/views/signup.html:91
+msgid "Kurse pro Anbieter / Monat"
+msgstr ""
+
+#: app/views/signup.html:120
+#: app/views/signup.html:90
+msgid "Kurse pro Monat"
+msgstr ""
+
+#: app/views/signup.html:128
+#: app/views/signup.html:92
+msgid "Kündigen / Pausieren"
+msgstr ""
+
+#: app/views/signup.html:286
+msgid "Kündigung:"
+msgstr ""
+
+#: app/views/signup.html:264
+msgid "Land"
+msgstr ""
+
+#: app/views/signup.html:276
+msgid "Laufzeit:"
+msgstr ""
+
+#: app/views/signup.html:237
+msgid "Lieferadresse"
+msgstr ""
+
+#: app/views/signup.html:4
+msgid "Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs."
+msgstr ""
+
+#: app/views/signup.html:281
+msgid "Monatlich <span class=\"details\" translate=\"\">(beginnend mit dem Tag der Mitgliedschaft)</span>"
+msgstr ""
+
+#: app/views/signup.html:292
+msgid "Monatlicher Preis:"
+msgstr ""
+
+#: app/views/signup.html:46
+msgid "Nachname"
+msgstr ""
+
+#: app/views/signup.html:62
+msgid "Passwort"
+msgstr ""
+
+#: app/views/signup.html:248
+msgid "Postleitzahl"
+msgstr ""
+
+#: app/views/signup.html:115
+#: app/views/signup.html:89
+msgid "Preis pro Monat"
+msgstr ""
+
+#: app/views/signup.html:204
+msgid "SEPA-Lastschrift"
+msgstr ""
+
+#: app/views/signup.html:228
+msgid "SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen."
+msgstr ""
+
+#: app/views/signup.html:295
+msgid "Sonderpreis:"
+msgstr ""
+
+#: app/views/signup.html:256
+msgid "Stadt"
+msgstr ""
+
+#: app/views/signup.html:240
+msgid "Straße & Hausnummer"
+msgstr ""
+
+#: app/views/signup.html:277
+msgid "Unbefristet <span class=\"details\" translate=\"\">(Verlängerung um je einen Monat, solange nicht gekündigt)</span>"
+msgstr ""
+
+#: app/views/signup.html:39
+msgid "Vorname"
+msgstr ""
+
+#: app/views/signup.html:74
+msgid "Weiter"
+msgstr ""
+
+#: app/views/signup.html:231
+msgid "Zahlung mit Kreditkarte?"
+msgstr ""
+
+#: app/views/signup.html:152
+msgid ""
+"Zahlungsinformationen\n"
+"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
+msgstr ""

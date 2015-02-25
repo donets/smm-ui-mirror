@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/userMembership.html:21
+msgid "/ Monat für {{voucher.discountDuarationInMonths}} Monate"
+msgstr ""
+
+#: app/views/userMembership.html:18
+msgid "0€ / Monat"
+msgstr ""
+
+#: app/views/userMembership.html:30
+msgid "Abbuchung:"
+msgstr ""
+
+#: app/views/userMembership.html:23
+msgid "Beginn Mitgliedschaft:"
+msgstr ""
+
+#: app/views/userMembership.html:67
+msgid ""
+"Diese Funktion ist zur Zeit noch nicht aktiv, kontaktieren Sie bitte dazu unseren Kundenservice auf\n"
+"            <a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+msgstr ""
+
+#: app/views/userMembership.html:20
+msgid "Ermäßigter Preis:"
+msgstr ""
+
+#: app/views/userMembership.html:70
+msgid ""
+"Es gab einen Fehler. Bitte kontaktieren Sie den Support über\n"
+"            <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a>"
+msgstr ""
+
+#: app/views/userMembership.html:6
+msgid "Hochladen"
+msgstr ""
+
+#: app/views/userMembership.html:34
+msgid "Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende"
+msgstr ""
+
+#: app/views/userMembership.html:46
+msgid "Kurse pro Anbieter / Monat"
+msgstr ""
+
+#: app/views/userMembership.html:45
+msgid "Kurse pro Monat"
+msgstr ""
+
+#: app/views/userMembership.html:47
+msgid "Kündigen / Pausieren"
+msgstr ""
+
+#: app/views/userMembership.html:33
+msgid "Kündigung:"
+msgstr ""
+
+#: app/views/userMembership.html:26
+msgid "Laufzeit:"
+msgstr ""
+
+#: app/views/userMembership.html:4
+msgid "Mein Foto auf der Karte"
+msgstr ""
+
+#: app/views/userMembership.html:11
+msgid "Meine Kartennummer::"
+msgstr ""
+
+#: app/views/userMembership.html:31
+msgid "Monatlich beginnend mit dem Tag der Mitgliedschaft"
+msgstr ""
+
+#: app/views/userMembership.html:44
+msgid "Preis pro Monat"
+msgstr ""
+
+#: app/views/userMembership.html:14
+msgid "Regulärer Preis:"
+msgstr ""
+
+#: app/views/userMembership.html:17
+msgid "Sonderpreis:"
+msgstr ""
+
+#: app/views/userMembership.html:73
+msgid "Wenn Du Deine Mitgliedschaft kündigen willst, klicke <a href=\"\" ng-click=\"cancelMembership()\">hier.</a>"
+msgstr ""
+
+#: app/views/userMembership.html:39
+msgid "Willst Du Deinen Karten-Typ ändern?"
+msgstr ""
+
+#: app/views/userMembership.html:27
+msgid "unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat"
+msgstr ""
+
+#: app/views/userMembership.html:15
+msgid "{{overview.price}}€ / Monat"
+msgstr ""

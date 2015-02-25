@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalSubscribe.html:4
+msgid "Close"
+msgstr ""
+
+#: app/views/modalSubscribe.html:16
+msgid "Danke!"
+msgstr ""
+
+#: app/views/modalSubscribe.html:13
+msgid "Die Email-Adresse ist nicht korrekt"
+msgstr ""
+
+#: app/views/modalSubscribe.html:6
+msgid "Erhalte heute Deine Einladung:"
+msgstr ""

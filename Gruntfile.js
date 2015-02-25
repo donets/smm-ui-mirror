@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('grunt-angular-gettext');
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
@@ -422,6 +423,43 @@ module.exports = function (grunt) {
                 configFile: 'test/karma.conf.js',
                 singleRun: true
             }
+        },
+
+        nggettext_extract: {
+          pot: {
+            files: {
+              'po/eventCard.pot': ['app/views/_eventCard.html'],
+              'po/loginForm.pot': ['app/views/_loginForm.html'],
+              'po/about.pot': ['app/views/about.html'],
+              'po/agb.pot': ['app/views/agb.html'],
+              'po/class.pot': ['app/views/class.html'],
+              'po/classes.pot': ['app/views/classes.html'],
+              'po/entity.pot': ['app/views/entity.html'],
+              'po/entityList.pot': ['app/views/entityList.html'],
+              'po/event.pot': ['app/views/event.html'],
+              'po/faq.pot': ['app/views/faq.html'],
+              'po/homeClasses.pot': ['app/views/homeClasses.html'],
+              'po/homepage.pot': ['app/views/homepage.html'],
+              'po/impressum.pot': ['app/views/impressum.html'],
+              'po/login.pot': ['app/views/login.html'],
+              'po/main.pot': ['app/views/main.html'],
+              'po/modalAttend.pot': ['app/views/modalAttend.html'],
+              'po/modalCancel.pot': ['app/views/modalCancel.html'],
+              'po/modalContact.pot': ['app/views/modalContact.html'],
+              'po/modalMessage.pot': ['app/views/modalMessage.html'],
+              'po/modalSubscribe.pot': ['app/views/modalSubscribe.html'],
+              'po/modalSuggest.pot': ['app/views/modalSuggest.html'],
+              'po/modalUpload.pot': ['app/views/modalUpload.html'],
+              'po/more.pot': ['app/views/more.html'],
+              'po/resetPassword.pot': ['app/views/resetPassword.html'],
+              'po/signup.pot': ['app/views/signup.html'],
+              'po/studio.pot': ['app/views/studio.html'],
+              'po/userAccount.pot': ['app/views/userAccount.html'],
+              'po/userDashboard.pot': ['app/views/userDashboard.html'],
+              'po/userMembership.pot': ['app/views/userMembership.html'],
+              'po/userProfile.pot': ['app/views/userProfile.html']
+            }
+          }
         }
     });
 

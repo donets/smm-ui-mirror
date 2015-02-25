@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/entity.html:66
+msgid "(min resolution 2560x1706)"
+msgstr ""
+
+#: app/views/entity.html:9
+msgid "<i class=\"fa fa-eye\"></i>View"
+msgstr ""
+
+#: app/views/entity.html:7
+msgid "<i class=\"fa fa-save\"></i>Save"
+msgstr ""
+
+#: app/views/entity.html:8
+msgid "<i class=\"fa fa-trash\"></i>Delete"
+msgstr ""
+
+#: app/views/entity.html:23
+msgid "Dieser Code existiert bereits"
+msgstr ""
+
+#: app/views/entity.html:67
+msgid "Hochladen"
+msgstr ""

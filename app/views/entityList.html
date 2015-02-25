@@ -25,7 +25,7 @@
                             <div class="status" ng-if="field.type === 'checkbox'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>
                             <div ng-if="field.format" class="w-100">{{e[field.model] | date : field.format}}</div>
                         </td>
-                        <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button"><i class="fa fa-pencil"></i>Manage</button></td>
+                        <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button" translate><i class="fa fa-pencil"></i>Manage</button></td>
                     </tr>
                 </tbody>
             </table>

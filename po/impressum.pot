@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/impressum.html:41
+msgid ""
+"Die im Rahmen von Google Analytics von Ihrem Browser\n"
+"\t\t\tübermittelte IP-Adresse wird nicht mit anderen Daten von Google\n"
+"\t\t\tzusammengeführt. Sie können die Speicherung der Cookies durch eine\n"
+"\t\t\tentsprechende Einstellung Ihrer Browser-Software verhindern; wir\n"
+"\t\t\tweisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls\n"
+"\t\t\tnicht sämtliche Funktionen dieser Website vollumfänglich werden\n"
+"\t\t\tnutzen können. Sie können darüber hinaus die Erfassung der durch das\n"
+"\t\t\tCookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten\n"
+"\t\t\t(inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser\n"
+"\t\t\tDaten durch Google verhindern, indem sie das unter dem folgenden Link\n"
+"\t\t\thttp://tools.google.com/dlpage/gaoptout?hl=de verfügbare\n"
+"\t\t\tBrowser-Plugin herunterladen und installieren. Sie können die\n"
+"\t\t\tErfassung durch Google Analytics verhindern, indem Sie auf folgenden\n"
+"\t\t\tLink klicken."
+msgstr ""
+
+#: app/views/impressum.html:23
+msgid ""
+"Diese Website benutzt Google Analytics, einen Webanalysedienst\n"
+"\t\t\tder Google Inc. („Google“). Google Analytics verwendet sog.\n"
+"\t\t\t„Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und\n"
+"\t\t\tdie eine Analyse der Benutzung der Website durch Sie ermöglichen. Die\n"
+"\t\t\tdurch den Cookie erzeugten Informationen über Ihre Benutzung dieser\n"
+"\t\t\tWebsite werden in der Regel an einen Server von Google in den USA\n"
+"\t\t\tübertragen und dort gespeichert."
+msgstr ""
+
+#: app/views/impressum.html:15
+msgid "E-Mail: johannes.klose [at] somuchmore.org"
+msgstr ""
+
+#: app/views/impressum.html:17
+msgid "Eintragung im Handelsregister. Registergericht: Berlin (Charlottenburg)"
+msgstr ""
+
+#: app/views/impressum.html:55
+msgid ""
+"Es wird ein Opt-Out-Cookie gesetzt, der die zukünftige\n"
+"\t\t\tErfassung Ihrer Daten beim Besuch dieser Website verhindert: Google\n"
+"\t\t\tAnalytics deaktivieren Nähere Informationen zu Nutzungsbedingungen\n"
+"\t\t\tund Datenschutz finden Sie unter\n"
+"\t\t\thttp://www.google.com/analytics/terms/de.html bzw. unter\n"
+"\t\t\thttp://www.google.com/intl/de/analytics/privacyoverview.html."
+msgstr ""
+
+#: app/views/impressum.html:22
+msgid "Google Analytics"
+msgstr ""
+
+#: app/views/impressum.html:18
+msgid "Handelsregisternummer: HRB 156357B"
+msgstr ""
+
+#: app/views/impressum.html:30
+msgid ""
+"Im Falle der Aktivierung der IP-Anonymisierung auf dieser\n"
+"\t\t\tWebsite, wird Ihre IP-Adresse von Google jedoch innerhalb von\n"
+"\t\t\tMitgliedstaaten der Europäischen Union oder in anderen\n"
+"\t\t\tVertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum\n"
+"\t\t\tzuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an\n"
+"\t\t\teinen Server von Google in den USA übertragen und dort gekürzt. Im\n"
+"\t\t\tAuftrag des Betreibers dieser Website wird Google diese Informationen\n"
+"\t\t\tbenutzen, um Ihre Nutzung der Website auszuwerten, um Reports über\n"
+"\t\t\tdie Websiteaktivitäten zusammenzustellen und um weitere mit der\n"
+"\t\t\tWebsitenutzung und der Internetnutzung verbundene Dienstleistungen\n"
+"\t\t\tgegenüber dem Websitebetreiber zu erbringen."
+msgstr ""
+
+#: app/views/impressum.html:3
+msgid "Impressum (Angaben gemäß § 5 TMG)"
+msgstr ""
+
+#: app/views/impressum.html:12
+msgid "Rathenower Straße 27 10559 Berlin"
+msgstr ""
+
+#: app/views/impressum.html:16
+msgid "Registereintrag"
+msgstr ""
+
+#: app/views/impressum.html:11
+msgid "Somuchmore Marketplace UG (haftungsbeschränkt)"
+msgstr ""
+
+#: app/views/impressum.html:20
+msgid "Steurnummer: 29/444/02946"
+msgstr ""
+
+#: app/views/impressum.html:14
+msgid "Telefon: 030 - 577023101"
+msgstr ""
+
+#: app/views/impressum.html:19
+msgid "USt-IdNr: DE294403735"
+msgstr ""
+
+#: app/views/impressum.html:13
+msgid "Vertreten durch Johannes Klose"
+msgstr ""

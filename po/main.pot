@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/main.html:4
+msgid ""
+"Entdecke das Beste für Körper, Geist und Seele in kleinen Gruppen mit außergewöhnlichen Lehrern in Berlin.\n"
+"            <a ui-sref=\"more\" translate=\"\">Lerne mehr.</a>"
+msgstr ""
+
+#: app/views/main.html:9
+msgid "Entfalte Dich."
+msgstr ""
+
+#: app/views/main.html:14
+msgid "Heute"
+msgstr ""
+
+#: app/views/main.html:10
+msgid "Lerne mehr &gt;"
+msgstr ""
+
+#: app/views/main.html:5
+msgid "Lerne mehr."
+msgstr ""
+
+#: app/views/main.html:15
+#: app/views/main.html:30
+msgid "Morgen"
+msgstr ""
+
+#: app/views/main.html:16
+#: app/views/main.html:39
+msgid "Später"
+msgstr ""
+
+#: app/views/main.html:3
+msgid "Willkommen bei Dir"
+msgstr ""

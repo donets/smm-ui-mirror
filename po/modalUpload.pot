@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalUpload.html:20
+msgid "&mdash; or &mdash;"
+msgstr ""
+
+#: app/views/modalUpload.html:34
+msgid "Cancel"
+msgstr ""
+
+#: app/views/modalUpload.html:33
+msgid "Change"
+msgstr ""
+
+#: app/views/modalUpload.html:21
+msgid "Choose photo"
+msgstr ""
+
+#: app/views/modalUpload.html:14
+msgid "Close"
+msgstr ""
+
+#: app/views/modalUpload.html:19
+msgid "Drag photo"
+msgstr ""
+
+#: app/views/modalUpload.html:38
+msgid "Retry"
+msgstr ""
+
+#: app/views/modalUpload.html:31
+msgid "Upload"
+msgstr ""

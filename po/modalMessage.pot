@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalMessage.html:4
+msgid "Close"
+msgstr ""
+
+#: app/views/modalMessage.html:18
+msgid "Danke, Deine Nachricht wurde an Somuchmore versendet!"
+msgstr ""
+
+#: app/views/modalMessage.html:6
+msgid "Nachricht an Somuchmore"
+msgstr ""
+
+#: app/views/modalMessage.html:19
+msgid "Ok"
+msgstr ""
+
+#: app/views/modalMessage.html:14
+msgid "Sorry your message not delivered. Please try later."
+msgstr ""

@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalContact.html:24
+msgid "Absenden"
+msgstr ""
+
+#: app/views/modalContact.html:5
+msgid "Close"
+msgstr ""
+
+#: app/views/modalContact.html:27
+msgid "Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut."
+msgstr ""

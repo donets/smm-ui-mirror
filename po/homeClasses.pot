@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/homeClasses.html:15
+msgid "Disziplin"
+msgstr ""
+
+#: app/views/homeClasses.html:37
+msgid "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück"
+msgstr ""
+
+#: app/views/homeClasses.html:14
+msgid "Kurs"
+msgstr ""
+
+#: app/views/homeClasses.html:17
+msgid "Stadtteil"
+msgstr ""
+
+#: app/views/homeClasses.html:16
+msgid "Studio"
+msgstr ""
+
+#: app/views/homeClasses.html:13
+msgid "Zeit"
+msgstr ""

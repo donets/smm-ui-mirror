@@ -1,16 +1,16 @@
 <div class="b-class-block class" sticky use-placeholder>
     <div class="container cf">
         <div class="w-left">
-            <h2><a ui-sref="admin.classes.list">Classes</a> / {{class.title || 'New Class'}}</h2>
+            <h2><a ui-sref="admin.classes.list" translate>Classes</a> / {{class.title || 'New Class'}}</h2>
             <div class="info" ng-if="$stateParams.classId">
-                <p>{{occurrences.length}} Classes scheduled</p>
+                <p translate>{{occurrences.length}} Classes scheduled</p>
                 <p class="status" ng-class="{'green': class.status === 'LIVE'}">{{class.status}}</p>
             </div>
         </div>
         <div class="w-right">
-            <button type="button" ng-hide="showSpinner" ng-click="save('DRAFT')"><i class="fa fa-save"></i>Save as draft</button>
-            <button ng-if="$stateParams.classId" ng-hide="showSpinner" class="green" type="button" ng-click="save('LIVE')"><i class="fa fa-save"></i>Save & go live</button>
-            <button ng-if="$stateParams.classId" ng-hide="showSpinner" type="button" class="red" ng-confirm-click="remove()"><i class="fa fa-trash"></i>Delete</button>
+            <button type="button" ng-hide="showSpinner" ng-click="save('DRAFT')" translate><i class="fa fa-save"></i>Save as draft</button>
+            <button ng-if="$stateParams.classId" ng-hide="showSpinner" class="green" type="button" ng-click="save('LIVE')" translate><i class="fa fa-save"></i>Save & go live</button>
+            <button ng-if="$stateParams.classId" ng-hide="showSpinner" type="button" class="red" ng-confirm-click="remove()" translate><i class="fa fa-trash"></i>Delete</button>
             <div ng-show="showSpinner" class="spinner-wrapper"><span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span></div>
         </div>
     </div>
@@ -19,11 +19,11 @@
     <div class="b-class-edit">
         <h3>Main info</h3>
         <div class="form-rel">
-            <label class="form-label" for="title">Name der Stunde</label>
+            <label class="form-label" for="title" translate>Name der Stunde</label>
             <input class="form-input" type="text" ng-model="class.title" id="title"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="studio">Studio</label>
+            <label class="form-label" for="studio" translate>Studio</label>
             <select chosen
                     id="studio"
                     ng-model="class.studioId"
@@ -34,7 +34,7 @@
             </select>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="location">Standort</label>
+            <label class="form-label" for="location" translate>Standort</label>
             <select chosen
                     id="location"
                     ng-model="class.locationId"
@@ -74,16 +74,16 @@
                 </tbody>
             </table>
             <div class="form-rel large" ng-if="!showSchedule">
-                <button class="green" ng-click="addDates()" type="button">Add Dates</button>
-                <button class="red" ng-confirm-click="deleteGroup(occurrences)" type="button">Delete Dates</button>
+                <button class="green" ng-click="addDates()" type="button" translate>Add Dates</button>
+                <button class="red" ng-confirm-click="deleteGroup(occurrences)" type="button" translate>Delete Dates</button>
             </div>
             <span class="spinner" ng-show="showSpinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             <form name="form.schedule" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
-                <h3 ng-if="newEvent">Schedule dates</h3>
-                <h3 ng-if="schedule.repeat === 'Single' && !newEvent">Edit a single date</h3>
-                <h3 ng-if="schedule.repeat !== 'Single' && !newEvent">Edit {{schedule.repeat | lowercase}} repeating dates</h3>
+                <h3 ng-if="newEvent" translate>Schedule dates</h3>
+                <h3 ng-if="schedule.repeat === 'Single' && !newEvent" translate>Edit a single date</h3>
+                <h3 ng-if="schedule.repeat !== 'Single' && !newEvent" translate>Edit {{schedule.repeat | lowercase}} repeating dates</h3>
                 <div class="form-rel" ng-if="newEvent">
-                    <label class="form-label" for="repeat">Event repeats</label>
+                    <label class="form-label" for="repeat" translate>Event repeats</label>
                     <select chosen
                             id="repeat"
                             ng-model="schedule.repeat"
@@ -95,7 +95,7 @@
                     </select>
                 </div>
                 <div class="form-rel" ng-if="schedule.repeat === 'Weekly'">
-                    <label class="form-label" for="weekday">Repeating every</label>
+                    <label class="form-label" for="weekday" translate>Repeating every</label>
                     <select chosen
                             id="weekday"
                             ng-model="schedule.weekday"
@@ -107,7 +107,7 @@
                     </select>
                 </div>
                 <div class="form-rel">
-                    <label class="form-label">From</label>
+                    <label class="form-label" translate>From</label>
                     <select chosen
                             width="130" id="startTime"
                             disable-search="false"
@@ -119,7 +119,7 @@
                             ng-options="item for item in startTimeList">
                         <option value=""></option>
                     </select>
-                    <span>to</span>
+                    <span translate>to</span>
                     <select chosen
                             width="130" id="endTime"
                             disable-search="false"
@@ -154,16 +154,16 @@
                     <p ng-if="schedule.repeat === 'Weekly'">Starting {{schedule.startDateWeekly | amDateFormat: 'MMMM D YYYY'}} <span ng-if="schedule.times">through {{schedule.endDateWeekly | amDateFormat: 'MMMM D YYYY'}}</span></p>
                 </div>
                 <div class="form-rel" ng-if="form.schedule.$invalid">
-                    <p>No dates created by schedule</p>
+                    <p translate>No dates created by schedule</p>
                 </div>
                 <div class="form-rel">
-                    <button class="green" ng-disabled="form.schedule.$invalid" type="submit">Save</button><button type="button" ng-click="fetchOccurrences()">Cancel</button>
+                    <button class="green" ng-disabled="form.schedule.$invalid" type="submit" translate>Save</button><button type="button" ng-click="fetchOccurrences()" translate>Cancel</button>
                 </div>
             </form>
         </div>
         <!--<pre style="position: absolute; right: 0; top: 0; ">{{class | json}}</pre>-->
         <div class="form-rel">
-            <label class="form-label" for="level">Level</label>
+            <label class="form-label" for="level" translate>Level</label>
             <select chosen
                     id="level"
                     ng-model="class.level"
@@ -176,53 +176,53 @@
         </div>
         <div class="form-rel flex">
             <div class="form-row">
-                <label class="form-label" for="capacity">Max. Teilnehmer</label>
+                <label class="form-label" for="capacity" translate>Max. Teilnehmer</label>
                 <input class="form-input" type="text" ng-model="class.capacity" id="capacity"/>
             </div>
             <div class="form-row">
-                <label class="form-label" for="dropInPrice">Preis vom Drop-in</label>
+                <label class="form-label" for="dropInPrice" translate>Preis vom Drop-in</label>
                 <div class="input-euro"><input class="form-input" type="text" ng-model="class.dropInPrice" id="dropInPrice"/></div>
             </div>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="teacher">Lehrer</label>
+            <label class="form-label" for="teacher" translate>Lehrer</label>
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="discipline">Disziplin</label>
+            <label class="form-label" for="discipline" translate>Disziplin</label>
             <input class="form-input" type="text" ng-model="class.discipline" id="discipline"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="style">Stil</label>
+            <label class="form-label" for="style" translate>Stil</label>
             <input class="form-input" type="text" ng-model="class.style" id="style"/>
         </div>
         <div class="form-rel large">
-            <label class="form-label" for="description">Beschreibung</label>
+            <label class="form-label" for="description" translateBeschreibung</label>
             <textarea ng-model="class.description" id="description"></textarea>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="freeSchedule" value="true" ng-model="class.freeSchedule" name="freeSchedule" />
                 <i class="fa"></i>
-                <label for="freeSchedule">Freier Besuch?</label>
+                <label for="freeSchedule" translate>Freier Besuch?</label>
             </div>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="visitDurationMinutes">Feste Besuchslänge (in Minuten, leer = unbegrenzt)</label>
+            <label class="form-label" for="visitDurationMinutes" translate>Feste Besuchslänge (in Minuten, leer = unbegrenzt)</label>
             <input class="form-input" type="text" ng-model="class.visitDurationMinutes" id="visitDurationMinutes"/>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="requiresRegistration" value="true" ng-model="class.requiresRegistration" name="requiresRegistration" />
                 <i class="fa"></i>
-                <label for="requiresRegistration">Anmeldung erforderlich</label>
+                <label for="requiresRegistration" translate>Anmeldung erforderlich</label>
             </div>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="blackOnly" value="true" ng-model="class.blackOnly" name="blackOnly" />
                 <i class="fa"></i>
-                <label for="blackOnly">Nur Black Card</label>
+                <label for="blackOnly" translate>Nur Black Card</label>
             </div>
         </div>
         <!--<div ng-repeat="(key, value) in groupByTime">-->
