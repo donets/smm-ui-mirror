@@ -68,8 +68,8 @@ angular
         'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
-    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$q', '$cookieStore',
-        function ($rootScope, $state, $stateParams, amMoment, $window, $q, $cookieStore) {
+    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$http', 'RestApi', '$q', '$cookieStore',
+        function ($rootScope, $state, $stateParams, amMoment, $window, $http, RestApi, $q, $cookieStore) {
             // It's very handy to add references to $state and $stateParams to the $rootScope
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -85,9 +85,20 @@ angular.module('boltApp')
             });
             $rootScope.$on('$viewContentLoaded', function(){
                 if ($window.rendering) {
-                    $window.prerenderReady = true;
-                    $rootScope.prerenderReady = true;
-                    $('.pre').addClass('hide_loader');
+                    $http.get('//ipinfo.io/json/', {withCredentials: false}).success(function (response) {
+                        RestApi.query({route: 'cities'}).$promise.then(function (res) {
+                            var city = _.findWhere(res, {defaultName: response.city});
+                            $window.prerenderReady = true;
+                            $rootScope.prerenderReady = true;
+                            $cookieStore.put('cityId', city && city.active ? city.id : 1);
+                            $('.pre').addClass('hide_loader');
+                        });
+                    }).error(function () {
+                        $window.prerenderReady = true;
+                        $rootScope.prerenderReady = true;
+                        $cookieStore.put('cityId', 1);
+                        $('.pre').addClass('hide_loader');
+                    });
                 }
             });
             var checkRule = function (event, toState, toParams, redirectState) {
@@ -113,7 +124,6 @@ angular.module('boltApp')
                 $rootScope.rejection = null;
                 $rootScope.success = null;
                 var session = $cookieStore.get('session');
-                console.log(session);
                 if (session) {
                     $rootScope.userName = session.name;
                     $rootScope.roleMember = _.include(session.roles, 'member') ? true : false;
@@ -614,10 +624,10 @@ angular.module('boltApp')
                             RestApi.query({route: 'locations'}).$promise.then(function (response) {
                                 $rootScope.locations = response;
                             });
-                          RestApi.query({route: 'cities'}).$promise.then(function (response) {
-                            $rootScope.cities = response;
-                            $rootScope.cities.unshift({id:0, defaultName: "No location"});
-                          });
+                            RestApi.query({route: 'cities'}).$promise.then(function (response) {
+                                $rootScope.cities = response;
+                                $rootScope.cities.unshift({id:0, defaultName: "No location"});
+                            });
                             $rootScope.upload = function (target) {
                                 $rootScope.modalInstance = $modal.open({
                                     templateUrl: 'views/modalUpload.html',
