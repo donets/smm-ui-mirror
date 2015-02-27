@@ -467,7 +467,7 @@
 	background-color: #fff;
 	height: 36px;
 	width: 149px;
-	line-height: 26px;
+	line-height: 24px;
 	margin-right: 20px;
 	background: #fff url("/images/select-icon.png") no-repeat 90% 50%;
 	@media (max-width: $containerMobileWidth) {
@@ -519,7 +519,8 @@
 		text-align: center;
 		.select-city {
 			list-style: none;
-			margin: 0px 0 0 215px;
+			margin: 0px;
+			margin-left: 150px;
 			display: inline-block;
 			@media (max-width: $containerMobileWidth) {
 				margin: 0%;
@@ -591,17 +592,26 @@
 						display: none;
 					}
 				}
-				// &.tab-nav-map::before {
-				// 	content: "\F041";
-				// 	font-family: FontAwesome;
-				// 	margin-right: 5px;
-				// }
-				// &.tab-nav-list::before {
-				// 	content: "\F0CA";
-				// 	font-family: FontAwesome;
-				// 	margin-right: 5px;
-				// }
+				@media (min-width: $containerMobileWidth) {
+
+					&.tab-nav-map::before {
+						content: "\F041";
+						font-family: FontAwesome;
+						margin-right: 5px;
+					}
+					&.tab-nav-list::before {
+						content: "\F0CA";
+						font-family: FontAwesome;
+						margin-right: 5px;
+					}
+				}
 			}
+		}
+		@media (max-width: $containerMobileWidth) {
+			float: none;
+		}
+		@media (min-width: $containerMobileWidth) {
+			float: right;
 		}
 	}
 	.dashboard-title {
