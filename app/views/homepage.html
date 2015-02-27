@@ -132,7 +132,7 @@
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung.</p>
         <div class="b-map-nav clearfix">
-            <!-- <ul class="select-city" ng-show="!campaign.map">
+            <ul class="select-city" ng-show="!campaign.map; desktop" >
                 <li>
                     <a href="#" class="active">
                         Berlin
@@ -148,9 +148,9 @@
                         Hamburg
                     </a>
                 </li>
-            </ul> -->
+            </ul>
             <ul class="tab-nav" ng-show="!campaign.map">
-                <li>
+                <li ng-show="mobile">
                     <div class="tab-nav__select-style">
                         <select name="" id="">
                             <option value="Berlin">Berlin</option>
@@ -159,9 +159,10 @@
                         </select>
                     </div>
                 </li>
-                <li><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
-                <li><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
-                <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
+                <li ng-show="desktop"><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Karte</a></li>
+                <li ng-show="desktop"><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Liste</a></li>
+                <li ng-show="mobile"><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
+                <li ng-show="mobile"><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
             </ul>
         </div>
 
