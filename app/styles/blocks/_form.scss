@@ -10,7 +10,10 @@
     line-height: 30px;
     @include border-radius(2px);
     @include box-sizing(border-box);
-    @include my-placeholder($colorLightGrey, 1);
+    @include my-placeholder($colorGrey, 1);
+    @include input-placeholder {
+                color: #777;
+            }
     &:focus {
         outline: none;
         border-color: $colorGrey;

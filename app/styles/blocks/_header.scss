@@ -287,6 +287,10 @@
     }
     .form_button {
         width: 100%;
+        background: $colorActiveElement;
+        &:hover {
+            background: $colorActiveElementHover;
+        }
     }
     .form-input {
         display: block;

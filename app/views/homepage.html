@@ -30,7 +30,7 @@
         <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
         <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
     </div>
-    <!-- <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"><span>MEHR ERFAHREN</span></a> -->
+    <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
 </div>
 </div>
 <div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
@@ -150,7 +150,7 @@
                 </li>
             </ul>
             <ul class="tab-nav" ng-show="!campaign.map">
-                <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Karte</a></li><li><a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Liste</a></li><!--<li>
+                <li><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Karte</a></li><li><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Liste</a></li><!--<li>
                 <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
             </ul>
         </div>
@@ -185,7 +185,9 @@
         <p class="subtitle" ng-if="showDiscount">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis {{validUntilIn | amDateFormat: 'D. MMMM'}}</p>
         <div class="select-cards" ng-if="desktop">
             <ul class="select-cards__title">
-                <li></li>
+                <li>
+                    <div class="select-cards__circle" ng-if="desktop"><span>14 Tage <br>kostenlos <br>kennenlernen!</span></div>
+                </li>
                 <li></li>
                 <li>Preis pro Monat</li>
                 <li>Kurse pro Monat</li>
