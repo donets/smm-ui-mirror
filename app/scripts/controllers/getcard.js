@@ -297,4 +297,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         ];
 
+      $scope.changeCity = function(city) {
+        $scope.city = city;
+        $scope.campaign = $scope.citiesList.cities[$scope.city];
+      }
+
     }]);

@@ -134,17 +134,17 @@
         <div class="b-map-nav clearfix">
             <ul class="select-city" ng-show="!campaign.map; desktop" >
                 <li>
-                    <a href="#" class="active">
+                    <a href="javascript:" ng-class="{'active': !city || city === 'B'}" ng-click="changeCity('B')">
                         Berlin
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="javascript:" ng-class="{'active': city === 'M'}" ng-click="changeCity('M')">
                         München
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="javascript:" ng-class="{'active': city === 'H'}" ng-click="changeCity('H')">
                         Hamburg
                     </a>
                 </li>
