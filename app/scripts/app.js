@@ -411,7 +411,7 @@ angular.module('boltApp')
                 controller : 'DashboardCtrl'
             })
             .state('signup', {
-                url : '/p/signup/',
+                url : '/p/signup/:cityId',
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
@@ -420,6 +420,14 @@ angular.module('boltApp')
 
                         return $http.get('json/cards.json', {cache: true});
 
+                    },
+
+                    getCities: function(RestApi) {
+                      return RestApi.query({route: 'cities'}).$promise;
+                    },
+
+                    getCityId: function($stateParams, $cookieStore) {
+                      return parseInt($stateParams.cityId) || $cookieStore.get("cityId") || 1
                     }
 
                 },
