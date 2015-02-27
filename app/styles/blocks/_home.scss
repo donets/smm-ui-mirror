@@ -4,6 +4,7 @@
     .b-main-cover {
         @media (min-width: $containerMobileWidth) {
             .b-main-slogan {
+                // background: url("/images/videoGrid.png") repeat center center;
                 background: rgba(0,0,0,0.4);
             }
         }
@@ -83,6 +84,10 @@
                 }
             }
             input[type="submit"] {
+                background: $colorActiveElement;
+                &:hover {
+                    background: #3BCBBD;
+                }
                 @media (min-width: $containerMobileWidth) {
 
                 }
@@ -342,6 +347,11 @@
             width: 600px;
         }
     }
+    @media (min-width: $containerMobileWidth) {
+        h2 {
+            margin-top: 125px;
+        }
+    }
     h2 {
         line-height: 1;
         margin-bottom: 50px;
@@ -363,11 +373,59 @@
         font-size: 20px;
         display: inline-block;
         margin: 20px 0;
+        color: $colorActiveElement;
         @media (max-width: $containerMobileWidth) {
             font-size: 30px;
         }
         @media (max-width: $containerMobileWidth640) {
             font-size: 15px;
+        }
+    }
+}
+.b-equipment__form-block {
+    width: 100%;
+    background-color: rgba(#3bcbbd, .9); // layer fill content
+    top: 0;
+    position: absolute;
+    padding: 24px 0;
+    @media (max-width: $containerMobileWidth) {
+        display: block;
+    }
+    @media (max-width: $containerMobileWidth) {
+        display: none;
+    }
+    .form-block__title {
+        font-size: 20px;
+        font-style: italic;
+        color: #fff;
+        text-align: left;
+        float: left;
+        line-height: 36px;
+    }
+    .container {
+        width: 990px;
+    }
+    .b-card-subscribe {
+        margin: 0;
+        float: right;
+        .zip {
+            max-width: 100px;
+        }
+        input {
+            height: 36px;
+            line-height: 36px;
+            font-size: 16px;
+        }
+        input[name="email"] {
+            width: 293px;
+        }
+        input[type="submit"] {
+            width: auto;
+            border: 1px solid #fff;
+            background: $colorActiveElement;
+            &:hover {
+                background: $colorActiveElementHover;
+            }
         }
     }
 }
@@ -451,6 +509,10 @@
         width: 230px;
         min-width: 0;
         margin: 50px 0 0;
+        background: $colorActiveElement;
+            &:hover {
+                background: $colorActiveElementHover;
+            }
         @media (max-width: $containerMobileWidth) {
             width: 100%;
         }
@@ -482,7 +544,7 @@
     }
 }
 .b-features {
-    background: $colorLightRed;
+    background: $colorActiveElement;
     .b-card-list {
         li {
             color: #fff;
@@ -581,6 +643,10 @@
             }
         }
         input[type="submit"] {
+            background: $colorActiveElement;
+            &:hover {
+                background: $colorActiveElementHover;
+            }
             @media (min-width: $containerMobileWidth) {
 
             }
@@ -603,6 +669,7 @@
     .faq-link {
         font-size: 20px;
         margin: 20px 0 0;
+        color: $colorActiveElement;
         @media (max-width: $containerMobileWidth) {
             display: block;
             font-size: 30px;

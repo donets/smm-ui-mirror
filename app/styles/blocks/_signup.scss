@@ -1,7 +1,7 @@
 @import "../_base/base";
 
 .signup-title {
-    padding: 150px 0 0;
+    padding: 120px 0 0;
     text-align: center;
     h2 {
         @extend %title-light;
@@ -16,9 +16,9 @@
     }
     li {
         width: 235px;
-        margin: 50px 0 0;
+        margin: 98px 0 0;
         text-align: center;
-        background: url("/images/check-circle.svg") center top no-repeat;
+        background: url("/images/green-circle.png") center top no-repeat;
         background-size: 50px 50px;
         padding-top: 70px;
         @media (max-width: $containerMobileWidth) {
@@ -26,7 +26,7 @@
         }
         b {
             display: block;
-            font-size: 15px;
+            font-size: 18px;
             line-height: 1.2;
             padding: 0 10px;
             @media (max-width: $containerMobileWidth) {
@@ -72,7 +72,7 @@
                 color: #fff;
             }
             &.active {
-                color: $colorLink;
+                color: $colorActiveElement;
             }
         }
     }
@@ -110,12 +110,12 @@
                     line-height: 40px;
                 }
                 &.active {
-                    color: $colorLink;
+                    color: $colorActiveElement;
                 }
             }
             &:first-child {
                 a {
-                    color: $colorLink;
+                    color: #3bcbbd;;
                 }
             }
         }
@@ -279,7 +279,7 @@
                         font-size: 16px;
                     }
                     &.discount {
-                        color: $colorLink;
+                        color: $colorActiveElement;
                     }
                 }
             }
@@ -315,6 +315,11 @@
         }
         .w-clear {
             margin: 0 auto;
+            .form-check {
+                .fa {
+                    color: $colorActiveElement;
+                }
+            }
         }
         .info {
             display: block;
@@ -369,6 +374,8 @@
     }
     .form-error {
         font-size: 15px;
+        color: $colorActiveElement;
+        font-weight: 600;
         @media (max-width: $containerMobileWidth) {
             font-size: 24px;
         }
@@ -381,6 +388,11 @@
     }
     button {
         width: 100%;
+        background: $colorActiveElement;
+        &:hover {
+            background: #34D7C6;
+
+        }
     }
     .two-third {
         width: 320px;
@@ -406,7 +418,7 @@
         font-size: 18px;
         display: inline-block;
         margin: 0 0 10px;
-        color: $colorGreen;
+        color: $colorActiveElement;
         outline: none;
         text-decoration: none;
         @media (max-width: $containerMobileWidth) {
@@ -522,14 +534,14 @@
             }
             strong, b {
                 font-family: $fontBold;
-                color: $colorLink;
+                color: $colorActiveElement;
                 &.old {
                     text-decoration: line-through;
                     color: $colorText;
                 }
             }
             button {
-                background: $colorLink;
+                background: $colorNonActiveElement;
                 height: 42px;
                 width: 100%;
                 border: 0 none;
@@ -538,18 +550,18 @@
                 color: #fff;
                 padding: 0;
                 &:hover {
-                    background: $colorGreen;
+                    background: $colorActiveElement;
                 }
                 &:active {
-                    background: $colorGreen;
+                    background: $colorActiveElement;
                 }
                 &.active {
-                    background: $colorGreen;
+                    background: $colorActiveElement;
                     &:hover {
-                        background: $colorGreen;
+                        background: $colorActiveElement;
                     }
                     &:active {
-                        background: $colorGreen;
+                        background: $colorActiveElement;
                     }
                     .fa {
                         &:before {
@@ -595,7 +607,7 @@
                     border-width: 6px;
                 }
                 button {
-                    background: $colorLink;
+                    background: $colorNonActiveElement;
                     height: 80px;
                     width: 100%;
                     border: 0 none;
@@ -608,18 +620,18 @@
                         font-size: 20px;
                     }
                     &:hover {
-                        background: $colorGreen;
+                        background: $colorActiveElement;
                     }
                     &:active {
-                        background: $colorGreen;
+                        background: $colorActiveElement;
                     }
                     &.active {
-                        background: $colorGreen;
+                        background: $colorActiveElement;
                         &:hover {
-                            background: $colorGreen;
+                            background: $colorActiveElement;
                         }
                         &:active {
-                            background: $colorGreen;
+                            background: $colorActiveElement;
                         }
                         .fa {
                             &:before {
@@ -668,7 +680,7 @@
     }
     strong, b {
         font-family: $fontBold;
-        color: $colorLink;
+        color: $colorActiveElement;
         &.old {
             text-decoration: line-through;
             color: $colorText;
@@ -677,7 +689,7 @@
 }
 .b-signup-info {
     width: 600px;
-    margin: 50px auto -50px;
+    margin: 60px auto -50px;
     font-size: 13px;
     text-align: center;
     color: $colorGrey;
@@ -686,8 +698,8 @@
         font-size: 26px;
     }
     @media (max-width: $containerMobileWidth640) {
-        margin: 20px auto -20px;
-        font-size: 13px;
+        margin: 100px auto -20px;
+        font-size: 24px;
     }
 }
 .stripe-link {
