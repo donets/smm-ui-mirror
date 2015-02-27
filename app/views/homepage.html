@@ -83,24 +83,49 @@
         <a ui-sref="dashboard" target="_blank">Entdecke unsere Kurse ›</a>
     </div>
 </div>
-<div class="b-card b-features">
+<div class="b-card b-features" ng-class="{'desktop': desktop}">
     <div class="container">
-        <ul class="b-card-list">
+        <ul class="b-card-list" ng-show="mobile">
             <li>
-                <img class="card-image" src="images/f-01.svg" alt=""/>
+                <img class="card-image" src="images/f-01.svg" alt=""/> 
                 <b>Einfach ausprobieren</b>
                 <span>(14 Tage ausprobieren, Geld zurück bei Nichtgefallen)</span>
-            </li><li>
-            <img class="card-image" src="images/f-02.svg" alt=""/>
-            <b>Keine Bindung</b>
-            <span>(Keine Mindestlaufzeit, monatlich kündigen und pausieren)</span>
-        </li><li>
-        <img class="card-image" src="images/f-03.svg" alt=""/>
-        <b>Kräftig sparen</b>
-        <span>(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts zahlen)</span>
-    </li>
-</ul>
-</div>
+            </li>
+            <li>
+                <img class="card-image" src="images/f-02.svg" alt=""/> 
+                <b>Keine Bindung</b>
+                <span>(Keine Mindestlaufzeit, monatlich kündigen und pausieren)</span>
+            </li>
+            <li>
+                <img class="card-image" src="images/f-03.svg" alt=""/> 
+                <b>Kräftig sparen</b>
+                <span>(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts zahlen)</span>
+            </li>
+        </ul>
+        <ul class="b-card-list2" ng-show="desktop">
+            <li>
+                <p>
+                    <!-- <img class="card-image" src="images/trim.png" alt=""/> -->
+                    <b>Auswahl</b>
+                </p>
+                <p>Egal wie beschäftigt Du bist: Du <br>findest immer und überall ein <br>Angebot. Die Auswahl ist <br>unerschöpflich.</p>
+            </li>
+            <li>
+                <p>
+                    <!-- <img class="card-image" src="images/trim.png" alt=""/> -->
+                    <b>Freiheit</b>
+                </p>
+                <p>Schluss mit langfristigen Verträgen. <br> Du kannst monatlich kündigen <br> oder pausieren. Ohne Bindung <br> an ein Studio.</p>
+            </li>
+            <li>
+                <p>
+                    <!-- <img class="card-image" src="images/trim.png" alt=""/> -->
+                    <b>Entfaltung</b>
+                </p>
+                <p>Lass Dich täglich inspirieren! <br> Trainiere mit mehr Abwechslung und <br> Motivation. Entfalte Dein ganzes <br> Potenzial.</p>
+            </li>
+        </ul>
+    </div>
 </div>
 <div class="b-card b-map" id="studios">
     <div class="container">
@@ -214,118 +239,126 @@
                         <ul class="b-card-list">
                             <li>
                                 <img class="card-image" src="images/hiw_01.png" alt=""/>
-                                <p>1. Bestelle in unter 1 Minute Deine Somuchmore Card</p>
-                                <span>(kommt in wenigen Tagen per Post – Du kannst schon vorher mit der Bestätigungs-E-Mail Kurse besuchen)</span>
+                                <p>1. Bestelle Deine Karte</p>
+                                <span>Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse besuchen.</span>
+                            </li>
+                            <li>
+                                <img class="card-image" src="images/hiw_02.png" alt=""/>
+                                <p>2. Finde Dein Angebot</p>
+                                <span>Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin.</span>
+                            </li>
+                            <li>
+                                <img class="card-image" src="images/hiw_03.png" alt=""/>
+                                <p>3. Trainiere nach Herzenslust</p>
+                                <span>Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitglied begrüßt.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="b-card b-media">
+                    <div class="container">
+                        <!-- <p class="subtitle">Bekannt aus</p> -->
+                        <ul class="b-card-list">
+                            <li>
+                                <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
+                            </li>
+                            <li>
+                                <img src="images/vice.png" alt="vice"/>
+                            </li>
+                            <li>
+                                <img src="images/ds.png" alt="ds"/>
+                            </li>
+                            <li>
+                                <img src="images/zitty.png" alt="zitty"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="b-card b-testimonial">
+                    <div class="container" disable-animate>
+                        <ul ng-if="desktop" class="b-card-list">
+                            <li>
+                                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                                <p>– Alexandra Liakou, Regisseurin</p>
                             </li><li>
-                            <img class="card-image" src="images/hiw_02.png" alt=""/>
-                            <p>2. Finde in unserem <a ui-sref="dashboard" target="_blank">Kursplaner</a> in Sekunden Deinen Lieblingskurs</p>
-                            <span>(in der Regel keine Voranmeldung erforderlich)</span>
+                            <img class="circle-image" src="images/konard.jpg" alt=""/>
+                            <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
+                            <p>– Konrad Knops, Osteopath</p>
                         </li><li>
-                        <img class="card-image" src="images/hiw_03.png" alt=""/>
-                        <p>3. Zeige im Studio die Somuchmore Card vor und nimm am Kurs teil</p>
+                        <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                        <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
+                        <p>– Sonja Reifenhäuser, Food Coach</p>
                     </li>
                 </ul>
+                <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+                    <slide>
+                        <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                        <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                        <p>– Alexandra Liakou, Regisseurin</p>
+                    </slide>
+                    <slide>
+                        <img class="circle-image" src="images/konard.jpg" alt=""/>
+                        <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
+                        <p>– Konrad Knops, Osteopath</p>
+                    </slide>
+                    <slide>
+                        <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                        <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
+                        <p>– Sonja Reifenhäuser, Food Coach</p>
+                    </slide>
+                </carousel>
+                <div class="fb-like-box"
+                data-href="https://www.facebook.com/somuchmoredeutsch"
+                data-width="{{fblikeboxWidth}}"
+                data-height="180"
+                data-colorscheme="light"
+                data-show-faces="true"
+                data-header="false"
+                data-stream="false"
+                data-show-border="false"></div>
             </div>
         </div>
-        <div class="b-card b-media">
-            <div class="container">
-                <p class="subtitle">Bekannt aus</p>
-                <ul class="b-card-list">
+        <div class="b-facts">
+            <carousel interval="5000" disable-animate>
+                <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': desktop ? documentWidth / 3.6 : documentWidth / 1.6875 }">
+                    <img ng-src="{{slide.image}}"/>
+                    <div class="carousel-caption">
+                        <h4>{{slide.title}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                    <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
+                </slide>
+            </carousel>
+        </div>
+        <div class="b-card b-faq">
+            <div class="container" disable-animate>
+                <h2>Welche Fragen hast Du noch?</h2>
+                <ul ng-if="desktop" class="b-card-list">
                     <li>
-                        <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
+                        <h3>Kann ich überall alle Kurse besuchen?</h3>
+                        <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
                     </li><li>
-                    <img src="images/ds.png" alt="ds"/>
+                    <h3>Muss ich mich vorher anmelden?</h3>
+                    <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
                 </li><li>
-                <img src="images/zitty.png" alt="zitty"/>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="b-card b-testimonial">
-    <div class="container" disable-animate>
-        <ul ng-if="desktop" class="b-card-list">
-            <li>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
-                <p>– Alexandra Liakou, Regisseurin</p>
+                <h3>Was kann mit meiner Karte noch machen?</h3>
+                <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
             </li><li>
-            <img class="circle-image" src="images/konard.jpg" alt=""/>
-            <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
-            <p>– Konrad Knops, Osteopath</p>
-        </li><li>
-        <img class="circle-image" src="images/sonia.jpg" alt=""/>
-        <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
-        <p>– Sonja Reifenhäuser, Food Coach</p>
-    </li>
-</ul>
-<carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-    <slide>
-        <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-        <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
-        <p>– Alexandra Liakou, Regisseurin</p>
-    </slide>
-    <slide>
-        <img class="circle-image" src="images/konard.jpg" alt=""/>
-        <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
-        <p>– Konrad Knops, Osteopath</p>
-    </slide>
-    <slide>
-        <img class="circle-image" src="images/sonia.jpg" alt=""/>
-        <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
-        <p>– Sonja Reifenhäuser, Food Coach</p>
-    </slide>
-</carousel>
-<div class="fb-like-box"
-data-href="https://www.facebook.com/somuchmoredeutsch"
-data-width="{{fblikeboxWidth}}"
-data-height="180"
-data-colorscheme="light"
-data-show-faces="true"
-data-header="false"
-data-stream="false"
-data-show-border="false"></div>
-</div>
-</div>
-<div class="b-facts">
-    <carousel interval="5000" disable-animate>
-        <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': desktop ? documentWidth / 3.6 : documentWidth / 1.6875 }">
-            <img ng-src="{{slide.image}}"/>
-            <div class="carousel-caption">
-                <h4>{{slide.title}}</h4>
-                <p>{{slide.text}}</p>
-            </div>
-            <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
-        </slide>
-    </carousel>
-</div>
-<div class="b-card b-faq">
-    <div class="container" disable-animate>
-        <h2>Welche Fragen hast Du noch?</h2>
-        <ul ng-if="desktop" class="b-card-list">
-            <li>
-                <h3>Kann ich überall alle Kurse besuchen?</h3>
-                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-            </li><li>
-            <h3>Muss ich mich vorher anmelden?</h3>
-            <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-        </li><li>
-        <h3>Was kann mit meiner Karte noch machen?</h3>
-        <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
-    </li><li>
-    <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
-    <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
-</li>
-</ul>
-<carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-    <slide>
-        <h3>Kann ich überall alle Kurse besuchen?</h3>
-        <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+            <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
+            <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
+        </li>
+    </ul>
+    <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+        <slide>
+            <h3>Kann ich überall alle Kurse besuchen?</h3>
+            <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+        </slide><slide>
+        <h3>Muss ich mich vorher anmelden?</h3>
+        <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
     </slide><slide>
-    <h3>Muss ich mich vorher anmelden?</h3>
-    <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-</slide><slide>
-<h3>Was kann mit meiner Karte noch machen?</h3>
-<p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
+    <h3>Was kann mit meiner Karte noch machen?</h3>
+    <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
 </slide><slide>
 <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
 <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
