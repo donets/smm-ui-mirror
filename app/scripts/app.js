@@ -490,7 +490,7 @@ angular.module('boltApp')
 
                     getOccurrences: function(RestApi) {
 
-                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
+                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, cityId: 1, withActiveParent: true}).$promise;
 
                     },
 
