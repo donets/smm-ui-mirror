@@ -430,6 +430,13 @@
     }
 }
 .b-map {
+    text-align: center;
+    h2 {
+        text-align: center;
+    }
+    .subtitle {
+        text-align: center;
+    }
     .angular-google-map-container {
         margin: 20px 0 0;
         height: 480px;
@@ -438,6 +445,42 @@
         }
         @media (max-width: $containerMobileWidth640) {
             height: 300px;
+        }
+    }
+    .b-map-nav {
+        text-align: center;
+        .select-city {
+            list-style: none;
+            margin: 30px 0;
+            display: inline-block;
+            li {
+                display: inline-block;
+                &::before {
+                    content:'\2022';
+                    margin:0 0.2em;
+                }
+                &:first-child::before {
+                    content:'';
+                    margin:0;
+                }
+                a {
+                    font-size: 18px;
+                    color: $colorGrey;
+                    &:hover {
+                        color: $colorActiveElement;
+                    }
+                    &.active {
+                        color: $colorActiveElement;
+                    }
+                }
+            }
+
+            @media (max-width: $containerMobileWidth) {
+                display: block;
+            }
+            @media (max-width: $containerMobileWidth) {
+                display: none;
+            }
         }
     }
     .info-window {
@@ -453,6 +496,14 @@
     }
     .tab-nav {
         margin: 30px 0;
+        float: right;
+        li {
+            width: 85px;
+            a {
+                width: auto;
+                padding: 0;
+            }
+        }
     }
     .dashboard-title {
         padding: 0;
@@ -510,9 +561,9 @@
         min-width: 0;
         margin: 50px 0 0;
         background: $colorActiveElement;
-            &:hover {
-                background: $colorActiveElementHover;
-            }
+        &:hover {
+            background: $colorActiveElementHover;
+        }
         @media (max-width: $containerMobileWidth) {
             width: 100%;
         }

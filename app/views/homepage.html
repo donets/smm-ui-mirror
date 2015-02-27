@@ -106,11 +106,30 @@
     <div class="container">
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung.</p>
-        <ul class="tab-nav" ng-show="!campaign.map">
-            <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
-            <a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Studios als Liste</a></li><!--<li>
-            <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
-        </ul>
+        <div class="b-map-nav clearfix">
+            <ul class="select-city" ng-show="!campaign.map">
+                <li>
+                    <a href="#" class="active">
+                        Berlin
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        München
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Hamburg
+                    </a>
+                </li>
+            </ul>
+            <ul class="tab-nav" ng-show="!campaign.map">
+                <li><a ng-class="{'active': tab === 'map'}" ng-click="tab = 'map'" href="">Karte</a></li><li><a ng-class="{'active': tab === 'list'}" href="" ng-click="tab = 'list'">Liste</a></li><!--<li>
+                <a ng-class="{'active': tab === 'classes'}" ng-click="tab = 'classes'" ui-sref="home.classes">Kurse</a></li>-->
+            </ul>
+        </div>
+
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="!campaign.map" ng-show="tab === 'map'">
         <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
         <ui-gmap-windows show="'show'">
