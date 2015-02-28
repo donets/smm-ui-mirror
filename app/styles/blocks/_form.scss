@@ -8,7 +8,7 @@
     color: $colorText;
     padding: 5px 12px;
     line-height: 30px;
-    @include border-radius(2px);
+    @include border-radius(3px);
     @include box-sizing(border-box);
     @include my-placeholder($colorGrey, 1);
     @include input-placeholder {

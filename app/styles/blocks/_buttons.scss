@@ -13,7 +13,7 @@
     font-family: $fontLight;
     @include box-sizing(border-box);
     letter-spacing: 1px;
-    @include border-radius(4px);
+    @include border-radius(3px);
     font-weight: 600;
     text-align: center;
     padding: 0 20px;
@@ -103,7 +103,7 @@
     font-family: $fontLight;
     @include box-sizing(border-box);
     letter-spacing: 1px;
-    @include border-radius(2px);
+    @include border-radius(3px);
     text-align: center;
     padding: 0 12px;
     text-decoration: none;

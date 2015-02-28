@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        defaultName: "Berlin",
+        countryCode: "DE",
+        active: true
+    },
+    {
+        id: 2,
+        defaultName: "MГјnchen",
+        countryCode: "DE",
+        active: false
+    },
+    {
+        id: 3,
+        defaultName: "Hamburg",
+        countryCode: "DE",
+        active: false
+    }
+]

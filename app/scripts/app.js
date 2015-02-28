@@ -85,7 +85,7 @@ angular.module('boltApp')
             });
             $rootScope.$on('$viewContentLoaded', function(){
                 if ($window.rendering) {
-                    $http.get('//ipinfo.io/json/', {withCredentials: false}).success(function (response) {
+                    $http.get('//ipinfo.io/json/?token=c2989e43470111', {withCredentials: false}).success(function (response) {
                         RestApi.query({route: 'cities'}).$promise.then(function (res) {
                             var city = _.findWhere(res, {defaultName: response.city});
                             $window.prerenderReady = true;

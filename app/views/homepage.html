@@ -1,10 +1,10 @@
 <div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
-    vg-player-ready="video.onPlayerReady"
-    vg-complete="video.onCompleteVideo"
-    vg-responsive="video.responsive"
-    vg-stretch="video.stretch"
-    disable-animate>
+                vg-player-ready="video.onPlayerReady"
+                vg-complete="video.onCompleteVideo"
+                vg-responsive="video.responsive"
+                vg-stretch="video.stretch"
+                disable-animate>
     <vg-video vg-src="video.sources" vg-preload="video.preload" vg-loop="video.loop" ng-if="desktop"></vg-video>
 
     <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
@@ -274,9 +274,6 @@
                         <ul class="b-card-list">
                             <li>
                                 <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
-                            </li>
-                            <li>
-                                <img src="images/vice.png" alt="vice"/>
                             </li>
                             <li>
                                 <img src="images/ds.png" alt="ds"/>
