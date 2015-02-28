@@ -84,7 +84,7 @@
 				}
 			}
 			input[type="submit"] {
-				background: $colorActiveElement;
+				background: $colorMain;
 				&:hover {
 					background: #3BCBBD;
 				}
@@ -119,9 +119,9 @@
 		visibility: visible;
 	}
 	.signup-button {
-		background: $colorActiveElement;
+		background: $colorMain;
 		&:hover {
-			background: $colorActiveElementHover;
+			background: $colorMainHover;
 		}
 	}
 }
@@ -276,7 +276,7 @@
 	height: 169px;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
-	background: $colorActiveElement;
+	background: $colorMain;
 	line-height: 24px;
 	font-size: 20px;
 	font-style: italic;
@@ -285,6 +285,8 @@
 	position: relative;
 	top: -70px;
 	display: table;
+	padding-left: 20px;
+	text-align: left;
 	span {
 		display: table-cell;
 		vertical-align: middle;
@@ -400,8 +402,8 @@
 		font-size: 20px;
 		display: inline-block;
 		margin: 20px 0;
-		color: $colorActiveElement;
-		font-weight: 600;
+		color: $colorLink;
+		font-family: $fontBold;
 		@media (max-width: $containerMobileWidth) {
 			font-size: 30px;
 		}
@@ -450,9 +452,9 @@
 		input[type="submit"] {
 			width: auto;
 			border: 1px solid #fff;
-			background: $colorActiveElement;
+			background: $colorMain;
 			&:hover {
-				background: $colorActiveElementHover;
+				background: $colorMainHover;
 			}
 		}
 	}
@@ -529,23 +531,23 @@
 			}
 			li {
 				display: inline-block;
-				&::before {
+				&:before {
 					content:'\2022';
 					margin:0 0.2em;
 				}
-				&:first-child::before {
+				&:first-child:before {
 					content:'';
 					margin:0;
 				}
 				a {
 					font-size: 18px;
 					color: $colorGrey;
-					font-weight: bold;
+					font-family: $fontRegular;
 					&:hover {
-						color: $colorActiveElement;
+						color: $colorMain;
 					}
 					&.active {
-						color: $colorActiveElement;
+						color: $colorMain;
 					}
 				}
 			}
@@ -561,6 +563,11 @@
 				position: absolute;
 				right: 0;
 				top: 10px;
+				li {
+					a {
+						border-color: #EBEBEB;
+					}
+				}
 			}
 		}
 	}
@@ -598,12 +605,12 @@
 				}
 				@media (min-width: $containerMobileWidth) {
 
-					&.tab-nav-map::before {
+					&.tab-nav-map:before {
 						content: "\F041";
 						font-family: FontAwesome;
 						margin-right: 5px;
 					}
-					&.tab-nav-list::before {
+					&.tab-nav-list:before {
 						content: "\F0CA";
 						font-family: FontAwesome;
 						margin-right: 5px;
@@ -679,9 +686,9 @@
 		width: auto;
 		margin: 50px 0 0;
 		line-height: 37px;
-		background: $colorActiveElement;
+		background: $colorMain;
 		&:hover {
-			background: $colorActiveElementHover;
+			background: $colorMainHover;
 		}
 		@media (max-width: $containerMobileWidth) {
 			width: 100%;
@@ -715,7 +722,7 @@
 	}
 }
 .b-features {
-	background: $colorActiveElement;
+	background: $colorMain;
 	&.desktop {
 		background: $colorBackTimetable;
 	}
@@ -768,7 +775,7 @@
 			}
 			b {
 				font-size: 24px;
-				&::before {
+				&:before {
 					content: "";
 					display: inline-block;
 					margin-right: 10px;
@@ -857,9 +864,9 @@
 			}
 		}
 		input[type="submit"] {
-			background: $colorActiveElement;
+			background: $colorMain;
 			&:hover {
-				background: $colorActiveElementHover;
+				background: $colorMainHover;
 			}
 			@media (min-width: $containerMobileWidth) {
 
@@ -883,8 +890,8 @@
 	.faq-link {
 		font-size: 20px;
 		margin: 20px 0 0;
-		color: $colorActiveElement;
-		font-weight: 600;
+		color: $colorLink;
+		font-family: $fontBold;
 		@media (max-width: $containerMobileWidth) {
 			display: block;
 			font-size: 30px;

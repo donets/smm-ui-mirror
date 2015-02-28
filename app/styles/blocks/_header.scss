@@ -16,7 +16,7 @@
     }
     &.stick {
         position: fixed;
-        background: getRgba($colorText, 0.8);
+        background: getRgba($colorMain, 0.8);
         height: 80px;
         opacity: 0;
         visibility: hidden;
@@ -58,7 +58,7 @@
             margin: 0;
             input[type="text"], input[type="email"] {
                 @media (min-width: $containerMobileWidth) {
-                    width: 370px;
+                    width: 293px;
                     height: 36px;
                     margin-right: 10px;
                     font-size: 18px;
@@ -73,9 +73,9 @@
                 @media (min-width: $containerMobileWidth) {
                     height: 36px;
                     width: 136px;
-                    background: $colorActiveElement;
+                    background: $colorMain;
                     &:hover {
-                        background: $colorActiveElementHover;
+                        background: rgba(#fff, .5);
                     }
                     line-height: 36px;
                     @include border-radius(2px);
@@ -287,9 +287,9 @@
     }
     .form_button {
         width: 100%;
-        background: $colorActiveElement;
+        background: $colorMain;
         &:hover {
-            background: $colorActiveElementHover;
+            background: $colorMainHover;
         }
     }
     .form-input {

@@ -75,8 +75,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 }
             };
 
-            var markerIcon = new Image().src = '/images/marker.png';
-            var markerIconHover = new Image().src = '/images/marker-hover.png';
+            var markerIcon = new Image().src = '/images/marker.svg';
+            var markerIconHover = new Image().src = '/images/marker-hover.svg';
 
             $scope.markerEvents = {
                 mouseover : function(marker, eventName, model) {
@@ -96,7 +96,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 return obj.latitude === null || obj.longitude === null;
             });
             _.map($scope.locations, function (obj) {
-                obj.icon = '/images/marker.png';
+                obj.icon = '/images/marker.svg';
             });
         });
 

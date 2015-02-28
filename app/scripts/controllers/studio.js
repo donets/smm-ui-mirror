@@ -68,7 +68,7 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                         latitude: $scope.currLocation.latitude,
                         longitude: 	$scope.currLocation.longitude
                     },
-                    icon: '/images/marker.png'
+                    icon: '/images/marker.svg'
                 };
 
             });

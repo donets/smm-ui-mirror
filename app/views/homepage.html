@@ -33,12 +33,12 @@
     <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
 </div>
 </div>
-<div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
+
+
+<div class="b-header stick b-equipment__form-block" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
     <div class="container">
-        <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home">Somuchmore</a></div>
-        <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
+        <span class="form-block__title">14 Tage <u>kostenlos</u> kennenlernen!</span>
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
-                <b>14 Tage ausprobieren?</b>
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
@@ -48,12 +48,10 @@
                     <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
                 </div>
             </form>
-            <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
-            <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
-            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
-        </div>
     </div>
 </div>
+
+
 <div class="mobile-stick" ng-show="mobile" ng-class="{'show-bottom': showBottomMobile}">
     <a class="form-button signup-button variant variant_1" ng-if="!invitation" href="" ng-click="openSubscribe()">Erhalte heute Deine Einladung</a>
     <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>
@@ -61,21 +59,6 @@
     <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup">Deine Karte erhalten</a>
 </div>
 <div class="b-card b-equipment" id="highligt">
-    <div class="b-equipment__form-block">
-        <div class="container">
-            <span class="form-block__title">14 Tage <u>kostenlos</u> kennenlernen!</span>
-            <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
-                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
-                <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
-                <div class="form-response">
-                    <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
-                    <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
-                </div>
-            </form>
-        </div>
-    </div>
     <div class="container">
         <h2>Unendliche Auswahl, tägliche Inspiration</h2>
         <p>Beweglichkeit und das OM von <b>Yoga</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b>, <b>TRX</b> und <b>Fitness</b>. Schwung und Sinnlichkeit von <b>Tango</b>, <b>Hip-Hop</b> und <b>Tanz</b>. Körperbewusstsein und Stärke von <b>Pilates</b>, <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Erkenntnis und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung in <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
@@ -104,24 +87,21 @@
         </ul>
         <ul class="b-card-list2" ng-show="desktop">
             <li>
-                <p>
-                    <!-- <img class="card-image" src="images/trim.png" alt=""/> -->
-                    <b>Auswahl</b>
-                </p>
+                <b>
+                    Auswahl
+                </b>
                 <p>Egal wie beschäftigt Du bist: Du <br>findest immer und überall ein <br>Angebot. Die Auswahl ist <br>unerschöpflich.</p>
             </li>
             <li>
-                <p>
-                    <!-- <img class="card-image" src="images/trim.png" alt=""/> -->
-                    <b>Freiheit</b>
-                </p>
+                <b>
+                    Freiheit
+                </b>
                 <p>Schluss mit langfristigen Verträgen. <br> Du kannst monatlich kündigen <br> oder pausieren. Ohne Bindung <br> an ein Studio.</p>
             </li>
             <li>
-                <p>
-                    <!-- <img class="card-image" src="images/trim.png" alt=""/> -->
-                    <b>Entfaltung</b>
-                </p>
+                <b>
+                    Entfaltung
+                </b>
                 <p>Lass Dich täglich inspirieren! <br> Trainiere mit mehr Abwechslung und <br> Motivation. Entfalte Dein ganzes <br> Potenzial.</p>
             </li>
         </ul>
@@ -151,16 +131,18 @@
             </ul>
             <ul class="tab-nav" ng-show="!campaign.map">
                 <li ng-show="mobile">
-                    <div class="tab-nav__select-style">
-                        <select name="" id="">
-                            <option value="Berlin">Berlin</option>
-                            <option value="München">München</option>
-                            <option value="Hamburg">Hamburg</option>
+                    <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
+                        <select chosen required name="cardMonth" width="'100%'" id="exp_month" class="third"
+                            ng-model="order.card.exp_month" ng-change="orderChange('card')"
+                            data-placeholder="Monat"
+                            disable-search="true"
+                            ng-options="item for item in month">
+                            <option value=""></option>
                         </select>
                     </div>
                 </li>
-                <li><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Karte</a></li>
-                <li><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Liste</a></li>
+                <li><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
+                <li><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
             </ul>
         </div>
 
@@ -273,9 +255,9 @@
                             <li>
                                 <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <img src="images/vice.png" alt="vice"/>
-                            </li>
+                            </li> -->
                             <li>
                                 <img src="images/ds.png" alt="ds"/>
                             </li>
