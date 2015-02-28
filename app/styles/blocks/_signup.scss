@@ -18,7 +18,7 @@
         width: 235px;
         margin: 98px 0 0;
         text-align: center;
-        background: url("/images/green-circle.png") center top no-repeat;
+        background: url("/images/check-circle.svg") center top no-repeat;
         background-size: 50px 50px;
         padding-top: 70px;
         @media (max-width: $containerMobileWidth) {
@@ -72,7 +72,7 @@
                 color: #fff;
             }
             &.active {
-                color: $colorActiveElement;
+                color: $colorMain;
             }
         }
     }
@@ -110,7 +110,7 @@
                     line-height: 40px;
                 }
                 &.active {
-                    color: $colorActiveElement;
+                    color: $colorMain;
                 }
             }
             &:first-child {
@@ -279,7 +279,7 @@
                         font-size: 16px;
                     }
                     &.discount {
-                        color: $colorActiveElement;
+                        color: $colorMain;
                     }
                 }
             }
@@ -317,7 +317,7 @@
             margin: 0 auto;
             .form-check {
                 .fa {
-                    color: $colorActiveElement;
+                    color: $colorMain;
                 }
             }
         }
@@ -374,8 +374,8 @@
     }
     .form-error {
         font-size: 15px;
-        color: $colorActiveElement;
-        font-weight: 600;
+        color: $colorMain;
+        font-family: $fontRegular;
         @media (max-width: $containerMobileWidth) {
             font-size: 24px;
         }
@@ -388,7 +388,7 @@
     }
     button {
         width: 100%;
-        background: $colorActiveElement;
+        background: $colorMain;
         &:hover {
             background: #34D7C6;
 
@@ -418,7 +418,7 @@
         font-size: 18px;
         display: inline-block;
         margin: 0 0 10px;
-        color: $colorActiveElement;
+        color: $colorMain;
         outline: none;
         text-decoration: none;
         @media (max-width: $containerMobileWidth) {
@@ -534,14 +534,14 @@
             }
             strong, b {
                 font-family: $fontBold;
-                color: $colorActiveElement;
+                color: $colorMain;
                 &.old {
                     text-decoration: line-through;
                     color: $colorText;
                 }
             }
             button {
-                background: $colorNonActiveElement;
+                background: $colorNonActiveGrey;
                 height: 42px;
                 width: 100%;
                 border: 0 none;
@@ -550,18 +550,18 @@
                 color: #fff;
                 padding: 0;
                 &:hover {
-                    background: $colorActiveElement;
+                    background: $colorMain;
                 }
                 &:active {
-                    background: $colorActiveElement;
+                    background: $colorMain;
                 }
                 &.active {
-                    background: $colorActiveElement;
+                    background: $colorMain;
                     &:hover {
-                        background: $colorActiveElement;
+                        background: $colorMain;
                     }
                     &:active {
-                        background: $colorActiveElement;
+                        background: $colorMain;
                     }
                     .fa {
                         &:before {
@@ -607,7 +607,7 @@
                     border-width: 6px;
                 }
                 button {
-                    background: $colorNonActiveElement;
+                    background: $colorNonActiveGrey;
                     height: 80px;
                     width: 100%;
                     border: 0 none;
@@ -620,18 +620,18 @@
                         font-size: 20px;
                     }
                     &:hover {
-                        background: $colorActiveElement;
+                        background: $colorMain;
                     }
                     &:active {
-                        background: $colorActiveElement;
+                        background: $colorMain;
                     }
                     &.active {
-                        background: $colorActiveElement;
+                        background: $colorMain;
                         &:hover {
-                            background: $colorActiveElement;
+                            background: $colorMain;
                         }
                         &:active {
-                            background: $colorActiveElement;
+                            background: $colorMain;
                         }
                         .fa {
                             &:before {
@@ -680,7 +680,7 @@
     }
     strong, b {
         font-family: $fontBold;
-        color: $colorActiveElement;
+        color: $colorMain;
         &.old {
             text-decoration: line-through;
             color: $colorText;

@@ -11,9 +11,6 @@
     @include border-radius(3px);
     @include box-sizing(border-box);
     @include my-placeholder($colorGrey, 1);
-    @include input-placeholder {
-                color: #777;
-            }
     &:focus {
         outline: none;
         border-color: $colorGrey;
