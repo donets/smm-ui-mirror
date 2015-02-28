@@ -117,7 +117,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.invitation = $location.search().invitation;
         $scope.discipline = $location.search().discipline;
         $scope.city = $location.search().city;
-        $scope.cityId = $cookieStore.get('cityId') || 1;
+        $scope.cityId = $cookieStore.get('cityId') || '1';
         if ($scope.invitation) {
             $cookieStore.put('invitation', true);
         }
