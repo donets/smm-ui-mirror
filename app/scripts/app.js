@@ -84,21 +84,23 @@ angular.module('boltApp')
                 $window.rendering = true;
             });
             $rootScope.$on('$viewContentLoaded', function(){
+                var prerenderReady = function () {
+                    $window.prerenderReady = true;
+                    $rootScope.prerenderReady = true;
+                    $('.pre').addClass('hide_loader');
+                };
                 if ($window.rendering) {
-                    $http.get('//ipinfo.io/json/?token=c2989e43470111', {withCredentials: false}).success(function (response) {
+                    /*$http.get('//ipinfo.io/json/?token=c2989e43470111', {withCredentials: false}).success(function (response) {
                         RestApi.query({route: 'cities'}).$promise.then(function (res) {
                             var city = _.findWhere(res, {defaultName: response.city});
-                            $window.prerenderReady = true;
-                            $rootScope.prerenderReady = true;
                             $cookieStore.put('cityId', city && city.active ? city.id : 1);
-                            $('.pre').addClass('hide_loader');
+                            prerenderReady();
                         });
                     }).error(function () {
-                        $window.prerenderReady = true;
-                        $rootScope.prerenderReady = true;
                         $cookieStore.put('cityId', 1);
-                        $('.pre').addClass('hide_loader');
-                    });
+                        prerenderReady();
+                    });*/
+                    prerenderReady();
                 }
             });
             var checkRule = function (event, toState, toParams, redirectState) {

@@ -18,7 +18,7 @@
         <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
             <!-- <b>14 Tage ausprobieren?</b> -->
             <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-            <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
+            <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required/>
             <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
             <div class="form-response">
                 <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -40,7 +40,7 @@
         <span class="form-block__title">14 Tage <u>kostenlos</u> kennenlernen!</span>
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
+                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required />
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -108,55 +108,45 @@
     </div>
 </div>
 <div class="b-card b-map" id="studios">
-    <div class="container">
+    <div class="container" disable-animate>
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung.</p>
         <div class="b-map-nav clearfix">
-            <ul class="select-city" ng-show="!campaign.map; desktop" >
-                <li>
-                    <a href="javascript:" ng-class="{'active': !city || city === 'B'}" ng-click="changeCity('B')">
-                        Berlin
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:" ng-class="{'active': city === 'M'}" ng-click="changeCity('M')">
-                        München
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:" ng-class="{'active': city === 'H'}" ng-click="changeCity('H')">
-                        Hamburg
+            <ul class="select-city" ng-show="desktop" >
+                <li ng-repeat="c in citiesList">
+                    <a href="" ng-class="{'active': campaign && campaign.code === c.code || !campaign && c.code === 'B'}" ng-click="changeCity(c)">
+                        {{c.defaultName}}
                     </a>
                 </li>
             </ul>
-            <ul class="tab-nav" ng-show="!campaign.map">
+            <ul class="tab-nav">
                 <li ng-show="mobile">
-                    <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
-                        <select chosen required name="cardMonth" width="'100%'" id="exp_month" class="third"
-                            ng-model="order.card.exp_month" ng-change="orderChange('card')"
+                    <div class="third">
+                        <select chosen width="'100%'" class="third"
+                            ng-model="campaign" ng-change="changeCity(campaign)"
                             data-placeholder="Monat"
                             disable-search="true"
-                            ng-options="item for item in month">
+                            ng-options="c as c.defaultName for c in citiesList">
                             <option value=""></option>
                         </select>
                     </div>
                 </li>
-                <li><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
-                <li><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
+                <li><a ng-class="{'active': tab === 'map'}" ng-show="!campaign.map" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
+                <li><a ng-class="{'active': tab === 'list'}" ng-show="!campaign.map" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
             </ul>
         </div>
 
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="!campaign.map" ng-show="tab === 'map'">
-        <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
-        <ui-gmap-windows show="'show'">
-        <p class="info-window" ng-non-bindable>{{name}}</p>
-    </ui-gmap-windows>
-</ui-gmap-markers>
-</ui-gmap-google-map>
-<div class="static-map" ng-if="campaign.map">
-    <img ng-src="{{campaign.map}}" alt=""/>
-    <div class="overlay"><h2>Start am 1.März!</h2></div>
-</div>
+            <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
+                <ui-gmap-windows show="'show'">
+                    <p class="info-window" ng-non-bindable>{{name}}</p>
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+        <div class="static-map" ng-show="campaign.map">
+            <img ng-src="{{campaign.map}}" alt=""/>
+            <div class="overlay"><h2>Start am 1.März!</h2></div>
+        </div>
 <div ng-show="tab === 'list'">
     <ul class="b-studios-list">
         <li ng-repeat="studio in studios | orderBy: 'name'">

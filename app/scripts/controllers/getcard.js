@@ -107,6 +107,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.form = {};
 
         $scope.Math = $window.Math;
+        $scope._ = $window._;
         $scope.cards = getCards.data;
         $scope.citiesList = getCities.data;
         $scope.disciplinesList = getDisciplines.data;
@@ -116,15 +117,27 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.invitation = $location.search().invitation;
         $scope.discipline = $location.search().discipline;
         $scope.city = $location.search().city;
+        $scope.cityId = $cookieStore.get('cityId');
         if ($scope.invitation) {
             $cookieStore.put('invitation', true);
         }
+        $scope.changeCity = function(city) {
+            $scope.city = city.code;
+            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
+        };
         if ($scope.city) {
-            $scope.campaign = $scope.citiesList.cities[$scope.city];
-        } else {
+            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
+            $cookieStore.put('cityId', $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
+        }
+        else if ($scope.cityId) {
+            $scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
+        }
+        else {
             $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
         }
         $cookieStore.put('landingUrl', $location.url());
+
+
 
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -296,10 +309,5 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 text: '— NCBI (National Center for Biotechnology Information)'
             }
         ];
-
-      $scope.changeCity = function(city) {
-        $scope.city = city;
-        $scope.campaign = $scope.citiesList.cities[$scope.city];
-      }
 
     }]);

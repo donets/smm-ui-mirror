@@ -280,7 +280,7 @@
 	line-height: 24px;
 	font-size: 20px;
 	font-style: italic;
-	color: white;
+	color: #fff;
 	text-align: center;
 	position: relative;
 	top: -70px;
@@ -521,16 +521,16 @@
 		text-align: center;
 		position: relative;
 		.select-city {
-			list-style: none;
-			margin: 0px;
-			// margin-left: 150px;
+			@include my-resetList();
+            margin: 10px 0;
 			display: inline-block;
 			@media (max-width: $containerMobileWidth) {
-				margin: 0%;
+				margin: 0;
 				float: left;
 			}
 			li {
 				display: inline-block;
+                line-height: 36px;
 				&:before {
 					content:'\2022';
 					margin:0 0.2em;
@@ -697,7 +697,7 @@
 	}
 	.static-map {
 		position: relative;
-		margin: 50px 0 0;
+		margin: 20px 0 0;
 		height: 480px;
 		overflow: hidden;
 		img {
