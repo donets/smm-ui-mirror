@@ -146,7 +146,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), interestedInProduct: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $cookieStore.get('cityId'), interestedInProduct: true }).success(function () {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $scope.invite = {};
@@ -296,5 +296,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 text: '— NCBI (National Center for Biotechnology Information)'
             }
         ];
+
+      $scope.changeCity = function(city) {
+        $scope.city = city;
+        $scope.campaign = $scope.citiesList.cities[$scope.city];
+      }
 
     }]);
