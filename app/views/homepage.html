@@ -1,53 +1,53 @@
 <div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
-    vg-player-ready="video.onPlayerReady"
-    vg-complete="video.onCompleteVideo"
-    vg-responsive="video.responsive"
-    vg-stretch="video.stretch"
-    disable-animate>
-    <vg-video vg-src="video.sources" vg-preload="video.preload" vg-loop="video.loop" ng-if="desktop"></vg-video>
+                vg-player-ready="video.onPlayerReady"
+                vg-complete="video.onCompleteVideo"
+                vg-responsive="video.responsive"
+                vg-stretch="video.stretch"
+                disable-animate>
+        <vg-video vg-src="video.sources" vg-preload="video.preload" vg-loop="video.loop" ng-if="desktop"></vg-video>
 
-    <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
+        <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
-</videogular>
-<div class="b-main-slogan"><h2 ng-if="!campaign">Eine Karte für ganz Berlin</h2><h2 ng-if="campaign">{{campaign.title}}</h2>
-    <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>50 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
-    <p ng-if="campaign && !city">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
-    <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
-    <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
-        <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-            <!-- <b>14 Tage ausprobieren?</b> -->
-            <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-            <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
-            <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
-            <div class="form-response">
-                <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                <div ng-show="form.successSubscribe && subscribeForm.header.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
-                <div ng-show="form.errorSubscribe && subscribeForm.header.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
-            </div>
-        </form>
-        <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
-        <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
-        <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
+    </videogular>
+    <div class="b-main-slogan"><h2 ng-if="!campaign">Eine Karte für ganz Berlin</h2><h2 ng-if="campaign">{{campaign.title}}</h2>
+        <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>50 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
+        <p ng-if="campaign && !city">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
+        <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
+        <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
+            <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
+                <!-- <b>14 Tage ausprobieren?</b> -->
+                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
+                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required/>
+                <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
+                <div class="form-response">
+                    <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                    <div ng-show="form.successSubscribe && subscribeForm.header.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
+                    <div ng-show="form.errorSubscribe && subscribeForm.header.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                </div>
+            </form>
+            <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
+            <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
+            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
+        </div>
+        <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
     </div>
-    <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
-</div>
 </div>
 
 
 <div class="b-header stick b-equipment__form-block" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
     <div class="container">
         <span class="form-block__title">14 Tage <u>kostenlos</u> kennenlernen!</span>
-            <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
-                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ"/>
-                <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
-                <div class="form-response">
-                    <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
-                    <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
-                </div>
-            </form>
+        <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
+            <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
+            <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required />
+            <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
+            <div class="form-response">
+                <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
+                <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -70,17 +70,17 @@
     <div class="container">
         <ul class="b-card-list" ng-show="mobile">
             <li>
-                <img class="card-image" src="images/f-01.svg" alt=""/> 
+                <img class="card-image" src="images/f-01.svg" alt=""/>
                 <b>Einfach ausprobieren</b>
                 <span>(14 Tage ausprobieren, Geld zurück bei Nichtgefallen)</span>
             </li>
             <li>
-                <img class="card-image" src="images/f-02.svg" alt=""/> 
+                <img class="card-image" src="images/f-02.svg" alt=""/>
                 <b>Keine Bindung</b>
                 <span>(Keine Mindestlaufzeit, monatlich kündigen und pausieren)</span>
             </li>
             <li>
-                <img class="card-image" src="images/f-03.svg" alt=""/> 
+                <img class="card-image" src="images/f-03.svg" alt=""/>
                 <b>Kräftig sparen</b>
                 <span>(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts zahlen)</span>
             </li>
@@ -108,67 +108,57 @@
     </div>
 </div>
 <div class="b-card b-map" id="studios">
-    <div class="container">
+    <div class="container" disable-animate>
         <h2>Trainiere in der ganzen Stadt</h2>
         <p class="subtitle">Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung.</p>
         <div class="b-map-nav clearfix">
-            <ul class="select-city" ng-show="!campaign.map; desktop" >
-                <li>
-                    <a href="javascript:" ng-class="{'active': !city || city === 'B'}" ng-click="changeCity('B')">
-                        Berlin
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:" ng-class="{'active': city === 'M'}" ng-click="changeCity('M')">
-                        München
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:" ng-class="{'active': city === 'H'}" ng-click="changeCity('H')">
-                        Hamburg
+            <ul class="select-city" ng-show="desktop" >
+                <li ng-repeat="c in citiesList">
+                    <a href="" ng-class="{'active': campaign && campaign.code === c.code || !campaign && c.code === 'B'}" ng-click="changeCity(c)">
+                        {{c.defaultName}}
                     </a>
                 </li>
             </ul>
-            <ul class="tab-nav" ng-show="!campaign.map">
+            <ul class="tab-nav">
                 <li ng-show="mobile">
-                    <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
-                        <select chosen required name="cardMonth" width="'100%'" id="exp_month" class="third"
-                            ng-model="order.card.exp_month" ng-change="orderChange('card')"
-                            data-placeholder="Monat"
-                            disable-search="true"
-                            ng-options="item for item in month">
+                    <div class="third">
+                        <select chosen width="'100%'" class="third"
+                                ng-model="campaign" ng-change="changeCity(campaign)"
+                                data-placeholder="Monat"
+                                disable-search="true"
+                                ng-options="c as c.defaultName for c in citiesList">
                             <option value=""></option>
                         </select>
                     </div>
                 </li>
-                <li><a ng-class="{'active': tab === 'map'}" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
-                <li><a ng-class="{'active': tab === 'list'}" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
+                <li><a ng-class="{'active': tab === 'map'}" ng-show="!campaign.map" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li>
+                <li><a ng-class="{'active': tab === 'list'}" ng-show="!campaign.map" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
             </ul>
         </div>
 
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="!campaign.map" ng-show="tab === 'map'">
-        <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
-        <ui-gmap-windows show="'show'">
-        <p class="info-window" ng-non-bindable>{{name}}</p>
-    </ui-gmap-windows>
-</ui-gmap-markers>
-</ui-gmap-google-map>
-<div class="static-map" ng-if="campaign.map">
-    <img ng-src="{{campaign.map}}" alt=""/>
-    <div class="overlay"><h2>Start am 1.März!</h2></div>
-</div>
-<div ng-show="tab === 'list'">
-    <ul class="b-studios-list">
-        <li ng-repeat="studio in studios | orderBy: 'name'">
-            <a ui-sref="studio({studioId: studio.id})" ng-if="studio.profileComplete">{{studio.name}}</a>
-            <a ng-href="{{studio.website}}" ng-if="!studio.profileComplete && studio.website" target="_blank">{{studio.name}}</a>
-            <span ng-if="!studio.profileComplete && !studio.website">{{studio.name}}</span>
-        </li>
-    </ul>
-</div>
-<button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
-</div>
-<!--<div ng-show="tab === 'classes'" ui-view></div>-->
+            <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
+                <ui-gmap-windows show="'show'">
+                    <p class="info-window" ng-non-bindable>{{name}}</p>
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+        <div class="static-map" ng-show="campaign.map">
+            <img ng-src="{{campaign.map}}" alt=""/>
+            <div class="overlay"><h2>Start am 1.März!</h2></div>
+        </div>
+        <div ng-show="tab === 'list'">
+            <ul class="b-studios-list">
+                <li ng-repeat="studio in studios | orderBy: 'name'">
+                    <a ui-sref="studio({studioId: studio.id})" ng-if="studio.profileComplete">{{studio.name}}</a>
+                    <a ng-href="{{studio.website}}" ng-if="!studio.profileComplete && studio.website" target="_blank">{{studio.name}}</a>
+                    <span ng-if="!studio.profileComplete && !studio.website">{{studio.name}}</span>
+                </li>
+            </ul>
+        </div>
+        <button ng-click="suggestStudio()" type="button" class="suggest_btn">Studio vorschlagen</button>
+    </div>
+    <!--<div ng-show="tab === 'classes'" ui-view></div>-->
 </div>
 <div class="b-card b-price">
     <div class="container">
@@ -189,176 +179,176 @@
                 <li><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
                     <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
                     <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></li>
-                    <li class="name">{{card.name}}</li>
-                    <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                        <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
-                        <li>{{card.courses}}</li>
-                        <li>{{card.coursesPerSupplier}}</li>
-                        <li>{{card.minimumTerm}}</li>
-                    </ul>
-                </div>
-                <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
-                    <tr>
-                        <td><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
-                            <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
-                            <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></td>
-                            <td>{{card.name}}</td>
-                        </tr>
-                        <tr>
-                            <td>Preis pro Monat</td>
-                            <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                                <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></td>
-                            </tr>
-                            <tr>
-                                <td>Kurse pro Monat</td>
-                                <td>{{card.courses}}</td>
-                            </tr>
-                            <tr>
-                                <td>Kurse pro Anbieter / Monat</td>
-                                <td>{{card.coursesPerSupplier}}</td>
-                            </tr>
-                            <tr>
-                                <td>Kündigen / Pausieren</td>
-                                <td>{{card.minimumTerm}}</td>
-                            </tr>
-                        </table>
-                        <!-- <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p> -->
-                    </div>
-                </div>
-                <div class="b-card b-hiw">
-                    <div class="container">
-                        <h2>Es geht so einfach!</h2>
-                        <p class="subtitle">Besuche mit einem monatlichen Beitrag in jedem <br/> Partner-Studio Kurse.</p>
-                        <ul class="b-card-list">
-                            <li>
-                                <img class="card-image" src="images/hiw_01.png" alt=""/>
-                                <p>1. Bestelle Deine Karte</p>
-                                <span>Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse besuchen.</span>
-                            </li>
-                            <li>
-                                <img class="card-image" src="images/hiw_02.png" alt=""/>
-                                <p>2. Finde Dein Angebot</p>
-                                <span>Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin.</span>
-                            </li>
-                            <li>
-                                <img class="card-image" src="images/hiw_03.png" alt=""/>
-                                <p>3. Trainiere nach Herzenslust</p>
-                                <span>Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitglied begrüßt.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="b-card b-media">
-                    <div class="container">
-                        <!-- <p class="subtitle">Bekannt aus</p> -->
-                        <ul class="b-card-list">
-                            <li>
-                                <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
-                            </li>
-                            <!-- <li>
-                                <img src="images/vice.png" alt="vice"/>
-                            </li> -->
-                            <li>
-                                <img src="images/ds.png" alt="ds"/>
-                            </li>
-                            <li>
-                                <img src="images/zitty.png" alt="zitty"/>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="b-card b-testimonial">
-                    <div class="container" disable-animate>
-                        <ul ng-if="desktop" class="b-card-list">
-                            <li>
-                                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
-                                <p>– Alexandra Liakou, Regisseurin</p>
-                            </li><li>
-                            <img class="circle-image" src="images/konard.jpg" alt=""/>
-                            <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
-                            <p>– Konrad Knops, Osteopath</p>
-                        </li><li>
-                        <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                        <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
-                        <p>– Sonja Reifenhäuser, Food Coach</p>
-                    </li>
-                </ul>
-                <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-                    <slide>
-                        <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                        <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
-                        <p>– Alexandra Liakou, Regisseurin</p>
-                    </slide>
-                    <slide>
-                        <img class="circle-image" src="images/konard.jpg" alt=""/>
-                        <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
-                        <p>– Konrad Knops, Osteopath</p>
-                    </slide>
-                    <slide>
-                        <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                        <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
-                        <p>– Sonja Reifenhäuser, Food Coach</p>
-                    </slide>
-                </carousel>
-                <div class="fb-like-box"
-                data-href="https://www.facebook.com/somuchmoredeutsch"
-                data-width="{{fblikeboxWidth}}"
-                data-height="180"
-                data-colorscheme="light"
-                data-show-faces="true"
-                data-header="false"
-                data-stream="false"
-                data-show-border="false"></div>
+                <li class="name">{{card.name}}</li>
+                <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
+                <li>{{card.courses}}</li>
+                <li>{{card.coursesPerSupplier}}</li>
+                <li>{{card.minimumTerm}}</li>
+            </ul>
+        </div>
+        <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
+            <tr>
+                <td><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
+                    <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></td>
+                <td>{{card.name}}</td>
+            </tr>
+            <tr>
+                <td>Preis pro Monat</td>
+                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
+                    <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></td>
+            </tr>
+            <tr>
+                <td>Kurse pro Monat</td>
+                <td>{{card.courses}}</td>
+            </tr>
+            <tr>
+                <td>Kurse pro Anbieter / Monat</td>
+                <td>{{card.coursesPerSupplier}}</td>
+            </tr>
+            <tr>
+                <td>Kündigen / Pausieren</td>
+                <td>{{card.minimumTerm}}</td>
+            </tr>
+        </table>
+        <!-- <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p> -->
+    </div>
+</div>
+<div class="b-card b-hiw">
+    <div class="container">
+        <h2>Es geht so einfach!</h2>
+        <p class="subtitle">Besuche mit einem monatlichen Beitrag in jedem <br/> Partner-Studio Kurse.</p>
+        <ul class="b-card-list">
+            <li>
+                <img class="card-image" src="images/hiw_01.svg" alt=""/>
+                <p>1. Bestelle Deine Karte</p>
+                <span>Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse besuchen.</span>
+            </li>
+            <li>
+                <img class="card-image" src="images/hiw_02.svg" alt=""/>
+                <p>2. Finde Dein Angebot</p>
+                <span>Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin.</span>
+            </li>
+            <li>
+                <img class="card-image" src="images/hiw_03.svg" alt=""/>
+                <p>3. Trainiere nach Herzenslust</p>
+                <span>Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitglied begrüßt.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="b-card b-media">
+    <div class="container">
+        <!-- <p class="subtitle">Bekannt aus</p> -->
+        <ul class="b-card-list">
+            <li>
+                <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
+            </li>
+            <!-- <li>
+                <img src="images/vice.png" alt="vice"/>
+            </li> -->
+            <li>
+                <img src="images/ds.png" alt="ds"/>
+            </li>
+            <li>
+                <img src="images/zitty.png" alt="zitty"/>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="b-card b-testimonial">
+    <div class="container" disable-animate>
+        <ul ng-if="desktop" class="b-card-list">
+            <li>
+                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                <p>– Alexandra Liakou, Regisseurin</p>
+            </li><li>
+                <img class="circle-image" src="images/konard.jpg" alt=""/>
+                <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
+                <p>– Konrad Knops, Osteopath</p>
+            </li><li>
+                <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
+                <p>– Sonja Reifenhäuser, Food Coach</p>
+            </li>
+        </ul>
+        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+            <slide>
+                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                <em>Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen.</em>
+                <p>– Alexandra Liakou, Regisseurin</p>
+            </slide>
+            <slide>
+                <img class="circle-image" src="images/konard.jpg" alt=""/>
+                <em>Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein.</em>
+                <p>– Konrad Knops, Osteopath</p>
+            </slide>
+            <slide>
+                <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                <em>Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore.</em>
+                <p>– Sonja Reifenhäuser, Food Coach</p>
+            </slide>
+        </carousel>
+        <div class="fb-like-box"
+             data-href="https://www.facebook.com/somuchmoredeutsch"
+             data-width="{{fblikeboxWidth}}"
+             data-height="180"
+             data-colorscheme="light"
+             data-show-faces="true"
+             data-header="false"
+             data-stream="false"
+             data-show-border="false"></div>
+    </div>
+</div>
+<div class="b-facts">
+    <carousel interval="5000" disable-animate>
+        <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': desktop ? documentWidth / 3.6 : documentWidth / 1.6875 }">
+            <img ng-src="{{slide.image}}"/>
+            <div class="carousel-caption">
+                <h4>{{slide.title}}</h4>
+                <p>{{slide.text}}</p>
             </div>
-        </div>
-        <div class="b-facts">
-            <carousel interval="5000" disable-animate>
-                <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': desktop ? documentWidth / 3.6 : documentWidth / 1.6875 }">
-                    <img ng-src="{{slide.image}}"/>
-                    <div class="carousel-caption">
-                        <h4>{{slide.title}}</h4>
-                        <p>{{slide.text}}</p>
-                    </div>
-                    <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
-                </slide>
-            </carousel>
-        </div>
-        <div class="b-card b-faq">
-            <div class="container" disable-animate>
-                <h2>Welche Fragen hast Du noch?</h2>
-                <ul ng-if="desktop" class="b-card-list">
-                    <li>
-                        <h3>Kann ich überall alle Kurse besuchen?</h3>
-                        <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-                    </li><li>
-                    <h3>Muss ich mich vorher anmelden?</h3>
-                    <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-                </li><li>
+            <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
+        </slide>
+    </carousel>
+</div>
+<div class="b-card b-faq">
+    <div class="container" disable-animate>
+        <h2>Welche Fragen hast Du noch?</h2>
+        <ul ng-if="desktop" class="b-card-list">
+            <li>
+                <h3>Kann ich überall alle Kurse besuchen?</h3>
+                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+            </li><li>
+                <h3>Muss ich mich vorher anmelden?</h3>
+                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+            </li><li>
                 <h3>Was kann mit meiner Karte noch machen?</h3>
                 <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
             </li><li>
-            <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
-            <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
-        </li>
-    </ul>
-    <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-        <slide>
-            <h3>Kann ich überall alle Kurse besuchen?</h3>
-            <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-        </slide><slide>
-        <h3>Muss ich mich vorher anmelden?</h3>
-        <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
-    </slide><slide>
-    <h3>Was kann mit meiner Karte noch machen?</h3>
-    <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
-</slide><slide>
-<h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
-<p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
-</slide>
-</carousel>
-<a class="faq-link" ui-sref="faq">Mehr Fragen? Hier geht es zu unseren FAQ ›</a>
-</div>
+                <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
+                <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
+            </li>
+        </ul>
+        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+            <slide>
+                <h3>Kann ich überall alle Kurse besuchen?</h3>
+                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+            </slide><slide>
+                <h3>Muss ich mich vorher anmelden?</h3>
+                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+            </slide><slide>
+                <h3>Was kann mit meiner Karte noch machen?</h3>
+                <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
+            </slide><slide>
+                <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
+                <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
+            </slide>
+        </carousel>
+        <a class="faq-link" ui-sref="faq">Mehr Fragen? Hier geht es zu unseren FAQ ›</a>
+    </div>
 </div>
 <div class="b-card b-contact">
     <div class="container">
