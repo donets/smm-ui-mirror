@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "code": "B",
         "title": "Eine Karte für ganz Berlin",
         "defaultName": "Berlin",
@@ -8,7 +8,7 @@
         "active": true
     },
     {
-        "id": 2,
+        "id": "2",
         "code": "M",
         "title": "Eine Karte für ganz München",
         "defaultName": "München",
@@ -17,7 +17,7 @@
         "active": true
     },
     {
-        "id": 3,
+        "id": "3",
         "code": "H",
         "title": "Eine Karte für ganz Hamburg",
         "defaultName": "Hamburg",

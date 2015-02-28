@@ -12,8 +12,8 @@
     </videogular>
     <div class="b-main-slogan"><h2 ng-if="!campaign">Eine Karte für ganz Berlin</h2><h2 ng-if="campaign">{{campaign.title}}</h2>
         <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>50 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
-        <p ng-if="campaign && !city">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
-        <p ng-if="campaign && city">Hunderte Kurse, die besten Studios, ein Beitrag</p>
+        <p ng-if="campaign && !(city || cityId)">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
+        <p ng-if="campaign && (city || cityId)">Hunderte Kurse, die besten Studios, ein Beitrag</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <!-- <b>14 Tage ausprobieren?</b> -->
