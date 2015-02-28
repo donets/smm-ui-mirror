@@ -93,7 +93,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         RestApi.query({route: 'locations'}).$promise.then(function (res) {
             $scope.locations = _.reject(res, function (obj) {
-                return obj.latitude === null || obj.longitude === null;
+                return obj.latitude === null || obj.longitude === null || obj.cityId !== 1;
             });
             _.map($scope.locations, function (obj) {
                 obj.icon = '/images/marker.svg';
