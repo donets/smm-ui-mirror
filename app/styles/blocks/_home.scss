@@ -522,7 +522,7 @@
 		position: relative;
 		.select-city {
 			@include my-resetList();
-            margin: 10px 0;
+			margin: 10px 0;
 			display: inline-block;
 			@media (max-width: $containerMobileWidth) {
 				margin: 0;
@@ -530,7 +530,7 @@
 			}
 			li {
 				display: inline-block;
-                line-height: 36px;
+				line-height: 36px;
 				&:before {
 					content:'\2022';
 					margin:0 0.2em;
@@ -556,19 +556,6 @@
 				line-height: 12px;
 			}
 		}
-		.tab-nav {
-			@media (min-width: $containerMobileWidth) {
-				margin: 0;
-				position: absolute;
-				right: 0;
-				top: 10px;
-				li {
-					a {
-						border-color: #EBEBEB;
-					}
-				}
-			}
-		}
 	}
 	.info-window {
 		font-size: 15px;
@@ -584,17 +571,18 @@
 	.tab-nav {
 		margin: 10px auto;
 		li {
-			width: auto;
 			a {
-				width: auto;
-				padding: 0 18px;
 				font-size: 15px;
-				-webkit-border-radius: 3px;
-				border-radius: 3px;
+				width: auto;
+				padding: 0 17px;
 				@media (max-width: $containerMobileWidth) {
-					height: 36px;
-					line-height: 34px;
+					height: 80px;
+					line-height: 80px;
+					font-size: 26px;
 					display: block;
+					&.active {
+						display: none;
+					}
 				}
 				@media (max-width: $containerMobileWidth640) {
 					display: block;
@@ -617,6 +605,40 @@
 				}
 			}
 		}
+		// li {
+		// 	width: auto;
+		// 	a {
+		// 		width: auto;
+		// 		padding: 0 18px;
+		// 		font-size: 15px;
+		// 		-webkit-border-radius: 3px;
+		// 		border-radius: 3px;
+		// 		@media (max-width: $containerMobileWidth) {
+		// 			height: 36px;
+		// 			line-height: 34px;
+		// 			display: block;
+		// 		}
+		// 		@media (max-width: $containerMobileWidth640) {
+		// 			display: block;
+		// 			&.active {
+		// 				display: none;
+		// 			}
+		// 		}
+		// 		@media (min-width: $containerMobileWidth) {
+
+		// 			&.tab-nav-map:before {
+		// 				content: "\F041";
+		// 				font-family: FontAwesome;
+		// 				margin-right: 5px;
+		// 			}
+		// 			&.tab-nav-list:before {
+		// 				content: "\F0CA";
+		// 				font-family: FontAwesome;
+		// 				margin-right: 5px;
+		// 			}
+		// 		}
+		// 	}
+		// }
 		@media (max-width: $containerMobileWidth) {
 			float: none;
 		}
