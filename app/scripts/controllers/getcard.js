@@ -57,6 +57,11 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         });
 
+        $scope.changeCity = function(city) {
+            $scope.city = city.code;
+            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
+        };
+
         uiGmapGoogleMapApi.then(function() {
 
             $scope.map = {
@@ -93,7 +98,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         RestApi.query({route: 'locations'}).$promise.then(function (res) {
             $scope.locations = _.reject(res, function (obj) {
-                return obj.latitude === null || obj.longitude === null || obj.cityId !== 1;
+                return obj.latitude === null || obj.longitude === null;
             });
             _.map($scope.locations, function (obj) {
                 obj.icon = '/images/marker.svg';
@@ -121,10 +126,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         if ($scope.invitation) {
             $cookieStore.put('invitation', true);
         }
-        $scope.changeCity = function(city) {
-            $scope.city = city.code;
-            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
-        };
         if ($scope.city) {
             $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
             $cookieStore.put('cityId', $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
