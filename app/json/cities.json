@@ -2,7 +2,6 @@
     {
         "id": "1",
         "code": "B",
-        "title": "Eine Karte für ganz Berlin",
         "defaultName": "Berlin",
         "lat": "52.520007",
         "lon": 	"13.404954",
@@ -12,7 +11,6 @@
     {
         "id": "2",
         "code": "M",
-        "title": "Eine Karte für ganz München",
         "defaultName": "München",
         "lat": "48.1544527",
         "lon": "11.5418357",
@@ -22,10 +20,8 @@
     {
         "id": "3",
         "code": "H",
-        "title": "Eine Karte für ganz Hamburg",
         "defaultName": "Hamburg",
-        "map": "http://maps.googleapis.com/maps/api/staticmap?center=Hamburg&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true",
         "countryCode": "DE",
-        "active": true
+        "active": false
     }
 ]

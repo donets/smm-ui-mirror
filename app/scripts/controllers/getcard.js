@@ -57,57 +57,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         });
 
-        $scope.changeCity = function(city) {
-            $scope.city = city.code;
-            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
-        };
-
-        uiGmapGoogleMapApi.then(function() {
-
-            $scope.map = {
-                center: {
-                    latitude: 52.520007,
-                    longitude: 	13.404954
-                },
-                zoom: 12,
-                options: {
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    panControl: false,
-                    zoomControl : true,
-                    streetViewControl : true,
-                    scrollwheel: false
-                }
-            };
-
-            var markerIcon = new Image().src = '/images/marker.svg';
-            var markerIconHover = new Image().src = '/images/marker-hover.svg';
-
-            $scope.markerEvents = {
-                mouseover : function(marker, eventName, model) {
-                    marker.setIcon(markerIconHover);
-                    model.show = true;
-                },
-                mouseout : function(marker, eventName, model) {
-                    marker.setIcon(markerIcon);
-                    model.show = false;
-                }
-            };
-
-        });
-
-        RestApi.query({route: 'locations'}).$promise.then(function (res) {
-            $scope.locations = _.reject(res, function (obj) {
-                return obj.latitude === null || obj.longitude === null;
-            });
-            _.map($scope.locations, function (obj) {
-                obj.icon = '/images/marker.svg';
-            });
-        });
-
-        RestApi.query({route: 'studios'}).$promise.then(function (res) {
-            $scope.studios = res;
-        });
         $scope.invite = {};
         $scope.form = {};
 
@@ -137,6 +86,57 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
         }
         $cookieStore.put('landingUrl', $location.url());
+
+        $scope.changeCity = function(city) {
+            $scope.city = city.code;
+            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
+            RestApi.query({route: 'locations', cityId: $scope.campaign.id}).$promise.then(function (res) {
+                $scope.locations = _.reject(res, function (obj) {
+                    return obj.latitude === null || obj.longitude === null;
+                });
+                _.map($scope.locations, function (obj) {
+                    obj.icon = '/images/marker.svg';
+                });
+            });
+            RestApi.query({route: 'studios', cityId: $scope.campaign.id}).$promise.then(function (res) {
+                $scope.studios = res;
+            });
+            uiGmapGoogleMapApi.then(function() {
+
+                $scope.map = {
+                    center: {
+                        latitude: $scope.campaign.lat,
+                        longitude: 	$scope.campaign.lon
+                    },
+                    zoom: 12,
+                    options: {
+                        mapTypeControl: false,
+                        overviewMapControl: false,
+                        panControl: false,
+                        zoomControl : true,
+                        streetViewControl : true,
+                        scrollwheel: false
+                    }
+                };
+
+                var markerIcon = new Image().src = '/images/marker.svg';
+                var markerIconHover = new Image().src = '/images/marker-hover.svg';
+
+                $scope.markerEvents = {
+                    mouseover : function(marker, eventName, model) {
+                        marker.setIcon(markerIconHover);
+                        model.show = true;
+                    },
+                    mouseout : function(marker, eventName, model) {
+                        marker.setIcon(markerIcon);
+                        model.show = false;
+                    }
+                };
+
+            });
+        };
+
+        $scope.changeCity($scope.citiesList[0]);
 
 
 

@@ -412,54 +412,6 @@
 		}
 	}
 }
-.b-equipment__form-block {
-	width: 100%;
-	background-color: rgba(#3bcbbd, .9); // layer fill content
-	top: 0;
-	position: absolute;
-	padding: 24px 0;
-	@media (max-width: $containerMobileWidth) {
-		display: block;
-	}
-	@media (max-width: $containerMobileWidth) {
-		display: none;
-	}
-	.form-block__title {
-		font-size: 20px;
-		font-style: italic;
-		color: #fff;
-		text-align: left;
-		float: left;
-		line-height: 36px;
-	}
-	.container {
-		width: 990px;
-	}
-	.b-card-subscribe {
-		margin: 0;
-		float: right;
-		.zip {
-			max-width: 100px;
-		}
-		input {
-			height: 36px;
-			line-height: 36px;
-			font-size: 16px;
-		}
-		input[name="email"] {
-			width: 293px;
-		}
-		input[type="submit"] {
-			width: auto;
-			border: 1px solid #fff;
-			background: $colorMain;
-			&:hover {
-				background: $colorMainHover;
-			}
-		}
-	}
-}
-
 
 
 .b-map {
@@ -495,16 +447,16 @@
 				display: inline-block;
 				line-height: 36px;
 				&:before {
-					content:'\2022';
-					margin:0 0.2em;
+					content: '\2022';
+					margin: 0 0.2em 0 0.4em;
 				}
 				&:first-child:before {
 					display: none;
 				}
 				a {
-					font-size: 18px;
+					font-size: 15px;
 					color: $colorGrey;
-					font-family: $fontRegular;
+					font-family: $fontBold;
 					&:hover {
 						color: $colorMain;
 					}
@@ -668,7 +620,6 @@
 		}
 		@media (max-width: $containerMobileWidth) {
 			width: 100%;
-			
 		}
 	}
 	.static-map {
@@ -703,64 +654,57 @@
 		background: $colorBackTimetable;
 	}
 	.b-card-list {
-		li {
-			color: #fff;
-			margin: 20px 0;
-			b {
-				display: block;
-				font-size: 22px;
-				line-height: 1.2;
-				padding: 0 10px;
-				@media (max-width: $containerMobileWidth) {
-					font-size: 32px;
-				}
-				@media (max-width: $containerMobileWidth640) {
-					font-size: 22px;
-				}
-			}
-			span {
-				font-size: 15px;
-				color: #fff;
-				@media (max-width: $containerMobileWidth) {
-					font-size: 26px;
-				}
-				@media (max-width: $containerMobileWidth640) {
-					font-size: 15px;
-				}
-			}
-			.card-image {
-				margin: 0 0 30px;
-			}
-		}
-		// @media (max-width: $containerMobileWidth) {
-		//     display: none;
-		// }
-		// @media (max-width: $containerMobileWidth) {
-		//     display: block;
-		// }
-	}
-	.b-card-list2 {
-		list-style: none;
-		li {
-			width: 33%;
-			display: inline-block;
-			text-align: center;
-			p {
-				font-size: 18px;
-				color: $colorGrey;
-			}
-			b {
-				font-size: 24px;
-				&:before {
-					content: "";
-					display: inline-block;
-					margin-right: 10px;
-					width: 20px;
-					height: 14px;
-					background: url("/images/trim.png") no-repeat top;
-				}
-			}
-		}
+        @media (min-width: $containerMobileWidth) {
+            li {
+                p {
+                    font-size: 18px;
+                    color: $colorGrey;
+                }
+                b {
+                    font-size: 24px;
+                    color: $colorText;
+                    &:before {
+                        content: "";
+                        display: inline-block;
+                        margin-right: 10px;
+                        width: 20px;
+                        height: 14px;
+                        background: url("/images/trim.png") no-repeat top;
+                    }
+                }
+            }
+        }
+        @media (max-width: $containerMobileWidth) {
+            li {
+                color: #fff;
+                margin: 20px 0;
+                b {
+                    display: block;
+                    font-size: 22px;
+                    line-height: 1.2;
+                    padding: 0 10px;
+                    @media (max-width: $containerMobileWidth) {
+                        font-size: 32px;
+                    }
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 22px;
+                    }
+                }
+                span {
+                    font-size: 15px;
+                    color: #fff;
+                    @media (max-width: $containerMobileWidth) {
+                        font-size: 26px;
+                    }
+                    @media (max-width: $containerMobileWidth640) {
+                        font-size: 15px;
+                    }
+                }
+                .card-image {
+                    margin: 0 0 30px;
+                }
+            }
+        }
 	}
 }
 .b-facts {
@@ -798,7 +742,7 @@
 	padding-top: 60px;
 	.b-card-list {
 		li {
-			width: 100%;
+			width: 320px;
 			p {
 				font-size: 24px;
 			}
