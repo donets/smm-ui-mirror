@@ -531,26 +531,7 @@
 			right: 0;
 		}
 		select {
-			-webkit-appearance: none;
-			height: 40px;
-			border: 1px solid #d7d7d7;
-			font-size: 16px;
-			font-family: $fontRegular;
-			color: $colorText;
-			padding: 5px 36px 5px 12px;
-			line-height: 30px;
-			border-radius: 0px;
-			box-sizing: border-box;
-			background: #fff url("/images/arrow-select.svg") no-repeat right 7px top 12px;
-			background-size: 24px 14px;
-			&:after {
-				color: #339900;
-				content: '\f00c';
-				font-family: FontAwesome;
-				position: absolute;
-				right: 10px;
-				top: 25px;
-			}
+			@extend %select-mobile;
 		}
 	}
 	.dashboard-title {
@@ -653,57 +634,57 @@
 		background: $colorBackTimetable;
 	}
 	.b-card-list {
-        @media (min-width: $containerMobileWidth) {
-            li {
-                p {
-                    font-size: 18px;
-                    color: $colorGrey;
-                }
-                b {
-                    font-size: 24px;
-                    color: $colorText;
-                    &:before {
-                        content: "";
-                        display: inline-block;
-                        margin-right: 10px;
-                        width: 20px;
-                        height: 14px;
-                        background: url("/images/trim.png") no-repeat top;
-                    }
-                }
-            }
-        }
-        @media (max-width: $containerMobileWidth) {
-            li {
-                color: #fff;
-                margin: 20px 0;
-                b {
-                    display: block;
-                    font-size: 22px;
-                    line-height: 1.2;
-                    padding: 0 10px;
-                    @media (max-width: $containerMobileWidth) {
-                        font-size: 32px;
-                    }
-                    @media (max-width: $containerMobileWidth640) {
-                        font-size: 22px;
-                    }
-                }
-                span {
-                    font-size: 15px;
-                    color: #fff;
-                    @media (max-width: $containerMobileWidth) {
-                        font-size: 26px;
-                    }
-                    @media (max-width: $containerMobileWidth640) {
-                        font-size: 15px;
-                    }
-                }
-                .card-image {
-                    margin: 0 0 30px;
-                }
-            }
-        }
+		@media (min-width: $containerMobileWidth) {
+			li {
+				p {
+					font-size: 18px;
+					color: $colorGrey;
+				}
+				b {
+					font-size: 24px;
+					color: $colorText;
+					&:before {
+						content: "";
+						display: inline-block;
+						margin-right: 10px;
+						width: 20px;
+						height: 14px;
+						background: url("/images/trim.png") no-repeat top;
+					}
+				}
+			}
+		}
+		@media (max-width: $containerMobileWidth) {
+			li {
+				color: #fff;
+				margin: 20px 0;
+				b {
+					display: block;
+					font-size: 22px;
+					line-height: 1.2;
+					padding: 0 10px;
+					@media (max-width: $containerMobileWidth) {
+						font-size: 32px;
+					}
+					@media (max-width: $containerMobileWidth640) {
+						font-size: 22px;
+					}
+				}
+				span {
+					font-size: 15px;
+					color: #fff;
+					@media (max-width: $containerMobileWidth) {
+						font-size: 26px;
+					}
+					@media (max-width: $containerMobileWidth640) {
+						font-size: 15px;
+					}
+				}
+				.card-image {
+					margin: 0 0 30px;
+				}
+			}
+		}
 	}
 }
 .b-facts {
@@ -906,3 +887,25 @@
 	}
 }
 
+%select-mobile {
+	-webkit-appearance: none;
+	height: 40px;
+	border: 1px solid #d7d7d7;
+	font-size: 16px;
+	font-family: $fontRegular;
+	color: $colorText;
+	padding: 5px 36px 5px 12px;
+	line-height: 30px;
+	border-radius: 0px;
+	box-sizing: border-box;
+	background: #fff url("/images/arrow-select.svg") no-repeat right 7px top 12px;
+	background-size: 24px 14px;
+	&:after {
+		color: #339900;
+		content: '\f00c';
+		font-family: FontAwesome;
+		position: absolute;
+		right: 10px;
+		top: 25px;
+	}
+}
