@@ -347,11 +347,9 @@
             margin: 0 0 5px;
         }
         select {
+            @extend %select-mobile;
             display: block;
             width: 100%;
-            border-color: #d7d7d7;
-            border-radius: 2px 2px 0 0;
-            @extend %select-mobile;
         }
     }
     .form-title {
