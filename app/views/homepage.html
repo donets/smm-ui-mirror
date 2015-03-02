@@ -114,7 +114,7 @@
         <div class="b-map-nav clearfix">
             <ul class="select-city" ng-show="desktop" >
                 <li ng-repeat="c in citiesList">
-                    <a href="" ng-class="{'active': campaign && campaign.code === c.code || !campaign && c.code === 'B'}" ng-click="changeCity(c)">
+                    <a href="" ng-class="{'active': campaign && campaign.shortCode === c.shortCode || !campaign && c.shortCode === 'B'}" ng-click="changeCity(c)">
                         {{c.defaultName}}
                     </a>
                 </li>

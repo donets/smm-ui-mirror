@@ -63,7 +63,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.Math = $window.Math;
         $scope._ = $window._;
         $scope.cards = getCards.data;
-        $scope.citiesList = getCities.data;
         $scope.disciplinesList = getDisciplines.data;
 
         $scope.tab = 'map';
@@ -76,7 +75,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $cookieStore.put('invitation', true);
         }
         if ($scope.city) {
-            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
+            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
             $cookieStore.put('cityId', $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
         }
         else if ($scope.cityId) {
@@ -88,8 +87,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $cookieStore.put('landingUrl', $location.url());
 
         $scope.changeCity = function(city) {
-            $scope.city = city.code;
-            $scope.campaign = _.findWhere($scope.citiesList, {code: $scope.city});
+            $scope.city = city.shortCode;
+            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
             RestApi.query({route: 'locations', cityId: $scope.campaign.id}).$promise.then(function (res) {
                 $scope.locations = _.reject(res, function (obj) {
                     return obj.latitude === null || obj.longitude === null;
@@ -136,7 +135,11 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             });
         };
 
-        $scope.changeCity($scope.citiesList[0]);
+        getCities.$promise.then(function (res) {
+            $scope.citiesList = res;
+            $scope.changeCity($scope.citiesList[0]);
+        });
+
 
 
 
