@@ -541,12 +541,11 @@
 			line-height: 30px;
 			border-radius: 0px;
 			box-sizing: border-box;
-			border: 1px solid #777;
-			background: #fff url("/images/arrow483.svg") no-repeat right 7px top 12px;
+			background: #fff url("/images/arrow-select.svg") no-repeat right 7px top 12px;
 			background-size: 24px 14px;
 			&:after {
 				color: #339900;
-				content: “\f00c”;
+				content: '\f00c';
 				font-family: FontAwesome;
 				position: absolute;
 				right: 10px;
