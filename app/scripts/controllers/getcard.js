@@ -57,56 +57,11 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         });
 
-        uiGmapGoogleMapApi.then(function() {
-
-            $scope.map = {
-                center: {
-                    latitude: 52.520007,
-                    longitude: 	13.404954
-                },
-                zoom: 12,
-                options: {
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    panControl: false,
-                    zoomControl : true,
-                    streetViewControl : true,
-                    scrollwheel: false
-                }
-            };
-
-            var markerIcon = new Image().src = '/images/marker.svg';
-            var markerIconHover = new Image().src = '/images/marker-hover.svg';
-
-            $scope.markerEvents = {
-                mouseover : function(marker, eventName, model) {
-                    marker.setIcon(markerIconHover);
-                    model.show = true;
-                },
-                mouseout : function(marker, eventName, model) {
-                    marker.setIcon(markerIcon);
-                    model.show = false;
-                }
-            };
-
-        });
-
-        RestApi.query({route: 'locations'}).$promise.then(function (res) {
-            $scope.locations = _.reject(res, function (obj) {
-                return obj.latitude === null || obj.longitude === null;
-            });
-            _.map($scope.locations, function (obj) {
-                obj.icon = '/images/marker.svg';
-            });
-        });
-
-        RestApi.query({route: 'studios'}).$promise.then(function (res) {
-            $scope.studios = res;
-        });
         $scope.invite = {};
         $scope.form = {};
 
         $scope.Math = $window.Math;
+        $scope._ = $window._;
         $scope.cards = getCards.data;
         $scope.citiesList = getCities.data;
         $scope.disciplinesList = getDisciplines.data;
@@ -116,15 +71,78 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.invitation = $location.search().invitation;
         $scope.discipline = $location.search().discipline;
         $scope.city = $location.search().city;
+        $scope.cityId = $cookieStore.get('cityId') || '1';
         if ($scope.invitation) {
             $cookieStore.put('invitation', true);
         }
         if ($scope.city) {
-            $scope.campaign = $scope.citiesList.cities[$scope.city];
-        } else {
+            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
+            $cookieStore.put('cityId', $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
+        }
+        else if ($scope.cityId) {
+            $scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
+        }
+        else {
             $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
         }
         $cookieStore.put('landingUrl', $location.url());
+
+        $scope.changeCity = function(city) {
+            $scope.city = city.shortCode;
+            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
+            RestApi.query({route: 'locations', cityId: $scope.campaign.id}).$promise.then(function (res) {
+                $scope.locations = _.reject(res, function (obj) {
+                    return obj.latitude === null || obj.longitude === null;
+                });
+                _.map($scope.locations, function (obj) {
+                    obj.icon = '/images/marker.svg';
+                });
+            });
+            RestApi.query({route: 'studios', cityId: $scope.campaign.id}).$promise.then(function (res) {
+                $scope.studios = res;
+            });
+            uiGmapGoogleMapApi.then(function() {
+
+                $scope.map = {
+                    center: {
+                        latitude: $scope.campaign.lat,
+                        longitude: 	$scope.campaign.lon
+                    },
+                    zoom: 12,
+                    options: {
+                        mapTypeControl: false,
+                        overviewMapControl: false,
+                        panControl: false,
+                        zoomControl : true,
+                        streetViewControl : true,
+                        scrollwheel: false
+                    }
+                };
+
+                var markerIcon = new Image().src = '/images/marker.svg';
+                var markerIconHover = new Image().src = '/images/marker-hover.svg';
+
+                $scope.markerEvents = {
+                    mouseover : function(marker, eventName, model) {
+                        marker.setIcon(markerIconHover);
+                        model.show = true;
+                    },
+                    mouseout : function(marker, eventName, model) {
+                        marker.setIcon(markerIcon);
+                        model.show = false;
+                    }
+                };
+
+            });
+        };
+
+        getCities.$promise.then(function (res) {
+            $scope.citiesList = res;
+            $scope.changeCity($scope.citiesList[0]);
+        });
+
+
+
 
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -146,7 +164,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), interestedInProduct: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $scope.cityId, interestedInProduct: true }).success(function () {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $scope.invite = {};

@@ -69,8 +69,8 @@ angular
         'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
-    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$q', '$cookieStore',
-        function ($rootScope, $state, $stateParams, amMoment, $window, $q, $cookieStore) {
+    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$http', 'RestApi', '$q', '$cookieStore',
+        function ($rootScope, $state, $stateParams, amMoment, $window, $http, RestApi, $q, $cookieStore) {
             // It's very handy to add references to $state and $stateParams to the $rootScope
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -85,10 +85,23 @@ angular.module('boltApp')
                 $window.rendering = true;
             });
             $rootScope.$on('$viewContentLoaded', function(){
-                if ($window.rendering) {
+                var prerenderReady = function () {
                     $window.prerenderReady = true;
                     $rootScope.prerenderReady = true;
                     $('.pre').addClass('hide_loader');
+                };
+                if ($window.rendering) {
+                    /*$http.get('//ipinfo.io/json/?token=c2989e43470111', {withCredentials: false}).success(function (response) {
+                        RestApi.query({route: 'cities'}).$promise.then(function (res) {
+                            var city = _.findWhere(res, {defaultName: response.city});
+                            $cookieStore.put('cityId', city && city.active ? city.id : 1);
+                            prerenderReady();
+                        });
+                    }).error(function () {
+                        $cookieStore.put('cityId', 1);
+                        prerenderReady();
+                    });*/
+                    prerenderReady();
                 }
             });
             var checkRule = function (event, toState, toParams, redirectState) {
@@ -114,7 +127,6 @@ angular.module('boltApp')
                 $rootScope.rejection = null;
                 $rootScope.success = null;
                 var session = $cookieStore.get('session');
-                console.log(session);
                 if (session) {
                     $rootScope.userName = session.name;
                     $rootScope.roleMember = _.include(session.roles, 'member') ? true : false;
@@ -363,9 +375,9 @@ angular.module('boltApp')
 
                     },
 
-                    getCities: function($http) {
+                    getCities: function(RestApi) {
 
-                        return $http.get('json/cities.json', {cache: true});
+                        return RestApi.query({route: 'cities'}).$promise;
 
                     },
 
@@ -406,7 +418,7 @@ angular.module('boltApp')
                 controller : 'DashboardCtrl'
             })
             .state('signup', {
-                url : '/p/signup/',
+                url : '/p/signup/:cityId',
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
@@ -414,6 +426,18 @@ angular.module('boltApp')
                     getCards: function($http) {
 
                         return $http.get('json/cards.json', {cache: true});
+
+                    },
+
+                    getCities: function(RestApi) {
+
+                        return RestApi.query({route: 'cities'}).$promise;
+
+                    },
+
+                    getCityId: function($stateParams, $cookieStore) {
+
+                        return parseInt($stateParams.cityId) || $cookieStore.get('cityId') || 1;
 
                     }
 
@@ -485,7 +509,7 @@ angular.module('boltApp')
 
                     getOccurrences: function(RestApi) {
 
-                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
+                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, cityId: 1, withActiveParent: true}).$promise;
 
                     },
 
@@ -619,6 +643,10 @@ angular.module('boltApp')
                             RestApi.query({route: 'locations'}).$promise.then(function (response) {
                                 $rootScope.locations = response;
                             });
+                            RestApi.query({route: 'cities'}).$promise.then(function (response) {
+                                $rootScope.cities = response;
+                                $rootScope.cities.unshift({id:0, defaultName: 'No location'});
+                            });
                             $rootScope.upload = function (target) {
                                 $rootScope.modalInstance = $modal.open({
                                     templateUrl: 'views/modalUpload.html',
@@ -688,6 +716,12 @@ angular.module('boltApp')
 
                         }
 
+                      if ($rootScope.$stateParams.route === 'locations') {
+                        RestApi.query({route: 'cities'}).$promise.then(function (response) {
+                          $rootScope.cities = response;
+                        });
+                      }
+
                         $rootScope.showDatepicker = {};
                         $rootScope.openDatepicker = function($event, type) {
                             $event.preventDefault();
@@ -700,6 +734,11 @@ angular.module('boltApp')
                             showWeekNumbers: false,
                             showWeeks: false
                         };
+
+                      $rootScope.clearFilters = function () {
+                        $rootScope.search = {};
+                      };
+                      $rootScope.clearFilters();
 
                     }
             })

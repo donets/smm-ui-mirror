@@ -5,15 +5,15 @@
     min-width: 320px;
     height: 42px;
     line-height: 41px;
-    background: $colorLink;
+    background: $colorMain;
     border: 0 none;
     @include transition(all .2s);
     color: #fff;
     font-size: 20px;
-    font-family: $fontLight;
+    font-family: $fontRegular;
     @include box-sizing(border-box);
     letter-spacing: 1px;
-    @include border-radius(2px);
+    @include border-radius(3px);
     text-align: center;
     padding: 0 20px;
     outline: none;
@@ -48,7 +48,7 @@
         line-height: 40px;
     }
     &:hover {
-        background: $colorHover;
+        background: $colorMainHover;
         color: #fff;
         text-decoration: none;
     }
@@ -102,7 +102,7 @@
     font-family: $fontLight;
     @include box-sizing(border-box);
     letter-spacing: 1px;
-    @include border-radius(2px);
+    @include border-radius(3px);
     text-align: center;
     padding: 0 12px;
     text-decoration: none;
@@ -171,11 +171,11 @@ button, input[type="submit"] {
         display: block;
         position: absolute;
         top: 0;
-        left: 30px;
-        background: url("/images/arrow-bottom.svg") no-repeat;
-        width: 18px;
-        height: 60px;
-        @include rotate(90deg);
+        // left: 30px;
+        background: url("/images/head_btn.png") no-repeat;
+        width: 32px;
+        height: 13px;
+        // @include rotate(90deg);
     }
     span {
         display: block;

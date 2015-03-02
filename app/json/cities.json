@@ -1,39 +1,27 @@
-{
-    "cities": {
-        "B" : {
-            "title": "Eine Karte für ganz Berlin"
-        },
-        "M" : {
-            "title": "Eine Karte für ganz München",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Munich&zoom=10&scale=2&size=600x300&maptype=roadmap&format=jpg&visual_refresh=true"
-        },
-        "H" : {
-            "title": "Eine Karte für ganz Hamburg",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Hamburg&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        },
-        "D" : {
-            "title": "Eine Karte für ganz Düsseldorf",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Düsseldorf&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        },
-        "F" : {
-            "title": "Eine Karte für ganz Frankfurt",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Frankfurt&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        },
-        "K" : {
-            "title": "Eine Karte für ganz Köln",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Köln&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        },
-        "S" : {
-            "title": "Eine Karte für ganz Stuttgart",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Stuttgart&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        },
-        "W" : {
-            "title": "Eine Karte für ganz Wien",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Wien&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        },
-        "Z" : {
-            "title": "Eine Karte für ganz Zürich",
-            "map": "http://maps.googleapis.com/maps/api/staticmap?center=Zürich&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
-        }
+[
+    {
+        "id": "1",
+        "shortCode": "B",
+        "defaultName": "Berlin",
+        "lat": "52.520007",
+        "lon": 	"13.404954",
+        "countryCode": "DE",
+        "active": true
+    },
+    {
+        "id": "2",
+        "shortCode": "M",
+        "defaultName": "München",
+        "lat": "48.1544527",
+        "lon": "11.5418357",
+        "countryCode": "DE",
+        "active": true
+    },
+    {
+        "id": "3",
+        "shortCode": "H",
+        "defaultName": "Hamburg",
+        "countryCode": "DE",
+        "active": false
     }
-}
+]

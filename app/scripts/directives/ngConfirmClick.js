@@ -6,6 +6,9 @@
  * @description
  * # ngConfirmClick
  */
+
+/*jshint devel:true */
+
 angular.module('boltApp')
     .directive('ngConfirmClick', function () {
         return {
@@ -20,5 +23,5 @@ angular.module('boltApp')
                     }
                 });
             }
-        }
+        };
     });
