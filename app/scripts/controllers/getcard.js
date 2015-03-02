@@ -110,6 +110,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope._ = $window._;
         $scope.cards = getCards.data;
         $scope.citiesList = getCities.data;
+        console.log($scope.citiesList);
         $scope.disciplinesList = getDisciplines.data;
 
         $scope.tab = 'map';

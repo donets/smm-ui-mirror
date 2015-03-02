@@ -585,20 +585,20 @@
 			font-size: 18px;
 			font-family: $fontRegular;
 			color: $colorText;
-			padding: 5px 12px;
+			padding: 5px 36px 5px 12px;
 			line-height: 30px;
 			border-radius: 0px;
 			box-sizing: border-box;
 			border: 1px solid #777;
+			background: #fff url("/images/arrow483.svg") no-repeat right 7px top 12px;
+			background-size: 24px 14px;
 			&:after {
-				content: "\f107";
+				color: #339900;
+				content: “\f00c”;
+				font-family: FontAwesome;
 				position: absolute;
-				top: 0;
-				right: 0;
-				display: block;
-				width: 40px;
-				text-align: center;
-				height: 100%;
+				right: 10px;
+				top: 25px;
 			}
 		}
 	}
