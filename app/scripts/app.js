@@ -20,6 +20,7 @@ angular
         'ui.bootstrap',
         'angular-data.DSCacheFactory',
         'angularMoment',
+        'gettext',
         'ngProgress',
         'angularSpinner',
         'duScroll',
@@ -156,6 +157,10 @@ angular.module('boltApp')
         }])
     .run(function(editableOptions) {
         editableOptions.theme = 'bs3';
+    })
+    .run(function (gettextCatalog) {
+      gettextCatalog.setCurrentLanguage('en');
+      gettextCatalog.debug = true;
     })
     .constant('angularMomentConfig', {
         timezone: 'Europe/Berlin'

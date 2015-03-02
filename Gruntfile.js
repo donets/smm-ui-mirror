@@ -428,39 +428,49 @@ module.exports = function (grunt) {
         nggettext_extract: {
           pot: {
             files: {
-              'po/eventCard.pot': ['app/views/_eventCard.html'],
-              'po/loginForm.pot': ['app/views/_loginForm.html'],
-              'po/about.pot': ['app/views/about.html'],
-              'po/agb.pot': ['app/views/agb.html'],
-              'po/class.pot': ['app/views/class.html'],
-              'po/classes.pot': ['app/views/classes.html'],
-              'po/entity.pot': ['app/views/entity.html'],
-              'po/entityList.pot': ['app/views/entityList.html'],
-              'po/event.pot': ['app/views/event.html'],
-              'po/faq.pot': ['app/views/faq.html'],
-              'po/homeClasses.pot': ['app/views/homeClasses.html'],
-              'po/homepage.pot': ['app/views/homepage.html'],
-              'po/impressum.pot': ['app/views/impressum.html'],
-              'po/login.pot': ['app/views/login.html'],
-              'po/main.pot': ['app/views/main.html'],
-              'po/modalAttend.pot': ['app/views/modalAttend.html'],
-              'po/modalCancel.pot': ['app/views/modalCancel.html'],
-              'po/modalContact.pot': ['app/views/modalContact.html'],
-              'po/modalMessage.pot': ['app/views/modalMessage.html'],
-              'po/modalSubscribe.pot': ['app/views/modalSubscribe.html'],
-              'po/modalSuggest.pot': ['app/views/modalSuggest.html'],
-              'po/modalUpload.pot': ['app/views/modalUpload.html'],
-              'po/more.pot': ['app/views/more.html'],
-              'po/resetPassword.pot': ['app/views/resetPassword.html'],
-              'po/signup.pot': ['app/views/signup.html'],
-              'po/studio.pot': ['app/views/studio.html'],
-              'po/userAccount.pot': ['app/views/userAccount.html'],
-              'po/userDashboard.pot': ['app/views/userDashboard.html'],
-              'po/userMembership.pot': ['app/views/userMembership.html'],
-              'po/userProfile.pot': ['app/views/userProfile.html']
+              'po/templates/eventCard.pot': ['app/views/_eventCard.html'],
+              'po/templates/loginForm.pot': ['app/views/_loginForm.html'],
+              'po/templates/about.pot': ['app/views/about.html'],
+              'po/templates/agb.pot': ['app/views/agb.html'],
+              'po/templates/class.pot': ['app/views/class.html'],
+              'po/templates/classes.pot': ['app/views/classes.html'],
+              'po/templates/entity.pot': ['app/views/entity.html'],
+              'po/templates/entityList.pot': ['app/views/entityList.html'],
+              'po/templates/event.pot': ['app/views/event.html'],
+              'po/templates/faq.pot': ['app/views/faq.html'],
+              'po/templates/homeClasses.pot': ['app/views/homeClasses.html'],
+              'po/templates/homepage.pot': ['app/views/homepage.html'],
+              'po/templates/impressum.pot': ['app/views/impressum.html'],
+              'po/templates/login.pot': ['app/views/login.html'],
+              'po/templates/main.pot': ['app/views/main.html'],
+              'po/templates/modalAttend.pot': ['app/views/modalAttend.html'],
+              'po/templates/modalCancel.pot': ['app/views/modalCancel.html'],
+              'po/templates/modalContact.pot': ['app/views/modalContact.html'],
+              'po/templates/modalMessage.pot': ['app/views/modalMessage.html'],
+              'po/templates/modalSubscribe.pot': ['app/views/modalSubscribe.html'],
+              'po/templates/modalSuggest.pot': ['app/views/modalSuggest.html'],
+              'po/templates/modalUpload.pot': ['app/views/modalUpload.html'],
+              'po/templates/more.pot': ['app/views/more.html'],
+              'po/templates/resetPassword.pot': ['app/views/resetPassword.html'],
+              'po/templates/signup.pot': ['app/views/signup.html'],
+              'po/templates/studio.pot': ['app/views/studio.html'],
+              'po/templates/userAccount.pot': ['app/views/userAccount.html'],
+              'po/templates/userDashboard.pot': ['app/views/userDashboard.html'],
+              'po/templates/userMembership.pot': ['app/views/userMembership.html'],
+              'po/templates/userProfile.pot': ['app/views/userProfile.html']
             }
           }
+        },
+      nggettext_compile: {
+        all: {
+          options: {
+            module: 'boltApp'
+          },
+          files: {
+            'app/scripts/custom/translations.js': ['po/translations/*.po']
+          }
         }
+      }
     });
 
 

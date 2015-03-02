@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/userMembership.html:21
+msgid "/ Monat für {{voucher.discountDuarationInMonths}} Monate"
+msgstr "/ month for {{voucher.discountDuarationInMonths}} months"
+
+#: app/views/userMembership.html:18
+msgid "0€ / Monat"
+msgstr "€0 / month"
+
+# Passt "Direct debit" hier?
+#: app/views/userMembership.html:30
+msgid "Abbuchung:"
+msgstr "Direct debit:"
+
+#: app/views/userMembership.html:23
+msgid "Beginn Mitgliedschaft:"
+msgstr "Start of membership:"
+
+#: app/views/userMembership.html:67
+msgid ""
+"Diese Funktion ist zur Zeit noch nicht aktiv, kontaktieren Sie bitte dazu unseren Kundenservice auf\n"
+"            <a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+msgstr ""
+"This function is currently not active, please contact our customer service team at\n"
+"<a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+
+#: app/views/userMembership.html:20
+msgid "Ermäßigter Preis:"
+msgstr "Reduced price:"
+
+#: app/views/userMembership.html:70
+msgid ""
+"Es gab einen Fehler. Bitte kontaktieren Sie den Support über\n"
+"            <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a>"
+msgstr ""
+"An error has occurred. Please contact our support team at\n"
+"<a href=\"mailto:kundenservice@somuchmore.org\">customerservice@somuchmore.org</a>"
+
+#: app/views/userMembership.html:6
+msgid "Hochladen"
+msgstr "Upload"
+
+#: app/views/userMembership.html:34
+msgid "Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende"
+msgstr "In month 1: cancel anytime (trial month). From month 4: cancel on a monthly basis by the end of the month"
+
+#: app/views/userMembership.html:46
+msgid "Kurse pro Anbieter / Monat"
+msgstr "Courses per provider / month"
+
+#: app/views/userMembership.html:45
+msgid "Kurse pro Monat"
+msgstr "Courses per month"
+
+#: app/views/userMembership.html:47
+msgid "Kündigen / Pausieren"
+msgstr "Cancel / Freeze"
+
+#: app/views/userMembership.html:33
+msgid "Kündigung:"
+msgstr "Cancellation of contract:"
+
+#: app/views/userMembership.html:26
+msgid "Laufzeit:"
+msgstr "Term:"
+
+#: app/views/userMembership.html:4
+msgid "Mein Foto auf der Karte"
+msgstr "My photo on the card"
+
+#: app/views/userMembership.html:11
+msgid "Meine Kartennummer::"
+msgstr "My card number:"
+
+#: app/views/userMembership.html:31
+msgid "Monatlich beginnend mit dem Tag der Mitgliedschaft"
+msgstr "Monthly beginning with the first day of membership"
+
+#: app/views/userMembership.html:44
+msgid "Preis pro Monat"
+msgstr "Price per month"
+
+#: app/views/userMembership.html:14
+msgid "Regulärer Preis:"
+msgstr "Regular price:"
+
+#: app/views/userMembership.html:17
+msgid "Sonderpreis:"
+msgstr "Special price:"
+
+#: app/views/userMembership.html:73
+msgid "Wenn Du Deine Mitgliedschaft kündigen willst, klicke <a href=\"\" ng-click=\"cancelMembership()\">hier.</a>"
+msgstr "If you wish to cancel your membership, please click <a href=\"\" ng-click=\"cancelMembership()\">here.</a>"
+
+#: app/views/userMembership.html:39
+msgid "Willst Du Deinen Karten-Typ ändern?"
+msgstr "Do you want to change your card type?"
+
+#: app/views/userMembership.html:27
+msgid "unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat"
+msgstr "Unlimited / If you do not cancel your contract it will be extended by one month"
+
+#: app/views/userMembership.html:15
+msgid "{{overview.price}}€ / Monat"
+msgstr "€{{overview.price} / month"

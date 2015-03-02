@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/modalContact.html:24
+msgid "Absenden"
+msgstr "Submit"
+
+#: app/views/modalContact.html:5
+msgid "Close"
+msgstr "Close"
+
+#: app/views/modalContact.html:27
+msgid "Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut."
+msgstr "Your message could not be sent, please try again."

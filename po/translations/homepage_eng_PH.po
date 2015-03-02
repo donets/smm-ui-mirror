@@ -1,0 +1,267 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/homepage.html:77
+msgid "(14 Tage ausprobieren, Geld zurück bei Nichtgefallen)"
+msgstr "(14-day trial, get your money back if you are not satisfied)"
+
+#: app/views/homepage.html:85
+msgid "(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts zahlen)"
+msgstr "(No admission fee, attend unlimited courses and pay just a fraction of their actual value)"
+
+#: app/views/homepage.html:81
+msgid "(Keine Mindestlaufzeit, monatlich kündigen und pausieren)"
+msgstr "(No minimum term and monthly option of cancelling or freezing your contract)"
+
+#: app/views/homepage.html:188
+msgid "(in der Regel keine Voranmeldung erforderlich)"
+msgstr "(advance registration is not usually required)"
+
+#: app/views/homepage.html:184
+msgid "(kommt in wenigen Tagen per Post – Du kannst schon vorher mit der Bestätigungs-E-Mail Kurse besuchen)"
+msgstr "(will arrive in a few days by post – you can already start attending courses by showing your confirmation e-mail)"
+
+#: app/views/homepage.html:183
+msgid "1. Bestelle in unter 1 Minute Deine Somuchmore Card"
+msgstr "1. Order your Somuchmore card in less than 1 minute"
+
+#: app/views/homepage.html:60
+msgid "14 Tage KOSTENLOS testen"
+msgstr "14-day FREE trial"
+
+#: app/views/homepage.html:19 app/views/homepage.html:41
+msgid "14 Tage ausprobieren?"
+msgstr "Would you like a 14-day trial?"
+
+#: app/views/homepage.html:187
+msgid "2. Finde in unserem <a ui-sref=\"dashboard\" target=\"_blank\">Kursplaner</a> in Sekunden Deinen Lieblingskurs"
+msgstr "2. Find your favourite course in seconds from our <a ui-sref=\"dashboard\" target=\"_blank\">course planner</a>."
+
+#: app/views/homepage.html:191
+msgid "3. Zeige im Studio die Somuchmore Card vor und nimm am Kurs teil"
+msgstr "3. Show your Somuchmore card at the studio and participate in your chosen course"
+
+#: app/views/homepage.html:67
+msgid "All das. Und so viel mehr. Mit einer Karte."
+msgstr "All that. And so much more. With just one card."
+
+#: app/views/homepage.html:198
+msgid "Bekannt aus"
+msgstr "As featured in"
+
+#: app/views/homepage.html:179
+msgid "Besuche mit einem monatlichen Beitrag in jedem <br> Partner-Studio Kurse."
+msgstr "For a monthly fee you can attend courses at all of our partner studios."
+
+#: app/views/homepage.html:66
+msgid "Beweglichkeit und das OM von <b>Yoga</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b>, <b>TRX</b> und <b>Fitness</b>. Schwung und Sinnlichkeit von <b>Tango</b>, <b>Hip-Hop</b> und <b>Tanz</b>. Körperbewusstsein und Stärke von <b>Pilates</b>, <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Erkenntnis und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung in <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>."
+msgstr "Physical exercise and om chants at <b>yoga</b> classes. Sweating and feeling the burn at <b>CrossFit</b>, <b>TRX</b> and <b>gym workouts</b>. Energy and sensuality at <b>tango</b>, <b>hip-hop</b> and <b>dance</b> lessons. Body awareness and strength at <b>Pilates</b>, <b>tai chi</b>, <b>qigong</b> and <b>martial arts</b>. Awareness and inner peace at <b>meditation</b> sessions. Relaxation and pampering at the <b>sauna</b>, <b>steam bath</b> and <b>spa</b>."
+
+#: app/views/homepage.html:223 app/views/homepage.html:240
+msgid "Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore."
+msgstr "Exercise, a healthy diet and mental training are inextricably linked – all of these together promote a healthy body and mind. This holistic approach is what convinced me to join Somuchmore."
+
+#: app/views/homepage.html:25 app/views/homepage.html:47
+msgid "Danke für Deine Anfrage!"
+msgstr "Thanks for your inquiry!"
+
+#: app/views/homepage.html:312
+msgid "Danke!"
+msgstr "Thank you!"
+
+#: app/views/homepage.html:31 app/views/homepage.html:53
+#: app/views/homepage.html:61
+msgid "Deine Karte erhalten"
+msgstr "Get your card"
+
+#: app/views/homepage.html:26 app/views/homepage.html:313
+#: app/views/homepage.html:48
+msgid "Die Email-Adresse ist nicht korrekt"
+msgstr "The e-mail address is incorrect "
+
+#: app/views/homepage.html:273 app/views/homepage.html:288
+msgid "Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref=\"dashboard\" target=\"_blank\">Kursplaner</a> nach."
+msgstr "Most studios accept all Somuchmore cards without limitations. But there are studios which don’t accept a certain card or only with restrictions. Please always refer to the <a ui-sref=\"dashboard\" target=\"_blank\">course planner</a>."
+
+#: app/views/homepage.html:282 app/views/homepage.html:297
+msgid "Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail."
+msgstr "You can cancel your contract at any time, which will become effective from the following month. You can also freeze your membership at any time of the month without giving us a reason. How? From your account. Or simply by sending us an e-mail."
+
+# London statt Berlin!
+#: app/views/homepage.html:13
+msgid "Eine Karte für ganz Berlin"
+msgstr "One card for the whole of London"
+
+#: app/views/homepage.html:279 app/views/homepage.html:294
+msgid "Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis)."
+msgstr "A lot! Like visiting saunas, spas or gyms for free. Or arranging a personal consultation, e.g. regarding health or nutrition (for an additional fee)."
+
+#: app/views/homepage.html:76
+msgid "Einfach ausprobieren"
+msgstr "Simply try it out"
+
+#: app/views/homepage.html:14
+msgid "Entdecke <b>700 Kurse</b> in <b>50 Studios</b> mit <b>1 Mitgliedschaft</b>."
+msgstr "Discover <b>700 courses</b> in <b>50 studios</b> with <b>1 membership</b>."
+
+#: app/views/homepage.html:15
+msgid "Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
+msgstr "Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> with <b>one membership</b>."
+
+#: app/views/homepage.html:68
+msgid "Entdecke unsere Kurse ›"
+msgstr "Discover our courses ›"
+
+#: app/views/homepage.html:58
+msgid "Erhalte heute Deine Einladung"
+msgstr "Get your invitation today  "
+
+#: app/views/homepage.html:178
+msgid "Es geht so einfach!"
+msgstr "It’s so simple!"
+
+#: app/views/homepage.html:219 app/views/homepage.html:235
+msgid "Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein."
+msgstr "A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio."
+
+#: app/views/homepage.html:16
+msgid "Hunderte Kurse, die besten Studios, ein Beitrag"
+msgstr "Hundreds of courses, the best studios, one fee"
+
+#: app/views/homepage.html:276 app/views/homepage.html:291
+msgid "In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref=\"dashboard\" target=\"_blank\">Kursplaner</a> nach."
+msgstr "Usually not. But there are exceptions, e.g. in the case of small class sizes, high demand or if prior experience is required. Please always refer to the <a ui-sref=\"dashboard\" target=\"_blank\">course planner</a>."
+
+#: app/views/homepage.html:59
+msgid "Jetzt kostenlos anmelden"
+msgstr "Register now for free"
+
+#: app/views/homepage.html:272 app/views/homepage.html:287
+msgid "Kann ich überall alle Kurse besuchen?"
+msgstr "Can I attend all courses everywhere?"
+
+#: app/views/homepage.html:80
+msgid "Keine Bindung"
+msgstr "No obligation"
+
+#: app/views/homepage.html:84
+msgid "Kräftig sparen"
+msgstr "Huge savings"
+
+#: app/views/homepage.html:133 app/views/homepage.html:165
+msgid "Kurse pro Anbieter / Monat"
+msgstr "Courses per provider / month"
+
+#: app/views/homepage.html:132 app/views/homepage.html:161
+msgid "Kurse pro Monat"
+msgstr "Courses per month"
+
+#: app/views/homepage.html:134 app/views/homepage.html:169
+msgid "Kündigen / Pausieren"
+msgstr "Cancel / Freeze"
+
+#: app/views/homepage.html:125
+msgid "Lebe gesund und erfüllt"
+msgstr "Live a healthy and fulfilled life"
+
+#: app/views/homepage.html:33
+msgid "MEHR ERFAHREN"
+msgstr "FIND OUT MORE"
+
+#: app/views/homepage.html:300
+msgid "Mehr Fragen? Hier geht es zu unseren FAQ ›"
+msgstr "More questions? Read our FAQ here ›"
+
+# Macht den deutschen Text Sinn?
+# "Mit Somuchmore wird leichter, was mir wichtig ist:"
+# Was wird leichter?
+#: app/views/homepage.html:215 app/views/homepage.html:230
+msgid "Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen."
+msgstr "Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth."
+
+#: app/views/homepage.html:275 app/views/homepage.html:290
+msgid "Muss ich mich vorher anmelden?"
+msgstr "Do I have to sign up in advance?"
+
+#: app/views/homepage.html:173
+msgid "Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück."
+msgstr "Not sure? Enjoy a 14-day trial now. If you don’t attend more than three courses, you will be entitled to your money back."
+
+#: app/views/homepage.html:131 app/views/homepage.html:156
+msgid "Preis pro Monat"
+msgstr "Price per month"
+
+#: app/views/homepage.html:126
+msgid "Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis {{validUntilIn | amDateFormat: 'D. MMMM'}}"
+msgstr "Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}"
+
+#: app/views/homepage.html:38
+msgid "Somuchmore"
+msgstr "Somuchmore"
+
+#: app/views/homepage.html:108
+msgid "Start am 1.März!"
+msgstr "Start on 1st March!"
+
+#: app/views/homepage.html:119
+msgid "Studio vorschlagen"
+msgstr "Suggest a studio "
+
+#: app/views/homepage.html:305
+msgid "Studio? Coach? Willst Du Kurse bei uns anbieten?"
+msgstr "Do you run a studio? Are you a coach? Would you like to offer courses for us?"
+
+#: app/views/homepage.html:96
+msgid "Studios als Liste"
+msgstr "List of studios"
+
+#: app/views/homepage.html:95
+msgid "Studios auf Karte"
+msgstr "Map of studios"
+
+#: app/views/homepage.html:92
+msgid "Trainiere in der ganzen Stadt"
+msgstr "Exercise your way around the city"
+
+#: app/views/homepage.html:65
+msgid "Unendliche Auswahl, tägliche Inspiration"
+msgstr "A neverending choice, daily inspiration"
+
+#: app/views/homepage.html:278 app/views/homepage.html:293
+msgid "Was kann mit meiner Karte noch machen?"
+msgstr "What else can I do with my card?"
+
+#: app/views/homepage.html:269
+msgid "Welche Fragen hast Du noch?"
+msgstr "Any more questions?"
+
+#: app/views/homepage.html:281 app/views/homepage.html:296
+msgid "Wie kündige oder pausiere ich meine Mitgliedschaft?"
+msgstr "How do I cancel or freeze my membership?"
+
+#: app/views/homepage.html:93
+msgid "Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung."
+msgstr "Choose from more than <b>700 courses</b> in over <b>50 studios</b> near you."
+
+#: app/views/homepage.html:216 app/views/homepage.html:231
+msgid "– Alexandra Liakou, Regisseurin"
+msgstr "– Alexandra Liakou, director"
+
+#: app/views/homepage.html:220 app/views/homepage.html:236
+msgid "– Konrad Knops, Osteopath"
+msgstr "– Konrad Knops, osteopath"
+
+#: app/views/homepage.html:224 app/views/homepage.html:241
+msgid "– Sonja Reifenhäuser, Food Coach"
+msgstr "– Sonja Reifenhäuser, food coach"

@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/modalMessage.html:4
+msgid "Close"
+msgstr "Close"
+
+#: app/views/modalMessage.html:18
+msgid "Danke, Deine Nachricht wurde an Somuchmore versendet!"
+msgstr "Thank you, your message has been sent to Somuchmore!"
+
+#: app/views/modalMessage.html:6
+msgid "Nachricht an Somuchmore"
+msgstr "Message to Somuchmore"
+
+#: app/views/modalMessage.html:19
+msgid "Ok"
+msgstr "Ok "
+
+# Der Quelltext sollte angepasst werden. Die Uebersetzung ist richtig.
+#: app/views/modalMessage.html:14
+msgid "Sorry your message not delivered. Please try later."
+msgstr "Sorry, your message was not delivered. Please try again later."

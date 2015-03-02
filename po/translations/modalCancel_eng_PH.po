@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/modalCancel.html:3
+msgid "Bist Du sicher, dass Du Deine Mitgliedschaft kündigen willst?"
+msgstr "Are you sure that you want to cancel your membership?"
+
+#: app/views/modalCancel.html:6
+msgid "Ja"
+msgstr "Yes"
+
+#: app/views/modalCancel.html:5
+msgid "Nein"
+msgstr "No"

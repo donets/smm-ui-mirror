@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/_eventCard.html:8
+msgid "Ausverkauft"
+msgstr "Sold out"
+
+#: app/views/_eventCard.html:9
+msgid "Privatstunde"
+msgstr "Private lesson"
+
+#: app/views/_eventCard.html:19
+msgid "Zum Event"
+msgstr "Go to event"
+
+#: app/views/_eventCard.html:7
+msgid "{{event.total_tickets_left}}/{{event.total_tickets}} Plätzen frei"
+msgstr "Places available"
+
+#: app/views/_eventCard.html:28
+msgid "— mit {{event.parent_event.teacherName}}"
+msgstr "— with {{event.parent_event.teacherName}}"

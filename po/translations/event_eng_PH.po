@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: app/views/event.html:38
+msgid "&lt; Weniger"
+msgstr "&lt; Less"
+
+#: app/views/event.html:67
+msgid ", {{teacher.teacherProfile.numberOfClassesTaught}} Stunden"
+msgstr ", {{teacher.teacherProfile.numberOfClassesTaught}} hours"
+
+#: app/views/event.html:24
+msgid "<i class=\"fa fa-calendar\"></i>Buche einen anderen Termin"
+msgstr "<i class=\"fa fa-calendar\"></i>Book a different date"
+
+#: app/views/event.html:47
+msgid "<i class=\"fa fa-clock-o\"></i>{{duration}} Minuten"
+msgstr "<i class=\"fa fa-clock-o\"></i>{{duration}} minutes"
+
+#: app/views/event.html:62 app/views/event.html:71
+msgid "<i class=\"fa fa-envelope\"></i>Fragen zum Event?"
+msgstr "<i class=\"fa fa-envelope\"></i>Questions about the event?"
+
+#: app/views/event.html:19
+msgid "Ausverkauft"
+msgstr "Sold out"
+
+#: app/views/event.html:22
+msgid "Buche dieses Event"
+msgstr "Book this event"
+
+#: app/views/event.html:23
+msgid "Buche dieses Event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span>"
+msgstr "Book this event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span>"
+
+#: app/views/event.html:59
+msgid "Erfahrener Lehrer"
+msgstr "Experienced teacher"
+
+#: app/views/event.html:58
+msgid "Lehrer"
+msgstr "Teacher"
+
+#: app/views/event.html:37
+msgid "Mehr &gt;"
+msgstr "More &gt;"
+
+#: app/views/event.html:60
+msgid "Meister Lehrer"
+msgstr "Master teacher"
+
+#: app/views/event.html:20
+msgid "Privatstunde"
+msgstr "Private lesson"
+
+#: app/views/event.html:66
+msgid "Seit {{2014 - teacher.teacherProfile.teachingSince}}"
+msgstr "Since {{2014 - teacher.teacherProfile.teachingSince}}"
+
+#: app/views/event.html:18
+msgid "{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} Plätzen frei"
+msgstr "{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} Places available"
