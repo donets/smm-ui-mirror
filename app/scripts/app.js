@@ -432,7 +432,7 @@ angular.module('boltApp')
 
                     getCityId: function($stateParams, $cookieStore) {
 
-                        return parseInt($stateParams.cityId) || $cookieStore.get("cityId") || 1
+                        return parseInt($stateParams.cityId) || $cookieStore.get('cityId') || 1;
 
                     }
 
@@ -640,7 +640,7 @@ angular.module('boltApp')
                             });
                             RestApi.query({route: 'cities'}).$promise.then(function (response) {
                                 $rootScope.cities = response;
-                                $rootScope.cities.unshift({id:0, defaultName: "No location"});
+                                $rootScope.cities.unshift({id:0, defaultName: 'No location'});
                             });
                             $rootScope.upload = function (target) {
                                 $rootScope.modalInstance = $modal.open({

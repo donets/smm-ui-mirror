@@ -13,7 +13,7 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.cards = getCards.data;
         $scope.cities = getCities;
         $scope.cities = _.filter($scope.cities, function(city) {
-          return city.active
+            return city.active;
         });
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
@@ -29,9 +29,9 @@ angular.module('boltApp.controllers.Signup', [])
             cityId: getCityId
         };
         $scope.sanitizeCity = function() {
-          if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
-            $scope.order.cityId = 1
-          }
+            if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
+                $scope.order.cityId = 1;
+            }
         };
         $scope.sanitizeCity();
 
