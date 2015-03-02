@@ -346,6 +346,31 @@
         @media (max-width: $containerMobileWidth640) {
             margin: 0 0 5px;
         }
+        select {
+            display: block;
+            width: 100%;
+            -webkit-appearance: none;
+            height: 40px;
+            border-color: #d7d7d7;
+            border-radius: 2px 2px 0 0;
+            font-size: 16px;
+            font-family: $fontRegular;
+            color: $colorText;
+            padding: 5px 36px 5px 12px;
+            line-height: 30px;
+            border-radius: 0px;
+            box-sizing: border-box;
+            background: #fff url("/images/arrow483.svg") no-repeat right 7px top 12px;
+            background-size: 24px 14px;
+            &:after {
+                color: #339900;
+                content: “\f00c”;
+                font-family: FontAwesome;
+                position: absolute;
+                right: 10px;
+                top: 25px;
+            }
+        }
     }
     .form-title {
         text-align: left;

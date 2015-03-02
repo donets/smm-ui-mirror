@@ -73,7 +73,7 @@
                             ng-model="order.cityId" ng-change="cityChange()"
                             data-placeholder="Stadt"
                             ng-options="item.id as item.defaultName for item in cities">
-                        <option value=""></option>
+                        <option value="" ng-if="false"></option>
                     </select>
 
                 </div>
@@ -184,7 +184,7 @@
                                         data-placeholder="Monat"
                                         disable-search="true"
                                         ng-options="item for item in month">
-                                    <option value=""></option>
+                                    <option value="" ng-if="false"></option>
                                 </select>
                             </div>
                             <div class="third" ng-class="{'chosen-valid': formCheckout.cardYear.$dirty && formCheckout.cardYear.$valid}">
@@ -194,7 +194,7 @@
                                         data-placeholder="Jahr"
                                         disable-search="true"
                                         ng-options="item for item in year">
-                                    <option value=""></option>
+                                    <option value="" ng-if="false"></option>
                                 </select>
                             </div>
                             <div class="third">
