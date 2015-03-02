@@ -19,6 +19,12 @@
         display: inline-block;
         vertical-align: top;
         margin-left: -1px;
+        @media (max-width: $containerMobileWidth) {
+            margin: 0 5px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+            margin: 0;
+        }
         a {
             display: block;
             color: $colorGrey;

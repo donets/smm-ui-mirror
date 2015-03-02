@@ -370,9 +370,9 @@ angular.module('boltApp')
 
                     },
 
-                    getCities: function($http) {
+                    getCities: function(RestApi) {
 
-                        return $http.get('json/cities.json', {cache: true});
+                        return RestApi.query({route: 'cities'}).$promise;
 
                     },
 
@@ -425,11 +425,15 @@ angular.module('boltApp')
                     },
 
                     getCities: function(RestApi) {
-                      return RestApi.query({route: 'cities'}).$promise;
+
+                        return RestApi.query({route: 'cities'}).$promise;
+
                     },
 
                     getCityId: function($stateParams, $cookieStore) {
-                      return parseInt($stateParams.cityId) || $cookieStore.get("cityId") || 1
+
+                        return parseInt($stateParams.cityId) || $cookieStore.get("cityId") || 1
+
                     }
 
                 },

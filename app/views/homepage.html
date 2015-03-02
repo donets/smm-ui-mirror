@@ -10,16 +10,17 @@
         <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
     </videogular>
-    <div class="b-main-slogan"><h2 ng-if="!campaign">Eine Karte für ganz Berlin</h2><h2 ng-if="campaign">{{campaign.title}}</h2>
-        <p ng-if="!campaign">Entdecke <b>700 Kurse</b> in <b>50 Studios</b> mit <b>1 Mitgliedschaft</b>.</p>
+    <div class="b-main-slogan"><h2 ng-if="!campaign">BERLIN IST DEIN STUDIO</h2>
+        <h2 ng-if="campaign && !(city || cityId)">{{campaign.title}}</h2>
+        <h2 ng-if="campaign && (city || cityId)">{{campaign.defaultName}} IST DEIN STUDIO</h2>
+        <p ng-if="!campaign">Entdecke Yoga, Meditation, Pilates, Fitness, Wellness, Tanzen und Kampfsport unbegrenzt in 60 Studios mit 1 Karte.</p>
         <p ng-if="campaign && !(city || cityId)">Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>.</p>
-        <p ng-if="campaign && (city || cityId)">Hunderte Kurse, die besten Studios, ein Beitrag</p>
+        <p ng-if="campaign && (city || cityId)">Entdecke Yoga, Meditation, Pilates, Fitness, Wellness, Tanzen und Kampfsport unbegrenzt in 60 Studios mit 1 Karte.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-                <!-- <b>14 Tage ausprobieren?</b> -->
                 <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
                 <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required/>
-                <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
+                <input type="submit" ng-disabled="form.loadingSubscribe" value="Erhalte Deine Einladung"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                     <div ng-show="form.successSubscribe && subscribeForm.header.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
@@ -35,19 +36,24 @@
 </div>
 
 
-<div class="b-header stick b-equipment__form-block" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
+<div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
     <div class="container">
         <span class="form-block__title">14 Tage <u>kostenlos</u> kennenlernen!</span>
-        <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
-            <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-            <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required />
-            <input type="submit" ng-disabled="form.loadingSubscribe" value="Mitmachen"/>
-            <div class="form-response">
-                <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
-                <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
-            </div>
-        </form>
+        <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
+            <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
+                <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
+                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required />
+                <input type="submit" ng-disabled="form.loadingSubscribe" value="Erhalte Deine Einladung"/>
+                <div class="form-response">
+                    <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                    <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success">Danke für Deine Anfrage!</div>
+                    <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error">Die Email-Adresse ist nicht korrekt</div>
+                </div>
+            </form>
+            <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
+            <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
+            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}">Deine Karte erhalten</a>
+        </div>
     </div>
 </div>
 
@@ -60,10 +66,10 @@
 </div>
 <div class="b-card b-equipment" id="highligt">
     <div class="container">
-        <h2>Unendliche Auswahl, tägliche Inspiration</h2>
-        <p>Beweglichkeit und das OM von <b>Yoga</b>. Schwitzen und brennende Muskeln von <b>CrossFit</b>, <b>TRX</b> und <b>Fitness</b>. Schwung und Sinnlichkeit von <b>Tango</b>, <b>Hip-Hop</b> und <b>Tanz</b>. Körperbewusstsein und Stärke von <b>Pilates</b>, <b>Tai Chi</b>, <b>Qi Gong</b> und <b>Kampfkunst</b>. Erkenntnis und inneren Frieden von <b>Meditation</b>. Entspannung und Verwöhnung in <b>Sauna</b>, <b>Dampfbad</b> und <b>Wellness</b>.</p>
-        <p>All das. Und so viel mehr. Mit einer Karte.</p>
-        <a ui-sref="dashboard" target="_blank">Entdecke unsere Kurse ›</a>
+        <h2>Eine Karte, überall willkommen</h2>
+        <p>Worauf hast Du heute Lust? <b>Yoga</b>, <b>Pilates</b> oder <b>Meditation</b>? Dich beim <b>CrossFit</b>, <b>TRX</b> oder <b>EMS</b> auszupowern? Beim <b>Tango</b>, <b>Hip-Hop</b> oder <b>Salsa</b> tanzen in Schwung kommen? Kraft und Konzentration entwickeln beim <b>Tai Chi</b>, <b>Qi Gong</b> oder <b>Kung-Fu</b>? Mehr über <b>Ernährung</b> und <b>Gesundheit</b> lernen? Oder Dich entspannen und verwöhnen lassen in der <b>Sauna</b> oder im <b>Spa</b>?</p>
+        <p>Du bist überall willkommen - mit einer Karte.</p>
+        <a ui-sref="dashboard" target="_blank">Hier geht es zum Angebot ›</a>
     </div>
 </div>
 <div class="b-card b-features" ng-class="{'desktop': desktop}">
@@ -85,36 +91,30 @@
                 <span>(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts zahlen)</span>
             </li>
         </ul>
-        <ul class="b-card-list2" ng-show="desktop">
+        <ul class="b-card-list" ng-show="desktop">
             <li>
-                <b>
-                    Auswahl
-                </b>
-                <p>Egal wie beschäftigt Du bist: Du <br>findest immer und überall ein <br>Angebot. Die Auswahl ist <br>unerschöpflich.</p>
+                <b>Auswahl</b>
+                <p>Egal wie beschäftigt Du bist: Du findest immer und überall ein Angebot. Die Auswahl ist unerschöpflich.</p>
             </li>
             <li>
-                <b>
-                    Freiheit
-                </b>
-                <p>Schluss mit langfristigen Verträgen. <br> Du kannst monatlich kündigen <br> oder pausieren. Ohne Bindung <br> an ein Studio.</p>
+                <b>Freiheit</b>
+                <p>Schluss mit langfristigen Verträgen. Du kannst monatlich kündigen oder pausieren. Ohne Bindung an ein Studio.</p>
             </li>
             <li>
-                <b>
-                    Entfaltung
-                </b>
-                <p>Lass Dich täglich inspirieren! <br> Trainiere mit mehr Abwechslung und <br> Motivation. Entfalte Dein ganzes <br> Potenzial.</p>
+                <b>Entfaltung</b>
+                <p>Lass Dich täglich inspirieren! Trainiere mit mehr Abwechslung und Motivation. Entfalte Dein ganzes Potenzial.</p>
             </li>
         </ul>
     </div>
 </div>
 <div class="b-card b-map" id="studios">
     <div class="container" disable-animate>
-        <h2>Trainiere in der ganzen Stadt</h2>
-        <p class="subtitle">Wähle unter mehr als <b>700 Kursen</b> in über <b>50 Studios</b> in Deiner Umgebung.</p>
+        <h2>Entdecke die Vielfalt</h2>
+        <p class="subtitle">Über 50 Studios freuen sich darauf, Dich kennen zu lernen. </p>
         <div class="b-map-nav clearfix">
             <ul class="select-city" ng-show="desktop" >
                 <li ng-repeat="c in citiesList">
-                    <a href="" ng-class="{'active': campaign && campaign.code === c.code || !campaign && c.code === 'B'}" ng-click="changeCity(c)">
+                    <a href="" ng-class="{'active': campaign && campaign.shortCode === c.shortCode || !campaign && c.shortCode === 'B'}" ng-click="changeCity(c)">
                         {{c.defaultName}}
                     </a>
                 </li>
@@ -131,21 +131,21 @@
                         </select>
                     </div>
                 </li>
-                <li><a ng-class="{'active': tab === 'map'}" ng-show="!campaign.map;" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
-                <a ng-class="{'active': tab === 'list'}" ng-show="!campaign.map;" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
+                <li><a ng-class="{'active': tab === 'map'}" ng-show="campaign.active;" class="tab-nav-map" ng-click="tab = 'map'" href="">Studios auf Karte</a></li><li>
+                <a ng-class="{'active': tab === 'list'}" ng-show="campaign.active;" class="tab-nav-list" href="" ng-click="tab = 'list'">Studios als Liste</a></li>
             </ul>
         </div>
 
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="!campaign.map" ng-show="tab === 'map'">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="campaign.active" ng-show="tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
                     <p class="info-window" ng-non-bindable>{{name}}</p>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
-        <div class="static-map" ng-show="campaign.map">
-            <img ng-src="{{campaign.map}}" alt=""/>
-            <div class="overlay"><h2>Start am 1.März!</h2></div>
+        <div class="static-map" ng-if="!campaign.active">
+            <img ng-src="//maps.googleapis.com/maps/api/staticmap?center={{campaign.defaultName}}&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true" alt=""/>
+            <div class="overlay"><h2>Start am 15.03!</h2></div>
         </div>
         <div ng-show="tab === 'list'">
             <ul class="b-studios-list">
@@ -163,6 +163,7 @@
 <div class="b-card b-price">
     <div class="container">
         <h2>Lebe gesund und erfüllt</h2>
+        <p class="subtitle">Bestelle Deine Karte - und bringe Bewegung in Dein Leben.</p>
         <p class="subtitle" ng-if="showDiscount">Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis {{validUntilIn | amDateFormat: 'D. MMMM'}}</p>
         <div class="select-cards" ng-if="desktop">
             <ul class="select-cards__title">
@@ -218,7 +219,6 @@
 <div class="b-card b-hiw">
     <div class="container">
         <h2>Es geht so einfach!</h2>
-        <p class="subtitle">Besuche mit einem monatlichen Beitrag in jedem <br/> Partner-Studio Kurse.</p>
         <ul class="b-card-list">
             <li>
                 <img class="card-image" src="images/hiw_01.svg" alt=""/>
@@ -316,38 +316,38 @@
 </div>
 <div class="b-card b-faq">
     <div class="container" disable-animate>
-        <h2>Welche Fragen hast Du noch?</h2>
+        <h2>Noch Fragen?</h2>
         <ul ng-if="desktop" class="b-card-list">
             <li>
-                <h3>Kann ich überall alle Kurse besuchen?</h3>
-                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+                <h3>Was kann mit meiner Karte machen?</h3>
+                <p>An Kursen teilnehmen. Fitnessstudios oder Spas besuchen. Oder eine persönliche Beratung vereinbaren (z.B. für Ernährung oder Gesundheit).</p>
             </li><li>
-                <h3>Muss ich mich vorher anmelden?</h3>
-                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+                <h3>Gilt meine Karte überall für alle Angebote?</h3>
+                <p>Die meisten Partner akzeptiert alle Karten. Manche Partner aber akzeptieren bestimmte Karten nicht oder nur eingeschränkt. Bitte schau vorher immer im Online-Kalender nach.</p>
             </li><li>
-                <h3>Was kann mit meiner Karte noch machen?</h3>
-                <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
+                <h3>Muss ich mich <br/> anmelden?</h3>
+                <p>Normalerweise nicht. Aber es gibt Ausnahmen, etwa bei kleinen Kursen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau vorher immer im Online-Kalender nach.</p>
             </li><li>
-                <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
-                <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
+                <h3>Wie kündige oder <br/> pausiere ich?</h3>
+                <p>Du kannst monatlich zum Folgemonat kündigen. Und jederzeit für einen Monat oder mehr pausieren, z.B. wenn Du länger in den Urlaub fährst. Dazu gibt es in Deinem Account einen Link.</p>
             </li>
         </ul>
         <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
             <slide>
-                <h3>Kann ich überall alle Kurse besuchen?</h3>
-                <p>Die meisten Studios akzeptiert alle Karten uneingeschränkt. Aber es gibt Studios, die eine bestimmte Karte nicht oder nur eingeschränkt akzeptieren. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+                <h3>Was kann mit meiner Karte machen?</h3>
+                <p>An Kursen teilnehmen. Fitnessstudios oder Spas besuchen. Oder eine persönliche Beratung vereinbaren (z.B. für Ernährung oder Gesundheit).</p>
             </slide><slide>
-                <h3>Muss ich mich vorher anmelden?</h3>
-                <p>In der Regel nicht. Es gibt aber Ausnahmen, z.B. bei kleinen Kursgrößen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau immer im <a ui-sref="dashboard" target="_blank">Kursplaner</a> nach.</p>
+                <h3>Gilt meine Karte überall für alle Angebote?</h3>
+                <p>Die meisten Partner akzeptiert alle Karten. Manche Partner aber akzeptieren bestimmte Karten nicht oder nur eingeschränkt. Bitte schau vorher immer im Online-Kalender nach.</p>
             </slide><slide>
-                <h3>Was kann mit meiner Karte noch machen?</h3>
-                <p>Eine Menge! Etwa kostenlos Saunen, Wellnessanlagen oder Fitnessstudios besuchen. Oder eine persönliche Beratung vereinbaren, z.B. für Gesundheit oder Ernährung (gegen Aufpreis).</p>
+                <h3>Muss ich michanmelden?</h3>
+                <p>Normalerweise nicht. Aber es gibt Ausnahmen, etwa bei kleinen Kursen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau vorher immer im Online-Kalender nach.</p>
             </slide><slide>
-                <h3>Wie kündige oder pausiere ich meine Mitgliedschaft?</h3>
-                <p>Du kannst jederzeit zum Folgemonat kündigen. Du kannst Deine Mitgliedschaft auch jederzeit monatsweise und grundlos pausieren. Wie das geht? Von Deinem Account aus. Oder einfach per E-Mail.</p>
+                <h3>Wie kündige oder pausiere ich?</h3>
+                <p>Du kannst monatlich zum Folgemonat kündigen. Und jederzeit für einen Monat oder mehr pausieren, z.B. wenn Du länger in den Urlaub fährst. Dazu gibt es in Deinem Account einen Link.</p>
             </slide>
         </carousel>
-        <a class="faq-link" ui-sref="faq">Mehr Fragen? Hier geht es zu unseren FAQ ›</a>
+        <a class="faq-link" ui-sref="faq">Weitere Fragen? Hier geht es zu den FAQ ›</a>
     </div>
 </div>
 <div class="b-card b-contact">

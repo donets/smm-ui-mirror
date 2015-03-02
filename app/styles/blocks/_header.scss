@@ -19,7 +19,16 @@
         background: getRgba($colorMain, 0.8);
         height: 80px;
         opacity: 0;
+        padding: 22px 0;
         visibility: hidden;
+        .form-block__title {
+            font-size: 20px;
+            font-style: italic;
+            color: #fff;
+            text-align: left;
+            float: left;
+            line-height: 36px;
+        }
         &.show-top {
             opacity: 1;
             visibility: visible;
@@ -28,7 +37,6 @@
             top: 20px;
         }
         .subscribe-wrapper {
-            padding: 22px 0;
             text-align: right;
             .form-response {
                 text-align: left;
@@ -52,6 +60,11 @@
                 height: 36px;
                 line-height: 36px;
                 outline: none;
+                border: 1px solid #fff;
+                background: none;
+                &:hover {
+                    background: rgba(#fff, .5);
+                }
             }
         }
         .b-card-subscribe {
@@ -63,22 +76,22 @@
                     margin-right: 10px;
                     font-size: 18px;
                     line-height: 24px;
-                    @include border-radius(2px);
                     &.zip {
-                        width: 130px;
+                        width: 100px;
                     }
                 }
             }
             input[type="submit"] {
                 @media (min-width: $containerMobileWidth) {
                     height: 36px;
-                    width: 136px;
-                    background: $colorMain;
+                    font-size: 16px;
+                    line-height: 36px;
+                    border: 1px solid #fff;
+                    width: auto;
+                    background: none;
                     &:hover {
                         background: rgba(#fff, .5);
                     }
-                    line-height: 36px;
-                    @include border-radius(2px);
                 }
             }
             .form-success, b {
