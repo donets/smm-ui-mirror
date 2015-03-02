@@ -314,6 +314,9 @@
             }
         }
         .w-clear {
+            button {
+                @extend %form-button;   
+            }
             margin: 0 auto;
             .form-check {
                 .fa {
@@ -391,7 +394,7 @@
     input[type="text"], input[type="email"], input[type="password"], .chosen-container, .chosen-drop {
         background: #fbfbfb;
     }
-    button {
+    > button {
         width: 100%;
         background: $colorMain;
         &:hover {
