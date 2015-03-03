@@ -369,6 +369,7 @@ angular.module('boltApp')
                     getCards: function($http) {
 
                         return $http.get('json/cards.json', {cache: true});
+                        //return RestApi.query({route: 'cards', cityId: 1}).$promise;
 
                     },
 
@@ -423,6 +424,7 @@ angular.module('boltApp')
                     getCards: function($http) {
 
                         return $http.get('json/cards.json', {cache: true});
+                        //return RestApi.query({route: 'cards', cityId: 1}).$promise;
 
                     },
 
