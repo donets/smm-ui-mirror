@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -294,24 +294,24 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.slides = [
             {
                 image: '/images/static/fact_01-' + $rootScope.resolution + '.jpg',
-                title: 'Meditation kann Dir die Gehirnkapazität eines 25-jährigen erhalten.',
-                text: '— NCBI (National Center for Biotechnology Information)'
+                title: gettextCatalog.getString('Meditation kann Dir die Gehirnkapazität eines 25-jährigen erhalten.'),
+                text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }, {
                 image: '/images/static/fact_02-' + $rootScope.resolution + '.jpg',
-                title: 'Yoga kann schon nach 3 Monaten Dein Selbstbild anheben.',
-                text: '— WSU (Washington State University)'
+                title: gettextCatalog.getString('Yoga kann schon nach 3 Monaten Dein Selbstbild anheben.'),
+                text: gettextCatalog.getString('— WSU (Washington State University)')
             }, {
                 image: '/images/static/fact_03-' + $rootScope.resolution + '.jpg',
-                title: 'Tanzen hilft gegen Depressionen.',
-                text: '— NCBI (National Center for Biotechnology Information)'
+                title: gettextCatalog.getString('Tanzen hilft gegen Depressionen.'),
+                text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }, {
                 image: '/images/static/fact_04-' + $rootScope.resolution + '.jpg',
-                title: 'Menschen, die meditieren, lösen Herausforderungen des Alltags kreativer.',
-                text: '— NCBI (National Center for Biotechnology Information)'
+                title: gettextCatalog.getString('Menschen, die meditieren, lösen Herausforderungen des Alltags kreativer.'),
+                text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }, {
                 image: '/images/static/fact_05-' + $rootScope.resolution + '.jpg',
-                title: 'Yoga kann Angst dauerhaft reduzieren.',
-                text: '— NCBI (National Center for Biotechnology Information)'
+                title: gettextCatalog.getString('Yoga kann Angst dauerhaft reduzieren.'),
+                text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }
         ];
 

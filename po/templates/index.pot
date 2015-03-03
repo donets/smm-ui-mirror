@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/index.html:220
+msgid "&copy; Somuchmore Marketplace UG, 2015"
+msgstr ""
+
+#: app/index.html:198
+msgid "030 - 577023101"
+msgstr ""
+
+#: app/index.html:122
+#: app/index.html:133
+#: app/index.html:140
+msgid "Close"
+msgstr ""
+
+#: app/index.html:119
+msgid "Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
+msgstr ""
+
+#: app/index.html:179
+msgid "Danke!"
+msgstr ""
+
+#: app/index.html:176
+msgid "Deine E-Mail-Adresse"
+msgstr ""
+
+#: app/index.html:180
+msgid "Die Email-Adresse ist nicht korrekt"
+msgstr ""
+
+#: app/index.html:137
+msgid "Erfolgreich gespeichert."
+msgstr ""
+
+#: app/index.html:185
+msgid "Folge uns"
+msgstr ""
+
+#: app/index.html:216
+msgid "Impressum"
+msgstr ""
+
+#: app/index.html:196
+msgid "Kontaktiere uns"
+msgstr ""
+
+#: app/index.html:161
+msgid "Kurse"
+msgstr ""
+
+#: app/index.html:174
+msgid "Lass Dich inspirieren"
+msgstr ""
+
+#: app/index.html:127
+msgid ""
+"Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a> <br>\n"
+"            Fehlerdetails: {{rejection.data.message}}"
+msgstr ""
+
+#: app/index.html:129
+msgid "Sie haben keine Berechtigung für die Seite {{$state.href($state.current.name, $state.params, {absolute: true})}}"
+msgstr ""
+
+#: app/index.html:146
+msgid "Somuchmore"
+msgstr ""
+
+#: app/index.html:162
+msgid "Studios"
+msgstr ""
+
+#: app/index.html:130
+msgid "Tut uns leid, der Server konnte nicht erreicht werden! Bitte drücke Strg+R (Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> um es erneut zu versuchen."
+msgstr ""
+
+#: app/index.html:217
+msgid "agb"
+msgstr ""
+
+#: app/index.html:218
+msgid "faq"
+msgstr ""
+
+#: app/index.html:215
+msgid "Über uns"
+msgstr ""

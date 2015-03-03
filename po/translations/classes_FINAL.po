@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
 "Language: en\n"
-"X-Generator: Poedit 1.7.4\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/classes.html:52
 msgid "<i class=\"fa fa-pencil\"></i>Manage"
@@ -19,6 +19,15 @@ msgstr "<i class=\"fa fa-pencil\"></i>Manage"
 #: app/views/classes.html:7
 msgid "<i class=\"fa fa-plus\"></i>New Class"
 msgstr "<i class=\"fa fa-plus\"></i>New class"
+
+#: app/views/classes.html:20
+msgid "Alle Levels"
+msgstr ""
+
+#: app/views/classes.html:12
+#, fuzzy
+msgid "Alle Studios"
+msgstr "Studio"
 
 #: app/views/classes.html:2
 msgid "Classes"
@@ -31,6 +40,10 @@ msgstr "Discipline"
 #: app/views/classes.html:29
 msgid "Draft"
 msgstr "Draft"
+
+#: app/views/classes.html:8
+msgid "Filter name"
+msgstr ""
 
 #: app/views/classes.html:31
 msgid "Filter zurücksetzen"

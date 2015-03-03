@@ -11,7 +11,7 @@
 /* jshint undef:false */
 
 angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, getStudios, RestApi) {
+    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, getStudios, RestApi, gettextCatalog) {
         $scope.moment = moment();
         $scope._ = _;
         $scope.form = {};
@@ -64,9 +64,9 @@ angular.module('boltApp.controllers.Class', [])
         ];
 
         $scope.levels = [
-            {id: '1', text: 'Anfänger'},
-            {id: '2', text: 'Medium'},
-            {id: '3', text: 'Fortgeschrittene'}
+            {id: '1', text: gettextCatalog.getString('Anfänger')},
+            {id: '2', text: gettextCatalog.getString('Medium')},
+            {id: '3', text: gettextCatalog.getString('Fortgeschrittene')}
         ];
 
         /*var exportTag = function (name) {

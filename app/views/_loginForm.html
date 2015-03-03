@@ -12,10 +12,10 @@
             </div>-->
             <form name="loginForm" ng-hide="forgotView" ng-submit="login()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
+                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="{{'E-Mail-Adresse'|translate}}" required />
                 </div>
                 <div class="form-rel">
-                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="Passwort" required />
+                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="{{'Passwort'|translate}}" required />
                 </div>
                 <div class="form-rel">
                     <button type="submit" class="form_button" ng-disabled="loadingLogin" translate>Login</button>
@@ -27,7 +27,7 @@
             </form>
             <form name="forgotForm" ng-show="forgotView" ng-submit="forgot()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
+                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="{{'E-Mail-Adresse'|translate}}" required />
                 </div>
                 <div class="form-rel">
                     <button type="submit" class="form_button" ng-disabled="loadingForgot" translate>Reset Password</button>
@@ -47,7 +47,7 @@
         <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="user-nav" ng-click="togglePopup()">
-                <li><a ui-sref="dashboard">Kurse</a></li>
+                <li><a ui-sref="dashboard" translate>Kurse</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.account" translate>Account</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.membership" translate>Meine Karte</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.classes.list" translate>Classes</a></li>

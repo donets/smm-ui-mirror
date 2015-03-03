@@ -12,12 +12,24 @@ msgstr ""
 msgid "Danke, Deine Nachricht wurde an Somuchmore versendet!"
 msgstr ""
 
+#: app/views/modalMessage.html:8
+msgid "Dein Name"
+msgstr ""
+
+#: app/views/modalMessage.html:9
+msgid "Deine E-Mail-Adresse"
+msgstr ""
+
 #: app/views/modalMessage.html:6
 msgid "Nachricht an Somuchmore"
 msgstr ""
 
 #: app/views/modalMessage.html:19
 msgid "Ok"
+msgstr ""
+
+#: app/views/modalMessage.html:11
+msgid "Senden"
 msgstr ""
 
 #: app/views/modalMessage.html:14

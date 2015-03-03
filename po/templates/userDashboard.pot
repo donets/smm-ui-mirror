@@ -8,6 +8,34 @@ msgstr ""
 msgid "Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar."
 msgstr ""
 
+#: app/views/userDashboard.html:16
+msgid "Alle Disziplinen"
+msgstr ""
+
+#: app/views/userDashboard.html:46
+msgid "Alle Kurse"
+msgstr ""
+
+#: app/views/userDashboard.html:74
+msgid "Alle Lehrer"
+msgstr ""
+
+#: app/views/userDashboard.html:68
+msgid "Alle Levels"
+msgstr ""
+
+#: app/views/userDashboard.html:50
+msgid "Alle Stadtteile"
+msgstr ""
+
+#: app/views/userDashboard.html:25
+msgid "Alle Stile"
+msgstr ""
+
+#: app/views/userDashboard.html:59
+msgid "Alle Studios"
+msgstr ""
+
 #: app/views/userDashboard.html:142
 msgid "Danke für Deine Anmeldung!"
 msgstr ""

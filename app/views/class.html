@@ -27,7 +27,7 @@
             <select chosen
                     id="studio"
                     ng-model="class.studioId"
-                    data-placeholder="Select Studio"
+                    data-placeholder="{{'Select Studio'|translate}}"
                     disable-search="false"
                     ng-options="item.id as item.name for item in studios">
                 <option value=""></option>
@@ -38,7 +38,7 @@
             <select chosen
                     id="location"
                     ng-model="class.locationId"
-                    data-placeholder="Select Location"
+                    data-placeholder="{{'Select Location'|translate}}"
                     disable-search="false"
                     ng-options="item.id as item.displayName for item in locations">
                 <option value=""></option>
@@ -88,7 +88,7 @@
                             id="repeat"
                             ng-model="schedule.repeat"
                             ng-change="updateSchedule()"
-                            data-placeholder="Select repeats"
+                            data-placeholder="{{'Select repeats'|translate}}"
                             disable-search="true" required
                             ng-options="item for item in repeatList">
                         <option value=""></option>
@@ -100,7 +100,7 @@
                             id="weekday"
                             ng-model="schedule.weekday"
                             ng-change="updateSchedule()"
-                            data-placeholder="Select repeats"
+                            data-placeholder="{{'Select repeats'|translate}}"
                             disable-search="true" required
                             ng-options="item.number as item.text for item in weekdayList">
                         <option value=""></option>
@@ -112,7 +112,7 @@
                             width="130" id="startTime"
                             disable-search="false"
                             search-contains="true"
-                            data-placeholder="Select time"
+                            data-placeholder="{{'Select time'|translate}}"
                             name="workSchedule" inherit-select-classes="true"
                             ng-model="schedule.startTime" class="time" required
                             ng-change="updateSchedule();setEndTimeList()"
@@ -124,7 +124,7 @@
                             width="130" id="endTime"
                             disable-search="false"
                             search-contains="true"
-                            data-placeholder="Select time"
+                            data-placeholder="{{'Select time'|translate}}"
                             name="workSchedule" inherit-select-classes="true"
                             ng-model="schedule.endTime" class="time" required
                             ng-change="updateSchedule()"
@@ -138,14 +138,14 @@
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
                                datepicker-options="dateOptions" min-date="minStartDate"
                                ng-model="schedule.startDate" ng-change="updateSchedule();checkDate('startDate')"
-                               class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
+                               class="date" type="text" placeholder="{{'Select date'|translate}}" required clear-text="Clear"/>
                     </div>
                     <span ng-if="schedule.repeat !== 'Single'">to</span>
                     <div class="form-rel input-date date" ng-if="schedule.repeat !== 'Single'" ng-click="openDatepicker($event, 'to')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'to')" is-open="showDatepicker.to"
                                datepicker-options="dateOptions" min-date="minEndDate" ng-disabled="!schedule.startDate"
                                ng-model="schedule.endDate" ng-change="updateSchedule();checkDate('endDate')"
-                               class="date" type="text" placeholder="Select date" required clear-text="Clear"/>
+                               class="date" type="text" placeholder="{{'Select date'|translate}}" required clear-text="Clear"/>
                     </div>
                 </div>
                 <div class="form-rel" ng-if="form.schedule.$valid">
@@ -167,7 +167,7 @@
             <select chosen
                     id="level"
                     ng-model="class.level"
-                    data-placeholder="Alle Levels"
+                    data-placeholder="{{'Alle Levels'|translate}}"
                     disable-search="true"
                     allow-single-deselect="true"
                     ng-options="item.id as item.text for item in levels">

@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
 "Language: en\n"
-"X-Generator: Poedit 1.7.4\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/modalMessage.html:4
 msgid "Close"
@@ -20,6 +20,14 @@ msgstr "Close"
 msgid "Danke, Deine Nachricht wurde an Somuchmore versendet!"
 msgstr "Thank you, your message has been sent to Somuchmore!"
 
+#: app/views/modalMessage.html:8
+msgid "Dein Name"
+msgstr ""
+
+#: app/views/modalMessage.html:9
+msgid "Deine E-Mail-Adresse"
+msgstr ""
+
 #: app/views/modalMessage.html:6
 msgid "Nachricht an Somuchmore"
 msgstr "Message to Somuchmore"
@@ -27,6 +35,10 @@ msgstr "Message to Somuchmore"
 #: app/views/modalMessage.html:19
 msgid "Ok"
 msgstr "Ok "
+
+#: app/views/modalMessage.html:11
+msgid "Senden"
+msgstr ""
 
 # Der Quelltext sollte angepasst werden. Die Uebersetzung ist richtig.
 #: app/views/modalMessage.html:14

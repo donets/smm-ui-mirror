@@ -4,6 +4,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: app/views/about.html:63
+msgid "Abschicken"
+msgstr ""
+
 #: app/views/about.html:20
 msgid "Bewegung, Ernährung, Entspannung, Atmung, Schlaf, Liebe, Arbeit und Spaß sind gleichermaßen wichtig"
 msgstr ""
@@ -15,6 +19,10 @@ msgstr ""
 #: app/views/about.html:39
 #: app/views/about.html:66
 msgid "Danke!"
+msgstr ""
+
+#: app/views/about.html:36
+msgid "Deine E-Mail-Adresse"
 msgstr ""
 
 #: app/views/about.html:24
@@ -50,12 +58,24 @@ msgstr ""
 msgid "Ein ganzheitliches Leben beginnt mit Achtsamkeit"
 msgstr ""
 
+#: app/views/about.html:63
+msgid "Email-Adresse"
+msgstr ""
+
 #: app/views/about.html:3
 msgid "Entdecke Somuchmore"
 msgstr ""
 
 #: app/views/about.html:19
 msgid "Entfaltung gelingt nur mit Inspiration und Spaß"
+msgstr ""
+
+#: app/views/about.html:36
+msgid "Erhalte Deine Einladung"
+msgstr ""
+
+#: app/views/about.html:62
+msgid "Frage eingeben"
 msgstr ""
 
 #: app/views/about.html:59

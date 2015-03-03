@@ -20,12 +20,21 @@ msgstr ""
 msgid "E-Mail zum Zurücksetzen gesendet"
 msgstr ""
 
+#: app/views/login.html:21
+#: app/views/login.html:6
+msgid "E-Mail-Adresse"
+msgstr ""
+
 #: app/views/login.html:15
 msgid "Falsche E-Mail oder Passwort"
 msgstr ""
 
 #: app/views/login.html:12
 msgid "Login"
+msgstr ""
+
+#: app/views/login.html:9
+msgid "Passwort"
 msgstr ""
 
 #: app/views/login.html:24

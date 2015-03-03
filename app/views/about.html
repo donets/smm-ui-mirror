@@ -33,7 +33,7 @@
         <div class="b-main-sidebar">
             <img class="card-image" src="images/card.png" alt=""/>
             <form name="subscribeForm" class="b-card-subscribe" ng-submit="subscribeCard('about')">
-                <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="Deine E-Mail-Adresse"/><input type="submit" class="small" value="Erhalte Deine Einladung"/>
+                <input type="email" name="email" ng-model="email" ng-change="successSubscribe = false" placeholder="{{'Deine E-Mail-Adresse'|translate}}"/><input type="submit" class="small" value="{{'Erhalte Deine Einladung'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                     <div ng-show="successSubscribe" class="form-message form-success" translate>Danke!</div>
@@ -59,8 +59,8 @@
                 <p translate>Hast Du noch Fragen?</p>
                 <div class="feedback__form-wrapper">
                     <form name="feedbackForm" ng-submit="sendMessage()">
-                        <textarea ng-model="feedback" placeholder="Frage eingeben" required></textarea>
-                        <input class="feedback-email" name="email" ng-model="email" ng-change="successFeedback = false" type="email" placeholder="Email-Adresse" required /><input type="submit" value="Abschicken"/>
+                        <textarea ng-model="feedback" placeholder="{{'Frage eingeben'|translate}}" required></textarea>
+                        <input class="feedback-email" name="email" ng-model="email" ng-change="successFeedback = false" type="email" placeholder="{{'Email-Adresse'|translate}}" required /><input type="submit" value="{{'Abschicken'|translate}}"/>
                         <div class="form-response">
                             <div ng-show="loadingFeedback" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                             <div ng-show="successFeedback" class="form-message form-success" translate>Danke!</div>

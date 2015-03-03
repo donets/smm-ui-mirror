@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Reset', [])
-    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', function ($scope, $rootScope, $http, $window) {
+    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', 'gettextCatalog', function ($scope, $rootScope, $http, $window, gettextCatalog) {
         $scope.resetPassword = function () {
             $scope.loadingReset = true;
             $scope.errorReset = false;
@@ -23,13 +23,13 @@ angular.module('boltApp.controllers.Reset', [])
                 $scope.errorReset = true;
                 switch (response.type) {
                     case 'PasswordTooWeak':
-                        $scope.errorMessage = 'Das Passwort ist zu schwach, muss mindestens 8 Zeichen sein, mit Ziffern, Groß und Kleinbuchstaben';
+                        $scope.errorMessage = gettextCatalog.getString('Das Passwort ist zu schwach, muss mindestens 8 Zeichen sein, mit Ziffern, Groß und Kleinbuchstaben');
                         break;
                     case 'TokenExpired':
-                        $scope.errorMessage = 'Der Link ist nicht mehr gültig';
+                        $scope.errorMessage = gettextCatalog.getString('Der Link ist nicht mehr gültig');
                         break;
                     case 'InvalidToken':
-                        $scope.errorMessage = 'Der Link ist nicht gültig';
+                        $scope.errorMessage = gettextCatalog.getString('Der Link ist nicht gültig');
                         break;
                     default :
                         $scope.errorMessage = response.type;

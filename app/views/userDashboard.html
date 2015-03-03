@@ -13,7 +13,7 @@
             <select chosen
                     id="discipline"
                     ng-model="search.class.discipline"
-                    data-placeholder="Alle Disziplinen"
+                    data-placeholder="{{'Alle Disziplinen'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item for item in disciplines | orderBy: 'toString()'">
@@ -22,7 +22,7 @@
             <select chosen
                     id="style"
                     ng-model="search.class.style"
-                    data-placeholder="Alle Stile"
+                    data-placeholder="{{'Alle Stile'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item for item in styles | orderBy: 'toString()'">
@@ -43,11 +43,11 @@
                     translate-fn="trans"
                     translate-range-fn="transRange">
             </slider>
-            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="Alle Kurse"/></div>
+            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="{{'Alle Kurse'|translate}}"/></div>
             <select chosen
                     id="neigbourhood"
                     ng-model="search.class.location"
-                    data-placeholder="Alle Stadtteile"
+                    data-placeholder="{{'Alle Stadtteile'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item for item in locations | orderBy: 'toString()'">
@@ -56,7 +56,7 @@
             <select chosen
                     id="studio"
                     ng-model="search.class.studioId"
-                    data-placeholder="Alle Studios"
+                    data-placeholder="{{'Alle Studios'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item.id as item.name for item in studios | orderBy: 'name'">
@@ -65,13 +65,13 @@
             <select chosen
                     id="level"
                     ng-model="search.class.levels"
-                    data-placeholder="Alle Levels"
+                    data-placeholder="{{'Alle Levels'|translate}}"
                     disable-search="true"
                     allow-single-deselect="true"
                     ng-options="item.id as item.text for item in levels">
                 <option value=""></option>
             </select>
-            <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="Alle Lehrer"/></div>
+            <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="{{'Alle Lehrer'|translate}}"/></div>
             <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">

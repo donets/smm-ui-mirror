@@ -32,6 +32,10 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
+#: app/views/modalUpload.html:26
+msgid "Title"
+msgstr ""
+
 #: app/views/modalUpload.html:31
 msgid "Upload"
 msgstr ""

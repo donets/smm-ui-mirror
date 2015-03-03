@@ -12,10 +12,26 @@ msgstr ""
 msgid "Danke!"
 msgstr ""
 
+#: app/views/modalSuggest.html:9
+msgid "Dein Name (Optional)"
+msgstr ""
+
+#: app/views/modalSuggest.html:10
+msgid "Deine E-Mail-Adresse"
+msgstr ""
+
+#: app/views/modalSuggest.html:8
+msgid "Name des Studios"
+msgstr ""
+
 #: app/views/modalSuggest.html:6
 msgid "Schlag ein Studio vor:"
 msgstr ""
 
 #: app/views/modalSuggest.html:15
 msgid "Sorry your message not delivered. Please try later."
+msgstr ""
+
+#: app/views/modalSuggest.html:11
+msgid "Vorschlagen"
 msgstr ""

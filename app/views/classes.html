@@ -5,11 +5,11 @@
     <div class="container">
         <div class="w-left b-sidebar-filters">
             <button class="control-button" ui-sref="admin.classes.new" type="button" translate><i class="fa fa-plus"></i>New Class</button>
-            <div class="input-search"><input type="text" ng-model="search.title" placeholder="Filter name"/></div>
+            <div class="input-search"><input type="text" ng-model="search.title" placeholder="{{'Filter name'|translate}}"/></div>
             <select chosen
                     id="studio"
                     ng-model="search.studioId"
-                    data-placeholder="Alle Studios"
+                    data-placeholder="{{'Alle Studios'|translate}}"
                     disable-search="false"
                     ng-options="item.id as item.name for item in studios | orderBy: 'name'">
                 <option value=""></option>
@@ -17,7 +17,7 @@
             <select chosen
                     id="level"
                     ng-model="search.levels"
-                    data-placeholder="Alle Levels"
+                    data-placeholder="{{'Alle Levels'|translate}}"
                     disable-search="true"
                     ng-options="item.id as item.text for item in levels">
                 <option value=""></option>

@@ -15,3 +15,19 @@ msgstr ""
 #: app/views/modalContact.html:27
 msgid "Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut."
 msgstr ""
+
+#: app/views/modalContact.html:15
+msgid "Email"
+msgstr ""
+
+#: app/views/modalContact.html:21
+msgid "Nachricht"
+msgstr ""
+
+#: app/views/modalContact.html:12
+msgid "Name"
+msgstr ""
+
+#: app/views/modalContact.html:18
+msgid "Telefon"
+msgstr ""

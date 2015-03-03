@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards, getCities, getCityId) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards, getCities, getCityId, gettextCatalog) {
         $scope.Math = $window.Math;
         $scope.cards = getCards.data;
         $scope.cities = getCities;
@@ -214,7 +214,7 @@ angular.module('boltApp.controllers.Signup', [])
                         $scope.message = {
                             name: name,
                             email: email,
-                            message: 'Ich habe keine Kreditkarte, möchte die Somuchmore Card aber trotzdem bestellen. Bitte kontaktiert mich dazu!'
+                            message: gettextCatalog.getString('Ich habe keine Kreditkarte, möchte die Somuchmore Card aber trotzdem bestellen. Bitte kontaktiert mich dazu!')
                         };
 
                         $scope.sendMessage = function() {

@@ -3,10 +3,10 @@
         <div class="container">
             <form name="loginForm" class="form-login" ng-hide="forgotView" ng-submit="login()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
+                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="{{'E-Mail-Adresse'|translate}}" required />
                 </div>
                 <div class="form-rel">
-                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="Passwort" required />
+                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="{{'Passwort'|translate}}" required />
                 </div>
                 <div class="form-rel">
                     <button type="submit" class="form_button" translate>Login</button>
@@ -18,7 +18,7 @@
             </form>
             <form name="forgotForm" class="form-login" ng-show="forgotView" ng-submit="forgot()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="E-Mail-Adresse" required />
+                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="{{'E-Mail-Adresse'|translate}}" required />
                 </div>
                 <div class="form-rel">
                     <button type="submit" class="form_button" translate>Reset Password</button>

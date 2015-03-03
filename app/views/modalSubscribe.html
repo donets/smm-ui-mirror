@@ -5,9 +5,9 @@
     </button>
     <h2 ng-hide="form.successSubscribe" translate>Erhalte heute Deine Einladung:</h2>
     <form name="subscribeForm.modal" ng-hide="form.successSubscribe" class="b-card-subscribe" ng-submit="subscribeCard('modal')">
-        <input type="email" name="email" ng-model="invite.email" placeholder="E-Mail-Adresse" required />
-        <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="PLZ" required/>
-        <input type="submit" ng-disabled="form.loadingSubscribe" value="MITMACHEN"/>
+        <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" required />
+        <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required/>
+        <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'MITMACHEN'|translate}}"/>
         <div class="form-response">
             <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
             <div ng-show="form.errorSubscribe" class="form-message form-error" translate>Die Email-Adresse ist nicht korrekt</div>

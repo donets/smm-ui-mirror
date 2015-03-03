@@ -16,20 +16,8 @@ msgstr ""
 msgid "(Monatlich Kündigen)"
 msgstr ""
 
-#: app/views/signup.html:277
-msgid "(Verlängerung um je einen Monat, solange nicht gekündigt)"
-msgstr ""
-
-#: app/views/signup.html:281
-msgid "(beginnend mit dem Tag der Mitgliedschaft)"
-msgstr ""
-
-#: app/views/signup.html:299
+#: app/views/signup.html:310
 msgid "(für {{voucher.discountDuarationInMonths}} Monate)"
-msgstr ""
-
-#: app/views/signup.html:287
-msgid "(monatlich bis zum Monatsende für den Folgemonat)"
 msgstr ""
 
 #: app/views/signup.html:29
@@ -52,55 +40,59 @@ msgstr ""
 msgid "3. Bezahlung"
 msgstr ""
 
-#: app/views/signup.html:280
+#: app/views/signup.html:291
 msgid "Abbuchung:"
 msgstr ""
 
-#: app/views/signup.html:139
+#: app/views/signup.html:150
 msgid "Aktionscode hinzufügen"
 msgstr ""
 
-#: app/views/signup.html:234
+#: app/views/signup.html:245
 msgid "Anderes Zahlungsmittel"
 msgstr ""
 
-#: app/views/signup.html:221
+#: app/views/signup.html:232
 msgid "BIC"
 msgstr ""
 
-#: app/views/signup.html:283
+#: app/views/signup.html:294
 msgid "Beginn:"
+msgstr ""
+
+#: app/views/signup.html:268
+msgid "Berlin"
 msgstr ""
 
 #: app/views/signup.html:3
 msgid "Bestelle die Somuchmore Card"
 msgstr ""
 
-#: app/views/signup.html:270
+#: app/views/signup.html:281
 msgid "Bestellübersicht"
 msgstr ""
 
-#: app/views/signup.html:194
+#: app/views/signup.html:205
 msgid "Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)"
 msgstr ""
 
-#: app/views/signup.html:164
+#: app/views/signup.html:175
 msgid "Bitte eine gültige Kreditkartennummer eintragen"
 msgstr ""
 
-#: app/views/signup.html:326
+#: app/views/signup.html:337
 msgid "Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und Datenschutzbestimmung."
 msgstr ""
 
-#: app/views/signup.html:324
+#: app/views/signup.html:335
 msgid "Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}"
 msgstr ""
 
-#: app/views/signup.html:190
+#: app/views/signup.html:201
 msgid "CVV"
 msgstr ""
 
-#: app/views/signup.html:322
+#: app/views/signup.html:333
 msgid "Danach kostenpflichtig"
 msgstr ""
 
@@ -108,18 +100,26 @@ msgstr ""
 msgid "Das Passwort muss mindestens 5 Zeichen enthalten"
 msgstr ""
 
-#: app/views/signup.html:78
+#: app/views/signup.html:219
+msgid "Dein Name"
+msgstr ""
+
+#: app/views/signup.html:89
 msgid "Deine Mitgliedschaft begint am:"
 msgstr ""
 
-#: app/views/signup.html:163
-#: app/views/signup.html:193
-#: app/views/signup.html:210
-#: app/views/signup.html:217
-#: app/views/signup.html:224
-#: app/views/signup.html:243
-#: app/views/signup.html:251
-#: app/views/signup.html:259
+#: app/views/signup.html:70
+msgid "Deine Stadt"
+msgstr ""
+
+#: app/views/signup.html:174
+#: app/views/signup.html:204
+#: app/views/signup.html:221
+#: app/views/signup.html:228
+#: app/views/signup.html:235
+#: app/views/signup.html:254
+#: app/views/signup.html:262
+#: app/views/signup.html:270
 #: app/views/signup.html:42
 #: app/views/signup.html:49
 #: app/views/signup.html:57
@@ -127,11 +127,11 @@ msgstr ""
 msgid "Dies ist eine Pflichtfeld"
 msgstr ""
 
-#: app/views/signup.html:145
+#: app/views/signup.html:156
 msgid "Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig"
 msgstr ""
 
-#: app/views/signup.html:146
+#: app/views/signup.html:157
 msgid "Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden"
 msgstr ""
 
@@ -139,11 +139,11 @@ msgstr ""
 msgid "E-Mail"
 msgstr ""
 
-#: app/views/signup.html:325
+#: app/views/signup.html:336
 msgid "Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail"
 msgstr ""
 
-#: app/views/signup.html:298
+#: app/views/signup.html:309
 msgid "Ermäßigter Preis:"
 msgstr ""
 
@@ -151,11 +151,11 @@ msgstr ""
 msgid "Garantierte Zufriedenheit"
 msgstr ""
 
-#: app/views/signup.html:170
+#: app/views/signup.html:181
 msgid "Gültig bis"
 msgstr ""
 
-#: app/views/signup.html:229
+#: app/views/signup.html:240
 msgid "Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren Kundenservice widerrufen."
 msgstr ""
 
@@ -163,35 +163,43 @@ msgstr ""
 msgid "Hinweise zum Angebot: Nach 14 Tagen erfolgt der automatische Übergang in eine kostenpflichtige Somuchmore Mitgliedschaft (39€, 69€, 99€ /Monat, inkl. MwSt., jederzeit kündbar)."
 msgstr ""
 
-#: app/views/signup.html:214
+#: app/views/signup.html:225
 msgid "IBAN"
 msgstr ""
 
-#: app/views/signup.html:314
+#: app/views/signup.html:325
 msgid "Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen"
 msgstr ""
 
-#: app/views/signup.html:308
+#: app/views/signup.html:319
 msgid "Ich stimme den <a ui-sref=\"agb\">AGB</a> und <a ui-sref=\"agb\">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref=\"agb\">Widerrufsrecht</a> zur Kenntnis genommen."
 msgstr ""
 
-#: app/views/signup.html:287
-msgid "Jederzeit <span class=\"details\" translate=\"\">(monatlich bis zum Monatsende für den Folgemonat)</span>"
+#: app/views/signup.html:194
+msgid "Jahr"
+msgstr ""
+
+#: app/views/signup.html:298
+msgid "Jederzeit <span class=\"details\">(monatlich bis zum Monatsende für den Folgemonat)</span>"
 msgstr ""
 
 #: app/views/signup.html:20
 msgid "Jederzeit kündigen"
 msgstr ""
 
-#: app/views/signup.html:321
+#: app/views/signup.html:332
 msgid "Jetzt KOSTENLOS testen"
 msgstr ""
 
-#: app/views/signup.html:273
+#: app/views/signup.html:284
 msgid "Karte:"
 msgstr ""
 
-#: app/views/signup.html:144
+#: app/views/signup.html:169
+msgid "Kartennummer"
+msgstr ""
+
+#: app/views/signup.html:155
 msgid "Kein gültiger Code"
 msgstr ""
 
@@ -200,7 +208,7 @@ msgstr ""
 msgid "Keine Aufnahmegebühr"
 msgstr ""
 
-#: app/views/signup.html:200
+#: app/views/signup.html:211
 msgid "Keine Kreditkarte?"
 msgstr ""
 
@@ -212,19 +220,19 @@ msgstr ""
 msgid "Keine gültige E-Mail-Adresse"
 msgstr ""
 
-#: app/views/signup.html:252
+#: app/views/signup.html:263
 msgid "Keine gültige Postleitzahl (immer 5 Ziffern)"
 msgstr ""
 
-#: app/views/signup.html:207
+#: app/views/signup.html:218
 msgid "Kontoinhaber/in"
 msgstr ""
 
-#: app/views/signup.html:321
+#: app/views/signup.html:332
 msgid "Kostenpflichtig Bestellen"
 msgstr ""
 
-#: app/views/signup.html:157
+#: app/views/signup.html:168
 msgid "Kreditkarte"
 msgstr ""
 
@@ -232,34 +240,34 @@ msgstr ""
 msgid "Kreditkarte wird nicht belastet"
 msgstr ""
 
-#: app/views/signup.html:124
-#: app/views/signup.html:91
+#: app/views/signup.html:102
+#: app/views/signup.html:135
 msgid "Kurse pro Anbieter / Monat"
 msgstr ""
 
-#: app/views/signup.html:120
-#: app/views/signup.html:90
+#: app/views/signup.html:101
+#: app/views/signup.html:131
 msgid "Kurse pro Monat"
 msgstr ""
 
-#: app/views/signup.html:128
-#: app/views/signup.html:92
+#: app/views/signup.html:103
+#: app/views/signup.html:139
 msgid "Kündigen / Pausieren"
 msgstr ""
 
-#: app/views/signup.html:286
+#: app/views/signup.html:297
 msgid "Kündigung:"
 msgstr ""
 
-#: app/views/signup.html:264
+#: app/views/signup.html:275
 msgid "Land"
 msgstr ""
 
-#: app/views/signup.html:276
+#: app/views/signup.html:287
 msgid "Laufzeit:"
 msgstr ""
 
-#: app/views/signup.html:237
+#: app/views/signup.html:248
 msgid "Lieferadresse"
 msgstr ""
 
@@ -267,15 +275,24 @@ msgstr ""
 msgid "Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs."
 msgstr ""
 
-#: app/views/signup.html:281
-msgid "Monatlich <span class=\"details\" translate=\"\">(beginnend mit dem Tag der Mitgliedschaft)</span>"
+#: app/views/signup.html:63
+msgid "Mindestens 5 Zeichen"
+msgstr ""
+
+#: app/views/signup.html:184
+msgid "Monat"
 msgstr ""
 
 #: app/views/signup.html:292
+msgid "Monatlich <span class=\"details\">(beginnend mit dem Tag der Mitgliedschaft)</span>"
+msgstr ""
+
+#: app/views/signup.html:303
 msgid "Monatlicher Preis:"
 msgstr ""
 
 #: app/views/signup.html:46
+#: app/views/signup.html:47
 msgid "Nachname"
 msgstr ""
 
@@ -283,53 +300,83 @@ msgstr ""
 msgid "Passwort"
 msgstr ""
 
-#: app/views/signup.html:248
+#: app/views/signup.html:259
 msgid "Postleitzahl"
 msgstr ""
 
-#: app/views/signup.html:115
-#: app/views/signup.html:89
+#: app/views/signup.html:100
+#: app/views/signup.html:126
 msgid "Preis pro Monat"
 msgstr ""
 
-#: app/views/signup.html:204
+#: app/views/signup.html:215
 msgid "SEPA-Lastschrift"
 msgstr ""
 
-#: app/views/signup.html:228
+#: app/views/signup.html:239
 msgid "SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen."
 msgstr ""
 
-#: app/views/signup.html:295
+#: app/views/signup.html:306
 msgid "Sonderpreis:"
 msgstr ""
 
-#: app/views/signup.html:256
+#: app/views/signup.html:267
+#: app/views/signup.html:74
 msgid "Stadt"
 msgstr ""
 
-#: app/views/signup.html:240
+#: app/views/signup.html:251
 msgid "Straße & Hausnummer"
 msgstr ""
 
-#: app/views/signup.html:277
-msgid "Unbefristet <span class=\"details\" translate=\"\">(Verlängerung um je einen Monat, solange nicht gekündigt)</span>"
+#: app/views/signup.html:288
+msgid "Unbefristet <span class=\"details\">(Verlängerung um je einen Monat, solange nicht gekündigt)</span>"
 msgstr ""
 
 #: app/views/signup.html:39
+#: app/views/signup.html:40
 msgid "Vorname"
 msgstr ""
 
-#: app/views/signup.html:74
+#: app/views/signup.html:152
+msgid "Voucher Code (falls vorhanden)"
+msgstr ""
+
+#: app/views/signup.html:85
 msgid "Weiter"
 msgstr ""
 
-#: app/views/signup.html:231
+#: app/views/signup.html:242
 msgid "Zahlung mit Kreditkarte?"
 msgstr ""
 
-#: app/views/signup.html:152
+#: app/views/signup.html:163
 msgid ""
 "Zahlungsinformationen\n"
 "                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
+msgstr ""
+
+#: app/views/signup.html:55
+msgid "name@beispiel.com"
+msgstr ""
+
+#: app/views/signup.html:260
+msgid "z.B. 10115"
+msgstr ""
+
+#: app/views/signup.html:202
+msgid "z.B. 123"
+msgstr ""
+
+#: app/views/signup.html:233
+msgid "z.B. ABCD1234"
+msgstr ""
+
+#: app/views/signup.html:226
+msgid "z.B. DE12 3456 7890 1234 5678 90"
+msgstr ""
+
+#: app/views/signup.html:252
+msgid "z.B. Münzstr. 1"
 msgstr ""

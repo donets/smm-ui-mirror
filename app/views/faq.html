@@ -101,7 +101,7 @@
 	<div class="faq__form" ng-controller="SubscribeCtrl">
 		<img src="images/Cards-Static.jpg" alt=""><br>
 		<form name="form" class="faq__form-email" ng-submit="subscribe()">
-			<input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="Deine E-Mail-Adresse" name="email" required /><br>
+			<input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Deine E-Mail-Adresse'|translate}}" name="email" required /><br>
 			<button type="submit">Erhalte Deine Einladung</button>
 			<div class="form-response">
 				<div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>

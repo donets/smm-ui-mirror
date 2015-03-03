@@ -1,16 +1,20 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.7.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/views/about.html:63
+msgid "Abschicken"
+msgstr ""
 
 #: app/views/about.html:20
 msgid ""
@@ -27,6 +31,10 @@ msgstr "Thank you for your feedback!"
 #: app/views/about.html:39 app/views/about.html:66
 msgid "Danke!"
 msgstr "Thank you! "
+
+#: app/views/about.html:36
+msgid "Deine E-Mail-Adresse"
+msgstr ""
 
 #: app/views/about.html:24
 msgid "Deine Vorteile"
@@ -68,6 +76,10 @@ msgstr ""
 msgid "Ein ganzheitliches Leben beginnt mit Achtsamkeit"
 msgstr "A holistic lifestyle begins with mindfulness"
 
+#: app/views/about.html:63
+msgid "Email-Adresse"
+msgstr ""
+
 #: app/views/about.html:3
 msgid "Entdecke Somuchmore"
 msgstr "Discover Somuchmore"
@@ -75,6 +87,14 @@ msgstr "Discover Somuchmore"
 #: app/views/about.html:19
 msgid "Entfaltung gelingt nur mit Inspiration und Spaß"
 msgstr "You can only develop personally if you are inspired and having fun"
+
+#: app/views/about.html:36
+msgid "Erhalte Deine Einladung"
+msgstr ""
+
+#: app/views/about.html:62
+msgid "Frage eingeben"
+msgstr ""
 
 #: app/views/about.html:59
 msgid "Hast Du noch Fragen?"

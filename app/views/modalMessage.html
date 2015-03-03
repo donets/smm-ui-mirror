@@ -5,10 +5,10 @@
     </button>
     <h2 ng-hide="success" translate>Nachricht an Somuchmore</h2>
     <form name="modalForm" class="message-submit" ng-hide="success" ng-submit="sendMessage()">
-        <input type="text" name="name" ng-model="message.name" placeholder="Dein Name" required/>
-        <input type="email" name="email" ng-model="message.email" placeholder="Deine E-Mail-Adresse" required/>
+        <input type="text" name="name" ng-model="message.name" placeholder="{{'Dein Name'|translate}}" required/>
+        <input type="email" name="email" ng-model="message.email" placeholder="{{'Deine E-Mail-Adresse'|translate}}" required/>
         <textarea name="message" class="form-textarea" ng-model="message.message" required></textarea>
-        <input type="submit" value="Senden" ng-disabled="modalForm.$invalid" />
+        <input type="submit" value="{{'Senden'|translate}}" ng-disabled="modalForm.$invalid" />
         <div class="form-response">
             <div ng-show="loading" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
             <div ng-show="error" class="form-message form-error" translate>Sorry your message not delivered. Please try later.</div>

@@ -16,6 +16,18 @@ msgstr ""
 msgid "Die Email-Adresse ist nicht korrekt"
 msgstr ""
 
+#: app/views/modalSubscribe.html:8
+msgid "E-Mail-Adresse"
+msgstr ""
+
 #: app/views/modalSubscribe.html:6
 msgid "Erhalte heute Deine Einladung:"
+msgstr ""
+
+#: app/views/modalSubscribe.html:10
+msgid "MITMACHEN"
+msgstr ""
+
+#: app/views/modalSubscribe.html:9
+msgid "PLZ"
 msgstr ""

@@ -32,8 +32,17 @@ msgstr ""
 msgid "E-Mail zum Zurücksetzen gesendet"
 msgstr ""
 
+#: app/views/_loginForm.html:15
+#: app/views/_loginForm.html:30
+msgid "E-Mail-Adresse"
+msgstr ""
+
 #: app/views/_loginForm.html:24
 msgid "Falsche E-Mail oder Passwort"
+msgstr ""
+
+#: app/views/_loginForm.html:50
+msgid "Kurse"
 msgstr ""
 
 #: app/views/_loginForm.html:54
@@ -47,6 +56,10 @@ msgstr ""
 
 #: app/views/_loginForm.html:52
 msgid "Meine Karte"
+msgstr ""
+
+#: app/views/_loginForm.html:18
+msgid "Passwort"
 msgstr ""
 
 #: app/views/_loginForm.html:33

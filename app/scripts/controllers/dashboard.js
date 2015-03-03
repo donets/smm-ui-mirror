@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, $rootScope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $cookieStore, $modal) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, $q, $cookieStore, $modal, gettextCatalog) {
         $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
@@ -41,9 +41,9 @@ angular.module('boltApp.controllers.Dashboard', [])
             return value === '24' ? '00:00' : pad.substring(0, pad.length - value.length) + value + ':00';
         };
         $scope.levels = [
-            {id: 1, text: 'Anfänger'},
-            {id: 2, text: 'Medium'},
-            {id: 3, text: 'Fortgeschrittene'}
+            {id: '1', text: gettextCatalog.getString('Anfänger')},
+            {id: '2', text: gettextCatalog.getString('Medium')},
+            {id: '3', text: gettextCatalog.getString('Fortgeschrittene')}
         ];
         $scope.clearFilters = function () {
             $scope.search = {

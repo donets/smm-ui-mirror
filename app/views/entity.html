@@ -25,7 +25,7 @@
             <div class="form-rel input-date" ng-if="field.type === 'date'" ng-click="openDatepicker($event, field.model)">
                 <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, field.model)" is-open="showDatepicker[field.model]"
                        datepicker-options="dateOptions" min-date="minStartDate"
-                       class="form-input" ng-model="entity[field.model]" type="text" placeholder="Select date" clear-text="Clear"/>
+                       class="form-input" ng-model="entity[field.model]" type="text" placeholder="{{'Select date'|translate}}" clear-text="Clear"/>
             </div>
             <select chosen
                     ng-model="entity[field.model]" ng-if="field.type === 'select'"

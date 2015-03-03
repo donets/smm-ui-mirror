@@ -9,16 +9,16 @@
         <div class="form-wrapper">
 
             <div class="form-rel">
-                <input class="form-input" ng-model="contact.name" name="name" id="name" placeholder="Name" type="text" required />
+                <input class="form-input" ng-model="contact.name" name="name" id="name" placeholder="{{'Name'|translate}}" type="text" required />
             </div>
             <div class="form-rel">
-                <input class="form-input" ng-model="contact.email" name="email" id="email" placeholder="Email" type="email" required />
+                <input class="form-input" ng-model="contact.email" name="email" id="email" placeholder="{{'Email'|translate}}" type="email" required />
             </div>
             <div class="form-rel">
-                <input class="form-input" ng-model="contact.phone" name="phone" id="phone" placeholder="Telefon" type="text" />
+                <input class="form-input" ng-model="contact.phone" name="phone" id="phone" placeholder="{{'Telefon'|translate}}" type="text" />
             </div>
             <div class="form-rel">
-                <textarea class="form-textarea" ng-model="contact.message" name="message" id="message" placeholder="Nachricht" required ></textarea>
+                <textarea class="form-textarea" ng-model="contact.message" name="message" id="message" placeholder="{{'Nachricht'|translate}}" required ></textarea>
             </div>
             <div class="form-rel">
                 <button class="form-button" ng-hide="loadingUpdate" type="submit" translate>Absenden</button>

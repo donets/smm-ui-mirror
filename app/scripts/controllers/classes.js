@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Classes', [])
-    .controller('ClassesCtrl', function ($scope, $q, getClasses, getStudios) {
+    .controller('ClassesCtrl', function ($scope, $q, getClasses, getStudios, gettextCatalog) {
         $q.all([getClasses.$promise, getStudios.$promise]).then(function (res) {
             $scope.classes = res[0];
             $scope.studios = res[1];
@@ -22,8 +22,8 @@ angular.module('boltApp.controllers.Classes', [])
         };
         $scope.clearFilters();
         $scope.levels = [
-            {id: 1, text: 'Anfänger'},
-            {id: 2, text: 'Medium'},
-            {id: 3, text: 'Fortgeschrittene'}
+            {id: '1', text: gettextCatalog.getString('Anfänger')},
+            {id: '2', text: gettextCatalog.getString('Medium')},
+            {id: '3', text: gettextCatalog.getString('Fortgeschrittene')}
         ];
     });

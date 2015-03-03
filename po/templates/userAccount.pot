@@ -4,8 +4,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: app/views/userAccount.html:6
+msgid "Altes Passwort"
+msgstr ""
+
 #: app/views/userAccount.html:26
 msgid "Benutzername oder Passwort falsch"
+msgstr ""
+
+#: app/views/userAccount.html:20
+msgid "Confirm Passwort"
 msgstr ""
 
 #: app/views/userAccount.html:16
@@ -16,6 +24,10 @@ msgstr ""
 #: app/views/userAccount.html:15
 #: app/views/userAccount.html:8
 msgid "Dies ist eine Pflichtfeld"
+msgstr ""
+
+#: app/views/userAccount.html:13
+msgid "Neues Passwort"
 msgstr ""
 
 #: app/views/userAccount.html:22
