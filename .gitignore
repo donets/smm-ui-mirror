@@ -6,3 +6,5 @@ dist
 bower_components
 /app/images/Thumbs.db
 /app/images/static/Thumbs.db
+/.project
+/.settings/org.eclipse.core.resources.prefs

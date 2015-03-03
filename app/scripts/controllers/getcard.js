@@ -69,21 +69,26 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $scope.invitation = $location.search().invitation;
         $scope.discipline = $location.search().discipline;
-        $scope.city = $location.search().city;
-        $scope.cityId = $cookieStore.get('cityId') || '1';
-        if ($scope.invitation) {
-            $cookieStore.put('invitation', true);
-        }
-        if ($scope.city) {
-            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
-            $cookieStore.put('cityId', $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
-        }
-        else if ($scope.cityId) {
-            $scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
-        }
-        else {
-            $scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
-        }
+		
+		$scope.guessCity = function(city) {
+			$scope.city = $location.search().city;
+			$scope.cityId = $cookieStore.get('cityId') || '1';
+			if ($scope.invitation) {
+				$cookieStore.put('invitation', true);
+			}
+			if ($scope.city) {
+				$scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
+				$cookieStore.put('cityId', $scope.campaign && $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
+				//console.log("code = " + $scope.city + ", cities = " + JSON.stringify($scope.citiesList));
+			}
+			else if ($scope.cityId) {
+				$scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
+			}
+			else {
+				$scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
+			}
+		};
+		
         $cookieStore.put('landingUrl', $location.url());
 
         $scope.changeCity = function(city) {
@@ -136,10 +141,17 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         };
 
         getCities.$promise.then(function (res) {
-            $scope.citiesList = _.sortBy(res, 'id').filter(function (res) {
-                return res.countryCode === $rootScope.domain;
+			//console.log("got cities = " + JSON.stringify(res));
+			//console.log("$rootScope.domain = " + JSON.stringify($rootScope.domain));
+            $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
+                return c.countryCode === $rootScope.domain;
             });
-            $scope.changeCity($scope.citiesList[0]);
+			//console.log("got cities = " + JSON.stringify($scope.citiesList));
+			//console.log("cities[0] = " + JSON.stringify($scope.citiesList[0]));
+            //$scope.changeCity($scope.citiesList[0]);
+			
+			$scope.guessCity();
+			//console.log("done");
         });
 
 
