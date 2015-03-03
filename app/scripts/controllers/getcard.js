@@ -78,8 +78,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 			}
 			if ($scope.city) {
 				$scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
-				$cookieStore.put('cityId', $scope.campaign && $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : 1);
-				//console.log("code = " + $scope.city + ", cities = " + JSON.stringify($scope.citiesList));
+				$scope.cityId = $scope.campaign && $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : $scope.cityId;
+				$cookieStore.put('cityId', $scope.cityId);
 			}
 			else if ($scope.cityId) {
 				$scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
@@ -87,6 +87,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 			else {
 				$scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
 			}
+			$scope.changeCity($scope.campaign);
 		};
 		
         $cookieStore.put('landingUrl', $location.url());
