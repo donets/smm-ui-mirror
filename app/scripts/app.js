@@ -30,6 +30,7 @@ angular
         'validation.match',
         'ezfb',
         'flow',
+        'ngOptionsDisabled',
         'ng-optimizely',
         'ngshowvariant',
         'xeditable',
@@ -80,6 +81,7 @@ angular.module('boltApp')
             $rootScope.pageReload = function () {
                 $window.location.reload();
             };
+            $rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
             $rootScope.$on('$viewContentLoading', function(){
                 $window.rendering = true;
             });

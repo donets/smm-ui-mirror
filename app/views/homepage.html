@@ -112,7 +112,7 @@
         <h2>Entdecke die Vielfalt</h2>
         <p class="subtitle">Über 50 Studios freuen sich darauf, Dich kennen zu lernen. </p>
         <div class="b-map-nav clearfix">
-            <ul class="select-city" ng-show="desktop" >
+            <ul class="select-city" ng-show="desktop" ng-if="citiesList.length > 1">
                 <li ng-repeat="c in citiesList">
                     <a href="" ng-class="{'active': campaign && campaign.shortCode === c.shortCode || !campaign && c.shortCode === 'B'}" ng-click="changeCity(c)">
                         {{c.defaultName}}
@@ -120,11 +120,11 @@
                 </li>
             </ul>
             <ul class="tab-nav">
-                <li ng-show="mobile">
+                <li ng-show="mobile" ng-if="citiesList.length > 1">
                     <div class="third">
                         <select chosen width="'100%'" class="third"
                                 ng-model="campaign" ng-change="changeCity(campaign)"
-                                data-placeholder="Monat"
+                                data-placeholder="Stadt"
                                 disable-search="true"
                                 ng-options="c as c.defaultName for c in citiesList">
                             <option value="" ng-if="desktop"></option>
@@ -145,7 +145,7 @@
         </ui-gmap-google-map>
         <div class="static-map" ng-if="!campaign.active">
             <img ng-src="//maps.googleapis.com/maps/api/staticmap?center={{campaign.defaultName}}&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true" alt=""/>
-            <div class="overlay"><h2>Start am 15.03!</h2></div>
+            <div class="overlay"><h2>Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!</h2></div>
         </div>
         <div ng-show="tab === 'list'">
             <ul class="b-studios-list">

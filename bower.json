@@ -41,7 +41,8 @@
     "venturocket-angular-slider": "~0.3.2",
     "ng-optimizely": "~0.2.0",
     "angular-optimizely": "~0.0.3",
-    "angular-xeditable": "~0.1.8"
+    "angular-xeditable": "~0.1.8",
+    "angular-options-disabled": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

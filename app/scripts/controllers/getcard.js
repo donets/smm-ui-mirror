@@ -63,7 +63,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.Math = $window.Math;
         $scope._ = $window._;
         $scope.cards = getCards.data;
-        $scope.citiesList = getCities.data;
         $scope.disciplinesList = getDisciplines.data;
 
         $scope.tab = 'map';
@@ -137,7 +136,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         };
 
         getCities.$promise.then(function (res) {
-            $scope.citiesList = res;
+            $scope.citiesList = _.sortBy(res, 'id').filter(function (res) {
+                return res.countryCode === $rootScope.domain;
+            });
             $scope.changeCity($scope.citiesList[0]);
         });
 

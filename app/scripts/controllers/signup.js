@@ -11,9 +11,8 @@ angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards, getCities, getCityId) {
         $scope.Math = $window.Math;
         $scope.cards = getCards.data;
-        $scope.cities = getCities;
-        $scope.cities = _.filter($scope.cities, function(city) {
-            return city.active;
+        $scope.cities = _.sortBy(getCities, 'id').filter(function (getCities) {
+            return getCities.countryCode === $rootScope.domain;
         });
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
@@ -30,7 +29,7 @@ angular.module('boltApp.controllers.Signup', [])
         };
         $scope.sanitizeCity = function() {
             if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
-                $scope.order.cityId = 1;
+                $scope.order.cityId = $scope.cities[0].id;
             }
         };
         $scope.sanitizeCity();
