@@ -136,7 +136,7 @@
             </ul>
         </div>
 
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="campaign.active" ng-show="tab === 'map'">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="campaign.active && tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
                     <p class="info-window" ng-non-bindable>{{name}}</p>
@@ -147,7 +147,7 @@
             <img ng-src="//maps.googleapis.com/maps/api/staticmap?center={{campaign.defaultName}}&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true" alt=""/>
             <div class="overlay"><h2>Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!</h2></div>
         </div>
-        <div ng-show="tab === 'list'">
+        <div ng-if="tab === 'list'">
             <ul class="b-studios-list">
                 <li ng-repeat="studio in studios | orderBy: 'name'">
                     <a ui-sref="studio({studioId: studio.id})" ng-if="studio.profileComplete">{{studio.name}}</a>
