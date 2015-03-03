@@ -69,6 +69,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $scope.invitation = $location.search().invitation;
         $scope.discipline = $location.search().discipline;
+
+        $cookieStore.put('landingUrl', $location.url());
 		
 		$scope.guessCity = function() {
 			$scope.city = $location.search().city;
@@ -87,10 +89,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 			else {
 				$scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
 			}
-			$scope.changeCity($scope.campaign);
+			$scope.changeCity($scope.campaign || $scope.citiesList[0]);
 		};
-		
-        $cookieStore.put('landingUrl', $location.url());
 
         $scope.changeCity = function(city) {
             $scope.city = city.shortCode;

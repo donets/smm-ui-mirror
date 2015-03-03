@@ -523,11 +523,9 @@
 				}
 			}
 		}
-		@media (max-width: $containerMobileWidth) {
-			float: none;
-		}
 		@media (min-width: $containerMobileWidth) {
 			position: absolute;
+            top: 0;
 			right: 0;
 		}
 		select {
