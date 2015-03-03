@@ -82,6 +82,10 @@ angular.module('boltApp')
                 $window.location.reload();
             };
             $rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
+			var domains = [{domain: "DE", countryCode: "DE"}, {domain: "UK", countryCode: "UK"}, {domain: "COM", countryCode: "DE"}];
+			$rootScope.domainProperties = _.findWhere(domains, {domain: $rootScope.domain});
+			$rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : "DE";
+			console.log("country = " + $rootScope.countryCode);
             $rootScope.$on('$viewContentLoading', function(){
                 $window.rendering = true;
             });

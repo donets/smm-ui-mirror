@@ -142,17 +142,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         };
 
         getCities.$promise.then(function (res) {
-			//console.log("got cities = " + JSON.stringify(res));
-			//console.log("$rootScope.domain = " + JSON.stringify($rootScope.domain));
             $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
-                return c.countryCode === $rootScope.domain;
-            });
-			//console.log("got cities = " + JSON.stringify($scope.citiesList));
-			//console.log("cities[0] = " + JSON.stringify($scope.citiesList[0]));
-            //$scope.changeCity($scope.citiesList[0]);
-			
+                return c.countryCode === $rootScope.countryCode;
+            });			
 			$scope.guessCity();
-			//console.log("done");
         });
 
 
