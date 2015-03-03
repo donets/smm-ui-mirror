@@ -1,24 +1,24 @@
 [
     {
-        "type": "LITE",
-        "name": "White Card Lite",
-        "price": "39",
-        "courses": "4",
-        "coursesPerSupplier": "3",
-        "minimumTerm": "Jederzeit"
+        "code": "LITE",
+        "displayName": "White Card Lite",
+        "monthlyPrice": "39",
+        "currencyCode": "EUR",
+        "coursesPerMonth": "4",
+        "coursesPerSupplierPerMonth": "3"
     }, {
-        "type": "WHITE",
-        "name": "White Card",
-        "price": "69",
-        "courses": "Unbegrenzt",
-        "coursesPerSupplier": "3",
-        "minimumTerm": "Jederzeit"
+        "code": "WHITE",
+        "displayName": "White Card",
+        "monthlyPrice": "69",
+        "currencyCode": "EUR",
+        "coursesPerMonth": -1,
+        "coursesPerSupplierPerMonth": "3"
     }, {
-        "type": "BLACK",
-        "name": "Black Card",
-        "price": "99",
-        "courses": "Unbegrenzt",
-        "coursesPerSupplier": "Unbegrenzt",
-        "minimumTerm": "Jederzeit"
+        "code": "BLACK",
+        "displayName": "Black Card",
+        "monthlyPrice": "99",
+        "currencyCode": "EUR",
+        "coursesPerMonth": -1,
+        "coursesPerSupplierPerMonth": -1
     }
 ]

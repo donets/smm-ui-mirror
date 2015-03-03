@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCards', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCards, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -62,7 +62,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $scope.Math = $window.Math;
         $scope._ = $window._;
-        $scope.cards = getCards.data;
         $scope.disciplinesList = getDisciplines.data;
 
         $scope.tab = 'map';
@@ -106,6 +105,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             RestApi.query({route: 'studios', cityId: $scope.campaign.id}).$promise.then(function (res) {
                 $scope.studios = res;
             });
+            RestApi.query({route: 'plans', cityId: $scope.campaign.id}).$promise.then(function (res) {
+                $scope.cards = res;
+            });
             uiGmapGoogleMapApi.then(function() {
 
                 $scope.map = {
@@ -144,12 +146,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         getCities.$promise.then(function (res) {
             $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
                 return c.countryCode === $rootScope.countryCode;
-            });			
+            });
 			$scope.guessCity();
         });
-
-
-
 
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {

@@ -74,7 +74,7 @@
                                 data-placeholder="Stadt"
                                 ng-options-disabled="!item.active for item in cities"
                                 ng-options="item.id as item.defaultName for item in cities">
-                            <option value="" ng-if="desktop"></option>
+                            <option value="" ng-show="desktop"></option>
                         </select>
                     </div>
                     <div class="half">
@@ -104,44 +104,51 @@
                     <li>Kündigen / Pausieren</li>
                 </ul>
                 <ul class="select-cards__card" ng-repeat="card in cards">
-                    <li><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
-                        <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
-                        <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></li>
-                    <li class="name">{{card.name}}</li>
-                    <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                        <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
-                    <li>{{card.courses}}</li>
-                    <li>{{card.coursesPerSupplier}}</li>
-                    <li>{{card.minimumTerm}}</li>
-                    <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></li>
+                    <li><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
+                        <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
+                        <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></li>
+                    <li class="name">{{card.displayName}}</li>
+                    <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">
+                        <span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                        <b ng-if="!voucher.freeSubscriptionGranted && voucher">
+                            <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                            <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        </b></li>
+                    <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : 'Unbegrenzt'}}</li>
+                    <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : 'Unbegrenzt'}}</li>
+                    <li>Jederzeit</li>
+                    <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? 'Ausgewählt' : 'Auswählen'}}</button></li>
                 </ul>
             </div>
             <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
                 <tr>
-                    <td><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
-                        <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
-                        <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></td>
-                    <td>{{card.name}}</td>
+                    <td><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
+                        <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
+                        <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></td>
+                    <td>{{card.displayName}}</td>
                 </tr>
                 <tr>
                     <td>Preis pro Monat</td>
-                    <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                        <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></td>
+                    <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                        <b ng-if="!voucher.freeSubscriptionGranted && voucher">
+                            <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                            <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        </b></td>
                 </tr>
                 <tr>
                     <td>Kurse pro Monat</td>
-                    <td>{{card.courses}}</td>
+                    <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : 'Unbegrenzt'}}</td>
                 </tr>
                 <tr>
                     <td>Kurse pro Anbieter / Monat</td>
-                    <td>{{card.coursesPerSupplier}}</td>
+                    <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : 'Unbegrenzt'}}</td>
                 </tr>
                 <tr>
                     <td>Kündigen / Pausieren</td>
-                    <td>{{card.minimumTerm}}</td>
+                    <td>Jederzeit</td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></td>
+                    <td colspan="2" class="button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? 'Ausgewählt' : 'Auswählen'}}</button></td>
                 </tr>
             </table>
         </div>
@@ -185,7 +192,7 @@
                                         data-placeholder="Monat"
                                         disable-search="true"
                                         ng-options="item for item in month">
-                                    <option value="" ng-if="desktop"></option>
+                                    <option value="" ng-show="desktop"></option>
                                 </select>
                             </div>
                             <div class="third" ng-class="{'chosen-valid': formCheckout.cardYear.$dirty && formCheckout.cardYear.$valid}">
@@ -195,7 +202,7 @@
                                         data-placeholder="Jahr"
                                         disable-search="true"
                                         ng-options="item for item in year">
-                                    <option value="" ng-if="desktop"></option>
+                                    <option value="" ng-show="desktop"></option>
                                 </select>
                             </div>
                             <div class="third">

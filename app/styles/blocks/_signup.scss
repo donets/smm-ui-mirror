@@ -515,6 +515,13 @@
         @media (max-width: $containerMobileWidth) {
             margin: 150px 0 0;
         }
+        &.ng-animate {
+            &.ng-move,
+            &.ng-enter,
+            &.ng-leave {
+                @include transition(none);
+            }
+        }
         li {
             background: #fff;
             height: 42px;
