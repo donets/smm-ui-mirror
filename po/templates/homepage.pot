@@ -16,7 +16,7 @@ msgstr ""
 msgid "(Keine Mindestlaufzeit, monatlich kündigen und pausieren)"
 msgstr ""
 
-#: app/views/homepage.html:225
+#: app/views/homepage.html:233
 msgid "1. Bestelle Deine Karte"
 msgstr ""
 
@@ -32,16 +32,16 @@ msgstr ""
 msgid "14 Tage KOSTENLOS testen"
 msgstr ""
 
-#: app/views/homepage.html:230
+#: app/views/homepage.html:238
 msgid "2. Finde Dein Angebot"
 msgstr ""
 
-#: app/views/homepage.html:235
+#: app/views/homepage.html:243
 msgid "3. Trainiere nach Herzenslust"
 msgstr ""
 
-#: app/views/homepage.html:323
-#: app/views/homepage.html:338
+#: app/views/homepage.html:331
+#: app/views/homepage.html:346
 msgid "An Kursen teilnehmen. Fitnessstudios oder Spas besuchen. Oder eine persönliche Beratung vereinbaren (z.B. für Ernährung oder Gesundheit)."
 msgstr ""
 
@@ -57,8 +57,8 @@ msgstr ""
 msgid "Bestelle Deine Karte - und bringe Bewegung in Dein Leben."
 msgstr ""
 
-#: app/views/homepage.html:273
-#: app/views/homepage.html:290
+#: app/views/homepage.html:281
+#: app/views/homepage.html:298
 msgid "Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore."
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Danke für Deine Anfrage!"
 msgstr ""
 
-#: app/views/homepage.html:362
+#: app/views/homepage.html:370
 msgid "Danke!"
 msgstr ""
 
@@ -78,13 +78,13 @@ msgid "Deine Karte erhalten"
 msgstr ""
 
 #: app/views/homepage.html:27
-#: app/views/homepage.html:363
+#: app/views/homepage.html:371
 #: app/views/homepage.html:50
 msgid "Die Email-Adresse ist nicht korrekt"
 msgstr ""
 
-#: app/views/homepage.html:326
-#: app/views/homepage.html:341
+#: app/views/homepage.html:334
+#: app/views/homepage.html:349
 msgid "Die meisten Partner akzeptiert alle Karten. Manche Partner aber akzeptieren bestimmte Karten nicht oder nur eingeschränkt. Bitte schau vorher immer im Online-Kalender nach."
 msgstr ""
 
@@ -92,13 +92,13 @@ msgstr ""
 msgid "Du bist überall willkommen - mit einer Karte."
 msgstr ""
 
-#: app/views/homepage.html:332
-#: app/views/homepage.html:347
+#: app/views/homepage.html:340
+#: app/views/homepage.html:355
 msgid "Du kannst monatlich zum Folgemonat kündigen. Und jederzeit für einen Monat oder mehr pausieren, z.B. wenn Du länger in den Urlaub fährst. Dazu gibt es in Deinem Account einen Link."
 msgstr ""
 
 #: app/views/homepage.html:21
-#: app/views/homepage.html:357
+#: app/views/homepage.html:365
 #: app/views/homepage.html:44
 msgid "E-Mail-Adresse"
 msgstr ""
@@ -141,15 +141,15 @@ msgstr ""
 msgid "Erhalte heute Deine Einladung"
 msgstr ""
 
-#: app/views/homepage.html:226
+#: app/views/homepage.html:234
 msgid "Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse besuchen."
 msgstr ""
 
-#: app/views/homepage.html:221
+#: app/views/homepage.html:229
 msgid "Es geht so einfach!"
 msgstr ""
 
-#: app/views/homepage.html:231
+#: app/views/homepage.html:239
 msgid "Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin."
 msgstr ""
 
@@ -157,18 +157,23 @@ msgstr ""
 msgid "Freiheit"
 msgstr ""
 
-#: app/views/homepage.html:269
-#: app/views/homepage.html:285
+#: app/views/homepage.html:277
+#: app/views/homepage.html:293
 msgid "Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein."
 msgstr ""
 
-#: app/views/homepage.html:325
-#: app/views/homepage.html:340
+#: app/views/homepage.html:333
+#: app/views/homepage.html:348
 msgid "Gilt meine Karte überall für alle Angebote?"
 msgstr ""
 
 #: app/views/homepage.html:72
 msgid "Hier geht es zum Angebot ›"
+msgstr ""
+
+#: app/views/homepage.html:193
+#: app/views/homepage.html:221
+msgid "Jederzeit"
 msgstr ""
 
 #: app/views/homepage.html:63
@@ -179,7 +184,7 @@ msgstr ""
 msgid "Keine Bindung"
 msgstr ""
 
-#: app/views/homepage.html:359
+#: app/views/homepage.html:367
 msgid "Kontaktiert mich"
 msgstr ""
 
@@ -188,17 +193,17 @@ msgid "Kräftig sparen"
 msgstr ""
 
 #: app/views/homepage.html:176
-#: app/views/homepage.html:208
+#: app/views/homepage.html:216
 msgid "Kurse pro Anbieter / Monat"
 msgstr ""
 
 #: app/views/homepage.html:175
-#: app/views/homepage.html:204
+#: app/views/homepage.html:212
 msgid "Kurse pro Monat"
 msgstr ""
 
 #: app/views/homepage.html:177
-#: app/views/homepage.html:212
+#: app/views/homepage.html:220
 msgid "Kündigen / Pausieren"
 msgstr ""
 
@@ -210,29 +215,25 @@ msgstr ""
 msgid "Lebe gesund und erfüllt"
 msgstr ""
 
-#: app/views/homepage.html:265
-#: app/views/homepage.html:280
+#: app/views/homepage.html:273
+#: app/views/homepage.html:288
 msgid "Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen."
 msgstr ""
 
-#: app/views/homepage.html:127
-msgid "Monat"
-msgstr ""
-
-#: app/views/homepage.html:343
+#: app/views/homepage.html:351
 msgid "Muss ich michanmelden?"
 msgstr ""
 
-#: app/views/homepage.html:328
+#: app/views/homepage.html:336
 msgid "Muss ich mich <br> anmelden?"
 msgstr ""
 
-#: app/views/homepage.html:319
+#: app/views/homepage.html:327
 msgid "Noch Fragen?"
 msgstr ""
 
-#: app/views/homepage.html:329
-#: app/views/homepage.html:344
+#: app/views/homepage.html:337
+#: app/views/homepage.html:352
 msgid "Normalerweise nicht. Aber es gibt Ausnahmen, etwa bei kleinen Kursen, großer Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau vorher immer im Online-Kalender nach."
 msgstr ""
 
@@ -242,7 +243,7 @@ msgid "PLZ"
 msgstr ""
 
 #: app/views/homepage.html:174
-#: app/views/homepage.html:199
+#: app/views/homepage.html:204
 msgid "Preis pro Monat"
 msgstr ""
 
@@ -254,15 +255,19 @@ msgstr ""
 msgid "Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis {{validUntilIn | amDateFormat: 'D. MMMM'}}"
 msgstr ""
 
+#: app/views/homepage.html:127
+msgid "Stadt"
+msgstr ""
+
 #: app/views/homepage.html:148
-msgid "Start am 15.03!"
+msgid "Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
 msgstr ""
 
 #: app/views/homepage.html:159
 msgid "Studio vorschlagen"
 msgstr ""
 
-#: app/views/homepage.html:355
+#: app/views/homepage.html:363
 msgid "Studio? Coach? Willst Du Kurse bei uns anbieten?"
 msgstr ""
 
@@ -274,24 +279,24 @@ msgstr ""
 msgid "Studios auf Karte"
 msgstr ""
 
-#: app/views/homepage.html:358
+#: app/views/homepage.html:366
 msgid "Telefonnummer"
 msgstr ""
 
-#: app/views/homepage.html:322
-#: app/views/homepage.html:337
+#: app/views/homepage.html:330
+#: app/views/homepage.html:345
 msgid "Was kann mit meiner Karte machen?"
 msgstr ""
 
-#: app/views/homepage.html:350
+#: app/views/homepage.html:358
 msgid "Weitere Fragen? Hier geht es zu den FAQ ›"
 msgstr ""
 
-#: app/views/homepage.html:331
+#: app/views/homepage.html:339
 msgid "Wie kündige oder <br> pausiere ich?"
 msgstr ""
 
-#: app/views/homepage.html:346
+#: app/views/homepage.html:354
 msgid "Wie kündige oder pausiere ich?"
 msgstr ""
 
@@ -299,7 +304,7 @@ msgstr ""
 msgid "Worauf hast Du heute Lust? <b>Yoga</b>, <b>Pilates</b> oder <b>Meditation</b>? Dich beim <b>CrossFit</b>, <b>TRX</b> oder <b>EMS</b> auszupowern? Beim <b>Tango</b>, <b>Hip-Hop</b> oder <b>Salsa</b> tanzen in Schwung kommen? Kraft und Konzentration entwickeln beim <b>Tai Chi</b>, <b>Qi Gong</b> oder <b>Kung-Fu</b>? Mehr über <b>Ernährung</b> und <b>Gesundheit</b> lernen? Oder Dich entspannen und verwöhnen lassen in der <b>Sauna</b> oder im <b>Spa</b>?"
 msgstr ""
 
-#: app/views/homepage.html:236
+#: app/views/homepage.html:244
 msgid "Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitglied begrüßt."
 msgstr ""
 
@@ -311,17 +316,17 @@ msgstr ""
 msgid "Über 50 Studios freuen sich darauf, Dich kennen zu lernen."
 msgstr ""
 
-#: app/views/homepage.html:266
-#: app/views/homepage.html:281
+#: app/views/homepage.html:274
+#: app/views/homepage.html:289
 msgid "– Alexandra Liakou, Regisseurin"
 msgstr ""
 
-#: app/views/homepage.html:270
-#: app/views/homepage.html:286
+#: app/views/homepage.html:278
+#: app/views/homepage.html:294
 msgid "– Konrad Knops, Osteopath"
 msgstr ""
 
-#: app/views/homepage.html:274
-#: app/views/homepage.html:291
+#: app/views/homepage.html:282
+#: app/views/homepage.html:299
 msgid "– Sonja Reifenhäuser, Food Coach"
 msgstr ""

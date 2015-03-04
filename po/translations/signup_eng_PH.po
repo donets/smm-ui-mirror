@@ -24,7 +24,7 @@ msgstr "(No minimum membership term)"
 msgid "(Monatlich Kündigen)"
 msgstr "(Monthly cancellation of membership possible)"
 
-#: app/views/signup.html:310
+#: app/views/signup.html:318
 msgid "(für {{voucher.discountDuarationInMonths}} Monate)"
 msgstr "(for{{voucher.discountDuarationInMonths}} months)"
 
@@ -49,27 +49,31 @@ msgid "3. Bezahlung"
 msgstr "3. Payment"
 
 # Passt "Direct debit" hier?
-#: app/views/signup.html:291
+#: app/views/signup.html:299
 msgid "Abbuchung:"
 msgstr "Direct debit:"
 
-#: app/views/signup.html:150
+#: app/views/signup.html:158
 msgid "Aktionscode hinzufügen"
 msgstr "Enter discount code"
 
-#: app/views/signup.html:245
+#: app/views/signup.html:253
 msgid "Anderes Zahlungsmittel"
 msgstr "Other payment method"
 
-#: app/views/signup.html:232
+#: app/views/signup.html:240
 msgid "BIC"
 msgstr "SWIFT-BIC"
 
-#: app/views/signup.html:294
+#: app/views/signup.html:302
 msgid "Beginn:"
 msgstr "Start:"
 
-#: app/views/signup.html:268
+#: app/views/signup.html:81
+msgid "Begint am"
+msgstr "Start at"
+
+#: app/views/signup.html:276
 msgid "Berlin"
 msgstr "London"
 
@@ -77,22 +81,22 @@ msgstr "London"
 msgid "Bestelle die Somuchmore Card"
 msgstr "Order your Somuchmore card"
 
-#: app/views/signup.html:281
+#: app/views/signup.html:289
 msgid "Bestellübersicht"
 msgstr "Order summary"
 
-#: app/views/signup.html:205
+#: app/views/signup.html:213
 msgid ""
 "Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-"
 "Rückseite)"
 msgstr ""
 "Please enter the 3 or 4-digit security number (on the back of your card)"
 
-#: app/views/signup.html:175
+#: app/views/signup.html:183
 msgid "Bitte eine gültige Kreditkartennummer eintragen"
 msgstr "Please enter a valid credit card number"
 
-#: app/views/signup.html:337
+#: app/views/signup.html:345
 msgid ""
 "Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und "
 "Datenschutzbestimmung."
@@ -100,15 +104,15 @@ msgstr ""
 "Please select your card, fill out all fields and accept the terms & "
 "conditions and privacy policy."
 
-#: app/views/signup.html:335
+#: app/views/signup.html:343
 msgid "Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}"
 msgstr "Pleas check your credit card details: {{errorMsg}}"
 
-#: app/views/signup.html:201
+#: app/views/signup.html:209
 msgid "CVV"
 msgstr "CVV"
 
-#: app/views/signup.html:333
+#: app/views/signup.html:341
 msgid "Danach kostenpflichtig"
 msgstr "After this it will be subject to a fee "
 
@@ -116,33 +120,29 @@ msgstr "After this it will be subject to a fee "
 msgid "Das Passwort muss mindestens 5 Zeichen enthalten"
 msgstr "Your password must contain at least 5 characters"
 
-#: app/views/signup.html:219
+#: app/views/signup.html:227
 msgid "Dein Name"
 msgstr "Your Name"
 
 # Sollte "beginnt" mit zwei "n" im deutschen Text sein!
-#: app/views/signup.html:89
-msgid "Deine Mitgliedschaft begint am:"
-msgstr "Your membership begins on:"
+#: app/views/signup.html:71
+msgid "Deine Mitgliedschaft Stadt"
+msgstr "Your Membership City"
 
-#: app/views/signup.html:70
-msgid "Deine Stadt"
-msgstr "Your City"
-
-#: app/views/signup.html:174 app/views/signup.html:204
-#: app/views/signup.html:221 app/views/signup.html:228
-#: app/views/signup.html:235 app/views/signup.html:254
-#: app/views/signup.html:262 app/views/signup.html:270
+#: app/views/signup.html:182 app/views/signup.html:212
+#: app/views/signup.html:229 app/views/signup.html:236
+#: app/views/signup.html:243 app/views/signup.html:262
+#: app/views/signup.html:270 app/views/signup.html:278
 #: app/views/signup.html:42 app/views/signup.html:49 app/views/signup.html:57
 #: app/views/signup.html:65
 msgid "Dies ist eine Pflichtfeld"
 msgstr "This is an obligatory field"
 
-#: app/views/signup.html:156
+#: app/views/signup.html:164
 msgid "Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig"
 msgstr "This voucher is only {{typeVoucher}} valid for the CARD"
 
-#: app/views/signup.html:157
+#: app/views/signup.html:165
 msgid "Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden"
 msgstr "This voucher can only be redeemed from 1.1.2015 "
 
@@ -150,7 +150,7 @@ msgstr "This voucher can only be redeemed from 1.1.2015 "
 msgid "E-Mail"
 msgstr "E-mail"
 
-#: app/views/signup.html:336
+#: app/views/signup.html:344
 msgid ""
 "Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle "
 "eine andere E-Mail"
@@ -158,7 +158,7 @@ msgstr ""
 "An account already exists for this email account. Please log in or use a "
 "different e-mail address."
 
-#: app/views/signup.html:309
+#: app/views/signup.html:317
 msgid "Ermäßigter Preis:"
 msgstr "Reduced price:"
 
@@ -166,11 +166,11 @@ msgstr "Reduced price:"
 msgid "Garantierte Zufriedenheit"
 msgstr "Satisfaction guaranteed"
 
-#: app/views/signup.html:181
+#: app/views/signup.html:189
 msgid "Gültig bis"
 msgstr "Valid until"
 
-#: app/views/signup.html:240
+#: app/views/signup.html:248
 msgid ""
 "Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren "
 "Kundenservice widerrufen."
@@ -188,15 +188,15 @@ msgstr ""
 "upgraded to a paid Somuchmore membership (€39, €69 or €99 per month, incl. "
 "VAT). This membership can be cancelled at any time."
 
-#: app/views/signup.html:225
+#: app/views/signup.html:233
 msgid "IBAN"
 msgstr "IBAN"
 
-#: app/views/signup.html:325
+#: app/views/signup.html:333
 msgid "Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen"
 msgstr "I would like to subscribe to the newsletter about holistic lifestyles"
 
-#: app/views/signup.html:319
+#: app/views/signup.html:327
 msgid ""
 "Ich stimme den <a ui-sref=\"agb\">AGB</a> und <a ui-sref=\"agb"
 "\">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref=\"agb"
@@ -206,11 +206,15 @@ msgstr ""
 "\">data protection provisions</a> and am aware of my <a ui-sref=\"agb"
 "\">statutory rights </a> ."
 
-#: app/views/signup.html:194
+#: app/views/signup.html:202
 msgid "Jahr"
 msgstr "Year"
 
-#: app/views/signup.html:298
+#: app/views/signup.html:119 app/views/signup.html:148
+msgid "Jederzeit"
+msgstr "Anytime"
+
+#: app/views/signup.html:306
 msgid ""
 "Jederzeit <span class=\"details\">(monatlich bis zum Monatsende für den "
 "Folgemonat)</span>"
@@ -222,19 +226,19 @@ msgstr ""
 msgid "Jederzeit kündigen"
 msgstr "Cancel your membership any time"
 
-#: app/views/signup.html:332
+#: app/views/signup.html:340
 msgid "Jetzt KOSTENLOS testen"
 msgstr "FREE trial period"
 
-#: app/views/signup.html:284
+#: app/views/signup.html:292
 msgid "Karte:"
 msgstr "Card:"
 
-#: app/views/signup.html:169
+#: app/views/signup.html:177
 msgid "Kartennummer"
 msgstr "Card number"
 
-#: app/views/signup.html:155
+#: app/views/signup.html:163
 msgid "Kein gültiger Code"
 msgstr "Invalid code"
 
@@ -242,7 +246,7 @@ msgstr "Invalid code"
 msgid "Keine Aufnahmegebühr"
 msgstr "No enrolment fee "
 
-#: app/views/signup.html:211
+#: app/views/signup.html:219
 msgid "Keine Kreditkarte?"
 msgstr "No credit card?"
 
@@ -255,19 +259,19 @@ msgid "Keine gültige E-Mail-Adresse"
 msgstr "Invalid e-mail address"
 
 # Postleitzahlen in UK sind aus Buchstaben und Ziffern, deswegen habe ich "(immer 5 Ziffern)" weggelassen.
-#: app/views/signup.html:263
+#: app/views/signup.html:271
 msgid "Keine gültige Postleitzahl (immer 5 Ziffern)"
 msgstr "Incorrect postal code"
 
-#: app/views/signup.html:218
+#: app/views/signup.html:226
 msgid "Kontoinhaber/in"
 msgstr "Bank account holder"
 
-#: app/views/signup.html:332
+#: app/views/signup.html:340
 msgid "Kostenpflichtig Bestellen"
 msgstr "Place order"
 
-#: app/views/signup.html:168
+#: app/views/signup.html:176
 msgid "Kreditkarte"
 msgstr "Credit card"
 
@@ -275,31 +279,31 @@ msgstr "Credit card"
 msgid "Kreditkarte wird nicht belastet"
 msgstr "Your credit card will not be charged"
 
-#: app/views/signup.html:102 app/views/signup.html:135
+#: app/views/signup.html:103 app/views/signup.html:143
 msgid "Kurse pro Anbieter / Monat"
 msgstr "Courses per provider / month"
 
-#: app/views/signup.html:101 app/views/signup.html:131
+#: app/views/signup.html:102 app/views/signup.html:139
 msgid "Kurse pro Monat"
 msgstr "Courses per month"
 
-#: app/views/signup.html:103 app/views/signup.html:139
+#: app/views/signup.html:104 app/views/signup.html:147
 msgid "Kündigen / Pausieren"
 msgstr "Cancel / Freeze"
 
-#: app/views/signup.html:297
+#: app/views/signup.html:305
 msgid "Kündigung:"
 msgstr "Cancellation:"
 
-#: app/views/signup.html:275
+#: app/views/signup.html:283
 msgid "Land"
 msgstr "County"
 
-#: app/views/signup.html:287
+#: app/views/signup.html:295
 msgid "Laufzeit:"
 msgstr "Term:"
 
-#: app/views/signup.html:248
+#: app/views/signup.html:256
 msgid "Lieferadresse"
 msgstr "Delivery address"
 
@@ -314,11 +318,11 @@ msgstr ""
 msgid "Mindestens 5 Zeichen"
 msgstr "At least 5 characters"
 
-#: app/views/signup.html:184
+#: app/views/signup.html:192
 msgid "Monat"
 msgstr "Month"
 
-#: app/views/signup.html:292
+#: app/views/signup.html:300
 msgid ""
 "Monatlich <span class=\"details\">(beginnend mit dem Tag der Mitgliedschaft)"
 "</span>"
@@ -326,7 +330,7 @@ msgstr ""
 "Monthly <span class=\"details\">(beginning with the first day of membership)"
 "</span>"
 
-#: app/views/signup.html:303
+#: app/views/signup.html:311
 msgid "Monatlicher Preis:"
 msgstr "Monthly price:"
 
@@ -338,19 +342,19 @@ msgstr "Surname"
 msgid "Passwort"
 msgstr "Password"
 
-#: app/views/signup.html:259
+#: app/views/signup.html:267
 msgid "Postleitzahl"
 msgstr "Postal code"
 
-#: app/views/signup.html:100 app/views/signup.html:126
+#: app/views/signup.html:101 app/views/signup.html:131
 msgid "Preis pro Monat"
 msgstr "Monthly price "
 
-#: app/views/signup.html:215
+#: app/views/signup.html:223
 msgid "SEPA-Lastschrift"
 msgstr "SEPA direct debit"
 
-#: app/views/signup.html:239
+#: app/views/signup.html:247
 msgid ""
 "SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, "
 "Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise "
@@ -361,19 +365,19 @@ msgstr ""
 "debit my account for services provided. I also instruct my bank to honour "
 "direct debit requests from this recipient."
 
-#: app/views/signup.html:306
+#: app/views/signup.html:314
 msgid "Sonderpreis:"
 msgstr "Special price:"
 
-#: app/views/signup.html:267 app/views/signup.html:74
+#: app/views/signup.html:275 app/views/signup.html:74
 msgid "Stadt"
 msgstr "City"
 
-#: app/views/signup.html:251
+#: app/views/signup.html:259
 msgid "Straße & Hausnummer"
 msgstr "House no. and street"
 
-#: app/views/signup.html:288
+#: app/views/signup.html:296
 msgid ""
 "Unbefristet <span class=\"details\">(Verlängerung um je einen Monat, solange "
 "nicht gekündigt)</span>"
@@ -385,19 +389,19 @@ msgstr ""
 msgid "Vorname"
 msgstr "First name"
 
-#: app/views/signup.html:152
+#: app/views/signup.html:160
 msgid "Voucher Code (falls vorhanden)"
 msgstr "Voucher Code (if available)"
 
-#: app/views/signup.html:85
+#: app/views/signup.html:94
 msgid "Weiter"
 msgstr "Next"
 
-#: app/views/signup.html:242
+#: app/views/signup.html:250
 msgid "Zahlung mit Kreditkarte?"
 msgstr "Payment by credit card?"
 
-#: app/views/signup.html:163
+#: app/views/signup.html:171
 msgid ""
 "Zahlungsinformationen\n"
 "                        <a class=\"stripe-link\" target=\"_blank\" href="
@@ -410,25 +414,28 @@ msgstr ""
 msgid "name@beispiel.com"
 msgstr "name@example.com"
 
-#: app/views/signup.html:260
+#: app/views/signup.html:268
 msgid "z.B. 10115"
 msgstr "e.g. 10115"
 
-#: app/views/signup.html:202
+#: app/views/signup.html:210
 msgid "z.B. 123"
 msgstr "e.g. 123"
 
-#: app/views/signup.html:233
+#: app/views/signup.html:241
 msgid "z.B. ABCD1234"
 msgstr "e.g. ABCD1234"
 
-#: app/views/signup.html:226
+#: app/views/signup.html:234
 msgid "z.B. DE12 3456 7890 1234 5678 90"
 msgstr "e.g. DE12 3456 7890 1234 5678 90"
 
-#: app/views/signup.html:252
+#: app/views/signup.html:260
 msgid "z.B. Münzstr. 1"
 msgstr "e.g. Buckingham St. 1"
+
+#~ msgid "Deine Stadt"
+#~ msgstr "Your City"
 
 #~ msgid "(Verlängerung um je einen Monat, solange nicht gekündigt)"
 #~ msgstr ""

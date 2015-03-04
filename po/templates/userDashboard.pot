@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/userDashboard.html:143
-msgid "Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem 5. Januar."
+msgid "Ab sofort findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deinem Training sofort beginnen (bis Du Deine Karte erhältst, lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im Studio vor). Viel Spaß!"
 msgstr ""
 
 #: app/views/userDashboard.html:16

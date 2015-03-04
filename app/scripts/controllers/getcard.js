@@ -321,8 +321,5 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             }
         ];
 
-        $scope.localizedCardValues = {
-            'Unbegrenzt': gettextCatalog.getString('Unbegrenzt'),
-            'Jederzeit': gettextCatalog.getString('Jederzeit')
-        };
+        $scope.localizedUnlimited = gettextCatalog.getString('Unbegrenzt');
     }]);

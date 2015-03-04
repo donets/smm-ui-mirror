@@ -188,8 +188,8 @@
                         <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
                     </b>
                 </li>
-                <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : 'Unbegrenzt'}}</li>
-                <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : 'Unbegrenzt'}}</li>
+                <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
+                <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</li>
                 <li translate>Jederzeit</li>
             </ul>
         </div>
@@ -210,11 +210,11 @@
             </tr>
             <tr>
                 <td translate>Kurse pro Monat</td>
-                <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : 'Unbegrenzt'}}</td>
+                <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</td>
             </tr>
             <tr>
                 <td translate>Kurse pro Anbieter / Monat</td>
-                <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : 'Unbegrenzt'}}</td>
+                <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</td>
             </tr>
             <tr>
                 <td translate>Kündigen / Pausieren</td>

@@ -29,13 +29,13 @@ msgid "(Keine Mindestlaufzeit, monatlich kündigen und pausieren)"
 msgstr ""
 "(No minimum term and monthly option of cancelling or freezing your contract)"
 
-#: app/views/homepage.html:225
+#: app/views/homepage.html:233
 msgid "1. Bestelle Deine Karte"
 msgstr "1. Order your card "
 
 #: app/views/homepage.html:171
 msgid "14 Tage <br>kostenlos <br>kennenlernen!"
-msgstr "Enjoy a 14-day <br>free</br> trial!"
+msgstr "Enjoy a 14-day <br>free<br> trial!"
 
 #: app/views/homepage.html:41
 msgid "14 Tage <u>kostenlos</u> kennenlernen!"
@@ -45,15 +45,15 @@ msgstr "Enjoy a 14-day <u>free</u> trial!"
 msgid "14 Tage KOSTENLOS testen"
 msgstr "14-day FREE trial"
 
-#: app/views/homepage.html:230
+#: app/views/homepage.html:238
 msgid "2. Finde Dein Angebot"
 msgstr "2. Find your offer"
 
-#: app/views/homepage.html:235
+#: app/views/homepage.html:243
 msgid "3. Trainiere nach Herzenslust"
 msgstr "3. Train as often as you want to"
 
-#: app/views/homepage.html:323 app/views/homepage.html:338
+#: app/views/homepage.html:331 app/views/homepage.html:346
 msgid ""
 "An Kursen teilnehmen. Fitnessstudios oder Spas besuchen. Oder eine "
 "persönliche Beratung vereinbaren (z.B. für Ernährung oder Gesundheit)."
@@ -73,7 +73,7 @@ msgstr "LONDON IS YOUR STUDIO"
 msgid "Bestelle Deine Karte - und bringe Bewegung in Dein Leben."
 msgstr "Order your card – and set your life in motion."
 
-#: app/views/homepage.html:273 app/views/homepage.html:290
+#: app/views/homepage.html:281 app/views/homepage.html:298
 msgid ""
 "Bewegung, Essen und mentales Training sind untrennbar verbunden - alles "
 "zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche "
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Danke für Deine Anfrage!"
 msgstr "Thanks for your inquiry!"
 
-#: app/views/homepage.html:362
+#: app/views/homepage.html:370
 msgid "Danke!"
 msgstr "Thank you!"
 
@@ -96,12 +96,12 @@ msgstr "Thank you!"
 msgid "Deine Karte erhalten"
 msgstr "Get your card"
 
-#: app/views/homepage.html:27 app/views/homepage.html:363
+#: app/views/homepage.html:27 app/views/homepage.html:371
 #: app/views/homepage.html:50
 msgid "Die Email-Adresse ist nicht korrekt"
 msgstr "The e-mail address is incorrect "
 
-#: app/views/homepage.html:326 app/views/homepage.html:341
+#: app/views/homepage.html:334 app/views/homepage.html:349
 msgid ""
 "Die meisten Partner akzeptiert alle Karten. Manche Partner aber akzeptieren "
 "bestimmte Karten nicht oder nur eingeschränkt. Bitte schau vorher immer im "
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Du bist überall willkommen - mit einer Karte."
 msgstr "You’re welcome everywhere – with one card."
 
-#: app/views/homepage.html:332 app/views/homepage.html:347
+#: app/views/homepage.html:340 app/views/homepage.html:355
 msgid ""
 "Du kannst monatlich zum Folgemonat kündigen. Und jederzeit für einen Monat "
 "oder mehr pausieren, z.B. wenn Du länger in den Urlaub fährst. Dazu gibt es "
@@ -126,7 +126,7 @@ msgstr ""
 "or longer, for example if you’re going on holiday for a longer period. "
 "Simply click on the link in your account."
 
-#: app/views/homepage.html:21 app/views/homepage.html:357
+#: app/views/homepage.html:21 app/views/homepage.html:365
 #: app/views/homepage.html:44
 msgid "E-Mail-Adresse"
 msgstr "E-mail Address"
@@ -180,7 +180,7 @@ msgstr "Get your invitation today"
 msgid "Erhalte heute Deine Einladung"
 msgstr "Get your invitation today  "
 
-#: app/views/homepage.html:226
+#: app/views/homepage.html:234
 msgid ""
 "Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse "
 "besuchen."
@@ -188,11 +188,11 @@ msgstr ""
 "It takes less than 60 seconds – and you can start attending classes right "
 "away."
 
-#: app/views/homepage.html:221
+#: app/views/homepage.html:229
 msgid "Es geht so einfach!"
 msgstr "It’s so simple!"
 
-#: app/views/homepage.html:231
+#: app/views/homepage.html:239
 msgid ""
 "Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin."
 msgstr "Find the suitable course or date in our online calendar in seconds."
@@ -201,7 +201,7 @@ msgstr "Find the suitable course or date in our online calendar in seconds."
 msgid "Freiheit"
 msgstr "Freedom"
 
-#: app/views/homepage.html:269 app/views/homepage.html:285
+#: app/views/homepage.html:277 app/views/homepage.html:293
 msgid ""
 "Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. "
 "Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein "
@@ -211,13 +211,17 @@ msgstr ""
 "up new options. The card gives me the freedom of not being tied to just one "
 "studio."
 
-#: app/views/homepage.html:325 app/views/homepage.html:340
+#: app/views/homepage.html:333 app/views/homepage.html:348
 msgid "Gilt meine Karte überall für alle Angebote?"
 msgstr "Is my card valid everywhere for all offers?"
 
 #: app/views/homepage.html:72
 msgid "Hier geht es zum Angebot ›"
 msgstr "Learn more about the offer here ›"
+
+#: app/views/homepage.html:193 app/views/homepage.html:221
+msgid "Jederzeit"
+msgstr "Anytime"
 
 #: app/views/homepage.html:63
 msgid "Jetzt kostenlos anmelden"
@@ -227,7 +231,7 @@ msgstr "Register now for free"
 msgid "Keine Bindung"
 msgstr "No obligation"
 
-#: app/views/homepage.html:359
+#: app/views/homepage.html:367
 msgid "Kontaktiert mich"
 msgstr "Contact me"
 
@@ -235,15 +239,15 @@ msgstr "Contact me"
 msgid "Kräftig sparen"
 msgstr "Huge savings"
 
-#: app/views/homepage.html:176 app/views/homepage.html:208
+#: app/views/homepage.html:176 app/views/homepage.html:216
 msgid "Kurse pro Anbieter / Monat"
 msgstr "Courses per provider / month"
 
-#: app/views/homepage.html:175 app/views/homepage.html:204
+#: app/views/homepage.html:175 app/views/homepage.html:212
 msgid "Kurse pro Monat"
 msgstr "Courses per month"
 
-#: app/views/homepage.html:177 app/views/homepage.html:212
+#: app/views/homepage.html:177 app/views/homepage.html:220
 msgid "Kündigen / Pausieren"
 msgstr "Cancel / Freeze"
 
@@ -259,7 +263,7 @@ msgstr ""
 msgid "Lebe gesund und erfüllt"
 msgstr "Live a healthy and fulfilled life"
 
-#: app/views/homepage.html:265 app/views/homepage.html:280
+#: app/views/homepage.html:273 app/views/homepage.html:288
 msgid ""
 "Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit "
 "Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über "
@@ -269,23 +273,19 @@ msgstr ""
 "contradictions. With Somuchmore it becomes easier to combine the two, which "
 "is important to me: meditating or learning more about personal growth."
 
-#: app/views/homepage.html:127
-msgid "Monat"
-msgstr "Month"
-
-#: app/views/homepage.html:343
+#: app/views/homepage.html:351
 msgid "Muss ich michanmelden?"
 msgstr "Do I have to register for the courses in advance?"
 
-#: app/views/homepage.html:328
+#: app/views/homepage.html:336
 msgid "Muss ich mich <br> anmelden?"
 msgstr "Do I have to register <br> for the courses in advance?"
 
-#: app/views/homepage.html:319
+#: app/views/homepage.html:327
 msgid "Noch Fragen?"
 msgstr "Do you still have any questions?"
 
-#: app/views/homepage.html:329 app/views/homepage.html:344
+#: app/views/homepage.html:337 app/views/homepage.html:352
 msgid ""
 "Normalerweise nicht. Aber es gibt Ausnahmen, etwa bei kleinen Kursen, großer "
 "Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau vorher "
@@ -299,7 +299,7 @@ msgstr ""
 msgid "PLZ"
 msgstr "ZIP"
 
-#: app/views/homepage.html:174 app/views/homepage.html:199
+#: app/views/homepage.html:174 app/views/homepage.html:204
 msgid "Preis pro Monat"
 msgstr "Price per month"
 
@@ -319,15 +319,19 @@ msgstr ""
 "Secure a 20% discount for the first three months if you sign up by "
 "{{validUntilIn | amDateFormat: 'D MMMM'}}"
 
+#: app/views/homepage.html:127
+msgid "Stadt"
+msgstr "City"
+
 #: app/views/homepage.html:148
-msgid "Start am 15.03!"
-msgstr "Start on 15th March!"
+msgid "Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
+msgstr "Start at {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
 
 #: app/views/homepage.html:159
 msgid "Studio vorschlagen"
 msgstr "Suggest a studio "
 
-#: app/views/homepage.html:355
+#: app/views/homepage.html:363
 msgid "Studio? Coach? Willst Du Kurse bei uns anbieten?"
 msgstr ""
 "Do you run a studio? Are you a coach? Would you like to offer courses for us?"
@@ -340,23 +344,23 @@ msgstr "List of studios"
 msgid "Studios auf Karte"
 msgstr "Map of studios"
 
-#: app/views/homepage.html:358
+#: app/views/homepage.html:366
 msgid "Telefonnummer"
 msgstr "Phone Number"
 
-#: app/views/homepage.html:322 app/views/homepage.html:337
+#: app/views/homepage.html:330 app/views/homepage.html:345
 msgid "Was kann mit meiner Karte machen?"
 msgstr "What can I do with my card?"
 
-#: app/views/homepage.html:350
+#: app/views/homepage.html:358
 msgid "Weitere Fragen? Hier geht es zu den FAQ ›"
 msgstr "Anymore questions? Read our FAQ here ›"
 
-#: app/views/homepage.html:331
+#: app/views/homepage.html:339
 msgid "Wie kündige oder <br> pausiere ich?"
 msgstr "How do I cancel or freeze <br> my membership?"
 
-#: app/views/homepage.html:346
+#: app/views/homepage.html:354
 msgid "Wie kündige oder pausiere ich?"
 msgstr "How do I cancel or freeze my membership?"
 
@@ -378,7 +382,7 @@ msgstr ""
 "b> and <b>health</b>? Or relaxing and being pampered in the <b>sauna</b> or "
 "<b>spa</b>?"
 
-#: app/views/homepage.html:236
+#: app/views/homepage.html:244
 msgid ""
 "Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein "
 "Mitglied begrüßt."
@@ -394,14 +398,20 @@ msgstr "{{campaign.defaultName}} IS YOUR STUDIO"
 msgid "Über 50 Studios freuen sich darauf, Dich kennen zu lernen."
 msgstr "Over 50 studios are looking forward to meet you."
 
-#: app/views/homepage.html:266 app/views/homepage.html:281
+#: app/views/homepage.html:274 app/views/homepage.html:289
 msgid "– Alexandra Liakou, Regisseurin"
 msgstr "– Alexandra Liakou, director"
 
-#: app/views/homepage.html:270 app/views/homepage.html:286
+#: app/views/homepage.html:278 app/views/homepage.html:294
 msgid "– Konrad Knops, Osteopath"
 msgstr "– Konrad Knops, osteopath"
 
-#: app/views/homepage.html:274 app/views/homepage.html:291
+#: app/views/homepage.html:282 app/views/homepage.html:299
 msgid "– Sonja Reifenhäuser, Food Coach"
 msgstr "– Sonja Reifenhäuser, food coach"
+
+#~ msgid "Monat"
+#~ msgstr "Month"
+
+#~ msgid "Start am 15.03!"
+#~ msgstr "Start on 15th March!"

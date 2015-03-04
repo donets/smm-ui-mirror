@@ -114,10 +114,10 @@
                             <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
                             <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
                         </b></li>
-                    <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : 'Unbegrenzt'}}</li>
-                    <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : 'Unbegrenzt'}}</li>
+                    <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
+                    <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</li>
                     <li translate>Jederzeit</li>
-                    <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></li>
+                    <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></li>
                 </ul>
             </div>
             <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
@@ -137,18 +137,18 @@
                 </tr>
                 <tr>
                     <td translate>Kurse pro Monat</td>
-                    <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : 'Unbegrenzt'}}</td>
+                    <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</td>
                 </tr>
                 <tr>
                     <td translate>Kurse pro Anbieter / Monat</td>
-                    <td translate>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : 'Unbegrenzt'}}</td>
+                    <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</td>
                 </tr>
                 <tr>
                     <td translate>Kündigen / Pausieren</td>
                     <td translate>Jederzeit</td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.type"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></td>
+                    <td colspan="2" class="button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></td>
                 </tr>
             </table>
         </div>
