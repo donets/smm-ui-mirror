@@ -31,6 +31,7 @@ angular
         'validation.match',
         'ezfb',
         'flow',
+        'ngOptionsDisabled',
         'ng-optimizely',
         'ngshowvariant',
         'xeditable',
@@ -81,6 +82,11 @@ angular.module('boltApp')
             $rootScope.pageReload = function () {
                 $window.location.reload();
             };
+            $rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
+			var domains = [{domain: 'DE', countryCode: 'DE'}, {domain: 'UK', countryCode: 'UK'}, {domain: 'COM', countryCode: 'DE'}];
+			$rootScope.domainProperties = _.findWhere(domains, {domain: $rootScope.domain});
+			$rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
+			console.log('country = ' + $rootScope.countryCode);
             $rootScope.$on('$viewContentLoading', function(){
                 $window.rendering = true;
             });
@@ -382,12 +388,6 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl',
                 resolve: {
 
-                    getCards: function($http) {
-
-                        return $http.get('json/cards.json', {cache: true});
-
-                    },
-
                     getCities: function(RestApi) {
 
                         return RestApi.query({route: 'cities'}).$promise;
@@ -435,12 +435,6 @@ angular.module('boltApp')
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
-
-                    getCards: function($http) {
-
-                        return $http.get('json/cards.json', {cache: true});
-
-                    },
 
                     getCities: function(RestApi) {
 

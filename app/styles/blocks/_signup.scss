@@ -314,6 +314,9 @@
             }
         }
         .w-clear {
+            button {
+                @extend %form-button;   
+            }
             margin: 0 auto;
             .form-check {
                 .fa {
@@ -347,29 +350,9 @@
             margin: 0 0 5px;
         }
         select {
+            @extend %select-mobile;
             display: block;
             width: 100%;
-            -webkit-appearance: none;
-            height: 40px;
-            border-color: #d7d7d7;
-            border-radius: 2px 2px 0 0;
-            font-size: 16px;
-            font-family: $fontRegular;
-            color: $colorText;
-            padding: 5px 36px 5px 12px;
-            line-height: 30px;
-            border-radius: 0px;
-            box-sizing: border-box;
-            background: #fff url("/images/arrow483.svg") no-repeat right 7px top 12px;
-            background-size: 24px 14px;
-            &:after {
-                color: #339900;
-                content: “\f00c”;
-                font-family: FontAwesome;
-                position: absolute;
-                right: 10px;
-                top: 25px;
-            }
         }
     }
     .form-title {
@@ -411,7 +394,7 @@
     input[type="text"], input[type="email"], input[type="password"], .chosen-container, .chosen-drop {
         background: #fbfbfb;
     }
-    button {
+    > button {
         width: 100%;
         background: $colorMain;
         &:hover {
@@ -531,6 +514,13 @@
         @include my-resetList();
         @media (max-width: $containerMobileWidth) {
             margin: 150px 0 0;
+        }
+        &.ng-animate {
+            &.ng-move,
+            &.ng-enter,
+            &.ng-leave {
+                @include transition(none);
+            }
         }
         li {
             background: #fff;
@@ -724,7 +714,7 @@
     }
     @media (max-width: $containerMobileWidth640) {
         margin: 100px auto -20px;
-        font-size: 24px;
+        font-size: 13px;
     }
 }
 .stripe-link {

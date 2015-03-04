@@ -268,7 +268,7 @@ textarea {
         @extend %input-text;
         width: 100%;
     }
-    button {
+    > button {
         @extend %form-button;
         min-width: 260px;
         letter-spacing: 0.5px;

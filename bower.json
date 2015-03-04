@@ -34,6 +34,7 @@
     "ng-parallax": "~0.1.8",
     "angular-chosen-localytics": "~1.0.6",
     "chosen-bower": "~1.1.0",
+    "angular-chosen-localytics": "~1.0.6",
     "ng-tags-input": "~2.1.1",
     "ng-flow": "~2",
     "jcrop": "~0.9.12",
@@ -42,7 +43,8 @@
     "ng-optimizely": "~0.2.0",
     "angular-optimizely": "~0.0.3",
     "angular-xeditable": "~0.1.8",
-    "angular-gettext": "~2.0.2"
+    "angular-gettext": "~2.0.2",
+    "angular-options-disabled": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

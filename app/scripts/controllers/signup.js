@@ -8,13 +8,8 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCards, getCities, getCityId, gettextCatalog) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCities, getCityId, gettextCatalog) {
         $scope.Math = $window.Math;
-        $scope.cards = getCards.data;
-        $scope.cities = getCities;
-        $scope.cities = _.filter($scope.cities, function(city) {
-            return city.active;
-        });
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
         $scope.order = {
@@ -28,12 +23,23 @@ angular.module('boltApp.controllers.Signup', [])
             landingUrl: $cookieStore.get('landingUrl'),
             cityId: getCityId
         };
-        $scope.sanitizeCity = function() {
-            if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
-                $scope.order.cityId = 1;
-            }
+        $scope.cityChange = function() {
+            var selectedCity = _.findWhere($scope.cities, {id: $scope.order.cityId});
+            $scope.order.deliveryAddress.city = selectedCity.defaultName;
+            $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
+            RestApi.query({route: 'plans', cityId: $scope.order.cityId}).$promise.then(function (res) {
+                $scope.cards = res;
+            });
         };
-        $scope.sanitizeCity();
+        getCities.$promise.then(function (res) {
+            $scope.cities = _.sortBy(res, 'id').filter(function (c) {
+                return c.countryCode === $rootScope.countryCode;
+            });
+            if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
+                $scope.order.cityId = $scope.cities[0].id;
+            }
+            $scope.cityChange();
+        });
 
         /*$scope.order = {
             "firstName": "Vlad",
@@ -161,8 +167,8 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.changeType = function () {
             $scope.checkVoucher($scope.code);
             $scope.overview = {
-                card: _.findWhere($scope.cards, {type: $scope.order.type}).name,
-                price: _.findWhere($scope.cards, {type: $scope.order.type}).price
+                card: _.findWhere($scope.cards, {code: $scope.order.type}).displayName,
+                price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice
             };
             $scope.showCheckout = true;
             //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
@@ -270,13 +276,6 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.creditCard = null;
             }
         };
-
-      $scope.cityChange = function() {
-        var selectedCity = _.findWhere($scope.cities, {id: $scope.order.cityId});
-        $scope.order.deliveryAddress.city = selectedCity.defaultName;
-        $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
-      };
-      $scope.cityChange();
 
       $scope.localizedSelect = gettextCatalog.getString('Auswählen');
       $scope.localizedSelected = gettextCatalog.getString('Ausgewählt');
