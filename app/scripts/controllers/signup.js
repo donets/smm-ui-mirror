@@ -277,5 +277,12 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
       };
       $scope.cityChange();
-        
+
+      $scope.localizedSelect = gettextCatalog.getString('Auswählen');
+      $scope.localizedSelected = gettextCatalog.getString('Ausgewählt');
+      $scope.localizedCardValues = {
+          'Unbegrenzt': gettextCatalog.getString('Unbegrenzt'),
+          'Jederzeit': gettextCatalog.getString('Jederzeit')
+      };
+
     });

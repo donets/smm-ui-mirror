@@ -14,7 +14,7 @@ msgstr ""
 
 #: app/views/about.html:63
 msgid "Abschicken"
-msgstr ""
+msgstr "Send"
 
 #: app/views/about.html:20
 msgid ""
@@ -34,7 +34,7 @@ msgstr "Thank you! "
 
 #: app/views/about.html:36
 msgid "Deine E-Mail-Adresse"
-msgstr ""
+msgstr "Your E-mail Address"
 
 #: app/views/about.html:24
 msgid "Deine Vorteile"
@@ -78,7 +78,7 @@ msgstr "A holistic lifestyle begins with mindfulness"
 
 #: app/views/about.html:63
 msgid "Email-Adresse"
-msgstr ""
+msgstr "E-mail Address"
 
 #: app/views/about.html:3
 msgid "Entdecke Somuchmore"
@@ -90,11 +90,11 @@ msgstr "You can only develop personally if you are inspired and having fun"
 
 #: app/views/about.html:36
 msgid "Erhalte Deine Einladung"
-msgstr ""
+msgstr "Get your invitation today"
 
 #: app/views/about.html:62
 msgid "Frage eingeben"
-msgstr ""
+msgstr "Write a question"
 
 #: app/views/about.html:59
 msgid "Hast Du noch Fragen?"

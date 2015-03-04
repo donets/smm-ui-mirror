@@ -26,16 +26,16 @@ msgstr "Your message could not be sent, please try again."
 
 #: app/views/modalContact.html:15
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: app/views/modalContact.html:21
 msgid "Nachricht"
-msgstr ""
+msgstr "Message"
 
 #: app/views/modalContact.html:12
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: app/views/modalContact.html:18
 msgid "Telefon"
-msgstr ""
+msgstr "Phone"

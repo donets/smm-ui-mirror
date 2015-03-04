@@ -42,7 +42,7 @@ msgstr "Retry"
 
 #: app/views/modalUpload.html:26
 msgid "Title"
-msgstr ""
+msgstr "Title"
 
 #: app/views/modalUpload.html:31
 msgid "Upload"

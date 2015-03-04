@@ -25,37 +25,32 @@ msgstr ""
 "January."
 
 #: app/views/userDashboard.html:16
-#, fuzzy
 msgid "Alle Disziplinen"
-msgstr "Disciplines"
+msgstr "All Disciplines"
 
 #: app/views/userDashboard.html:46
 msgid "Alle Kurse"
-msgstr ""
+msgstr "All Courses"
 
 #: app/views/userDashboard.html:74
-#, fuzzy
 msgid "Alle Lehrer"
-msgstr "Teacher"
+msgstr "All Teachers"
 
 #: app/views/userDashboard.html:68
 msgid "Alle Levels"
-msgstr ""
+msgstr "All Levels"
 
 #: app/views/userDashboard.html:50
-#, fuzzy
 msgid "Alle Stadtteile"
-msgstr "District"
+msgstr "All Districts"
 
 #: app/views/userDashboard.html:25
-#, fuzzy
 msgid "Alle Stile"
-msgstr "Styles"
+msgstr "All Styles"
 
 #: app/views/userDashboard.html:59
-#, fuzzy
 msgid "Alle Studios"
-msgstr "Studio"
+msgstr "All Studios"
 
 #: app/views/userDashboard.html:142
 msgid "Danke für Deine Anmeldung!"

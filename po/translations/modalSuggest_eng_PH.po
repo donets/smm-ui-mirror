@@ -22,15 +22,15 @@ msgstr "Thank you!"
 
 #: app/views/modalSuggest.html:9
 msgid "Dein Name (Optional)"
-msgstr ""
+msgstr "Your Name (Optional)"
 
 #: app/views/modalSuggest.html:10
 msgid "Deine E-Mail-Adresse"
-msgstr ""
+msgstr "Your E-mail Address"
 
 #: app/views/modalSuggest.html:8
 msgid "Name des Studios"
-msgstr ""
+msgstr "Name of the Studio"
 
 #: app/views/modalSuggest.html:6
 msgid "Schlag ein Studio vor:"
@@ -43,4 +43,4 @@ msgstr "Sorry, your message was not delivered. Please try again later."
 
 #: app/views/modalSuggest.html:11
 msgid "Vorschlagen"
-msgstr ""
+msgstr "Suggest"

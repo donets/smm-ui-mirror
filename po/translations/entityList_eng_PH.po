@@ -18,12 +18,12 @@ msgstr "<i class=\"fa fa-pencil\"></i>Manage"
 
 #: app/views/entityList.html:16
 msgid "Alle Städte"
-msgstr ""
+msgstr "All cities"
 
 #: app/views/entityList.html:10
 msgid "Filter code"
-msgstr ""
+msgstr "Filter code"
 
 #: app/views/entityList.html:9
 msgid "Filter name"
-msgstr ""
+msgstr "Filter name"

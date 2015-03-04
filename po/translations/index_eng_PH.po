@@ -43,7 +43,7 @@ msgstr "Thank you!"
 
 #: app/index.html:176
 msgid "Deine E-Mail-Adresse"
-msgstr ""
+msgstr "Your E-mail Address"
 
 #: app/index.html:180
 msgid "Die Email-Adresse ist nicht korrekt"

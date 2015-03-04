@@ -22,11 +22,11 @@ msgstr "Thank you, your message has been sent to Somuchmore!"
 
 #: app/views/modalMessage.html:8
 msgid "Dein Name"
-msgstr ""
+msgstr "Your Name"
 
 #: app/views/modalMessage.html:9
 msgid "Deine E-Mail-Adresse"
-msgstr ""
+msgstr "Your E-mail Address"
 
 #: app/views/modalMessage.html:6
 msgid "Nachricht an Somuchmore"
@@ -38,7 +38,7 @@ msgstr "Ok "
 
 #: app/views/modalMessage.html:11
 msgid "Senden"
-msgstr ""
+msgstr "Send"
 
 # Der Quelltext sollte angepasst werden. Die Uebersetzung ist richtig.
 #: app/views/modalMessage.html:14

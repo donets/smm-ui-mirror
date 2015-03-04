@@ -71,7 +71,7 @@ msgstr "Start:"
 
 #: app/views/signup.html:268
 msgid "Berlin"
-msgstr ""
+msgstr "London"
 
 #: app/views/signup.html:3
 msgid "Bestelle die Somuchmore Card"
@@ -118,7 +118,7 @@ msgstr "Your password must contain at least 5 characters"
 
 #: app/views/signup.html:219
 msgid "Dein Name"
-msgstr ""
+msgstr "Your Name"
 
 # Sollte "beginnt" mit zwei "n" im deutschen Text sein!
 #: app/views/signup.html:89
@@ -208,7 +208,7 @@ msgstr ""
 
 #: app/views/signup.html:194
 msgid "Jahr"
-msgstr ""
+msgstr "Year"
 
 #: app/views/signup.html:298
 msgid ""
@@ -232,7 +232,7 @@ msgstr "Card:"
 
 #: app/views/signup.html:169
 msgid "Kartennummer"
-msgstr ""
+msgstr "Card number"
 
 #: app/views/signup.html:155
 msgid "Kein gültiger Code"
@@ -312,11 +312,11 @@ msgstr ""
 
 #: app/views/signup.html:63
 msgid "Mindestens 5 Zeichen"
-msgstr ""
+msgstr "At least 5 characters"
 
 #: app/views/signup.html:184
 msgid "Monat"
-msgstr ""
+msgstr "Month"
 
 #: app/views/signup.html:292
 msgid ""
@@ -387,7 +387,7 @@ msgstr "First name"
 
 #: app/views/signup.html:152
 msgid "Voucher Code (falls vorhanden)"
-msgstr ""
+msgstr "Voucher Code (if available)"
 
 #: app/views/signup.html:85
 msgid "Weiter"
@@ -408,27 +408,27 @@ msgstr ""
 
 #: app/views/signup.html:55
 msgid "name@beispiel.com"
-msgstr ""
+msgstr "name@example.com"
 
 #: app/views/signup.html:260
 msgid "z.B. 10115"
-msgstr ""
+msgstr "e.g. 10115"
 
 #: app/views/signup.html:202
 msgid "z.B. 123"
-msgstr ""
+msgstr "e.g. 123"
 
 #: app/views/signup.html:233
 msgid "z.B. ABCD1234"
-msgstr ""
+msgstr "e.g. ABCD1234"
 
 #: app/views/signup.html:226
 msgid "z.B. DE12 3456 7890 1234 5678 90"
-msgstr ""
+msgstr "e.g. DE12 3456 7890 1234 5678 90"
 
 #: app/views/signup.html:252
 msgid "z.B. Münzstr. 1"
-msgstr ""
+msgstr "e.g. Buckingham St. 1"
 
 #~ msgid "(Verlängerung um je einen Monat, solange nicht gekündigt)"
 #~ msgstr ""

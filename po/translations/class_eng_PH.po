@@ -29,9 +29,8 @@ msgid "Add Dates"
 msgstr "Add dates"
 
 #: app/views/class.html:170
-#, fuzzy
 msgid "Alle Levels"
-msgstr "Level"
+msgstr "All Levels"
 
 #: app/views/class.html:218
 msgid "Anmeldung erforderlich"
@@ -122,26 +121,23 @@ msgstr "Schedule dates"
 
 #: app/views/class.html:41
 msgid "Select Location"
-msgstr ""
+msgstr "Select Location"
 
 #: app/views/class.html:30
-#, fuzzy
 msgid "Select Studio"
-msgstr "Studio"
+msgstr "Select Studio"
 
 #: app/views/class.html:141 app/views/class.html:148
-#, fuzzy
 msgid "Select date"
-msgstr "Schedule dates"
+msgstr "Select date"
 
 #: app/views/class.html:103 app/views/class.html:91
-#, fuzzy
 msgid "Select repeats"
-msgstr "Event repeats"
+msgstr "Select repeats"
 
 #: app/views/class.html:115 app/views/class.html:127
 msgid "Select time"
-msgstr ""
+msgstr "Select time"
 
 #: app/views/class.html:37
 msgid "Standort"

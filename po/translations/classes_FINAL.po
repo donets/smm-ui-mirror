@@ -22,12 +22,11 @@ msgstr "<i class=\"fa fa-plus\"></i>New class"
 
 #: app/views/classes.html:20
 msgid "Alle Levels"
-msgstr ""
+msgstr "All Levels"
 
 #: app/views/classes.html:12
-#, fuzzy
 msgid "Alle Studios"
-msgstr "Studio"
+msgstr "All Studios"
 
 #: app/views/classes.html:2
 msgid "Classes"
@@ -43,7 +42,7 @@ msgstr "Draft"
 
 #: app/views/classes.html:8
 msgid "Filter name"
-msgstr ""
+msgstr "Filter name"
 
 #: app/views/classes.html:31
 msgid "Filter zurücksetzen"

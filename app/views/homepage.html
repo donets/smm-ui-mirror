@@ -183,9 +183,9 @@
                 <li class="name">{{card.name}}</li>
                 <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
-                <li>{{card.courses}}</li>
-                <li>{{card.coursesPerSupplier}}</li>
-                <li>{{card.minimumTerm}}</li>
+                <li>{{localizedCardValues[card.courses] || card.courses}}</li>
+                <li>{{localizedCardValues[card.coursesPerSupplier] || card.coursesPerSupplier}}</li>
+                <li>{{localizedCardValues[card.minimumTerm] || card.minimumTerm}}</li>
             </ul>
         </div>
         <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
@@ -202,15 +202,15 @@
             </tr>
             <tr>
                 <td translate>Kurse pro Monat</td>
-                <td>{{card.courses}}</td>
+                <td>{localizedCardValues[card.courses] || card.courses}}</td>
             </tr>
             <tr>
                 <td translate>Kurse pro Anbieter / Monat</td>
-                <td>{{card.coursesPerSupplier}}</td>
+                <td>{{localizedCardValues[card.coursesPerSupplier] || card.coursesPerSupplier}}</td>
             </tr>
             <tr>
                 <td translate>Kündigen / Pausieren</td>
-                <td>{{card.minimumTerm}}</td>
+                <td>{{localizedCardValues[card.minimumTerm] || card.minimumTerm}}</td>
             </tr>
         </table>
         <!-- <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p> -->

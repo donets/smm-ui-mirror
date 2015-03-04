@@ -14,7 +14,7 @@ msgstr ""
 
 #: app/views/userAccount.html:6
 msgid "Altes Passwort"
-msgstr ""
+msgstr "Old Password"
 
 #: app/views/userAccount.html:26
 msgid "Benutzername oder Passwort falsch"
@@ -22,7 +22,7 @@ msgstr "User name or password is incorrect"
 
 #: app/views/userAccount.html:20
 msgid "Confirm Passwort"
-msgstr ""
+msgstr "Confirm Password"
 
 #: app/views/userAccount.html:16 app/views/userAccount.html:9
 msgid "Das Passwort muss mindestens 5 Zeichen enthalten"
@@ -34,7 +34,7 @@ msgstr "This is an obligatory field"
 
 #: app/views/userAccount.html:13
 msgid "Neues Passwort"
-msgstr ""
+msgstr "New Password"
 
 #: app/views/userAccount.html:22
 msgid "Passwords do not match"

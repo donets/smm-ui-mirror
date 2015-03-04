@@ -129,7 +129,7 @@ msgstr ""
 #: app/views/homepage.html:21 app/views/homepage.html:357
 #: app/views/homepage.html:44
 msgid "E-Mail-Adresse"
-msgstr ""
+msgstr "E-mail Address"
 
 #: app/views/homepage.html:97
 msgid ""
@@ -173,9 +173,8 @@ msgid "Entfaltung"
 msgstr "Personal development"
 
 #: app/views/homepage.html:23 app/views/homepage.html:46
-#, fuzzy
 msgid "Erhalte Deine Einladung"
-msgstr "Get your invitation today  "
+msgstr "Get your invitation today"
 
 #: app/views/homepage.html:62
 msgid "Erhalte heute Deine Einladung"
@@ -230,7 +229,7 @@ msgstr "No obligation"
 
 #: app/views/homepage.html:359
 msgid "Kontaktiert mich"
-msgstr ""
+msgstr "Contact me"
 
 #: app/views/homepage.html:90
 msgid "Kräftig sparen"
@@ -272,7 +271,7 @@ msgstr ""
 
 #: app/views/homepage.html:127
 msgid "Monat"
-msgstr ""
+msgstr "Month"
 
 #: app/views/homepage.html:343
 msgid "Muss ich michanmelden?"
@@ -298,7 +297,7 @@ msgstr ""
 
 #: app/views/homepage.html:22 app/views/homepage.html:45
 msgid "PLZ"
-msgstr ""
+msgstr "ZIP"
 
 #: app/views/homepage.html:174 app/views/homepage.html:199
 msgid "Preis pro Monat"
@@ -343,7 +342,7 @@ msgstr "Map of studios"
 
 #: app/views/homepage.html:358
 msgid "Telefonnummer"
-msgstr ""
+msgstr "Phone Number"
 
 #: app/views/homepage.html:322 app/views/homepage.html:337
 msgid "Was kann mit meiner Karte machen?"

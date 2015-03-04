@@ -42,7 +42,7 @@ msgstr "You have been sent a reset e-mail"
 
 #: app/views/_loginForm.html:15 app/views/_loginForm.html:30
 msgid "E-Mail-Adresse"
-msgstr ""
+msgstr "E-mail Address"
 
 #: app/views/_loginForm.html:24
 msgid "Falsche E-Mail oder Passwort"
@@ -50,7 +50,7 @@ msgstr "Incorrect e-mail address or password"
 
 #: app/views/_loginForm.html:50
 msgid "Kurse"
-msgstr ""
+msgstr "Courses"
 
 #: app/views/_loginForm.html:54
 msgid "Locations"
@@ -65,9 +65,8 @@ msgid "Meine Karte"
 msgstr "My card"
 
 #: app/views/_loginForm.html:18
-#, fuzzy
 msgid "Passwort"
-msgstr "Reset password"
+msgstr "Password"
 
 #: app/views/_loginForm.html:33
 msgid "Reset Password"

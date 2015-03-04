@@ -30,7 +30,7 @@ msgstr "You have been sent a reset e-mail"
 
 #: app/views/login.html:21 app/views/login.html:6
 msgid "E-Mail-Adresse"
-msgstr ""
+msgstr "E-mail Address"
 
 #: app/views/login.html:15
 msgid "Falsche E-Mail oder Passwort"
@@ -41,9 +41,8 @@ msgid "Login"
 msgstr "Login"
 
 #: app/views/login.html:9
-#, fuzzy
 msgid "Passwort"
-msgstr "Reset password"
+msgstr "Password"
 
 #: app/views/login.html:24
 msgid "Reset Password"
