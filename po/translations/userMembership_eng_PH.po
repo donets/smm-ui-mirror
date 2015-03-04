@@ -123,11 +123,11 @@ msgid "Willst Du Deinen Karten-Typ ändern?"
 msgstr "Do you want to change your card type?"
 
 #: app/views/userMembership.html:27
-msgid "unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat"
+msgid "unbefristet / Verlängerung bei Nicht-Kündigung um je einen Monat"
 msgstr ""
 "Unlimited / If you do not cancel your contract it will be extended by one "
 "month"
 
 #: app/views/userMembership.html:15
 msgid "{{overview.price}}€ / Monat"
-msgstr "€{{overview.price} / month"
+msgstr "€{{overview.price}} / month"

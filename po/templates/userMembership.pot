@@ -97,7 +97,7 @@ msgid "Willst Du Deinen Karten-Typ ändern?"
 msgstr ""
 
 #: app/views/userMembership.html:27
-msgid "unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat"
+msgid "unbefristet / Verlängerung bei Nicht-Kündigung um je einen Monat"
 msgstr ""
 
 #: app/views/userMembership.html:15

@@ -24,7 +24,7 @@
                     <p>{{membership.subscriptionStartsOn | date: 'dd.MM.yyyy'}}</p>
                 </li><li>
                     <b translate>Laufzeit:</b>
-                    <p ng-if="!voucher.freeSubscriptionGranted || !voucher" translate>unbefristet / Verlängerung bei Nicht&#8209;Kündigung um je einen Monat</p>
+                    <p ng-if="!voucher.freeSubscriptionGranted || !voucher" translate>unbefristet / Verlängerung bei Nicht-Kündigung um je einen Monat</p>
                     <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
                 </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                     <b translate>Abbuchung:</b>
