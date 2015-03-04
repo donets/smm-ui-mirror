@@ -113,7 +113,7 @@ msgstr ""
 
 #: app/index.html:217
 msgid "agb"
-msgstr "General terms & conditions"
+msgstr "General Terms & Conditions"
 
 #: app/index.html:218
 msgid "faq"
