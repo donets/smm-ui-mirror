@@ -9,12 +9,12 @@
  */
 
 angular.module('boltApp.controllers.About', [])
-    .controller('AboutCtrl', [ '$scope', '$http', '$window', function ($scope, $http, $window) {
+    .controller('AboutCtrl', [ '$scope', '$rootScope', '$http', '$window', function ($scope, $rootScope, $http, $window) {
         $scope.subscribeCard = function (locate) {
             $scope.loadingSubscribe = true;
             $scope.successSubscribe = false;
             $scope.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, interestedInProduct: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, interestedInProduct: true, lang: $rootScope.lang }).success(function () {
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
                 $scope.email = '';

@@ -21,7 +21,8 @@ angular.module('boltApp.controllers.Signup', [])
             paymentProvider: 'STRIPE',
             newsletter: true,
             landingUrl: $cookieStore.get('landingUrl'),
-            cityId: getCityId
+            cityId: getCityId,
+            lang: $rootScope.lang
         };
         $scope.cityChange = function() {
             var selectedCity = _.findWhere($scope.cities, {id: $scope.order.cityId});
@@ -147,7 +148,8 @@ angular.module('boltApp.controllers.Signup', [])
                 name: $scope.order.firstName + ' ' + $scope.order.lastName,
                 checkoutStarted: true,
                 tracking: tracking + ',' + platform,
-                landingUrl: $cookieStore.get('landingUrl')
+                landingUrl: $cookieStore.get('landingUrl'),
+                lang: $rootScope.lang
             };
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
 

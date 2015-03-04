@@ -176,22 +176,25 @@ angular.module('boltApp')
     .run(function(editableOptions) {
         editableOptions.theme = 'bs3';
     })
-    .run(['gettextCatalog', '$cookieStore', '$location',
-        function (gettextCatalog, $cookieStore, $location) {
+    .run(['gettextCatalog', '$cookieStore', '$rootScope',
+        function (gettextCatalog, $cookieStore, $rootScope) {
             if (!$cookieStore.get('globalLang')) {
-                switch ($location.host()) {
-                    case 'so-much-more.co.uk':
-                        $cookieStore.put('globalLang', 'en');
+                switch ($rootScope.countryCode) {
+                    case 'UK':
+                        $rootScope.lang = 'en';
                         break;
-                    case 'so-much-more.de':
-                        $cookieStore.put('globalLang', 'de');
+                    case 'DE':
+                        $rootScope.lang = 'de';
                         break;
                     default:
-                        $cookieStore.put('globalLang', 'de');
+                        $rootScope.lang = 'de';
                 }
+                $cookieStore.put('globalLang', $rootScope.lang);
             }
-
-            gettextCatalog.setCurrentLanguage($cookieStore.get('globalLang'));
+            else {
+                $rootScope.lang = $cookieStore.get('globalLang')
+            }
+            gettextCatalog.setCurrentLanguage($rootScope.lang);
         }])
     .constant('angularMomentConfig', {
         timezone: 'Europe/Berlin'

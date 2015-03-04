@@ -8,13 +8,13 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Subscribe', [])
-    .controller('SubscribeCtrl', [ '$scope', '$window', '$http', function ($scope, $window, $http) {
+    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', function ($scope, $rootScope, $window, $http) {
 
         $scope.subscribe = function() {
             $scope.loadingUpdate = true;
             $scope.successUpdate = false; 
             $scope.errorUpdate = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, newsletter: true }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, newsletter: true, lang: $rootScope.lang }).success(function () {
                 $scope.loadingUpdate = false;
                 $scope.successUpdate = true;
                 $scope.email = '';
