@@ -70,8 +70,8 @@ angular
         'boltApp.services.navigator'
     ]);
 angular.module('boltApp')
-    .run(['$rootScope', '$state', '$stateParams', 'amMoment', '$window', '$http', 'RestApi', '$q', '$cookieStore',
-        function ($rootScope, $state, $stateParams, amMoment, $window, $http, RestApi, $q, $cookieStore) {
+    .run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',
+        function ($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore) {
             // It's very handy to add references to $state and $stateParams to the $rootScope
             // so that you can access them from any scope within your applications.For example,
             // <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -145,7 +145,6 @@ angular.module('boltApp')
                     checkRule(event, toState, toParams, 'login');
                 }
             });
-            amMoment.changeLocale('de');
             $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                 $window._fbq = $window._fbq || [];
                 $window._fbq.push(['addPixelId', '1461407927469396']);
@@ -176,8 +175,8 @@ angular.module('boltApp')
     .run(function(editableOptions) {
         editableOptions.theme = 'bs3';
     })
-    .run(['gettextCatalog', '$cookieStore', '$rootScope',
-        function (gettextCatalog, $cookieStore, $rootScope) {
+    .run(['gettextCatalog', '$cookieStore', '$rootScope', 'amMoment',
+        function (gettextCatalog, $cookieStore, $rootScope, amMoment) {
             if (!$cookieStore.get('globalLang')) {
                 switch ($rootScope.countryCode) {
                     case 'UK':
@@ -195,6 +194,7 @@ angular.module('boltApp')
                 $rootScope.lang = $cookieStore.get('globalLang')
             }
             gettextCatalog.setCurrentLanguage($rootScope.lang);
+            amMoment.changeLocale($rootScope.lang);
         }])
     .constant('angularMomentConfig', {
         timezone: 'Europe/Berlin'
