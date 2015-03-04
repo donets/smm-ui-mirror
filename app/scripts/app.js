@@ -211,7 +211,7 @@ angular.module('boltApp')
     //     });
     //     ezfbProvider.setLocale('de_DE');
     //}])
-    .config(['ezfbProvider', function (ezfbProvider) {
+    .config(['ezfbProvider', '$injector', function (ezfbProvider, $injector) {
         var myInitFunction = ['$window', '$rootScope', function ($window, $rootScope) {
             $window.FB.init({
                 appId: $window.smmConfig.fbClientId,
@@ -221,8 +221,12 @@ angular.module('boltApp')
             $rootScope.$broadcast('FB.init');
         }];
 
+        var initFbLocale = ['$rootScope', function ($rootScope) {
+            return $rootScope.lang == "de" ? "de_DE" : "en_GB"
+        }];
+
         ezfbProvider.setInitFunction(myInitFunction);
-        ezfbProvider.setLocale('de_DE');
+        ezfbProvider.setLocale($injector.invoke(initFbLocale));
     }])
     .config(['$httpProvider',  function($httpProvider){
         //$httpProvider.responseInterceptors.push('HttpProgressInterceptor');
