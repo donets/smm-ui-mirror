@@ -191,7 +191,7 @@ angular.module('boltApp')
                 $cookieStore.put('globalLang', $rootScope.lang);
             }
             else {
-                $rootScope.lang = $cookieStore.get('globalLang')
+                $rootScope.lang = $cookieStore.get('globalLang');
             }
             gettextCatalog.setCurrentLanguage($rootScope.lang);
             amMoment.changeLocale($rootScope.lang);
@@ -219,14 +219,15 @@ angular.module('boltApp')
             });
 
             $rootScope.$broadcast('FB.init');
+
         }];
 
 //        var initFbLocale = ['$rootScope', function ($rootScope) {
-//            return $rootScope.lang == "de" ? "de_DE" : "en_GB"
+//            return $rootScope.lang === 'de' ? 'de_DE' : 'en_GB';
 //        }];
 
         ezfbProvider.setInitFunction(myInitFunction);
-        ezfbProvider.setLocale("de_DE");
+        ezfbProvider.setLocale('de_DE');
     }])
     .config(['$httpProvider',  function($httpProvider){
         //$httpProvider.responseInterceptors.push('HttpProgressInterceptor');
