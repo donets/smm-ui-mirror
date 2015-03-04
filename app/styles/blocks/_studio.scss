@@ -233,7 +233,7 @@
         border: 0 none;
         @include border-right-radius(2px);
         color: #fff;
-        span {
+        > span {
             margin: 0 16px;
         }
         &.joined {
@@ -254,7 +254,7 @@
         .time, .info {
             display: inline-block;
             vertical-align: top;
-            b, span {
+            b, > span {
                 display: block;
             }
             b {
@@ -264,7 +264,7 @@
                     font-size: 18px;
                 }
             }
-            span {
+            > span {
                 font-size: 26px;
                 color: $colorGrey;
                 @media (max-width: $containerMobileWidth640) {
@@ -286,7 +286,7 @@
                     font-size: 15px;
                     @include border-radius(2px);
                 }
-                span {
+                > span {
                     display: inline-block;
                     margin: 0 24px;
                     color: #fff;
@@ -309,7 +309,7 @@
             width: 76%;
         }
         &.disabled {
-            b, span {
+            b, > span {
                 text-decoration: line-through;
             }
         }

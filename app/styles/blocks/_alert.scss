@@ -9,7 +9,7 @@
     font-size: 18px;
     line-height: 20px;
     color: #fff;
-    span {
+    > span {
         padding: 20px 60px;
         display: inline-block;
         width: 80%;
@@ -37,7 +37,7 @@
         a {
             font-size: 26px;
         }
-        span {
+        > span {
             padding: 20px 30px;
         }
     }

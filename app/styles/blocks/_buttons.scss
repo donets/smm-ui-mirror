@@ -177,7 +177,7 @@ button, input[type="submit"] {
         height: 13px;
         // @include rotate(90deg);
     }
-    span {
+    > span {
         display: block;
         font-size: 10px;
         color: #fff;

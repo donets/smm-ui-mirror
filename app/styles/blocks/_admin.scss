@@ -341,7 +341,7 @@
     th, td {
         font-size: 15px;
         padding: 10px;
-        span {
+        > span {
             font-size: 12px;
             color: $colorGrey;
         }

@@ -241,7 +241,7 @@
 			margin: 0 0 10px;
 		}
 	}
-	span {
+	> span {
 		color: $colorGrey;
 		font-size: 13px;
 		@media (max-width: $containerMobileWidth) {
@@ -287,7 +287,7 @@
 	display: table;
 	padding-left: 20px;
 	text-align: left;
-	span {
+	> span {
 		display: table-cell;
 		vertical-align: middle;
 	}
@@ -570,7 +570,7 @@
 			padding: 3px 0;
 			font-size: 18px;
 			color: $colorGrey;
-			a, span {
+			a, > span {
 				font-size: 18px;
 				color: $colorGrey;
 				@media (max-width: $containerMobileWidth) {
@@ -668,7 +668,7 @@
 						font-size: 22px;
 					}
 				}
-				span {
+				> span {
 					font-size: 15px;
 					color: #fff;
 					@media (max-width: $containerMobileWidth) {
@@ -724,7 +724,7 @@
 			p {
 				font-size: 24px;
 			}
-			span {
+			> span {
 				font-size: 18px;
 			}
 		}

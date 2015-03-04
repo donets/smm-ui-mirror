@@ -36,7 +36,7 @@
                 font-size: 15px;
             }
         }
-        span {
+        > span {
             font-size: 13px;
             color: $colorGrey;
             @media (max-width: $containerMobileWidth) {

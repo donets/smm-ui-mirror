@@ -60,7 +60,7 @@
     display: block;
 }
 .contact {
-    .phone, .email, span {
+    .phone, .email, > span {
         font-size: 14px;
         color: $colorGrey;
         letter-spacing: 0.5px;
