@@ -12,6 +12,10 @@ msgstr ""
 msgid "030 - 577023101"
 msgstr ""
 
+#: app/index.html:217
+msgid "AGB"
+msgstr ""
+
 #: app/index.html:122
 #: app/index.html:133
 #: app/index.html:140
@@ -78,10 +82,6 @@ msgstr ""
 
 #: app/index.html:130
 msgid "Tut uns leid, der Server konnte nicht erreicht werden! Bitte drücke Strg+R (Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> um es erneut zu versuchen."
-msgstr ""
-
-#: app/index.html:217
-msgid "agb"
 msgstr ""
 
 #: app/index.html:218
