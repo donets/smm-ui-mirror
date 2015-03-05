@@ -2,7 +2,7 @@ exports.config = {
     allScriptsTimeout: 11000,
 
     specs: [
-        'acceptance/*.js'
+        'accept/*.js'
     ],
 
     onPrepare: function(){
@@ -21,6 +21,7 @@ exports.config = {
 			lastName: 'Musterman',
             password: '12345',
 			emailSuffix: '+test@somuchmore.org',
+            email: 'test@somuchmore.org',
 			card: {
 				number: '5555555555554444',
 				cvc: '123',

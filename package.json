@@ -38,6 +38,7 @@
     "time-grunt": "^0.3.1"
   },
   "devDependencies": {
+    "grunt-contrib-htmlmin": "^0.3.0",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4"
   },
