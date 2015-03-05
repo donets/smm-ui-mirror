@@ -19,7 +19,7 @@
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" required />
-                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required/>
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Erhalte Deine Einladung'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -42,7 +42,7 @@
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" required />
-                <input type="text" class="zip" name="zip" ng-pattern="/^\d{5}$/" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required />
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required />
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Erhalte Deine Einladung'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>

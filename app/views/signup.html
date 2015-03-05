@@ -265,7 +265,7 @@
                     <div class="form-rel flex">
                         <div class="half">
                             <label class="form-label required" for="zip" translate>Postleitzahl</label>
-                            <input type="text" ng-model="order.deliveryAddress.zip" class="half" ng-pattern="/^\d{5}$/" id="zip" name="zip" placeholder="{{'z.B. 10115'|translate}}" required />
+                            <input type="text" ng-model="order.deliveryAddress.zip" class="half" id="zip" name="zip" placeholder="{{'z.B. 10115'|translate}}" required />
                             <div ng-show="formCheckout.zip.$dirty && formCheckout.zip.$invalid">
                                 <div ng-show="formCheckout.zip.$error.required" class="form-message form-error" translate>Dies ist eine Pflichtfeld</div>
                                 <div ng-show="formCheckout.zip.$error.pattern" class="form-message form-error" translate>Keine gültige Postleitzahl (immer 5 Ziffern)</div>
