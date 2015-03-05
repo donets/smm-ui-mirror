@@ -312,8 +312,9 @@ angular.module('boltApp')
         $urlRouterProvider
         // The `when` method says if the url is ever the 1st param, then redirect to the 2nd param
         // Here we are just setting up some convenience urls.
-        .when('/signup/', '/p/signup/')
-        .when('/signup', '/p/signup/');
+        .when('/signup/', '/p/signup/1/')
+        .when('/signup', '/p/signup/1/')
+        .when('/p/kurse/', '/p/kurse/1/');
 
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);
@@ -451,7 +452,7 @@ angular.module('boltApp')
                 controller : 'DashboardCtrl'
             })
             .state('signup', {
-                url : '/p/signup/:cityId',
+                url : '/p/signup/:cityId/',
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
@@ -523,7 +524,7 @@ angular.module('boltApp')
                 templateUrl: 'views/userMembership.html'
             })
             .state('dashboard', {
-                url : '/p/kurse/:city',
+                url : '/p/kurse/:city/',
                 templateUrl: 'views/userDashboard.html',
                 controller : 'DashboardCtrl',
                 resolve: {
