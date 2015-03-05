@@ -94,6 +94,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.changeCity = function(city) {
             $scope.city = city.shortCode;
             $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
+            $rootScope.supportPhone = $scope.campaign.supportPhone;
             RestApi.query({route: 'locations', cityId: $scope.campaign.id}).$promise.then(function (res) {
                 $scope.locations = _.reject(res, function (obj) {
                     return obj.latitude === null || obj.longitude === null;

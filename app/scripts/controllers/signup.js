@@ -31,6 +31,7 @@ angular.module('boltApp.controllers.Signup', [])
             RestApi.query({route: 'plans', cityId: $scope.order.cityId}).$promise.then(function (res) {
                 $scope.cards = res;
             });
+            $rootScope.supportPhone = selectedCity.supportPhone;
         };
         getCities.$promise.then(function (res) {
             $scope.cities = _.sortBy(res, 'id').filter(function (c) {
