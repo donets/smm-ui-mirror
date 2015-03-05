@@ -148,9 +148,6 @@ textarea {
         width: 320px;
         @media (min-width: $containerMobileWidth) {
             padding: 5px 20px;
-        }
-        @media (max-width: $containerMobileWidth) {
-            text-align: center;
             width: 100%;
         }
     }
