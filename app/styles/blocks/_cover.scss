@@ -126,6 +126,7 @@
         color: #fff;
         margin: 60px 0 20px;
         text-transform: uppercase;
+        line-height: 62px;
         @include text-shadow(0px 1px 1px rgba(27, 23, 26, 0.75));
         @media (max-width: $containerMobileWidth) {
             font-size: 65px;
@@ -135,6 +136,7 @@
         @media (max-width: $containerMobileWidth640) {
             font-size: 32px;
             margin-bottom: 10px;
+            line-height: 36px;
         }
     }
     p {
