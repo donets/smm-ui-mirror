@@ -28,6 +28,10 @@ msgstr ""
 msgid "Anmeldung erforderlich"
 msgstr ""
 
+#: app/views/class.html:200
+msgid "Beschreibung"
+msgstr ""
+
 #: app/views/class.html:160
 msgid "Cancel"
 msgstr ""

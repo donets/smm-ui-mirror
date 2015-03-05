@@ -36,6 +36,10 @@ msgstr "All Levels"
 msgid "Anmeldung erforderlich"
 msgstr "Registration required"
 
+#: app/views/class.html:200
+msgid "Beschreibung"
+msgstr "Description"
+
 #: app/views/class.html:160
 msgid "Cancel"
 msgstr "Cancel"
