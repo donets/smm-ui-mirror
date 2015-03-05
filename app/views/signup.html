@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-rel flex" ng-class="{'chosen-valid': formSignup.city.$dirty && formSignup.city.$valid}">
                     <div class="half">
-                        <label class="form-label" translate>Deine Mitgliedschaft Stadt</label>
+                        <label class="form-label" translate>Deine Mitgliedschaftsstadt</label>
                         <select chosen required name="city" width="'100%'"
                                 ng-model="order.cityId" ng-change="cityChange()"
                                 data-placeholder="{{'Stadt'|translate}}"
@@ -78,7 +78,7 @@
                         </select>
                     </div>
                     <div class="half">
-                        <label class="form-label required" translate>Begint am</label>
+                        <label class="form-label required" translate>Beginnt am</label>
                         <div class="form-rel input-date" ng-click="openDatepicker($event, 'membershipActivatesOn')">
                             <input datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.membershipActivatesOn"
                                    datepicker-options="dateOptions" min-date="minStartDate"
