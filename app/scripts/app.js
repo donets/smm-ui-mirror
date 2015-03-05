@@ -222,17 +222,16 @@ angular.module('boltApp')
 
         }];
 
-        var myLoadSDKFunction = [
-            '$window', '$document', '$rootScope', 'ezfbAsyncInit', 'ezfbLocale',
-            function ($window,   $document, $rootScope,   ezfbAsyncInit,   ezfbLocale) {
+        var myLoadSDKFunction = ['$window', '$document', '$rootScope', 'ezfbAsyncInit',
+            function ($window,   $document, $rootScope,   ezfbAsyncInit) {
                 var locale = $rootScope.lang === 'de' ? 'de_DE' : 'en_GB';
                 // Load the SDK's source Asynchronously
                 (function(d){
                     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
                     if (d.getElementById(id)) {return;}
                     js = d.createElement('script'); js.id = id; js.async = true;
-                    js.src = "//connect.facebook.net/" + locale + "/sdk.js";
-                    // js.src = "//connect.facebook.net/" + ezfbLocale + "/sdk/debug.js";  // debug
+                    js.src = '//connect.facebook.net/' + locale + '/sdk.js';
+                    // js.src = '//connect.facebook.net/' + ezfbLocale + '/sdk/debug.js';  // debug
                     ref.parentNode.insertBefore(js, ref);
                 }($document[0]));
 
