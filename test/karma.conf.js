@@ -60,6 +60,7 @@ module.exports = function(config) {
       'bower_components/ng-optimizely/ng-optimizely.js',
       'bower_components/angular-optimizely/ngshowvariant.js',
       'bower_components/angular-xeditable/dist/js/xeditable.js',
+      'bower_components/angular-gettext/dist/angular-gettext.js',
       'bower_components/angular-options-disabled/src/angular-options-disabled.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
