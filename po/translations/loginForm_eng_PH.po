@@ -30,7 +30,7 @@ msgstr "Classes"
 
 #: app/views/_loginForm.html:42
 msgid "Dein Passwort vergessen?"
-msgstr "Forgotten your password?"
+msgstr "Forgot password?"
 
 #: app/views/_loginForm.html:37
 msgid "Die Email Adresse wurde nicht gefunden"
