@@ -69,7 +69,7 @@
         <h2 translate>Eine Karte, überall willkommen</h2>
         <p translate>Worauf hast Du heute Lust? <b>Yoga</b>, <b>Pilates</b> oder <b>Meditation</b>? Dich beim <b>CrossFit</b>, <b>TRX</b> oder <b>EMS</b> auszupowern? Beim <b>Tango</b>, <b>Hip-Hop</b> oder <b>Salsa</b> tanzen in Schwung kommen? Kraft und Konzentration entwickeln beim <b>Tai Chi</b>, <b>Qi Gong</b> oder <b>Kung-Fu</b>? Mehr über <b>Ernährung</b> und <b>Gesundheit</b> lernen? Oder Dich entspannen und verwöhnen lassen in der <b>Sauna</b> oder im <b>Spa</b>?</p>
         <p translate>Du bist überall willkommen - mit einer Karte.</p>
-        <a ui-sref="dashboard" target="_blank" translate>Hier geht es zum Angebot ›</a>
+        <a ui-sref="dashboard({city: campaign.id})" ng-show="campaign.active" target="_blank" translate>Hier geht es zum Angebot ›</a>
     </div>
 </div>
 <div class="b-card b-features" ng-class="{'desktop': desktop}">

@@ -523,7 +523,7 @@ angular.module('boltApp')
                 templateUrl: 'views/userMembership.html'
             })
             .state('dashboard', {
-                url : '/p/kurse/',
+                url : '/p/kurse/:city',
                 templateUrl: 'views/userDashboard.html',
                 controller : 'DashboardCtrl',
                 resolve: {
@@ -534,9 +534,9 @@ angular.module('boltApp')
 
                     },
 
-                    getOccurrences: function(RestApi) {
+                    getOccurrences: function(RestApi, $stateParams) {
 
-                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, cityId: 1, withActiveParent: true}).$promise;
+                        return RestApi.query({route: 'occurrences', forDurationOfDays: 7, cityId: $stateParams.city, withActiveParent: true}).$promise;
 
                     },
 
@@ -552,9 +552,15 @@ angular.module('boltApp')
 
                     },
 
-                    getNeigbourhood: function($http) {
+                    getNeigbourhood: function(RestApi, $stateParams) {
 
-                        return $http.get('json/neigbourhood.json', {cache: true});
+                        return RestApi.query({route: 'districts', cityId: $stateParams.city}).$promise;
+
+                    },
+
+                    getCities: function(RestApi) {
+
+                        return RestApi.query({route: 'cities'}).$promise;
 
                     }
 
