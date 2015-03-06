@@ -158,7 +158,10 @@ msgstr ""
 msgid ""
 "Entdecke Yoga, Meditation, Pilates, Fitness, Wellness, Tanzen und Kampfsport "
 "unbegrenzt in 60 Studios mit 1 Karte."
-msgstr "Get access to the finest fitness studios, wellbeing workshops, "
+msgstr ""
+"Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial "
+"Arts and Holistic Wellbeing in the finest studios all over London - with one "
+"card."
 
 #: app/views/homepage.html:112
 msgid "Entdecke die Vielfalt"
