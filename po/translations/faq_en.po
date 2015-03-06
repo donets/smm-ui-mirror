@@ -105,7 +105,7 @@ msgstr ""
 
 #: app/views/faq.html:101
 msgid "Erhalte Deine Einladung"
-msgstr "Get your invitation today"
+msgstr "Get your invitation"
 
 #: app/views/faq.html:41
 msgid ""
