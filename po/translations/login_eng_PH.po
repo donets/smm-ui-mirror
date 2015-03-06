@@ -18,7 +18,7 @@ msgstr "Back to login"
 
 #: app/views/login.html:33
 msgid "Dein Passwort vergessen?"
-msgstr "Forgotten your password?"
+msgstr "Forgot password?"
 
 #: app/views/login.html:28
 msgid "Die Email Adresse wurde nicht gefunden"
