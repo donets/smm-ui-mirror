@@ -65,8 +65,8 @@ module.exports = function (grunt) {
                 ]
             },
             poChanged: {
-                files: ["po/translations/*.po"],
-                tasks: ["nggettext_compile"]
+                files: ['po/translations/*.po'],
+                tasks: ['nggettext_compile']
             }
         },
 

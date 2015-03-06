@@ -86,10 +86,6 @@
 			<p translate>Somuchmore arbeitet nur mit Qualitätsanbietern. Darüber hinaus kennen wir jeden Anbieter persönlich, schauen uns jedes Studio an, sprechen ausführlich mit den Lehrern. Du wirst daher auf Somuchmore nur Lehrer finden, die eine zertifizierte Ausbildung haben, sowie Studios, die für besonders hohe Unterrichts-Qualität stehen.</p>
 		</div>
 		<div class="toggle_list" toggle-list>
-			<h2 id="markdown-header-was-bedeutet-ganzheitlich-trainieren" translate>Was bedeutet “ganzheitlich trainieren”?</h2>
-			<p translate>“Ganzheitliches Training” bedeutet: Training für Körper, Geist und Seele. Dahinter steht die Erfahrung, dass der Körper stärker ist, der Geist entspannter und die Seele erfüllter, wenn Du ganzheitlich trainierst. Ganzheitliches Training ist effektiver, weil Du motivierter bist und mehr Abwechslung bekommst. Und es entspricht Dir mehr - denn Du bist nicht nur ein Teil Deiner selbst. Den Unterschied wirst Du spüren.</p>
-		</div>
-		<div class="toggle_list" toggle-list>
 			<h2 id="markdown-header-was-unterscheidet-die-white-card-von-der-black-card" translate>Was unterscheidet die White Card von der Black Card?</h2>
 			<p translate>Der Unterschied zwischen der Black Card und der White Card ist: Bei der White Card kannst Du unbegrenzt, aber nur bis zu 3 mal pro Anbieter und Monat Kurse besuchen. Bei der Black Card kannst Du außerdem so oft pro Anbieter gehen, wie Du willst.</p>
 		</div>
@@ -102,7 +98,7 @@
 		<img src="images/Cards-Static.jpg" alt=""><br>
 		<form name="form" class="faq__form-email" ng-submit="subscribe()">
 			<input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Deine E-Mail-Adresse'|translate}}" name="email" required /><br>
-			<button type="submit" translate>Erhalte Deine Einladung</button>
+			<button type="submit" ng-class="{'en': lang === 'en'}" translate>Erhalte Deine Einladung</button>
 			<div class="form-response">
 				<div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
 				<div ng-show="successUpdate" class="form-message form-success" translate>Danke!</div>

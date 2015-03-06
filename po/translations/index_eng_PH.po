@@ -12,17 +12,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
+# what is this?
 #: app/index.html:220
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr "&copy; Somuchmore Marketplace UG, 2015"
 
 #: app/index.html:198
 msgid "030 - 577023101"
-msgstr "+49 (0)30  577023101"
+msgstr "+44 (0)20 3510 0240"
 
 #: app/index.html:217
 msgid "AGB"
-msgstr "General Terms & Conditions"
+msgstr "General terms & conditions"
 
 #: app/index.html:122 app/index.html:133 app/index.html:140
 msgid "Close"
@@ -47,11 +48,11 @@ msgstr "Thank you!"
 
 #: app/index.html:176
 msgid "Deine E-Mail-Adresse"
-msgstr "Your E-mail Address"
+msgstr "Your email address"
 
 #: app/index.html:180
 msgid "Die Email-Adresse ist nicht korrekt"
-msgstr "The e-mail address is incorrect"
+msgstr "The email address is incorrect"
 
 #: app/index.html:137
 msgid "Erfolgreich gespeichert."
@@ -124,4 +125,4 @@ msgid "Über uns"
 msgstr "About us"
 
 #~ msgid "agb"
-#~ msgstr "General Terms & Conditions"
+#~ msgstr "General terms & conditions"

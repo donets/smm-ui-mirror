@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/_loginForm.html:57
 msgid "Abmelden"
@@ -34,23 +34,23 @@ msgstr "Forgot password?"
 
 #: app/views/_loginForm.html:37
 msgid "Die Email Adresse wurde nicht gefunden"
-msgstr "Your e-mail address was not found"
+msgstr "Your email address was not found"
 
 #: app/views/_loginForm.html:36
 msgid "E-Mail zum Zurücksetzen gesendet"
-msgstr "You have been sent a reset e-mail"
+msgstr "You have been sent a reset email"
 
 #: app/views/_loginForm.html:15 app/views/_loginForm.html:30
 msgid "E-Mail-Adresse"
-msgstr "E-mail Address"
+msgstr "Email Address"
 
 #: app/views/_loginForm.html:24
 msgid "Falsche E-Mail oder Passwort"
-msgstr "Incorrect e-mail address or password"
+msgstr "Incorrect email address or password"
 
 #: app/views/_loginForm.html:50
 msgid "Kurse"
-msgstr "Courses"
+msgstr "Classes"
 
 #: app/views/_loginForm.html:54
 msgid "Locations"

@@ -16,19 +16,19 @@ msgstr ""
 msgid "Brauche ich meine Somuchmore Card, um im Rahmen meiner Mitgliedschaft Kurse zu besuchen?"
 msgstr ""
 
-#: app/views/faq.html:108
+#: app/views/faq.html:104
 msgid "Danke!"
 msgstr ""
 
-#: app/views/faq.html:104
+#: app/views/faq.html:100
 msgid "Deine E-Mail-Adresse"
 msgstr ""
 
-#: app/views/faq.html:94
+#: app/views/faq.html:90
 msgid "Der Unterschied zwischen der Black Card und der White Card ist: Bei der White Card kannst Du unbegrenzt, aber nur bis zu 3 mal pro Anbieter und Monat Kurse besuchen. Bei der Black Card kannst Du außerdem so oft pro Anbieter gehen, wie Du willst."
 msgstr ""
 
-#: app/views/faq.html:109
+#: app/views/faq.html:105
 msgid "Die Email-Adresse ist nicht korrekt"
 msgstr ""
 
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Einige ausgewählte Anbieter und Kurse können nur mit Voranmeldung besucht werden. Dies ist jeweils im Kursprofil angezeigt – mit der entsprechenden Kontaktadresse um die Reservierung zu tätigen. Die meisten unserer Kurse können allerdings ohne Voranmeldung besucht werden."
 msgstr ""
 
-#: app/views/faq.html:105
+#: app/views/faq.html:101
 msgid "Erhalte Deine Einladung"
 msgstr ""
 
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Nachdem Du Dich angemeldet hast und Deine Zahlung bestätigt wurde, schicken wir Dir eine Bestätigungs-E-Mail. In dieser E-Mail findest Du Deine Mitgliedschaftsnummer und eine vorläufige Karte zum Ausdrucken. Damit kannst Du sofort Dein Training beginnen."
 msgstr ""
 
-#: app/views/faq.html:98
+#: app/views/faq.html:94
 msgid "Sicher, dass Du uns verlassen willst? Wie können wir Deinen Bedürfnissen besser gerecht werden? Teile uns dies gerne mit. Ansonsten schicke Deine Kündigung einfach per Email an <a href=\"mailto:info@somuchmore.org\">info@somuchmore.org</a>. Vergiss nicht uns Deine Kartennummer, Deinen Namen und die Mitteilung, zu welchem Zeitpunkt Du kündigen willst, mitzuteilen. Die Kündigung ist jeweils zum Folgemonat möglich."
 msgstr ""
 
@@ -126,10 +126,6 @@ msgstr ""
 
 #: app/views/faq.html:57
 msgid "Wann wird mir die Somuchmore Card zugeschickt?"
-msgstr ""
-
-#: app/views/faq.html:89
-msgid "Was bedeutet “ganzheitlich trainieren”?"
 msgstr ""
 
 #: app/views/faq.html:20
@@ -156,7 +152,7 @@ msgstr ""
 msgid "Was unterscheidet die Mitgliedschafts-Karten?"
 msgstr ""
 
-#: app/views/faq.html:93
+#: app/views/faq.html:89
 msgid "Was unterscheidet die White Card von der Black Card?"
 msgstr ""
 
@@ -172,7 +168,7 @@ msgstr ""
 msgid "Wie endet meine Somuchmore Mitgliedschaft?"
 msgstr ""
 
-#: app/views/faq.html:97
+#: app/views/faq.html:93
 msgid "Wie kündige ich meine Mitgliedschaft?"
 msgstr ""
 
@@ -198,8 +194,4 @@ msgstr ""
 
 #: app/views/faq.html:65
 msgid "Wofür steht Somuchmore?"
-msgstr ""
-
-#: app/views/faq.html:90
-msgid "“Ganzheitliches Training” bedeutet: Training für Körper, Geist und Seele. Dahinter steht die Erfahrung, dass der Körper stärker ist, der Geist entspannter und die Seele erfüllter, wenn Du ganzheitlich trainierst. Ganzheitliches Training ist effektiver, weil Du motivierter bist und mehr Abwechslung bekommst. Und es entspricht Dir mehr - denn Du bist nicht nur ein Teil Deiner selbst. Den Unterschied wirst Du spüren."
 msgstr ""
