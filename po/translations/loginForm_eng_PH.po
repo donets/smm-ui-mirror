@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.4\n"
 
 #: app/views/_loginForm.html:57
 msgid "Abmelden"
@@ -30,7 +30,7 @@ msgstr "Classes"
 
 #: app/views/_loginForm.html:42
 msgid "Dein Passwort vergessen?"
-msgstr "Forgotten your password?"
+msgstr "Forgot password?"
 
 #: app/views/_loginForm.html:37
 msgid "Die Email Adresse wurde nicht gefunden"
