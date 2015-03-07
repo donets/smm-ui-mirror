@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.5.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: app/views/about.html:63
@@ -90,7 +90,7 @@ msgstr "You can only develop personally if you are inspired and free"
 
 #: app/views/about.html:36
 msgid "Erhalte Deine Einladung"
-msgstr "Get your invitation today"
+msgstr "Get your invitation"
 
 #: app/views/about.html:62
 msgid "Frage eingeben"
