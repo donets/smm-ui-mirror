@@ -220,6 +220,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.contactSubmit = function() {
             $scope.loadingContact = true;
             $scope.contact.message = 'contact teacher partnership';
+            $scope.contact.city = $scope.campaign.defaultName;
             $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.contact).success(function () {
                 $scope.loadingContact = false;
                 $scope.successContact = true;
@@ -245,7 +246,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                             console.log($scope.suggest);
                             var suggestedStudio = {
                                 email: $scope.suggest.userEmail || 'noreply@somuchmore.org',
-                                message: 'A user ' + ($scope.suggest.userName + ' ' || '') + 'suggest we should add studio: ' + $scope.suggest.studioName
+                                message: 'A user ' + ($scope.suggest.userName + ' ' || '') + 'suggest we should add studio: ' + $scope.suggest.studioName,
+                                city: $scope.campaign.defaultName
                             };
                             $scope.loadingStudio = true;
                             $http.post($window.smmConfig.restUrlBase + '/api/message', suggestedStudio).success(function () {
