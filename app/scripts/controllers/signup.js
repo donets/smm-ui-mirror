@@ -150,6 +150,7 @@ angular.module('boltApp.controllers.Signup', [])
                 checkoutStarted: true,
                 tracking: tracking + ',' + platform,
                 landingUrl: $cookieStore.get('landingUrl'),
+                cityId: $scope.order.cityId,
                 lang: $rootScope.lang
             };
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
