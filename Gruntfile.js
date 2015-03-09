@@ -63,6 +63,10 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
+            },
+            poChanged: {
+                files: ['po/translations/*.po'],
+                tasks: ['nggettext_compile']
             }
         },
 
@@ -123,7 +127,7 @@ module.exports = function (grunt) {
             all: {
                 src: [
                     'Gruntfile.js',
-                    '<%= yeoman.app %>/scripts/{,*/}*.js'
+                    '<%= yeoman.app %>/scripts/{,*/}*.js', '!<%= yeoman.app %>/scripts/custom/translations.js'
                 ]
             },
             test: {

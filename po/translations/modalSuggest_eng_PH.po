@@ -26,15 +26,15 @@ msgstr "Your Name (Optional)"
 
 #: app/views/modalSuggest.html:10
 msgid "Deine E-Mail-Adresse"
-msgstr "Your E-mail Address"
+msgstr "Your Email Address"
 
 #: app/views/modalSuggest.html:8
 msgid "Name des Studios"
-msgstr "Name of the Studio"
+msgstr "Name of the studio"
 
 #: app/views/modalSuggest.html:6
 msgid "Schlag ein Studio vor:"
-msgstr "Suggest a studio:"
+msgstr "Refer a studio:"
 
 # Der Quelltext ist falsch. Die Uebersetzung ist richtig!
 #: app/views/modalSuggest.html:15
@@ -43,4 +43,4 @@ msgstr "Sorry, your message was not delivered. Please try again later."
 
 #: app/views/modalSuggest.html:11
 msgid "Vorschlagen"
-msgstr "Suggest"
+msgstr "Refer"

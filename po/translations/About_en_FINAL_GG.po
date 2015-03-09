@@ -46,15 +46,15 @@ msgstr "The e-mail address is incorrect"
 
 #: app/views/about.html:17
 msgid "Dieses Potenzial kannst Du entfalten"
-msgstr "You can unleash this potential"
+msgstr "Unleash your full potential"
 
 #: app/views/about.html:15
 msgid "Du bist wertvoll"
-msgstr "You are valuable "
+msgstr "Know your worth"
 
 #: app/views/about.html:16
 msgid "Du hast ein ganz eigenes Potenzial"
-msgstr "You have your own special potential"
+msgstr "You have unique potential"
 
 #: app/views/about.html:28
 msgid ""
@@ -62,14 +62,14 @@ msgid ""
 "jeden Kurs in Sekunden."
 msgstr ""
 "You have a free trial period, short contract terms and details about every "
-"course at your fingertips."
+"class at your fingertips."
 
 #: app/views/about.html:27
 msgid ""
 "Du zahlst einen Bruchteil dessen, was die Kurse einzeln kosten. Mit der "
 "Karte ist alles bezahlt."
 msgstr ""
-"You pay a fraction of what you would for each individual course. Once you "
+"You pay a fraction of what you would for each individual class. Once you "
 "have your card, all the costs are covered."
 
 #: app/views/about.html:18
@@ -86,15 +86,15 @@ msgstr "Discover Somuchmore"
 
 #: app/views/about.html:19
 msgid "Entfaltung gelingt nur mit Inspiration und Spaß"
-msgstr "You can only develop personally if you are inspired and having fun"
+msgstr "You can only develop personally if you are inspired and free"
 
 #: app/views/about.html:36
 msgid "Erhalte Deine Einladung"
-msgstr "Get your invitation today"
+msgstr "Get your invitation"
 
 #: app/views/about.html:62
 msgid "Frage eingeben"
-msgstr "Write a question"
+msgstr "Ask a question"
 
 #: app/views/about.html:59
 msgid "Hast Du noch Fragen?"
@@ -104,30 +104,30 @@ msgstr "Do you have any questions?"
 msgid ""
 "Ist es uns gelungen, Dir Somuchmore zu erklären? Und gefällt Dir unser "
 "Ansatz?"
-msgstr ""
-"Have we managed to explain the concept behind Somuchmore to you? And do you "
-"like the idea?"
+msgstr "Do you fully understand how Somuchmore works now? How do you like it?"
 
 #: app/views/about.html:52
 msgid "Jaaa!"
-msgstr "Yessss!"
+msgstr "Yesss!"
 
 #: app/views/about.html:22
 msgid ""
 "Jeder Mensch kann gesund und glücklich leben, wenn er will und man ihn lässt"
-msgstr "Every person can live healthily and happily if they really want to "
+msgstr ""
+"Everyone has the potential to live healthily and happily if they want to."
 
 #: app/views/about.html:26
 msgid ""
 "Jedes Studio erfüllt hohe Qualitätsstandards, jeder Lehrer ist zertifiziert. "
 "Wir prüfen alles persönlich."
 msgstr ""
-"All of our studios fulfil the highest quality standards, and every teacher "
-"has certification in their field. We verify everything personally."
+"All of the studios we work with fulfill the highest quality standards, and "
+"every teacher qualified to the highest standards in their field. We verify "
+"everything personally to ensure you have the best experience possible."
 
 #: app/views/about.html:21
 msgid "Körper, Geist und Seele sind eins"
-msgstr "Body, mind and soul become one"
+msgstr "Body, mind and soul united"
 
 #: app/views/about.html:52
 msgid "Leider nicht"
@@ -140,18 +140,21 @@ msgid ""
 "persönliches Wachstum besuchen, neue Studios entdecken und Dich täglich "
 "inspirieren lassen."
 msgstr ""
-"With the Somuchmore Card you can visit hundreds of courses in yoga, Pilates, "
-"martial arts, fitness, dance, meditation, nutrition, health and personal "
-"growth, as well as discover new studios and be inspired on a daily basis."
+"With Somuchmore you can experience hundreds of health and fitness classes "
+"all over your city.  From Yoga, Pilates, Meditation, Martial Arts, Dance, "
+"Nutrition, Health and Personal Growth classes and workshops, you will be "
+"amazed what is offer around you with Somuchmore. "
 
 #: app/views/about.html:12
 msgid "Mit einer Karte bist Du überall willkommen."
-msgstr "With one card you are welcome everywhere."
+msgstr "One card. Unlimited classes."
 
 #: app/views/about.html:10
 msgid "Somuchmore ist eine Plattform für ganzheitliche Lebensweise."
-msgstr "Somuchmore is a platform for a holistic lifestyle."
+msgstr ""
+"Somuchmore is new online wellbeing community. Your gateway to a fulfilled, "
+"mindful and active life."
 
 #: app/views/about.html:13
 msgid "Unsere Überzeugung:"
-msgstr "Our belief:"
+msgstr "Our philosophy:"

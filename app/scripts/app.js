@@ -179,11 +179,11 @@ angular.module('boltApp')
         function (gettextCatalog, $cookieStore, $rootScope, amMoment) {
             if (!$cookieStore.get('globalLang')) {
                 switch ($rootScope.countryCode) {
-                    case 'UK':
-                        $rootScope.lang = 'en';
-                        break;
                     case 'DE':
                         $rootScope.lang = 'de';
+                        break;
+                    case 'UK':
+                        $rootScope.lang = 'en';
                         break;
                     default:
                         $rootScope.lang = 'de';

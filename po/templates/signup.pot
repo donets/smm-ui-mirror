@@ -61,7 +61,7 @@ msgid "Beginn:"
 msgstr ""
 
 #: app/views/signup.html:81
-msgid "Begint am"
+msgid "Beginnt am"
 msgstr ""
 
 #: app/views/signup.html:276
@@ -109,7 +109,7 @@ msgid "Dein Name"
 msgstr ""
 
 #: app/views/signup.html:71
-msgid "Deine Mitgliedschaft Stadt"
+msgid "Deine Mitgliedschaftsstadt"
 msgstr ""
 
 #: app/views/signup.html:182

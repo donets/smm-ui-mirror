@@ -18,8 +18,8 @@
         <p ng-if="campaign && (city || cityId)" translate>Entdecke Yoga, Meditation, Pilates, Fitness, Wellness, Tanzen und Kampfsport unbegrenzt in 60 Studios mit 1 Karte.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-                <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" required />
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required/>
+                <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" ng-class="{'wide': lang === 'en'}" required/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Erhalte Deine Einladung'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -41,8 +41,8 @@
         <span class="form-block__title" translate>14 Tage <u>kostenlos</u> kennenlernen!</span>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
-                <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" required />
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required />
+                <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" ng-class="{'wide': lang === 'en'}" required />
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Erhalte Deine Einladung'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -160,7 +160,7 @@
     </div>
     <!--<div ng-show="tab === 'classes'" ui-view></div>-->
 </div>
-<div class="b-card b-price">
+<div class="b-card b-price" ng-if="campaign.showPlansOnHomepage">
     <div class="container">
         <h2 translate>Lebe gesund und erfüllt</h2>
         <p class="subtitle" translate>Bestelle Deine Karte - und bringe Bewegung in Dein Leben.</p>

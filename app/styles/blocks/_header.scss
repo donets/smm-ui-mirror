@@ -78,6 +78,9 @@
                     line-height: 24px;
                     &.zip {
                         width: 100px;
+                        &.wide {
+                          width: 125px;
+                        }
                     }
                 }
             }
