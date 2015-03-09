@@ -52,7 +52,7 @@
             </form>
             <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Jetzt kostenlos anmelden</a>-->
             <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 Tage KOSTENLOS testen</a>-->
-            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/?invitation={{invitation}}" translate>Deine Karte erhalten</a>
+            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/{{cityId}}/?invitation={{invitation}}" translate>Deine Karte erhalten</a>
         </div>
     </div>
 </div>
