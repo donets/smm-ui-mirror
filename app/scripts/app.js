@@ -314,6 +314,7 @@ angular.module('boltApp')
         // Here we are just setting up some convenience urls.
         .when('/signup/', '/p/signup/1/')
         .when('/signup', '/p/signup/1/')
+        .when('/p/signup/', '/p/signup/1/')
         .when('/p/kurse/', '/p/kurse/1/');
 
         $urlRouterProvider.otherwise('/');
