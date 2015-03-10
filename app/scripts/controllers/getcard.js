@@ -236,7 +236,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.suggestStudio = function () {
             $modal.open({
                 templateUrl: 'views/modalSuggest.html',
-                controller: ['$scope', '$modalInstance', '$http',
+                controller: ['$scope', '$modalInstance', '$http', 'parentScope',
 
                     function ($scope, $modalInstance, $http, parentScope) {
 
@@ -270,6 +270,11 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
                     }],
                 backdrop: 'static',
+                resolve: {
+                    parentScope : function () {
+                        return $scope;
+                    }
+                },
                 windowClass: 'modal-suggest'
             });
         };
