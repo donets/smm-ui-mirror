@@ -110,6 +110,16 @@
             height: 50px;
             padding: 0 12px;
         }
+        &.membership-table {
+            th, td {
+                max-width: 250px;
+            }
+            td {
+                &:nth-child(1), &:nth-child(2) {
+                   font-size: 12px;
+                }
+            }
+        }
         td {
             line-height: 1.2;
             border-width: 2px;
@@ -128,6 +138,11 @@
             }
             .link-description {
                 font-size: 15px;
+            }
+            .entity {
+                span {
+                    display: block;
+                }
             }
         }
         tr {
@@ -297,6 +312,9 @@
     margin: 20px 0 60px;
     .form-label {
         display: block;
+        &.sub-header {
+            font-size: 18px;
+        }
     }
     .form-group {
         position: relative;
@@ -322,6 +340,10 @@
             .fa {
                 margin-right: 8px;
             }
+        }
+        .photo-img {
+            max-width: 320px;
+            margin-bottom: 20px;
         }
     }
     select {

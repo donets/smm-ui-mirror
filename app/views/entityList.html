@@ -8,7 +8,13 @@
             <div class="input-search">
                 <input type="text" ng-hide="$stateParams.route === 'vouchers' || $stateParams.route === 'memberships'" ng-model="search.name" placeholder="{{'Filter name'|translate}}"/>
                 <input type="text" ng-show="$stateParams.route === 'vouchers'" ng-model="search.code" placeholder="{{'Filter code'|translate}}"/>
-                <input type="text" ng-show="$stateParams.route === 'memberships'" ng-model="search.fullName" placeholder="{{'Filter name'|translate}}"/>
+                <input type="text" ng-show="$stateParams.route === 'memberships'" ng-model="search.cardNumber" placeholder="{{'Filter card'|translate}}"/>
+            </div>
+            <div ng-show="$stateParams.route === 'memberships'" class="input-search">
+                <input type="text" ng-model="search.email" placeholder="{{'Filter email'|translate}}"/>
+            </div>
+            <div ng-show="$stateParams.route === 'memberships'" class="input-search">
+                <input type="text" ng-model="search.fullName" placeholder="{{'Filter name'|translate}}"/>
             </div>
             <select chosen
                     ng-if="$stateParams.route === 'locations' || $stateParams.route === 'studios' "
@@ -19,10 +25,25 @@
                     ng-options="item.id as item.defaultName for item in cities | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
-            <a class="clear-button" href="" ng-click="clearFilters()">Filter zurücksetzen</a>
+            <select chosen
+                    ng-if="$stateParams.route === 'memberships'"
+                    id="subscription"
+                    ng-model="search.$"
+                    data-placeholder="{{'Alle Karten'|translate}}"
+                    disable-search="false"
+                    ng-options="item as item for item in subscriptionType | orderBy: 'toString()'">
+                <option value=""></option>
+            </select>
+            <div ng-show="$stateParams.route === 'memberships'" class="form-check">
+                <input type="checkbox" id="photo" ng-model="search.photo"
+                       ng-true-value="!!" ng-false-value="false" ng-change="clearPhotoFilter()" name="photo"/>
+                <i class="fa"></i>
+                <label for="photo" translate>Foto</label>
+            </div>
+            <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
-            <table class="timetable" ng-show="desktop">
+            <table class="timetable" ng-show="desktop" ng-class="{'membership-table': $stateParams.route === 'memberships'}">
                 <thead>
                     <tr>
                         <th ng-repeat="field in fields | filter: {listed: '!'+false}">{{field.title}}</th>
@@ -32,12 +53,18 @@
                 <tbody>
                     <tr ng-repeat="e in entities | filter: search | orderBy: 'id'">
                         <td ng-repeat="field in fields | filter: {listed: '!'+false}">
-                            <div ng-if="!field.format && field.type !== 'checkbox' && field.type !== 'photo'">{{e[field.model]}}</div>
+                            <div ng-if="!field.format && !specialFieldType(field.type)">{{e[field.model]}}</div>
                             <div class="status" ng-if="field.type === 'checkbox'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>
                             <div class="status" ng-if="field.type === 'photo'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>
+                            <div ng-if="field.type === 'entity'" class="entity">
+                                <span ng-repeat="subField in field.fields | filter: {listed: '!'+false}">{{subField.title}}: {{e[field.model][subField.model]}}</span>
+                            </div>
                             <div ng-if="field.format" class="w-100">{{e[field.model] | date : field.format}}</div>
                         </td>
-                        <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button" translate><i class="fa fa-pencil"></i>Manage</button></td>
+                        <td>
+                            <button ng-hide="$stateParams.route === 'memberships'" class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button" translate><i class="fa fa-pencil"></i>Manage</button>
+                            <button ng-show="$stateParams.route === 'memberships'" class="" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button" translate><i class="fa fa-eye"></i>View</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
