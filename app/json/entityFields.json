@@ -155,6 +155,57 @@
                "placeholder": "Keine",
                "type": "select"
            }
+       ],
+       "memberships": [
+           {
+               "model": "cardNumber",
+               "title": "Kartennummer",
+               "readonly": true
+           }, {
+               "model": "email",
+               "title": "E-Mail",
+               "readonly": true
+           }, {
+               "model": "firstName",
+               "title": "Vorname",
+               "readonly": true
+           }, {
+               "model": "lastName",
+               "title": "Nachname",
+               "readonly": true
+           }, {
+               "model": "orderPlacedOn",
+               "title": "Bestellt am",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "readonly": true
+           }, {
+               "model": "subscriptionStartsOn",
+               "title": "Mitgliedschaft beginnt am",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "orderCancellableUntil",
+               "title": "Stornierung möglich bis",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "currentPeriodValidUntil",
+               "title": "Aktuelle Periode endet am",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "photo",
+               "title": "Foto",
+               "type": "photo",
+               "readonly": true
+           }
        ]
    }
 }

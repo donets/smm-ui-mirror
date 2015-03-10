@@ -4,10 +4,11 @@
 <div class="dashboard cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
-            <button class="control-button" ui-sref="admin.entity.new({route: $stateParams.route})" type="button"><i class="fa fa-plus"></i>New {{$stateParams.route.slice(0, -1)}}</button>
+            <button class="control-button" ui-sref="admin.entity.new({route: $stateParams.route})" ng-if="$stateParams.route !== 'memberships'" type="button"><i class="fa fa-plus"></i>New {{$stateParams.route.slice(0, -1)}}</button>
             <div class="input-search">
-                <input type="text" ng-hide="$stateParams.route === 'vouchers'" ng-model="search.name" placeholder="{{'Filter name'|translate}}"/>
+                <input type="text" ng-hide="$stateParams.route === 'vouchers' || $stateParams.route === 'memberships'" ng-model="search.name" placeholder="{{'Filter name'|translate}}"/>
                 <input type="text" ng-show="$stateParams.route === 'vouchers'" ng-model="search.code" placeholder="{{'Filter code'|translate}}"/>
+                <input type="text" ng-show="$stateParams.route === 'memberships'" ng-model="search.fullName" placeholder="{{'Filter name'|translate}}"/>
             </div>
             <select chosen
                     ng-if="$stateParams.route === 'locations' || $stateParams.route === 'studios' "
@@ -31,8 +32,9 @@
                 <tbody>
                     <tr ng-repeat="e in entities | filter: search | orderBy: 'id'">
                         <td ng-repeat="field in fields | filter: {listed: '!'+false}">
-                            <div ng-if="!field.format && field.type !== 'checkbox'">{{e[field.model]}}</div>
+                            <div ng-if="!field.format && field.type !== 'checkbox' && field.type !== 'photo'">{{e[field.model]}}</div>
                             <div class="status" ng-if="field.type === 'checkbox'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>
+                            <div class="status" ng-if="field.type === 'photo'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>
                             <div ng-if="field.format" class="w-100">{{e[field.model] | date : field.format}}</div>
                         </td>
                         <td><button class="green" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" type="button" translate><i class="fa fa-pencil"></i>Manage</button></td>
