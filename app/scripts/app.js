@@ -315,6 +315,7 @@ angular.module('boltApp')
         .when('/signup/', '/p/signup/1/')
         .when('/signup', '/p/signup/1/')
         .when('/p/signup', '/p/signup/1/')
+        .when('/p/signup/?invitation', '/p/signup/1/?invitation')
         .when('/p/signup/', '/p/signup/1/')
         .when('/p/kurse/', '/p/kurse/1/');
 
@@ -394,7 +395,7 @@ angular.module('boltApp')
                             teacherId: function (Occurrences) {
                                 var occurrenceId = $stateParams.occurrenceId;
                                 return Occurrences.get({occurrenceId: occurrenceId}).$promise.then(function (res) {
-                                    return res.event.somuchmore.teacherId; 
+                                    return res.event.somuchmore.teacherId;
                                 });
                             }
                         }
@@ -454,7 +455,7 @@ angular.module('boltApp')
                 controller : 'DashboardCtrl'
             })
             .state('signup', {
-                url : '/p/signup/:cityId/',
+                url : '/p/signup/:cityId/?invitation',
                 templateUrl: 'views/signup.html',
                 controller : 'SignupCtrl',
                 resolve: {
@@ -468,6 +469,12 @@ angular.module('boltApp')
                     getCityId: function($stateParams, $cookieStore) {
 
                         return parseInt($stateParams.cityId) || $cookieStore.get('cityId') || 1;
+
+                    },
+
+                    getInvitation: function($stateParams) {
+
+                        return parseInt($stateParams.invitation) || 1;
 
                     }
 

@@ -8,3 +8,4 @@ bower_components
 /app/images/static/Thumbs.db
 /.project
 /.settings/org.eclipse.core.resources.prefs
+po/**/*.mo
