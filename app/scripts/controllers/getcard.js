@@ -236,9 +236,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.suggestStudio = function () {
             $modal.open({
                 templateUrl: 'views/modalSuggest.html',
-                controller: ['$scope', '$modalInstance', '$http',
+                controller: ['$scope', '$modalInstance', '$http', 'parentScope',
 
-                    function ($scope, $modalInstance, $http) {
+                    function ($scope, $modalInstance, $http, parentScope) {
 
                         $scope.suggest = {};
 
@@ -247,7 +247,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                             var suggestedStudio = {
                                 email: $scope.suggest.userEmail || 'noreply@somuchmore.org',
                                 message: 'A user ' + ($scope.suggest.userName + ' ' || '') + 'suggest we should add studio: ' + $scope.suggest.studioName,
-                                city: $scope.campaign.defaultName
+                                city: parentScope.campaign.defaultName
                             };
                             $scope.loadingStudio = true;
                             $http.post($window.smmConfig.restUrlBase + '/api/message', suggestedStudio).success(function () {
@@ -270,6 +270,11 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
                     }],
                 backdrop: 'static',
+                resolve: {
+                    parentScope : function () {
+                        return $scope;
+                    }
+                },
                 windowClass: 'modal-suggest'
             });
         };

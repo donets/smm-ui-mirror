@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.4\n"
 
 # All the changes in this PO file should be in the email / file that Johannes sent over earlier today
 #: app/views/homepage.html:81
@@ -19,17 +19,15 @@ msgstr "(14 day trial. Money back guarantee )"
 
 #: app/views/homepage.html:91
 msgid ""
-"(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil "
-"ihres eigentlichen Werts zahlen)"
+"(Keine Aufnahmegebühr, unbegrenzt Kurse besuchen und nur einen Bruchteil ihres eigentlichen Werts "
+"zahlen)"
 msgstr ""
-"(No sign up fee. No cancellation fee. Just the freedom to go to unlimited "
-"classes all over the city, whenever you want)"
+"(No sign up fee. No cancellation fee. Just the freedom to go to unlimited classes all over the "
+"city, whenever you want)"
 
 #: app/views/homepage.html:86
 msgid "(Keine Mindestlaufzeit, monatlich kündigen und pausieren)"
-msgstr ""
-"(No minimum membership term. No binding monthly clause. And no cancellation "
-"or freeze fee)"
+msgstr "(No minimum membership term. No binding monthly clause. And no cancellation or freeze fee)"
 
 #: app/views/homepage.html:233
 msgid "1. Bestelle Deine Karte"
@@ -57,11 +55,9 @@ msgstr "3. Get moving"
 
 #: app/views/homepage.html:331 app/views/homepage.html:346
 msgid ""
-"An Kursen teilnehmen. Fitnessstudios oder Spas besuchen. Oder eine "
-"persönliche Beratung vereinbaren (z.B. für Ernährung oder Gesundheit)."
-msgstr ""
-"Participate in fitness, health and wellbeing classes. Visit gyms, spas and "
-"studios."
+"An Kursen teilnehmen. Fitnessstudios oder Spas besuchen. Oder eine persönliche Beratung vereinbaren"
+" (z.B. für Ernährung oder Gesundheit)."
+msgstr "Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios."
 
 #: app/views/homepage.html:96
 msgid "Auswahl"
@@ -77,13 +73,12 @@ msgstr "Order your card – and set your life in motion."
 
 #: app/views/homepage.html:281 app/views/homepage.html:298
 msgid ""
-"Bewegung, Essen und mentales Training sind untrennbar verbunden - alles "
-"zusammen fördert einen gesunden Körper und Geist. Dieser ganzheitliche "
-"Ansatz überzeugt mich an Somuchmore."
+"Bewegung, Essen und mentales Training sind untrennbar verbunden - alles zusammen fördert einen "
+"gesunden Körper und Geist. Dieser ganzheitliche Ansatz überzeugt mich an Somuchmore."
 msgstr ""
-"Mindfulness effects everything. Your movement, the way you eat, drink and "
-"think. Being mindful promotes a healthy mind, body and soul. This holistic "
-"approach to living is what attracted me to SoMuchMore\r"
+"Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful "
+"promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to "
+"SoMuchMore\r"
 
 #: app/views/homepage.html:26 app/views/homepage.html:49
 msgid "Danke für Deine Anfrage!"
@@ -93,21 +88,18 @@ msgstr "Congrats, you are on the list!"
 msgid "Danke!"
 msgstr "Thank you!"
 
-#: app/views/homepage.html:32 app/views/homepage.html:55
-#: app/views/homepage.html:65
+#: app/views/homepage.html:32 app/views/homepage.html:55 app/views/homepage.html:65
 msgid "Deine Karte erhalten"
 msgstr "Get your card"
 
-#: app/views/homepage.html:27 app/views/homepage.html:371
-#: app/views/homepage.html:50
+#: app/views/homepage.html:27 app/views/homepage.html:371 app/views/homepage.html:50
 msgid "Die Email-Adresse ist nicht korrekt"
 msgstr "The email address is incorrect "
 
 #: app/views/homepage.html:334 app/views/homepage.html:349
 msgid ""
-"Die meisten Partner akzeptiert alle Karten. Manche Partner aber akzeptieren "
-"bestimmte Karten nicht oder nur eingeschränkt. Bitte schau vorher immer im "
-"Online-Kalender nach."
+"Die meisten Partner akzeptiert alle Karten. Manche Partner aber akzeptieren bestimmte Karten nicht "
+"oder nur eingeschränkt. Bitte schau vorher immer im Online-Kalender nach."
 msgstr "Yes. Your card is valid with all our partners."
 
 #: app/views/homepage.html:71
@@ -116,25 +108,21 @@ msgstr "Feel it all. Explore it all. With just one card."
 
 #: app/views/homepage.html:340 app/views/homepage.html:355
 msgid ""
-"Du kannst monatlich zum Folgemonat kündigen. Und jederzeit für einen Monat "
-"oder mehr pausieren, z.B. wenn Du länger in den Urlaub fährst. Dazu gibt es "
-"in Deinem Account einen Link."
-msgstr ""
-"You can cancel on a monthly base. Or freeze your membership for a month or "
-"more."
+"Du kannst monatlich zum Folgemonat kündigen. Und jederzeit für einen Monat oder mehr pausieren, z."
+"B. wenn Du länger in den Urlaub fährst. Dazu gibt es in Deinem Account einen Link."
+msgstr "You can cancel on a monthly base. Or freeze your membership for a month or more."
 
-#: app/views/homepage.html:21 app/views/homepage.html:365
-#: app/views/homepage.html:44
+#: app/views/homepage.html:21 app/views/homepage.html:365 app/views/homepage.html:44
 msgid "E-Mail-Adresse"
 msgstr "Email Address"
 
 #: app/views/homepage.html:97
 msgid ""
-"Egal wie beschäftigt Du bist: Du findest immer und überall ein Angebot. Die "
-"Auswahl ist unerschöpflich."
+"Egal wie beschäftigt Du bist: Du findest immer und überall ein Angebot. Die Auswahl ist "
+"unerschöpflich."
 msgstr ""
-"Goodbye to long-term contracts. Cancel or freeze your card anytime. No "
-"obligation to anybody, or anything."
+"Say Goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, "
+"or anything."
 
 #: app/views/homepage.html:69
 msgid "Eine Karte, überall willkommen"
@@ -146,20 +134,19 @@ msgstr "Simply try it out"
 
 #: app/views/homepage.html:17
 msgid ""
-"Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign."
-"amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
+"Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign."
+"termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
 msgstr ""
-"Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign."
-"amountStudios}} {{campaign.termForStudios}}</b> with <b>1 membership</b>."
+"Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign."
+"termForStudios}}</b> with <b>1 membership</b>."
 
 #: app/views/homepage.html:16 app/views/homepage.html:18
 msgid ""
-"Entdecke Yoga, Meditation, Pilates, Fitness, Wellness, Tanzen und Kampfsport "
-"unbegrenzt in 60 Studios mit 1 Karte."
+"Entdecke Yoga, Meditation, Pilates, Fitness, Wellness, Tanzen und Kampfsport unbegrenzt in 60 "
+"Studios mit 1 Karte."
 msgstr ""
-"Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial "
-"Arts and Holistic Wellbeing in the finest studios all over London - with one "
-"card."
+"Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic "
+"Wellbeing in the finest studios all over London - with one card."
 
 #: app/views/homepage.html:112
 msgid "Entdecke die Vielfalt"
@@ -178,9 +165,7 @@ msgid "Erhalte heute Deine Einladung"
 msgstr "Get your invitation today  "
 
 #: app/views/homepage.html:234
-msgid ""
-"Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse "
-"besuchen."
+msgid "Es dauert weniger als 60 Sekunden - und Du kannst sofort danach Kurse besuchen."
 msgstr "It takes less than 90 seconds. You can start right away."
 
 #: app/views/homepage.html:229
@@ -188,8 +173,7 @@ msgid "Es geht so einfach!"
 msgstr "It’s so simple!"
 
 #: app/views/homepage.html:239
-msgid ""
-"Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin."
+msgid "Finde in unserem Online-Kalender in Sekunden den passende Kurs oder Termin."
 msgstr "Find your class in seconds using our online calendar."
 
 #: app/views/homepage.html:100
@@ -198,13 +182,11 @@ msgstr "Be inspired"
 
 #: app/views/homepage.html:277 app/views/homepage.html:293
 msgid ""
-"Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. "
-"Somuchmore öffnet Räume. Die Karte gibt mir die Freiheit, nicht an ein "
-"Studio gebunden zu sein."
+"Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. "
+"Die Karte gibt mir die Freiheit, nicht an ein Studio gebunden zu sein."
 msgstr ""
-"A holistic lifestyle is the key to longevity and happiness. Somuchmore opens "
-"up new options. The card gives me the freedom of not being tied to just one "
-"studio."
+"A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The "
+"card gives me the freedom of not being tied to just one studio."
 
 #: app/views/homepage.html:333 app/views/homepage.html:348
 msgid "Gilt meine Karte überall für alle Angebote?"
@@ -248,10 +230,9 @@ msgstr "Cancel / Freeze"
 
 #: app/views/homepage.html:105
 msgid ""
-"Lass Dich täglich inspirieren! Trainiere mit mehr Abwechslung und "
-"Motivation. Entfalte Dein ganzes Potenzial."
-msgstr ""
-"Create your personal workout plan. Spice up your routine. Stay motivated."
+"Lass Dich täglich inspirieren! Trainiere mit mehr Abwechslung und Motivation. Entfalte Dein ganzes "
+"Potenzial."
+msgstr "Create your personal workout plan. Spice up your routine. Stay motivated."
 
 #: app/views/homepage.html:165
 msgid "Lebe gesund und erfüllt"
@@ -259,13 +240,12 @@ msgstr "Live a healthy and fulfilled life"
 
 #: app/views/homepage.html:273 app/views/homepage.html:288
 msgid ""
-"Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit "
-"Somuchmore wird leichter, was mir wichtig ist: meditieren oder mehr über "
-"persönliches Wachstum lernen."
+"Moderner Alltag und ganzheitliches Leben sind kein Widerspruch. Mit Somuchmore wird leichter, was "
+"mir wichtig ist: meditieren oder mehr über persönliches Wachstum lernen."
 msgstr ""
-"Modern everyday life and a holistic lifestyle don’t have to be "
-"contradictions. With Somuchmore it becomes easier to combine the two, which "
-"is important to me: meditating or learning more about personal growth."
+"Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it "
+"becomes easier to combine the two, which is important to me: meditating or learning more about "
+"personal growth."
 
 #: app/views/homepage.html:351
 msgid "Muss ich michanmelden?"
@@ -277,14 +257,13 @@ msgstr "Do I have to book <br> my classes in advance?"
 
 #: app/views/homepage.html:327
 msgid "Noch Fragen?"
-msgstr "Do you still have any questions?"
+msgstr "Still have some more questions?"
 
 #: app/views/homepage.html:337 app/views/homepage.html:352
 msgid ""
-"Normalerweise nicht. Aber es gibt Ausnahmen, etwa bei kleinen Kursen, großer "
-"Nachfrage oder wenn Vorkenntnissen erforderlich sind. Bitte schau vorher "
-"immer im Online-Kalender nach."
-msgstr "Yes. Please always check the online calendar in advance."
+"Normalerweise nicht. Aber es gibt Ausnahmen, etwa bei kleinen Kursen, großer Nachfrage oder wenn "
+"Vorkenntnissen erforderlich sind. Bitte schau vorher immer im Online-Kalender nach."
+msgstr "Yes. Please always check our online calendar in advance."
 
 #: app/views/homepage.html:22 app/views/homepage.html:45
 msgid "PLZ"
@@ -296,18 +275,17 @@ msgstr "Price per month"
 
 #: app/views/homepage.html:101
 msgid ""
-"Schluss mit langfristigen Verträgen. Du kannst monatlich kündigen oder "
-"pausieren. Ohne Bindung an ein Studio."
-msgstr ""
-"Chose from thousands of classes. Workout when you want. Wherever you want."
+"Schluss mit langfristigen Verträgen. Du kannst monatlich kündigen oder pausieren. Ohne Bindung an "
+"ein Studio."
+msgstr "Chose from thousands of classes. Workout when you want. Wherever you want."
 
 #: app/views/homepage.html:167
 msgid ""
-"Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis "
-"{{validUntilIn | amDateFormat: 'D. MMMM'}}"
+"Sichere Dir 20% Ermäßigung für die ersten 3 Monate bei Anmeldung bis {{validUntilIn | "
+"amDateFormat: 'D. MMMM'}}"
 msgstr ""
-"Secure a 20% discount for the first three months if you sign up by "
-"{{validUntilIn | amDateFormat: 'D MMMM'}}"
+"Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: "
+"'D MMMM'}}"
 
 #: app/views/homepage.html:127
 msgid "Stadt"
@@ -315,7 +293,7 @@ msgstr "City"
 
 #: app/views/homepage.html:148
 msgid "Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
-msgstr "Launching {{campaign.startDate | amDateFormat: 'DD.MM.YY'}}!"
+msgstr "Launching {{campaign.startDate | amDateFormat: 'DD.MM.YY'}}"
 
 #: app/views/homepage.html:159
 msgid "Studio vorschlagen"
@@ -355,25 +333,20 @@ msgstr "How do I cancel or freeze my membership?"
 
 #: app/views/homepage.html:70
 msgid ""
-"Worauf hast Du heute Lust? <b>Yoga</b>, <b>Pilates</b> oder <b>Meditation</"
-"b>? Dich beim <b>CrossFit</b>, <b>TRX</b> oder <b>EMS</b> auszupowern? Beim "
-"<b>Tango</b>, <b>Hip-Hop</b> oder <b>Salsa</b> tanzen in Schwung kommen? "
-"Kraft und Konzentration entwickeln beim <b>Tai Chi</b>, <b>Qi Gong</b> oder "
-"<b>Kung-Fu</b>? Mehr über <b>Ernährung</b> und <b>Gesundheit</b> lernen? "
-"Oder Dich entspannen und verwöhnen lassen in der <b>Sauna</b> oder im "
-"<b>Spa</b>?"
+"Worauf hast Du heute Lust? <b>Yoga</b>, <b>Pilates</b> oder <b>Meditation</b>? Dich beim "
+"<b>CrossFit</b>, <b>TRX</b> oder <b>EMS</b> auszupowern? Beim <b>Tango</b>, <b>Hip-Hop</b> oder "
+"<b>Salsa</b> tanzen in Schwung kommen? Kraft und Konzentration entwickeln beim <b>Tai Chi</b>, "
+"<b>Qi Gong</b> oder <b>Kung-Fu</b>? Mehr über <b>Ernährung</b> und <b>Gesundheit</b> lernen? Oder "
+"Dich entspannen und verwöhnen lassen in der <b>Sauna</b> oder im <b>Spa</b>?"
 msgstr ""
-"What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or "
-"<b>Meditation</b>? Pushing your limits? <b>CrossFit</b>, <b>TRX</b> or "
-"<b>Barre Core</b>? Shake it out? <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</"
-"b>? Strengthen your core and concentration? <b>Tai Chi</b>, <b>Qi Gong</b> "
-"or <b>Kung-Fu</b>? Learn more about <b>Nutrition</b> and <b>Health</b>? Or "
-"simply chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?"
+"What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing your "
+"limits? <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Want to hit the dance floor? <b>Tango</"
+"b>, <b>Hip-Hop</b> or <b>Salsa</b>? Strengthen your core and concentration? <b>Tai Chi</b>, <b>Qi "
+"Gong</b> or <b>Kung-Fu</b>? Learn more about <b>Nutrition</b> and <b>Health</b>? Or simply chill "
+"out and unwind in the <b>Sauna</b> or <b>Spa</b>?"
 
 #: app/views/homepage.html:244
-msgid ""
-"Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein "
-"Mitglied begrüßt."
+msgid "Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitglied begrüßt."
 msgstr "Visit classes as often as you want."
 
 #: app/views/homepage.html:15
