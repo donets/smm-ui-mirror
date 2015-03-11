@@ -14,7 +14,7 @@
 <div class="container">
     <div class="b-class-edit">
         <h3>Main info</h3>
-        <div class="form-rel" ng-class="{'large': field.large}" ng-repeat="field in fields | filter: {readonly: '!'+true && '!'+$stateParams.entityId}">
+        <div class="form-rel" ng-class="{'large': field.large}" ng-repeat="field in fields | filter: {readonly: '!'+true && '!'+$stateParams.entityId} | filter:{form: '!' + false}">
             <label class="form-label" ng-class="{'sub-header':field.type === 'entity'}" ng-if="field.type !== 'checkbox'" for="{{field.model}}">{{field.title}}</label>
             <input class="form-input" type="text" ng-model="entity[field.model]" ng-if="!field.type && !field.format" id="{{field.model}}" ng-readonly="field.readonly || ($stateParams.entityId && $stateParams.route === 'vouchers' && field.model === 'code')"/>
             <input class="form-input" type="text" value="{{entity[field.model] | date: field.format}}" ng-if="!field.type && field.format" id="{{field.model}}" ng-readonly="field.readonly"/>

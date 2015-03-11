@@ -112,11 +112,23 @@
         }
         &.membership-table {
             th, td {
-                max-width: 250px;
+                max-width: 200px;
             }
             td {
                 &:nth-child(1), &:nth-child(2) {
                    font-size: 12px;
+                }
+                &:nth-child(2) {
+                    div {
+                        width: 175px;
+                        word-break: break-all;
+                    }
+                }
+                &:nth-child(3) {
+                    div {
+                        width: 150px;
+                        word-break: break-all;
+                    }
                 }
             }
         }

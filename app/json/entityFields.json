@@ -166,13 +166,20 @@
                "title": "E-Mail",
                "readonly": true
            }, {
+               "model": "fullName",
+               "title": "Name",
+               "readonly": true,
+               "form": false
+           }, {
                "model": "firstName",
                "title": "Vorname",
-               "readonly": true
+               "readonly": true,
+               "listed": false
            }, {
                "model": "lastName",
                "title": "Nachname",
-               "readonly": true
+               "readonly": true,
+               "listed": false
            }, {
                "model": "orderPlacedOn",
                "title": "Bestellt am",
