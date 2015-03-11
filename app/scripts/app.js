@@ -470,7 +470,7 @@ angular.module('boltApp')
 
                     },
 
-                    getInvitation: function($stateParams, $cookieStore) {
+                    getInvitation: function($stateParams) {
 
                         return parseInt($stateParams.invitation) || 1;
 
