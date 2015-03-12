@@ -13,7 +13,7 @@
                     ng-if="$stateParams.route === 'locations' || $stateParams.route === 'studios' "
                     id="city"
                     ng-model="search.cityId"
-                    data-placeholder="{{'Alle Städte'|translate}}"
+                    data-placeholder="{{'All cities'|translate}}"
                     disable-search="false"
                     ng-options="item.id as item.defaultName for item in cities | orderBy: 'toString()'">
                 <option value=""></option>

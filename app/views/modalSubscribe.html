@@ -3,15 +3,15 @@
     <button ng-click="close()" class="modal-close" type="button">
         <span class="sr-only" translate>Close</span>
     </button>
-    <h2 ng-hide="form.successSubscribe" translate>Erhalte heute Deine Einladung:</h2>
+    <h2 ng-hide="form.successSubscribe" translate>Get your invitation today:</h2>
     <form name="subscribeForm.modal" ng-hide="form.successSubscribe" class="b-card-subscribe" ng-submit="subscribeCard('modal')">
-        <input type="email" name="email" ng-model="invite.email" placeholder="{{'E-Mail-Adresse'|translate}}" required />
-        <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'PLZ'|translate}}" required/>
-        <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'MITMACHEN'|translate}}"/>
+        <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" required />
+        <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'Post Code'|translate}}" required/>
+        <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'GET INVOLVED'|translate}}"/>
         <div class="form-response">
             <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-            <div ng-show="form.errorSubscribe" class="form-message form-error" translate>Die Email-Adresse ist nicht korrekt</div>
+            <div ng-show="form.errorSubscribe" class="form-message form-error" translate>The email address is incorrect </div>
         </div>
     </form>
-    <div ng-show="form.successSubscribe" class="form-message form-success"><h2 translate>Danke!</h2></div>
+    <div ng-show="form.successSubscribe" class="form-message form-success"><h2 translate>Thank you!</h2></div>
 </div>

@@ -13,13 +13,13 @@
         <div class="b-main-content">
             <div class="b-studio-block">
                 <h1>{{studio.name}}</h1>
-                <p ng-if="studio.intro || studio.description">{{studio.intro}} <a class="a-more" href="" ng-hide="showDescription" ng-click="showDescription = true" translate>Mehr &gt;</a><span ng-show="showDescription"><br/>{{studio.description}}</span><a class="a-more" href="" ng-show="showDescription" ng-click="showDescription = false" translate>&lt; Weniger</a></p>
+                <p ng-if="studio.intro || studio.description">{{studio.intro}} <a class="a-more" href="" ng-hide="showDescription" ng-click="showDescription = true" translate>More &gt;</a><span ng-show="showDescription"><br/>{{studio.description}}</span><a class="a-more" href="" ng-show="showDescription" ng-click="showDescription = false" translate>&lt; Less</a></p>
                 <dl>
-                    <dd ng-if="studio.disciplines" translate>Disziplinen:</dd><dt>{{studio.disciplines}}</dt>
-                    <dd ng-if="studio.equipment" translate>Ausstattung:</dd><dt>{{studio.equipment}}</dt>
-                    <dd ng-if="studio.locations" translate>Adresse:</dd><dt><ul>
+                    <dd ng-if="studio.disciplines" translate>Disciplineen:</dd><dt>{{studio.disciplines}}</dt>
+                    <dd ng-if="studio.equipment" translate>Equipment:</dd><dt>{{studio.equipment}}</dt>
+                    <dd ng-if="studio.locations" translate>Address:</dd><dt><ul>
                         <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
-                    </ul><a href="#map" du-smooth-scroll translate>Auf Karte anzeigen</a></dt>
+                    </ul><a href="#map" du-smooth-scroll translate>Show on map</a></dt>
                 </dl>
             </div>
         </div>
@@ -27,31 +27,31 @@
     <div class="w-right">
         <div class="b-main-sidebar">
             <div class="b-studio-info" ng-if="studio.coverageBlack || studio.coverageWhite || studio.coverageLite">
-                <b translate>Akzeptierte Karten:</b>
+                <b translate>Accepted cards:</b>
                 <ul>
                     <li ng-if="studio.coverageBlack"><img src="images/black-ico.png" alt=""/>Black Card:
-                        <span ng-if="studio.coverageBlack === 'FULL'" class="full" translate><i class="fa fa-check"></i>Alle Kurse</span>
-                        <span ng-if="studio.coverageBlack === 'PARTIAL'" class="partial" translate><i class="fa fa-check"></i>Einige Kurse <span class="light" translate>(siehe Kursplan)</span></span>
-                        <span ng-if="studio.coverageBlack === 'NONE'" class="none" translate><i class="fa fa-times"></i>Nicht akzeptiert</span>
+                        <span ng-if="studio.coverageBlack === 'FULL'" class="full" translate><i class="fa fa-check"></i>All courses</span>
+                        <span ng-if="studio.coverageBlack === 'PARTIAL'" class="partial" translate><i class="fa fa-check"></i>Einige Coursee <span class="light" translate>(see course plan)</span></span>
+                        <span ng-if="studio.coverageBlack === 'NONE'" class="none" translate><i class="fa fa-times"></i>Not accepted</span>
                     </li>
                     <li ng-if="studio.coverageWhite"><img src="images/white-ico.png" alt=""/>White Card:
-                        <span ng-if="studio.coverageWhite === 'FULL'" class="full" translate><i class="fa fa-check"></i>Alle Kurse</span>
-                        <span ng-if="studio.coverageWhite === 'PARTIAL'" class="partial" translate><i class="fa fa-check"></i>Einige Kurse <span class="light" translate>(siehe Kursplan)</span></span>
-                        <span ng-if="studio.coverageWhite === 'NONE'" class="none" translate><i class="fa fa-times"></i>Nicht akzeptiert</span>
+                        <span ng-if="studio.coverageWhite === 'FULL'" class="full" translate><i class="fa fa-check"></i>All courses</span>
+                        <span ng-if="studio.coverageWhite === 'PARTIAL'" class="partial" translate><i class="fa fa-check"></i>Einige Coursee <span class="light" translate>(see course plan)</span></span>
+                        <span ng-if="studio.coverageWhite === 'NONE'" class="none" translate><i class="fa fa-times"></i>Not accepted</span>
                     </li>
                     <li ng-if="studio.coverageLite"><img src="images/lite-ico.png" alt=""/>White Card Lite:
-                        <span ng-if="studio.coverageLite === 'FULL'" class="full" translate><i class="fa fa-check"></i>Alle Kurse</span>
-                        <span ng-if="studio.coverageLite === 'PARTIAL'" class="partial" translate><i class="fa fa-check"></i>Einige Kurse <span class="light" translate>(siehe Kursplan)</span></span>
-                        <span ng-if="studio.coverageLite === 'NONE'" class="none" translate><i class="fa fa-times"></i>Nicht akzeptiert</span>
+                        <span ng-if="studio.coverageLite === 'FULL'" class="full" translate><i class="fa fa-check"></i>All courses</span>
+                        <span ng-if="studio.coverageLite === 'PARTIAL'" class="partial" translate><i class="fa fa-check"></i>Einige Coursee <span class="light" translate>(see course plan)</span></span>
+                        <span ng-if="studio.coverageLite === 'NONE'" class="none" translate><i class="fa fa-times"></i>Not accepted</span>
                     </li>
                 </ul>
             </div>
             <div ng-if="studio.terms" class="b-studio-info">
-                <b translate>Informationen:</b>
+                <b translate>Information:</b>
                 <p>{{studio.terms}}</p>
             </div>
             <div ng-if="studio.phone || studio.website" class="b-studio-info">
-                <b translate>Kontaktieren:</b>
+                <b translate>Contact:</b>
                 <p>{{studio.phone}}</p>
                 <p>{{studio.website}}</p>
             </div>
@@ -63,17 +63,17 @@
 </ul>
 <div class="b-studio-timetable">
     <div class="container">
-        <h2 translate>Angebot</h2>
+        <h2 translate>Offer</h2>
         <ul class="weekdays">
             <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
         <table class="timetable">
             <thead>
                 <tr>
-                    <th translate>Zeit</th>
-                    <th translate>Kurs</th>
-                    <th translate>Disziplin</th>
-                    <th translate>Lehrer</th>
+                    <th translate>Time</th>
+                    <th translate>Course</th>
+                    <th translate>Discipline</th>
+                    <th translate>Teacher</th>
                     <th translate>Level</th>
                 </tr>
             </thead>
@@ -88,7 +88,7 @@
                     <td><i ng-repeat="l in [1,2,3]" ng-class="{'on': l <= _.last(e.class.levels)}" class="fa fa-minus fa-rotate-90 level-stick"></i></td>
                 </tr>
                 <tr ng-if="!(events | isSame: 'start_date': currDay).length">
-                    <td class="empty" colspan="7" translate>Heute kein Angebot mehr.</td>
+                    <td class="empty" colspan="7" translate>Heute kein Offer mehr.</td>
                 </tr>
             </tbody>
         </table>
