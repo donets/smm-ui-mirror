@@ -778,10 +778,18 @@ angular.module('boltApp')
                             showWeeks: false
                         };
 
-                      $rootScope.clearFilters = function () {
-                        $rootScope.search = {};
-                      };
-                      $rootScope.clearFilters();
+                        $rootScope.clearFilters = function () {
+                            $rootScope.search = {};
+                        };
+                        $rootScope.clearFilters();
+
+                        if ($rootScope.$stateParams.route === 'memberships') {
+                            $rootScope.clearPhotoFilter = function(){
+                                if($rootScope.search.photo === "false"){
+                                    delete $rootScope.search.photo;
+                                }
+                            }
+                        }
 
                     }
             })
@@ -803,6 +811,10 @@ angular.module('boltApp')
                         getEntityList.$promise.then(function (res) {
                             $scope.entities = res;
                         });
+
+                        $scope.specialFieldType = function (fieldType) {
+                            return _.indexOf(['checkbox', 'photo', 'entity'], fieldType) > -1;
+                        };
 
                     }
             })

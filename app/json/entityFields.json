@@ -155,6 +155,130 @@
                "placeholder": "Keine",
                "type": "select"
            }
+       ],
+       "memberships": [
+           {
+               "model": "cardNumber",
+               "title": "Kartennummer",
+               "readonly": true
+           }, {
+               "model": "email",
+               "title": "E-Mail",
+               "readonly": true
+           }, {
+               "model": "fullName",
+               "title": "Name",
+               "readonly": true,
+               "form": false
+           }, {
+               "model": "firstName",
+               "title": "Vorname",
+               "readonly": true,
+               "listed": false
+           }, {
+               "model": "lastName",
+               "title": "Nachname",
+               "readonly": true,
+               "listed": false
+           }, {
+               "model": "orderPlacedOn",
+               "title": "Bestellt am",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "readonly": true
+           }, {
+               "model": "subscriptionStartsOn",
+               "title": "Mitgliedschaft beginnt am",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "orderCancellableUntil",
+               "title": "Stornierung möglich bis",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "currentPeriodValidUntil",
+               "title": "Aktuelle Periode endet am",
+               "format": "dd.MM.yyyy",
+               "type": "date",
+               "listed": false,
+               "readonly": true
+           }, {
+               "model": "photo",
+               "title": "Foto",
+               "type": "photo",
+               "readonly": true
+           }, {
+               "model": "current",
+               "title": "Aktuelle Periode",
+               "type": "entity",
+               "fields": [
+                   {
+                       "model": "status",
+                       "title": "Status",
+                       "readonly": true
+                   }, {
+                       "model": "type",
+                       "title": "Kartenart",
+                       "readonly": true
+                   }
+               ]
+           }, {
+               "model": "nextPeriod",
+               "title": "Nächste Periode",
+               "type": "entity",
+               "fields": [
+                   {
+                       "model": "status",
+                       "title": "Status",
+                       "readonly": true
+                   }, {
+                       "model": "type",
+                       "title": "Kartenart",
+                       "readonly": true
+                   }
+               ]
+           }, {
+               "model": "deliveryAddress",
+               "title": "Lieferadresse",
+               "type": "entity",
+               "listed": false,
+               "fields": [
+                   {
+                       "model": "fullAddress",
+                       "title": "vollständige Adresse",
+                       "readonly": true
+                   }
+               ]
+           }, {
+               "model": "discount",
+               "title": "Rabatt",
+               "type": "entity",
+               "listed": false,
+               "fields": [
+                   {
+                       "model": "voucherCode",
+                       "title": "Vouchercode",
+                       "readonly": true
+                   }, {
+                       "model": "percentOff",
+                       "title": "Rabatt in %",
+                       "readonly": true
+                   }, {
+                       "model": "amountOff",
+                       "title": "Rabatt in €",
+                       "readonly": true
+                   }, {
+                       "model": "duarationInMonths",
+                       "title": "Rabattlänge in Monaten",
+                       "readonly": true
+                   }
+               ]
+           }
        ]
    }
 }
