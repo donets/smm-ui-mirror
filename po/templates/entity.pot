@@ -24,10 +24,18 @@ msgstr ""
 msgid "Dieser Code existiert bereits"
 msgstr ""
 
+#: app/views/entity.html:79
+msgid "Download"
+msgstr ""
+
 #: app/views/entity.html:74
 msgid "Hochladen"
 msgstr ""
 
 #: app/views/entity.html:28
 msgid "Select date"
+msgstr ""
+
+#: app/views/entity.html:81
+msgid "kein Foto"
 msgstr ""

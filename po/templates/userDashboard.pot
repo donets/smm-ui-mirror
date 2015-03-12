@@ -4,90 +4,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/userDashboard.html:150
-msgid "Ab sofort findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deinem Training sofort beginnen (bis Du Deine Karte erhältst, lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im Studio vor). Viel Spaß!"
+#: app/views/userDashboard.html:53
+msgid "All Courses"
 msgstr ""
 
 #: app/views/userDashboard.html:16
-msgid "Alle Disziplinen"
-msgstr ""
-
-#: app/views/userDashboard.html:53
-msgid "Alle Kurse"
-msgstr ""
-
-#: app/views/userDashboard.html:81
-msgid "Alle Lehrer"
-msgstr ""
-
-#: app/views/userDashboard.html:75
-msgid "Alle Levels"
+msgid "All Disciplines"
 msgstr ""
 
 #: app/views/userDashboard.html:57
-msgid "Alle Stadtteile"
+msgid "All Districts"
 msgstr ""
 
-#: app/views/userDashboard.html:25
-msgid "Alle Stile"
+#: app/views/userDashboard.html:75
+msgid "All Levels"
 msgstr ""
 
 #: app/views/userDashboard.html:66
-msgid "Alle Studios"
+msgid "All Studios"
 msgstr ""
 
-#: app/views/userDashboard.html:149
-msgid "Danke für Deine Anmeldung!"
+#: app/views/userDashboard.html:25
+msgid "All Styles"
 msgstr ""
 
-#: app/views/userDashboard.html:90
-msgid "Disziplinen"
-msgstr ""
-
-#: app/views/userDashboard.html:82
-msgid "Filter zurücksetzen"
-msgstr ""
-
-#: app/views/userDashboard.html:3
-msgid "Finde einen Kurs"
-msgstr ""
-
-#: app/views/userDashboard.html:138
-msgid "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück"
-msgstr ""
-
-#: app/views/userDashboard.html:4
-msgid "Heute {{today | amDateFormat: 'dd DD.MM.'}}"
+#: app/views/userDashboard.html:81
+msgid "All Teachers"
 msgstr ""
 
 #: app/views/userDashboard.html:89
-msgid "Kurs"
+msgid "Course"
 msgstr ""
 
-#: app/views/userDashboard.html:92
-msgid "Lehrer"
+#: app/views/userDashboard.html:90
+msgid "Disciplines"
+msgstr ""
+
+#: app/views/userDashboard.html:94
+msgid "District"
+msgstr ""
+
+#: app/views/userDashboard.html:3
+msgid "Find a course"
+msgstr ""
+
+#: app/views/userDashboard.html:150
+msgid "From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!"
+msgstr ""
+
+#: app/views/userDashboard.html:82
+msgid "Reset filters"
 msgstr ""
 
 #: app/views/userDashboard.html:33
 msgid "Stadt"
 msgstr ""
 
-#: app/views/userDashboard.html:94
-msgid "Stadtteil"
-msgstr ""
-
-#: app/views/userDashboard.html:91
-msgid "Stile"
-msgstr ""
-
 #: app/views/userDashboard.html:93
 msgid "Studio"
 msgstr ""
 
-#: app/views/userDashboard.html:151
-msgid "Weiter zu den Kursen"
+#: app/views/userDashboard.html:91
+msgid "Styles"
+msgstr ""
+
+#: app/views/userDashboard.html:92
+msgid "Teacher"
+msgstr ""
+
+#: app/views/userDashboard.html:149
+msgid "Thank you for your registration!"
+msgstr ""
+
+#: app/views/userDashboard.html:138
+msgid "There are no courses available for this day and this search. Try another date or reset the filters."
 msgstr ""
 
 #: app/views/userDashboard.html:88
-msgid "Zeit"
+msgid "Time"
+msgstr ""
+
+#: app/views/userDashboard.html:4
+msgid "Today {{today | amDateFormat: 'dd DD.MM.'}}"
+msgstr ""
+
+#: app/views/userDashboard.html:151
+msgid "Weiter zu den Courseen"
 msgstr ""

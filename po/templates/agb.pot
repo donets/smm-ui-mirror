@@ -232,10 +232,6 @@ msgstr ""
 msgid "9.4. Mit Wirksamwerden der Kündigung des Vertrages darfst Du die Member Card nicht mehr nutzen und bist Du verpflichtet, die Member Card zu zerstören oder an uns zurückzuschicken. Solltest Du die Member Card trotz einer Kündigung Deinerseits weiternutzen und damit an Kursen teilnehmen, ist dies ein konkludenter Antrag Deinerseits, den Mitgliedsvertrag mit uns zu den zuvor vereinbarten Konditionen fortzusetzen, den wir bereits hiermit annehmen. In diesem Fall bist Du weiterhin zur Zahlung der vereinbarten Vergütung verpflichtet. Sobald wir von Deiner Weiternutzung der Member Card Kenntnis erlangen, werden Dir per E-Mail eine einwöchige Frist setzen, Deine Kündigung durch Rücksendung Deiner Member Card an uns ausdrücklich zu bestätigen und werden Dich dabei auf die vorstehende Rechtsfolge der Weiternutzung Deiner Member Card ausdrücklich hinweisen."
 msgstr ""
 
-#: app/views/agb.html:3
-msgid "Allgemeine Geschäftsbedingungen"
-msgstr ""
-
 #: app/views/agb.html:41
 msgid "Als Somuchmore Mitglied erhältst Du Zugang zu den auf der Somuchmore Website angebotenen Kursen. Es gibt hierbei Kurse, die eine Voranmeldung erfordern und solche die einer Voranmeldung nicht bedürfen. Erforderliche Voranmeldungen für Kurse werden Dir bei dem jeweiligen Kursangebot des Partners angezeigt. In beiden Fällen ist die Kapazität auf eine maximale Teilnehmerzahl beschränkt und es kann passieren, dass ein Kurs bereits ausgebucht ist und Du nicht teilnehmen kannst. Wir gewähren daher keinen Anspruch auf Zugang zu einem bestimmten Kurs an einem bestimmten Termin. Bitte melde Dich bei voranmeldepflichtigen Kursen rechtzeitig an, sobald die Voranmeldefrist zu laufen beginnt und sei bei Kursen ohne Voranmeldepflicht rechtzeitig vor Kursbeginn beim Partner, um Dir eine Teilnahme am gewünschten Kurs zu sichern."
 msgstr ""
@@ -350,6 +346,10 @@ msgstr ""
 
 #: app/views/agb.html:145
 msgid "Stand: 21.01.2015"
+msgstr ""
+
+#: app/views/agb.html:3
+msgid "Terms and Conditions"
 msgstr ""
 
 #: app/views/agb.html:56

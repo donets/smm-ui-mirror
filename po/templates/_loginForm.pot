@@ -4,10 +4,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/_loginForm.html:57
-msgid "Abmelden"
-msgstr ""
-
 #: app/views/_loginForm.html:51
 msgid "Account"
 msgstr ""
@@ -16,33 +12,22 @@ msgstr ""
 msgid "Back to login"
 msgstr ""
 
+#: app/views/_loginForm.html:50
 #: app/views/_loginForm.html:53
 msgid "Classes"
 msgstr ""
 
-#: app/views/_loginForm.html:42
-msgid "Dein Passwort vergessen?"
-msgstr ""
-
-#: app/views/_loginForm.html:37
-msgid "Die Email Adresse wurde nicht gefunden"
-msgstr ""
-
-#: app/views/_loginForm.html:36
-msgid "E-Mail zum Zurücksetzen gesendet"
-msgstr ""
-
 #: app/views/_loginForm.html:15
 #: app/views/_loginForm.html:30
-msgid "E-Mail-Adresse"
+msgid "Email Address"
+msgstr ""
+
+#: app/views/_loginForm.html:42
+msgid "Forgot password?"
 msgstr ""
 
 #: app/views/_loginForm.html:24
-msgid "Falsche E-Mail oder Passwort"
-msgstr ""
-
-#: app/views/_loginForm.html:50
-msgid "Kurse"
+msgid "Incorrect email address or password"
 msgstr ""
 
 #: app/views/_loginForm.html:54
@@ -54,16 +39,24 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
+#: app/views/_loginForm.html:57
+msgid "Memberships"
+msgstr ""
+
 #: app/views/_loginForm.html:52
-msgid "Meine Karte"
+msgid "My card"
 msgstr ""
 
 #: app/views/_loginForm.html:18
-msgid "Passwort"
+msgid "Password"
 msgstr ""
 
 #: app/views/_loginForm.html:33
-msgid "Reset Password"
+msgid "Reset password"
+msgstr ""
+
+#: app/views/_loginForm.html:58
+msgid "Sign out"
 msgstr ""
 
 #: app/views/_loginForm.html:55
@@ -72,4 +65,12 @@ msgstr ""
 
 #: app/views/_loginForm.html:56
 msgid "Vouchers"
+msgstr ""
+
+#: app/views/_loginForm.html:36
+msgid "You have been sent a reset email"
+msgstr ""
+
+#: app/views/_loginForm.html:37
+msgid "Your email address was not found"
 msgstr ""

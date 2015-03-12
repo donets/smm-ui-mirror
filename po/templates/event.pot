@@ -5,62 +5,62 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/event.html:38
-msgid "&lt; Weniger"
+msgid "&lt; Less"
 msgstr ""
 
 #: app/views/event.html:67
-msgid ", {{teacher.teacherProfile.numberOfClassesTaught}} Stunden"
+msgid ", {{teacher.teacherProfile.numberOfClassesTaught}} hours"
 msgstr ""
 
 #: app/views/event.html:24
-msgid "<i class=\"fa fa-calendar\"></i>Buche einen anderen Termin"
+msgid "<i class=\"fa fa-calendar\"></i>Book a different date"
 msgstr ""
 
 #: app/views/event.html:47
-msgid "<i class=\"fa fa-clock-o\"></i>{{duration}} Minuten"
+msgid "<i class=\"fa fa-clock-o\"></i>{{duration}} minutes"
 msgstr ""
 
 #: app/views/event.html:62
 #: app/views/event.html:71
-msgid "<i class=\"fa fa-envelope\"></i>Fragen zum Event?"
-msgstr ""
-
-#: app/views/event.html:19
-msgid "Ausverkauft"
+msgid "<i class=\"fa fa-envelope\"></i>Questions about the event?"
 msgstr ""
 
 #: app/views/event.html:22
-msgid "Buche dieses Event"
+msgid "Book this event"
 msgstr ""
 
 #: app/views/event.html:23
-msgid "Buche dieses Event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span>"
+msgid "Book this event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</span>"
 msgstr ""
 
 #: app/views/event.html:59
-msgid "Erfahrener Lehrer"
-msgstr ""
-
-#: app/views/event.html:58
-msgid "Lehrer"
-msgstr ""
-
-#: app/views/event.html:37
-msgid "Mehr &gt;"
+msgid "Experienced teacher"
 msgstr ""
 
 #: app/views/event.html:60
-msgid "Meister Lehrer"
+msgid "Meister Teacher"
+msgstr ""
+
+#: app/views/event.html:37
+msgid "More &gt;"
 msgstr ""
 
 #: app/views/event.html:20
-msgid "Privatstunde"
+msgid "Private lesson"
 msgstr ""
 
 #: app/views/event.html:66
-msgid "Seit {{2014 - teacher.teacherProfile.teachingSince}}"
+msgid "Since {{2014 - teacher.teacherProfile.teachingSince}}"
+msgstr ""
+
+#: app/views/event.html:19
+msgid "Sold out"
+msgstr ""
+
+#: app/views/event.html:58
+msgid "Teacher"
 msgstr ""
 
 #: app/views/event.html:18
-msgid "{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} Plätzen frei"
+msgid "{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} Places available"
 msgstr ""

@@ -5,13 +5,13 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/modalCancel.html:3
-msgid "Bist Du sicher, dass Du Deine Mitgliedschaft kündigen willst?"
-msgstr ""
-
-#: app/views/modalCancel.html:6
-msgid "Ja"
+msgid "Are you sure you want to cancel your membership?"
 msgstr ""
 
 #: app/views/modalCancel.html:5
-msgid "Nein"
+msgid "No"
+msgstr ""
+
+#: app/views/modalCancel.html:6
+msgid "Yes"
 msgstr ""
