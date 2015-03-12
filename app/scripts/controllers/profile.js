@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Profile', [])
-    .controller('ProfileCtrl', function ($scope, $rootScope, $window, $http, $modal, getMembership, getCards) {
+    .controller('ProfileCtrl', function ($scope, $rootScope, $window, $http, $modal, RestApi, getMembership) {
 
         var getVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -22,24 +22,19 @@ angular.module('boltApp.controllers.Profile', [])
 
         getMembership.$promise.then(function () {
             $scope.membership = getMembership.membership;
-            console.log($scope.membership);
             $scope.membership.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
+            RestApi.query({route: 'plans', cityId: $scope.membership.cityId}).$promise.then(function (res) {
+                $scope.cards = res;
+                $scope.currentCard = _.findWhere($scope.cards, {code: $scope.membership.type});
+            });
             if ($scope.membership.discountGranted) {
                 getVoucher($scope.membership.discount.voucherCode);
             }
-            $scope.overview = {
-                card: _.findWhere($scope.cards, {type: $scope.membership.type}).name,
-                price: _.findWhere($scope.cards, {type: $scope.membership.type}).price
-            };
-            $scope.member = {
-                name: $scope.membership.firstName + ' ' + $scope.membership.lastName,
-                email: $scope.membership.email
-            };
+            console.log($scope.membership);
         });
 
         $scope.password = {};
         $scope.notChanged = true;
-        $scope.cards = getCards.data;
 
         $scope.changePass = function (formPass) {
             $scope.loading = true;
@@ -102,28 +97,23 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'name', 'email',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'userId',
 
-                    function ($scope, $modalInstance, $http, $window, name, email) {
+                    function ($scope, $modalInstance, $http, $window, userId) {
 
-                        $scope.message = {
-                            name: name,
-                            email: email,
-                            message: 'cancel membership'
-                        };
+                        $scope.step_1 = true;
 
-                        $scope.submitMessage = function() {
+                        $scope.cancelSubmit = function() {
                             $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.message).success(function () {
+                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + userId + '/cancel').success(function (res) {
+                                console.log(res);
                                 $scope.loading = false;
                                 $scope.success = true;
-                                setTimeout(function () {
-                                    $modalInstance.close(true);
-                                }, 0);
-                            }).error(function (response, status) {
+                                $scope.step_1 = false;
+                                $scope.cancellationDate = res.cancellationDate;
+                            }).error(function (res) {
+                                console.log(res);
                                 $scope.loading = false;
-                                $scope.error = true;
-                                console.error(status);
                             });
                         };
 
@@ -135,35 +125,10 @@ angular.module('boltApp.controllers.Profile', [])
                 backdrop: 'static',
                 windowClass: 'modal-cancel',
                 resolve: {
-                    name: function () {
-                        return $scope.member.name;
-                    },
-                    email: function () {
-                        return $scope.member.email;
+                    userId: function () {
+                        return $scope.membership.id;
                     }
                 }
-            }).result.then(function(result) {
-                if (result) {
-                    $scope.messageNotAvailable = true; 
-                }
-            });
-        };
-
-        $scope.changeCard = function () {
-            $scope.notChanged = false;
-        };
-
-        $scope.changeMembership = function(type) {
-            $scope.loading = true;
-            $scope.member.message = 'change membership to ' + type + ' card';
-            $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.member).success(function () {
-                $scope.loading = false;
-                $scope.notChanged = true;
-                $scope.messageNotAvailable = true;
-            }).error(function (response, status) {
-                $scope.loading = false;
-                $scope.messageNotDelivered = true;
-                console.error(status);
             });
         };
 

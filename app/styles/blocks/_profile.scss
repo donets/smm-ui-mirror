@@ -106,14 +106,19 @@
     margin-bottom: 30px;
     .form-overview {
         width: 690px;
-        float: right;
-        margin: 0;
+        margin: 0 0 116px;
         border: 0 none;
+        .form-title {
+            line-height: inherit;
+        }
+        p {
+            max-width: 300px;
+        }
     }
 }
-.photo {
+.widget-overview {
     width: 200px;
-    float: left;
+    margin-bottom: 50px;
     h3 {
         white-space: nowrap;
         margin: 0 0 20px;
@@ -121,12 +126,20 @@
     img {
         width: 200px;
         height: 200px;
-        @include border-radius(50%);
-        margin-bottom: 20px;
     }
     button {
         min-width: 0;
         width: 200px;
         font-size: 18px;
+    }
+    p {
+        margin: 0 0 10px;
+        font-size: 18px;
+    }
+    &.photo {
+        img {
+            @include border-radius(50%);
+            margin-bottom: 20px;
+        }
     }
 }

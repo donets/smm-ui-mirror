@@ -509,12 +509,6 @@ angular.module('boltApp')
 
                         return Membership.get().$promise;
 
-                    },
-
-                    getCards: function($http) {
-
-                        return $http.get('json/cards.json', {cache: true});
-
                     }
 
                 },
