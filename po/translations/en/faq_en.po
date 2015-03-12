@@ -1,0 +1,408 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/faq.html:28
+msgid "Am I tied up in a long term binding contract with Somuchmore?"
+msgstr "Am I tied up in a long term binding contract with Somuchmore?"
+
+#: app/views/faq.html:77
+msgid "When can I cancel a class that I have booked with Somuchmore?"
+msgstr "When can I cancel a class that I have booked with Somuchmore?"
+
+#: app/views/faq.html:61
+msgid ""
+"Do I need to show my Somuchmore card when I turn up to classes that I have "
+"pre-booked?"
+msgstr ""
+"Do I need to show my Somuchmore card when I turn up to classes that I have "
+"pre-booked?"
+
+#: app/views/faq.html:104
+msgid "Thank you!"
+msgstr "Thank you!"
+
+#: app/views/faq.html:100
+msgid "Your Email Address"
+msgstr "Your Email Address"
+
+# Please delete this
+#: app/views/faq.html:90
+msgid ""
+"Here are the differences between the White Card and the Black Card: The "
+"White Card gives you access to a variety of unlimited courses but only up to "
+"three times per provider a month. With the Black Card you can go to each "
+"provider as often as you like!"
+msgstr ""
+"Here are the differences between the White Card and the Black Card: The "
+"White Card gives you access to a variety of unlimited courses but only up to "
+"three times per provider a month. With the Black Card you can go to each "
+"provider as often as you like!"
+
+#: app/views/faq.html:105
+msgid "The Email Address is incorrect"
+msgstr "The Email Address is incorrect"
+
+#: app/views/faq.html:33
+msgid "The White Card is £99 "
+msgstr "The White Card is £99 "
+
+#: app/views/faq.html:78
+msgid ""
+"You can cancel up to 8 hours before your class starts without incurring a "
+"fee. However, some of our partners require a longer period. All of this "
+"information is displayed on their profile on our website. "
+msgstr ""
+"You can cancel up to 8 hours before your class starts without incurring a "
+"fee. However, some of our partners require a longer period. All of this "
+"information is displayed on their profile on our website. "
+
+#: app/views/faq.html:13
+msgid ""
+"You can participate in hundreds of classes and try a plethora of health and "
+"fitness disciplines whilst experiencing a variety of studios and teachers. "
+"Somuchmore is ideal, if you crave more variety in your fitness regime, want "
+"to learn new exercise styles and ways to train with noticeably more variety, "
+"motivation and success."
+msgstr ""
+"You can participate in hundreds of classes and try a plethora of health and "
+"fitness disciplines whilst experiencing a variety of studios and teachers. "
+"Somuchmore is ideal, if you crave more variety in your fitness regime, want "
+"to learn new exercise styles and ways to train with noticeably more variety, "
+"motivation and success."
+
+#: app/views/faq.html:17
+msgid ""
+"Unlike gym or studio memberships, with Somuchmore you can take part in "
+"hundreds of classes and courses at countless studios and workshops. You’ll "
+"be welcomed in all studios as if you were one of their own members. "
+msgstr ""
+"Unlike gym or studio memberships, with Somuchmore you can take part in "
+"hundreds of classes and courses at countless studios and workshops. You’ll "
+"be welcomed in all studios as if you were one of their own members. "
+
+#: app/views/faq.html:70
+msgid ""
+"Some selected partners, classes and workshops can only be visited by pre-"
+"booking online. This is displayed on each partner profile with the "
+"appropriate contact to make the reservation for you. However, the majority "
+"of our classes can be taken by just turning up."
+msgstr ""
+"Some selected partners, classes and workshops can only be visited by pre-"
+"booking online. This is displayed on each partner profile with the "
+"appropriate contact to make the reservation for you. However, the majority "
+"of our classes can be taken by just turning up."
+
+#: app/views/faq.html:101
+msgid "Get your invitation"
+msgstr "Get your invitation"
+
+#: app/views/faq.html:41
+msgid ""
+"At Somuchmore there are no hidden costs whatsoever. You will only be charged "
+"an additional cost if you attend a class that isn’t included in your "
+"membership, i.e. if you visit a studio more than three times a month. In "
+"this case we will charge you £16, which is the average price of a drop-in "
+"class for studios in the UK."
+msgstr ""
+"At Somuchmore there are no hidden costs whatsoever. You will only be charged "
+"an additional cost if you attend a class that isn’t included in your "
+"membership, i.e. if you visit a studio more than three times a month. In "
+"this case we will charge you £16, which is the average price of a drop-in "
+"class for studios in the UK."
+
+#: app/views/faq.html:21
+msgid ""
+"The Somuchmore membership means you can visit all classes, at all times at "
+"no additional cost at most of our partner studios, centers and workshops. "
+"Please note that some do have exceptions to these terms with peak times "
+"where classes are usually at full capacity. If you really want to go to a "
+"peak time class or a more expensive course, this can be arranged with us for "
+"an additional cost."
+msgstr ""
+"The Somuchmore membership means you can visit all classes, at all times at "
+"no additional cost at most of our partner studios, centers and workshops. "
+"Please note that some do have exceptions to these terms with peak times "
+"where classes are usually at full capacity. If you really want to go to a "
+"peak time class or a more expensive course, this can be arranged with us for "
+"an additional cost."
+
+#: app/views/faq.html:50
+msgid ""
+"We are also happy to activate your membership at a later date if you need "
+"to. If you change your mind and decide to attend classes before this date, "
+"we will just charge you the previous month’s membership fee retrospectively. "
+""
+msgstr ""
+"We are also happy to activate your membership at a later date if you need "
+"to. If you change your mind and decide to attend classes before this date, "
+"we will just charge you the previous month’s membership fee retrospectively. "
+""
+
+#: app/views/faq.html:40
+msgid "Are there any hidden costs?"
+msgstr "Are there any hidden costs?"
+
+#: app/views/faq.html:10
+msgid "Guide to Somuchmore"
+msgstr "Guide to Somuchmore"
+
+#: app/views/faq.html:73
+msgid ""
+"Is my place guaranteed if I sign up in advance for a class, course or "
+"workshop?"
+msgstr ""
+"Is my place guaranteed if I sign up in advance for a class, course or "
+"workshop?"
+
+#: app/views/faq.html:45
+msgid ""
+"At all of our partner studios. You will find an overview of our partners and "
+"the studios we work with here. New offerings are being added to the list "
+"every week."
+msgstr ""
+"At all of our partner studios. You will find an overview of our partners and "
+"the studios we work with here. New offerings are being added to the list "
+"every week."
+
+#: app/views/faq.html:25
+msgid ""
+"Yes – we offer you a money-back guarantee for 14 days. During this time you "
+"can attend up to three courses. If you decide to cancel your contract after "
+"this period, you will receive a full refund."
+msgstr ""
+"Yes – we offer you a money-back guarantee for 14 days. During this time you "
+"can attend up to three courses. If you decide to cancel your contract after "
+"this period, you will receive a full refund."
+
+#: app/views/faq.html:62
+msgid ""
+"Yes, when visiting and attending any offering, class, course or workshop, "
+"you will be asked to show your Somuchmore photo ID card. During the initial "
+"trial period, you will need to print your class reservation confirmation "
+"email and present this with a photo ID, like a driving license or passport. "
+" "
+msgstr ""
+"Yes, when visiting and attending any offering, class, course or workshop, "
+"you will be asked to show your Somuchmore photo ID card. During the initial "
+"trial period, you will need to print your class reservation confirmation "
+"email and present this with a photo ID, like a driving license or passport. "
+" "
+
+#: app/views/faq.html:24
+msgid "Can I try out Somuchmore for free?"
+msgstr "Can I try out Somuchmore for free?"
+
+#: app/views/faq.html:37
+msgid ""
+"With the White Card you can attend up to three classes a month per partner "
+"(studio). "
+msgstr ""
+"With the White Card you can attend up to three classes a month per partner "
+"(studio). "
+
+#: app/views/faq.html:69
+msgid "Do I have to register in advance for courses?"
+msgstr "Do I have to register in advance for courses?"
+
+#: app/views/faq.html:49
+msgid ""
+"After you have registered and your payment has been confirmed, we’ll send "
+"you a confirmation email. The email will include your membership number and "
+"a temporary card that you can print out. Once you have this card you can use "
+"it immediately."
+msgstr ""
+"After you have registered and your payment has been confirmed, we’ll send "
+"you a confirmation email. The email will include your membership number and "
+"a temporary card that you can print out. Once you have this card you can use "
+"it immediately."
+
+#: app/views/faq.html:94
+msgid ""
+"Oh no. Don't go! Are you sure you want to leave us? Is there anything we can "
+"do that will make you change your mind? Feel free to let us know. "
+"Otherwise, you can cancel your contract by sending us an e-mail to <a "
+"href=\"mailto:info@somuchmore.org\">info@somuchmore.org</a>. Don’t forget to "
+"include your card number, your first name and surname and details of when "
+"you want to cancel your contract by. Your cancellation will become effective "
+"as of the following month, provided we receive your cancellation at least "
+"seven working days before the end of the current month."
+msgstr ""
+"Oh no. Don't go! Are you sure you want to leave us? Is there anything we can "
+"do that will make you change your mind? Feel free to let us know. "
+"Otherwise, you can cancel your contract by sending us an e-mail to <a "
+"href=\"mailto:info@somuchmore.org\">info@somuchmore.org</a>. Don’t forget to "
+"include your card number, your first name and surname and details of when "
+"you want to cancel your contract by. Your cancellation will become effective "
+"as of the following month, provided we receive your cancellation at least "
+"seven working days before the end of the current month."
+
+#: app/views/faq.html:86
+msgid ""
+"Somuchmore only works with high-quality providers. In addition to this, we "
+"know every provider personally, visit every studio in person and speak with "
+"the teachers in great depth. That’s why at Somuchmore you will find only "
+"teachers who have undergone certified training, as well as studios that "
+"represent particularly high-quality courses."
+msgstr ""
+"Somuchmore only works with high-quality providers. In addition to this, we "
+"know every provider personally, visit every studio in person and speak with "
+"the teachers in great depth. That’s why at Somuchmore you will find only "
+"teachers who have undergone certified training, as well as studios that "
+"represent particularly high-quality courses."
+
+#: app/views/faq.html:54
+msgid ""
+"If you wish to cancel your membership, simply send us an e-mail to <a "
+"href=\"mailto:info@somuchmore.org\">customerservice@somuchmore.org</a>. Please "
+"don’t forget to include your contract number, your name and your full "
+"address and also to destroy your card."
+msgstr ""
+"If you wish to cancel your membership, simply send us an e-mail to <a "
+"href=\"mailto:info@somuchmore.org\">customerservice@somuchmore.org</a>. Please "
+"don’t forget to include your contract number, your name and your full "
+"address and also to destroy your card."
+
+#: app/views/faq.html:48
+msgid "When does my Somuchmore membership begin?"
+msgstr "When does my Somuchmore membership begin?"
+
+#: app/views/faq.html:57
+msgid "When will you send me my Somuchmore card?"
+msgstr "When will you send me my Somuchmore card?"
+
+#: app/views/faq.html:20
+msgid "What does the Somuchmore membership include?"
+msgstr "What does the Somuchmore membership include?"
+
+#: app/views/faq.html:12
+msgid "What are the benefits of Somuchmore?"
+msgstr "What are the benefits of Somuchmore?"
+
+#: app/views/faq.html:32
+msgid "How much does a Somuchmore membership cost?"
+msgstr "How much does a Somuchmore membership cost?"
+
+#: app/views/faq.html:81
+msgid "What happens if I fail to cancel in advance and simply don’t turn up?"
+msgstr "What happens if I fail to cancel in advance and simply don’t turn up?"
+
+#: app/views/faq.html:16
+msgid ""
+"What makes Somuchmore different from a regular studio, gym or fitness "
+"centre?"
+msgstr ""
+"What makes Somuchmore different from a regular studio, gym or fitness "
+"centre?"
+
+#: app/views/faq.html:36
+msgid "What are the differences between the membership cards?"
+msgstr "What are the differences between the membership cards?"
+
+#: app/views/faq.html:89
+msgid "What’s the difference between the White Card and the Black Card?"
+msgstr "What’s the difference between the White Card and the Black Card?"
+
+#: app/views/faq.html:82
+msgid ""
+"If you have pre-booked your place in a class we unfortunately have to charge "
+"you £16 even if you don’t turn up.  The reason we do this is because the "
+"studio won’t be able to offer your reserved spot to anyone else in such a "
+"short time and would otherwise lose money. If the studio doesn’t require you "
+"to pre-book then it’s all a bit more relaxed: you don’t have to pay "
+"anything. Any member who repeatedly doesn't turn up to class, i.e. more than "
+"three times in one month, will no longer be able to continue their "
+"membership with Somuchmore. Don't worry though, we will notify you every "
+"time you don't turn up and try and make sure this doesn't happen!"
+msgstr ""
+"If you have pre-booked your place in a class we unfortunately have to charge "
+"you £16 even if you don’t turn up.  The reason we do this is because the "
+"studio won’t be able to offer your reserved spot to anyone else in such a "
+"short time and would otherwise lose money. If the studio doesn’t require you "
+"to pre-book then it’s all a bit more relaxed: you don’t have to pay "
+"anything. Any member who repeatedly doesn't turn up to class, i.e. more than "
+"three times in one month, will no longer be able to continue their "
+"membership with Somuchmore. Don't worry though, we will notify you every "
+"time you don't turn up and try and make sure this doesn't happen!"
+
+#: app/views/faq.html:74
+msgid ""
+"If the studio requires pre-booking for their class and you receive a "
+"confirmation email from them, this means your space is officially reserved. "
+"If the course doesn’t require you to sign up in advance, we suggest you turn "
+"up in good time in order to secure a place. You can find out how long each "
+"studio reccomends, by visiting their profile on our website."
+msgstr ""
+"If the studio requires pre-booking for their class and you receive a "
+"confirmation email from them, this means your space is officially reserved. "
+"If the course doesn’t require you to sign up in advance, we suggest you turn "
+"up in good time in order to secure a place. You can find out how long each "
+"studio reccomends, by visiting their profile on our website."
+
+#: app/views/faq.html:53
+msgid "How does my Somuchmore membership end?"
+msgstr "How does my Somuchmore membership end?"
+
+#: app/views/faq.html:93
+msgid "How do I cancel my membership?"
+msgstr "How do I cancel my membership?"
+
+#: app/views/faq.html:85
+msgid ""
+"How can I guarantee everything that Somuchmore offers is of the highest "
+"quality?"
+msgstr ""
+"How can I guarantee everything that Somuchmore offers is of the highest "
+"quality?"
+
+#: app/views/faq.html:66
+msgid ""
+"We believe that everyone has the capability to reach their full potential in "
+"life. What we aim to do at Somuchmore is make sure your life is as mindful "
+"and active as possible. Our aim is to keep you inspired. Keep you moving. "
+"Keep you thinking. Keep you learning. We help you achieve this through "
+"training your mind, body and soul."
+msgstr ""
+"We believe that everyone has the capability to reach their full potential in "
+"life. What we aim to do at Somuchmore is make sure your life is as mindful "
+"and active as possible. Our aim is to keep you inspired. Keep you moving. "
+"Keep you thinking. Keep you learning. We help you achieve this through "
+"training your mind, body and soul."
+
+#: app/views/faq.html:29
+msgid ""
+"You can cancel your Somuchmore membership monthly at no cost. We have "
+"deliberately decided against fixed long term memberships for a reason. "
+"Because they stop you from reaching your full potential. "
+msgstr ""
+"You can cancel your Somuchmore membership monthly at no cost. We have "
+"deliberately decided against fixed long term memberships for a reason. "
+"Because they stop you from reaching your full potential. "
+
+#: app/views/faq.html:58
+msgid ""
+"We will send you your personalised Somuchmore card after your 14 day trial "
+"period has expired. You will receive your card by post a few working days "
+"later."
+msgstr ""
+"We will send you your personalised Somuchmore card after your 14 day trial "
+"period has expired. You will receive your card by post a few working days "
+"later."
+
+#: app/views/faq.html:44
+msgid "Where can I go with my Somuchmore card?"
+msgstr "Where can I go with my Somuchmore card?"
+
+#: app/views/faq.html:65
+msgid "What is the Somuchmore philosophy?"
+msgstr "What is the Somuchmore philosophy?"

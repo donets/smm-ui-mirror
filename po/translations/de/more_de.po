@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: app/views/more.html:40
+msgid "You are already everything you want to be."
+msgstr "Alles, was Du sein willst, ist schon da."
+
+#: app/views/more.html:53
+msgid "Beginners or advanced classes, in a small group or one-on-one: you will "
+"enjoy a fantastic session that is tailored to you."
+msgstr "Anfänger oder Fortgeschrittener, in kleiner Gruppe oder alleine: Du erlebst "
+"eine wunderbare, auf Dich zugeschnittene Stunde."
+
+#: app/views/more.html:62
+msgid "Connection"
+msgstr "Connection"
+
+#: app/views/more.html:60
+msgid "Core"
+msgstr "Core"
+
+#: app/views/more.html:46
+msgid "The decision is yours!"
+msgstr "Du entscheidest!"
+
+#: app/views/more.html:61
+msgid "No one else has the same set of talents as you – you have every right in the "
+"world to develop your true self."
+msgstr "Du hast Talente, die kein anderer Mensch hat – und jedes Recht auf der Welt, "
+"Deinen wahren Kern ganz zu entfalten."
+
+#: app/views/more.html:39
+msgid "You don’t need to do anything to be good, beautiful or valuable. You are all "
+"those things already!"
+msgstr "Du musst nichts machen, um gut, schön oder wertvoll zu sein. Du bist es "
+"schon!"
+
+#: app/views/more.html:47
+msgid "Discover yoga, meditation, climbing, holistic fitness and wellness, singing, "
+"speech coaching, business communications, spiritual growth – or whatever it "
+"is you always wanted to do."
+msgstr "Entdecke Yoga, Meditieren, Klettern, ganzheitliche Fitness und Wellness, "
+"Singen, Sprechen, beruflich kommunizieren, spirituelle Weisheit - oder was "
+"Du immer schon mal machen wolltest."
+
+#: app/views/more.html:45
+msgid "You want to be relaxed, fit and attractive? To enjoy a healthy diet and "
+"lifestyle? To realise your full potential in your personal or professional "
+"life? To experience intense feelings and thrilling sex with your partner? "
+"And happiness with your family and friends?"
+msgstr "Entspannt, fit und attraktiv sein? Genussvoll und gesund essen und leben? "
+"Dich persönlich oder beruflich verwirklichen? Intensive Gefühle, spannenden "
+"Sex haben und Glück mit Dir selbst und mit Partner, Familie und Freunden "
+"erleben?"
+
+#: app/views/more.html:50
+msgid "It’s all about you."
+msgstr "Es geht um Dich."
+
+#: app/views/more.html:58
+msgid "Holistic lifestyle"
+msgstr "Holistic Lifestyle"
+
+#: app/views/more.html:59
+msgid "Body, mind, soul, health, love, work, family: a holistic lifestyle means "
+"balance – and is the key to power, health and deeper fulfilment."
+msgstr "Körper, Geist, Seele und Gesundheit, Liebe, Arbeit, Familie: ein holistic "
+"lifestyle bedeutet Ausgewogenheit – und den Schlüssel zu Power, Gesundheit "
+"und tiefer Erfüllung."
+
+#: app/views/more.html:41
+msgid "Be coached on how to develop your true potential."
+msgstr "Lass Dir zeigen, wie Du es entfaltest."
+
+#: app/views/more.html:63
+msgid "People, animals, nature and the universe are all deeply interconnected – and "
+"this bond with the very root of existence is the source of all vitality and "
+"joy of life."
+msgstr "Menschen, Tiere, Natur, Kosmos sind tief verbunden – und aus dieser "
+"Verbundenheit mit dem Leben entspringen alle Kraft und Lebensfreude."
+
+#: app/views/more.html:51
+msgid "Our teachers are exceptional people – and the best in their field."
+msgstr "Unsere Lehrer sind außergewöhnliche Menschen – und die Besten ihres Fachs."
+
+#: app/views/more.html:38
+msgid "Who do you want to be?"
+msgstr "Wer willst Du sein?"
+
+#: app/views/more.html:52
+msgid "All of our listed trainers and coaches have been handpicked by us personally "
+"and will take care of you individually."
+msgstr "Wir wählen jeden persönlich aus, dass er sich persönlich um Dich kümmert."
+
+#: app/views/more.html:44
+msgid "You are so much more."
+msgstr "You are so much more."
+
