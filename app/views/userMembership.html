@@ -1,75 +1,71 @@
 <div class="container">
     <div class="overview cf">
-        <div class="photo">
-            <h3 class="form-title" translate>Mein Foto auf der Karte</h3>
-            <img ng-if="membership.photo" ng-src="{{membership.photo}}" alt=""/>
-            <button class="form-button" ng-click="upload('avatar')" translate>Hochladen</button>
+        <div class="w-left">
+            <div class="widget-overview photo">
+                <h3 class="form-title" translate>My photo</h3>
+                <img ng-if="membership.photo" ng-src="{{membership.photo}}" alt=""/>
+                <button class="form-button" ng-click="upload('avatar')" translate>Hochladen</button>
+            </div>
+            <div class="widget-overview card">
+                <h3 class="form-title" translate>My card</h3>
+                <img class="card-image" ng-if="currentCard.code === 'LITE'" src="images/card-lite.png" alt=""/>
+                <img class="card-image" ng-if="currentCard.code === 'WHITE'" src="images/card-white.png" alt=""/>
+                <img class="card-image" ng-if="currentCard.code === 'BLACK'" src="images/card-black.png" alt=""/>
+                <p>{{currentCard.displayName}}</p>
+                <button class="form-button" translate>Upgrade</button>
+                <a class="form-link" href="" ng-click="suspendMembership()">Suspend subscription</a>
+                <a class="form-link" href="" ng-click="cancelMembership()">Cancel subscription</a>
+            </div>
         </div>
-        <div class="form-overview">
-            <ul>
-                <li>
-                    <b translate>Meine Kartennummer::</b>
-                    <p>{{membership.cardNumber}}</p>
+        <div class="w-right">
+            <div class="form-overview">
+                <h3 class="form-title" translate>Personal details</h3>
+                <ul>
+                    <li>
+                        <b translate>Name:</b>
+                        <p>{{membership.fullName}}</p>
+                    </li><li>
+                    <b translate>Email:</b>
+                    <p>{{membership.email}}</p>
+                </li><li>
+                    <b translate>Subscription city:</b>
+                    <p>{{membership.cityId}}</p>
+                </li><li>
+                    <b translate>Shipping address (for the card)</b>
+                    <p>{{membership.deliveryAddress.fullAddress}}</p>
+                </li>
+                </ul>
+            </div>
+            <div class="form-overview">
+                <h3 class="form-title" translate>Subscription details</h3>
+                <ul>
+                    <li>
+                        <b translate>Card number:</b>
+                        <p>{{membership.cardNumber}}</p>
+                    </li><li>
+                    <b translate>Status:</b>
+                    <p>{{membership.current.status}}, expires {{membership.contractActiveUntil | date: 'dd.MM.yyyy'}}</p>
+                </li><li>
+                    <b translate>Card type:</b>
+                    <p>{{currentCard.displayName}}</p>
                 </li><li ng-if="!voucher || (!voucher.freeSubscriptionGranted && voucher.discountDuarationInMonths)">
-                    <b translate>Regulärer Preis:</b>
-                    <p translate>{{overview.price}}€ / Monat</p>
+                    <b translate>Subscription fee:</b>
+                    <p translate><span ng-if="currentCard.currencyCode === 'GBP'">&pound;</span>{{currentCard.monthlyPrice}}<span ng-if="currentCard.currencyCode === 'EUR'">&euro;</span> / Month</p>
                 </li><li ng-if="voucher.freeSubscriptionGranted">
                     <b translate>Sonderpreis:</b>
                     <p translate>0€ / Monat</p>
                 </li><li ng-if="!voucher.freeSubscriptionGranted && voucher">
                     <b translate>Ermäßigter Preis:</b>
-                    <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths" translate>/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
-                </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
-                    <b translate>Beginn Mitgliedschaft:</b>
+                    <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(currentCard.monthlyPrice * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{currentCard.monthlyPrice - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths" translate>/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
+                </li><li>
+                    <b translate>Membership start date:</b>
                     <p>{{membership.subscriptionStartsOn | date: 'dd.MM.yyyy'}}</p>
                 </li><li>
-                    <b translate>Laufzeit:</b>
-                    <p ng-if="!voucher.freeSubscriptionGranted || !voucher" translate>unbefristet / Verlängerung bei Nicht-Kündigung um je einen Monat</p>
-                    <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
-                </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
-                    <b translate>Abbuchung:</b>
-                    <p translate>Monatlich beginnend mit dem Tag der Mitgliedschaft</p>
-                </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
-                    <b translate>Kündigung:</b>
-                    <p translate>Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende</p>
+                    <b ng-if="membership.discount" translate>Current discount:</b>
+                    <p>{{membership.discount.voucherCode}} <span ng-if="membership.discountExpires">expires {{membership.discountExpires | date: 'dd.MM.yyyy'}}</span></p>
                 </li>
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
-    <h3 class="form-title" translate>Willst Du Deinen Karten-Typ ändern?</h3>
-    <div class="select-cards">
-        <ul class="select-cards__title">
-            <li></li>
-            <li></li>
-            <li translate>Preis pro Monat</li>
-            <li translate>Kurse pro Monat</li>
-            <li translate>Kurse pro Anbieter / Monat</li>
-            <li translate>Kündigen / Pausieren</li>
-        </ul>
-        <ul class="select-cards__card" ng-repeat="card in cards">
-            <li><img class="card-image" ng-if="card.type === 'LITE'" src="images/card-lite.png" alt=""/>
-                <img class="card-image" ng-if="card.type === 'WHITE'" src="images/card-white.png" alt=""/>
-                <img class="card-image" ng-if="card.type === 'BLACK'" src="images/card-black.png" alt=""/></li>
-            <li class="name">{{card.name}}</li>
-            <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.price}}€</strong>
-                <b ng-if="!voucher.freeSubscriptionGranted && voucher"><span ng-if="voucher.percentOff">{{Math.floor(card.price * (10 - voucher.percentOff / 10) / 10)}}€</span><span ng-if="voucher.amountOff">{{card.price - voucher.amountOff}}€</span></b></li>
-            <li>{{card.courses}}</li>
-            <li>{{card.coursesPerSupplier}}</li>
-            <li>{{card.minimumTerm}}</li>
-            <li class="card-button"><button ng-model="membership.type" ng-disabled="true" ng-change="changeCard()" btn-radio="card.type"><i class="fa"></i>{{membership.type === card.type ? 'Ausgewählt' : 'Auswählen'}}</button></li>
-        </ul>
-    </div>
-    <form class="form-profile">
-        <!--<button type="button" ng-hide="loading" ng-disabled="notChanged" ng-click="changeMembership(membership.type)">Änderung bestätigen</button>-->
-        <div class="form-rel spinner-wrapper" ng-show="loading">
-            <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
-        </div>
-        <p class="message" ng-if="messageNotAvailable" translate>Diese Funktion ist zur Zeit noch nicht aktiv, kontaktieren Sie bitte dazu unseren Kundenservice auf
-            <a href="mailto:service@somuchmore.org">service@somuchmore.org</a>
-        </p>
-        <p class="message" ng-if="messageNotDelivered" translate>Es gab einen Fehler. Bitte kontaktieren Sie den Support über
-            <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a>
-        </p>
-        <label class="cancel" translate>Wenn Du Deine Mitgliedschaft kündigen willst, klicke <a href="" ng-click="cancelMembership()">hier.</a></label>
-    </form>
 </div>

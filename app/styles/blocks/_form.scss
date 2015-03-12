@@ -333,6 +333,16 @@ textarea {
     @extend %form-button;
     width: 100%;
 }
+.form-link {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    color: $colorGrey;
+    outline: none;
+    &:hover {
+        color: $colorGrey;
+    }
+}
 
 .form-response {
     position: absolute;

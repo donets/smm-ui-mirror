@@ -134,6 +134,7 @@ button {
     @include background-image(linear-gradient(24deg, #8d2526 0%, #c84236 50%, #cb863b 100%));
 }
 .b-main {
+    background: #fff;
     min-height: 200px;
 }
 .b-main-sidebar {
