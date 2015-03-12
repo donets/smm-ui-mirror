@@ -12,10 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: app/views/_loginForm.html:57
-msgid "Sign out"
-msgstr "Abmelden"
-
 #: app/views/_loginForm.html:51
 msgid "Account"
 msgstr "Account"
@@ -24,26 +20,17 @@ msgstr "Account"
 msgid "Back to login"
 msgstr "Back to login"
 
-#: app/views/_loginForm.html:53
-#: app/views/_loginForm.html:50
+#: app/views/_loginForm.html:50 app/views/_loginForm.html:53
 msgid "Classes"
 msgstr "Classes"
-
-#: app/views/_loginForm.html:42
-msgid "Forgot password?"
-msgstr "Dein Passwort vergessen?"
-
-#: app/views/_loginForm.html:37
-msgid "Your email address was not found"
-msgstr "Die Email Adresse wurde nicht gefunden"
-
-#: app/views/_loginForm.html:36
-msgid "You have been sent a reset email"
-msgstr "E-Mail zum Zurücksetzen gesendet"
 
 #: app/views/_loginForm.html:15 app/views/_loginForm.html:30
 msgid "Email Address"
 msgstr "E-Mail-Adresse"
+
+#: app/views/_loginForm.html:42
+msgid "Forgot password?"
+msgstr "Dein Passwort vergessen?"
 
 #: app/views/_loginForm.html:24
 msgid "Incorrect email address or password"
@@ -57,6 +44,10 @@ msgstr "Locations"
 msgid "Login"
 msgstr "Login"
 
+#: app/views/_loginForm.html:57
+msgid "Memberships"
+msgstr "Memberships"
+
 #: app/views/_loginForm.html:52
 msgid "My card"
 msgstr "Meine Karte"
@@ -69,6 +60,10 @@ msgstr "Passwort"
 msgid "Reset password"
 msgstr "Reset Password"
 
+#: app/views/_loginForm.html:58
+msgid "Sign out"
+msgstr "Abmelden"
+
 #: app/views/_loginForm.html:55
 msgid "Studios"
 msgstr "Studios"
@@ -77,3 +72,10 @@ msgstr "Studios"
 msgid "Vouchers"
 msgstr "Vouchers"
 
+#: app/views/_loginForm.html:36
+msgid "You have been sent a reset email"
+msgstr "E-Mail zum Zurücksetzen gesendet"
+
+#: app/views/_loginForm.html:37
+msgid "Your email address was not found"
+msgstr "Die Email Adresse wurde nicht gefunden"

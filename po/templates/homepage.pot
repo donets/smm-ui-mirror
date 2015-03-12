@@ -32,7 +32,12 @@ msgstr ""
 msgid "3. Get moving"
 msgstr ""
 
-#: app/views/homepage.html:358
+#: app/views/homepage.html:277
+#: app/views/homepage.html:294
+msgid "A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio."
+msgstr ""
+
+#: app/views/homepage.html:360
 msgid "Anymore questions? Read our FAQ here ›"
 msgstr ""
 
@@ -41,7 +46,7 @@ msgstr ""
 msgid "Anytime"
 msgstr ""
 
-#: app/views/homepage.html:363
+#: app/views/homepage.html:365
 msgid "Are you a studio, coach or nutritionist? Do you want to work with us?"
 msgstr ""
 
@@ -71,7 +76,7 @@ msgstr ""
 msgid "Congrats, you are on the list!"
 msgstr ""
 
-#: app/views/homepage.html:367
+#: app/views/homepage.html:369
 msgid "Contact me"
 msgstr ""
 
@@ -98,16 +103,16 @@ msgstr ""
 msgid "Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card."
 msgstr ""
 
-#: app/views/homepage.html:351
+#: app/views/homepage.html:338
+msgid "Do I have to book <br> my classes in advance?"
+msgstr ""
+
+#: app/views/homepage.html:353
 msgid "Do I have to book my classes in advance?"
 msgstr ""
 
-#: app/views/homepage.html:97
-msgid "Egal wie beschäftigt Du bist: Du findest immer und überall ein Angebot. Die Break free ist unerschöpflich."
-msgstr ""
-
 #: app/views/homepage.html:21
-#: app/views/homepage.html:365
+#: app/views/homepage.html:367
 #: app/views/homepage.html:44
 msgid "Email Address"
 msgstr ""
@@ -132,11 +137,6 @@ msgstr ""
 msgid "Find your class in seconds using our online calendar."
 msgstr ""
 
-#: app/views/homepage.html:277
-#: app/views/homepage.html:293
-msgid "Ganzheitliche Lebensweise ist der Schlüssel für Langlebigkeit und Glück. Somuchmore öffnet Räume. Die Karte gibt mir die Be inspired, nicht an ein Studio gebunden zu sein."
-msgstr ""
-
 #: app/views/homepage.html:32
 #: app/views/homepage.html:55
 #: app/views/homepage.html:65
@@ -152,7 +152,11 @@ msgstr ""
 msgid "Get your invitation today"
 msgstr ""
 
-#: app/views/homepage.html:354
+#: app/views/homepage.html:341
+msgid "How do I cancel or freeze <br> my membership?"
+msgstr ""
+
+#: app/views/homepage.html:356
 msgid "How do I cancel or freeze my membership?"
 msgstr ""
 
@@ -160,8 +164,8 @@ msgstr ""
 msgid "Huge savings"
 msgstr ""
 
-#: app/views/homepage.html:333
-#: app/views/homepage.html:348
+#: app/views/homepage.html:335
+#: app/views/homepage.html:350
 msgid "Is my card valid everywhere?"
 msgstr ""
 
@@ -202,17 +206,13 @@ msgid "Map of studios"
 msgstr ""
 
 #: app/views/homepage.html:281
-#: app/views/homepage.html:298
+#: app/views/homepage.html:299
 msgid "Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore"
 msgstr ""
 
 #: app/views/homepage.html:273
-#: app/views/homepage.html:288
+#: app/views/homepage.html:289
 msgid "Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth."
-msgstr ""
-
-#: app/views/homepage.html:336
-msgid "Muss ich mich <br> anmelden?"
 msgstr ""
 
 #: app/views/homepage.html:85
@@ -227,12 +227,12 @@ msgstr ""
 msgid "Order your card – and set your life in motion."
 msgstr ""
 
-#: app/views/homepage.html:331
-#: app/views/homepage.html:346
+#: app/views/homepage.html:333
+#: app/views/homepage.html:348
 msgid "Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios."
 msgstr ""
 
-#: app/views/homepage.html:366
+#: app/views/homepage.html:368
 msgid "Phone Number"
 msgstr ""
 
@@ -249,6 +249,10 @@ msgstr ""
 msgid "Register now for free"
 msgstr ""
 
+#: app/views/homepage.html:97
+msgid "Say Goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything."
+msgstr ""
+
 #: app/views/homepage.html:167
 msgid "Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}"
 msgstr ""
@@ -257,16 +261,16 @@ msgstr ""
 msgid "Simply try it out"
 msgstr ""
 
-#: app/views/homepage.html:327
+#: app/views/homepage.html:329
 msgid "Still have some more questions?"
 msgstr ""
 
-#: app/views/homepage.html:370
+#: app/views/homepage.html:372
 msgid "Thank you!"
 msgstr ""
 
 #: app/views/homepage.html:27
-#: app/views/homepage.html:371
+#: app/views/homepage.html:373
 #: app/views/homepage.html:50
 msgid "The email address is incorrect"
 msgstr ""
@@ -283,27 +287,23 @@ msgstr ""
 msgid "What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing your limits? <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Want to hit the dance floor? <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Strengthen your core and concentration? <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Learn more about <b>Nutrition</b> and <b>Health</b>? Or simply chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?"
 msgstr ""
 
-#: app/views/homepage.html:330
-#: app/views/homepage.html:345
+#: app/views/homepage.html:332
+#: app/views/homepage.html:347
 msgid "What can I do with my card?"
 msgstr ""
 
 #: app/views/homepage.html:339
-msgid "Wie kündige oder <br> pausiere ich?"
-msgstr ""
-
-#: app/views/homepage.html:337
-#: app/views/homepage.html:352
+#: app/views/homepage.html:354
 msgid "Yes. Please always check our online calendar in advance."
 msgstr ""
 
-#: app/views/homepage.html:334
-#: app/views/homepage.html:349
+#: app/views/homepage.html:336
+#: app/views/homepage.html:351
 msgid "Yes. Your card is valid with all our partners."
 msgstr ""
 
-#: app/views/homepage.html:340
-#: app/views/homepage.html:355
+#: app/views/homepage.html:342
+#: app/views/homepage.html:357
 msgid "You can cancel on a monthly base. Or freeze your membership for a month or more."
 msgstr ""
 
@@ -317,16 +317,16 @@ msgid "{{campaign.defaultName}} IS YOUR STUDIO"
 msgstr ""
 
 #: app/views/homepage.html:274
-#: app/views/homepage.html:289
+#: app/views/homepage.html:290
 msgid "– Alexandra Liakou, director"
 msgstr ""
 
 #: app/views/homepage.html:278
-#: app/views/homepage.html:294
+#: app/views/homepage.html:295
 msgid "– Konrad Knops, osteopath"
 msgstr ""
 
-#: app/views/homepage.html:282
-#: app/views/homepage.html:299
+#: app/views/homepage.html:283
+#: app/views/homepage.html:301
 msgid "– Sonja Reifenhäuser, food coach"
 msgstr ""

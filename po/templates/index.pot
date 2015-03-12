@@ -30,10 +30,6 @@ msgstr ""
 msgid "Courses"
 msgstr ""
 
-#: app/index.html:119
-msgid "Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
-msgstr ""
-
 #: app/index.html:218
 msgid "FAQ"
 msgstr ""
@@ -48,12 +44,6 @@ msgstr ""
 
 #: app/index.html:216
 msgid "Legal notice"
-msgstr ""
-
-#: app/index.html:127
-msgid ""
-"Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a> <br>\n"
-"            Fehlerdetails: {{rejection.data.message}}"
 msgstr ""
 
 #: app/index.html:146
@@ -72,12 +62,22 @@ msgstr ""
 msgid "Successfully saved"
 msgstr ""
 
+#: app/index.html:119
+msgid "Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details."
+msgstr ""
+
 #: app/index.html:179
 msgid "Thank you!"
 msgstr ""
 
 #: app/index.html:180
 msgid "The email address is incorrect"
+msgstr ""
+
+#: app/index.html:127
+msgid ""
+"Unfortunately an error has occurred. Please contact our customer service team: <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a> <br>\n"
+"Error details: {{rejection.data.message}}"
 msgstr ""
 
 #: app/index.html:129

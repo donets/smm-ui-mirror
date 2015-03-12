@@ -16,21 +16,13 @@ msgstr ""
 msgid "Close"
 msgstr "Close"
 
-#: app/views/modalSuggest.html:14
-msgid "Thank you!"
-msgstr "Danke!"
-
-#: app/views/modalSuggest.html:9
-msgid "Your Name (Optional)"
-msgstr "Dein Name (Optional)"
-
-#: app/views/modalSuggest.html:10
-msgid "Your Email Address"
-msgstr "Deine E-Mail-Adresse"
-
 #: app/views/modalSuggest.html:8
 msgid "Name of the studio"
 msgstr "Name des Studios"
+
+#: app/views/modalSuggest.html:11
+msgid "Refer"
+msgstr "Vorschlagen"
 
 #: app/views/modalSuggest.html:6
 msgid "Refer a studio:"
@@ -41,7 +33,14 @@ msgstr "Schlag ein Studio vor:"
 msgid "Sorry, your message was not delivered. Please try again later."
 msgstr "Sorry your message not delivered. Please try later."
 
-#: app/views/modalSuggest.html:11
-msgid "Refer"
-msgstr "Vorschlagen"
+#: app/views/modalSuggest.html:14
+msgid "Thank you!"
+msgstr "Danke!"
 
+#: app/views/modalSuggest.html:10
+msgid "Your Email Address"
+msgstr "Deine E-Mail-Adresse"
+
+#: app/views/modalSuggest.html:9
+msgid "Your Name (Optional)"
+msgstr "Dein Name (Optional)"

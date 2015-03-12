@@ -44,17 +44,17 @@ msgstr ""
 msgid "After this it will be subject to a fee"
 msgstr ""
 
-#: app/views/signup.html:119
-#: app/views/signup.html:148
-msgid "Anytime"
+#: app/views/signup.html:344
+msgid "An account already exists for this email account. Please log in or use a different e-mail address."
 msgstr ""
 
 #: app/views/signup.html:306
-msgid "Anytime <span class=\"details\">(monatlich bis zum Monthsende für den Folgemonat)</span>"
+msgid "Any time <span class=\"details\">(monthly by the end of the month, effective as of the following month)</span>"
 msgstr ""
 
-#: app/views/signup.html:20
-msgid "Anytime kündigen"
+#: app/views/signup.html:119
+#: app/views/signup.html:148
+msgid "Anytime"
 msgstr ""
 
 #: app/views/signup.html:63
@@ -65,10 +65,6 @@ msgstr ""
 msgid "Bank account holder"
 msgstr ""
 
-#: app/views/signup.html:81
-msgid "Beginnt am"
-msgstr ""
-
 #: app/views/signup.html:209
 msgid "CVV"
 msgstr ""
@@ -76,6 +72,10 @@ msgstr ""
 #: app/views/signup.html:104
 #: app/views/signup.html:147
 msgid "Cancel / Freeze"
+msgstr ""
+
+#: app/views/signup.html:20
+msgid "Cancel your membership any time"
 msgstr ""
 
 #: app/views/signup.html:305
@@ -113,14 +113,6 @@ msgstr ""
 msgid "Credit card"
 msgstr ""
 
-#: app/views/signup.html:16
-msgid "Credit card wird nicht belastet"
-msgstr ""
-
-#: app/views/signup.html:71
-msgid "Deine Mitgliedschaftsstadt"
-msgstr ""
-
 #: app/views/signup.html:256
 msgid "Delivery address"
 msgstr ""
@@ -131,10 +123,6 @@ msgstr ""
 
 #: app/views/signup.html:54
 msgid "E-mail"
-msgstr ""
-
-#: app/views/signup.html:344
-msgid "Ein Account für diese E-mail existiert bereits. Logge Dich ein oder wähle eine andere E-mail"
 msgstr ""
 
 #: app/views/signup.html:158
@@ -148,10 +136,6 @@ msgstr ""
 #: app/views/signup.html:39
 #: app/views/signup.html:40
 msgid "First name"
-msgstr ""
-
-#: app/views/signup.html:248
-msgid "Hinweis: Sie können den Bankeinzug jederzeit per E-mail an unseren Kundenservice widerrufen."
 msgstr ""
 
 #: app/views/signup.html:259
@@ -183,7 +167,7 @@ msgid "Invalid code"
 msgstr ""
 
 #: app/views/signup.html:58
-msgid "Keine gültige E-mail-Adresse"
+msgid "Invalid e-mail address"
 msgstr ""
 
 #: app/views/signup.html:276
@@ -195,11 +179,16 @@ msgid "Month"
 msgstr ""
 
 #: app/views/signup.html:300
-msgid "Monthlich <span class=\"details\">(beginnend mit dem Tag der Mitgliedschaft)</span>"
+msgid "Monthly <span class=\"details\">(beginning with the first day of membership)</span>"
+msgstr ""
+
+#: app/views/signup.html:101
+#: app/views/signup.html:131
+msgid "Monthly price"
 msgstr ""
 
 #: app/views/signup.html:311
-msgid "Monthlicher Preis:"
+msgid "Monthly price:"
 msgstr ""
 
 #: app/views/signup.html:94
@@ -235,6 +224,16 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+#: app/views/signup.html:250
+msgid "Payment by credit card?"
+msgstr ""
+
+#: app/views/signup.html:171
+msgid ""
+"Payment information\n"
+"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
+msgstr ""
+
 #: app/views/signup.html:340
 msgid "Place order"
 msgstr ""
@@ -251,17 +250,16 @@ msgstr ""
 msgid "Please enter the 3 or 4-digit security number (on the back of your card)"
 msgstr ""
 
+#: app/views/signup.html:248
+msgid "Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer service team."
+msgstr ""
+
 #: app/views/signup.html:345
 msgid "Please select your card, fill out all fields and accept the terms & conditions and privacy policy."
 msgstr ""
 
 #: app/views/signup.html:267
 msgid "Postal code"
-msgstr ""
-
-#: app/views/signup.html:101
-#: app/views/signup.html:131
-msgid "Preis pro Month"
 msgstr ""
 
 #: app/views/signup.html:317
@@ -277,7 +275,7 @@ msgid "SEPA direct debit"
 msgstr ""
 
 #: app/views/signup.html:247
-msgid "SEPA direct debitmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen."
+msgid "SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for services provided. I also instruct my bank to honour direct debit requests from this recipient."
 msgstr ""
 
 #: app/views/signup.html:240
@@ -290,6 +288,10 @@ msgstr ""
 
 #: app/views/signup.html:314
 msgid "Special price:"
+msgstr ""
+
+#: app/views/signup.html:81
+msgid "Start at"
 msgstr ""
 
 #: app/views/signup.html:302
@@ -329,7 +331,7 @@ msgid "This voucher is only {{typeVoucher}} valid for the CARD"
 msgstr ""
 
 #: app/views/signup.html:296
-msgid "Unbefristet <span class=\"details\">(Verlängerung um je einen Month, solange nicht gekündigt)</span>"
+msgid "Unlimited <span class=\"details\">(automatic extension by one month until cancellation)</span>"
 msgstr ""
 
 #: app/views/signup.html:189
@@ -344,22 +346,20 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
+#: app/views/signup.html:71
+msgid "Your Membership City"
+msgstr ""
+
 #: app/views/signup.html:227
 msgid "Your Name"
 msgstr ""
 
+#: app/views/signup.html:16
+msgid "Your credit card will not be charged"
+msgstr ""
+
 #: app/views/signup.html:66
 msgid "Your password must contain at least 5 characters"
-msgstr ""
-
-#: app/views/signup.html:250
-msgid "Zahlung mit Credit card?"
-msgstr ""
-
-#: app/views/signup.html:171
-msgid ""
-"Zahlungsinformationen\n"
-"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
 msgstr ""
 
 #: app/views/signup.html:268

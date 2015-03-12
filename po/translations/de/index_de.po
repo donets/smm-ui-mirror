@@ -17,52 +17,17 @@ msgstr ""
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr "&copy; Somuchmore Marketplace UG, 2015"
 
-#: app/index.html:198
-msgid "+44 (0)20 3510 0240"
-msgstr "030 - 577023101"
+#: app/index.html:215
+msgid "About us"
+msgstr "Über uns"
 
-#: app/index.html:217
-msgid "General terms & conditions"
-msgstr "AGB"
+#: app/index.html:174
+msgid "Be inspired"
+msgstr "Lass Dich inspirieren"
 
 #: app/index.html:122 app/index.html:133 app/index.html:140
 msgid "Close"
 msgstr "Close"
-
-#: app/index.html:119
-msgid "Thank you for your booking: {{event.event.title}} | Teacher: {{event.event."
-"somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
-"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
-"event.venue.region}}. <br> You will receive an e-mail with your ticket and "
-"details."
-msgstr "Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event."
-"somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | "
-"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
-"event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
-
-#: app/index.html:179
-msgid "Thank you!"
-msgstr "Danke!"
-
-#: app/index.html:176
-msgid "Your email address"
-msgstr "Deine E-Mail-Adresse"
-
-#: app/index.html:180
-msgid "The email address is incorrect"
-msgstr "Die Email-Adresse ist nicht korrekt"
-
-#: app/index.html:137
-msgid "Successfully saved"
-msgstr "Erfolgreich gespeichert."
-
-#: app/index.html:185
-msgid "Follow us"
-msgstr "Folge uns"
-
-#: app/index.html:216
-msgid "Legal notice"
-msgstr "Impressum"
 
 #: app/index.html:196
 msgid "Contact us"
@@ -72,47 +37,88 @@ msgstr "Kontaktiere uns"
 msgid "Courses"
 msgstr "Kurse"
 
-#: app/index.html:174
-msgid "Be inspired"
-msgstr "Lass Dich inspirieren"
+#: app/index.html:218
+msgid "FAQ"
+msgstr "faq"
 
-#: app/index.html:127
-msgid "Unfortunately an error has occurred. Please contact our customer service "
-"team: <a href=\"mailto:kundenservice@somuchmore.org"
-"\">kundenservice@somuchmore.org</a> <br>\n"
-"Error details: {{rejection.data.message}}"
-msgstr "Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren "
-"Kundenservice: <a href=\"mailto:kundenservice@somuchmore.org"
-"\">kundenservice@somuchmore.org</a> <br>\n"
-"            Fehlerdetails: {{rejection.data.message}}"
+#: app/index.html:185
+msgid "Follow us"
+msgstr "Folge uns"
 
-#: app/index.html:129
-msgid "You are not authorised to access this page {{$state.href($state.current."
-"name, $state.params, {absolute: true})}}"
-msgstr "Sie haben keine Berechtigung für die Seite {{$state.href($state.current."
-"name, $state.params, {absolute: true})}}"
+#: app/index.html:217
+msgid "General terms & conditions"
+msgstr "AGB"
+
+#: app/index.html:216
+msgid "Legal notice"
+msgstr "Impressum"
 
 #: app/index.html:146
 msgid "Somuchmore"
 msgstr "Somuchmore"
 
+#: app/index.html:130
+msgid ""
+"Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd"
+"+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try "
+"again."
+msgstr ""
+"Tut uns leid, der Server konnte nicht erreicht werden! Bitte drücke Strg+R "
+"(Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> "
+"um es erneut zu versuchen."
+
 #: app/index.html:162
 msgid "Studios"
 msgstr "Studios"
 
-#: app/index.html:130
-msgid "Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd"
-"+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try "
-"again."
-msgstr "Tut uns leid, der Server konnte nicht erreicht werden! Bitte drücke Strg+R "
-"(Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> "
-"um es erneut zu versuchen."
+#: app/index.html:137
+msgid "Successfully saved"
+msgstr "Erfolgreich gespeichert."
 
-#: app/index.html:218
-msgid "FAQ"
-msgstr "faq"
+#: app/index.html:119
+msgid ""
+"Thank you for your booking: {{event.event.title}} | Teacher: {{event.event."
+"somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
+"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
+"event.venue.region}}. <br> You will receive an e-mail with your ticket and "
+"details."
+msgstr ""
+"Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event."
+"somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | "
+"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
+"event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
 
-#: app/index.html:215
-msgid "About us"
-msgstr "Über uns"
+#: app/index.html:179
+msgid "Thank you!"
+msgstr "Danke!"
 
+#: app/index.html:180
+msgid "The email address is incorrect"
+msgstr "Die Email-Adresse ist nicht korrekt"
+
+#: app/index.html:127
+msgid ""
+"Unfortunately an error has occurred. Please contact our customer service "
+"team: <a href=\"mailto:kundenservice@somuchmore.org"
+"\">kundenservice@somuchmore.org</a> <br>\n"
+"Error details: {{rejection.data.message}}"
+msgstr ""
+"Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren "
+"Kundenservice: <a href=\"mailto:kundenservice@somuchmore.org"
+"\">kundenservice@somuchmore.org</a> <br>\n"
+"            Fehlerdetails: {{rejection.data.message}}"
+
+#: app/index.html:129
+msgid ""
+"You are not authorised to access this page {{$state.href($state.current."
+"name, $state.params, {absolute: true})}}"
+msgstr ""
+"Sie haben keine Berechtigung für die Seite {{$state.href($state.current."
+"name, $state.params, {absolute: true})}}"
+
+#: app/index.html:176
+msgid "Your email address"
+msgstr "Deine E-Mail-Adresse"
+
+#~ msgid "+44 (0)20 3510 0240"
+#~ msgstr "030 - 577023101"

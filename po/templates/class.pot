@@ -24,10 +24,6 @@ msgstr ""
 msgid "All Levels"
 msgstr ""
 
-#: app/views/class.html:200
-msgid "Beschreibung"
-msgstr ""
-
 #: app/views/class.html:225
 msgid "Black Card only"
 msgstr ""
@@ -42,6 +38,10 @@ msgstr ""
 
 #: app/views/class.html:78
 msgid "Delete dates"
+msgstr ""
+
+#: app/views/class.html:200
+msgid "Description"
 msgstr ""
 
 #: app/views/class.html:192
@@ -148,7 +148,7 @@ msgid "Teacher"
 msgstr ""
 
 #: app/views/class.html:122
-msgid "to"
+msgid "To"
 msgstr ""
 
 #: app/views/class.html:6

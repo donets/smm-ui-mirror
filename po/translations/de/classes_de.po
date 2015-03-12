@@ -44,17 +44,13 @@ msgstr "Draft"
 msgid "Filter name"
 msgstr "Filter name"
 
-#: app/views/classes.html:31
-msgid "Reset filters"
-msgstr "Filter zurücksetzen"
-
-#: app/views/classes.html:41
-msgid "Teacher"
-msgstr "Lehrer"
-
 #: app/views/classes.html:38
 msgid "Name of class"
 msgstr "Name der Stunde"
+
+#: app/views/classes.html:31
+msgid "Reset filters"
+msgstr "Filter zurücksetzen"
 
 #: app/views/classes.html:37
 msgid "Status"
@@ -64,3 +60,6 @@ msgstr "Status"
 msgid "Studio"
 msgstr "Studio"
 
+#: app/views/classes.html:41
+msgid "Teacher"
+msgstr "Lehrer"

@@ -12,19 +12,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: app/views/homeClasses.html:15
-msgid "Discipline"
-msgstr "Disziplin"
-
-#: app/views/homeClasses.html:37
-msgid "There are no courses available for this day and this search. Try another "
-"date or reset the filters."
-msgstr "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
-"anderen Datum oder setze die Filter zurück"
-
 #: app/views/homeClasses.html:14
 msgid "Course"
 msgstr "Kurs"
+
+#: app/views/homeClasses.html:15
+msgid "Discipline"
+msgstr "Disziplin"
 
 #: app/views/homeClasses.html:17
 msgid "District"
@@ -34,7 +28,14 @@ msgstr "Stadtteil"
 msgid "Studio"
 msgstr "Studio"
 
+#: app/views/homeClasses.html:37
+msgid ""
+"There are no courses available for this day and this search. Try another "
+"date or reset the filters."
+msgstr ""
+"Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
+"anderen Datum oder setze die Filter zurück"
+
 #: app/views/homeClasses.html:13
 msgid "Time"
 msgstr "Zeit"
-

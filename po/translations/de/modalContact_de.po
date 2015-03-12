@@ -12,17 +12,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: app/views/modalContact.html:24
-msgid "Submit"
-msgstr "Absenden"
-
 #: app/views/modalContact.html:5
 msgid "Close"
 msgstr "Close"
-
-#: app/views/modalContact.html:27
-msgid "Your message could not be sent, please try again."
-msgstr "Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut."
 
 #: app/views/modalContact.html:15
 msgid "Email"
@@ -40,3 +32,10 @@ msgstr "Name"
 msgid "Phone"
 msgstr "Telefon"
 
+#: app/views/modalContact.html:24
+msgid "Submit"
+msgstr "Absenden"
+
+#: app/views/modalContact.html:27
+msgid "Your message could not be sent, please try again."
+msgstr "Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut."

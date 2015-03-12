@@ -23,7 +23,7 @@ msgstr ""
 #: app/views/studio.html:34
 #: app/views/studio.html:39
 #: app/views/studio.html:44
-msgid "<i class=\"fa fa-check\"></i>Einige Coursee <span class=\"light\" translate=\"\">(see course plan)</span>"
+msgid "<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate=\"\">(see course plan)</span>"
 msgstr ""
 
 #: app/views/studio.html:217
@@ -57,15 +57,11 @@ msgid "Discipline"
 msgstr ""
 
 #: app/views/studio.html:18
-msgid "Disciplineen:"
+msgid "Disciplines:"
 msgstr ""
 
 #: app/views/studio.html:19
 msgid "Equipment:"
-msgstr ""
-
-#: app/views/studio.html:91
-msgid "Heute kein Offer mehr."
 msgstr ""
 
 #: app/views/studio.html:50
@@ -82,6 +78,10 @@ msgstr ""
 
 #: app/views/studio.html:16
 msgid "More &gt;"
+msgstr ""
+
+#: app/views/studio.html:91
+msgid "No more offers today."
 msgstr ""
 
 #: app/views/studio.html:66

@@ -32,6 +32,14 @@ msgstr ""
 msgid "All Teachers"
 msgstr ""
 
+#: app/views/userDashboard.html:33
+msgid "City"
+msgstr ""
+
+#: app/views/userDashboard.html:151
+msgid "Continue to the courses"
+msgstr ""
+
 #: app/views/userDashboard.html:89
 msgid "Course"
 msgstr ""
@@ -54,10 +62,6 @@ msgstr ""
 
 #: app/views/userDashboard.html:82
 msgid "Reset filters"
-msgstr ""
-
-#: app/views/userDashboard.html:33
-msgid "Stadt"
 msgstr ""
 
 #: app/views/userDashboard.html:93
@@ -86,8 +90,4 @@ msgstr ""
 
 #: app/views/userDashboard.html:4
 msgid "Today {{today | amDateFormat: 'dd DD.MM.'}}"
-msgstr ""
-
-#: app/views/userDashboard.html:151
-msgid "Weiter zu den Courseen"
 msgstr ""

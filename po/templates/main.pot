@@ -8,19 +8,9 @@ msgstr ""
 msgid "Be who you were born to be."
 msgstr ""
 
-#: app/views/main.html:4
-msgid ""
-"Entdecke das Beste für Körper, Geist und Seele in kleinen Gruppen mit außergewöhnlichen Lehrern in Berlin.\n"
-"            <a ui-sref=\"more\" translate=\"\">Learn more</a>"
-msgstr ""
-
 #: app/views/main.html:16
 #: app/views/main.html:39
 msgid "Later"
-msgstr ""
-
-#: app/views/main.html:5
-msgid "Learn more"
 msgstr ""
 
 #: app/views/main.html:10
@@ -34,6 +24,12 @@ msgstr ""
 #: app/views/main.html:15
 #: app/views/main.html:30
 msgid "Tomorrow"
+msgstr ""
+
+#: app/views/main.html:4
+msgid ""
+"Transform your mind, body and soul with exceptional teachers, trainers and therapists in London.\n"
+"            <a ui-sref=\"more\">Learn more</a>"
 msgstr ""
 
 #: app/views/main.html:3

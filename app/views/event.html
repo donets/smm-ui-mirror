@@ -57,7 +57,7 @@
                     <h3 ng-if="teacher.teacherProfile.teacherLevel">
                         <b ng-if="teacher.teacherProfile.teacherLevel == 'teacher'" translate>Teacher</b>
                         <b ng-if="teacher.teacherProfile.teacherLevel == 'advanced'" translate>Experienced teacher</b>
-                        <b ng-if="teacher.teacherProfile.teacherLevel == 'master'" translate>Meister Teacher</b>
+                        <b ng-if="teacher.teacherProfile.teacherLevel == 'master'" translate>Master Teacher</b>
                     </h3>
                     <a class="contact_btn" ng-if="desktop" analytics-on="click" analytics-event="book" analytics-category="consideration" ng-click="contactTeacher()" ui-sref="view.contact" translate><i class="fa fa-envelope"></i>Questions about the event?</a>
                 </div>

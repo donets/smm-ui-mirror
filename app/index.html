@@ -116,7 +116,7 @@
 <div ng-cloak resizable ng-app="boltApp">
     <div ng-controller="ConfirmationCtrl">
         <div class="b-alert info" ng-if="alert">
-            <span translate>Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br /> Du bekommst eine Email mit Ticket und Details.</span>
+            <span translate>Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details.</span>
             <button ng-click="close()" class="b-close" type="button">
                 <i class="fa fa-times"></i>
                 <span class="sr-only" translate>Close</span>
@@ -124,8 +124,8 @@
         </div>
     </div>
     <div class="b-alert error" ng-if="rejection.show">
-        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'" translate>Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
-            Fehlerdetails: {{rejection.data.message}}</span>
+        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'" translate>Unfortunately an error has occurred. Please contact our customer service team: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br>
+Error details: {{rejection.data.message}}</span>
         <span ng-if="rejection.data.type && rejection.data.type === 'AccessDenied'" translate>You are not authorised to access this page {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
         <span ng-if="!rejection.data.type && (rejection.status === 404 || rejection.status === 0)" translate>Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd+R for Mac) or click <a href="" ng-click="pageReload()">here</a> to try again.</span>
         <button ng-click="rejection.show = false" class="b-close" type="button">

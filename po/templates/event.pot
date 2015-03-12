@@ -38,7 +38,7 @@ msgid "Experienced teacher"
 msgstr ""
 
 #: app/views/event.html:60
-msgid "Meister Teacher"
+msgid "Master Teacher"
 msgstr ""
 
 #: app/views/event.html:37

@@ -12,14 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: app/views/_eventCard.html:8
-msgid "Sold out"
-msgstr "Ausverkauft"
-
-#: app/views/_eventCard.html:9
-msgid "Private lesson"
-msgstr "Privatstunde"
-
 #: app/views/_eventCard.html:19
 msgid "Go to event"
 msgstr "Zum Event"
@@ -28,7 +20,14 @@ msgstr "Zum Event"
 msgid "Places available"
 msgstr "{{event.total_tickets_left}}/{{event.total_tickets}} Plätzen frei"
 
+#: app/views/_eventCard.html:9
+msgid "Private lesson"
+msgstr "Privatstunde"
+
+#: app/views/_eventCard.html:8
+msgid "Sold out"
+msgstr "Ausverkauft"
+
 #: app/views/_eventCard.html:28
 msgid "— with {{event.parent_event.teacherName}}"
 msgstr "— mit {{event.parent_event.teacherName}}"
-
