@@ -314,7 +314,9 @@ angular.module('boltApp')
         // Here we are just setting up some convenience urls.
         .when('/signup/', '/p/signup/1/')
         .when('/signup', '/p/signup/1/')
+        .when('/p/signup', '/p/signup/1/')
         .when('/p/signup/?invitation', '/p/signup/1/?invitation')
+        .when('/p/signup/', '/p/signup/1/')
         .when('/p/kurse/', '/p/kurse/1/');
 
         $urlRouterProvider.otherwise('/');
@@ -470,7 +472,7 @@ angular.module('boltApp')
 
                     },
 
-                    getInvitation: function($stateParams, $cookieStore) {
+                    getInvitation: function($stateParams) {
 
                         return parseInt($stateParams.invitation) || 1;
 
