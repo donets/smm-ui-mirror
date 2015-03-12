@@ -22,8 +22,8 @@ angular.module('boltApp.controllers.Classes', [])
         };
         $scope.clearFilters();
         $scope.levels = [
-            {id: '1', text: gettextCatalog.getString('Anfänger')},
+            {id: '1', text: gettextCatalog.getString('Beginners')},
             {id: '2', text: gettextCatalog.getString('Medium')},
-            {id: '3', text: gettextCatalog.getString('Fortgeschrittene')}
+            {id: '3', text: gettextCatalog.getString('Advanced')}
         ];
     });
