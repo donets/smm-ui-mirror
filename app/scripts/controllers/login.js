@@ -8,7 +8,24 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', function ($rootScope, $scope, $http, ezfb, User, $cookieStore, $window) {
+    .controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'UserMap', function ($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, UserMap) {
+        $scope.init = function() {
+            CityFactory.getCities().then(function (res) {
+                $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
+                    return c.countryCode === $rootScope.countryCode;
+                });
+                $scope.changeCity(CityFactory.guessCity($scope.citiesList));
+            });
+        }
+
+        $scope.init();
+
+        $scope.changeCity = function(city) {
+            var cb = CityFactory.changeCity(city, $scope.citiesList);
+            $scope.studios = cb[0];
+            $scope.cards = cb[1];
+            UserMap.create();
+        }
 
         function sendLoginFB (res) {
             console.log(res);
@@ -96,7 +113,7 @@ angular.module('boltApp.controllers.Login', [])
                 if ($rootScope.requestedState) {
                     $rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
                 } else if ($rootScope.roleMember) {
-                    $rootScope.$state.go('dashboard', {notify: false}); 
+                    $rootScope.$state.go('dashboard', {notify: false});
                 }
             }).error(function (response, status) {
                 console.error(response);

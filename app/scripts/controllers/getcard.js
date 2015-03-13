@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', 'UserMap', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory, UserMap) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -70,86 +70,26 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.discipline = $location.search().discipline;
 
         $cookieStore.put('landingUrl', $location.url());
-		
-		$scope.guessCity = function() {
-			$scope.city = $location.search().city;
-			$scope.cityId = $cookieStore.get('cityId') || $scope.citiesList[0].id;
-			if ($scope.invitation) {
-				$cookieStore.put('invitation', true);
-			}
-			if ($scope.city) {
-				$scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
-				$scope.cityId = $scope.campaign && $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : $scope.cityId;
-				$cookieStore.put('cityId', $scope.cityId);
-			}
-			else if ($scope.cityId) {
-				$scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
-			}
-			else {
-				$scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
-			}
-			$scope.changeCity($scope.campaign || $scope.citiesList[0]);
-		};
+
+		$scope.init = function() {
+            CityFactory.getCities().then(function (res) {
+                $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
+                    return c.countryCode === $rootScope.countryCode;
+                });
+
+                $scope.changeCity(CityFactory.guessCity($scope.citiesList));
+            });
+        }
+
+        $scope.init();
 
         $scope.changeCity = function(city) {
-            $scope.city = city.shortCode;
-            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
-            $rootScope.supportPhone = $scope.campaign.supportPhone;
-            RestApi.query({route: 'locations', cityId: $scope.campaign.id}).$promise.then(function (res) {
-                $scope.locations = _.reject(res, function (obj) {
-                    return obj.latitude === null || obj.longitude === null;
-                });
-                _.map($scope.locations, function (obj) {
-                    obj.icon = '/images/marker.svg';
-                });
-            });
-            RestApi.query({route: 'studios', cityId: $scope.campaign.id}).$promise.then(function (res) {
-                $scope.studios = res;
-            });
-            RestApi.query({route: 'plans', cityId: $scope.campaign.id}).$promise.then(function (res) {
-                $scope.cards = res;
-            });
-            uiGmapGoogleMapApi.then(function() {
+            var cb = CityFactory.changeCity(city, $scope.citiesList);
+            $scope.studios = cb[0];
+            $scope.cards = cb[1];
+            UserMap.create();
+        }
 
-                $scope.map = {
-                    center: {
-                        latitude: $scope.campaign.lat,
-                        longitude: 	$scope.campaign.lon
-                    },
-                    zoom: 12,
-                    options: {
-                        mapTypeControl: false,
-                        overviewMapControl: false,
-                        panControl: false,
-                        zoomControl : true,
-                        streetViewControl : true,
-                        scrollwheel: false
-                    }
-                };
-
-                var markerIcon = new Image().src = '/images/marker.svg';
-                var markerIconHover = new Image().src = '/images/marker-hover.svg';
-
-                $scope.markerEvents = {
-                    mouseover : function(marker, eventName, model) {
-                        marker.setIcon(markerIconHover);
-                        model.show = true;
-                    },
-                    mouseout : function(marker, eventName, model) {
-                        marker.setIcon(markerIcon);
-                        model.show = false;
-                    }
-                };
-
-            });
-        };
-
-        getCities.$promise.then(function (res) {
-            $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
-                return c.countryCode === $rootScope.countryCode;
-            });
-			$scope.guessCity();
-        });
 
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -206,7 +146,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 console.error(status);
             });
         };
-        
+
         $scope.pushOptimizelyEvent = function (type) {
 			if (type === 'invitation' || $scope.invitation) {
 				//$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
@@ -220,7 +160,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.contactSubmit = function() {
             $scope.loadingContact = true;
             $scope.contact.message = 'contact teacher partnership';
-            $scope.contact.city = $scope.campaign.defaultName;
+            $scope.contact.city = $rootScope.campaign.defaultName;
             $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.contact).success(function () {
                 $scope.loadingContact = false;
                 $scope.successContact = true;
