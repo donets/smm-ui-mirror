@@ -111,8 +111,9 @@ angular.module('boltApp.controllers.Signup', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
-                    if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01')) {
-                        $scope.errorVoucher = 'notStarted';
+                    if(res.valid && res.freeSubscriptionGranted) {
+                        $scope.order.paymentProvider = null;
+                        $scope.order.card = null;
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
                         $scope.voucher = res;
