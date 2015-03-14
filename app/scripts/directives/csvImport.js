@@ -13,16 +13,18 @@ angular.module('boltApp')
             header: '=',
             headers: '=',
             separator: '=',
+            entity: '=',
             result: '='
         },
         template: '<div><input class="btn cta gray" type="file"/></div></div>',
         link: function(scope, element) {
             element.on('keyup', function(e){
-                if ( scope.content != null ) {
+                if ( scope.content !== null ) {
                     var content = {
                         csv: scope.content,
                         header: scope.header,
-                        separator: e.target.value
+                        separator: e.target.value,
+                        entity: scope.entity
                     };
                     scope.headers = getHeaders(content);
                     scope.result = csvToJSON(content);
@@ -37,7 +39,8 @@ angular.module('boltApp')
                         var content = {
                             csv: onLoadEvent.target.result.replace(/\r\n|\r/g,'\n'),
                             header: scope.header,
-                            separator: scope.separator
+                            separator: scope.separator,
+                            entity: scope.entity
                         };
 
                         scope.content = content.csv;
@@ -45,14 +48,15 @@ angular.module('boltApp')
                         scope.result = csvToJSON(content);
                     });
                 };
-                if ( (onChangeEvent.target.type === "file") && (onChangeEvent.target.files != null || onChangeEvent.srcElement.files != null) )  {
+                if ( (onChangeEvent.target.type === 'file') && (onChangeEvent.target.files !== null || onChangeEvent.srcElement.files !== null) )  {
                     reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
                 } else {
-                    if ( scope.content != null ) {
+                    if ( scope.content !== null ) {
                         var content = {
                             csv: scope.content,
                             header: !scope.header,
-                            separator: scope.separator
+                            separator: scope.separator,
+                            entity: scope.entity
                         };
                         scope.headers = getHeaders(content);
                         scope.result = csvToJSON(content);
@@ -78,11 +82,33 @@ angular.module('boltApp')
                     if ( currentline.length === columnCount ) {
                         if (content.header) {
                             for (var j=0; j<headers.length; j++) {
-                                obj[headers[j]] = currentline[j];
+                                switch (content.entity[headers[j]]) {
+                                    case 'integer':
+                                        obj[headers[j]] = parseInt(currentline[j].replace(/^"(.*)"$/, '$1'));
+                                        break;
+                                    case 'string':
+                                        obj[headers[j]] = currentline[j].replace(/^"(.*)"$/, '$1');
+                                        break;
+                                    case 'boolean':
+                                        obj[headers[j]] = currentline[j].replace(/^"(.*)"$/, '$1');
+                                        break;
+                                    case 'float':
+                                        obj[headers[j]] = parseFloat(currentline[j].replace(/^"(.*)"$/, '$1'));
+                                        break;
+                                    case 'strings':
+                                        obj[headers[j]] = currentline[j].replace(/^"(.*)"$/, '$1').split(',');
+                                        break;
+                                    case 'integers':
+                                        obj[headers[j]] = _.map(currentline[j].replace(/^"(.*)"$/, '$1').split(','), function(str){ return parseInt(str); });
+                                        break;
+                                    default:
+                                        obj[headers[j]] = currentline[j].replace(/^"(.*)"$/, '$1');
+                                        break;
+                                }
                             }
                         } else {
                             for (var k=0; k<currentline.length; k++) {
-                                obj[k] = currentline[k];
+                                obj[k] = currentline[k].replace(/^"(.*)"$/, '$1');
                             }
                         }
                         result.push(obj);
