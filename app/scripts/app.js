@@ -627,6 +627,32 @@ angular.module('boltApp')
                 templateUrl: 'views/class.html',
                 controller : 'CreateClassCtrl'
             })
+            .state('admin.classes.import', {
+                url : 'import/',
+                templateUrl: 'views/entityImport.html',
+                controller :
+
+                    function ($scope, $rootScope, RestApi) {
+
+                        $scope.import = function () {
+                            $scope.showSpinner = true;
+                            $scope.entities = $scope.csv.result;
+                            RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
+                                console.log(res);
+                                $scope.showSpinner = false;
+                                $rootScope.$state.go('admin.classes.list');
+                            });
+                        };
+
+                        $scope.csv = {
+                            content: null,
+                            header: true,
+                            test: null,
+                            separator: ',',
+                            result: null
+                        };
+                    }
+            })
             .state('admin.classes.class', {
                 url : ':classId/',
                 templateUrl: 'views/class.html',
