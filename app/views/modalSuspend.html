@@ -1,0 +1,46 @@
+
+<div class="modal-body suspend">
+    <button ng-click="close()" class="modal-close" type="button">
+        <span class="sr-only" translate>Close</span>
+    </button>
+    <div ng-show="step_1">
+        <h2 translate>Taking a break?</h2>
+        <p translate>We understand you changing schedules</p>
+        <p translate>Suspend your account for the time your are away</p>
+        <ul class="list">
+            <li translate>pause your memberships for 4 weeks or more</li>
+            <li translate>carry forward your paid days for the next month</li>
+            <li translate>activate any time (after 4 weeks)</li>
+        </ul>
+        <div class="form-date">
+            <div class="form-rel half">
+                <label class="form-label">Start date:</label>
+                <div class="form-rel input-date date" ng-click="openDatepicker($event, 'from')">
+                    <input datepicker-popup="yyyy-MM-dd" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
+                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="updateStartDate()"
+                           ng-model="startDate"
+                           class="date" type="text" placeholder="{{'Select date'|translate}}" required clear-text="Clear"/>
+                </div>
+            </div>
+            <div class="form-rel half">
+                <label class="form-label">Activate date:</label>
+                <select chosen width="'100%'"
+                        ng-model="durationMonths"
+                        ng-options="item.id as item.date for item in activateDateList">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div ng-hide="loading">
+            <button class="form-button" type="button" ng-disabled="!startDate" ng-click="suspendSubmit()" translate>Suspend my account</button>
+        </div>
+        <div ng-show="loading" class="form-response">
+            <div class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+    </div>
+    <div ng-show="success">
+        <h2 translate>Your reqested is processed</h2>
+        <p translate>Your account will be suspended on {{startDate | date: 'dd.MM.yyyy'}}</p>
+        <p translate>Your account will reactivate on {{activateDate | date: 'dd.MM.yyyy'}}</p>
+    </div>
+</div>

@@ -88,22 +88,46 @@
         @media (max-width: $containerMobileWidth) {
             padding: 15px;
         }
-        p, ul {
+        p, .list {
             display: inline-block;
             width: 350px;
             text-align: left;
             font-size: 18px;
             margin: 10px 0;
         }
-        ul {
+        &.suspend {
+            p, .list {
+                width: 420px;
+            }
+        }
+        .list {
             padding: 0;
             margin: 0 0 50px;
             list-style-position: inside;
         }
         .reasons {
             @include my-resetList();
+            margin: 0 0 20px;
             input {
                 margin: 0 5px 0 0;
+            }
+            label {
+                font-weight: normal;
+            }
+        }
+        .form-date {
+            display: flex;
+            text-align: left;
+            margin: -20px 0 30px;
+            label {
+                font-size: 15px;
+            }
+            .form-rel {
+                width: auto;
+                margin: 0;
+                &.half {
+                    width: 50%;
+                }
             }
         }
         .subtitle {

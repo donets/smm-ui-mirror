@@ -100,6 +100,7 @@ angular.module('boltApp.controllers.Class', [])
         $scope.setEndTimeList = function() {
             setTimeList($scope.endTimeList, $scope.schedule.startTime);
         };
+
         $scope.showDatepicker = {};
 
         $scope.openDatepicker = function($event, type) {

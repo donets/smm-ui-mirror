@@ -338,9 +338,11 @@ textarea {
     margin: 10px 0;
     font-size: 18px;
     color: $colorGrey;
-    outline: none;
     &:hover {
         color: $colorGrey;
+    }
+    &:focus {
+        outline: none;
     }
 }
 
