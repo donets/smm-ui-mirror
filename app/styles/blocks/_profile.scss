@@ -106,7 +106,7 @@
     margin-bottom: 30px;
     .form-overview {
         width: 690px;
-        margin: 0 0 116px;
+        margin: 0 0 30px;
         border: 0 none;
         .form-title {
             line-height: inherit;
@@ -114,6 +114,13 @@
         p {
             max-width: 300px;
         }
+    }
+    .form-overview + .form-overview {
+        margin: 116px 0 0;
+    }
+    .form-checkout {
+        width: 690px;
+        padding: 0;
     }
 }
 .widget-overview {

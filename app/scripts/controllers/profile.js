@@ -97,6 +97,59 @@ angular.module('boltApp.controllers.Profile', [])
                 });
         };
 
+        $scope.activateMembership = function () {
+            $modal.open({
+                templateUrl: 'views/modalActivate.html',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+
+                    function ($scope, $modalInstance, $http, $window, member) {
+
+                        $scope.member = member;
+
+                        $scope.showDatepicker = {};
+
+                        $scope.openDatepicker = function($event, type) {
+                            $event.preventDefault();
+                            $event.stopPropagation();
+                            $scope.showDatepicker[type] = true;
+                        };
+                        $scope.minStartDate = member.earliestActivationPossible ? moment(member.earliestActivationPossible).format() : moment().format();
+                        $scope.dateOptions = {
+                            startingDay: 1,
+                            showWeekNumbers: false,
+                            showWeeks: false
+                        };
+
+                        $scope.step_1 = true;
+
+                        $scope.activateSubmit = function() {
+                            $scope.loading = true;
+                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/activate', {}, {params: {from: moment($scope.startDate).format('YYYY-MM-DD')}}).success(function (res) {
+                                console.log(res);
+                                $scope.loading = false;
+                                $scope.step_1 = false;
+                                $scope.success = true;
+                            }).error(function (res) {
+                                console.log(res);
+                                $scope.loading = false;
+                            });
+                        };
+
+                        $scope.close = function () {
+                            $modalInstance.close(false);
+                        };
+
+                    }],
+                backdrop: 'static',
+                windowClass: 'modal-cancel',
+                resolve: {
+                    member: function () {
+                        return $scope.membership;
+                    }
+                }
+            });
+        };
+
         var suspend = $scope.suspendMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalSuspend.html',
@@ -211,7 +264,43 @@ angular.module('boltApp.controllers.Profile', [])
             });
         };
 
+        $scope.Math = $window.Math;
+        $scope.month = _.range(1, 13);
+        $scope.year = _.range(2014, 2033);
 
+        $scope.order = {
+            paymentProvider: 'STRIPE'
+        };
+
+        $scope.checkCard = function (card) {
+            var patts = [
+                {regex: /^4[0-9]{12}(?:[0-9]{3})?$/g, type: 'visa'},
+                {regex: /^5[1-5]\d{14}$/g, type: 'masterCard'},
+                {regex: /^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/g, type: 'maestroCard'}
+            ];
+            if (card) {
+                _.each(patts, function (patt) {
+                    var valid = patt.regex.test(card);
+                    if (valid) {
+                        $scope.creditCard = patt.type;
+                    }
+                });
+            } else {
+                $scope.creditCard = null;
+            }
+        };
+
+        $scope.changePaymentSubmit = function() {
+            $scope.showSpinner = true;
+            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + $scope.membership.id + '/updatePaymentData', $scope.order).success(function (res) {
+                console.log(res);
+                $scope.showSpinner = false;
+                $scope.success = true;
+            }).error(function (res) {
+                console.log(res);
+                $scope.showSpinner = false;
+            });
+        };
 
     });
 
