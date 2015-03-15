@@ -4,102 +4,86 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/userMembership.html:21
-msgid "/ Monat für {{voucher.discountDuarationInMonths}} Monate"
+#: app/views/userMembership.html:59
+msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr ""
 
-#: app/views/userMembership.html:18
-msgid "0€ / Monat"
+#: app/views/userMembership.html:53
+msgid "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === 'EUR'\">&euro;</span> / Month"
 msgstr ""
 
-#: app/views/userMembership.html:30
-msgid "Abbuchung:"
+#: app/views/userMembership.html:43
+msgid "Card number:"
 msgstr ""
 
-#: app/views/userMembership.html:23
-msgid "Beginn Mitgliedschaft:"
+#: app/views/userMembership.html:49
+msgid "Card type:"
 msgstr ""
 
-#: app/views/userMembership.html:67
-msgid ""
-"Diese Funktion ist zur Zeit noch nicht aktiv, kontaktieren Sie bitte dazu unseren Kundenservice auf\n"
-"            <a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+#: app/views/userMembership.html:64
+msgid "Current discount:"
 msgstr ""
 
-#: app/views/userMembership.html:20
-msgid "Ermäßigter Preis:"
+#: app/views/userMembership.html:28
+msgid "Email:"
 msgstr ""
 
-#: app/views/userMembership.html:70
-msgid ""
-"Es gab einen Fehler. Bitte kontaktieren Sie den Support über\n"
-"            <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a>"
+#: app/views/userMembership.html:61
+msgid "Membership start date:"
 msgstr ""
 
-#: app/views/userMembership.html:6
-msgid "Hochladen"
+#: app/views/userMembership.html:10
+msgid "My card"
+msgstr ""
+
+#: app/views/userMembership.html:5
+msgid "My photo"
+msgstr ""
+
+#: app/views/userMembership.html:25
+msgid "Name:"
+msgstr ""
+
+#: app/views/userMembership.html:22
+msgid "Personal details"
+msgstr ""
+
+#: app/views/userMembership.html:58
+msgid "Reduced price:"
 msgstr ""
 
 #: app/views/userMembership.html:34
-msgid "Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende"
+msgid "Shipping address (for the card)"
+msgstr ""
+
+#: app/views/userMembership.html:55
+msgid "Special price:"
 msgstr ""
 
 #: app/views/userMembership.html:46
-msgid "Kurse pro Anbieter / Monat"
-msgstr ""
-
-#: app/views/userMembership.html:45
-msgid "Kurse pro Monat"
-msgstr ""
-
-#: app/views/userMembership.html:47
-msgid "Kündigen / Pausieren"
-msgstr ""
-
-#: app/views/userMembership.html:33
-msgid "Kündigung:"
-msgstr ""
-
-#: app/views/userMembership.html:26
-msgid "Laufzeit:"
-msgstr ""
-
-#: app/views/userMembership.html:4
-msgid "Mein Foto auf der Karte"
-msgstr ""
-
-#: app/views/userMembership.html:11
-msgid "Meine Kartennummer::"
+msgid "Status:"
 msgstr ""
 
 #: app/views/userMembership.html:31
-msgid "Monatlich beginnend mit dem Tag der Mitgliedschaft"
+msgid "Subscription city:"
 msgstr ""
 
-#: app/views/userMembership.html:44
-msgid "Preis pro Monat"
+#: app/views/userMembership.html:40
+msgid "Subscription details"
 msgstr ""
 
-#: app/views/userMembership.html:14
-msgid "Regulärer Preis:"
-msgstr ""
-
-#: app/views/userMembership.html:17
-msgid "Sonderpreis:"
-msgstr ""
-
-#: app/views/userMembership.html:73
-msgid "Wenn Du Deine Mitgliedschaft kündigen willst, klicke <a href=\"\" ng-click=\"cancelMembership()\">hier.</a>"
-msgstr ""
-
-#: app/views/userMembership.html:39
-msgid "Willst Du Deinen Karten-Typ ändern?"
-msgstr ""
-
-#: app/views/userMembership.html:27
-msgid "unbefristet / Verlängerung bei Nicht-Kündigung um je einen Monat"
+#: app/views/userMembership.html:52
+msgid "Subscription fee:"
 msgstr ""
 
 #: app/views/userMembership.html:15
-msgid "{{overview.price}}€ / Monat"
+msgid "Upgrade"
+msgstr ""
+
+#: app/views/userMembership.html:7
+msgid "Upload"
+msgstr ""
+
+#: app/views/userMembership.html:56
+msgid "£0 / month"
 msgstr ""

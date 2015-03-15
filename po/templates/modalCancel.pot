@@ -4,14 +4,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/modalCancel.html:3
-msgid "Are you sure you want to cancel your membership?"
+#: app/views/modalCancel.html:26
+msgid "<input type=\"radio\" ng-model=\"cancelReason\" value=\"1\" name=\"cancel-reason\">Can't find my prefered studio"
 msgstr ""
 
-#: app/views/modalCancel.html:5
-msgid "No"
+#: app/views/modalCancel.html:27
+msgid "<input type=\"radio\" ng-model=\"cancelReason\" value=\"2\" name=\"cancel-reason\">Not many options in my neighbourhood"
 msgstr ""
 
-#: app/views/modalCancel.html:6
-msgid "Yes"
+#: app/views/modalCancel.html:28
+msgid "<input type=\"radio\" ng-model=\"cancelReason\" value=\"3\" name=\"cancel-reason\">Subsciption is expensive"
+msgstr ""
+
+#: app/views/modalCancel.html:29
+msgid "<input type=\"radio\" ng-model=\"cancelReason\" value=\"4\" name=\"cancel-reason\">No time for fitness"
+msgstr ""
+
+#: app/views/modalCancel.html:30
+msgid "<input type=\"radio\" ng-model=\"cancelReason\" value=\"5\" name=\"cancel-reason\">Others"
+msgstr ""
+
+#: app/views/modalCancel.html:4
+msgid "Close"
+msgstr ""
+
+#: app/views/modalCancel.html:16
+msgid "I still want to cancel"
+msgstr ""
+
+#: app/views/modalCancel.html:33
+msgid "Next"
+msgstr ""
+
+#: app/views/modalCancel.html:15
+msgid "Ok, Suspend my account"
+msgstr ""
+
+#: app/views/modalCancel.html:23
+msgid "One more step"
+msgstr ""
+
+#: app/views/modalCancel.html:24
+msgid "Reason for cancellation?"
+msgstr ""
+
+#: app/views/modalCancel.html:40
+msgid "Subscription cancelled"
+msgstr ""
+
+#: app/views/modalCancel.html:7
+msgid "Sure you want to cancel?"
+msgstr ""
+
+#: app/views/modalCancel.html:41
+msgid "You can continue to use your account till {{cancellationDate | date: 'dd.MM.yyyy'}}"
+msgstr ""
+
+#: app/views/modalCancel.html:8
+msgid "You can suspend your membership, and"
+msgstr ""
+
+#: app/views/modalCancel.html:11
+msgid "book 3 classes a month"
+msgstr ""
+
+#: app/views/modalCancel.html:10
+msgid "keep your account active"
+msgstr ""
+
+#: app/views/modalCancel.html:12
+msgid "only for 15 / month"
 msgstr ""

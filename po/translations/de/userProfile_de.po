@@ -21,11 +21,14 @@ msgid "Hello {{userName}}!"
 msgstr "Hallo, {{userName}}!"
 
 #: app/views/userProfile.html:11
-msgid "My card"
-msgstr "Meine Karte"
+msgid "Subscription"
+msgstr "Mitgliedschaft"
 
 #: app/views/userProfile.html:5
 msgid "You can change your account and view your billing details here."
 msgstr ""
 "Hier kannst Du den Karten-Typ oder Account ändern und Deine Rechnungen "
 "einsehen."
+
+#~ msgid "My card"
+#~ msgstr "Meine Karte"

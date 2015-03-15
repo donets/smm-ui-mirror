@@ -12,19 +12,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: app/views/classes.html:52
+#: app/views/classes.html:53
 msgid "<i class=\"fa fa-pencil\"></i>Manage"
 msgstr "<i class=\"fa fa-pencil\"></i>Manage"
 
+#: app/views/classes.html:8
+msgid "<i class=\"fa fa-plus\"></i>Bulk Import"
+msgstr "<i class=\"fa fa-plus\"></i>Bulk Import"
+
 #: app/views/classes.html:7
-msgid "<i class=\"fa fa-plus\"></i>New class"
+msgid "<i class=\"fa fa-plus\"></i>New Class"
 msgstr "<i class=\"fa fa-plus\"></i>New Class"
 
-#: app/views/classes.html:20
+#: app/views/classes.html:21
 msgid "All Levels"
 msgstr "Alle Levels"
 
-#: app/views/classes.html:12
+#: app/views/classes.html:13
 msgid "All Studios"
 msgstr "Alle Studios"
 
@@ -32,34 +36,34 @@ msgstr "Alle Studios"
 msgid "Classes"
 msgstr "Classes"
 
-#: app/views/classes.html:39
+#: app/views/classes.html:40
 msgid "Discipline"
 msgstr "Disziplin"
 
-#: app/views/classes.html:29
+#: app/views/classes.html:30
 msgid "Draft"
 msgstr "Draft"
 
-#: app/views/classes.html:8
+#: app/views/classes.html:9
 msgid "Filter name"
 msgstr "Filter name"
 
-#: app/views/classes.html:38
+#: app/views/classes.html:39
 msgid "Name of class"
 msgstr "Name der Stunde"
 
-#: app/views/classes.html:31
+#: app/views/classes.html:32
 msgid "Reset filters"
 msgstr "Filter zurücksetzen"
 
-#: app/views/classes.html:37
+#: app/views/classes.html:38
 msgid "Status"
 msgstr "Status"
 
-#: app/views/classes.html:40
+#: app/views/classes.html:41
 msgid "Studio"
 msgstr "Studio"
 
-#: app/views/classes.html:41
+#: app/views/classes.html:42
 msgid "Teacher"
 msgstr "Lehrer"

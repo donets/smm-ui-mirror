@@ -4,19 +4,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/classes.html:52
+#: app/views/classes.html:53
 msgid "<i class=\"fa fa-pencil\"></i>Manage"
 msgstr ""
 
-#: app/views/classes.html:7
-msgid "<i class=\"fa fa-plus\"></i>New class"
+#: app/views/classes.html:8
+msgid "<i class=\"fa fa-plus\"></i>Bulk Import"
 msgstr ""
 
-#: app/views/classes.html:20
+#: app/views/classes.html:7
+msgid "<i class=\"fa fa-plus\"></i>New Class"
+msgstr ""
+
+#: app/views/classes.html:21
 msgid "All Levels"
 msgstr ""
 
-#: app/views/classes.html:12
+#: app/views/classes.html:13
 msgid "All Studios"
 msgstr ""
 
@@ -24,34 +28,34 @@ msgstr ""
 msgid "Classes"
 msgstr ""
 
-#: app/views/classes.html:39
+#: app/views/classes.html:40
 msgid "Discipline"
 msgstr ""
 
-#: app/views/classes.html:29
+#: app/views/classes.html:30
 msgid "Draft"
 msgstr ""
 
-#: app/views/classes.html:8
+#: app/views/classes.html:9
 msgid "Filter name"
 msgstr ""
 
-#: app/views/classes.html:38
+#: app/views/classes.html:39
 msgid "Name of class"
 msgstr ""
 
-#: app/views/classes.html:31
+#: app/views/classes.html:32
 msgid "Reset filters"
 msgstr ""
 
-#: app/views/classes.html:37
+#: app/views/classes.html:38
 msgid "Status"
 msgstr ""
 
-#: app/views/classes.html:40
+#: app/views/classes.html:41
 msgid "Studio"
 msgstr ""
 
-#: app/views/classes.html:41
+#: app/views/classes.html:42
 msgid "Teacher"
 msgstr ""
