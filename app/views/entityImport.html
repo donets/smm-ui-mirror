@@ -19,6 +19,7 @@
                         header="csv.header"
                         headers="csv.headers"
                         separator="csv.separator"
+                        entity="importEntity"
                         result="csv.result"></ng-csv-import>
             </div>
 
@@ -30,7 +31,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="obj in csv.result track by obj.id">
+                    <tr ng-repeat="obj in csv.result track by $index">
                         <td ng-repeat="field in csv.headers track by $index">
                             <div>{{obj[field]}}</div>
                         </td>

@@ -657,6 +657,28 @@ angular.module('boltApp')
                             separator: ',',
                             result: null
                         };
+                        $scope.importEntity = {
+                            ClassId: 'integer',
+                            Studio: 'string',
+                            acceptedPlans: 'strings',
+                            languages: 'strings',
+                            visitorGenders: 'strings',
+                            freeSchedule: 'boolean',
+                            dropinPrice: 'string',
+                            title: 'string',
+                            discipline: 'string',
+                            style: 'string',
+                            levels: 'integers',
+                            teacherName: 'string',
+                            description: 'string',
+                            day: 'string',
+                            startTime: 'string',
+                            endTime: 'string',
+                            earliestStart: 'string',
+                            endDate: 'string',
+                            studioId: 'integer',
+                            locationId: 'integer'
+                        };
                     }
             })
             .state('admin.classes.class', {
