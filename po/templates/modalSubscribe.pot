@@ -8,26 +8,26 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: app/views/modalSubscribe.html:16
-msgid "Danke!"
-msgstr ""
-
-#: app/views/modalSubscribe.html:13
-msgid "Die Email-Adresse ist nicht korrekt"
-msgstr ""
-
 #: app/views/modalSubscribe.html:8
-msgid "E-Mail-Adresse"
-msgstr ""
-
-#: app/views/modalSubscribe.html:6
-msgid "Erhalte heute Deine Einladung:"
+msgid "Email Address"
 msgstr ""
 
 #: app/views/modalSubscribe.html:10
-msgid "MITMACHEN"
+msgid "GET INVOLVED"
+msgstr ""
+
+#: app/views/modalSubscribe.html:6
+msgid "Get your invitation today:"
 msgstr ""
 
 #: app/views/modalSubscribe.html:9
-msgid "PLZ"
+msgid "Post Code"
+msgstr ""
+
+#: app/views/modalSubscribe.html:16
+msgid "Thank you!"
+msgstr ""
+
+#: app/views/modalSubscribe.html:13
+msgid "The email address is incorrect"
 msgstr ""

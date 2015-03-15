@@ -23,13 +23,13 @@ angular.module('boltApp.controllers.Reset', [])
                 $scope.errorReset = true;
                 switch (response.type) {
                     case 'PasswordTooWeak':
-                        $scope.errorMessage = gettextCatalog.getString('Das Passwort ist zu schwach, muss mindestens 8 Zeichen sein, mit Ziffern, Groß und Kleinbuchstaben');
+                        $scope.errorMessage = gettextCatalog.getString('Your password is too weak; it must contain at least 8 characters, including numbers and lower and uppercase letters');
                         break;
                     case 'TokenExpired':
-                        $scope.errorMessage = gettextCatalog.getString('Der Link ist nicht mehr gültig');
+                        $scope.errorMessage = gettextCatalog.getString('The link is no longer valid');
                         break;
                     case 'InvalidToken':
-                        $scope.errorMessage = gettextCatalog.getString('Der Link ist nicht gültig');
+                        $scope.errorMessage = gettextCatalog.getString('The link is invalid');
                         break;
                     default :
                         $scope.errorMessage = response.type;

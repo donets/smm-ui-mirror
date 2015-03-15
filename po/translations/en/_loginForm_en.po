@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/_loginForm.html:57
+msgid "Sign out"
+msgstr "Sign out"
+
+#: app/views/_loginForm.html:51
+msgid "Account"
+msgstr "Account"
+
+#: app/views/_loginForm.html:43
+msgid "Back to login"
+msgstr "Back to login"
+
+#: app/views/_loginForm.html:53
+msgid "Classes"
+msgstr "Classes"
+
+#: app/views/_loginForm.html:42
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#: app/views/_loginForm.html:37
+msgid "Your email address was not found"
+msgstr "Your email address was not found"
+
+#: app/views/_loginForm.html:36
+msgid "You have been sent a reset email"
+msgstr "You have been sent a reset email"
+
+#: app/views/_loginForm.html:15 app/views/_loginForm.html:30
+msgid "Email Address"
+msgstr "Email Address"
+
+#: app/views/_loginForm.html:24
+msgid "Incorrect email address or password"
+msgstr "Incorrect email address or password"
+
+#: app/views/_loginForm.html:50
+msgid "Classes"
+msgstr "Classes"
+
+#: app/views/_loginForm.html:54
+msgid "Locations"
+msgstr "Locations"
+
+#: app/views/_loginForm.html:21 app/views/_loginForm.html:5
+msgid "Login"
+msgstr "Login"
+
+#: app/views/_loginForm.html:52
+msgid "My card"
+msgstr "My card"
+
+#: app/views/_loginForm.html:18
+msgid "Password"
+msgstr "Password"
+
+#: app/views/_loginForm.html:33
+msgid "Reset password"
+msgstr "Reset password"
+
+#: app/views/_loginForm.html:55
+msgid "Studios"
+msgstr "Studios"
+
+#: app/views/_loginForm.html:56
+msgid "Vouchers"
+msgstr "Vouchers"

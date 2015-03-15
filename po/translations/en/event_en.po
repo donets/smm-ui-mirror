@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
+
+# ??
+#: app/views/event.html:38
+msgid "&lt; Less"
+msgstr "&lt; Less"
+
+#: app/views/event.html:67
+msgid ", {{teacher.teacherProfile.numberOfClassesTaught}} hours"
+msgstr ", {{teacher.teacherProfile.numberOfClassesTaught}} hours"
+
+#: app/views/event.html:24
+msgid "<i class=\"fa fa-calendar\"></i>Book a different date"
+msgstr "<i class=\"fa fa-calendar\"></i>Book a different date"
+
+#: app/views/event.html:47
+msgid "<i class=\"fa fa-clock-o\"></i>{{duration}} minutes"
+msgstr "<i class=\"fa fa-clock-o\"></i>{{duration}} minutes"
+
+#: app/views/event.html:62 app/views/event.html:71
+msgid "<i class=\"fa fa-envelope\"></i>Questions about the event?"
+msgstr "<i class=\"fa fa-envelope\"></i>Questions about the event?"
+
+#: app/views/event.html:19
+msgid "Sold out"
+msgstr "Sold out"
+
+#: app/views/event.html:22
+msgid "Book this event"
+msgstr "Book this event"
+
+#: app/views/event.html:23
+msgid ""
+"Book this event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} "
+"&euro;</span>"
+msgstr ""
+"Book this event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} "
+"&euro;</span>"
+
+#: app/views/event.html:59
+msgid "Experienced teacher"
+msgstr "Experienced teacher"
+
+#: app/views/event.html:58
+msgid "Teacher"
+msgstr "Teacher"
+
+# what does this mean?
+#: app/views/event.html:37
+msgid "More &gt;"
+msgstr "More &gt;"
+
+#: app/views/event.html:60
+msgid "Master teacher"
+msgstr "Master teacher"
+
+#: app/views/event.html:20
+msgid "Private lesson"
+msgstr "Private lesson"
+
+#: app/views/event.html:66
+msgid "Since {{2014 - teacher.teacherProfile.teachingSince}}"
+msgstr "Since {{2014 - teacher.teacherProfile.teachingSince}}"
+
+#: app/views/event.html:18
+msgid ""
+"{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} "
+"Places available"
+msgstr ""
+"{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} "
+"Places available"

@@ -3,19 +3,19 @@
     <button ng-click="close()" class="modal-close" type="button">
         <span class="sr-only" translate>Close</span>
     </button>
-    <h2 ng-hide="success" translate>Nachricht an Somuchmore</h2>
+    <h2 ng-hide="success" translate>Message Somuchmore</h2>
     <form name="modalForm" class="message-submit" ng-hide="success" ng-submit="sendMessage()">
-        <input type="text" name="name" ng-model="message.name" placeholder="{{'Dein Name'|translate}}" required/>
-        <input type="email" name="email" ng-model="message.email" placeholder="{{'Deine E-Mail-Adresse'|translate}}" required/>
+        <input type="text" name="name" ng-model="message.name" placeholder="{{'Your Name'|translate}}" required/>
+        <input type="email" name="email" ng-model="message.email" placeholder="{{'Your Email Address'|translate}}" required/>
         <textarea name="message" class="form-textarea" ng-model="message.message" required></textarea>
-        <input type="submit" value="{{'Senden'|translate}}" ng-disabled="modalForm.$invalid" />
+        <input type="submit" value="{{'Send'|translate}}" ng-disabled="modalForm.$invalid" />
         <div class="form-response">
             <div ng-show="loading" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-            <div ng-show="error" class="form-message form-error" translate>Sorry your message not delivered. Please try later.</div>
+            <div ng-show="error" class="form-message form-error" translate>Sorry, your message was not delivered. Please try again later.</div>
         </div>
     </form>
     <div ng-show="success">
-        <p class="subtitle" translate>Danke, Deine Nachricht wurde an Somuchmore versendet!</p>
-        <button class="form-button" type="button" ng-click="close()" translate>Ok</button>
+        <p class="subtitle" translate>Thank you, your message has been sent to Somuchmore!</p>
+        <button class="form-button" type="button" ng-click="close()" translate>OK</button>
     </div>
 </div>

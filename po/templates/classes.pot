@@ -9,15 +9,15 @@ msgid "<i class=\"fa fa-pencil\"></i>Manage"
 msgstr ""
 
 #: app/views/classes.html:7
-msgid "<i class=\"fa fa-plus\"></i>New Class"
+msgid "<i class=\"fa fa-plus\"></i>New class"
 msgstr ""
 
 #: app/views/classes.html:20
-msgid "Alle Levels"
+msgid "All Levels"
 msgstr ""
 
 #: app/views/classes.html:12
-msgid "Alle Studios"
+msgid "All Studios"
 msgstr ""
 
 #: app/views/classes.html:2
@@ -25,7 +25,7 @@ msgid "Classes"
 msgstr ""
 
 #: app/views/classes.html:39
-msgid "Disziplin"
+msgid "Discipline"
 msgstr ""
 
 #: app/views/classes.html:29
@@ -36,16 +36,12 @@ msgstr ""
 msgid "Filter name"
 msgstr ""
 
-#: app/views/classes.html:31
-msgid "Filter zurücksetzen"
-msgstr ""
-
-#: app/views/classes.html:41
-msgid "Lehrer"
-msgstr ""
-
 #: app/views/classes.html:38
-msgid "Name der Stunde"
+msgid "Name of class"
+msgstr ""
+
+#: app/views/classes.html:31
+msgid "Reset filters"
 msgstr ""
 
 #: app/views/classes.html:37
@@ -54,4 +50,8 @@ msgstr ""
 
 #: app/views/classes.html:40
 msgid "Studio"
+msgstr ""
+
+#: app/views/classes.html:41
+msgid "Teacher"
 msgstr ""

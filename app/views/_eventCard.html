@@ -4,9 +4,9 @@
     <div class="card__capacity"
          ng-class="{'half': event.total_tickets_left > 1, 'hot': event.total_tickets_left == 1 && event.total_tickets > 1, 'sold': event.total_tickets_left == 0, 'private': event.total_tickets == 1}"
          ng-if="event.total_tickets">
-        <span ng-if="event.total_tickets_left && event.total_tickets > 1" translate>{{event.total_tickets_left}}/{{event.total_tickets}} Plätzen frei</span>
-        <span ng-if="event.total_tickets_left == 0" translate>Ausverkauft</span>
-        <span ng-if="event.total_tickets == 1" translate>Privatstunde</span>
+        <span ng-if="event.total_tickets_left && event.total_tickets > 1" translate>Places available</span>
+        <span ng-if="event.total_tickets_left == 0" translate>Sold out</span>
+        <span ng-if="event.total_tickets == 1" translate>Private lesson</span>
     </div>
     <div class="card__price">{{event.minPrice.ticket.display_price.split(".")[0]}} &euro;</div>
     <div class="card__badge">
@@ -16,7 +16,7 @@
         </ul>
     </div>
     <div class="card__hover" ng-hide="event.eventLoad">
-        <span><button translate>Zum Event</button></span>
+        <span><button translate>Go to event</button></span>
     </div>
     <div class="card__spinner" ng-show="event.eventLoad">
         <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#fff', left: 0, top: 20}"></span>
@@ -25,6 +25,6 @@
 <div class="card__info">
     <div class="info-cell">
         <b class="name">{{event.parent_event.title}}</b>
-        <span>{{event.start_date | amCalendar}}<span ng-if="event.parent_event.teacherName" translate> — mit {{event.parent_event.teacherName}}</span></span>
+        <span>{{event.start_date | amCalendar}}<span ng-if="event.parent_event.teacherName" translate> — with {{event.parent_event.teacherName}}</span></span>
     </div>
 </div>
