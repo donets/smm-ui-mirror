@@ -46,7 +46,7 @@ msgid "Follow us"
 msgstr "Folge uns"
 
 #: app/index.html:217
-msgid "General terms & conditions"
+msgid "General terms &amp; conditions"
 msgstr "AGB"
 
 #: app/index.html:216

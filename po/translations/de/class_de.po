@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: app/views/class.html:12
-msgid "<i class=\"fa fa-save\"></i>Save & go live"
+msgid "<i class=\"fa fa-save\"></i>Save &amp; go live"
 msgstr "<i class=\"fa fa-save\"></i>Save & go live"
 
 #: app/views/class.html:11
