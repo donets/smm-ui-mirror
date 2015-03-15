@@ -116,7 +116,7 @@
 <div ng-cloak resizable ng-app="boltApp">
     <div ng-controller="ConfirmationCtrl">
         <div class="b-alert info" ng-if="alert">
-            <span translate>Danke für Deine Buchung: {{event.event.title}} | Lehrer: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | amDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br /> Du bekommst eine Email mit Ticket und Details.</span>
+            <span translate>Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details.</span>
             <button ng-click="close()" class="b-close" type="button">
                 <i class="fa fa-times"></i>
                 <span class="sr-only" translate>Close</span>
@@ -124,17 +124,17 @@
         </div>
     </div>
     <div class="b-alert error" ng-if="rejection.show">
-        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'" translate>Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren Kundenservice: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br/>
-            Fehlerdetails: {{rejection.data.message}}</span>
-        <span ng-if="rejection.data.type && rejection.data.type === 'AccessDenied'" translate>Sie haben keine Berechtigung für die Seite {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
-        <span ng-if="!rejection.data.type && (rejection.status === 404 || rejection.status === 0)" translate>Tut uns leid, der Server konnte nicht erreicht werden! Bitte drücke Strg+R (Cmd+R für Mac) oder clicke <a href="" ng-click="pageReload()">hier</a> um es erneut zu versuchen.</span>
+        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'" translate>Unfortunately an error has occurred. Please contact our customer service team: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br>
+Error details: {{rejection.data.message}}</span>
+        <span ng-if="rejection.data.type && rejection.data.type === 'AccessDenied'" translate>You are not authorised to access this page {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
+        <span ng-if="!rejection.data.type && (rejection.status === 404 || rejection.status === 0)" translate>Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd+R for Mac) or click <a href="" ng-click="pageReload()">here</a> to try again.</span>
         <button ng-click="rejection.show = false" class="b-close" type="button">
             <i class="fa fa-times"></i>
             <span class="sr-only" translate>Close</span>
         </button>
     </div>
     <div class="b-alert success" ng-if="success.show">
-        <span translate>Erfolgreich gespeichert. </span>
+        <span translate>Successfully saved </span>
         <button ng-click="success.show = false" class="b-close" type="button">
             <i class="fa fa-times"></i>
             <span class="sr-only" translate>Close</span>
@@ -158,7 +158,7 @@
                 </a>-->
                 <nav class="b-top-nav" ng-show="$state.includes('dashboard')">
                     <ul class="top-nav">
-                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard" translate>Kurse</a></li><li>
+                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard" translate>Courses</a></li><li>
                         <a ui-sref="studios" translate>Studios</a></li>
                     </ul>
                 </nav>
@@ -171,18 +171,18 @@
             <div class="container">
                 <div class="b-footer-top cf">
                     <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
-                        <h3 translate>Lass Dich inspirieren</h3>
+                        <h3 translate>Be inspired</h3>
                         <form name="form" class="app-email" ng-submit="subscribe()">
-                            <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Deine E-Mail-Adresse'|translate}}" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
+                            <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Your email address'|translate}}" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
                             <div class="form-response">
                                 <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                                <div ng-show="successUpdate" class="form-message form-success" translate>Danke!</div>
-                                <div ng-show="errorUpdate" class="form-message form-error" translate>Die Email-Adresse ist nicht korrekt</div>
+                                <div ng-show="successUpdate" class="form-message form-success" translate>Thank you!</div>
+                                <div ng-show="errorUpdate" class="form-message form-error" translate>The email address is incorrect</div>
                             </div>
                         </form>
                     </div>
                     <div class="b-footer-block w-left" ng-show="desktop">
-                        <h3 translate>Folge uns</h3>
+                        <h3 translate>Follow us</h3>
                         <div class="fb-like"
                              data-href="https://www.facebook.com/somuchmoredeutsch"
                              data-width="120"
@@ -193,7 +193,7 @@
                         </div>
                     </div>
                     <div class="b-footer-block w-left">
-                        <h3 translate>Kontaktiere uns</h3>
+                        <h3 translate>Contact us</h3>
                         <div class="contact">
                             <p class="phone" ng-if="supportPhone">{{supportPhone}}</p><a class="email" href="mailto:info@somuchmore.org">info@somuchmore.org</a>
                         </div>
@@ -212,10 +212,10 @@
                 </div>
                 <nav class="b-footer-nav cf">
                     <ul class="b-footer-nav__menu">
-                        <li><a ui-sref="about" translate>Über uns</a></li><li>
-                        <a ui-sref="impressum" translate>Impressum</a></li><li>
-                        <a class="" ui-sref="agb" translate>AGB</a></li><li>
-                        <a class="upp" ui-sref="faq" translate>faq</a></li>
+                        <li><a ui-sref="about" translate>About us</a></li><li>
+                        <a ui-sref="impressum" translate>Legal notice</a></li><li>
+                        <a class="" ui-sref="agb" translate>General terms & conditions</a></li><li>
+                        <a class="upp" ui-sref="FAQ" translate>FAQ</a></li>
                     </ul>
                     <p class="b-footer-copyright" translate>&copy; Somuchmore Marketplace UG, 2015</p>
                 </nav>

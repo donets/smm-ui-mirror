@@ -432,8 +432,8 @@ module.exports = function (grunt) {
         nggettext_extract: {
             pot: {
                 files: {
-                    'po/templates/eventCard.pot': ['app/views/_eventCard.html'],
-                    'po/templates/loginForm.pot': ['app/views/_loginForm.html'],
+                    'po/templates/_eventCard.pot': ['app/views/_eventCard.html'],
+                    'po/templates/_loginForm.pot': ['app/views/_loginForm.html'],
                     'po/templates/about.pot': ['app/views/about.html'],
                     'po/templates/agb.pot': ['app/views/agb.html'],
                     'po/templates/class.pot': ['app/views/class.html'],
@@ -472,7 +472,7 @@ module.exports = function (grunt) {
                     module: 'boltApp'
                 },
                 files: {
-                    'app/scripts/custom/translations.js': ['po/translations/*.po']
+                    'app/scripts/custom/translations.js': ['po/translations/en/*.po','po/translations/de/*.po']
                 }
             }
         }

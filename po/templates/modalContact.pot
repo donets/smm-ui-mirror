@@ -4,16 +4,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/modalContact.html:24
-msgid "Absenden"
-msgstr ""
-
 #: app/views/modalContact.html:5
 msgid "Close"
-msgstr ""
-
-#: app/views/modalContact.html:27
-msgid "Die Nachricht konnte nicht gesendet werden, bitte versuche es erneut."
 msgstr ""
 
 #: app/views/modalContact.html:15
@@ -21,7 +13,7 @@ msgid "Email"
 msgstr ""
 
 #: app/views/modalContact.html:21
-msgid "Nachricht"
+msgid "Message"
 msgstr ""
 
 #: app/views/modalContact.html:12
@@ -29,5 +21,13 @@ msgid "Name"
 msgstr ""
 
 #: app/views/modalContact.html:18
-msgid "Telefon"
+msgid "Phone"
+msgstr ""
+
+#: app/views/modalContact.html:24
+msgid "Submit"
+msgstr ""
+
+#: app/views/modalContact.html:27
+msgid "Your message could not be sent, please try again."
 msgstr ""

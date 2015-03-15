@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: app/views/class.html:12
+msgid "<i class=\"fa fa-save\"></i>Save & go live"
+msgstr "<i class=\"fa fa-save\"></i>Save & go live"
+
+#: app/views/class.html:11
+msgid "<i class=\"fa fa-save\"></i>Save as draft"
+msgstr "<i class=\"fa fa-save\"></i>Save as draft"
+
+#: app/views/class.html:13
+msgid "<i class=\"fa fa-trash\"></i>Delete"
+msgstr "<i class=\"fa fa-trash\"></i>Delete"
+
+#: app/views/class.html:77
+msgid "Add dates"
+msgstr "Add Dates"
+
+#: app/views/class.html:170
+msgid "All Levels"
+msgstr "Alle Levels"
+
+#: app/views/class.html:225
+msgid "Black Card only"
+msgstr "Nur Black Card"
+
+#: app/views/class.html:160
+msgid "Cancel"
+msgstr "Cancel"
+
+#: app/views/class.html:4
+msgid "Classes"
+msgstr "Classes"
+
+#: app/views/class.html:78
+msgid "Delete dates"
+msgstr "Delete Dates"
+
+#: app/views/class.html:200
+msgid "Description"
+msgstr "Beschreibung"
+
+#: app/views/class.html:192
+msgid "Discipline"
+msgstr "Disziplin"
+
+#: app/views/class.html:83
+msgid "Edit a single date"
+msgstr "Edit a single date"
+
+#: app/views/class.html:84
+msgid "Edit {{schedule.repeat | lowercase}} repeating dates"
+msgstr "Edit {{schedule.repeat | lowercase}} repeating dates"
+
+#: app/views/class.html:86
+msgid "Event repeats"
+msgstr "Event repeats"
+
+# Passt das so?
+#: app/views/class.html:211
+msgid "Fixed visit length (in minutes, empty = unlimited)"
+msgstr "Feste Besuchslänge (in Minuten, leer = unbegrenzt)"
+
+# Passt das so? Was bedeutet das hier?
+#: app/views/class.html:207
+msgid "Free visit?"
+msgstr "Freier Besuch?"
+
+#: app/views/class.html:110
+msgid "From"
+msgstr "From"
+
+#: app/views/class.html:166
+msgid "Level"
+msgstr "Level"
+
+#: app/views/class.html:37
+msgid "Location"
+msgstr "Standort"
+
+#: app/views/class.html:179
+msgid "Max. no. of participants"
+msgstr "Max. Teilnehmer"
+
+#: app/views/class.html:22
+msgid "Name of class"
+msgstr "Name der Stunde"
+
+#: app/views/class.html:157
+msgid "No. of dates created by schedule"
+msgstr "No dates created by schedule"
+
+# Was bedeutet das genau? Weiss nicht ob es auf Englisch viel Sinn macht.
+#: app/views/class.html:183
+msgid "Price of a drop-in class"
+msgstr "Preis vom Drop-in"
+
+#: app/views/class.html:218
+msgid "Registration required"
+msgstr "Anmeldung erforderlich"
+
+#: app/views/class.html:98
+msgid "Repeating every"
+msgstr "Repeating every"
+
+#: app/views/class.html:160
+msgid "Save"
+msgstr "Save"
+
+#: app/views/class.html:82
+msgid "Schedule Dates"
+msgstr "Schedule dates"
+
+#: app/views/class.html:141 app/views/class.html:148
+msgid "Select Date"
+msgstr "Select date"
+
+#: app/views/class.html:41
+msgid "Select Location"
+msgstr "Select Location"
+
+#: app/views/class.html:103 app/views/class.html:91
+msgid "Select Repeats"
+msgstr "Select repeats"
+
+#: app/views/class.html:30
+msgid "Select Studio"
+msgstr "Select Studio"
+
+#: app/views/class.html:115 app/views/class.html:127
+msgid "Select Time"
+msgstr "Select time"
+
+#: app/views/class.html:26
+msgid "Studio"
+msgstr "Studio"
+
+#: app/views/class.html:196
+msgid "Style"
+msgstr "Stil"
+
+#: app/views/class.html:188
+msgid "Teacher"
+msgstr "Lehrer"
+
+#: app/views/class.html:122
+msgid "To"
+msgstr "to"
+
+#: app/views/class.html:6
+msgid "{{occurrences.length}} Classes scheduled"
+msgstr "{{occurrences.length}} Classes scheduled"

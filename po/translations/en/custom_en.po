@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Beginners"
+msgstr "Beginners"
+
+msgid "Medium"
+msgstr "Medium"
+
+msgid "Advanced "
+msgstr "Advanced "
+
+msgid "Meditation can increase your brain capacity to that of a 25-year-old."
+msgstr "Meditation can increase your brain capacity to that of a 25-year-old."
+
+msgid "— NCBI (National Center for Biotechnology Information)"
+msgstr "— NCBI (National Center for Biotechnology Information)"
+
+msgid ""
+"Yoga has been proven to help self-image and self-love after just 3 months."
+msgstr ""
+"Yoga has been proven to help self-image and self-love after just 3 months."
+
+msgid "Dancing helps to alleviate depression."
+msgstr "Dancing helps to alleviate depression."
+
+msgid ""
+"People who meditate are able to deal with everyday challenges more "
+"creatively."
+msgstr ""
+"People who meditate are able to deal with everyday challenges more "
+"creatively."
+
+msgid "— WSU (Washington State University)"
+msgstr "— WSU (Washington State University)"
+
+msgid "Yoga helps to reduce anxiety and manage stress."
+msgstr "Yoga helps to reduce anxiety and manage stress."
+
+msgid ""
+"Your password is too weak; it must contain at least 8 characters, including "
+"numbers and lower and uppercase letters"
+msgstr ""
+"Your password is too weak; it must contain at least 8 characters, including "
+"numbers and lower and uppercase letters"
+
+msgid "The link is no longer valid"
+msgstr "The link is no longer valid"
+
+msgid "The link is invalid"
+msgstr "The link is invalid"
+
+msgid ""
+"I don’t have a credit card, but still wish to order the Somuchmore card. "
+"Please contact me!"
+msgstr ""
+"I don’t have a credit card, but still wish to order the Somuchmore card. "
+"Please contact me!"
+
+msgid "Unlimited"
+msgstr "Unlimited"
+
+msgid "Anytime"
+msgstr "Anytime"
+
+msgid "Selected"
+msgstr "Selected"
+
+msgid "Select"
+msgstr "Select"

@@ -224,7 +224,7 @@ angular.module('boltApp.controllers.Signup', [])
                         $scope.message = {
                             name: name,
                             email: email,
-                            message: gettextCatalog.getString('Ich habe keine Kreditkarte, möchte die Somuchmore Card aber trotzdem bestellen. Bitte kontaktiert mich dazu!')
+                            message: gettextCatalog.getString('I don’t have a credit card, but still wish to order the Somuchmore card. Please contact me!')
                         };
 
                         $scope.sendMessage = function() {
@@ -281,8 +281,8 @@ angular.module('boltApp.controllers.Signup', [])
             }
         };
 
-      $scope.localizedSelect = gettextCatalog.getString('Auswählen');
-      $scope.localizedSelected = gettextCatalog.getString('Ausgewählt');
-      $scope.localizedUnlimited = gettextCatalog.getString('Unbegrenzt');
+      $scope.localizedSelect = gettextCatalog.getString('Select');
+      $scope.localizedSelected = gettextCatalog.getString('Selected');
+      $scope.localizedUnlimited = gettextCatalog.getString('Unlimited');
 
     });

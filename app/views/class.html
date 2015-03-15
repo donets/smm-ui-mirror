@@ -19,7 +19,7 @@
     <div class="b-class-edit">
         <h3>Main info</h3>
         <div class="form-rel">
-            <label class="form-label" for="title" translate>Name der Stunde</label>
+            <label class="form-label" for="title" translate>Name of class</label>
             <input class="form-input" type="text" ng-model="class.title" id="title"/>
         </div>
         <div class="form-rel">
@@ -34,7 +34,7 @@
             </select>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="location" translate>Standort</label>
+            <label class="form-label" for="location" translate>Location</label>
             <select chosen
                     id="location"
                     ng-model="class.locationId"
@@ -74,12 +74,12 @@
                 </tbody>
             </table>
             <div class="form-rel large" ng-if="!showSchedule">
-                <button class="green" ng-click="addDates()" type="button" translate>Add Dates</button>
-                <button class="red" ng-confirm-click="deleteGroup(occurrences)" type="button" translate>Delete Dates</button>
+                <button class="green" ng-click="addDates()" type="button" translate>Add dates</button>
+                <button class="red" ng-confirm-click="deleteGroup(occurrences)" type="button" translate>Delete dates</button>
             </div>
             <span class="spinner" ng-show="showSpinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             <form name="form.schedule" class="b-date-schedule" ng-class="{'disabled': showSpinner}" ng-show="showSchedule" ng-submit="saveSchedule()">
-                <h3 ng-if="newEvent" translate>Schedule dates</h3>
+                <h3 ng-if="newEvent" translate>Schedule Dates</h3>
                 <h3 ng-if="schedule.repeat === 'Single' && !newEvent" translate>Edit a single date</h3>
                 <h3 ng-if="schedule.repeat !== 'Single' && !newEvent" translate>Edit {{schedule.repeat | lowercase}} repeating dates</h3>
                 <div class="form-rel" ng-if="newEvent">
@@ -88,7 +88,7 @@
                             id="repeat"
                             ng-model="schedule.repeat"
                             ng-change="updateSchedule()"
-                            data-placeholder="{{'Select repeats'|translate}}"
+                            data-placeholder="{{'Select Repeats'|translate}}"
                             disable-search="true" required
                             ng-options="item for item in repeatList">
                         <option value=""></option>
@@ -100,7 +100,7 @@
                             id="weekday"
                             ng-model="schedule.weekday"
                             ng-change="updateSchedule()"
-                            data-placeholder="{{'Select repeats'|translate}}"
+                            data-placeholder="{{'Select Repeats'|translate}}"
                             disable-search="true" required
                             ng-options="item.number as item.text for item in weekdayList">
                         <option value=""></option>
@@ -112,19 +112,19 @@
                             width="130" id="startTime"
                             disable-search="false"
                             search-contains="true"
-                            data-placeholder="{{'Select time'|translate}}"
+                            data-placeholder="{{'Select Time'|translate}}"
                             name="workSchedule" inherit-select-classes="true"
                             ng-model="schedule.startTime" class="time" required
                             ng-change="updateSchedule();setEndTimeList()"
                             ng-options="item for item in startTimeList">
                         <option value=""></option>
                     </select>
-                    <span translate>to</span>
+                    <span translate>To</span>
                     <select chosen
                             width="130" id="endTime"
                             disable-search="false"
                             search-contains="true"
-                            data-placeholder="{{'Select time'|translate}}"
+                            data-placeholder="{{'Select Time'|translate}}"
                             name="workSchedule" inherit-select-classes="true"
                             ng-model="schedule.endTime" class="time" required
                             ng-change="updateSchedule()"
@@ -138,14 +138,14 @@
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
                                datepicker-options="dateOptions" min-date="minStartDate"
                                ng-model="schedule.startDate" ng-change="updateSchedule();checkDate('startDate')"
-                               class="date" type="text" placeholder="{{'Select date'|translate}}" required clear-text="Clear"/>
+                               class="date" type="text" placeholder="{{'Select Date'|translate}}" required clear-text="Clear"/>
                     </div>
-                    <span ng-if="schedule.repeat !== 'Single'">to</span>
+                    <span ng-if="schedule.repeat !== 'Single'">To</span>
                     <div class="form-rel input-date date" ng-if="schedule.repeat !== 'Single'" ng-click="openDatepicker($event, 'to')">
                         <input datepicker-popup="dd/MM/yyyy" ng-click="openDatepicker($event, 'to')" is-open="showDatepicker.to"
                                datepicker-options="dateOptions" min-date="minEndDate" ng-disabled="!schedule.startDate"
                                ng-model="schedule.endDate" ng-change="updateSchedule();checkDate('endDate')"
-                               class="date" type="text" placeholder="{{'Select date'|translate}}" required clear-text="Clear"/>
+                               class="date" type="text" placeholder="{{'Select Date'|translate}}" required clear-text="Clear"/>
                     </div>
                 </div>
                 <div class="form-rel" ng-if="form.schedule.$valid">
@@ -154,7 +154,7 @@
                     <p ng-if="schedule.repeat === 'Weekly'">Starting {{schedule.startDateWeekly | amDateFormat: 'MMMM D YYYY'}} <span ng-if="schedule.times">through {{schedule.endDateWeekly | amDateFormat: 'MMMM D YYYY'}}</span></p>
                 </div>
                 <div class="form-rel" ng-if="form.schedule.$invalid">
-                    <p translate>No dates created by schedule</p>
+                    <p translate>No. of dates created by schedule</p>
                 </div>
                 <div class="form-rel">
                     <button class="green" ng-disabled="form.schedule.$invalid" type="submit" translate>Save</button><button type="button" ng-click="fetchOccurrences()" translate>Cancel</button>
@@ -167,7 +167,7 @@
             <select chosen
                     id="level"
                     ng-model="class.level"
-                    data-placeholder="{{'Alle Levels'|translate}}"
+                    data-placeholder="{{'All Levels'|translate}}"
                     disable-search="true"
                     allow-single-deselect="true"
                     ng-options="item.id as item.text for item in levels">
@@ -176,53 +176,53 @@
         </div>
         <div class="form-rel flex">
             <div class="form-row">
-                <label class="form-label" for="capacity" translate>Max. Teilnehmer</label>
+                <label class="form-label" for="capacity" translate>Max. no. of participants</label>
                 <input class="form-input" type="text" ng-model="class.capacity" id="capacity"/>
             </div>
             <div class="form-row">
-                <label class="form-label" for="dropInPrice" translate>Preis vom Drop-in</label>
+                <label class="form-label" for="dropInPrice" translate>Price of a drop-in class</label>
                 <div class="input-euro"><input class="form-input" type="text" ng-model="class.dropInPrice" id="dropInPrice"/></div>
             </div>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="teacher" translate>Lehrer</label>
+            <label class="form-label" for="teacher" translate>Teacher</label>
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="discipline" translate>Disziplin</label>
+            <label class="form-label" for="discipline" translate>Discipline</label>
             <input class="form-input" type="text" ng-model="class.discipline" id="discipline"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="style" translate>Stil</label>
+            <label class="form-label" for="style" translate>Style</label>
             <input class="form-input" type="text" ng-model="class.style" id="style"/>
         </div>
         <div class="form-rel large">
-            <label class="form-label" for="description" translate>Beschreibung</label>
+            <label class="form-label" for="description" translate>Description</label>
             <textarea ng-model="class.description" id="description"></textarea>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="freeSchedule" value="true" ng-model="class.freeSchedule" name="freeSchedule" />
                 <i class="fa"></i>
-                <label for="freeSchedule" translate>Freier Besuch?</label>
+                <label for="freeSchedule" translate>Free visit?</label>
             </div>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="visitDurationMinutes" translate>Feste Besuchslänge (in Minuten, leer = unbegrenzt)</label>
+            <label class="form-label" for="visitDurationMinutes" translate>Fixed visit length (in minutes, empty = unlimited)</label>
             <input class="form-input" type="text" ng-model="class.visitDurationMinutes" id="visitDurationMinutes"/>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="requiresRegistration" value="true" ng-model="class.requiresRegistration" name="requiresRegistration" />
                 <i class="fa"></i>
-                <label for="requiresRegistration" translate>Anmeldung erforderlich</label>
+                <label for="requiresRegistration" translate>Registration required</label>
             </div>
         </div>
         <div class="form-rel">
             <div class="form-check">
                 <input type="checkbox" id="blackOnly" value="true" ng-model="class.blackOnly" name="blackOnly" />
                 <i class="fa"></i>
-                <label for="blackOnly" translate>Nur Black Card</label>
+                <label for="blackOnly" translate>Black Card only</label>
             </div>
         </div>
         <!--<div ng-repeat="(key, value) in groupByTime">-->

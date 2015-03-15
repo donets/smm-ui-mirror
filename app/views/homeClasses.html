@@ -10,11 +10,11 @@
         <table class="timetable">
             <thead>
                 <tr>
-                    <th translate>Zeit</th>
-                    <th translate>Kurs</th>
-                    <th translate>Disziplin</th>
+                    <th translate>Time</th>
+                    <th translate>Course</th>
+                    <th translate>Discipline</th>
                     <th translate>Studio</th>
-                    <th translate>Stadtteil</th>
+                    <th translate>District</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +34,7 @@
                     | isSame: 'start_date': currDay
                     | isAfter: 'start_date': search.start
                     | isBefore: 'end_date': search.end).length">
-                    <td class="empty" colspan="7" translate>Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück</td>
+                    <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
                 </tr>
             </tbody>
         </table>
