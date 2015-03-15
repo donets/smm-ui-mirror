@@ -668,7 +668,7 @@ angular.module('boltApp')
                             title: 'string',
                             discipline: 'string',
                             style: 'string',
-                            levels: 'integers',
+                            level: 'string',
                             teacherName: 'string',
                             description: 'string',
                             day: 'string',
