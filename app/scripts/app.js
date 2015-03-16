@@ -67,7 +67,9 @@ angular
         'boltApp.services.suppliers',
         'boltApp.services.user',
         'boltApp.services.membership',
-        'boltApp.services.navigator'
+        'boltApp.services.navigator',
+        'boltApp.services.city',
+        'boltApp.services.userMap'
     ]);
 angular.module('boltApp')
     .run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',

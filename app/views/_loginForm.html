@@ -1,4 +1,14 @@
 <ul class="b-header-nav">
+    <li>
+        <select chosen  name="cardMonth" width="'100%'" id="exp_month" class="third"
+        ng-model="campaign"
+        data-placeholder="{{'Monat'|translate}}"
+        disable-search="true"
+        ng-options="c as c.defaultName for c in citiesList"
+        ng-change="changeCity(campaign)">
+        <option value="" ng-if="desktop"></option>
+        </select>
+    </li>
     <li ng-if="desktop && supportPhone">
         <span><i class="fa fa-phone"></i>{{supportPhone}}</span>
     </li><li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
@@ -57,6 +67,29 @@
                 <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'memberships'})" translate>Memberships</a></li>
                 <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page" translate>Sign out</a></li>
             </ul>
+
         </div>
-    </li>
+    </div>
+</form>
+<div class="form-rel">
+    <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="" translate>Dein Passwort vergessen?</a>
+    <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="" translate>Back to login</a>
+</div>
+</div>
+</li><li id="account" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-mouseover="isPopupVisible = true" ng-mouseleave="isPopupVisible = false" ng-if="userName">
+    <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
+    <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
+        <ul class="user-nav" ng-click="togglePopup()">
+            <li><a ui-sref="dashboard" translate>Kurse</a></li>
+            <li ng-if="roleMember"><a ui-sref="profile.account" translate>Account</a></li>
+            <li ng-if="roleMember"><a ui-sref="profile.membership" translate>Meine Karte</a></li>
+            <li ng-if="roleAdmin"><a ui-sref="admin.classes.list" translate>Classes</a></li>
+            <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'locations'})" translate>Locations</a></li>
+            <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'studios'})" translate>Studios</a></li>
+            <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'vouchers'})" translate>Vouchers</a></li>
+            <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'memberships'})" translate>Memberships</a></li>
+            <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page" translate>Abmelden</a></li>
+        </ul>
+    </div>
+</li>
 </ul>
