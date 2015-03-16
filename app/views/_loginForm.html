@@ -5,8 +5,7 @@
         data-placeholder="{{'Monat'|translate}}"
         disable-search="true"
         ng-options="c as c.defaultName for c in citiesList"
-        ng-change="changeCity(campaign)"
-        >
+        ng-change="changeCity(campaign)">
         <option value="" ng-if="desktop"></option>
         </select>
     </li>
