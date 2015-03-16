@@ -1,46 +1,41 @@
+'use strict';
+
+var protractorParams = require('./params');
+
 exports.config = {
     allScriptsTimeout: 11000,
 
     specs: [
-        'accept/*.js'
+        'acceptence/tests.js'
     ],
 
-    onPrepare: function(){
-        global.isAngularSite = function(flag){
-            browser.ignoreSynchronization = !flag;
-        };
+    onPrepare: function() {
+
+        browser.ignoreSynchronization = true;
+
+        var SpecReporter = require('jasmine-spec-reporter');
+
+        jasmine.getEnv().addReporter(new SpecReporter({
+            displayStacktrace: true
+        }));
     },
 
     capabilities: {
         'browserName': 'chrome'
     },
 
-    params: {
-        signup: {
-            firstName: 'Max',
-			lastName: 'Musterman',
-            password: '12345',
-			emailSuffix: '+test@somuchmore.org',
-            email: 'test@somuchmore.org',
-			card: {
-				number: '5555555555554444',
-				cvc: '123',
-				exp_year: '2030',
-				exp_month: '1'
-			},
-			address: 'Teststr. 1',
-			zipCode: '10123'
-        }
-    },
+    params: protractorParams,
 
-    baseUrl: 'http://127.0.0.1:9090/',
+    baseUrl: 'http://127.0.0.1:9001/',
+
+    seleniumAddress: 'http://localhost:4444/wd/hub',
 
     framework: 'jasmine',
 
     jasmineNodeOpts: {
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: 30000,
+        print: function() {}
     },
 
-    rootElement: '.ng-scope'
-
+    rootElement: '#app-container'
 };
