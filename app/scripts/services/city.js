@@ -8,14 +8,18 @@
 * Factory in the boltApp.
 */
 angular.module('boltApp.services.city', [])
-.factory('CityFactory', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http',
-function(RestApi, $location, $cookieStore, $rootScope, $http) {
-    var studios,
-    cards;
+.factory('CityFactory', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', '$q', 'UserMap',
+function(RestApi, $location, $cookieStore, $rootScope, $http, $q, UserMap) {
+
     var guessCity = function(cities) {
-        var citiesList = cities;
-        $rootScope.city = $location.search().city;
-        $rootScope.cityId = $cookieStore.get('cityId') || citiesList[0].id;
+        var deferred = $q.defer(),
+        citiesList = cities,
+        city,
+        cityId,
+        returnObject = {},
+        campaign;
+        city = $location.search().city;
+        cityId = $cookieStore.get('cityId') || citiesList[0].id;
         var invitation = $location.search().invitation;
         var discipline = $location.search().discipline;
         var disciplinesList = getDisciplines().data;
@@ -23,41 +27,60 @@ function(RestApi, $location, $cookieStore, $rootScope, $http) {
         if (invitation) {
             $cookieStore.put('invitation', true);
         }
-        if ($rootScope.city) {
-            $rootScope.campaign = _.findWhere(citiesList, {shortCode: $rootScope.city});
-            $rootScope.cityId = $rootScope.campaign && $rootScope.campaign.id && $rootScope.campaign.active ? $rootScope.campaign.id : $rootScope.cityId;
-            $cookieStore.put('cityId', $rootScope.cityId);
+        if (city) {
+            campaign = _.findWhere(citiesList, {shortCode: city});
+            cityId = campaign && campaign.id && campaign.active ? campaign.id : cityId;
+            $cookieStore.put('cityId', cityId);
         }
-        else if ($rootScope.cityId) {
-            $rootScope.campaign = _.findWhere(citiesList, {id: $rootScope.cityId});
+        else if (cityId) {
+            campaign = _.findWhere(citiesList, {id: cityId});
         }
         else {
-            $rootScope.campaign = disciplinesList.disciplines[discipline];
+            campaign = disciplinesList.disciplines[discipline];
         }
-        return($rootScope.campaign || citiesList[0]);
+        returnObject = {
+            campaign: (campaign || citiesList[0]),
+            city: city,
+            cityId: cityId
+        }
+        deferred.resolve(returnObject);
+        return deferred.promise;
+        // return(campaign || citiesList[0]);
     };
 
-    var changeCity = function(city, cityList) {
-        console.log(city);
+    var changeCity = function(reqCity, cityList) {
+        var deferred = $q.defer(),
+        returnObject = {},
+        city,
+        campaign,
+        studios,
+        cards,
+        supportPhone;
         var citiesList = cityList;
 
-        $rootScope.city = city.shortCode;
-        $rootScope.campaign = _.findWhere(citiesList, {shortCode: $rootScope.city});
-        $rootScope.supportPhone = $rootScope.campaign.supportPhone;
 
-        RestApi.query({route: 'studios', cityId: $rootScope.campaign.id}).$promise.then(function (res) {
-            studios = res;
+        city = reqCity.shortCode;
+        campaign = _.findWhere(citiesList, {shortCode: city});
+
+        supportPhone = campaign.supportPhone;
+
+        RestApi.query({route: 'studios', cityId: campaign.id}).$promise.then(function (res) {
+            return res;
+        }).then(function(res) {
+            RestApi.query({route: 'plans', cityId: campaign.id}).$promise.then(function (res1) {
+                returnObject.studios = res;
+                returnObject.cards = res1;
+                deferred.resolve(returnObject);
+            });
         });
-        RestApi.query({route: 'plans', cityId: $rootScope.campaign.id}).$promise.then(function (res) {
-            cards = res;
-        });
-        return [studios, cards];
+        UserMap.create(campaign);
+        return deferred.promise;
+
     }
 
     var getDisciplines = function() {
         return $http.get('json/disciplines.json', {cache: true});
     }
-
 
     return {
         guessCity: guessCity,

@@ -12,10 +12,10 @@ angular.module('boltApp.services.userMap', [])
     function(RestApi, $location, $cookieStore, $rootScope, $http, uiGmapGoogleMapApi) {
 
 
-      var create = function() {
+      var create = function(city) {
         RestApi.query({
           route: 'locations',
-          cityId: $rootScope.campaign.id
+          cityId: city.id
         }).$promise.then(function(res) {
           $rootScope.locations = _.reject(res, function(obj) {
             return obj.latitude === null || obj.longitude === null;
@@ -28,8 +28,8 @@ angular.module('boltApp.services.userMap', [])
 
           $rootScope.map = {
             center: {
-              latitude: $rootScope.campaign.lat,
-              longitude: $rootScope.campaign.lon
+              latitude: city.lat,
+              longitude: city.lon
             },
             zoom: 12,
             options: {

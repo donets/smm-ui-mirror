@@ -71,24 +71,43 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $cookieStore.put('landingUrl', $location.url());
 
-		$scope.init = function() {
+        $scope.init = function() {
             CityFactory.getCities().then(function (res) {
                 $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
                     return c.countryCode === $rootScope.countryCode;
                 });
 
-                $scope.changeCity(CityFactory.guessCity($scope.citiesList));
+                CityFactory.guessCity($scope.citiesList).then(function(res) {
+                    $scope.city = res.city;
+                    $scope.cityId = res.cityId;
+                    $scope.changeCity(res.campaign);
+                });
             });
         }
 
+
         $scope.init();
 
-        $scope.changeCity = function(city) {
-            var cb = CityFactory.changeCity(city, $scope.citiesList);
-            $scope.studios = cb[0];
-            $scope.cards = cb[1];
-            UserMap.create();
+        $scope.changeCity = function(campaign) {
+            CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
+                $scope.studios = res.studios;
+                $scope.cards = res.cards;
+                if(typeof($scope.campaign) !== "undefined") {
+                    $scope.campaign = campaign;
+                    $rootScope.rootCampaign = campaign;
+                }
+            }).then(function() {
+                $rootScope.$watch('rootCampaign', function(newVal, oldVal) {
+                    $scope.campaign = newVal;
+                    if(!$scope.$$phase) {
+                        $scope.$apply();
+                    }
+
+                });
+            });
         }
+
+
 
 
         var setVoucher = function (code) {
@@ -160,7 +179,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.contactSubmit = function() {
             $scope.loadingContact = true;
             $scope.contact.message = 'contact teacher partnership';
-            $scope.contact.city = $rootScope.campaign.defaultName;
+            $scope.contact.city = $scope.campaign.defaultName;
             $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.contact).success(function () {
                 $scope.loadingContact = false;
                 $scope.successContact = true;
