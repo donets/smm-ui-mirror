@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator:  \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/userDashboard.html:143
+msgid ""
+"Ab sofort findest Du hier die Kurse aller unserer Partner-Studios - und "
+"kannst mit Deinem Training sofort beginnen (bis Du Deine Karte erhältst, "
+"lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im "
+"Studio vor). Viel Spaß!"
+msgstr ""
+"From now on you can find a list of all our partner studios here. You can "
+"even start before your card arrives. Print out your class confirmation and "
+"take a photo ID to your chosen studio, et voilá! Have Fun!"
+
+#: app/views/userDashboard.html:16
+msgid "Alle Disziplinen"
+msgstr "All Disciplines"
+
+#: app/views/userDashboard.html:46
+msgid "Alle Kurse"
+msgstr "All Courses"
+
+#: app/views/userDashboard.html:74
+msgid "Alle Lehrer"
+msgstr "All Teachers"
+
+#: app/views/userDashboard.html:68
+msgid "Alle Levels"
+msgstr "All Levels"
+
+#: app/views/userDashboard.html:50
+msgid "Alle Stadtteile"
+msgstr "All Districts"
+
+#: app/views/userDashboard.html:25
+msgid "Alle Stile"
+msgstr "All Styles"
+
+#: app/views/userDashboard.html:59
+msgid "Alle Studios"
+msgstr "All Studios"
+
+#: app/views/userDashboard.html:142
+msgid "Danke für Deine Anmeldung!"
+msgstr "Thank you for your registration!"
+
+#: app/views/userDashboard.html:83
+msgid "Disziplinen"
+msgstr "Disciplines"
+
+#: app/views/userDashboard.html:75
+msgid "Filter zurücksetzen"
+msgstr "Reset filters"
+
+#: app/views/userDashboard.html:3
+msgid "Finde einen Kurs"
+msgstr "Find a course"
+
+#: app/views/userDashboard.html:131
+msgid ""
+"Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
+"anderen Datum oder setze die Filter zurück"
+msgstr ""
+"There are no courses available for this day and this search. Try another "
+"date or reset the filters."
+
+#: app/views/userDashboard.html:4
+msgid "Heute {{today | amDateFormat: 'dd DD.MM.'}}"
+msgstr "Today {{today | amDateFormat: 'dd DD.MM.'}}"
+
+#: app/views/userDashboard.html:82
+msgid "Kurs"
+msgstr "Course"
+
+#: app/views/userDashboard.html:85
+msgid "Lehrer"
+msgstr "Teacher"
+
+#: app/views/userDashboard.html:87
+msgid "Stadtteil"
+msgstr "District"
+
+#: app/views/userDashboard.html:84
+msgid "Stile"
+msgstr "Styles"
+
+#: app/views/userDashboard.html:86
+msgid "Studio"
+msgstr "Studio"
+
+#: app/views/userDashboard.html:144
+msgid "Weiter zu den Kursen"
+msgstr "Continue to the courses"
+
+#: app/views/userDashboard.html:81
+msgid "Zeit"
+msgstr "Time"
+
+#~ msgid ""
+#~ "Ab dem 1.1.2015 findest Du hier die Kurse aller unserer Partner-Studios - "
+#~ "und kannst mit Deiner vorläufigen Somuchmore Card das Training beginnen. "
+#~ "Achtung: Die meisten Studios öffnen ihre Türen im neuen Jahr erst ab dem "
+#~ "5. Januar."
+#~ msgstr ""
+#~ "From 1.1.2015 here you will find a list of all courses offered by our "
+#~ "partner studios – and can begin training with your provisional Somuchmore "
+#~ "card. Attention: in the New Year most studios will only be open from 5th "
+#~ "January."

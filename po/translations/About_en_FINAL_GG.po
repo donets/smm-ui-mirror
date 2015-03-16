@@ -1,0 +1,160 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/views/about.html:63
+msgid "Abschicken"
+msgstr "Send"
+
+#: app/views/about.html:20
+msgid ""
+"Bewegung, Ernährung, Entspannung, Atmung, Schlaf, Liebe, Arbeit und Spaß "
+"sind gleichermaßen wichtig"
+msgstr ""
+"Exercise, nutrition, relaxation, breathing, sleep, love, work and fun are of "
+"equal importance in our lives"
+
+#: app/views/about.html:53
+msgid "Danke für Dein Feedback!"
+msgstr "Thank you for your feedback!"
+
+#: app/views/about.html:39 app/views/about.html:66
+msgid "Danke!"
+msgstr "Thank you! "
+
+#: app/views/about.html:36
+msgid "Deine E-Mail-Adresse"
+msgstr "Your E-mail Address"
+
+#: app/views/about.html:24
+msgid "Deine Vorteile"
+msgstr "Your benefits"
+
+#: app/views/about.html:40 app/views/about.html:67
+msgid "Die Email-Adresse ist nicht korrekt"
+msgstr "The e-mail address is incorrect"
+
+#: app/views/about.html:17
+msgid "Dieses Potenzial kannst Du entfalten"
+msgstr "Unleash your full potential"
+
+#: app/views/about.html:15
+msgid "Du bist wertvoll"
+msgstr "Know your worth"
+
+#: app/views/about.html:16
+msgid "Du hast ein ganz eigenes Potenzial"
+msgstr "You have unique potential"
+
+#: app/views/about.html:28
+msgid ""
+"Du hast eine kostenlose Probezeit, kurze Vertragslaufzeiten und findest "
+"jeden Kurs in Sekunden."
+msgstr ""
+"You have a free trial period, short contract terms and details about every "
+"class at your fingertips."
+
+#: app/views/about.html:27
+msgid ""
+"Du zahlst einen Bruchteil dessen, was die Kurse einzeln kosten. Mit der "
+"Karte ist alles bezahlt."
+msgstr ""
+"You pay a fraction of what you would for each individual class. Once you "
+"have your card, all the costs are covered."
+
+#: app/views/about.html:18
+msgid "Ein ganzheitliches Leben beginnt mit Achtsamkeit"
+msgstr "A holistic lifestyle begins with mindfulness"
+
+#: app/views/about.html:63
+msgid "Email-Adresse"
+msgstr "E-mail Address"
+
+#: app/views/about.html:3
+msgid "Entdecke Somuchmore"
+msgstr "Discover Somuchmore"
+
+#: app/views/about.html:19
+msgid "Entfaltung gelingt nur mit Inspiration und Spaß"
+msgstr "You can only develop personally if you are inspired and free"
+
+#: app/views/about.html:36
+msgid "Erhalte Deine Einladung"
+msgstr "Get your invitation"
+
+#: app/views/about.html:62
+msgid "Frage eingeben"
+msgstr "Ask a question"
+
+#: app/views/about.html:59
+msgid "Hast Du noch Fragen?"
+msgstr "Do you have any questions?"
+
+#: app/views/about.html:50
+msgid ""
+"Ist es uns gelungen, Dir Somuchmore zu erklären? Und gefällt Dir unser "
+"Ansatz?"
+msgstr "Do you fully understand how Somuchmore works now? How do you like it?"
+
+#: app/views/about.html:52
+msgid "Jaaa!"
+msgstr "Yesss!"
+
+#: app/views/about.html:22
+msgid ""
+"Jeder Mensch kann gesund und glücklich leben, wenn er will und man ihn lässt"
+msgstr ""
+"Everyone has the potential to live healthily and happily if they want to."
+
+#: app/views/about.html:26
+msgid ""
+"Jedes Studio erfüllt hohe Qualitätsstandards, jeder Lehrer ist zertifiziert. "
+"Wir prüfen alles persönlich."
+msgstr ""
+"All of the studios we work with fulfill the highest quality standards, and "
+"every teacher qualified to the highest standards in their field. We verify "
+"everything personally to ensure you have the best experience possible."
+
+#: app/views/about.html:21
+msgid "Körper, Geist und Seele sind eins"
+msgstr "Body, mind and soul united"
+
+#: app/views/about.html:52
+msgid "Leider nicht"
+msgstr "Unfortunately not"
+
+#: app/views/about.html:11
+msgid ""
+"Mit der Somuchmore Card kannst Du hunderte Kurse für Yoga, Pilates, "
+"Kampfkunst, Fitness, Tanz, Meditation, Ernährung, Gesundheit und "
+"persönliches Wachstum besuchen, neue Studios entdecken und Dich täglich "
+"inspirieren lassen."
+msgstr ""
+"With Somuchmore you can experience hundreds of health and fitness classes "
+"all over your city.  From Yoga, Pilates, Meditation, Martial Arts, Dance, "
+"Nutrition, Health and Personal Growth classes and workshops, you will be "
+"amazed what is offer around you with Somuchmore. "
+
+#: app/views/about.html:12
+msgid "Mit einer Karte bist Du überall willkommen."
+msgstr "One card. Unlimited classes."
+
+#: app/views/about.html:10
+msgid "Somuchmore ist eine Plattform für ganzheitliche Lebensweise."
+msgstr ""
+"Somuchmore is new online wellbeing community. Your gateway to a fulfilled, "
+"mindful and active life."
+
+#: app/views/about.html:13
+msgid "Unsere Überzeugung:"
+msgstr "Our philosophy:"

@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: app/views/studio.html:16
+msgid "&lt; Weniger"
+msgstr "&lt; Less"
+
+#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+msgid "(siehe Kursplan)"
+msgstr "(see course plan)"
+
+#: app/views/studio.html:33 app/views/studio.html:38 app/views/studio.html:43
+msgid "<i class=\"fa fa-check\"></i>Alle Kurse"
+msgstr "<i class=\"fa fa-check\"></i>All courses"
+
+# Was bedeutet "Einige" hier?
+#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+msgid ""
+"<i class=\"fa fa-check\"></i>Einige Kurse <span class=\"light\" translate="
+"\"\">(siehe Kursplan)</span>"
+msgstr ""
+"<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate="
+"\"\">(see course plan)</span>"
+
+#: app/views/studio.html:217
+msgid "<i class=\"fa fa-home\"></i>Studio"
+msgstr "<i class=\"fa fa-home\"></i>Studio"
+
+#: app/views/studio.html:35 app/views/studio.html:40 app/views/studio.html:45
+msgid "<i class=\"fa fa-times\"></i>Nicht akzeptiert"
+msgstr "<i class=\"fa fa-times\"></i>Not accepted"
+
+#: app/views/studio.html:20
+msgid "Adresse:"
+msgstr "Address:"
+
+#: app/views/studio.html:30
+msgid "Akzeptierte Karten:"
+msgstr "Accepted cards:"
+
+#: app/views/studio.html:66
+msgid "Angebot"
+msgstr "Offer"
+
+#: app/views/studio.html:22
+msgid "Auf Karte anzeigen"
+msgstr "Show on map"
+
+# Passt "equipment" hier?
+#: app/views/studio.html:19
+msgid "Ausstattung:"
+msgstr "Equipment:"
+
+#: app/views/studio.html:75
+msgid "Disziplin"
+msgstr "Discipline"
+
+#: app/views/studio.html:18
+msgid "Disziplinen:"
+msgstr "Disciplines"
+
+# Passt das?
+#: app/views/studio.html:91
+msgid "Heute kein Angebot mehr."
+msgstr "No more offers today."
+
+#: app/views/studio.html:50
+msgid "Informationen:"
+msgstr "Information:"
+
+#: app/views/studio.html:54
+msgid "Kontaktieren:"
+msgstr "Contact:"
+
+#: app/views/studio.html:74
+msgid "Kurs"
+msgstr "Course"
+
+#: app/views/studio.html:76
+msgid "Lehrer"
+msgstr "Teacher"
+
+#: app/views/studio.html:77
+msgid "Level"
+msgstr "Level"
+
+#: app/views/studio.html:215
+msgid "Location"
+msgstr "Location"
+
+#: app/views/studio.html:16
+msgid "Mehr &gt;"
+msgstr "More &gt;"
+
+#: app/views/studio.html:73
+msgid "Zeit"
+msgstr "Time"

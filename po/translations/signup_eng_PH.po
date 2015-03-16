@@ -1,0 +1,419 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator:  \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
+
+#: app/views/signup.html:19
+msgid "(Geld zurück, wenn Du nicht mehr als 3 Kurse besucht hast)"
+msgstr "(Money back guarantee if you haven’t attended more than 3 classes) "
+
+#: app/views/signup.html:21
+msgid "(Keine Mindestlaufzeit)"
+msgstr "(No minimum membership term)"
+
+#: app/views/signup.html:12
+msgid "(Monatlich Kündigen)"
+msgstr "(Cancellation on a monthly basis)"
+
+# What is this?
+#: app/views/signup.html:318
+msgid "(für {{voucher.discountDuarationInMonths}} Monate)"
+msgstr "(for{{voucher.discountDuarationInMonths}} months)"
+
+#: app/views/signup.html:29
+msgid "1. Registrierung"
+msgstr "1. Registration"
+
+#: app/views/signup.html:9
+msgid "14 Tage KOSTENLOS testen"
+msgstr "14 day free trial"
+
+#: app/views/signup.html:15
+msgid "14 Tage Testen"
+msgstr "14 day trial"
+
+#: app/views/signup.html:30
+msgid "2. Produktwahl"
+msgstr "2. Product selection"
+
+#: app/views/signup.html:31
+msgid "3. Bezahlung"
+msgstr "3. Payment"
+
+# Passt "Direct debit" hier?
+#: app/views/signup.html:299
+msgid "Abbuchung:"
+msgstr "Direct debit:"
+
+#: app/views/signup.html:158
+msgid "Aktionscode hinzufügen"
+msgstr "Enter discount code"
+
+#: app/views/signup.html:253
+msgid "Anderes Zahlungsmittel"
+msgstr "Other payment method"
+
+# what does this mean?
+#: app/views/signup.html:240
+msgid "BIC"
+msgstr "SWIFT-BIC"
+
+#: app/views/signup.html:302
+msgid "Beginn:"
+msgstr "Start:"
+
+#: app/views/signup.html:81
+msgid "Begint am"
+msgstr "Start at"
+
+#: app/views/signup.html:276
+msgid "Berlin"
+msgstr "London"
+
+#: app/views/signup.html:3
+msgid "Bestelle die Somuchmore Card"
+msgstr "Order your Somuchmore card"
+
+#: app/views/signup.html:289
+msgid "Bestellübersicht"
+msgstr "Order summary"
+
+#: app/views/signup.html:213
+msgid "Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)"
+msgstr "Please enter the 3 or 4-digit security number (on the back of your card)"
+
+#: app/views/signup.html:183
+msgid "Bitte eine gültige Kreditkartennummer eintragen"
+msgstr "Please enter a valid credit card number"
+
+#: app/views/signup.html:345
+msgid "Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und Datenschutzbestimmung."
+msgstr ""
+"Please select your card, fill out all fields and accept the terms & conditions and privacy policy."
+
+#: app/views/signup.html:343
+msgid "Bitte überprüfen Sie die Kreditkartendaten: {{errorMsg}}"
+msgstr "Pleas check your credit card details: {{errorMsg}}"
+
+#: app/views/signup.html:209
+msgid "CVV"
+msgstr "CVV"
+
+#: app/views/signup.html:341
+msgid "Danach kostenpflichtig"
+msgstr "After this it will be subject to a fee "
+
+#: app/views/signup.html:66
+msgid "Das Passwort muss mindestens 5 Zeichen enthalten"
+msgstr "Your password must contain at least 5 characters"
+
+#: app/views/signup.html:227
+msgid "Dein Name"
+msgstr "Your Name"
+
+# Sollte "beginnt" mit zwei "n" im deutschen Text sein!
+#: app/views/signup.html:71
+msgid "Deine Mitgliedschaft Stadt"
+msgstr "Your Membership City"
+
+#: app/views/signup.html:182 app/views/signup.html:212 app/views/signup.html:229
+#: app/views/signup.html:236 app/views/signup.html:243 app/views/signup.html:262
+#: app/views/signup.html:270 app/views/signup.html:278 app/views/signup.html:42 app/views/signup.html:49
+#: app/views/signup.html:57 app/views/signup.html:65
+msgid "Dies ist eine Pflichtfeld"
+msgstr "This is an obligatory field"
+
+#: app/views/signup.html:164
+msgid "Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig"
+msgstr "This voucher is only {{typeVoucher}} valid for the CARD"
+
+#: app/views/signup.html:165
+msgid "Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden"
+msgstr "This voucher can only be redeemed from 1.1.2015 "
+
+#: app/views/signup.html:54
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: app/views/signup.html:344
+msgid "Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail"
+msgstr ""
+"An account already exists for this email account. Please log in or use a different e-mail address."
+
+#: app/views/signup.html:317
+msgid "Ermäßigter Preis:"
+msgstr "Reduced price:"
+
+#: app/views/signup.html:18
+msgid "Garantierte Zufriedenheit"
+msgstr "Satisfaction guaranteed"
+
+#: app/views/signup.html:189
+msgid "Gültig bis"
+msgstr "Valid until"
+
+#: app/views/signup.html:248
+msgid "Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren Kundenservice widerrufen."
+msgstr ""
+"Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer "
+"service team."
+
+#: app/views/signup.html:24
+msgid ""
+"Hinweise zum Angebot: Nach 14 Tagen erfolgt der automatische Übergang in eine kostenpflichtige "
+"Somuchmore Mitgliedschaft (39€, 69€, 99€ /Monat, inkl. MwSt., jederzeit kündbar)."
+msgstr ""
+"Information about offer: After 14 days your free trial will be automatically upgraded to a paid "
+"Somuchmore membership (€39, €69 or €99 per month, incl. VAT). This membership can be cancelled at any "
+"time."
+
+#: app/views/signup.html:233
+msgid "IBAN"
+msgstr "IBAN"
+
+#: app/views/signup.html:333
+msgid "Ich möchte den Newsletter über ganzheitliche Lebensweise bekommen"
+msgstr "I would like to subscribe to the newsletter about holistic lifestyles"
+
+#: app/views/signup.html:327
+msgid ""
+"Ich stimme den <a ui-sref=\"agb\">AGB</a> und <a ui-sref=\"agb\">Datenschutzbestimmungen</a> zu und "
+"habe mein gesetzliches <a ui-sref=\"agb\">Widerrufsrecht</a> zur Kenntnis genommen."
+msgstr ""
+"I agree to the <a ui-sref=\"agb\">terms & conditions</a> and <a ui-sref=\"agb\">data protection "
+"provisions</a> and am aware of my <a ui-sref=\"agb\">statutory rights </a> ."
+
+#: app/views/signup.html:202
+msgid "Jahr"
+msgstr "Year"
+
+#: app/views/signup.html:119 app/views/signup.html:148
+msgid "Jederzeit"
+msgstr "Anytime"
+
+#: app/views/signup.html:306
+msgid "Jederzeit <span class=\"details\">(monatlich bis zum Monatsende für den Folgemonat)</span>"
+msgstr ""
+"Any time <span class=\"details\">(monthly by the end of the month, effective as of the following "
+"month)</span>"
+
+#: app/views/signup.html:20
+msgid "Jederzeit kündigen"
+msgstr "Cancel your membership any time"
+
+#: app/views/signup.html:340
+msgid "Jetzt KOSTENLOS testen"
+msgstr "FREE trial period"
+
+#: app/views/signup.html:292
+msgid "Karte:"
+msgstr "Card:"
+
+#: app/views/signup.html:177
+msgid "Kartennummer"
+msgstr "Card number"
+
+#: app/views/signup.html:163
+msgid "Kein gültiger Code"
+msgstr "Invalid code"
+
+#: app/views/signup.html:13 app/views/signup.html:8
+msgid "Keine Aufnahmegebühr"
+msgstr "No enrolment fee "
+
+#: app/views/signup.html:219
+msgid "Keine Kreditkarte?"
+msgstr "No credit card?"
+
+#: app/views/signup.html:11
+msgid "Keine Mindestlaufzeit"
+msgstr "No minimum membership term"
+
+#: app/views/signup.html:58
+msgid "Keine gültige E-Mail-Adresse"
+msgstr "Invalid e-mail address"
+
+# Postleitzahlen in UK sind aus Buchstaben und Ziffern, deswegen habe ich "(immer 5 Ziffern)" weggelassen.
+#: app/views/signup.html:271
+msgid "Keine gültige Postleitzahl (immer 5 Ziffern)"
+msgstr "Incorrect postal code"
+
+#: app/views/signup.html:226
+msgid "Kontoinhaber/in"
+msgstr "Bank account holder"
+
+#: app/views/signup.html:340
+msgid "Kostenpflichtig Bestellen"
+msgstr "Place order"
+
+#: app/views/signup.html:176
+msgid "Kreditkarte"
+msgstr "Credit card"
+
+#: app/views/signup.html:16
+msgid "Kreditkarte wird nicht belastet"
+msgstr "Your credit card will not be charged"
+
+#: app/views/signup.html:103 app/views/signup.html:143
+msgid "Kurse pro Anbieter / Monat"
+msgstr "Courses per provider / month"
+
+#: app/views/signup.html:102 app/views/signup.html:139
+msgid "Kurse pro Monat"
+msgstr "Courses per month"
+
+#: app/views/signup.html:104 app/views/signup.html:147
+msgid "Kündigen / Pausieren"
+msgstr "Cancel / Freeze"
+
+#: app/views/signup.html:305
+msgid "Kündigung:"
+msgstr "Cancellation:"
+
+#: app/views/signup.html:283
+msgid "Land"
+msgstr "County"
+
+#: app/views/signup.html:295
+msgid "Laufzeit:"
+msgstr "Term:"
+
+#: app/views/signup.html:256
+msgid "Lieferadresse"
+msgstr "Delivery address"
+
+#: app/views/signup.html:4
+msgid "Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs."
+msgstr "Register in less than a minute – and attend your first course straight away."
+
+#: app/views/signup.html:63
+msgid "Mindestens 5 Zeichen"
+msgstr "At least 5 characters"
+
+#: app/views/signup.html:192
+msgid "Monat"
+msgstr "Month"
+
+#: app/views/signup.html:300
+msgid "Monatlich <span class=\"details\">(beginnend mit dem Tag der Mitgliedschaft)</span>"
+msgstr "Monthly <span class=\"details\">(beginning with the first day of membership)</span>"
+
+#: app/views/signup.html:311
+msgid "Monatlicher Preis:"
+msgstr "Monthly price:"
+
+#: app/views/signup.html:46 app/views/signup.html:47
+msgid "Nachname"
+msgstr "Surname"
+
+#: app/views/signup.html:62
+msgid "Passwort"
+msgstr "Password"
+
+#: app/views/signup.html:267
+msgid "Postleitzahl"
+msgstr "Postal code"
+
+#: app/views/signup.html:101 app/views/signup.html:131
+msgid "Preis pro Monat"
+msgstr "Monthly price "
+
+#: app/views/signup.html:223
+msgid "SEPA-Lastschrift"
+msgstr "SEPA direct debit"
+
+#: app/views/signup.html:247
+msgid ""
+"SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, Zahlungen von meinem Konto "
+"mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem "
+"Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen."
+msgstr ""
+"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for "
+"services provided. I also instruct my bank to honour direct debit requests from this recipient."
+
+#: app/views/signup.html:314
+msgid "Sonderpreis:"
+msgstr "Special price:"
+
+#: app/views/signup.html:275 app/views/signup.html:74
+msgid "Stadt"
+msgstr "City"
+
+#: app/views/signup.html:259
+msgid "Straße & Hausnummer"
+msgstr "House no. and street"
+
+#: app/views/signup.html:296
+msgid ""
+"Unbefristet <span class=\"details\">(Verlängerung um je einen Monat, solange nicht gekündigt)</span>"
+msgstr "Unlimited <span class=\"details\">(automatic extension by one month until cancellation)</span>"
+
+#: app/views/signup.html:39 app/views/signup.html:40
+msgid "Vorname"
+msgstr "First name"
+
+#: app/views/signup.html:160
+msgid "Voucher Code (falls vorhanden)"
+msgstr "Voucher Code (if available)"
+
+#: app/views/signup.html:94
+msgid "Weiter"
+msgstr "Next"
+
+#: app/views/signup.html:250
+msgid "Zahlung mit Kreditkarte?"
+msgstr "Payment by credit card?"
+
+#: app/views/signup.html:171
+msgid ""
+"Zahlungsinformationen\n"
+"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src="
+"\"images/stripe.svg\" alt=\"stripe\"></a>"
+msgstr ""
+"Payment information<a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src="
+"\"images/stripe.svg\" alt=\"stripe\"></a>"
+
+#: app/views/signup.html:55
+msgid "name@beispiel.com"
+msgstr "name@example.com"
+
+#: app/views/signup.html:268
+msgid "z.B. 10115"
+msgstr "e.g. 10115"
+
+#: app/views/signup.html:210
+msgid "z.B. 123"
+msgstr "e.g. 123"
+
+#: app/views/signup.html:241
+msgid "z.B. ABCD1234"
+msgstr "e.g. ABCD1234"
+
+#: app/views/signup.html:234
+msgid "z.B. DE12 3456 7890 1234 5678 90"
+msgstr "e.g. DE12 3456 7890 1234 5678 90"
+
+#: app/views/signup.html:260
+msgid "z.B. Münzstr. 1"
+msgstr "e.g. Buckingham St. 1"
+
+#~ msgid "Deine Stadt"
+#~ msgstr "Your City"
+
+#~ msgid "(Verlängerung um je einen Monat, solange nicht gekündigt)"
+#~ msgstr "(As long as you haven’t cancelled, your membership will extend automatically each month)"
+
+#~ msgid "(beginnend mit dem Tag der Mitgliedschaft)"
+#~ msgstr "(beginning with the first day of membership)"
+
+#~ msgid "(monatlich bis zum Monatsende für den Folgemonat)"
+#~ msgstr "(monthly by the end of the month in order to be effective as of the following month)"
