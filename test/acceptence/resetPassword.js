@@ -8,18 +8,15 @@ describe('Given password reset from, User', function() {
         browser.get('/');
     });
 
-    var params = browser.params,
-        waitForElem = params.helpers.waitForElem;
+    var params = browser.params;
 
     browser.driver.manage().window().maximize();
 
     it('should be able to reset his password', function(done) {
         var login = element(by.css('.b-header-nav li#login'));
-        waitForElem(login);
         login.click();
 
         var forgotPw = element.all(by.css('.forgot-password')).first();
-        waitForElem(forgotPw);
         forgotPw.element(by.css('span')).click();
 
         element(by.model('emailForgot')).sendKeys(params.signup.email);
@@ -29,7 +26,6 @@ describe('Given password reset from, User', function() {
 
         browser.get('http://shitmail.me/mail/inbox/somuchmore@shitmail.me');
         var btn = element(by.cssContainingText('a', 'Passwort reset request'));
-        waitForElem(btn);
         btn.click();
 
         browser.driver.executeScript(function() {
@@ -39,7 +35,6 @@ describe('Given password reset from, User', function() {
         });
 
         var resetPage = element(by.css('.b-main-slogan'));
-        waitForElem(resetPage);
         expect(browser.getCurrentUrl()).toContain('/p/password');
 
         element(by.css('form.b-card-subscribe input[type="password"]')).sendKeys(params.signup.password);

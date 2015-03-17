@@ -11,9 +11,7 @@ exports.config = {
 
     onPrepare: function() {
 
-        browser.ignoreSynchronization = true;
-
-        var SpecReporter = require('jasmine-spec-reporter');
+      var SpecReporter = require('jasmine-spec-reporter');
 
         jasmine.getEnv().addReporter(new SpecReporter({
             displayStacktrace: true
@@ -37,5 +35,5 @@ exports.config = {
         print: function() {}
     },
 
-    rootElement: '#app-container'
+    rootElement: '.bolt-app'
 };

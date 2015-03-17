@@ -113,7 +113,7 @@
 
 </div>
 
-<div ng-cloak resizable ng-app="boltApp">
+<div ng-cloak resizable ng-app="boltApp" class="bolt-app">
     <div ng-controller="ConfirmationCtrl">
         <div class="b-alert info" ng-if="alert">
             <span translate>Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details.</span>

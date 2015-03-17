@@ -6,7 +6,7 @@ describe('Given signup form, User', function() {
 
     beforeEach(function() {
         browser.get('/');
-        waitForElem(element(by.css('#login')));
+        browser.driver.manage().deleteAllCookies()
     });
 
     var randomUuid = function() {
@@ -17,10 +17,6 @@ describe('Given signup form, User', function() {
             });
         },
         params = browser.params,
-        waitForElem = params.helpers.waitForElem,
-        hasClass = params.helpers.hasClass,
-        waitForElemDisplayed = params.helpers.waitForElemDisplayed,
-        waitForElemPresent = params.helpers.waitForElemPresent,
         myEmail = randomUuid() + params.signup.emailSuffix,
         myPassword = params.signup.password;
 
@@ -28,7 +24,6 @@ describe('Given signup form, User', function() {
 
     it('should be able to signup', function(done) {
         browser.get('/signup');
-        waitForElem(element(by.css('#name')));
         expect(browser.getCurrentUrl()).toContain('/p/signup');
 
         element(by.css('#name')).sendKeys(params.signup.firstName);
@@ -38,58 +33,35 @@ describe('Given signup form, User', function() {
 
         element(by.css('#step1 button[type="submit"]')).click();
 
-        waitForElemPresent(element(by.css('#step2')));
         browser.executeScript('window.scrollTo(0,document.body.scrollHeight);');
-        waitForElemDisplayed(element(by.css('#step2')));
 
         var typeButton0 = element.all(by.repeater('card in cards'))
             .get(0).element(by.css('button'));
-        waitForElem(typeButton0);
-        waitForElemDisplayed(element(by.css(".signup-nav li")));
         browser.sleep(1000);
         expect(element.all(by.css(".signup-nav li a")).get(1).getAttribute('class')).toMatch('active');
         typeButton0.click();
 
-        waitForElemDisplayed(element(by.css('#step3')));
-
-        waitForElem(element(by.css('#cardNumber')));
         element(by.css('#cardNumber')).sendKeys(params.signup.card.number);
         element(by.css('#cardCVC')).sendKeys(params.signup.card.cvc);
         element(by.css('#exp_year_chosen span')).click();
 
         var expYear = element.all(by.css('#exp_year_chosen li')).first();
-        waitForElem(expYear);
         element(by.cssContainingText('#exp_year_chosen li', params.signup.card.exp_year)).click();
 
         var expMonth = element(by.css('#exp_month_chosen span'));
-        waitForElem(expMonth);
         expMonth.click();
 
         var expMonthElem = element.all(by.cssContainingText('#exp_month_chosen li', params.signup.card.exp_month)).first();
-        waitForElem(expMonthElem);
         expMonthElem.click();
 
-        waitForElem(element(by.css('#street')));
         element(by.css('#street')).sendKeys(params.signup.address);
         element(by.css('#zip')).sendKeys(params.signup.zipCode);
 
         var approve = element(by.css('label[for=approve]'));
-        waitForElem(approve);
         approve.click();
 
         var submitOrderButton = element(by.css('#step3 button[type="submit"]'));
-        waitForElem(submitOrderButton);
         submitOrderButton.click();
-
-        waitForElemPresent(element(by.css('.dashboard-title')));
-        waitForElemPresent(element(by.css('#account')));
-        waitForElemDisplayed(element(by.css('#account a')));
-        element(by.css('#account')).click();
-
-        waitForElemPresent(element(by.css('.logout')));
-        element(by.css('.logout')).click();
-
-        waitForElem(element(by.css('#login')));
 
         done();
     });
@@ -97,26 +69,13 @@ describe('Given signup form, User', function() {
     it('should be able to enter credentials and signin into existing account', function(done) {
 
         var login = element(by.css('#login'));
-        waitForElem(login);
         login.click();
 
         element(by.css('form[name="loginForm"] input[name="email"]')).sendKeys(myEmail);
         element(by.css('form[name="loginForm"] input[name="password"]')).sendKeys(myPassword);
         element(by.css('form[name="loginForm"] button[type="submit"]')).click();
 
-        waitForElemPresent(element(by.css('#account')));
-        waitForElemDisplayed(element(by.css('#account a')));
         expect(element(by.css('#account a')).getText()).toContain(params.signup.firstName + ' ' + params.signup.lastName);
-
-        waitForElemPresent(element(by.css('.dashboard-title')));
-        waitForElemPresent(element(by.css('#account')));
-        waitForElemDisplayed(element(by.css('#account a')));
-        element(by.css('#account')).click();
-
-        waitForElemPresent(element(by.css('.logout')));
-        element(by.css('.logout')).click();
-
-        waitForElem(element(by.css('#login')));
 
         done();
     });

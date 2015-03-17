@@ -17,7 +17,7 @@
     "underscore": "~1.7.0",
     "angular-moment": "~0.8.3",
     "moment-timezone": "~0.2.5",
-    "angular-bootstrap": "~0.11.0",
+    "angular-bootstrap": "~0.12.1",
     "videogular": "~0.5.0",
     "videogular-controls": "~0.5.0",
     "videogular-buffering": "~0.5.0",
