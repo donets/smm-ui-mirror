@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'UserMap', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, UserMap) {
+	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory) {
 		$scope.init = function() {
 			CityFactory.getCities().then(function(res) {
 				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
@@ -20,7 +20,7 @@ angular.module('boltApp.controllers.Login', [])
 					$scope.changeCity(res.campaign);
 				});
 			});
-		}
+		};
 
 
 		$scope.init();
@@ -36,12 +36,12 @@ angular.module('boltApp.controllers.Login', [])
 			}).then(function() {
 				watchRootCampaign();
 			});
-		}
+		};
 
 		function watchRootCampaign() {
-			$rootScope.$watch('rootCampaign', function(newVal, oldVal) {
+			$rootScope.$watch('rootCampaign', function(newVal) {
 
-				if (typeof(newVal) === "undefined") {
+				if (typeof(newVal) === 'undefined') {
 					$scope.campaign = $scope.citiesList[1];
 				} else {
 					$scope.campaign = newVal;

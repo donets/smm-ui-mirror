@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', 'UserMap', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory, UserMap) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -83,7 +83,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                     $scope.changeCity(res.campaign);
                 });
             });
-        }
+        };
 
 
         $scope.init();
@@ -92,12 +92,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
-                if(typeof($scope.campaign) !== "undefined") {
+                if(typeof($scope.campaign) !== 'undefined') {
                     $scope.campaign = campaign;
                     $rootScope.rootCampaign = campaign;
                 }
             }).then(function() {
-                $rootScope.$watch('rootCampaign', function(newVal, oldVal) {
+                $rootScope.$watch('rootCampaign', function(newVal) {
                     $scope.campaign = newVal;
                     if(!$scope.$$phase) {
                         $scope.$apply();
@@ -105,7 +105,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
                 });
             });
-        }
+        };
 
 
 
