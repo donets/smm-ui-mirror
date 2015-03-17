@@ -10,6 +10,20 @@
 angular.module('boltApp.services.city', [])
 	.factory('CityFactory', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', '$q', 'UserMap',
 		function(RestApi, $location, $cookieStore, $rootScope, $http, $q, UserMap) {
+			var rootCampaign;
+
+			var broadcast = function(CityFactory) {
+				$rootScope.$broadcast('CityFactory.update', rootCampaign);
+			};
+
+			var update = function(newState) {
+				rootCampaign = newState;
+				broadcast(rootCampaign);
+			};
+
+			var getVariable = function() {
+				return rootCampaign;
+			}
 
 			var guessCity = function(cities) {
 				var deferred = $q.defer(),
@@ -93,8 +107,11 @@ angular.module('boltApp.services.city', [])
 			};
 
 			return {
+				update: update,
+				rootCampaign: rootCampaign,
 				guessCity: guessCity,
 				changeCity: changeCity,
+				getVariable: getVariable,
 				getCities: function() {
 					return RestApi.query({
 						route: 'cities'
