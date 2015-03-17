@@ -199,6 +199,9 @@
         @media (max-width: $containerMobileWidth640) {
             line-height: 60px;
             height: 60px;
+            .chosen-container {
+                display: none;
+            }
         }
         .chosen-container {
             background: none;
