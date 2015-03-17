@@ -67,7 +67,9 @@ angular
         'boltApp.services.suppliers',
         'boltApp.services.user',
         'boltApp.services.membership',
-        'boltApp.services.navigator'
+        'boltApp.services.navigator',
+        'boltApp.services.city',
+        'boltApp.services.userMap'
     ]);
 angular.module('boltApp')
     .run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',
@@ -511,12 +513,6 @@ angular.module('boltApp')
 
                         return Membership.get().$promise;
 
-                    },
-
-                    getCards: function($http) {
-
-                        return $http.get('json/cards.json', {cache: true});
-
                     }
 
                 },
@@ -833,10 +829,10 @@ angular.module('boltApp')
 
                         if ($rootScope.$stateParams.route === 'memberships') {
                             $rootScope.clearPhotoFilter = function(){
-                                if($rootScope.search.photo === "false"){
+                                if($rootScope.search.photo === 'false'){
                                     delete $rootScope.search.photo;
                                 }
-                            }
+                            };
                         }
 
                     }

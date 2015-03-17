@@ -32,36 +32,36 @@
         </ul>
     </nav>
     <div class="container">
-        <form id="step1" name="formSignup" class="form-signup" ng-submit="signupSubmit()">
+        <form id="step1" name="formSignup" class="form-signup" ng-submit="signupSubmit()" accessible-form>
             <div class="form-group">
                 <div class="form-rel flex">
                     <div class="half">
                         <label class="form-label required" for="name" translate>First name</label>
-                        <input type="text" ng-model="order.firstName" id="name" name="name" class="half" placeholder="{{'First name'|translate}}" required />
-                        <div ng-show="formSignup.name.$dirty && formSignup.name.$invalid">
+                        <input type="text" ng-model="order.firstName" id="name" name="name" class="half" placeholder="{{'First name'|translate}}" required blur-focus-directive />
+                        <div ng-show="formSignup.name.$dirty && formSignup.name.$invalid && !formSignup.name.hasFocus">
                             <div ng-show="formSignup.name.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         </div>
                     </div>
                     <div class="half">
                         <label class="form-label required" for="name" translate>Surname</label>
-                        <input type="text" ng-model="order.lastName" id="surname" name="surname" class="half" placeholder="{{'Surname'|translate}}" required/>
-                        <div ng-show="formSignup.surname.$dirty && formSignup.surname.$invalid">
+                        <input type="text" ng-model="order.lastName" id="surname" name="surname" class="half" placeholder="{{'Surname'|translate}}" required blur-focus-directive/>
+                        <div ng-show="formSignup.surname.$dirty && formSignup.surname.$invalid && !formSignup.surname.hasFocus">
                             <div ng-show="formSignup.surname.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         </div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <label class="form-label required" for="email" translate>E-mail</label>
-                    <input type="email" ng-model="order.email" id="email" name="email" placeholder="{{'name@example.com'|translate}}" required/>
-                    <div class="form-response" ng-show="formSignup.email.$dirty && formSignup.email.$invalid">
+                    <input type="email" ng-model="order.email" id="email" name="email" placeholder="{{'name@example.com'|translate}}" required blur-focus-directive/>
+                    <div class="form-response" ng-show="formSignup.email.$dirty && formSignup.email.$invalid && !formSignup.email.hasFocus">
                         <div ng-show="formSignup.email.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         <div ng-show="formSignup.email.$error.email" class="form-message form-error" translate>Invalid e-mail address</div>
                     </div>
                 </div>
                 <div class="form-rel">
                     <label class="form-label required" for="password" translate>Password</label>
-                    <input type="password" ng-model="order.password" ng-minlength="5" id="password" name="password" placeholder="{{'At least 5 characters'|translate}}" required/>
-                    <div class="form-response" ng-show="formSignup.password.$dirty && formSignup.password.$invalid">
+                    <input type="password" ng-model="order.password" ng-minlength="5" id="password" name="password" placeholder="{{'At least 5 characters'|translate}}" required blur-focus-directive/>
+                    <div class="form-response" ng-show="formSignup.password.$dirty && formSignup.password.$invalid && !formSignup.password.hasFocus">
                         <div ng-show="formSignup.password.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         <div ng-show="formSignup.password.$error.minlength" class="form-message form-error" translate>Your password must contain at least 5 characters</div>
                     </div>
@@ -91,7 +91,7 @@
             <div class="form-rel" ng-show="showSpinner">
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             </div>
-            <button type="submit" ng-hide="showSpinner || showCards" ng-disabled="!formSignup.$valid" translate>Next</button>
+            <button type="submit" ng-hide="showSpinner || showCards" translate>Next</button>
         </form>
         <div id="step2" ng-show="showCards">
             <div class="select-cards" ng-if="desktop">
@@ -152,7 +152,7 @@
                 </tr>
             </table>
         </div>
-        <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-submit="checkoutSubmit()">
+        <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-submit="checkoutSubmit()" accessible-form>
             <div class="w-left">
                 <div ng-class="{ 'error': errorVoucher }" class="form-group">
                     <a href="" class="form-link" ng-click="showVoucher = !showVoucher" translate>Enter discount code</a>
@@ -174,11 +174,11 @@
                     <div ng-class="{'error': error === 'CardException'}" class="form-group">
                         <div class="form-rel">
                             <label class="form-label required" for="cardNumber" translate>Credit card</label>
-                            <input type="text" ng-model="order.card.number" ng-change="orderChange('card');checkCard(order.card.number)" id="cardNumber" name="cardNumber" placeholder="{{'Card number'|translate}}" ng-pattern="/^\d{8,}$/" required />
+                            <input type="text" ng-model="order.card.number" ng-change="orderChange('card');checkCard(order.card.number)" id="cardNumber" name="cardNumber" placeholder="{{'Card number'|translate}}" ng-pattern="/^\d{8,}$/" required blur-focus-directive />
                             <img class="credit-card" ng-show="creditCard === 'visa'" src="images/visa-icon.svg" alt=""/>
                             <img class="credit-card" ng-show="creditCard === 'masterCard'" src="images/mastercard-icon.svg" alt=""/>
                             <img class="credit-card" ng-show="creditCard === 'maestroCard'" src="images/maestro-icon.svg" alt=""/>
-                            <div ng-show="formCheckout.cardNumber.$dirty && formCheckout.cardNumber.$invalid">
+                            <div ng-show="formCheckout.cardNumber.$dirty && formCheckout.cardNumber.$invalid && !formCheckout.cardNumber.hasFocus">
                                 <div ng-show="formCheckout.cardNumber.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                                 <div ng-show="formCheckout.cardNumber.$error.pattern" class="form-message form-error" translate>Please enter a valid credit card number</div>
                             </div>
@@ -207,8 +207,8 @@
                             </div>
                             <div class="third">
                                 <label class="form-label required" for="cardCVC" translate>CVV</label>
-                                <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3,4}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="{{'e.g. 123'|translate}}" required/>
-                                <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid">
+                                <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3,4}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="{{'e.g. 123'|translate}}" required blur-focus-directive/>
+                                <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid && !formSignup.cardCVC.hasFocus">
                                     <div ng-show="formCheckout.cardCVC.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                                     <div ng-show="formCheckout.cardCVC.$error.pattern" class="form-message form-error" translate>Please enter the 3 or 4-digit security number (on the back of your card)</div>
                                 </div>
@@ -224,22 +224,22 @@
                     <div class="form-group">
                         <div class="form-rel">
                             <label class="form-label required" for="nameAccount" translate>Bank account holder</label>
-                            <input type="text" ng-model="order.card.name" id="nameAccount" name="name" placeholder="{{'Your Name'|translate}}" required />
-                            <div ng-show="formCheckout.name.$dirty && formCheckout.name.$invalid">
+                            <input type="text" ng-model="order.card.name" id="nameAccount" name="name" placeholder="{{'Your Name'|translate}}" required  blur-focus-directive/>
+                            <div ng-show="formCheckout.name.$dirty && formCheckout.name.$invalid && !formCheckout.name.hasFocus">
                                 <div ng-show="formCheckout.name.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                             </div>
                         </div>
                         <div class="form-rel">
                             <label class="form-label required" for="iban" translate>IBAN</label>
-                            <input type="text" ng-model="order.card.iban" id="iban" name="iban" placeholder="{{'e.g. DE12 3456 7890 1234 5678 90'|translate}}" required />
-                            <div ng-show="formCheckout.iban.$dirty && formCheckout.iban.$invalid">
+                            <input type="text" ng-model="order.card.iban" id="iban" name="iban" placeholder="{{'e.g. DE12 3456 7890 1234 5678 90'|translate}}" required blur-focus-directive />
+                            <div ng-show="formCheckout.iban.$dirty && formCheckout.iban.$invalid && !formCheckout.iban.hasFocus">
                                 <div ng-show="formCheckout.iban.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                             </div>
                         </div>
                         <div class="form-rel">
                             <label class="form-label required" for="bic" translate>SWIFT-BIC</label>
-                            <input type="text" ng-model="order.card.bic" id="bic" name="bic" placeholder="{{'e.g. ABCD1234'|translate}}" required />
-                            <div ng-show="formCheckout.bic.$dirty && formCheckout.bic.$invalid">
+                            <input type="text" ng-model="order.card.bic" id="bic" name="bic" placeholder="{{'e.g. ABCD1234'|translate}}" required blur-focus-directive />
+                            <div ng-show="formCheckout.bic.$dirty && formCheckout.bic.$invalid && !formCheckout.bic.hasFocus">
                                 <div ng-show="formCheckout.bic.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                             </div>
                         </div>
@@ -257,16 +257,16 @@
                 <div class="form-group">
                     <div class="form-rel">
                         <label class="form-label required" for="street" translate>House no. and street</label>
-                        <input type="text" ng-model="order.deliveryAddress.streetAndHouse" id="street" name="street" placeholder="{{'e.g. Buckingham St. 1'|translate}}" required />
-                        <div ng-show="formCheckout.street.$dirty && formCheckout.street.$invalid">
+                        <input type="text" ng-model="order.deliveryAddress.streetAndHouse" id="street" name="street" placeholder="{{'e.g. Buckingham St. 1'|translate}}" required blur-focus-directive />
+                        <div ng-show="formCheckout.street.$dirty && formCheckout.street.$invalid && !formCheckout.street.hasFocus">
                             <div ng-show="formCheckout.street.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         </div>
                     </div>
                     <div class="form-rel flex">
                         <div class="half">
                             <label class="form-label required" for="zip" translate>Postal code</label>
-                            <input type="text" ng-model="order.deliveryAddress.zip" class="half" id="zip" name="zip" placeholder="{{'e.g. 10115'|translate}}" required />
-                            <div ng-show="formCheckout.zip.$dirty && formCheckout.zip.$invalid">
+                            <input type="text" ng-model="order.deliveryAddress.zip" class="half" id="zip" name="zip" placeholder="{{'e.g. 10115'|translate}}" required blur-focus-directive />
+                            <div ng-show="formCheckout.zip.$dirty && formCheckout.zip.$invalid && !formCheckout.zip.hasFocus">
                                 <div ng-show="formCheckout.zip.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                                 <div ng-show="formCheckout.zip.$error.pattern" class="form-message form-error" translate>Incorrect postal code</div>
                             </div>
@@ -337,7 +337,7 @@
                 <div class="form-rel" ng-show="showSpinner">
                     <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
                 </div>
-                <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid || errorVoucher"><span class="variant variant_1 variant_2" translate>Place order</span><span class="variant variant_3" translate>FREE trial period</span></button>
+                <button class="large" type="submit" ng-hide="showSpinner" ><span class="variant variant_1 variant_2" translate>Place order</span><span class="variant variant_3" translate>FREE trial period</span></button>
                 <span class="info variant variant_2" translate>After this it will be subject to a fee</span>
                 <div class="form-group center">
                     <div class="form-error" ng-if="error === 'CardException'" translate>Pleas check your credit card details: {{errorMsg}}</div>
@@ -348,5 +348,3 @@
         </form>
     </div>
 </div>
-
-

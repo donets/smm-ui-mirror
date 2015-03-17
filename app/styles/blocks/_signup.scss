@@ -315,7 +315,7 @@
         }
         .w-clear {
             button {
-                @extend %form-button;   
+                @extend %form-button;
             }
             margin: 0 auto;
             .form-check {
@@ -393,6 +393,12 @@
     }
     input[type="text"], input[type="email"], input[type="password"], .chosen-container, .chosen-drop {
         background: #fbfbfb;
+        &.ng-invalid.ng-dirty.has-focus {
+            border-color: inherit;
+        }
+        &.ng-valid.ng-dirty.has-focus {
+            border-color: inherit;
+        }
     }
     > button {
         width: 100%;

@@ -64,6 +64,7 @@ angular.module('boltApp')
                     }
                 });
 
+
                 var csvToJSON = function(content) {
                     var lines=content.csv.split('\n');
                     var result = [];
