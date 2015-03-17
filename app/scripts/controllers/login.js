@@ -8,8 +8,20 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory) {
+	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', '$timeout', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, $timeout) {
 		$scope.init = function() {
+			$scope.CityFactory = CityFactory.CityFactory;
+
+			$scope.$on('CityFactory.update', function(newState) {
+                $timeout(function () {
+                    $scope.campaign = CityFactory.getVariable();
+                }, 0);
+			});
+
+			$scope.update = CityFactory.update;
+
+
+
 			CityFactory.getCities().then(function(res) {
 				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
 					return c.countryCode === $rootScope.countryCode;
@@ -31,26 +43,9 @@ angular.module('boltApp.controllers.Login', [])
 			CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
 				$scope.studios = res.studios;
 				$scope.cards = res.cards;
-				// $scope.campaign = campaign;
-				$rootScope.rootCampaign = campaign;
-			}).then(function() {
-				watchRootCampaign();
+				CityFactory.update(campaign);
 			});
 		};
-
-		function watchRootCampaign() {
-			$rootScope.$watch('rootCampaign', function(newVal) {
-
-				if (typeof(newVal) === 'undefined') {
-					$scope.campaign = $scope.citiesList[1];
-				} else {
-					$scope.campaign = newVal;
-                    if(!$scope.$$phase) {
-                        $scope.$apply();
-                    }
-				}
-			});
-		}
 
 		function sendLoginFB(res) {
 			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function(response) {

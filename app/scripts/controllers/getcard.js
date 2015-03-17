@@ -72,6 +72,15 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $cookieStore.put('landingUrl', $location.url());
 
         $scope.init = function() {
+            $scope.CityFactory = CityFactory.CityFactory;
+
+			$scope.$on('CityFactory.update', function(newState) {
+                $scope.campaign = CityFactory.getVariable();
+			});
+
+			$scope.update = CityFactory.update;
+
+
             CityFactory.getCities().then(function (res) {
                 $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
                     return c.countryCode === $rootScope.countryCode;
@@ -89,25 +98,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.init();
 
         $scope.changeCity = function(campaign) {
+            CityFactory.update(campaign, $scope.citiesList);
             CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
-                if(typeof($scope.campaign) !== 'undefined') {
-                    $scope.campaign = campaign;
-                    $rootScope.rootCampaign = campaign;
-                }
-            }).then(function() {
-                $rootScope.$watch('rootCampaign', function(newVal) {
-                    $scope.campaign = newVal;
-                    if(!$scope.$$phase) {
-                        $scope.$apply();
-                    }
-
-                });
             });
         };
-
-
 
 
         var setVoucher = function (code) {
