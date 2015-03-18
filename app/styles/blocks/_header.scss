@@ -220,8 +220,37 @@
             .chosen-drop {
                 text-align: left;
                 border: 0;
+                padding: 4px;
+                width: auto;
+                margin-top: 8px;
+                &:before {
+                    content: "";
+display: block;
+position: absolute;
+right: 25px;
+bottom: 100%;
+border-width: 9px 5px;
+border-style: solid;
+border-color: transparent;
+border-bottom-color: #fff;
+                }
                 .chosen-results {
-                    box-shadow: 0 3px 5px rgba(119, 119, 119, 0.5);
+                    li {
+                        display: block;
+                        font-size: 18px;
+                        color: $colorGrey;
+                        padding: 0 16px;
+                        border-radius: 2px;
+                        line-height: 42px;
+                        outline: none;
+                        &.result-selected {
+                            color: $colorLink;
+                        }
+                        &.highlighted {
+                            background: #f4f7f9;
+                            text-decoration: none;
+                        }
+                    }
                     padding: 0;
                     margin: 0;
                 }
