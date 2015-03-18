@@ -143,7 +143,7 @@ msgid "House no. and street"
 msgstr ""
 
 #: app/views/signup.html:327
-msgid "I agree to the <a ui-sref=\"agb\">terms & conditions</a> and <a ui-sref=\"agb\">data protection provisions</a> and am aware of my <a ui-sref=\"agb\">statutory rights </a> ."
+msgid "I agree to the <a ui-sref=\"agb\">terms &amp; conditions</a> and <a ui-sref=\"agb\">data protection provisions</a> and am aware of my <a ui-sref=\"agb\">statutory rights </a> ."
 msgstr ""
 
 #: app/views/signup.html:333
@@ -255,7 +255,7 @@ msgid "Please note: You can cancel your direct debit payment any time by sending
 msgstr ""
 
 #: app/views/signup.html:345
-msgid "Please select your card, fill out all fields and accept the terms & conditions and privacy policy."
+msgid "Please select your card, fill out all fields and accept the terms &amp; conditions and privacy policy."
 msgstr ""
 
 #: app/views/signup.html:267

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/class.html:12
-msgid "<i class=\"fa fa-save\"></i>Save & go live"
+msgid "<i class=\"fa fa-save\"></i>Save &amp; go live"
 msgstr ""
 
 #: app/views/class.html:11

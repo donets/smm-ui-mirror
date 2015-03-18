@@ -10,14 +10,15 @@
 angular.module('boltApp.controllers.Login', [])
 	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', '$timeout', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, $timeout) {
 		$scope.init = function() {
+            $scope.data = {};
+            $scope.data.campaign = [];
 			$scope.CityFactory = CityFactory.CityFactory;
 
 			$scope.$on('CityFactory.update', function(newState) {
-                $timeout(function () {
-                    $scope.campaign = CityFactory.getVariable();
-                }, 0);
+                var campaignVar = CityFactory.getVariable();
+                console.log(campaignVar);
+                $scope.data.campaign = campaignVar;
 			});
-
 			$scope.update = CityFactory.update;
 
 

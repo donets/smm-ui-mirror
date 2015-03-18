@@ -13,7 +13,7 @@ msgid "Hello {{userName}}!"
 msgstr ""
 
 #: app/views/userProfile.html:11
-msgid "Subscription"
+msgid "My card"
 msgstr ""
 
 #: app/views/userProfile.html:5
