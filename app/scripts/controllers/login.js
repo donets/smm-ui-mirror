@@ -8,8 +8,29 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'UserMap', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, UserMap) {
+	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', '$timeout', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, $timeout) {
 		$scope.init = function() {
+			$scope.data = {};
+			$scope.data.campaign = [];
+			$scope.CityFactory = CityFactory.CityFactory;
+
+			$scope.$on('CityFactory.update', function(newState) {
+				var campaignVar = CityFactory.getVariable();
+				for (var i = 0; i < $scope.citiesList.length; i++) {
+					delete campaignVar.$$hashKey;
+					delete $scope.citiesList[i].$$hashKey;
+					if (_.isEqual(campaignVar, $scope.citiesList[i])) {
+						console.log("ok");
+
+						$scope.data.campaign = $scope.citiesList[i];
+						console.log(_.isEqual(campaignVar, $scope.citiesList[i]));
+					}
+				}
+			});
+			$scope.update = CityFactory.update;
+
+
+
 			CityFactory.getCities().then(function(res) {
 				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
 					return c.countryCode === $rootScope.countryCode;
@@ -20,8 +41,7 @@ angular.module('boltApp.controllers.Login', [])
 					$scope.changeCity(res.campaign);
 				});
 			});
-		}
-
+		};
 
 		$scope.init();
 
@@ -31,26 +51,9 @@ angular.module('boltApp.controllers.Login', [])
 			CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
 				$scope.studios = res.studios;
 				$scope.cards = res.cards;
-				// $scope.campaign = campaign;
-				$rootScope.rootCampaign = campaign;
-			}).then(function() {
-				watchRootCampaign();
+				CityFactory.update(campaign);
 			});
-		}
-
-		function watchRootCampaign() {
-			$rootScope.$watch('rootCampaign', function(newVal, oldVal) {
-
-				if (typeof(newVal) === "undefined") {
-					$scope.campaign = $scope.citiesList[1];
-				} else {
-					$scope.campaign = newVal;
-                    if(!$scope.$$phase) {
-                        $scope.$apply();
-                    }
-				}
-			});
-		}
+		};
 
 		function sendLoginFB(res) {
 			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function(response) {

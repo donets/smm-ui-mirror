@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', 'UserMap', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory, UserMap) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -72,6 +72,25 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $cookieStore.put('landingUrl', $location.url());
 
         $scope.init = function() {
+            $scope.CityFactory = CityFactory.CityFactory;
+
+			$scope.$on('CityFactory.update', function(newState) {
+                var campaignVar = CityFactory.getVariable();
+                for (var i = 0; i < $scope.citiesList.length; i++) {
+					delete campaignVar.$$hashKey;
+					delete $scope.citiesList[i].$$hashKey;
+                    if (_.isEqual(campaignVar, $scope.citiesList[i])) {
+						console.log("ok");
+
+						$scope.campaign = $scope.citiesList[i];
+                        console.log(_.isEqual(campaignVar, $scope.citiesList[i]));
+					}
+				}
+			});
+
+			$scope.update = CityFactory.update;
+
+
             CityFactory.getCities().then(function (res) {
                 $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
                     return c.countryCode === $rootScope.countryCode;
@@ -83,31 +102,18 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                     $scope.changeCity(res.campaign);
                 });
             });
-        }
+        };
 
 
         $scope.init();
 
         $scope.changeCity = function(campaign) {
+            CityFactory.update(campaign, $scope.citiesList);
             CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
-                if(typeof($scope.campaign) !== "undefined") {
-                    $scope.campaign = campaign;
-                    $rootScope.rootCampaign = campaign;
-                }
-            }).then(function() {
-                $rootScope.$watch('rootCampaign', function(newVal, oldVal) {
-                    $scope.campaign = newVal;
-                    if(!$scope.$$phase) {
-                        $scope.$apply();
-                    }
-
-                });
             });
-        }
-
-
+        };
 
 
         var setVoucher = function (code) {
@@ -267,26 +273,26 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.slides = [
             {
                 image: '/images/static/fact_01-' + $rootScope.resolution + '.jpg',
-                title: gettextCatalog.getString('Meditation kann Dir die Gehirnkapazität eines 25-jährigen erhalten.'),
+                title: gettextCatalog.getString('Meditation can increase your brain capacity to that of a 25-year-old.'),
                 text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }, {
                 image: '/images/static/fact_02-' + $rootScope.resolution + '.jpg',
-                title: gettextCatalog.getString('Yoga kann schon nach 3 Monaten Dein Selbstbild anheben.'),
+                title: gettextCatalog.getString('Yoga has been proven to help self-image and self-love after just 3 months.'),
                 text: gettextCatalog.getString('— WSU (Washington State University)')
             }, {
                 image: '/images/static/fact_03-' + $rootScope.resolution + '.jpg',
-                title: gettextCatalog.getString('Tanzen hilft gegen Depressionen.'),
+                title: gettextCatalog.getString('Dancing helps to alleviate depression.'),
                 text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }, {
                 image: '/images/static/fact_04-' + $rootScope.resolution + '.jpg',
-                title: gettextCatalog.getString('Menschen, die meditieren, lösen Herausforderungen des Alltags kreativer.'),
+                title: gettextCatalog.getString('People who meditate are able to deal with everyday challenges more creatively.'),
                 text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }, {
                 image: '/images/static/fact_05-' + $rootScope.resolution + '.jpg',
-                title: gettextCatalog.getString('Yoga kann Angst dauerhaft reduzieren.'),
+                title: gettextCatalog.getString('Yoga helps to reduce anxiety and manage stress.'),
                 text: gettextCatalog.getString('— NCBI (National Center for Biotechnology Information)')
             }
         ];
 
-        $scope.localizedUnlimited = gettextCatalog.getString('Unbegrenzt');
+        $scope.localizedUnlimited = gettextCatalog.getString('Unlimited');
     }]);

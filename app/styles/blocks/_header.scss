@@ -199,6 +199,9 @@
         @media (max-width: $containerMobileWidth640) {
             line-height: 60px;
             height: 60px;
+            .chosen-container {
+                display: none;
+            }
         }
         .chosen-container {
             background: none;
@@ -217,7 +220,37 @@
             .chosen-drop {
                 text-align: left;
                 border: 0;
+                padding: 4px;
+                width: auto;
+                margin-top: 8px;
+                &:before {
+                    content: "";
+display: block;
+position: absolute;
+right: 25px;
+bottom: 100%;
+border-width: 9px 5px;
+border-style: solid;
+border-color: transparent;
+border-bottom-color: #fff;
+                }
                 .chosen-results {
+                    li {
+                        display: block;
+                        font-size: 18px;
+                        color: $colorGrey;
+                        padding: 0 16px;
+                        border-radius: 2px;
+                        line-height: 42px;
+                        outline: none;
+                        &.result-selected {
+                            color: $colorLink;
+                        }
+                        &.highlighted {
+                            background: #f4f7f9;
+                            text-decoration: none;
+                        }
+                    }
                     padding: 0;
                     margin: 0;
                 }
