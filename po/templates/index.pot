@@ -39,7 +39,7 @@ msgid "Follow us"
 msgstr ""
 
 #: app/index.html:217
-msgid "General terms &amp; conditions"
+msgid "General terms & conditions"
 msgstr ""
 
 #: app/index.html:216

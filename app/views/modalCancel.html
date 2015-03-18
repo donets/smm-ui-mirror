@@ -1,11 +1,43 @@
 
 <div class="modal-body">
-    <p class="subtitle" translate>Are you sure you want to cancel your membership?</p>
-    <div ng-hide="loading">
-        <button class="form-button" type="button" ng-click="close()" translate>No</button>
-        <a class="link-button" href="" ng-click="submitMessage()" translate>Yes</a>
+    <button ng-click="close()" class="modal-close" type="button">
+        <span class="sr-only" translate>Close</span>
+    </button>
+    <div ng-if="step_1">
+        <h2 translate>Sure you want to cancel?</h2>
+        <p translate>You can suspend your membership, and</p>
+        <ul>
+            <li translate>keep your account active</li>
+            <li translate>book 3 classes a month</li>
+            <li translate>only for 15 / month</li>
+        </ul>
+        <div ng-hide="loading">
+            <button class="form-button" type="button" ng-click="suspendSubmit()" translate>Ok, Suspend my account</button>
+            <a class="form-link" href="" ng-click="cancelSubmit()" translate>I still want to cancel</a>
+        </div>
+        <div ng-show="loading" class="form-response">
+            <div class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
     </div>
-    <div ng-show="loading" class="form-response">
-        <div class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+    <div ng-if="step_2">
+        <h2 translate>One more step</h2>
+        <p translate>Reason for cancellation?</p>
+        <ul class="reasons">
+            <li><label translate><input type="radio" ng-model="cancelReason" value="1" name="cancel-reason"/>Can't find my prefered studio</label></li>
+            <li><label translate><input type="radio" ng-model="cancelReason" value="2" name="cancel-reason"/>Not many options in my neighbourhood</label></li>
+            <li><label translate><input type="radio" ng-model="cancelReason" value="3" name="cancel-reason"/>Subsciption is expensive</label></li>
+            <li><label translate><input type="radio" ng-model="cancelReason" value="4" name="cancel-reason"/>No time for fitness</label></li>
+            <li><label translate><input type="radio" ng-model="cancelReason" value="5" name="cancel-reason"/>Others</label></li>
+        </ul>
+        <div ng-hide="loading">
+            <a class="form-link" href="" ng-click="cancelSubmit()" translate>Next</a>
+        </div>
+        <div ng-show="loading" class="form-response">
+            <div class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+    </div>
+    <div ng-if="success">
+        <h2 translate>Subscription cancelled</h2>
+        <p translate>You can continue to use your account till {{cancellationDate | date: 'dd.MM.yyyy'}}</p>
     </div>
 </div>
