@@ -4,9 +4,14 @@ describe('Given invite form, User', function() {
 
     beforeEach(function() {
         browser.get('/?city=M');
+        waitForElem(element(by.css('#login')));
     });
 
     var params = browser.params,
+        waitForElem = params.helpers.waitForElem,
+        hasClass = params.helpers.hasClass,
+        waitForElemDisplayed = params.helpers.waitForElemDisplayed,
+        waitForElemPresent = params.helpers.waitForElemPresent,
         myPassword = params.signup.password;
 
     browser.driver.manage().window().maximize();
