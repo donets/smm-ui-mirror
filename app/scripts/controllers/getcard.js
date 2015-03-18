@@ -75,7 +75,15 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.CityFactory = CityFactory.CityFactory;
 
 			$scope.$on('CityFactory.update', function(newState) {
-                $scope.campaign = CityFactory.getVariable();
+                var campaignVar = CityFactory.getVariable();
+                for (var i = 0; i < $scope.citiesList.length; i++) {
+					delete campaignVar.$$hashKey;
+					delete $scope.citiesList[i].$$hashKey;
+                    if (_.isEqual(campaignVar, $scope.citiesList[i])) {
+
+						$scope.campaign = $scope.citiesList[i];
+					}
+				}
 			});
 
 			$scope.update = CityFactory.update;

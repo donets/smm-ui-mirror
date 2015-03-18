@@ -10,14 +10,20 @@
 angular.module('boltApp.controllers.Login', [])
 	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', '$timeout', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, $timeout) {
 		$scope.init = function() {
-            $scope.data = {};
-            $scope.data.campaign = [];
+			$scope.data = {};
+			$scope.data.campaign = [];
 			$scope.CityFactory = CityFactory.CityFactory;
 
 			$scope.$on('CityFactory.update', function(newState) {
-                var campaignVar = CityFactory.getVariable();
-                console.log(campaignVar);
-                $scope.data.campaign = campaignVar;
+				var campaignVar = CityFactory.getVariable();
+				for (var i = 0; i < $scope.citiesList.length; i++) {
+					delete campaignVar.$$hashKey;
+					delete $scope.citiesList[i].$$hashKey;
+					if (_.isEqual(campaignVar, $scope.citiesList[i])) {
+
+						$scope.data.campaign = $scope.citiesList[i];
+					}
+				}
 			});
 			$scope.update = CityFactory.update;
 
@@ -34,7 +40,6 @@ angular.module('boltApp.controllers.Login', [])
 				});
 			});
 		};
-
 
 		$scope.init();
 
