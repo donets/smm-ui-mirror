@@ -81,8 +81,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 					delete $scope.citiesList[i].$$hashKey;
                     if (_.isEqual(campaignVar, $scope.citiesList[i])) {
 						console.log("ok");
-
 						$scope.campaign = $scope.citiesList[i];
+                        $rootScope.supportPhone = $scope.campaign.supportPhone;
                         console.log(_.isEqual(campaignVar, $scope.citiesList[i]));
 					}
 				}

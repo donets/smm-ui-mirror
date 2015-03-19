@@ -1,20 +1,23 @@
 <div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
-                vg-player-ready="video.onPlayerReady"
-                vg-complete="video.onCompleteVideo"
-                vg-responsive="video.responsive"
-                vg-stretch="video.stretch"
-                disable-animate>
-        <vg-video vg-src="video.sources" vg-preload="video.preload" vg-loop="video.loop" ng-if="desktop"></vg-video>
+    vg-player-ready="video.onPlayerReady"
+    vg-complete="video.onCompleteVideo"
+    vg-responsive="video.responsive"
+    vg-stretch="video.stretch"
+    disable-animate>
+    <vg-video vg-src="video.sources" vg-preload="video.preload" vg-loop="video.loop" ng-if="desktop"></vg-video>
 
-        <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
+    <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
-    </videogular>
-    <div class="b-main-slogan"><h2 ng-if="!campaign" translate>LONDON IS YOUR STUDIO</h2>
-        <h2 ng-if="campaign && !(city || cityId)">{{campaign.title}}</h2>
-        <h2 ng-if="campaign && (city || cityId)" translate><select chosen ng-model="campaign" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c as c.defaultName for c in citiesList" ng-change="changeCity(campaign)" width="'auto'">
+</videogular>
+<div class="b-main-slogan"><h2 ng-if="!campaign" translate>LONDON IS YOUR STUDIO</h2>
+    <h2 ng-if="campaign && !(city || cityId)">{{campaign.title}}</h2>
+    <h2 ng-if="campaign && (city || cityId)" translate>
+        <select auto-width-select chosen ng-model="campaign" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c as c.defaultName for c in citiesList" ng-change="changeCity(campaign)" width="'auto'">
             <option value="" ng-if="desktop"></option>
-        </select> IS YOUR STUDIO</h2>
+        </select>
+        <span id="width_tmp"></span>
+        IS YOUR STUDIO</h2>
         <p ng-if="!campaign" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
         <p ng-if="campaign && !(city || cityId)" translate>Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> with <b>1 membership</b>.</p>
         <p ng-if="campaign && (city || cityId)" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
@@ -125,15 +128,15 @@
                 <li ng-show="mobile" ng-if="citiesList.length > 1">
                     <div class="third">
                         <select chosen width="'100%'" class="third"
-                                ng-model="campaign" ng-change="changeCity(campaign)"
-                                data-placeholder="{{'City'|translate}}"
-                                disable-search="true"
-                                ng-options="c as c.defaultName for c in citiesList">
-                            <option value="" ng-if="desktop"></option>
-                        </select>
-                    </div>
-                </li>
-                <li><a ng-class="{'active': tab === 'map'}" ng-show="campaign.active;" class="tab-nav-map" ng-click="tab = 'map'" href="" translate>Map of studios</a></li><li>
+                        ng-model="campaign" ng-change="changeCity(campaign)"
+                        data-placeholder="{{'City'|translate}}"
+                        disable-search="true"
+                        ng-options="c as c.defaultName for c in citiesList">
+                        <option value="" ng-if="desktop"></option>
+                    </select>
+                </div>
+            </li>
+            <li><a ng-class="{'active': tab === 'map'}" ng-show="campaign.active;" class="tab-nav-map" ng-click="tab = 'map'" href="" translate>Map of studios</a></li><li>
                 <a ng-class="{'active': tab === 'list'}" ng-show="campaign.active;" class="tab-nav-list" href="" ng-click="tab = 'list'" translate>List of studios</a></li>
             </ul>
         </div>
@@ -182,198 +185,198 @@
                 <li><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
                     <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
                     <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></li>
-                <li class="name">{{card.displayName}}</li>
-                <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">
-                    <span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
-                    <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                        <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                    </b>
-                </li>
-                <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
-                <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</li>
-                <li translate>Anytime</li>
-            </ul>
+                    <li class="name">{{card.displayName}}</li>
+                    <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">
+                        <span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                        <b ng-if="!voucher.freeSubscriptionGranted && voucher">
+                            <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                            <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        </b>
+                    </li>
+                    <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
+                    <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</li>
+                    <li translate>Anytime</li>
+                </ul>
+            </div>
+            <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
+                <tr>
+                    <td><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
+                        <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
+                        <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></td>
+                        <td>{{card.displayName}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>Price per month</td>
+                        <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                            <b ng-if="!voucher.freeSubscriptionGranted && voucher">
+                                <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                                <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                            </b></td>
+                        </tr>
+                        <tr>
+                            <td translate>Courses per month</td>
+                            <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</td>
+                        </tr>
+                        <tr>
+                            <td translate>Courses per provider / month</td>
+                            <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</td>
+                        </tr>
+                        <tr>
+                            <td translate>Cancel / Freeze</td>
+                            <td translate>Anytime</td>
+                        </tr>
+                    </table>
+                    <!-- <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p> -->
+                </div>
+            </div>
+            <div class="b-card b-hiw">
+                <div class="container">
+                    <h2 translate>It’s so simple!</h2>
+                    <ul class="b-card-list">
+                        <li>
+                            <img class="card-image" src="images/hiw_01.svg" alt=""/>
+                            <p translate>1. Order your card</p>
+                            <span translate>It takes less than 90 seconds. You can start right away.</span>
+                        </li>
+                        <li>
+                            <img class="card-image" src="images/hiw_02.svg" alt=""/>
+                            <p translate>2. Book your class</p>
+                            <span translate>Find your class in seconds using our online calendar.</span>
+                        </li>
+                        <li>
+                            <img class="card-image" src="images/hiw_03.svg" alt=""/>
+                            <p translate>3. Get moving</p>
+                            <span translate>Visit classes as often as you want.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="b-card b-media">
+                <div class="container">
+                    <!-- <p class="subtitle">Bekannt aus</p> -->
+                    <ul class="b-card-list">
+                        <li>
+                            <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
+                        </li>
+                        <!-- <li>
+                        <img src="images/vice.png" alt="vice"/>
+                    </li> -->
+                    <li>
+                        <img src="images/ds.png" alt="ds"/>
+                    </li>
+                    <li>
+                        <img src="images/zitty.png" alt="zitty"/>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
-            <tr>
-                <td><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></td>
-                <td>{{card.displayName}}</td>
-            </tr>
-            <tr>
-                <td translate>Price per month</td>
-                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
-                    <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                        <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                    </b></td>
-            </tr>
-            <tr>
-                <td translate>Courses per month</td>
-                <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</td>
-            </tr>
-            <tr>
-                <td translate>Courses per provider / month</td>
-                <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</td>
-            </tr>
-            <tr>
-                <td translate>Cancel / Freeze</td>
-                <td translate>Anytime</td>
-            </tr>
-        </table>
-        <!-- <p class="info">Nicht sicher? Jetzt 14 Tage testen. Wenn Du nicht mehr als 3 Kurse besucht hast, bekommst Du Dein Geld zurück.</p> -->
-    </div>
-</div>
-<div class="b-card b-hiw">
-    <div class="container">
-        <h2 translate>It’s so simple!</h2>
-        <ul class="b-card-list">
-            <li>
-                <img class="card-image" src="images/hiw_01.svg" alt=""/>
-                <p translate>1. Order your card</p>
-                <span translate>It takes less than 90 seconds. You can start right away.</span>
-            </li>
-            <li>
-                <img class="card-image" src="images/hiw_02.svg" alt=""/>
-                <p translate>2. Book your class</p>
-                <span translate>Find your class in seconds using our online calendar.</span>
-            </li>
-            <li>
-                <img class="card-image" src="images/hiw_03.svg" alt=""/>
-                <p translate>3. Get moving</p>
-                <span translate>Visit classes as often as you want.</span>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="b-card b-media">
-    <div class="container">
-        <!-- <p class="subtitle">Bekannt aus</p> -->
-        <ul class="b-card-list">
-            <li>
-                <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
-            </li>
-            <!-- <li>
-                <img src="images/vice.png" alt="vice"/>
-            </li> -->
-            <li>
-                <img src="images/ds.png" alt="ds"/>
-            </li>
-            <li>
-                <img src="images/zitty.png" alt="zitty"/>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="b-card b-testimonial">
-    <div class="container" disable-animate>
-        <ul ng-if="desktop" class="b-card-list">
-            <li>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em translate>Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth.</em>
-                <p translate>– Alexandra Liakou, director</p>
-            </li><li>
-                <img class="circle-image" src="images/konard.jpg" alt=""/>
-                <em translate>A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio.</em>
-                <p translate>– Konrad Knops, osteopath</p>
-            </li><li>
-                <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore
-</em>
-                <p translate>– Sonja Reifenhäuser, food coach</p>
-            </li>
-        </ul>
-        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-            <slide>
-                <img class="circle-image" src="images/alexandra.jpg" alt=""/>
-                <em translate>Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth.</em>
-                <p translate>– Alexandra Liakou, director</p>
-            </slide>
-            <slide>
-                <img class="circle-image" src="images/konard.jpg" alt=""/>
-                <em translate>A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio.</em>
-                <p translate>– Konrad Knops, osteopath</p>
-            </slide>
-            <slide>
-                <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore
-</em>
-                <p translate>– Sonja Reifenhäuser, food coach</p>
-            </slide>
-        </carousel>
-        <div class="fb-like-box"
-             data-href="https://www.facebook.com/somuchmoredeutsch"
-             data-width="{{fblikeboxWidth}}"
-             data-height="180"
-             data-colorscheme="light"
-             data-show-faces="true"
-             data-header="false"
-             data-stream="false"
-             data-show-border="false"></div>
-    </div>
-</div>
-<div class="b-facts">
-    <carousel interval="5000" disable-animate>
-        <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': desktop ? documentWidth / 3.6 : documentWidth / 1.6875 }">
-            <img ng-src="{{slide.image}}"/>
-            <div class="carousel-caption">
-                <h4>{{slide.title}}</h4>
-                <p>{{slide.text}}</p>
+        <div class="b-card b-testimonial">
+            <div class="container" disable-animate>
+                <ul ng-if="desktop" class="b-card-list">
+                    <li>
+                        <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                        <em translate>Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth.</em>
+                        <p translate>– Alexandra Liakou, director</p>
+                    </li><li>
+                        <img class="circle-image" src="images/konard.jpg" alt=""/>
+                        <em translate>A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio.</em>
+                        <p translate>– Konrad Knops, osteopath</p>
+                    </li><li>
+                        <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                        <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore
+                        </em>
+                        <p translate>– Sonja Reifenhäuser, food coach</p>
+                    </li>
+                </ul>
+                <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+                    <slide>
+                        <img class="circle-image" src="images/alexandra.jpg" alt=""/>
+                        <em translate>Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth.</em>
+                        <p translate>– Alexandra Liakou, director</p>
+                    </slide>
+                    <slide>
+                        <img class="circle-image" src="images/konard.jpg" alt=""/>
+                        <em translate>A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio.</em>
+                        <p translate>– Konrad Knops, osteopath</p>
+                    </slide>
+                    <slide>
+                        <img class="circle-image" src="images/sonia.jpg" alt=""/>
+                        <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore
+                        </em>
+                        <p translate>– Sonja Reifenhäuser, food coach</p>
+                    </slide>
+                </carousel>
+                <div class="fb-like-box"
+                data-href="https://www.facebook.com/somuchmoredeutsch"
+                data-width="{{fblikeboxWidth}}"
+                data-height="180"
+                data-colorscheme="light"
+                data-show-faces="true"
+                data-header="false"
+                data-stream="false"
+                data-show-border="false"></div>
             </div>
-            <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
-        </slide>
-    </carousel>
-</div>
-<div class="b-card b-faq">
-    <div class="container" disable-animate>
-        <h2 translate>Still have some more questions?</h2>
-        <ul ng-if="desktop" class="b-card-list">
-            <li>
-                <h3 translate>What can I do with my card?</h3>
-                <p translate>Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios.</p>
-            </li><li>
-                <h3 translate>Is my card valid everywhere?</h3>
-                <p translate>Yes. Your card is valid with all our partners.</p>
-            </li><li>
-                <h3 translate>Do I have to book <br> my classes in advance?</h3>
-                <p translate>Yes. Please always check our online calendar in advance.</p>
-            </li><li>
-                <h3 translate>How do I cancel or freeze <br> my membership?</h3>
-                <p translate>You can cancel on a monthly base. Or freeze your membership for a month or more.</p>
-            </li>
-        </ul>
-        <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
-            <slide>
-                <h3 translate>What can I do with my card?</h3>
-                <p translate>Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios.</p>
-            </slide><slide>
-                <h3 translate>Is my card valid everywhere?</h3>
-                <p translate>Yes. Your card is valid with all our partners.</p>
-            </slide><slide>
-                <h3 translate>Do I have to book my classes in advance?</h3>
-                <p translate>Yes. Please always check our online calendar in advance.</p>
-            </slide><slide>
-                <h3 translate>How do I cancel or freeze my membership?</h3>
-                <p translate>You can cancel on a monthly base. Or freeze your membership for a month or more.</p>
-            </slide>
-        </carousel>
-        <a class="faq-link" ui-sref="faq" translate>Anymore questions? Read our FAQ here ›</a>
-    </div>
-</div>
-<div class="b-card b-contact">
-    <div class="container">
-        <p class="subtitle" translate>Are you a studio, coach or nutritionist? Do you want to work with us?</p>
-        <form name="contactForm" class="b-card-subscribe" ng-submit="contactSubmit()">
-            <input type="email" name="email" ng-change="successContact = false" ng-model="contact.email" placeholder="{{'Email Address'|translate}}" required />
-            <input type="text" name="phone" ng-change="successContact = false" class="phone" ng-model="contact.phone" placeholder="{{'Phone Number'|translate}}"/>
-            <input type="submit" ng-disabled="loadingContact" value="{{'Contact me'|translate}}"/>
-            <div class="form-response">
-                <div ng-show="loadingContact" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                <div ng-show="successContact && contactForm.$pristine" class="form-message form-success" translate>Thank you!</div>
-                <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error" translate>The email address is incorrect</div>
+        </div>
+        <div class="b-facts">
+            <carousel interval="5000" disable-animate>
+                <slide ng-repeat="slide in slides" active="slide.active" ng-style="{ 'height': desktop ? documentWidth / 3.6 : documentWidth / 1.6875 }">
+                    <img ng-src="{{slide.image}}"/>
+                    <div class="carousel-caption">
+                        <h4>{{slide.title}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                    <div class="carousel-number"><p>0{{$index + 1}}</p> <p>0{{slides.length}}</p></div>
+                </slide>
+            </carousel>
+        </div>
+        <div class="b-card b-faq">
+            <div class="container" disable-animate>
+                <h2 translate>Still have some more questions?</h2>
+                <ul ng-if="desktop" class="b-card-list">
+                    <li>
+                        <h3 translate>What can I do with my card?</h3>
+                        <p translate>Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios.</p>
+                    </li><li>
+                        <h3 translate>Is my card valid everywhere?</h3>
+                        <p translate>Yes. Your card is valid with all our partners.</p>
+                    </li><li>
+                        <h3 translate>Do I have to book <br> my classes in advance?</h3>
+                        <p translate>Yes. Please always check our online calendar in advance.</p>
+                    </li><li>
+                        <h3 translate>How do I cancel or freeze <br> my membership?</h3>
+                        <p translate>You can cancel on a monthly base. Or freeze your membership for a month or more.</p>
+                    </li>
+                </ul>
+                <carousel ng-if="mobile" class="b-card-carousel" interval="-1">
+                    <slide>
+                        <h3 translate>What can I do with my card?</h3>
+                        <p translate>Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios.</p>
+                    </slide><slide>
+                        <h3 translate>Is my card valid everywhere?</h3>
+                        <p translate>Yes. Your card is valid with all our partners.</p>
+                    </slide><slide>
+                        <h3 translate>Do I have to book my classes in advance?</h3>
+                        <p translate>Yes. Please always check our online calendar in advance.</p>
+                    </slide><slide>
+                        <h3 translate>How do I cancel or freeze my membership?</h3>
+                        <p translate>You can cancel on a monthly base. Or freeze your membership for a month or more.</p>
+                    </slide>
+                </carousel>
+                <a class="faq-link" ui-sref="faq" translate>Anymore questions? Read our FAQ here ›</a>
             </div>
-        </form>
-    </div>
-</div>
+        </div>
+        <div class="b-card b-contact">
+            <div class="container">
+                <p class="subtitle" translate>Are you a studio, coach or nutritionist? Do you want to work with us?</p>
+                <form name="contactForm" class="b-card-subscribe" ng-submit="contactSubmit()">
+                    <input type="email" name="email" ng-change="successContact = false" ng-model="contact.email" placeholder="{{'Email Address'|translate}}" required />
+                    <input type="text" name="phone" ng-change="successContact = false" class="phone" ng-model="contact.phone" placeholder="{{'Phone Number'|translate}}"/>
+                    <input type="submit" ng-disabled="loadingContact" value="{{'Contact me'|translate}}"/>
+                    <div class="form-response">
+                        <div ng-show="loadingContact" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                        <div ng-show="successContact && contactForm.$pristine" class="form-message form-success" translate>Thank you!</div>
+                        <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error" translate>The email address is incorrect</div>
+                    </div>
+                </form>
+            </div>
+        </div>

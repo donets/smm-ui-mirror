@@ -1,8 +1,18 @@
 <ul class="b-header-nav">
-    <li>
+    <!-- <li>
         <select chosen name="cardMonth" width="'100%'" id="exp_month" class="third" ng-model="data.campaign" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c as c.defaultName for c in citiesList" ng-change="changeCity(data.campaign)">
             <option value="" ng-if="desktop"></option>
         </select>
+    </li> -->
+    <li id="account" class="b-header-nav_city-select" ng-class="{ 'popap': isPopupVisible }" toggle-popup>
+        <a href="" ng-click="togglePopup()" ng-show="lang === 'de'"><img src="/images/city-de.jpg" alt="de"> <span class="city-name">Deutsch</span> <i class="fa fa-angle-down"></i></a>
+        <a href="" ng-click="togglePopup()" ng-show="lang === 'en'"><img src="/images/city-en.jpg" alt=""> <span class="city-name">English</span> <i class="fa fa-angle-down"></i></a>
+        <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
+            <ul class="user-nav" ng-click="togglePopup()">
+                <li ng-show="lang !== 'de'"><a href="" ng-click="changeLanguage('de');"><img src="/images/city-de.jpg" alt="de"> <span>Deutsch</span></a></li>
+                <li ng-show="lang !== 'en'"><a href="" ng-click="changeLanguage('en');"><img src="/images/city-en.jpg" alt=""> <span>English</span></a></li>
+            </ul>
+        </div>
     </li>
     <li ng-if="desktop && supportPhone">
         <span><i class="fa fa-phone"></i>{{supportPhone}}</span>
@@ -51,8 +61,8 @@
 </div>
 </li>
 
-<li id="account" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-mouseover="isPopupVisible = true" ng-mouseleave="isPopupVisible = false" ng-if="userName">
-    <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
+<li id="account" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="userName">
+    <a href="" ng-click="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
     <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
         <ul class="user-nav" ng-click="togglePopup()">
             <li><a ui-sref="dashboard" translate>Classes</a></li>
