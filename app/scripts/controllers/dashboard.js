@@ -40,9 +40,9 @@ angular.module('boltApp.controllers.Dashboard', [])
             return value === '24' ? '00:00' : pad.substring(0, pad.length - value.length) + value + ':00';
         };
         $scope.levels = [
-            {id: '1', text: gettextCatalog.getString('Anfänger')},
+            {id: '1', text: gettextCatalog.getString('Beginners')},
             {id: '2', text: gettextCatalog.getString('Medium')},
-            {id: '3', text: gettextCatalog.getString('Fortgeschrittene')}
+            {id: '3', text: gettextCatalog.getString('Advanced')}
         ];
         $scope.clearFilters = function () {
             $scope.search = {

@@ -5,11 +5,12 @@
     <div class="container">
         <div class="w-left b-sidebar-filters">
             <button class="control-button" ui-sref="admin.classes.new" type="button" translate><i class="fa fa-plus"></i>New Class</button>
+            <button class="control-button" ui-sref="admin.classes.import" type="button" translate><i class="fa fa-plus"></i>Bulk Import</button>
             <div class="input-search"><input type="text" ng-model="search.title" placeholder="{{'Filter name'|translate}}"/></div>
             <select chosen
                     id="studio"
                     ng-model="search.studioId"
-                    data-placeholder="{{'Alle Studios'|translate}}"
+                    data-placeholder="{{'All Studios'|translate}}"
                     disable-search="false"
                     ng-options="item.id as item.name for item in studios | orderBy: 'name'">
                 <option value=""></option>
@@ -17,7 +18,7 @@
             <select chosen
                     id="level"
                     ng-model="search.levels"
-                    data-placeholder="{{'Alle Levels'|translate}}"
+                    data-placeholder="{{'All Levels'|translate}}"
                     disable-search="true"
                     ng-options="item.id as item.text for item in levels">
                 <option value=""></option>
@@ -28,17 +29,17 @@
                 <i class="fa"></i>
                 <label for="draft" translate>Draft</label>
             </div>
-            <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
+            <a class="clear-button" href="" ng-click="clearFilters()" translate>Reset filters</a>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable classes" ng-show="desktop">
                 <thead>
                     <tr>
                         <th translate>Status</th>
-                        <th translate>Name der Stunde</th>
-                        <th translate>Disziplin</th>
+                        <th translate>Name of class</th>
+                        <th translate>Discipline</th>
                         <th translate>Studio</th>
-                        <th translate>Lehrer</th>
+                        <th translate>Teacher</th>
                         <th></th>
                     </tr>
                 </thead>

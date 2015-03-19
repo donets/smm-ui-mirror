@@ -9,13 +9,13 @@ msgid "Account"
 msgstr ""
 
 #: app/views/userProfile.html:4
-msgid "Hallo, {{userName}}!"
-msgstr ""
-
-#: app/views/userProfile.html:5
-msgid "Hier kannst Du den Karten-Typ oder Account ändern und Deine Rechnungen einsehen."
+msgid "Hello {{userName}}!"
 msgstr ""
 
 #: app/views/userProfile.html:11
-msgid "Meine Karte"
+msgid "My card"
+msgstr ""
+
+#: app/views/userProfile.html:5
+msgid "You can change your account and view your billing details here."
 msgstr ""

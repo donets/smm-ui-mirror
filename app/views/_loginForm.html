@@ -12,34 +12,34 @@
             </div>-->
             <form name="loginForm" ng-hide="forgotView" ng-submit="login()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="{{'E-Mail-Adresse'|translate}}" required />
+                    <input name="email" ng-model="emailLogin" type="email" class="form-input" placeholder="{{'Email Address'|translate}}" required />
                 </div>
                 <div class="form-rel">
-                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="{{'Passwort'|translate}}" required />
+                    <input name="password" ng-model="passwordLogin" type="password" class="form-input" placeholder="{{'Password'|translate}}" required />
                 </div>
                 <div class="form-rel">
                     <button type="submit" class="form_button" ng-disabled="loadingLogin" translate>Login</button>
                     <div class="form-response">
                         <div ng-show="loadingLogin" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="errorLogin" class="form-message form-error" translate>Falsche E-Mail oder Passwort</div>
+                        <div ng-show="errorLogin" class="form-message form-error" translate>Incorrect email address or password</div>
                     </div>
                 </div>
             </form>
             <form name="forgotForm" ng-show="forgotView" ng-submit="forgot()">
                 <div class="form-rel">
-                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="{{'E-Mail-Adresse'|translate}}" required />
+                    <input name="email" ng-model="emailForgot" type="email" class="form-input" placeholder="{{'Email Address'|translate}}" required />
                 </div>
                 <div class="form-rel">
-                    <button type="submit" class="form_button" ng-disabled="loadingForgot" translate>Reset Password</button>
+                    <button type="submit" class="form_button" ng-disabled="loadingForgot" translate>Reset password</button>
                     <div class="form-response">
                         <div ng-show="loadingForgot" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="successSubscribe" class="form-message form-success" translate>E-Mail zum Zurücksetzen gesendet</div>
-                        <div ng-show="errorForgot" class="form-message form-error" translate>Die Email Adresse wurde nicht gefunden</div>
+                        <div ng-show="successSubscribe" class="form-message form-success" translate>You have been sent a reset email</div>
+                        <div ng-show="errorForgot" class="form-message form-error" translate>Your email address was not found</div>
                     </div>
                 </div>
             </form>
             <div class="form-rel">
-                <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="" translate>Dein Passwort vergessen?</a>
+                <a class="forgot-password" ng-show="!forgotView" ng-click="toggleForgot()" href="" translate>Forgot password?</a>
                 <a class="forgot-password" ng-show="forgotView" ng-click="toggleForgot()" href="" translate>Back to login</a>
             </div>
         </div>
@@ -47,14 +47,15 @@
         <a href="" ng-mouseover="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <ul class="user-nav" ng-click="togglePopup()">
-                <li><a ui-sref="dashboard" translate>Kurse</a></li>
+                <li><a ui-sref="dashboard" translate>Classes</a></li>
                 <li ng-if="roleMember"><a ui-sref="profile.account" translate>Account</a></li>
-                <li ng-if="roleMember"><a ui-sref="profile.membership" translate>Meine Karte</a></li>
+                <li ng-if="roleMember"><a ui-sref="profile.membership" translate>My card</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.classes.list" translate>Classes</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'locations'})" translate>Locations</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'studios'})" translate>Studios</a></li>
                 <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'vouchers'})" translate>Vouchers</a></li>
-                <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page" translate>Abmelden</a></li>
+                <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'memberships'})" translate>Memberships</a></li>
+                <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page" translate>Sign out</a></li>
             </ul>
         </div>
     </li>

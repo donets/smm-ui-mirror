@@ -8,25 +8,17 @@ msgstr ""
 msgid "Back to login"
 msgstr ""
 
-#: app/views/login.html:33
-msgid "Dein Passwort vergessen?"
-msgstr ""
-
-#: app/views/login.html:28
-msgid "Die Email Adresse wurde nicht gefunden"
-msgstr ""
-
-#: app/views/login.html:27
-msgid "E-Mail zum Zurücksetzen gesendet"
-msgstr ""
-
 #: app/views/login.html:21
 #: app/views/login.html:6
-msgid "E-Mail-Adresse"
+msgid "Email Address"
+msgstr ""
+
+#: app/views/login.html:33
+msgid "Forgot password?"
 msgstr ""
 
 #: app/views/login.html:15
-msgid "Falsche E-Mail oder Passwort"
+msgid "Incorrect email address or password"
 msgstr ""
 
 #: app/views/login.html:12
@@ -34,9 +26,17 @@ msgid "Login"
 msgstr ""
 
 #: app/views/login.html:9
-msgid "Passwort"
+msgid "Password"
 msgstr ""
 
 #: app/views/login.html:24
-msgid "Reset Password"
+msgid "Reset password"
+msgstr ""
+
+#: app/views/login.html:27
+msgid "You have been sent a reset email"
+msgstr ""
+
+#: app/views/login.html:28
+msgid "Your email address was not found"
 msgstr ""

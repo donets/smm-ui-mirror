@@ -101,6 +101,9 @@
             text-align: justify;
             margin: 0 50px;
         }
+        &.parsed-data {
+            overflow-x: scroll;
+        }
     }
     .timetable {
         width: 100%;
@@ -109,6 +112,36 @@
             font-size: 12px;
             height: 50px;
             padding: 0 12px;
+        }
+        &.membership-table {
+            th, td {
+                max-width: 200px;
+            }
+            td {
+                &:nth-child(1), &:nth-child(2) {
+                   font-size: 12px;
+                }
+                &:nth-child(2) {
+                    div {
+                        width: 175px;
+                        word-break: break-all;
+                    }
+                }
+                &:nth-child(3) {
+                    div {
+                        width: 150px;
+                        word-break: break-all;
+                    }
+                }
+            }
+        }
+        &.import-table {
+            td {
+                font-size: 12px;
+                &:nth-child(1), &:nth-child(2) {
+                   font-size: 12px;
+                }
+            }
         }
         td {
             line-height: 1.2;
@@ -128,6 +161,11 @@
             }
             .link-description {
                 font-size: 15px;
+            }
+            .entity {
+                span {
+                    display: block;
+                }
             }
         }
         tr {
@@ -297,6 +335,9 @@
     margin: 20px 0 60px;
     .form-label {
         display: block;
+        &.sub-header {
+            font-size: 18px;
+        }
     }
     .form-group {
         position: relative;
@@ -322,6 +363,10 @@
             .fa {
                 margin-right: 8px;
             }
+        }
+        .photo-img {
+            max-width: 320px;
+            margin-bottom: 20px;
         }
     }
     select {

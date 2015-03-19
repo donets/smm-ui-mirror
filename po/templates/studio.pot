@@ -5,25 +5,25 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/studio.html:16
-msgid "&lt; Weniger"
+msgid "&lt; Less"
 msgstr ""
 
 #: app/views/studio.html:34
 #: app/views/studio.html:39
 #: app/views/studio.html:44
-msgid "(siehe Kursplan)"
+msgid "(see course plan)"
 msgstr ""
 
 #: app/views/studio.html:33
 #: app/views/studio.html:38
 #: app/views/studio.html:43
-msgid "<i class=\"fa fa-check\"></i>Alle Kurse"
+msgid "<i class=\"fa fa-check\"></i>All courses"
 msgstr ""
 
 #: app/views/studio.html:34
 #: app/views/studio.html:39
 #: app/views/studio.html:44
-msgid "<i class=\"fa fa-check\"></i>Einige Kurse <span class=\"light\" translate=\"\">(siehe Kursplan)</span>"
+msgid "<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate=\"\">(see course plan)</span>"
 msgstr ""
 
 #: app/views/studio.html:217
@@ -33,55 +33,39 @@ msgstr ""
 #: app/views/studio.html:35
 #: app/views/studio.html:40
 #: app/views/studio.html:45
-msgid "<i class=\"fa fa-times\"></i>Nicht akzeptiert"
-msgstr ""
-
-#: app/views/studio.html:20
-msgid "Adresse:"
+msgid "<i class=\"fa fa-times\"></i>Not accepted"
 msgstr ""
 
 #: app/views/studio.html:30
-msgid "Akzeptierte Karten:"
+msgid "Accepted cards:"
 msgstr ""
 
-#: app/views/studio.html:66
-msgid "Angebot"
-msgstr ""
-
-#: app/views/studio.html:22
-msgid "Auf Karte anzeigen"
-msgstr ""
-
-#: app/views/studio.html:19
-msgid "Ausstattung:"
-msgstr ""
-
-#: app/views/studio.html:75
-msgid "Disziplin"
-msgstr ""
-
-#: app/views/studio.html:18
-msgid "Disziplinen:"
-msgstr ""
-
-#: app/views/studio.html:91
-msgid "Heute kein Angebot mehr."
-msgstr ""
-
-#: app/views/studio.html:50
-msgid "Informationen:"
+#: app/views/studio.html:20
+msgid "Address:"
 msgstr ""
 
 #: app/views/studio.html:54
-msgid "Kontaktieren:"
+msgid "Contact:"
 msgstr ""
 
 #: app/views/studio.html:74
-msgid "Kurs"
+msgid "Course"
 msgstr ""
 
-#: app/views/studio.html:76
-msgid "Lehrer"
+#: app/views/studio.html:75
+msgid "Discipline"
+msgstr ""
+
+#: app/views/studio.html:18
+msgid "Disciplines:"
+msgstr ""
+
+#: app/views/studio.html:19
+msgid "Equipment:"
+msgstr ""
+
+#: app/views/studio.html:50
+msgid "Information:"
 msgstr ""
 
 #: app/views/studio.html:77
@@ -93,9 +77,25 @@ msgid "Location"
 msgstr ""
 
 #: app/views/studio.html:16
-msgid "Mehr &gt;"
+msgid "More &gt;"
+msgstr ""
+
+#: app/views/studio.html:91
+msgid "No more offers today."
+msgstr ""
+
+#: app/views/studio.html:66
+msgid "Offer"
+msgstr ""
+
+#: app/views/studio.html:22
+msgid "Show on map"
+msgstr ""
+
+#: app/views/studio.html:76
+msgid "Teacher"
 msgstr ""
 
 #: app/views/studio.html:73
-msgid "Zeit"
+msgid "Time"
 msgstr ""

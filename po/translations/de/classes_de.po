@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: app/views/classes.html:53
+msgid "<i class=\"fa fa-pencil\"></i>Manage"
+msgstr "<i class=\"fa fa-pencil\"></i>Manage"
+
+#: app/views/classes.html:8
+msgid "<i class=\"fa fa-plus\"></i>Bulk Import"
+msgstr "<i class=\"fa fa-plus\"></i>Bulk Import"
+
+#: app/views/classes.html:7
+msgid "<i class=\"fa fa-plus\"></i>New Class"
+msgstr "<i class=\"fa fa-plus\"></i>New Class"
+
+#: app/views/classes.html:21
+msgid "All Levels"
+msgstr "Alle Levels"
+
+#: app/views/classes.html:13
+msgid "All Studios"
+msgstr "Alle Studios"
+
+#: app/views/classes.html:2
+msgid "Classes"
+msgstr "Classes"
+
+#: app/views/classes.html:40
+msgid "Discipline"
+msgstr "Disziplin"
+
+#: app/views/classes.html:30
+msgid "Draft"
+msgstr "Draft"
+
+#: app/views/classes.html:9
+msgid "Filter name"
+msgstr "Filter name"
+
+#: app/views/classes.html:39
+msgid "Name of class"
+msgstr "Name der Stunde"
+
+#: app/views/classes.html:32
+msgid "Reset filters"
+msgstr "Filter zurücksetzen"
+
+#: app/views/classes.html:38
+msgid "Status"
+msgstr "Status"
+
+#: app/views/classes.html:41
+msgid "Studio"
+msgstr "Studio"
+
+#: app/views/classes.html:42
+msgid "Teacher"
+msgstr "Lehrer"

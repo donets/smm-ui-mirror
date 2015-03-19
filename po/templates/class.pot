@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/class.html:12
-msgid "<i class=\"fa fa-save\"></i>Save & go live"
+msgid "<i class=\"fa fa-save\"></i>Save &amp; go live"
 msgstr ""
 
 #: app/views/class.html:11
@@ -17,19 +17,15 @@ msgid "<i class=\"fa fa-trash\"></i>Delete"
 msgstr ""
 
 #: app/views/class.html:77
-msgid "Add Dates"
+msgid "Add dates"
 msgstr ""
 
 #: app/views/class.html:170
-msgid "Alle Levels"
+msgid "All Levels"
 msgstr ""
 
-#: app/views/class.html:218
-msgid "Anmeldung erforderlich"
-msgstr ""
-
-#: app/views/class.html:200
-msgid "Beschreibung"
+#: app/views/class.html:225
+msgid "Black Card only"
 msgstr ""
 
 #: app/views/class.html:160
@@ -41,11 +37,15 @@ msgid "Classes"
 msgstr ""
 
 #: app/views/class.html:78
-msgid "Delete Dates"
+msgid "Delete dates"
+msgstr ""
+
+#: app/views/class.html:200
+msgid "Description"
 msgstr ""
 
 #: app/views/class.html:192
-msgid "Disziplin"
+msgid "Discipline"
 msgstr ""
 
 #: app/views/class.html:83
@@ -61,43 +61,43 @@ msgid "Event repeats"
 msgstr ""
 
 #: app/views/class.html:211
-msgid "Feste Besuchslänge (in Minuten, leer = unbegrenzt)"
+msgid "Fixed visit length (in minutes, empty = unlimited)"
 msgstr ""
 
 #: app/views/class.html:207
-msgid "Freier Besuch?"
+msgid "Free visit?"
 msgstr ""
 
 #: app/views/class.html:110
 msgid "From"
 msgstr ""
 
-#: app/views/class.html:188
-msgid "Lehrer"
-msgstr ""
-
 #: app/views/class.html:166
 msgid "Level"
 msgstr ""
 
+#: app/views/class.html:37
+msgid "Location"
+msgstr ""
+
 #: app/views/class.html:179
-msgid "Max. Teilnehmer"
+msgid "Max. no. of participants"
 msgstr ""
 
 #: app/views/class.html:22
-msgid "Name der Stunde"
+msgid "Name of class"
 msgstr ""
 
 #: app/views/class.html:157
-msgid "No dates created by schedule"
-msgstr ""
-
-#: app/views/class.html:225
-msgid "Nur Black Card"
+msgid "No. of dates created by schedule"
 msgstr ""
 
 #: app/views/class.html:183
-msgid "Preis vom Drop-in"
+msgid "Price of a drop-in class"
+msgstr ""
+
+#: app/views/class.html:218
+msgid "Registration required"
 msgstr ""
 
 #: app/views/class.html:98
@@ -109,46 +109,46 @@ msgid "Save"
 msgstr ""
 
 #: app/views/class.html:82
-msgid "Schedule dates"
+msgid "Schedule Dates"
+msgstr ""
+
+#: app/views/class.html:141
+#: app/views/class.html:148
+msgid "Select Date"
 msgstr ""
 
 #: app/views/class.html:41
 msgid "Select Location"
 msgstr ""
 
+#: app/views/class.html:103
+#: app/views/class.html:91
+msgid "Select Repeats"
+msgstr ""
+
 #: app/views/class.html:30
 msgid "Select Studio"
 msgstr ""
 
-#: app/views/class.html:141
-#: app/views/class.html:148
-msgid "Select date"
-msgstr ""
-
-#: app/views/class.html:103
-#: app/views/class.html:91
-msgid "Select repeats"
-msgstr ""
-
 #: app/views/class.html:115
 #: app/views/class.html:127
-msgid "Select time"
-msgstr ""
-
-#: app/views/class.html:37
-msgid "Standort"
-msgstr ""
-
-#: app/views/class.html:196
-msgid "Stil"
+msgid "Select Time"
 msgstr ""
 
 #: app/views/class.html:26
 msgid "Studio"
 msgstr ""
 
+#: app/views/class.html:196
+msgid "Style"
+msgstr ""
+
+#: app/views/class.html:188
+msgid "Teacher"
+msgstr ""
+
 #: app/views/class.html:122
-msgid "to"
+msgid "To"
 msgstr ""
 
 #: app/views/class.html:6

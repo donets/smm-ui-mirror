@@ -314,7 +314,9 @@ angular.module('boltApp')
         // Here we are just setting up some convenience urls.
         .when('/signup/', '/p/signup/1/')
         .when('/signup', '/p/signup/1/')
+        .when('/p/signup', '/p/signup/1/')
         .when('/p/signup/?invitation', '/p/signup/1/?invitation')
+        .when('/p/signup/', '/p/signup/1/')
         .when('/p/kurse/', '/p/kurse/1/');
 
         $urlRouterProvider.otherwise('/');
@@ -625,6 +627,54 @@ angular.module('boltApp')
                 templateUrl: 'views/class.html',
                 controller : 'CreateClassCtrl'
             })
+            .state('admin.classes.import', {
+                url : 'import/',
+                templateUrl: 'views/entityImport.html',
+                controller :
+
+                    function ($scope, $rootScope, RestApi) {
+
+                        $scope.import = function () {
+                            $scope.showSpinner = true;
+                            $scope.entities = $scope.csv.result;
+                            RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
+                                console.log(res);
+                                $scope.showSpinner = false;
+                                $rootScope.$state.go('admin.classes.list');
+                            });
+                        };
+
+                        $scope.csv = {
+                            content: null,
+                            header: true,
+                            test: null,
+                            separator: ',',
+                            result: null
+                        };
+                        $scope.importEntity = {
+                            ClassId: 'integer',
+                            Studio: 'string',
+                            acceptedPlans: 'strings',
+                            languages: 'strings',
+                            visitorGenders: 'strings',
+                            freeSchedule: 'boolean',
+                            dropinPrice: 'string',
+                            title: 'string',
+                            discipline: 'string',
+                            style: 'string',
+                            level: 'string',
+                            teacherName: 'string',
+                            description: 'string',
+                            day: 'string',
+                            startTime: 'string',
+                            endTime: 'string',
+                            earliestStart: 'string',
+                            endDate: 'string',
+                            studioId: 'integer',
+                            locationId: 'integer'
+                        };
+                    }
+            })
             .state('admin.classes.class', {
                 url : ':classId/',
                 templateUrl: 'views/class.html',
@@ -770,10 +820,18 @@ angular.module('boltApp')
                             showWeeks: false
                         };
 
-                      $rootScope.clearFilters = function () {
-                        $rootScope.search = {};
-                      };
-                      $rootScope.clearFilters();
+                        $rootScope.clearFilters = function () {
+                            $rootScope.search = {};
+                        };
+                        $rootScope.clearFilters();
+
+                        if ($rootScope.$stateParams.route === 'memberships') {
+                            $rootScope.clearPhotoFilter = function(){
+                                if($rootScope.search.photo === "false"){
+                                    delete $rootScope.search.photo;
+                                }
+                            }
+                        }
 
                     }
             })
@@ -795,6 +853,10 @@ angular.module('boltApp')
                         getEntityList.$promise.then(function (res) {
                             $scope.entities = res;
                         });
+
+                        $scope.specialFieldType = function (fieldType) {
+                            return _.indexOf(['checkbox', 'photo', 'entity'], fieldType) > -1;
+                        };
 
                     }
             })
