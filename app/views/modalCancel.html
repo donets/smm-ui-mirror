@@ -1,15 +1,16 @@
 
-<div class="modal-body">
+<div class="modal-body modal-cancel">
     <button ng-click="close()" class="modal-close" type="button">
         <span class="sr-only" translate>Close</span>
     </button>
     <div ng-show="step_1">
-        <h2 translate>Sure you want to cancel?</h2>
-        <p translate>You can suspend your membership, and</p>
+        <h2 translate>You sure you want to Cancel?</h2>
+        <p translate>You can choose to suspend your account.</p>
+        <p translate>Suspending your account gives you flexibility to take a break. Its simple!</p>
         <ul class="list">
-            <li translate>keep your account active</li>
-            <li translate>book 3 classes a month</li>
-            <li translate>only for 15 / month</li>
+            <li translate>Choose any duration between 1 month & 3 months</li>
+            <li translate>Your remaining days in the membership cycle stay on hold and don't expire</li>
+            <li translate>Use your remaining days once you are back!</li>
         </ul>
         <div ng-hide="loading">
             <button class="form-button" type="button" ng-click="suspendSubmit()" translate>Ok, Suspend my account</button>
@@ -39,5 +40,6 @@
     <div ng-show="success">
         <h2 translate>Subscription cancelled</h2>
         <p translate>You can continue to use your account till {{cancellationDate | date: 'dd.MM.yyyy'}}</p>
+        <button class="form-button narrow" type="button" ng-click="close()" translate>Ok</button>
     </div>
 </div>

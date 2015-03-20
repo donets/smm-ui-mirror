@@ -36,6 +36,9 @@
             padding: 0 10px;
         }
     }
+    &.narrow {
+        width: 100px;
+    }
     @media (max-width: $containerMobileWidth) {
         height: 80px;
         font-size: 32px;

@@ -100,9 +100,9 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.activateMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalActivate.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$state',
 
-                    function ($scope, $modalInstance, $http, $window, member) {
+                    function ($scope, $modalInstance, $http, $window, member, $state) {
 
                         $scope.member = member;
 
@@ -137,6 +137,7 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
+                            $state.go($state.$current, null, { reload: true })
                         };
 
                     }],
@@ -153,9 +154,9 @@ angular.module('boltApp.controllers.Profile', [])
         var suspend = $scope.suspendMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalSuspend.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', 'gettextCatalog', '$state',
 
-                    function ($scope, $modalInstance, $http, $window, member) {
+                    function ($scope, $modalInstance, $http, $window, member, gettextCatalog, $state) {
 
                         $scope.showDatepicker = {};
 
@@ -164,14 +165,12 @@ angular.module('boltApp.controllers.Profile', [])
                             $event.stopPropagation();
                             $scope.showDatepicker[type] = true;
                         };
-                        $scope.minStartDate = moment().add(1, 'd');
+                        $scope.minStartDate = member.earliestPausePossible ? moment(member.earliestPausePossible).format() : moment().format();
                         $scope.activateDateList = [];
-                        $scope.updateStartDate = function () {
-                            _.clearArray($scope.activateDateList);
-                            for( var i = 1; i <= 3; i++ ){
-                                $scope.activateDateList.push({id: i, date: moment($scope.startDate).add(i, 'M').format('YYYY-MM-DD')});
-                            }
-                        };
+                        for( var i = 1; i <= 3; i++ ){
+                            $scope.activateDateList.push({id: i, date: gettextCatalog.getPlural(i, "In {{count}} month", "In {{count}} months", {count: i})});
+                        }
+                        $scope.durationMonths = 1;
                         $scope.dateOptions = {
                             startingDay: 1,
                             showWeekNumbers: false,
@@ -196,6 +195,7 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
+                            $state.go($state.$current, null, { reload: true })
                         };
 
                     }],
@@ -212,15 +212,15 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$state',
 
-                    function ($scope, $modalInstance, $http, $window, member) {
+                    function ($scope, $modalInstance, $http, $window, member, $state) {
 
                         $scope.step_1 = true;
 
                         $scope.cancelSubmit = function() {
                             $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + (member.orderRefundPossible ? '/cancelWithRefund' : '/cancel')).success(function (res) {
+                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/cancel').success(function (res) {
                                 console.log(res);
                                 $scope.loading = false;
                                 $scope.step_1 = false;
@@ -251,6 +251,7 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
+                            $state.go($state.$current, null, { reload: true })
                         };
 
                     }],
