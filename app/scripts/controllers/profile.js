@@ -265,6 +265,24 @@ angular.module('boltApp.controllers.Profile', [])
             });
         };
 
+        $scope.paymentUpdateSuccess = function () {
+            $modal.open({
+                templateUrl: 'views/modalSuccess.html',
+                controller: ['$scope', '$modalInstance', '$state',
+
+                    function ($scope, $modalInstance, $state) {
+
+                        $scope.close = function () {
+                            $modalInstance.close(false);
+                            $state.go($state.$current, null, { reload: true })
+                        };
+
+                    }],
+                backdrop: 'static',
+                windowClass: 'modal-cancel'
+            });
+        };
+
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
@@ -297,6 +315,7 @@ angular.module('boltApp.controllers.Profile', [])
                 console.log(res);
                 $scope.showSpinner = false;
                 $scope.success = true;
+                $scope.paymentUpdateSuccess();
             }).error(function (res) {
                 console.log(res);
                 $scope.showSpinner = false;
