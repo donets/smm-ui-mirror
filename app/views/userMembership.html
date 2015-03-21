@@ -52,16 +52,16 @@
                         <p ng-if="membership.orderRefundPossible">Trial</p>
                         <p ng-if="membership.cancelled">Cancelled</p>
                         <p ng-hide="membership.orderRefundPossible || membership.cancelled">{{membership.current.status}}</p>
-                        <a class="form-link" href="" ng-if="!membership.active && membership.membershipActivatesOn === null && membership.earliestActivationPossible !== null" ng-click="activateMembership()">Activate subscription</a>
+                        <a class="form-link" href="" ng-if="!membership.active && membership.earliestActivationPossible !== null" ng-click="activateMembership()">Activate subscription</a>
                         <a class="form-link" href="" ng-if="membership.active && membership.earliestPausePossible !== null" ng-click="suspendMembership()">Suspend subscription</a>
                         <a class="form-link" href="" ng-if="membership.active" ng-click="cancelMembership()">Cancel subscription</a>
                         </div>
                     </li>
-                    <li ng-if="membership.membershipActivatesOn !== null && isFuture(membership.membershipActivatesOn)">
+                    <li ng-if="isFuture(membership.membershipActivatesOn)">
                         <b translate>Membership activates:</b>
                         <div>
                         <p>{{membership.membershipActivatesOn | date: 'dd.MM.yyyy'}}</p>
-                            <a class="form-link" href="" ng-if="!membership.active && membership.membershipActivatesOn !== null" ng-click="changeActivationDate()">Change Activation Date</a>
+                            <a class="form-link" href="" ng-if="!membership.active" ng-click="changeActivationDate()">Change Activation Date</a>
                         </div>
                     </li>
                     <li>
@@ -70,7 +70,7 @@
                     </li>
                     <li ng-if="!voucher || (!voucher.freeSubscriptionGranted && voucher.discountDuarationInMonths)">
                         <b translate>Current monthly price:</b>
-                        <p translate><span ng-if="currentCard.currencyCode === 'GBP'">&pound;</span>{{currentCard.monthlyPrice}}<span ng-if="currentCard.currencyCode === 'EUR'">&euro;</span> / Month</p>
+                        <p><span ng-if="currentCard.currencyCode === 'GBP'">&pound;</span>{{currentCard.monthlyPrice}}<span ng-if="currentCard.currencyCode === 'EUR'">&euro;</span> <span translate>/ Month</span></p>
                     </li>
                     <li ng-if="voucher.freeSubscriptionGranted">
                         <b translate>Special price:</b>
@@ -110,7 +110,7 @@
             </div>
             <form name="formCheckout" id="step3" ng-show="changePayment" class="form-signup form-checkout" ng-submit="changePaymentSubmit()">
                 <div ng-if="!voucher.freeSubscriptionGranted && order.paymentProvider === 'STRIPE'">
-                    <h3 class="form-title cf" translate>Payment information
+                    <h3 class="form-title cf"><span translate>Payment information</span>
                         <a class="stripe-link" target="_blank" href="https://stripe.com"><img src="images/stripe.svg" alt="stripe"/></a>
                     </h3>
                     <div ng-class="{'error': error === 'CardException'}" class="form-group">

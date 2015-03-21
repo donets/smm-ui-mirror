@@ -24,11 +24,11 @@
         <h2 translate>One more step</h2>
         <p translate>Reason for cancellation?</p>
         <ul class="list reasons">
-            <li><label translate><input type="radio" ng-model="cancelReason" value="Can't find my prefered studio" name="cancel-reason"/>Can't find my prefered studio</label></li>
-            <li><label translate><input type="radio" ng-model="cancelReason" value="Not many options in my neighbourhood" name="cancel-reason"/>Not many options in my neighbourhood</label></li>
-            <li><label translate><input type="radio" ng-model="cancelReason" value="Subsciption is expensive" name="cancel-reason"/>Subsciption is expensive</label></li>
-            <li><label translate><input type="radio" ng-model="cancelReason" value="No time for fitness" name="cancel-reason"/>No time for fitness</label></li>
-            <li><label translate><input type="radio" ng-model="cancelReason" value="Others" name="cancel-reason"/>Others</label></li>
+            <li><label><input type="radio" ng-model="cancelReason" value="Can't find my preferred studio" name="cancel-reason"/><span translate>Can't find my preferred studio</span></label></li>
+            <li><label><input type="radio" ng-model="cancelReason" value="Not many options in my neighbourhood" name="cancel-reason"/><span translate>Not many options in my neighbourhood</span></label></li>
+            <li><label><input type="radio" ng-model="cancelReason" value="Subscription is expensive" name="cancel-reason"/><span translate>Subscription is expensive</span></label></li>
+            <li><label><input type="radio" ng-model="cancelReason" value="No time for fitness" name="cancel-reason"/><span translate>No time for fitness</span></label></li>
+            <li><label><input type="radio" ng-model="cancelReason" value="Others" name="cancel-reason"/><span translate>Others</span></label></li>
         </ul>
         <div ng-hide="loading">
             <button class="form-button" type="button" ng-click="sendMessage(cancelReason)" translate>Next</button>

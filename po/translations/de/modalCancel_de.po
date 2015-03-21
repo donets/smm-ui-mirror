@@ -13,34 +13,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: app/views/modalCancel.html:27
-msgid ""
-"<input type=\"radio\" ng-model=\"cancelReason\" value=\"Can't find my "
-"prefered studio\" name=\"cancel-reason\">Can't find my prefered studio"
-msgstr ""
-
-#: app/views/modalCancel.html:30
-msgid ""
-"<input type=\"radio\" ng-model=\"cancelReason\" value=\"No time for fitness"
-"\" name=\"cancel-reason\">No time for fitness"
-msgstr ""
-
-#: app/views/modalCancel.html:28
-msgid ""
-"<input type=\"radio\" ng-model=\"cancelReason\" value=\"Not many options in "
-"my neighbourhood\" name=\"cancel-reason\">Not many options in my "
-"neighbourhood"
-msgstr ""
-
-#: app/views/modalCancel.html:31
-msgid ""
-"<input type=\"radio\" ng-model=\"cancelReason\" value=\"Others\" name="
-"\"cancel-reason\">Others"
-msgstr ""
-
-#: app/views/modalCancel.html:29
-msgid ""
-"<input type=\"radio\" ng-model=\"cancelReason\" value=\"Subsciption is "
-"expensive\" name=\"cancel-reason\">Subsciption is expensive"
+msgid "Can't find my preferred studio"
 msgstr ""
 
 #: app/views/modalCancel.html:11
@@ -59,6 +32,14 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: app/views/modalCancel.html:30
+msgid "No time for fitness"
+msgstr ""
+
+#: app/views/modalCancel.html:28
+msgid "Not many options in my neighbourhood"
+msgstr ""
+
 #: app/views/modalCancel.html:43
 msgid "Ok"
 msgstr ""
@@ -71,12 +52,20 @@ msgstr ""
 msgid "One more step"
 msgstr ""
 
+#: app/views/modalCancel.html:31
+msgid "Others"
+msgstr ""
+
 #: app/views/modalCancel.html:25
 msgid "Reason for cancellation?"
 msgstr ""
 
 #: app/views/modalCancel.html:41
 msgid "Subscription cancelled"
+msgstr ""
+
+#: app/views/modalCancel.html:29
+msgid "Subscription is expensive"
 msgstr ""
 
 #: app/views/modalCancel.html:9

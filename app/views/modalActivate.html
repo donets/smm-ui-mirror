@@ -6,7 +6,7 @@
     <div ng-show="step_0">
         <form name="formCheckout" id="step3" class="form-signup form-checkout" ng-submit="paymentSubmit()">
             <div ng-if="!voucher.freeSubscriptionGranted && order.paymentProvider === 'STRIPE'">
-                <h3 class="form-title cf" translate>Payment information
+                <h3 class="form-title cf"><span translate>Payment information</span>
                     <a class="stripe-link" target="_blank" href="https://stripe.com"><img src="images/stripe.svg" alt="stripe"/></a>
                 </h3>
                 <div ng-class="{'error': error === 'CardException'}" class="form-group">

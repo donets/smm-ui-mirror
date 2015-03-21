@@ -4,16 +4,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: app/views/userMembership.html:73
+msgid "/ Month"
+msgstr ""
+
 #: app/views/userMembership.html:81
 msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr ""
 
 #: app/views/userMembership.html:77
 msgid "0€ / Month"
-msgstr ""
-
-#: app/views/userMembership.html:73
-msgid "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === 'EUR'\">&euro;</span> / Month"
 msgstr ""
 
 #: app/views/userMembership.html:168
@@ -102,9 +102,7 @@ msgid "Payment by credit card?"
 msgstr ""
 
 #: app/views/userMembership.html:113
-msgid ""
-"Payment information\n"
-"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
+msgid "Payment information"
 msgstr ""
 
 #: app/views/userMembership.html:102
