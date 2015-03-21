@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                 ]
             },
             poChanged: {
-                files: ['po/translations/*.po'],
+                files: ['po/translations/{,*/}*.po'],
                 tasks: ['nggettext_compile']
             }
         },
@@ -452,6 +452,7 @@ module.exports = function (grunt) {
                     'po/templates/modalContact.pot': ['app/views/modalContact.html'],
                     'po/templates/modalMessage.pot': ['app/views/modalMessage.html'],
                     'po/templates/modalSubscribe.pot': ['app/views/modalSubscribe.html'],
+                    'po/templates/modalSuccess.pot': ['app/views/modalSuccess.html'],
                     'po/templates/modalSuggest.pot': ['app/views/modalSuggest.html'],
                     'po/templates/modalUpload.pot': ['app/views/modalUpload.html'],
                     'po/templates/more.pot': ['app/views/more.html'],

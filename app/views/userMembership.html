@@ -3,11 +3,21 @@
         <div class="w-left">
             <div class="widget-overview photo">
                 <h3 class="form-title" translate>My photo</h3>
-                <img ng-if="membership.photo" ng-src="{{membership.photo}}" alt=""/>
-                <button class="form-button" ng-click="upload('avatar')" translate>Upload</button>
+                <div class="env-upload-box">
+                    <div class="upload-new" ng-if="!membership.photo" ng-click="upload('avatar')">
+                        <span class="upload-btn"></span>
+                        <span class="upload-txt" translate>Upload Photo</span>
+                    </div>
+                    <div class="upload-exists" ng-if="membership.photo" ng-click="upload('avatar')">
+                        <div class="img-hover">
+                            <img ng-src="{{membership.photo}}" alt=""/>
+                        </div>
+                        <span class="upload-txt" translate>Upload Photo</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="w-right">
+        <div class="w-left">
             <div class="form-overview">
                 <h3 class="form-title" translate>Personal details</h3>
                 <ul>
@@ -42,9 +52,16 @@
                         <p ng-if="membership.orderRefundPossible">Trial</p>
                         <p ng-if="membership.cancelled">Cancelled</p>
                         <p ng-hide="membership.orderRefundPossible || membership.cancelled">{{membership.current.status}}</p>
-                        <a class="form-link" href="" ng-if="!membership.active && membership.earliestActivationPossible !== null" ng-click="activateMembership()">Activate subscription</a>
+                        <a class="form-link" href="" ng-if="!membership.active && membership.membershipActivatesOn === null && membership.earliestActivationPossible !== null" ng-click="activateMembership()">Activate subscription</a>
                         <a class="form-link" href="" ng-if="membership.active && membership.earliestPausePossible !== null" ng-click="suspendMembership()">Suspend subscription</a>
                         <a class="form-link" href="" ng-if="membership.active" ng-click="cancelMembership()">Cancel subscription</a>
+                        </div>
+                    </li>
+                    <li ng-if="membership.membershipActivatesOn !== null && isFuture(membership.membershipActivatesOn)">
+                        <b translate>Membership activates:</b>
+                        <div>
+                        <p>{{membership.membershipActivatesOn | date: 'dd.MM.yyyy'}}</p>
+                            <a class="form-link" href="" ng-if="!membership.active && membership.membershipActivatesOn !== null" ng-click="changeActivationDate()">Change Activation Date</a>
                         </div>
                     </li>
                     <li>
@@ -61,7 +78,7 @@
                     </li>
                     <li ng-if="!voucher.freeSubscriptionGranted && voucher">
                     <b translate>Discounted price:</b>
-                    <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(currentCard.monthlyPrice * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{currentCard.monthlyPrice - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths" translate>/ Monat für {{voucher.discountDuarationInMonths}} Monate</span></p>
+                    <p class="green"><span ng-if="voucher.percentOff">{{(Math.floor(currentCard.monthlyPrice * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}}€</span><span ng-if="voucher.amountOff">{{currentCard.monthlyPrice - voucher.amountOff}}€</span> <span ng-if="voucher.discountDuarationInMonths" translate>/ month for {{voucher.discountDuarationInMonths}} months</span></p>
                     </li>
                     <li ng-if="membership.discount">
                     <b translate>Current discount:</b>
@@ -75,19 +92,19 @@
                         <b translate>Pause scheduled from:</b>
                         <p>{{membership.pauseStartsOn | date: 'dd.MM.yyyy'}}</p>
                     </li>
-                    <li>
+                    <li ng-if="membership.pauseStartsOn">
                         <b translate>Pause duration:</b>
                         <p>{{membership.pauseDurationMonths}}</p>
                     </li>
                     </ul>
                 <ul>
-                    <li class="actions">
+                    <li>
                         <b translate>Payment method:</b>
+                        <div>
                         <p ng-if="membership.paymentProvider === 'STRIPE'" translate>Credit card</p>
                         <p ng-if="membership.paymentProvider === 'ELV'" translate>Direct debit</p>
-                    </li>
-                    <li>
-                        <a class="form-link" ng-hide="changePayment" ng-click="changePayment = true" href="">Update payment data</a>
+                            <a class="form-link payment-link" ng-hide="changePayment" ng-click="changePayment = true" href="">Update payment data</a>
+                        </div>
                     </li>
                 </ul>
             </div>

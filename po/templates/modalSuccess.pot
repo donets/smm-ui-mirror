@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalSuccess.html:3
+msgid "Close"
+msgstr ""
+
+#: app/views/modalSuccess.html:8
+msgid "Ok"
+msgstr ""
+
+#: app/views/modalSuccess.html:6
+msgid "Thank you!"
+msgstr ""
+
+#: app/views/modalSuccess.html:7
+msgid "Your payment data has been updated."
+msgstr ""

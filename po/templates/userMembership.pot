@@ -4,102 +4,198 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/userMembership.html:21
-msgid "/ Monat für {{voucher.discountDuarationInMonths}} Monate"
+#: app/views/userMembership.html:81
+msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr ""
 
-#: app/views/userMembership.html:18
-msgid "0€ / Monat"
-msgstr ""
-
-#: app/views/userMembership.html:30
-msgid "Abbuchung:"
-msgstr ""
-
-#: app/views/userMembership.html:23
-msgid "Beginn Mitgliedschaft:"
-msgstr ""
-
-#: app/views/userMembership.html:67
-msgid ""
-"Diese Funktion ist zur Zeit noch nicht aktiv, kontaktieren Sie bitte dazu unseren Kundenservice auf\n"
-"            <a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
-msgstr ""
-
-#: app/views/userMembership.html:20
-msgid "Ermäßigter Preis:"
-msgstr ""
-
-#: app/views/userMembership.html:70
-msgid ""
-"Es gab einen Fehler. Bitte kontaktieren Sie den Support über\n"
-"            <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a>"
-msgstr ""
-
-#: app/views/userMembership.html:6
-msgid "Hochladen"
-msgstr ""
-
-#: app/views/userMembership.html:34
-msgid "Im Monat 1: jederzeit (Probemonat). Ab Monat 4: monatlich kündbar bis Monatsende"
-msgstr ""
-
-#: app/views/userMembership.html:46
-msgid "Kurse pro Anbieter / Monat"
-msgstr ""
-
-#: app/views/userMembership.html:45
-msgid "Kurse pro Monat"
-msgstr ""
-
-#: app/views/userMembership.html:47
-msgid "Kündigen / Pausieren"
-msgstr ""
-
-#: app/views/userMembership.html:33
-msgid "Kündigung:"
-msgstr ""
-
-#: app/views/userMembership.html:26
-msgid "Laufzeit:"
-msgstr ""
-
-#: app/views/userMembership.html:4
-msgid "Mein Foto auf der Karte"
-msgstr ""
-
-#: app/views/userMembership.html:11
-msgid "Meine Kartennummer::"
-msgstr ""
-
-#: app/views/userMembership.html:31
-msgid "Monatlich beginnend mit dem Tag der Mitgliedschaft"
-msgstr ""
-
-#: app/views/userMembership.html:44
-msgid "Preis pro Monat"
-msgstr ""
-
-#: app/views/userMembership.html:14
-msgid "Regulärer Preis:"
-msgstr ""
-
-#: app/views/userMembership.html:17
-msgid "Sonderpreis:"
+#: app/views/userMembership.html:77
+msgid "0€ / Month"
 msgstr ""
 
 #: app/views/userMembership.html:73
-msgid "Wenn Du Deine Mitgliedschaft kündigen willst, klicke <a href=\"\" ng-click=\"cancelMembership()\">hier.</a>"
+msgid "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === 'EUR'\">&euro;</span> / Month"
 msgstr ""
 
-#: app/views/userMembership.html:39
-msgid "Willst Du Deinen Karten-Typ ändern?"
+#: app/views/userMembership.html:168
+msgid "Bank account holder"
 msgstr ""
 
-#: app/views/userMembership.html:27
-msgid "unbefristet / Verlängerung bei Nicht-Kündigung um je einen Monat"
+#: app/views/userMembership.html:151
+msgid "CVV"
+msgstr ""
+
+#: app/views/userMembership.html:119
+msgid "Card number"
+msgstr ""
+
+#: app/views/userMembership.html:46
+msgid "Card number:"
+msgstr ""
+
+#: app/views/userMembership.html:68
+msgid "Card type:"
+msgstr ""
+
+#: app/views/userMembership.html:104
+#: app/views/userMembership.html:118
+msgid "Credit card"
+msgstr ""
+
+#: app/views/userMembership.html:84
+msgid "Current discount:"
+msgstr ""
+
+#: app/views/userMembership.html:72
+msgid "Current monthly price:"
+msgstr ""
+
+#: app/views/userMembership.html:105
+msgid "Direct debit"
+msgstr ""
+
+#: app/views/userMembership.html:80
+msgid "Discounted price:"
+msgstr ""
+
+#: app/views/userMembership.html:29
+msgid "Email:"
+msgstr ""
+
+#: app/views/userMembership.html:175
+msgid "IBAN"
+msgstr ""
+
+#: app/views/userMembership.html:61
+msgid "Membership activates:"
+msgstr ""
+
+#: app/views/userMembership.html:88
+msgid "Membership start date:"
+msgstr ""
+
+#: app/views/userMembership.html:134
+msgid "Month"
+msgstr ""
+
+#: app/views/userMembership.html:5
+msgid "My photo"
+msgstr ""
+
+#: app/views/userMembership.html:25
+msgid "Name:"
+msgstr ""
+
+#: app/views/userMembership.html:161
+msgid "No credit card?"
+msgstr ""
+
+#: app/views/userMembership.html:96
+msgid "Pause duration:"
+msgstr ""
+
+#: app/views/userMembership.html:92
+msgid "Pause scheduled from:"
+msgstr ""
+
+#: app/views/userMembership.html:192
+msgid "Payment by credit card?"
+msgstr ""
+
+#: app/views/userMembership.html:113
+msgid ""
+"Payment information\n"
+"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
+msgstr ""
+
+#: app/views/userMembership.html:102
+msgid "Payment method:"
+msgstr ""
+
+#: app/views/userMembership.html:22
+msgid "Personal details"
+msgstr ""
+
+#: app/views/userMembership.html:125
+msgid "Please enter a valid credit card number"
+msgstr ""
+
+#: app/views/userMembership.html:155
+msgid "Please enter the 3 or 4-digit security number (on the back of your card)"
+msgstr ""
+
+#: app/views/userMembership.html:190
+msgid "Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer service team."
+msgstr ""
+
+#: app/views/userMembership.html:165
+msgid "SEPA direct debit"
+msgstr ""
+
+#: app/views/userMembership.html:189
+msgid "SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for services provided. I also instruct my bank to honour direct debit requests from this recipient."
+msgstr ""
+
+#: app/views/userMembership.html:182
+msgid "SWIFT-BIC"
+msgstr ""
+
+#: app/views/userMembership.html:37
+msgid "Shipping address (for the card)"
+msgstr ""
+
+#: app/views/userMembership.html:76
+msgid "Special price:"
+msgstr ""
+
+#: app/views/userMembership.html:50
+msgid "Status:"
+msgstr ""
+
+#: app/views/userMembership.html:198
+msgid "Submit new payment data"
+msgstr ""
+
+#: app/views/userMembership.html:33
+msgid "Subscription city:"
+msgstr ""
+
+#: app/views/userMembership.html:43
+msgid "Subscription details"
+msgstr ""
+
+#: app/views/userMembership.html:124
+#: app/views/userMembership.html:154
+#: app/views/userMembership.html:171
+#: app/views/userMembership.html:178
+#: app/views/userMembership.html:185
+msgid "This is an obligatory field"
 msgstr ""
 
 #: app/views/userMembership.html:15
-msgid "{{overview.price}}€ / Monat"
+#: app/views/userMembership.html:9
+msgid "Upload Photo"
+msgstr ""
+
+#: app/views/userMembership.html:131
+msgid "Valid until"
+msgstr ""
+
+#: app/views/userMembership.html:144
+msgid "Year"
+msgstr ""
+
+#: app/views/userMembership.html:169
+msgid "Your Name"
+msgstr ""
+
+#: app/views/userMembership.html:152
+msgid "e.g. 123"
+msgstr ""
+
+#: app/views/userMembership.html:183
+msgid "e.g. ABCD1234"
+msgstr ""
+
+#: app/views/userMembership.html:176
+msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr ""

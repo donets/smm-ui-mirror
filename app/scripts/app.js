@@ -827,10 +827,10 @@ angular.module('boltApp')
 
                         if ($rootScope.$stateParams.route === 'memberships') {
                             $rootScope.clearPhotoFilter = function(){
-                                if($rootScope.search.photo === "false"){
+                                if($rootScope.search.photo === 'false'){
                                     delete $rootScope.search.photo;
                                 }
-                            }
+                            };
                         }
 
                     }

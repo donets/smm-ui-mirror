@@ -120,7 +120,48 @@ angular.module('boltApp.controllers.Profile', [])
                             showWeeks: false
                         };
 
-                        $scope.step_1 = true;
+                        if (member.paymentInfoProvided) {
+                            $scope.step_1 = true;
+                        } else {
+                            $scope.step_0 = true;
+                            $scope.Math = $window.Math;
+                            $scope.month = _.range(1, 13);
+                            $scope.year = _.range(2014, 2033);
+
+                            $scope.order = {
+                                paymentProvider: 'STRIPE'
+                            };
+
+                            $scope.checkCard = function (card) {
+                                var patts = [
+                                    {regex: /^4[0-9]{12}(?:[0-9]{3})?$/g, type: 'visa'},
+                                    {regex: /^5[1-5]\d{14}$/g, type: 'masterCard'},
+                                    {regex: /^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/g, type: 'maestroCard'}
+                                ];
+                                if (card) {
+                                    _.each(patts, function (patt) {
+                                        var valid = patt.regex.test(card);
+                                        if (valid) {
+                                            $scope.creditCard = patt.type;
+                                        }
+                                    });
+                                } else {
+                                    $scope.creditCard = null;
+                                }
+                            };
+                            $scope.paymentSubmit = function () {
+                                $scope.showSpinner = true;
+                                $http.post($window.smmConfig.restUrlBase + '/api/membership/' + $scope.member.id + '/updatePaymentData', $scope.order).success(function (res) {
+                                    console.log(res);
+                                    $scope.showSpinner = false;
+                                    $scope.step_0 = false;
+                                    $scope.step_1 = true;
+                                }).error(function (res) {
+                                        console.log(res);
+                                        $scope.showSpinner = false;
+                                    });
+                            };
+                        }
 
                         $scope.activateSubmit = function() {
                             $scope.loading = true;
@@ -128,7 +169,11 @@ angular.module('boltApp.controllers.Profile', [])
                                 console.log(res);
                                 $scope.loading = false;
                                 $scope.step_1 = false;
-                                $scope.success = true;
+                                if ($scope.startDate) {
+                                    $scope.successDate = true;
+                                } else {
+                                    $scope.success = true;
+                                }
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.loading = false;
@@ -137,7 +182,64 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
-                            $state.go($state.$current, null, { reload: true })
+                            $state.go($state.$current, null, { reload: true });
+                        };
+                        $scope.isFuture = function (date) {
+                            return moment() < moment(date);
+                        };
+                    }],
+                backdrop: 'static',
+                windowClass: 'modal-cancel',
+                resolve: {
+                    member: function () {
+                        return $scope.membership;
+                    }
+                }
+            });
+        };
+
+        $scope.changeActivationDate = function () {
+            $modal.open({
+                templateUrl: 'views/modalActivate.html',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$state',
+
+                    function ($scope, $modalInstance, $http, $window, member, $state) {
+
+                        $scope.member = member;
+
+                        $scope.showDatepicker = {};
+
+                        $scope.openDatepicker = function($event, type) {
+                            $event.preventDefault();
+                            $event.stopPropagation();
+                            $scope.showDatepicker[type] = true;
+                        };
+                        $scope.minStartDate = member.earliestActivationPossible ? moment(member.earliestActivationPossible).format() : moment().format();
+                        $scope.dateOptions = {
+                            startingDay: 1,
+                            showWeekNumbers: false,
+                            showWeeks: false
+                        };
+
+                        $scope.step_1 = true;
+                        $scope.changeDate = true;
+
+                        $scope.activateSubmit = function() {
+                            $scope.loading = true;
+                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/activate', {}, {params: {from: moment($scope.startDate).format('YYYY-MM-DD')}}).success(function (res) {
+                                console.log(res);
+                                $scope.loading = false;
+                                $scope.step_1 = false;
+                                $scope.successDate = true;
+                            }).error(function (res) {
+                                    console.log(res);
+                                    $scope.loading = false;
+                                });
+                        };
+
+                        $scope.close = function () {
+                            $modalInstance.close(false);
+                            $state.go($state.$current, null, { reload: true });
                         };
 
                     }],
@@ -168,7 +270,7 @@ angular.module('boltApp.controllers.Profile', [])
                         $scope.minStartDate = member.earliestPausePossible ? moment(member.earliestPausePossible).format() : moment().format();
                         $scope.activateDateList = [];
                         for( var i = 1; i <= 3; i++ ){
-                            $scope.activateDateList.push({id: i, date: gettextCatalog.getPlural(i, "In {{count}} month", "In {{count}} months", {count: i})});
+                            $scope.activateDateList.push({id: i, date: gettextCatalog.getPlural(i, 'In {{count}} month', 'In {{count}} months', {count: i})});
                         }
                         $scope.durationMonths = 1;
                         $scope.dateOptions = {
@@ -195,7 +297,7 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
-                            $state.go($state.$current, null, { reload: true })
+                            $state.go($state.$current, null, { reload: true });
                         };
 
                     }],
@@ -251,7 +353,7 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
-                            $state.go($state.$current, null, { reload: true })
+                            $state.go($state.$current, null, { reload: true });
                         };
 
                     }],
@@ -274,7 +376,7 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.close = function () {
                             $modalInstance.close(false);
-                            $state.go($state.$current, null, { reload: true })
+                            $state.go($state.$current, null, { reload: true });
                         };
 
                     }],
@@ -320,6 +422,10 @@ angular.module('boltApp.controllers.Profile', [])
                 console.log(res);
                 $scope.showSpinner = false;
             });
+        };
+
+        $scope.isFuture = function (date) {
+          return moment() < moment(date);
         };
 
     });
