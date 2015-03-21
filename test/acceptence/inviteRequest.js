@@ -4,7 +4,6 @@ describe('Given invite form, User', function() {
 
     beforeEach(function() {
         browser.get('/?city=M');
-        waitForElem(element(by.css('#login')));
     });
 
     var params = browser.params,
