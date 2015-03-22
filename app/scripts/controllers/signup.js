@@ -14,17 +14,24 @@ angular.module('boltApp.controllers.Signup', [])
 
 		var onRouteChangeOff = $rootScope.$on('$stateChangeStart', routeChange);
 
+
+
+		function askConfirm() {
+			return "Are you sure you want to leave this page?";
+		}
+
 		function routeChange(event) {
-			if (!$scope.formSignup.$dirty) {
-                return;
-            }
+			if (!$scope.formSignup.$dirty && !$scope.formCheckout.$dirty) {
+				return;
+			}
+			window.onbeforeunload = askConfirm;
 			if (confirm('Are you sure you want to leave this page?')) {
-                console.log('true');
-                onRouteChangeOff();
-                $location.url('/');
+				console.log('true');
+				onRouteChangeOff();
+				$location.url('/');
 			} else {
-                event.preventDefault();
-                console.log('false');
+				event.preventDefault();
+				console.log('false');
 				return false;
 			}
 		}
