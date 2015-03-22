@@ -3,6 +3,7 @@
 .home {
 	.b-main-cover {
 		.b-main-slogan {
+			background: rgba(0,0,0,.4);
 			@extend %select-menu;
 		}
 		&:before {
