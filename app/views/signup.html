@@ -208,7 +208,7 @@
                             <div class="third">
                                 <label class="form-label required" for="cardCVC" translate>CVV</label>
                                 <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3,4}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="{{'e.g. 123'|translate}}" required blur-focus-directive/>
-                                <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid && !formSignup.cardCVC.hasFocus">
+                                <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid && !formCheckout.cardCVC.hasFocus">
                                     <div ng-show="formCheckout.cardCVC.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                                     <div ng-show="formCheckout.cardCVC.$error.pattern" class="form-message form-error" translate>Please enter the 3 or 4-digit security number (on the back of your card)</div>
                                 </div>
