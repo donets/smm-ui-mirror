@@ -5,7 +5,10 @@
 describe('Given the Kurse Page, User', function() {
     beforeEach(function() {
         browser.get('/');
-        browser.driver.manage().deleteAllCookies()
+    });
+
+    afterEach(function() {
+        browser.driver.manage().deleteAllCookies();
     });
 
     var params = browser.params,

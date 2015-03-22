@@ -6,6 +6,10 @@
 //        browser.get('/?city=M');
 //    });
 //
+//    afterEach(function() {
+//        browser.driver.manage().deleteAllCookies();
+//    });
+//
 //    var params = browser.params,
 //        waitForElem = params.helpers.waitForElem,
 //        hasClass = params.helpers.hasClass,

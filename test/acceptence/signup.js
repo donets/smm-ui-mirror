@@ -6,7 +6,10 @@ describe('Given signup form, User', function() {
 
     beforeEach(function() {
         browser.get('/');
-        browser.driver.manage().deleteAllCookies()
+    });
+
+    afterEach(function() {
+        browser.driver.manage().deleteAllCookies();
     });
 
     var randomUuid = function() {
@@ -61,7 +64,9 @@ describe('Given signup form, User', function() {
         approve.click();
 
         var submitOrderButton = element(by.css('#step3 button[type="submit"]'));
-        submitOrderButton.click();
+        submitOrderButton.click().then(function() {
+            expect(element(by.css('.modal-dialog h2')).getText()).toContain("Danke");
+        });
 
         done();
     });
@@ -73,9 +78,9 @@ describe('Given signup form, User', function() {
 
         element(by.css('form[name="loginForm"] input[name="email"]')).sendKeys(myEmail);
         element(by.css('form[name="loginForm"] input[name="password"]')).sendKeys(myPassword);
-        element(by.css('form[name="loginForm"] button[type="submit"]')).click();
-
-        expect(element(by.css('#account a')).getText()).toContain(params.signup.firstName + ' ' + params.signup.lastName);
+        element(by.css('form[name="loginForm"] button[type="submit"]')).click().then(function() {
+            expect(element(by.css('#account a')).getText()).toContain(params.signup.firstName + ' ' + params.signup.lastName);
+        });
 
         done();
     });
