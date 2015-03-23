@@ -10,125 +10,285 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: app/views/userMembership.html:21
+#: app/views/userMembership.html:73
+#, fuzzy
+msgid "/ Month"
+msgstr "£0 / month"
+
+#: app/views/userMembership.html:81
 msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr "/ month for {{voucher.discountDuarationInMonths}} months"
 
-#: app/views/userMembership.html:18
-msgid "£0 / month"
+#: app/views/userMembership.html:77
+#, fuzzy
+msgid "0€ / Month"
 msgstr "£0 / month"
 
-# Passt "Direct debit" hier?
-#: app/views/userMembership.html:30
-msgid "Direct debit:"
-msgstr "Direct debit:"
-
-#: app/views/userMembership.html:23
-msgid "Start of membership:"
-msgstr "Start of membership:"
-
-#: app/views/userMembership.html:67
-msgid ""
-"This function is currently not active, please contact our customer service "
-"team at\n"
-"<a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+#: app/views/userMembership.html:168
+msgid "Bank account holder"
 msgstr ""
-"This function is currently not active, please contact our customer service "
-"team at\n"
-"<a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
 
-#: app/views/userMembership.html:20
-msgid "Reduced price:"
-msgstr "Reduced price:"
-
-#: app/views/userMembership.html:70
-msgid ""
-"An error has occurred. Please contact our support team at\n"
-"<a href=\"mailto:kundenservice@somuchmore.org\">customerservice@somuchmore.org"
-"</a>"
+#: app/views/userMembership.html:151
+msgid "CVV"
 msgstr ""
-"An error has occurred. Please contact our support team at\n"
-"<a href=\"mailto:kundenservice@somuchmore.org\">customerservice@somuchmore.org"
-"</a>"
 
-#: app/views/userMembership.html:6
-msgid "Upload"
-msgstr "Upload"
-
-#: app/views/userMembership.html:34
-msgid ""
-"In month 1: cancel anytime (trial month). From month 4: cancel on a monthly "
-"basis by the end of the month"
-msgstr ""
-"In month 1: cancel anytime (trial month). From month 4: cancel on a monthly "
-"basis by the end of the month"
-
-#: app/views/userMembership.html:46
-msgid "Courses per provider / month"
-msgstr "Courses per provider / month"
-
-#: app/views/userMembership.html:45
-msgid "Courses per month"
-msgstr "Courses per month"
-
-#: app/views/userMembership.html:47
-msgid "Cancel / Freeze"
-msgstr "Cancel / Freeze"
-
-#: app/views/userMembership.html:33
-msgid "Cancellation of contract:"
-msgstr "Cancellation of contract:"
-
-#: app/views/userMembership.html:26
-msgid "Term:"
-msgstr "Term:"
-
-#: app/views/userMembership.html:4
-msgid "My photo on the card"
-msgstr "My photo on the card"
-
-#: app/views/userMembership.html:11
-msgid "My card number:"
+#: app/views/userMembership.html:119
+#, fuzzy
+msgid "Card number"
 msgstr "My card number:"
 
-#: app/views/userMembership.html:31
-msgid "Monthly beginning with the first day of membership"
-msgstr "Monthly beginning with the first day of membership"
+#: app/views/userMembership.html:46
+#, fuzzy
+msgid "Card number:"
+msgstr "My card number:"
 
-#: app/views/userMembership.html:44
-msgid "Price per month"
-msgstr "Price per month"
+#: app/views/userMembership.html:68
+msgid "Card type:"
+msgstr ""
 
-#: app/views/userMembership.html:14
-msgid "Regular price:"
-msgstr "Regular price:"
+#: app/views/userMembership.html:104 app/views/userMembership.html:118
+msgid "Credit card"
+msgstr ""
 
-#: app/views/userMembership.html:17
+#: app/views/userMembership.html:84
+msgid "Current discount:"
+msgstr ""
+
+#: app/views/userMembership.html:72
+msgid "Current monthly price:"
+msgstr ""
+
+# Passt "Direct debit" hier?
+#: app/views/userMembership.html:105
+#, fuzzy
+msgid "Direct debit"
+msgstr "Direct debit:"
+
+#: app/views/userMembership.html:80
+#, fuzzy
+msgid "Discounted price:"
+msgstr "Reduced price:"
+
+#: app/views/userMembership.html:29
+msgid "Email:"
+msgstr ""
+
+#: app/views/userMembership.html:175
+msgid "IBAN"
+msgstr ""
+
+#: app/views/userMembership.html:61
+msgid "Membership activates:"
+msgstr ""
+
+#: app/views/userMembership.html:88
+msgid "Membership start date:"
+msgstr ""
+
+#: app/views/userMembership.html:134
+msgid "Month"
+msgstr ""
+
+#: app/views/userMembership.html:5
+msgid "My photo"
+msgstr ""
+
+#: app/views/userMembership.html:25
+msgid "Name:"
+msgstr ""
+
+#: app/views/userMembership.html:161
+msgid "No credit card?"
+msgstr ""
+
+#: app/views/userMembership.html:96
+msgid "Pause duration:"
+msgstr ""
+
+#: app/views/userMembership.html:92
+msgid "Pause scheduled from:"
+msgstr ""
+
+#: app/views/userMembership.html:192
+msgid "Payment by credit card?"
+msgstr ""
+
+#: app/views/userMembership.html:113
+msgid "Payment information"
+msgstr ""
+
+#: app/views/userMembership.html:102
+msgid "Payment method:"
+msgstr ""
+
+#: app/views/userMembership.html:22
+msgid "Personal details"
+msgstr ""
+
+#: app/views/userMembership.html:125
+msgid "Please enter a valid credit card number"
+msgstr ""
+
+#: app/views/userMembership.html:155
+msgid ""
+"Please enter the 3 or 4-digit security number (on the back of your card)"
+msgstr ""
+
+#: app/views/userMembership.html:190
+msgid ""
+"Please note: You can cancel your direct debit payment any time by sending an "
+"e-mail to our customer service team."
+msgstr ""
+
+# Passt "Direct debit" hier?
+#: app/views/userMembership.html:165
+#, fuzzy
+msgid "SEPA direct debit"
+msgstr "Direct debit:"
+
+#: app/views/userMembership.html:189
+msgid ""
+"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to "
+"debit my account for services provided. I also instruct my bank to honour "
+"direct debit requests from this recipient."
+msgstr ""
+
+#: app/views/userMembership.html:182
+msgid "SWIFT-BIC"
+msgstr ""
+
+#: app/views/userMembership.html:37
+msgid "Shipping address (for the card)"
+msgstr ""
+
+#: app/views/userMembership.html:76
 msgid "Special price:"
 msgstr "Special price:"
 
-#: app/views/userMembership.html:73
-msgid ""
-"If you wish to cancel your membership, please click <a href=\"\" ng-"
-"click=\"cancelMembership()\">here.</a>"
+#: app/views/userMembership.html:50
+msgid "Status:"
 msgstr ""
-"If you wish to cancel your membership, please click <a href=\"\" ng-"
-"click=\"cancelMembership()\">here.</a>"
 
-#: app/views/userMembership.html:39
-msgid "Do you want to change your card type?"
-msgstr "Do you want to change your card type?"
-
-#: app/views/userMembership.html:27
-msgid ""
-"Unlimited / If you do not cancel your contract it will be extended by one "
-"month"
+#: app/views/userMembership.html:198
+msgid "Submit new payment data"
 msgstr ""
-"Unlimited / If you do not cancel your contract it will be extended by one "
-"month"
 
-#: app/views/userMembership.html:15
-msgid "€{{overview.price}} / month"
-msgstr "€{{overview.price}} / month"
+#: app/views/userMembership.html:33
+msgid "Subscription city:"
+msgstr ""
+
+#: app/views/userMembership.html:43
+msgid "Subscription details"
+msgstr ""
+
+#: app/views/userMembership.html:124 app/views/userMembership.html:154
+#: app/views/userMembership.html:171 app/views/userMembership.html:178
+#: app/views/userMembership.html:185
+msgid "This is an obligatory field"
+msgstr ""
+
+#: app/views/userMembership.html:15 app/views/userMembership.html:9
+#, fuzzy
+msgid "Upload Photo"
+msgstr "Upload"
+
+#: app/views/userMembership.html:131
+msgid "Valid until"
+msgstr ""
+
+#: app/views/userMembership.html:144
+msgid "Year"
+msgstr ""
+
+#: app/views/userMembership.html:169
+msgid "Your Name"
+msgstr ""
+
+#: app/views/userMembership.html:152
+msgid "e.g. 123"
+msgstr ""
+
+#: app/views/userMembership.html:183
+msgid "e.g. ABCD1234"
+msgstr ""
+
+#: app/views/userMembership.html:176
+msgid "e.g. DE12 3456 7890 1234 5678 90"
+msgstr ""
+
+#~ msgid "Start of membership:"
+#~ msgstr "Start of membership:"
+
+#~ msgid ""
+#~ "This function is currently not active, please contact our customer "
+#~ "service team at\n"
+#~ "<a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+#~ msgstr ""
+#~ "This function is currently not active, please contact our customer "
+#~ "service team at\n"
+#~ "<a href=\"mailto:service@somuchmore.org\">service@somuchmore.org</a>"
+
+#~ msgid ""
+#~ "An error has occurred. Please contact our support team at\n"
+#~ "<a href=\"mailto:kundenservice@somuchmore.org"
+#~ "\">customerservice@somuchmore.org</a>"
+#~ msgstr ""
+#~ "An error has occurred. Please contact our support team at\n"
+#~ "<a href=\"mailto:kundenservice@somuchmore.org"
+#~ "\">customerservice@somuchmore.org</a>"
+
+#~ msgid ""
+#~ "In month 1: cancel anytime (trial month). From month 4: cancel on a "
+#~ "monthly basis by the end of the month"
+#~ msgstr ""
+#~ "In month 1: cancel anytime (trial month). From month 4: cancel on a "
+#~ "monthly basis by the end of the month"
+
+#~ msgid "Courses per provider / month"
+#~ msgstr "Courses per provider / month"
+
+#~ msgid "Courses per month"
+#~ msgstr "Courses per month"
+
+#~ msgid "Cancel / Freeze"
+#~ msgstr "Cancel / Freeze"
+
+#~ msgid "Cancellation of contract:"
+#~ msgstr "Cancellation of contract:"
+
+#~ msgid "Term:"
+#~ msgstr "Term:"
+
+#~ msgid "My photo on the card"
+#~ msgstr "My photo on the card"
+
+#~ msgid "Monthly beginning with the first day of membership"
+#~ msgstr "Monthly beginning with the first day of membership"
+
+#~ msgid "Price per month"
+#~ msgstr "Price per month"
+
+#~ msgid "Regular price:"
+#~ msgstr "Regular price:"
+
+#~ msgid ""
+#~ "If you wish to cancel your membership, please click <a href=\"\" ng-click="
+#~ "\"cancelMembership()\">here.</a>"
+#~ msgstr ""
+#~ "If you wish to cancel your membership, please click <a href=\"\" ng-click="
+#~ "\"cancelMembership()\">here.</a>"
+
+#~ msgid "Do you want to change your card type?"
+#~ msgstr "Do you want to change your card type?"
+
+#~ msgid ""
+#~ "Unlimited / If you do not cancel your contract it will be extended by one "
+#~ "month"
+#~ msgstr ""
+#~ "Unlimited / If you do not cancel your contract it will be extended by one "
+#~ "month"
+
+#~ msgid "€{{overview.price}} / month"
+#~ msgstr "€{{overview.price}} / month"
