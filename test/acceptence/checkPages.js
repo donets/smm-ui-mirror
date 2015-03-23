@@ -16,7 +16,9 @@ describe('Given a set of info pages, User', function() {
         var aboutLink = element(by.cssContainingText('.b-footer-nav__menu a', 'Über uns'));
         aboutLink.click().then(function() {
             var text = element.all(by.css('.b-main-slogan h2 span')).first();
-            expect(text.getText()).toBe('ENTDECKE SOMUCHMORE');
+            text.getText().then(function(text){
+                expect(text).toBe('ENTDECKE SOMUCHMORE');
+            });
         });
         done();
     });
@@ -25,7 +27,9 @@ describe('Given a set of info pages, User', function() {
         var aboutLink = element(by.cssContainingText('.b-footer-nav__menu a', 'Impressum'));
         aboutLink.click().then(function() {
             var text = element.all(by.css('.b-main-slogan h2 span')).first();
-            expect(text.getText()).toBe('IMPRESSUM (ANGABEN GEMÄSS § 5 TMG)');
+            text.getText().then(function(text){
+                expect(text).toBe('IMPRESSUM (ANGABEN GEMÄSS § 5 TMG)');
+            });
         });
         done();
     });
@@ -34,7 +38,9 @@ describe('Given a set of info pages, User', function() {
         var aboutLink = element(by.cssContainingText('.b-footer-nav__menu a', 'AGB'));
         aboutLink.click().then(function() {
             var text = element.all(by.css('.b-main-slogan h2 span')).first();
-            expect(text.getText()).toBe('ALLGEMEINE GESCHÄFTSBEDINGUNGEN');
+            text.getText().then(function(text){
+                expect(text).toBe('ALLGEMEINE GESCHÄFTSBEDINGUNGEN');
+            });
         });
         done();
     });
@@ -43,7 +49,9 @@ describe('Given a set of info pages, User', function() {
         var aboutLink = element(by.cssContainingText('.b-footer-nav__menu a', 'faq'));
         aboutLink.click().then(function() {
             var text = element(by.css('.about h1 span'));
-            expect(text.getText()).toBe('Guide to Somuchmore');
+            text.getText().then(function(text){
+                expect(text).toBe('Guide to Somuchmore');
+            });
         });
         done();
     });
