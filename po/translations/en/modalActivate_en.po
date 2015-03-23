@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: en\n"
+
+#: app/views/modalActivate.html:114
+msgid "Activate my account now"
+msgstr ""
+
+#: app/views/modalActivate.html:64
+msgid "Bank account holder"
+msgstr ""
+
+#: app/views/modalActivate.html:47
+msgid "CVV"
+msgstr ""
+
+#: app/views/modalActivate.html:15
+msgid "Card number"
+msgstr ""
+
+#: app/views/modalActivate.html:115
+msgid "Change activation date"
+msgstr ""
+
+#: app/views/modalActivate.html:4
+msgid "Close"
+msgstr ""
+
+#: app/views/modalActivate.html:123
+msgid ""
+"Congratulations! You can now enjoy unlimited access to our network of studios"
+msgstr ""
+
+#: app/views/modalActivate.html:14
+msgid "Credit card"
+msgstr ""
+
+#: app/views/modalActivate.html:100
+msgid "Earliest activation date: {{member.earliestActivationPossible}}"
+msgstr ""
+
+#: app/views/modalActivate.html:98
+msgid "Great! Lets activate your account"
+msgstr ""
+
+#: app/views/modalActivate.html:71
+msgid "IBAN"
+msgstr ""
+
+#: app/views/modalActivate.html:30
+msgid "Month"
+msgstr ""
+
+#: app/views/modalActivate.html:57
+msgid "No credit card?"
+msgstr ""
+
+#: app/views/modalActivate.html:124 app/views/modalActivate.html:129
+msgid "Ok"
+msgstr ""
+
+#: app/views/modalActivate.html:88
+msgid "Payment by credit card?"
+msgstr ""
+
+#: app/views/modalActivate.html:9
+msgid "Payment information"
+msgstr ""
+
+#: app/views/modalActivate.html:21
+msgid "Please enter a valid credit card number"
+msgstr ""
+
+#: app/views/modalActivate.html:51
+msgid ""
+"Please enter the 3 or 4-digit security number (on the back of your card)"
+msgstr ""
+
+#: app/views/modalActivate.html:86
+msgid ""
+"Please note: You can cancel your direct debit payment any time by sending an "
+"e-mail to our customer service team."
+msgstr ""
+
+#: app/views/modalActivate.html:61
+msgid "SEPA direct debit"
+msgstr ""
+
+#: app/views/modalActivate.html:85
+msgid ""
+"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to "
+"debit my account for services provided. I also instruct my bank to honour "
+"direct debit requests from this recipient."
+msgstr ""
+
+#: app/views/modalActivate.html:78
+msgid "SWIFT-BIC"
+msgstr ""
+
+#: app/views/modalActivate.html:99
+msgid "Scheduled activation date: {{member.membershipActivatesOn}}"
+msgstr ""
+
+#: app/views/modalActivate.html:109
+msgid "Select date"
+msgstr ""
+
+#: app/views/modalActivate.html:101
+msgid "Set activation date"
+msgstr ""
+
+#: app/views/modalActivate.html:94
+msgid "Submit new payment data"
+msgstr ""
+
+#: app/views/modalActivate.html:127
+msgid "Thank you!"
+msgstr ""
+
+#: app/views/modalActivate.html:20 app/views/modalActivate.html:50
+#: app/views/modalActivate.html:67 app/views/modalActivate.html:74
+#: app/views/modalActivate.html:81
+msgid "This is an obligatory field"
+msgstr ""
+
+#: app/views/modalActivate.html:27
+msgid "Valid until"
+msgstr ""
+
+#: app/views/modalActivate.html:40
+msgid "Year"
+msgstr ""
+
+#: app/views/modalActivate.html:65
+msgid "Your Name"
+msgstr ""
+
+#: app/views/modalActivate.html:122
+msgid "Your card is active!"
+msgstr ""
+
+#: app/views/modalActivate.html:128
+msgid "Your membership will activate on {{startDate | date: 'dd.MM.yyyy'}}"
+msgstr ""
+
+#: app/views/modalActivate.html:48
+msgid "e.g. 123"
+msgstr ""
+
+#: app/views/modalActivate.html:79
+msgid "e.g. ABCD1234"
+msgstr ""
+
+#: app/views/modalActivate.html:72
+msgid "e.g. DE12 3456 7890 1234 5678 90"
+msgstr ""

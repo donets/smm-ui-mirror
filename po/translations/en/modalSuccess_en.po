@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: en\n"
+
+#: app/views/modalSuccess.html:3
+msgid "Close"
+msgstr ""
+
+#: app/views/modalSuccess.html:8
+msgid "Ok"
+msgstr ""
+
+#: app/views/modalSuccess.html:6
+msgid "Thank you!"
+msgstr ""
+
+#: app/views/modalSuccess.html:7
+msgid "Your payment data has been updated."
+msgstr ""
