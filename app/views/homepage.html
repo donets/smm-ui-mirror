@@ -12,12 +12,7 @@
 </videogular>
 <div class="b-main-slogan"><h2 ng-if="!campaign" translate>LONDON IS YOUR STUDIO</h2>
     <h2 ng-if="campaign && !(city || cityId)">{{campaign.title}}</h2>
-    <h2 ng-if="campaign && (city || cityId)" translate>
-        <select auto-width-select chosen ng-model="campaign" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c as c.defaultName for c in citiesList" ng-change="changeCity(campaign)" width="'auto'">
-            <option value="" ng-if="desktop"></option>
-        </select>
-        <span id="width_tmp"></span>
-        IS YOUR STUDIO</h2>
+    <h2 ng-if="campaign && (city || cityId)" translate>{{campaign.defaultName}} IS YOUR STUDIO</h2>
         <p ng-if="!campaign" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
         <p ng-if="campaign && !(city || cityId)" translate>Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> with <b>1 membership</b>.</p>
         <p ng-if="campaign && (city || cityId)" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
