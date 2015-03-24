@@ -105,17 +105,29 @@ angular.module('boltApp.services.city', [])
 				});
 			};
 
+			var citiesList;
+
+			var getCities = function() {
+				var deferred = $q.defer();
+				if(typeof(citiesList) !== 'undefined') {
+					deferred.resolve(citiesList);
+				} else {
+					RestApi.query({route: 'cities'}).$promise.then(function(res) {
+						citiesList = res;
+						deferred.resolve(res);
+					})
+				}
+				citiesList = deferred.promise;
+				return citiesList;
+			}
+
 			return {
 				update: update,
 				rootCity: rootCity,
 				guessCity: guessCity,
 				changeCity: changeCity,
 				getVariable: getVariable,
-				getCities: function() {
-					return RestApi.query({
-						route: 'cities'
-					}).$promise;
-				}
+				getCities: getCities
 			};
 		}
 	]);
