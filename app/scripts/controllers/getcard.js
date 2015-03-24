@@ -75,17 +75,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.CityFactory = CityFactory.CityFactory;
 
 			$scope.$on('CityFactory.update', function(newState) {
-                var campaignVar = CityFactory.getVariable();
-                for (var i = 0; i < $scope.citiesList.length; i++) {
-					delete campaignVar.$$hashKey;
-					delete $scope.citiesList[i].$$hashKey;
-                    if (_.isEqual(campaignVar, $scope.citiesList[i])) {
-						console.log("ok");
-						$scope.campaign = $scope.citiesList[i];
-                        $rootScope.supportPhone = $scope.campaign.supportPhone;
-                        console.log(_.isEqual(campaignVar, $scope.citiesList[i]));
-					}
-				}
+                var currentCityVar = CityFactory.getVariable();
+                $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
+                $scope.currentCityId = $scope.currentCity.id;
+                $rootScope.supportPhone = $scope.currentCity.supportPhone;
 			});
 
 			$scope.update = CityFactory.update;
@@ -99,7 +92,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 CityFactory.guessCity($scope.citiesList).then(function(res) {
                     $scope.city = res.city;
                     $scope.cityId = res.cityId;
-                    $scope.changeCity(res.campaign);
+                    $scope.changeCity(res.currentCity.id);
                 });
             });
         };
@@ -107,9 +100,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $scope.init();
 
-        $scope.changeCity = function(campaign) {
-            CityFactory.update(campaign, $scope.citiesList);
-            CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
+        $scope.changeCity = function(currentCityId) {
+            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
+            CityFactory.update(currentCity, $scope.citiesList);
+            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
             });
@@ -185,7 +179,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.contactSubmit = function() {
             $scope.loadingContact = true;
             $scope.contact.message = 'contact teacher partnership';
-            $scope.contact.city = $scope.campaign.defaultName;
+            $scope.contact.city = $scope.currentCity.defaultName;
             $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.contact).success(function () {
                 $scope.loadingContact = false;
                 $scope.successContact = true;
@@ -212,7 +206,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                             var suggestedStudio = {
                                 email: $scope.suggest.userEmail || 'noreply@somuchmore.org',
                                 message: 'A user ' + ($scope.suggest.userName + ' ' || '') + 'suggest we should add studio: ' + $scope.suggest.studioName,
-                                city: parentScope.campaign.defaultName
+                                city: parentScope.currentCity.defaultName
                             };
                             $scope.loadingStudio = true;
                             $http.post($window.smmConfig.restUrlBase + '/api/message', suggestedStudio).success(function () {

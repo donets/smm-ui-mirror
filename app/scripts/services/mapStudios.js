@@ -7,8 +7,8 @@
  * # Events
  * Factory in the boltApp.
  */
-angular.module('boltApp.services.userMap', [])
-  .factory('UserMap', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', 'uiGmapGoogleMapApi',
+angular.module('boltApp.services.mapStudios', [])
+  .factory('mapStudios', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', 'uiGmapGoogleMapApi',
     function(RestApi, $location, $cookieStore, $rootScope, $http, uiGmapGoogleMapApi) {
 
 

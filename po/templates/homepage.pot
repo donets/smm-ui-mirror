@@ -116,7 +116,7 @@ msgid "Einfach ausprobieren"
 msgstr ""
 
 #: app/views/homepage.html:17
-msgid "Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
+msgid "Entdecke <b>{{currentCity.amountCourses}} Kurse</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
 msgstr ""
 
 #: app/views/homepage.html:16
@@ -260,7 +260,7 @@ msgid "Stadt"
 msgstr ""
 
 #: app/views/homepage.html:148
-msgid "Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
+msgid "Start am {{currentCity.startDate | amDateFormat: 'DD.MM'}}!"
 msgstr ""
 
 #: app/views/homepage.html:159
@@ -309,7 +309,7 @@ msgid "Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitg
 msgstr ""
 
 #: app/views/homepage.html:15
-msgid "{{campaign.defaultName}} IST DEIN STUDIO"
+msgid "{{currentCity.defaultName}} IST DEIN STUDIO"
 msgstr ""
 
 #: app/views/homepage.html:113

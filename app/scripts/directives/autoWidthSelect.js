@@ -13,10 +13,7 @@ angular.module('boltApp')
 			link: function(scope, element) {
 				$(element).change(function() {
                     $("#width_tmp").html($(element).find('option:selected').text());
-                    console.log($(element).find('option:selected').text());
 					$(this).width($("#width_tmp").width()-20);
-                    console.log($(this));
-                    console.log($(element).find('option:selected').text());
 				});
 			}
 		};

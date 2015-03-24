@@ -134,10 +134,10 @@ msgstr "Simply try it out"
 
 #: app/views/homepage.html:17
 msgid ""
-"Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign.amountStudios}} {{campaign."
+"Entdecke <b>{{currentCity.amountCourses}} Kurse</b> in <b>{{currentCity.amountStudios}} {{currentCity."
 "termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
 msgstr ""
-"Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign."
+"Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity."
 "termForStudios}}</b> with <b>1 membership</b>."
 
 #: app/views/homepage.html:16 app/views/homepage.html:18
@@ -292,8 +292,8 @@ msgid "Stadt"
 msgstr "City"
 
 #: app/views/homepage.html:148
-msgid "Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
-msgstr "Launching {{campaign.startDate | amDateFormat: 'DD.MM.YY'}}"
+msgid "Start am {{currentCity.startDate | amDateFormat: 'DD.MM'}}!"
+msgstr "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
 
 #: app/views/homepage.html:159
 msgid "Studio vorschlagen"
@@ -350,8 +350,8 @@ msgid "Zeige einfach Deine Karte vor - und werde bei allen Partnern wie ein Mitg
 msgstr "Visit classes as often as you want."
 
 #: app/views/homepage.html:15
-msgid "{{campaign.defaultName}} IST DEIN STUDIO"
-msgstr "{{campaign.defaultName}} IS YOUR STUDIO"
+msgid "{{currentCity.defaultName}} IST DEIN STUDIO"
+msgstr "{{currentCity.defaultName}} IS YOUR STUDIO"
 
 #: app/views/homepage.html:113
 msgid "Über 50 Studios freuen sich darauf, Dich kennen zu lernen."

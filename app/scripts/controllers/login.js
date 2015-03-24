@@ -11,22 +11,15 @@ angular.module('boltApp.controllers.Login', [])
 	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', '$timeout', 'gettextCatalog', 'amMoment', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, $timeout, gettextCatalog, amMoment) {
 		$scope.init = function() {
 			$scope.data = {};
-			$scope.data.campaign = [];
+			$scope.data.currentCity = [];
 			$scope.CityFactory = CityFactory.CityFactory;
 
 			$scope.$on('CityFactory.update', function(newState) {
-				var campaignVar = CityFactory.getVariable();
-				for (var i = 0; i < $scope.citiesList.length; i++) {
-					delete campaignVar.$$hashKey;
-					delete $scope.citiesList[i].$$hashKey;
-					if (_.isEqual(campaignVar, $scope.citiesList[i])) {
-						console.log("ok");
-
-						$scope.data.campaign = $scope.citiesList[i];
-						console.log(_.isEqual(campaignVar, $scope.citiesList[i]));
-					}
-				}
+				var currentCityVar = CityFactory.getVariable();
+				$scope.data.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
+                console.log($scope.data.currentCity);
 			});
+
 			$scope.update = CityFactory.update;
 
             $scope.changeLanguage = function(city) {
@@ -40,10 +33,11 @@ angular.module('boltApp.controllers.Login', [])
 				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
 					return c.countryCode === $rootScope.countryCode;
 				});
+				console.log($scope.citiesList);
 				CityFactory.guessCity($scope.citiesList).then(function(res) {
 					$scope.city = res.city;
 					$scope.cityId = res.cityId;
-					$scope.changeCity(res.campaign);
+					$scope.changeCity(res.currentCity.id);
 				});
 			});
 		};
@@ -52,13 +46,14 @@ angular.module('boltApp.controllers.Login', [])
 
 
 
-		$scope.changeCity = function(campaign) {
-			CityFactory.changeCity(campaign, $scope.citiesList).then(function(res) {
-				$scope.studios = res.studios;
-				$scope.cards = res.cards;
-				CityFactory.update(campaign);
-			});
-		};
+		$scope.changeCity = function(currentCityId) {
+            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
+            CityFactory.update(currentCity, $scope.citiesList);
+            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
+                $scope.studios = res.studios;
+                $scope.cards = res.cards;
+            });
+        };
 
 		function sendLoginFB(res) {
 			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function(response) {

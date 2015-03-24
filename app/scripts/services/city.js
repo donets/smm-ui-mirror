@@ -8,21 +8,21 @@
  * Factory in the boltApp.
  */
 angular.module('boltApp.services.city', [])
-	.factory('CityFactory', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', '$q', 'UserMap',
-		function(RestApi, $location, $cookieStore, $rootScope, $http, $q, UserMap) {
-			var rootCampaign;
+	.factory('CityFactory', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', '$q', 'mapStudios',
+		function(RestApi, $location, $cookieStore, $rootScope, $http, $q, mapStudios) {
+			var rootCity;
 
 			var broadcast = function(CityFactory) {
-				$rootScope.$broadcast('CityFactory.update', rootCampaign);
+				$rootScope.$broadcast('CityFactory.update', rootCity);
 			};
 
 			var update = function(newState) {
-				rootCampaign = newState;
-				broadcast(rootCampaign);
+				rootCity = newState;
+				broadcast(rootCity);
 			};
 
 			var getVariable = function() {
-				return rootCampaign;
+				return rootCity;
 			}
 
 			var guessCity = function(cities) {
@@ -31,7 +31,7 @@ angular.module('boltApp.services.city', [])
 					city,
 					cityId,
 					returnObject = {},
-					campaign;
+					currentCity;
 				city = $location.search().city;
 				cityId = $cookieStore.get('cityId') || citiesList[0].id;
 				var invitation = $location.search().invitation;
@@ -42,60 +42,59 @@ angular.module('boltApp.services.city', [])
 					$cookieStore.put('invitation', true);
 				}
 				if (city) {
-					campaign = _.findWhere(citiesList, {
+					currentCity = _.findWhere(citiesList, {
 						shortCode: city
 					});
-					cityId = campaign && campaign.id && campaign.active ? campaign.id : cityId;
+					cityId = currentCity && currentCity.id && currentCity.active ? currentCity.id : cityId;
 					$cookieStore.put('cityId', cityId);
 				} else if (cityId) {
-					campaign = _.findWhere(citiesList, {
+					currentCity = _.findWhere(citiesList, {
 						id: cityId
 					});
 				} else {
-					campaign = disciplinesList.disciplines[discipline];
+					currentCity = disciplinesList.disciplines[discipline];
 				}
 				returnObject = {
-					campaign: (campaign || citiesList[0]),
+					currentCity: (currentCity || citiesList[0]),
 					city: city,
 					cityId: cityId
 				};
 				deferred.resolve(returnObject);
 				return deferred.promise;
-				// return(campaign || citiesList[0]);
 			};
 
 			var changeCity = function(reqCity, cityList) {
 				var deferred = $q.defer(),
 					returnObject = {},
 					city,
-					campaign,
+					currentCity,
 					supportPhone;
 				var citiesList = cityList;
 
 
 				city = reqCity.shortCode;
-				campaign = _.findWhere(citiesList, {
+				currentCity = _.findWhere(citiesList, {
 					shortCode: city
 				});
 
-				supportPhone = campaign.supportPhone;
+				supportPhone = currentCity.supportPhone;
 
 				RestApi.query({
 					route: 'studios',
-					cityId: campaign.id
+					cityId: currentCity.id
 				}).$promise.then(function(res) {
 					return res;
 				}).then(function(res) {
 					RestApi.query({
 						route: 'plans',
-						cityId: campaign.id
+						cityId: currentCity.id
 					}).$promise.then(function(res1) {
 						returnObject.studios = res;
 						returnObject.cards = res1;
 						deferred.resolve(returnObject);
 					});
 				});
-				UserMap.create(campaign);
+				mapStudios.create(currentCity);
 				return deferred.promise;
 
 			};
@@ -108,7 +107,7 @@ angular.module('boltApp.services.city', [])
 
 			return {
 				update: update,
-				rootCampaign: rootCampaign,
+				rootCity: rootCity,
 				guessCity: guessCity,
 				changeCity: changeCity,
 				getVariable: getVariable,

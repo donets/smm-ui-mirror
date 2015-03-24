@@ -69,7 +69,7 @@ angular
         'boltApp.services.membership',
         'boltApp.services.navigator',
         'boltApp.services.city',
-        'boltApp.services.userMap'
+        'boltApp.services.mapStudios'
     ]);
 angular.module('boltApp')
     .run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',

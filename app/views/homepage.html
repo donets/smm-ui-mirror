@@ -10,17 +10,17 @@
     <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
 </videogular>
-<div class="b-main-slogan"><h2 ng-if="!campaign" translate>LONDON IS YOUR STUDIO</h2>
-    <h2 ng-if="campaign && !(city || cityId)">{{campaign.title}}</h2>
-    <h2 ng-if="campaign && (city || cityId)" translate>
-        <select auto-width-select chosen ng-model="campaign" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c as c.defaultName for c in citiesList" ng-change="changeCity(campaign)" width="'auto'">
+<div class="b-main-slogan"><h2 ng-if="!currentCity" translate>LONDON IS YOUR STUDIO</h2>
+    <h2 ng-if="currentCity && !(city || cityId)">{{currentCity.title}}</h2>
+    <h2 ng-if="currentCity && (city || cityId)" translate>
+        <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
             <option value="" ng-if="desktop"></option>
         </select>
         <span id="width_tmp"></span>
         IS YOUR STUDIO</h2>
-        <p ng-if="!campaign" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
-        <p ng-if="campaign && !(city || cityId)" translate>Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> with <b>1 membership</b>.</p>
-        <p ng-if="campaign && (city || cityId)" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
+        <p ng-if="!currentCity" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
+        <p ng-if="currentCity && !(city || cityId)" translate>Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>.</p>
+        <p ng-if="currentCity && (city || cityId)" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
@@ -74,7 +74,7 @@
         <h2 translate>One card. Unlimited classes.</h2>
         <p translate>What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing your limits? <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Want to hit the dance floor? <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Strengthen your core and concentration? <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Learn more about <b>Nutrition</b> and <b>Health</b>? Or simply chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?</p>
         <p translate>Feel it all. Explore it all. With just one card.</p>
-        <a ui-sref="dashboard({city: campaign.id})" ng-show="campaign.active" target="_blank" translate>Learn more about the offer here ›</a>
+        <a ui-sref="dashboard({city: currentCity.id})" ng-show="currentCity.active" target="_blank" translate>Learn more about the offer here ›</a>
     </div>
 </div>
 <div class="b-card b-features" ng-class="{'desktop': desktop}">
@@ -119,7 +119,7 @@
         <div class="b-map-nav clearfix">
             <ul class="select-city" ng-show="desktop" ng-if="citiesList.length > 1">
                 <li ng-repeat="c in citiesList">
-                    <a href="" ng-class="{'active': campaign && campaign.shortCode === c.shortCode || !campaign && c.shortCode === 'B'}" ng-click="changeCity(c)">
+                    <a href="" ng-class="{'active': currentCity && currentCity.shortCode === c.shortCode || !currentCity && c.shortCode === 'B'}" ng-click="changeCity(c.id)">
                         {{c.defaultName}}
                     </a>
                 </li>
@@ -128,29 +128,29 @@
                 <li ng-show="mobile" ng-if="citiesList.length > 1">
                     <div class="third">
                         <select chosen width="'100%'" class="third"
-                        ng-model="campaign" ng-change="changeCity(campaign)"
+                        ng-model="currentCityId" ng-change="changeCity(currentCityId)"
                         data-placeholder="{{'City'|translate}}"
                         disable-search="true"
-                        ng-options="c as c.defaultName for c in citiesList">
+                        ng-options="c.id as c.defaultName for c in citiesList">
                         <option value="" ng-if="desktop"></option>
                     </select>
                 </div>
             </li>
-            <li><a ng-class="{'active': tab === 'map'}" ng-show="campaign.active;" class="tab-nav-map" ng-click="tab = 'map'" href="" translate>Map of studios</a></li><li>
-                <a ng-class="{'active': tab === 'list'}" ng-show="campaign.active;" class="tab-nav-list" href="" ng-click="tab = 'list'" translate>List of studios</a></li>
+            <li><a ng-class="{'active': tab === 'map'}" ng-show="currentCity.active;" class="tab-nav-map" ng-click="tab = 'map'" href="" translate>Map of studios</a></li><li>
+                <a ng-class="{'active': tab === 'list'}" ng-show="currentCity.active;" class="tab-nav-list" href="" ng-click="tab = 'list'" translate>List of studios</a></li>
             </ul>
         </div>
 
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="campaign.active && tab === 'map'">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="currentCity.active && tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
                     <p class="info-window" ng-non-bindable>{{name}}</p>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
-        <div class="static-map" ng-if="!campaign.active">
-            <img ng-src="//maps.googleapis.com/maps/api/staticmap?center={{campaign.defaultName}}&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true" alt=""/>
-            <div class="overlay"><h2 translate>Launching {{campaign.startDate | amDateFormat: 'DD.MM.YY'}}</h2></div>
+        <div class="static-map" ng-if="!currentCity.active">
+            <img ng-src="//maps.googleapis.com/maps/api/staticmap?center={{currentCity.defaultName}}&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true" alt=""/>
+            <div class="overlay"><h2 translate>Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}</h2></div>
         </div>
         <div ng-if="tab === 'list'">
             <ul class="b-studios-list">
@@ -165,7 +165,7 @@
     </div>
     <!--<div ng-show="tab === 'classes'" ui-view></div>-->
 </div>
-<div class="b-card b-price" ng-if="campaign.showPlansOnHomepage">
+<div class="b-card b-price" ng-if="currentCity.showPlansOnHomepage">
     <div class="container">
         <h2 translate>Live a healthy and fulfilled life</h2>
         <p class="subtitle" translate>Order your card – and set your life in motion.</p>

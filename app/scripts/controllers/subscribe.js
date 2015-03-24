@@ -8,13 +8,29 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Subscribe', [])
-    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', function ($scope, $rootScope, $window, $http) {
+    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', 'CityFactory', function ($scope, $rootScope, $window, $http, CityFactory) {
+
+        $scope.getCurentCity = function() {
+            CityFactory.getCities().then(function(res) {
+				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
+					return c.countryCode === $rootScope.countryCode;
+				});
+                $scope.currentCity = $scope.citiesList[0];
+			});
+            $scope.$on('CityFactory.update', function(newState) {
+                var currentCityVar = CityFactory.getVariable();
+                $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
+            });
+        }
+
+        $scope.getCurentCity();
+
 
         $scope.subscribe = function() {
             $scope.loadingUpdate = true;
-            $scope.successUpdate = false; 
+            $scope.successUpdate = false;
             $scope.errorUpdate = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, newsletter: true, lang: $rootScope.lang }).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, newsletter: true, lang: $rootScope.lang, cityId: $scope.currentCity.id }).success(function () {
                 $scope.loadingUpdate = false;
                 $scope.successUpdate = true;
                 $scope.email = '';
@@ -38,7 +54,7 @@ angular.module('boltApp.controllers.Subscribe', [])
                         google_conversion_label: 'GgJECOPfhgsQ_caEzgM',
                         google_remarketing_only: false
                     });
-                });                
+                });
             }).error(function (response, status) {
                 $scope.loadingUpdate = false;
                 $scope.errorUpdate = true;
