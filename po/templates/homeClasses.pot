@@ -4,26 +4,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/homeClasses.html:15
-msgid "Disziplin"
-msgstr ""
-
-#: app/views/homeClasses.html:37
-msgid "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück"
-msgstr ""
-
 #: app/views/homeClasses.html:14
-msgid "Kurs"
+msgid "Course"
+msgstr ""
+
+#: app/views/homeClasses.html:15
+msgid "Discipline"
 msgstr ""
 
 #: app/views/homeClasses.html:17
-msgid "Stadtteil"
+msgid "District"
 msgstr ""
 
 #: app/views/homeClasses.html:16
 msgid "Studio"
 msgstr ""
 
+#: app/views/homeClasses.html:37
+msgid "There are no courses available for this day and this search. Try another date or reset the filters."
+msgstr ""
+
 #: app/views/homeClasses.html:13
-msgid "Zeit"
+msgid "Time"
 msgstr ""

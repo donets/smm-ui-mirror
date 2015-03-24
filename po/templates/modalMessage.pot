@@ -8,30 +8,30 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: app/views/modalMessage.html:18
-msgid "Danke, Deine Nachricht wurde an Somuchmore versendet!"
-msgstr ""
-
-#: app/views/modalMessage.html:8
-msgid "Dein Name"
-msgstr ""
-
-#: app/views/modalMessage.html:9
-msgid "Deine E-Mail-Adresse"
-msgstr ""
-
 #: app/views/modalMessage.html:6
-msgid "Nachricht an Somuchmore"
+msgid "Message Somuchmore"
 msgstr ""
 
 #: app/views/modalMessage.html:19
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: app/views/modalMessage.html:11
-msgid "Senden"
+msgid "Send"
 msgstr ""
 
 #: app/views/modalMessage.html:14
-msgid "Sorry your message not delivered. Please try later."
+msgid "Sorry, your message was not delivered. Please try again later."
+msgstr ""
+
+#: app/views/modalMessage.html:18
+msgid "Thank you, your message has been sent to Somuchmore!"
+msgstr ""
+
+#: app/views/modalMessage.html:9
+msgid "Your Email Address"
+msgstr ""
+
+#: app/views/modalMessage.html:8
+msgid "Your Name"
 msgstr ""

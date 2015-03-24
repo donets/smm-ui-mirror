@@ -5,9 +5,9 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: app/views/modalAttend.html:3
-msgid "Infos zum Kurs:"
+msgid "Details about the class:"
 msgstr ""
 
 #: app/views/modalAttend.html:7
-msgid "Ok"
+msgid "OK"
 msgstr ""

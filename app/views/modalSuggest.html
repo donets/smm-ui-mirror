@@ -3,16 +3,16 @@
     <button ng-click="close()" class="modal-close" type="button">
         <span class="sr-only" translate>Close</span>
     </button>
-    <h2 translate>Schlag ein Studio vor:</h2>
+    <h2 translate>Refer a studio:</h2>
     <form name="studioForm" class="studios-submit" ng-submit="addStudio()">
-        <input type="text" name="studio" ng-model="suggest.studioName" placeholder="{{'Name des Studios'|translate}}" required/>
-        <input type="text" name="name" ng-model="suggest.userName" placeholder="{{'Dein Name (Optional)'|translate}}"/>
-        <input type="email" name="email" ng-model="suggest.userEmail" placeholder="{{'Deine E-Mail-Adresse'|translate}}" required/>
-        <input type="submit" value="{{'Vorschlagen'|translate}}" ng-disabled="loadingStudio || studioForm.$invalid" />
+        <input type="text" name="studio" ng-model="suggest.studioName" placeholder="{{'Name of the studio'|translate}}" required/>
+        <input type="text" name="name" ng-model="suggest.userName" placeholder="{{'Your Name (Optional)'|translate}}"/>
+        <input type="email" name="email" ng-model="suggest.userEmail" placeholder="{{'Your Email Address'|translate}}" required/>
+        <input type="submit" value="{{'Refer'|translate}}" ng-disabled="loadingStudio || studioForm.$invalid" />
         <div class="form-response">
             <div ng-show="loadingStudio" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-            <div ng-show="successStudio" class="form-message form-success" translate>Danke!</div>
-            <div ng-show="errorStudio" class="form-message form-error" translate>Sorry your message not delivered. Please try later.</div>
+            <div ng-show="successStudio" class="form-message form-success" translate>Thank you!</div>
+            <div ng-show="errorStudio" class="form-message form-error" translate>Sorry, your message was not delivered. Please try again later.</div>
         </div>
     </form>
 </div>

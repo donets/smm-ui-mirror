@@ -1,7 +1,7 @@
 <div class="dashboard-title">
     <div class="container">
-        <h1 translate>Finde einen Kurs</h1>
-        <p class="subtitle" translate>Heute {{today | amDateFormat: 'dd DD.MM.'}}</p>
+        <h1 translate>Find a course</h1>
+        <p class="subtitle" translate>Today {{today | amDateFormat: 'dd DD.MM.'}}</p>
         <ul class="weekdays">
             <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
@@ -13,7 +13,7 @@
             <select chosen
                     id="discipline"
                     ng-model="search.class.discipline"
-                    data-placeholder="{{'Alle Disziplinen'|translate}}"
+                    data-placeholder="{{'All Disciplines'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item for item in disciplines | orderBy: 'toString()'">
@@ -22,7 +22,7 @@
             <select chosen
                     id="style"
                     ng-model="search.class.style"
-                    data-placeholder="{{'Alle Stile'|translate}}"
+                    data-placeholder="{{'All Styles'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item for item in styles | orderBy: 'toString()'">
@@ -30,7 +30,7 @@
             </select>
             <select chosen name="city"
                     ng-model="cityId" ng-change="cityChange()"
-                    data-placeholder="{{'Stadt'|translate}}"
+                    data-placeholder="{{'City'|translate}}"
                     ng-options-disabled="!item.active for item in cities"
                     ng-options="item.id as item.defaultName for item in cities">
                 <option value="" ng-show="desktop"></option>
@@ -50,11 +50,11 @@
                     translate-fn="trans"
                     translate-range-fn="transRange">
             </slider>
-            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="{{'Alle Kurse'|translate}}"/></div>
+            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="{{'All Courses'|translate}}"/></div>
             <select chosen
                     id="neigbourhood"
                     ng-model="search.class.location"
-                    data-placeholder="{{'Alle Stadtteile'|translate}}"
+                    data-placeholder="{{'All Districts'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
@@ -63,7 +63,7 @@
             <select chosen
                     id="studio"
                     ng-model="search.class.studioId"
-                    data-placeholder="{{'Alle Studios'|translate}}"
+                    data-placeholder="{{'All Studios'|translate}}"
                     disable-search="false"
                     allow-single-deselect="true"
                     ng-options="item.id as item.name for item in studios | orderBy: 'name'">
@@ -72,26 +72,26 @@
             <select chosen
                     id="level"
                     ng-model="search.class.levels"
-                    data-placeholder="{{'Alle Levels'|translate}}"
+                    data-placeholder="{{'All Levels'|translate}}"
                     disable-search="true"
                     allow-single-deselect="true"
                     ng-options="item.id as item.text for item in levels">
                 <option value=""></option>
             </select>
-            <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="{{'Alle Lehrer'|translate}}"/></div>
-            <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
+            <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="{{'All Teachers'|translate}}"/></div>
+            <a class="clear-button" href="" ng-click="clearFilters()" translate>Reset filters</a>
         </div>
         <div class="w-right b-classes-list">
             <table class="timetable user-classes">
                 <thead>
                     <tr>
-                        <th translate>Zeit</th>
-                        <th translate>Kurs</th>
-                        <th translate>Disziplinen</th>
-                        <th translate>Stile</th>
-                        <th translate>Lehrer</th>
+                        <th translate>Time</th>
+                        <th translate>Course</th>
+                        <th translate>Disciplines</th>
+                        <th translate>Styles</th>
+                        <th translate>Teacher</th>
                         <th translate>Studio</th>
-                        <th translate>Stadtteil</th>
+                        <th translate>District</th>
                         <!--<th></th>-->
                     </tr>
                 </thead>
@@ -135,7 +135,7 @@
                         | dataFilter: 'class.location': search.class.location
                         | dataFilter: 'class.studioId': search.class.studioId
                         | dataFilter: 'class.levels': search.class.levels).length">
-                        <td class="empty" colspan="7" translate>Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem anderen Datum oder setze die Filter zurück</td>
+                        <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
                     </tr>
                 </tbody>
             </table>
@@ -146,9 +146,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body ng-scope">
-                    <h2 translate>Danke für Deine Anmeldung!</h2>
-                    <p translate>Ab sofort findest Du hier die Kurse aller unserer Partner-Studios - und kannst mit Deinem Training sofort beginnen (bis Du Deine Karte erhältst, lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im Studio vor). Viel Spaß!</p>
-                    <button class="form-button" ng-click="hidePopap()" translate>Weiter zu den Kursen</button>
+                    <h2 translate>Thank you for your registration!</h2>
+                    <p translate>From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!</p>
+                    <button class="form-button" ng-class="{'en': lang === 'en'}" ng-click="hidePopap()" translate>Continue to the courses</button>
                 </div>
             </div>
         </div>
