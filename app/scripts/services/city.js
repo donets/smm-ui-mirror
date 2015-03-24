@@ -17,6 +17,7 @@ angular.module('boltApp.services.city', [])
 			};
 
 			var update = function(newState) {
+				$cookieStore.put('cityId', newState.id);
 				rootCity = newState;
 				broadcast(rootCity);
 			};
@@ -93,7 +94,7 @@ angular.module('boltApp.services.city', [])
 					returnObject.cards = res[1];
 					deferred.resolve(returnObject);
 				});
-				
+
 				mapStudios.create(currentCity);
 				return deferred.promise;
 

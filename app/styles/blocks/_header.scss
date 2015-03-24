@@ -600,6 +600,7 @@ li.b-header-nav_city-select {
         position: relative;
         vertical-align: top;
         margin: -5px 0 0 0;
+
         &.chosen-with-drop {
             background: rgba(0, 0, 0, 0.5);
         }
@@ -677,9 +678,10 @@ li.b-header-nav_city-select {
             width: auto;
         }
         .chosen-container {
+            margin: 0;
             .chosen-single {
                 span {
-                    margin-right: 30px;
+                    margin-right: 40px;
                 }
                 div {
                     width: 40px;
@@ -693,9 +695,10 @@ li.b-header-nav_city-select {
     @media (max-width: $containerMobileWidth640) {
         .chosen-container {
             .chosen-single {
+                margin-top: -19px;
                 span {
                     font-size: 32px;
-                    margin-right: 15px;
+                    margin-right: 20px;
                 }
                 div {
                     b {
