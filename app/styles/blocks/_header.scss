@@ -208,7 +208,12 @@
             }
         }
         @extend %select-menu;
-
+        &.popap {
+            > a {
+                background: getRgba(#000, 0.8);
+                border: getRgba(#000, 0.8);
+            }
+        }
         > a {
             display: inline-block;
             font-size: 16px;
@@ -221,7 +226,7 @@
                 &.login-link {
                     color: $colorLightGrey;
                     &:hover {
-                        background: getRgba($colorLightGrey, 0.5);
+                        background: getRgba(#000, 0.3);
                     }
                 }
             }

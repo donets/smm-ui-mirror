@@ -696,6 +696,41 @@ padding: 0 20px;
 	background: #fff;
 	z-index: 10;
 }
+
+.b-main-slogan-nav {
+	@include my-resetList();
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 15px;
+	font-family: $fontRegular;
+}
+
+.b-main-slogan-nav_city-select {
+	> a {
+		font-size: 62px;
+		font-family: $fontBold;
+		letter-spacing: 0;
+		color: #fff;
+		text-transform: uppercase;
+		line-height: 80px;
+		text-shadow: 0 1px 1px rgba(27,23,26,.75);
+		padding-right: 40px;
+	}
+
+}
+
+.b-main-slogan-nav_city-widget {
+	@extend .b-header-nav_login-widget;
+	width: 100%;
+	ul {
+		@include my-resetList();
+		li {
+			text-align: left;
+		}
+	}
+}
+
 .b-media {
 	background: $colorBackTimetable;
 	padding: 50px 0;
