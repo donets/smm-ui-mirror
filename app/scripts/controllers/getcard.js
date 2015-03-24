@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
