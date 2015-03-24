@@ -414,12 +414,6 @@ angular.module('boltApp')
                 controller : 'GetcardCtrl',
                 resolve: {
 
-                    getCities: function(RestApi) {
-
-                        return RestApi.query({route: 'cities'}).$promise;
-
-                    },
-
                     getDisciplines: function($http) {
 
                         return $http.get('json/disciplines.json', {cache: true});
