@@ -593,14 +593,21 @@ li.b-header-nav_city-select {
     .chosen-container {
         background: none;
         position: relative;
+        vertical-align: top;
+        margin: -5px 0 0 0;
         &.chosen-with-drop {
-            background: rgba(0, 0, 0, .75);
+            background: rgba(0, 0, 0, 0.5);
         }
         a {
             border: 0;
             color: #fff;
+            span {
+                margin-left: 10px;
+                padding: 5px 0 0;
+            }
             div {
                 b {
+                    height: 12px;
                     color: #fff;
                 }
             }
