@@ -199,7 +199,7 @@ angular.module('boltApp.controllers.Profile', [])
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
                         $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
-                    })
+                    });
                 });
         };
 
@@ -258,7 +258,7 @@ angular.module('boltApp.controllers.Profile', [])
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
                         $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
-                    })
+                    });
                 });
         };
 
@@ -322,7 +322,7 @@ angular.module('boltApp.controllers.Profile', [])
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
                         $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
-                    })
+                    });
                 });
         };
 
@@ -374,7 +374,7 @@ angular.module('boltApp.controllers.Profile', [])
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
                         $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
-                    })
+                    });
                 });
         };
 
