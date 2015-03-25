@@ -4,72 +4,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/_loginForm.html:57
-msgid "Abmelden"
-msgstr ""
-
-#: app/views/_loginForm.html:51
+#: app/views/_loginForm.html:69
 msgid "Account"
 msgstr ""
 
-#: app/views/_loginForm.html:43
+#: app/views/_loginForm.html:59
 msgid "Back to login"
 msgstr ""
 
-#: app/views/_loginForm.html:53
+#: app/views/_loginForm.html:68
+#: app/views/_loginForm.html:71
 msgid "Classes"
 msgstr ""
 
-#: app/views/_loginForm.html:42
-msgid "Dein Passwort vergessen?"
+#: app/views/_loginForm.html:31
+#: app/views/_loginForm.html:46
+msgid "Email Address"
 msgstr ""
 
-#: app/views/_loginForm.html:37
-msgid "Die Email Adresse wurde nicht gefunden"
+#: app/views/_loginForm.html:58
+msgid "Forgot password?"
 msgstr ""
 
-#: app/views/_loginForm.html:36
-msgid "E-Mail zum Zurücksetzen gesendet"
+#: app/views/_loginForm.html:40
+msgid "Incorrect email address or password"
 msgstr ""
 
-#: app/views/_loginForm.html:15
-#: app/views/_loginForm.html:30
-msgid "E-Mail-Adresse"
-msgstr ""
-
-#: app/views/_loginForm.html:24
-msgid "Falsche E-Mail oder Passwort"
-msgstr ""
-
-#: app/views/_loginForm.html:50
-msgid "Kurse"
-msgstr ""
-
-#: app/views/_loginForm.html:54
+#: app/views/_loginForm.html:72
 msgid "Locations"
 msgstr ""
 
 #: app/views/_loginForm.html:21
-#: app/views/_loginForm.html:5
+#: app/views/_loginForm.html:37
 msgid "Login"
 msgstr ""
 
-#: app/views/_loginForm.html:52
-msgid "Meine Karte"
+#: app/views/_loginForm.html:75
+msgid "Memberships"
 msgstr ""
 
-#: app/views/_loginForm.html:18
-msgid "Passwort"
+#: app/views/_loginForm.html:3
+msgid "Monat"
 msgstr ""
 
-#: app/views/_loginForm.html:33
-msgid "Reset Password"
+#: app/views/_loginForm.html:70
+msgid "My card"
 msgstr ""
 
-#: app/views/_loginForm.html:55
+#: app/views/_loginForm.html:34
+msgid "Password"
+msgstr ""
+
+#: app/views/_loginForm.html:49
+msgid "Reset password"
+msgstr ""
+
+#: app/views/_loginForm.html:76
+msgid "Sign out"
+msgstr ""
+
+#: app/views/_loginForm.html:73
 msgid "Studios"
 msgstr ""
 
-#: app/views/_loginForm.html:56
+#: app/views/_loginForm.html:74
 msgid "Vouchers"
+msgstr ""
+
+#: app/views/_loginForm.html:52
+msgid "You have been sent a reset email"
+msgstr ""
+
+#: app/views/_loginForm.html:53
+msgid "Your email address was not found"
 msgstr ""

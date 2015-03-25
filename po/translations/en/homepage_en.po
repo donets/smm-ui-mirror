@@ -141,13 +141,6 @@ msgstr "Simply try it out"
 
 #: app/views/homepage.html:17
 msgid ""
-<<<<<<< HEAD:po/translations/homepage_eng_PH.po
-"Entdecke <b>{{currentCity.amountCourses}} Kurse</b> in <b>{{currentCity.amountStudios}} {{currentCity."
-"termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
-msgstr ""
-"Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity."
-"termForStudios}}</b> with <b>1 membership</b>."
-=======
 "Discover <b>{{currentCity.amountCourses}} courses</b> in "
 "<b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 "
 "membership</b>."
@@ -155,7 +148,6 @@ msgstr ""
 "Discover <b>{{currentCity.amountCourses}} courses</b> in "
 "<b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 "
 "membership</b>."
->>>>>>> origin/master:po/translations/en/homepage_en.po
 
 #: app/views/homepage.html:16 app/views/homepage.html:18
 msgid ""
@@ -312,13 +304,8 @@ msgid "City"
 msgstr "City"
 
 #: app/views/homepage.html:148
-<<<<<<< HEAD:po/translations/homepage_eng_PH.po
-msgid "Start am {{currentCity.startDate | amDateFormat: 'DD.MM'}}!"
-msgstr "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
-=======
 msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
 msgstr "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
->>>>>>> origin/master:po/translations/en/homepage_en.po
 
 #: app/views/homepage.html:159
 msgid "Refer a studio"
@@ -379,13 +366,8 @@ msgid "Visit classes as often as you want."
 msgstr "Visit classes as often as you want."
 
 #: app/views/homepage.html:15
-<<<<<<< HEAD:po/translations/homepage_eng_PH.po
-msgid "{{currentCity.defaultName}} IST DEIN STUDIO"
-msgstr "{{currentCity.defaultName}} IS YOUR STUDIO"
-=======
 msgid "{{currentCity.defaultName}} IS YOUR STUDIO"
 msgstr "{{currentCity.defaultName}} IS YOUR STUDIO"
->>>>>>> origin/master:po/translations/en/homepage_en.po
 
 #: app/views/homepage.html:113
 msgid "The finest studios all over the city are awaiting you."

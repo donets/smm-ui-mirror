@@ -4,180 +4,201 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/homepage.html:81
+#: app/views/homepage.html:99
 msgid "(14 day trial. Money back guarantee )"
 msgstr ""
 
-#: app/views/homepage.html:86
+#: app/views/homepage.html:104
 msgid "(No minimum membership term. No binding monthly clause. And no cancellation or freeze fee)"
 msgstr ""
 
-#: app/views/homepage.html:91
+#: app/views/homepage.html:109
 msgid "(No sign up fee. No cancellation fee. Just the freedom to go to unlimited classes all over the city, whenever you want)"
 msgstr ""
 
-#: app/views/homepage.html:233
+#: app/views/homepage.html:251
 msgid "1. Order your card"
 msgstr ""
 
-#: app/views/homepage.html:64
+#: app/views/homepage.html:82
 msgid "14 day free trial"
 msgstr ""
 
-#: app/views/homepage.html:238
+#: app/views/homepage.html:256
 msgid "2. Book your class"
 msgstr ""
 
-#: app/views/homepage.html:243
+#: app/views/homepage.html:261
 msgid "3. Get moving"
 msgstr ""
 
-#: app/views/homepage.html:277
-#: app/views/homepage.html:294
+#: app/views/homepage.html:15
+msgid ""
+"<select auto-width-select=\"\" chosen=\"\" ng-model=\"currentCityId\" data-placeholder=\"{{'Monat'|translate}}\" disable-search=\"true\" ng-options=\"c.id as c.defaultName for c in citiesList\" ng-change=\"changeCity(currentCityId)\" width=\"'auto'\">\n"
+"            <option value=\"\" ng-if=\"desktop\"></option>\n"
+"        </select>\n"
+"        <!-- <ul class=\"b-main-slogan-nav\">\n"
+"            <li class=\"b-main-slogan-nav_city-select\" ng-class=\"{ 'popap': isPopupVisible }\" toggle-popup>\n"
+"                <a href=\"\" ng-click=\"togglePopup()\">\n"
+"                    <span>{{currentCity.defaultName}}</span>\n"
+"                <div ng-if=\"isPopupVisible\" class=\"b-main-slogan-nav_city-widget\">\n"
+"                    <ul ng-click=\"togglePopup()\">\n"
+"                        <li ng-repeat=\"c in citiesList\">\n"
+"                            <a href=\"\" ng-click=\"changeCity(c.id);\">{{c.defaultName}}</a>\n"
+"                        </li>\n"
+"                    </ul>\n"
+"                </div>\n"
+"            </li>\n"
+"        </ul> -->\n"
+"        <span id=\"width_tmp\"></span>\n"
+"        IS YOUR STUDIO"
+msgstr ""
+
+#: app/views/homepage.html:295
+#: app/views/homepage.html:312
 msgid "A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio."
 msgstr ""
 
-#: app/views/homepage.html:360
+#: app/views/homepage.html:378
 msgid "Anymore questions? Read our FAQ here ›"
 msgstr ""
 
-#: app/views/homepage.html:193
-#: app/views/homepage.html:221
+#: app/views/homepage.html:211
+#: app/views/homepage.html:239
 msgid "Anytime"
 msgstr ""
 
-#: app/views/homepage.html:365
+#: app/views/homepage.html:383
+#: app/views/homepage.html:396
 msgid "Are you a studio, coach or nutritionist? Do you want to work with us?"
 msgstr ""
 
-#: app/views/homepage.html:100
+#: app/views/homepage.html:118
 msgid "Be inspired"
 msgstr ""
 
-#: app/views/homepage.html:96
+#: app/views/homepage.html:114
 msgid "Break free"
 msgstr ""
 
-#: app/views/homepage.html:177
-#: app/views/homepage.html:220
+#: app/views/homepage.html:195
+#: app/views/homepage.html:238
 msgid "Cancel / Freeze"
 msgstr ""
 
-#: app/views/homepage.html:101
+#: app/views/homepage.html:119
 msgid "Chose from thousands of classes. Workout when you want. Wherever you want."
 msgstr ""
 
-#: app/views/homepage.html:127
+#: app/views/homepage.html:145
 msgid "City"
 msgstr ""
 
-#: app/views/homepage.html:26
-#: app/views/homepage.html:49
+#: app/views/homepage.html:44
+#: app/views/homepage.html:67
 msgid "Congrats, you are on the list!"
 msgstr ""
 
-#: app/views/homepage.html:369
+#: app/views/homepage.html:387
+#: app/views/homepage.html:400
 msgid "Contact me"
 msgstr ""
 
-#: app/views/homepage.html:175
-#: app/views/homepage.html:212
+#: app/views/homepage.html:193
+#: app/views/homepage.html:230
 msgid "Courses per month"
 msgstr ""
 
-#: app/views/homepage.html:176
-#: app/views/homepage.html:216
+#: app/views/homepage.html:194
+#: app/views/homepage.html:234
 msgid "Courses per provider / month"
 msgstr ""
 
-#: app/views/homepage.html:105
+#: app/views/homepage.html:123
 msgid "Create your personal workout plan. Spice up your routine. Stay motivated."
 msgstr ""
 
-#: app/views/homepage.html:17
-<<<<<<< HEAD
-msgid "Entdecke <b>{{currentCity.amountCourses}} Kurse</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
-=======
+#: app/views/homepage.html:35
 msgid "Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>."
->>>>>>> origin/master
 msgstr ""
 
-#: app/views/homepage.html:16
-#: app/views/homepage.html:18
+#: app/views/homepage.html:34
+#: app/views/homepage.html:36
 msgid "Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card."
 msgstr ""
 
-#: app/views/homepage.html:338
+#: app/views/homepage.html:356
 msgid "Do I have to book <br> my classes in advance?"
 msgstr ""
 
-#: app/views/homepage.html:353
+#: app/views/homepage.html:371
 msgid "Do I have to book my classes in advance?"
 msgstr ""
 
-#: app/views/homepage.html:21
-#: app/views/homepage.html:367
-#: app/views/homepage.html:44
+#: app/views/homepage.html:385
+#: app/views/homepage.html:39
+#: app/views/homepage.html:398
+#: app/views/homepage.html:62
 msgid "Email Address"
 msgstr ""
 
-#: app/views/homepage.html:171
+#: app/views/homepage.html:189
 msgid "Enjoy your <br>free<br> 14 day trial!"
 msgstr ""
 
-#: app/views/homepage.html:41
+#: app/views/homepage.html:59
 msgid "Enjoy your <u>free</u> 14 day trial!"
 msgstr ""
 
-#: app/views/homepage.html:71
+#: app/views/homepage.html:89
 msgid "Feel it all. Explore it all. With just one card."
 msgstr ""
 
-#: app/views/homepage.html:104
+#: app/views/homepage.html:122
 msgid "Feel the burn"
 msgstr ""
 
-#: app/views/homepage.html:239
+#: app/views/homepage.html:257
 msgid "Find your class in seconds using our online calendar."
 msgstr ""
 
-#: app/views/homepage.html:32
-#: app/views/homepage.html:55
-#: app/views/homepage.html:65
+#: app/views/homepage.html:50
+#: app/views/homepage.html:73
+#: app/views/homepage.html:83
 msgid "Get your card"
 msgstr ""
 
-#: app/views/homepage.html:23
-#: app/views/homepage.html:46
+#: app/views/homepage.html:41
+#: app/views/homepage.html:64
 msgid "Get your invitation"
 msgstr ""
 
-#: app/views/homepage.html:62
+#: app/views/homepage.html:80
 msgid "Get your invitation today"
 msgstr ""
 
-#: app/views/homepage.html:341
+#: app/views/homepage.html:359
 msgid "How do I cancel or freeze <br> my membership?"
 msgstr ""
 
-#: app/views/homepage.html:356
+#: app/views/homepage.html:374
 msgid "How do I cancel or freeze my membership?"
 msgstr ""
 
-#: app/views/homepage.html:90
+#: app/views/homepage.html:108
 msgid "Huge savings"
 msgstr ""
 
-#: app/views/homepage.html:335
-#: app/views/homepage.html:350
+#: app/views/homepage.html:353
+#: app/views/homepage.html:368
 msgid "Is my card valid everywhere?"
 msgstr ""
 
-#: app/views/homepage.html:234
+#: app/views/homepage.html:252
 msgid "It takes less than 90 seconds. You can start right away."
 msgstr ""
 
-#: app/views/homepage.html:229
+#: app/views/homepage.html:247
 msgid "It’s so simple!"
 msgstr ""
 
@@ -185,162 +206,155 @@ msgstr ""
 msgid "LONDON IS YOUR STUDIO"
 msgstr ""
 
-#: app/views/homepage.html:148
+#: app/views/homepage.html:166
 msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
 msgstr ""
 
-#: app/views/homepage.html:72
+#: app/views/homepage.html:90
 msgid "Learn more about the offer here ›"
 msgstr ""
 
-#: app/views/homepage.html:135
+#: app/views/homepage.html:153
 msgid "List of studios"
 msgstr ""
 
-#: app/views/homepage.html:165
+#: app/views/homepage.html:183
 msgid "Live a healthy and fulfilled life"
 msgstr ""
 
-#: app/views/homepage.html:112
+#: app/views/homepage.html:130
 msgid "London is calling"
 msgstr ""
 
-#: app/views/homepage.html:134
+#: app/views/homepage.html:152
 msgid "Map of studios"
 msgstr ""
 
-#: app/views/homepage.html:281
 #: app/views/homepage.html:299
+#: app/views/homepage.html:317
 msgid "Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore"
 msgstr ""
 
-#: app/views/homepage.html:273
-#: app/views/homepage.html:289
+#: app/views/homepage.html:291
+#: app/views/homepage.html:307
 msgid "Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth."
 msgstr ""
 
-#: app/views/homepage.html:85
+#: app/views/homepage.html:16
+msgid "Monat"
+msgstr ""
+
+#: app/views/homepage.html:103
 msgid "No obligation"
 msgstr ""
 
-#: app/views/homepage.html:69
+#: app/views/homepage.html:87
 msgid "One card. Unlimited classes."
 msgstr ""
 
-#: app/views/homepage.html:166
+#: app/views/homepage.html:184
 msgid "Order your card – and set your life in motion."
 msgstr ""
 
-#: app/views/homepage.html:333
-#: app/views/homepage.html:348
+#: app/views/homepage.html:351
+#: app/views/homepage.html:366
 msgid "Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios."
 msgstr ""
 
-#: app/views/homepage.html:368
+#: app/views/homepage.html:386
+#: app/views/homepage.html:399
 msgid "Phone Number"
 msgstr ""
 
-#: app/views/homepage.html:174
-#: app/views/homepage.html:204
+#: app/views/homepage.html:192
+#: app/views/homepage.html:222
 msgid "Price per month"
 msgstr ""
 
-#: app/views/homepage.html:159
+#: app/views/homepage.html:177
 msgid "Refer a studio"
 msgstr ""
 
-#: app/views/homepage.html:63
+#: app/views/homepage.html:81
 msgid "Register now for free"
 msgstr ""
 
-#: app/views/homepage.html:97
+#: app/views/homepage.html:115
 msgid "Say Goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything."
 msgstr ""
 
-<<<<<<< HEAD
-#: app/views/homepage.html:148
-msgid "Start am {{currentCity.startDate | amDateFormat: 'DD.MM'}}!"
-=======
-#: app/views/homepage.html:167
+#: app/views/homepage.html:185
 msgid "Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}"
->>>>>>> origin/master
 msgstr ""
 
-#: app/views/homepage.html:80
+#: app/views/homepage.html:98
 msgid "Simply try it out"
 msgstr ""
 
-#: app/views/homepage.html:329
+#: app/views/homepage.html:347
 msgid "Still have some more questions?"
 msgstr ""
 
-#: app/views/homepage.html:372
+#: app/views/homepage.html:390
+#: app/views/homepage.html:403
 msgid "Thank you!"
 msgstr ""
 
-#: app/views/homepage.html:27
-#: app/views/homepage.html:373
-#: app/views/homepage.html:50
+#: app/views/homepage.html:391
+#: app/views/homepage.html:404
+#: app/views/homepage.html:45
+#: app/views/homepage.html:68
 msgid "The email address is incorrect"
 msgstr ""
 
-#: app/views/homepage.html:113
+#: app/views/homepage.html:131
 msgid "The finest studios all over the city are awaiting you."
 msgstr ""
 
-#: app/views/homepage.html:244
+#: app/views/homepage.html:262
 msgid "Visit classes as often as you want."
 msgstr ""
 
-#: app/views/homepage.html:70
+#: app/views/homepage.html:88
 msgid "What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing your limits? <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Want to hit the dance floor? <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Strengthen your core and concentration? <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Learn more about <b>Nutrition</b> and <b>Health</b>? Or simply chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?"
 msgstr ""
 
-#: app/views/homepage.html:332
-#: app/views/homepage.html:347
+#: app/views/homepage.html:350
+#: app/views/homepage.html:365
 msgid "What can I do with my card?"
 msgstr ""
 
-#: app/views/homepage.html:339
-#: app/views/homepage.html:354
+#: app/views/homepage.html:357
+#: app/views/homepage.html:372
 msgid "Yes. Please always check our online calendar in advance."
 msgstr ""
 
-#: app/views/homepage.html:336
-#: app/views/homepage.html:351
+#: app/views/homepage.html:354
+#: app/views/homepage.html:369
 msgid "Yes. Your card is valid with all our partners."
 msgstr ""
 
-#: app/views/homepage.html:342
-#: app/views/homepage.html:357
+#: app/views/homepage.html:360
+#: app/views/homepage.html:375
 msgid "You can cancel on a monthly base. Or freeze your membership for a month or more."
 msgstr ""
 
-<<<<<<< HEAD
-#: app/views/homepage.html:15
-msgid "{{currentCity.defaultName}} IST DEIN STUDIO"
-=======
-#: app/views/homepage.html:22
-#: app/views/homepage.html:45
+#: app/views/homepage.html:40
+#: app/views/homepage.html:63
 msgid "ZIP"
->>>>>>> origin/master
 msgstr ""
 
-#: app/views/homepage.html:15
-msgid "{{currentCity.defaultName}} IS YOUR STUDIO"
-msgstr ""
-
-#: app/views/homepage.html:274
-#: app/views/homepage.html:290
+#: app/views/homepage.html:292
+#: app/views/homepage.html:308
 msgid "– Alexandra Liakou, director"
 msgstr ""
 
-#: app/views/homepage.html:278
-#: app/views/homepage.html:295
+#: app/views/homepage.html:296
+#: app/views/homepage.html:313
 msgid "– Konrad Knops, osteopath"
 msgstr ""
 
-#: app/views/homepage.html:283
 #: app/views/homepage.html:301
+#: app/views/homepage.html:319
 msgid "– Sonja Reifenhäuser, food coach"
 msgstr ""
