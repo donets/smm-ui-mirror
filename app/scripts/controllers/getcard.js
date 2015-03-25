@@ -67,7 +67,17 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.tab = 'map';
 
         $scope.invitation = $location.search().invitation;
-        $scope.discipline = $location.search().discipline;
+
+        var selectDiscipline = function() {
+            var locationDiscipline = $location.search().discipline;
+            var discipline = _.findWhere($scope.disciplinesList.disciplines, {name: locationDiscipline});
+            console.log($scope.disciplinesList);
+            if(discipline) {
+                $scope.discipline = discipline;
+            }
+        }
+
+        selectDiscipline();
 
         $cookieStore.put('landingUrl', $location.url());
 
