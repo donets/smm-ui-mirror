@@ -1,4 +1,4 @@
-<div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight }">
+<div class="b-main-cover" ng-style="{ 'height' : desktop && documentWidth / windowHeight < (1280/720) ? documentWidth / (1280/720) : windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
     vg-player-ready="video.onPlayerReady"
     vg-complete="video.onCompleteVideo"

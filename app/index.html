@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# somuchmore: http://ogp.me/ns/fb/somuchmore#">
@@ -114,8 +113,7 @@
         </div>
     </div>
     <div class="b-alert error" ng-if="rejection.show">
-        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'" translate>Unfortunately an error has occurred. Please contact our customer service team: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br>
-Error details: {{rejection.data.message}}</span>
+        <span ng-if="rejection.data.type && rejection.data.type !== 'AccessDenied'" translate>Unfortunately an error has occurred. Please contact our customer service team: <a href="mailto:kundenservice@somuchmore.org">kundenservice@somuchmore.org</a> <br>Error details: {{rejection.data.message}}</span>
         <span ng-if="rejection.data.type && rejection.data.type === 'AccessDenied'" translate>You are not authorised to access this page {{$state.href($state.current.name, $state.params, {absolute: true})}}</span>
         <span ng-if="!rejection.data.type && (rejection.status === 404 || rejection.status === 0)" translate>Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd+R for Mac) or click <a href="" ng-click="pageReload()">here</a> to try again.</span>
         <button ng-click="rejection.show = false" class="b-close" type="button">
