@@ -117,11 +117,11 @@ msgstr ""
 
 #: app/views/homepage.html:17
 msgid ""
-"Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign."
-"amountStudios}} {{campaign.termForStudios}}</b> with <b>1 membership</b>."
+"Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity."
+"amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>."
 msgstr ""
-"Entdecke <b>{{campaign.amountCourses}} Kurse</b> in <b>{{campaign."
-"amountStudios}} {{campaign.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
+"Entdecke <b>{{currentCity.amountCourses}} Kurse</b> in <b>{{currentCity."
+"amountStudios}} {{currentCity.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
 
 #: app/views/homepage.html:16 app/views/homepage.html:18
 msgid ""
@@ -210,8 +210,8 @@ msgid "LONDON IS YOUR STUDIO"
 msgstr "BERLIN IST DEIN STUDIO"
 
 #: app/views/homepage.html:148
-msgid "Launching {{campaign.startDate | amDateFormat: 'DD.MM.YY'}}"
-msgstr "Start am {{campaign.startDate | amDateFormat: 'DD.MM'}}!"
+msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
+msgstr "Start am {{currentCity.startDate | amDateFormat: 'DD.MM'}}!"
 
 #: app/views/homepage.html:72
 msgid "Learn more about the offer here ›"
@@ -382,8 +382,8 @@ msgid "ZIP"
 msgstr "PLZ"
 
 #: app/views/homepage.html:15
-msgid "{{campaign.defaultName}} IS YOUR STUDIO"
-msgstr "{{campaign.defaultName}} IST DEIN STUDIO"
+msgid "{{currentCity.defaultName}} IS YOUR STUDIO"
+msgstr "{{currentCity.defaultName}} IST DEIN STUDIO"
 
 #: app/views/homepage.html:274 app/views/homepage.html:290
 msgid "– Alexandra Liakou, director"

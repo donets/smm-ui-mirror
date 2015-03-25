@@ -306,6 +306,7 @@
     @extend %form-custom;
     padding: 60px 0;
     &.form-checkout {
+        margin-top: -400px;
         width: 100%;
         .w-left, .w-clear {
             width: 500px;
@@ -482,7 +483,7 @@
 .select-cards {
     display: flex;
     justify-content: space-between;
-    margin: 120px 0 100px;
+    margin: 120px 0 500px;
     @media (max-width: $containerMobileWidth) {
         display: block;
     }

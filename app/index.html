@@ -68,16 +68,6 @@
             opacity: 0;
         }
     </style>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-48122590-1', 'so-much-more.de');
-        ga('set', 'anonymizeIp', true);
-    </script>
     <script type="text/javascript">
         /* <![CDATA[ */
         var google_conversion_id = 968958845;
@@ -113,7 +103,7 @@
 
 </div>
 
-<div ng-cloak resizable ng-app="boltApp">
+<div ng-cloak resizable ng-app="boltApp" class="bolt-app">
     <div ng-controller="ConfirmationCtrl">
         <div class="b-alert info" ng-if="alert">
             <span translate>Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details.</span>
@@ -313,6 +303,8 @@ Error details: {{rejection.data.message}}</span>
 <script src="scripts/services/membership.js"></script>
 <script src="scripts/services/restapi.js"></script>
 <script src="scripts/services/user.js"></script>
+<script src="scripts/services/city.js"></script>
+<script src="scripts/services/mapStudios.js"></script>
 <script src="scripts/custom/helper.js"></script>
 <script src="scripts/custom/moment/de.js"></script>
 <script src="scripts/custom/moment/en.js"></script>
@@ -344,6 +336,7 @@ Error details: {{rejection.data.message}}</span>
 <script src="scripts/directives/togglePopup.js"></script>
 <script src="scripts/directives/ngConfirmClick.js"></script>
 <script src="scripts/directives/toggleList.js"></script>
+<script src="scripts/directives/autoWidthSelect.js"></script>
 <script src="scripts/directives/csvImport.js"></script>
 <!-- endbuild -->
 

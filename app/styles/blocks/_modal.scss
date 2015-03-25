@@ -372,6 +372,7 @@
             @extend %title-light;
             line-height: 1;
             margin: 0;
+            float: none;
             @media (max-width: $containerMobileWidth) {
                 margin-top: 80px;
             }
@@ -387,6 +388,9 @@
             min-width: 0;
             width: 250px;
             margin: 20px 0;
+            &.en {
+                width: 300px;
+            }
         }
     }
 }

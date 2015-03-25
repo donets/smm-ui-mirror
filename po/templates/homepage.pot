@@ -95,7 +95,11 @@ msgid "Create your personal workout plan. Spice up your routine. Stay motivated.
 msgstr ""
 
 #: app/views/homepage.html:17
-msgid "Discover <b>{{campaign.amountCourses}} courses</b> in <b>{{campaign.amountStudios}} {{campaign.termForStudios}}</b> with <b>1 membership</b>."
+<<<<<<< HEAD
+msgid "Entdecke <b>{{currentCity.amountCourses}} Kurse</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> mit <b>1 Mitgliedschaft</b>."
+=======
+msgid "Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>."
+>>>>>>> origin/master
 msgstr ""
 
 #: app/views/homepage.html:16
@@ -182,7 +186,7 @@ msgid "LONDON IS YOUR STUDIO"
 msgstr ""
 
 #: app/views/homepage.html:148
-msgid "Launching {{campaign.startDate | amDateFormat: 'DD.MM.YY'}}"
+msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
 msgstr ""
 
 #: app/views/homepage.html:72
@@ -253,8 +257,13 @@ msgstr ""
 msgid "Say Goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything."
 msgstr ""
 
+<<<<<<< HEAD
+#: app/views/homepage.html:148
+msgid "Start am {{currentCity.startDate | amDateFormat: 'DD.MM'}}!"
+=======
 #: app/views/homepage.html:167
 msgid "Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}"
+>>>>>>> origin/master
 msgstr ""
 
 #: app/views/homepage.html:80
@@ -307,13 +316,18 @@ msgstr ""
 msgid "You can cancel on a monthly base. Or freeze your membership for a month or more."
 msgstr ""
 
+<<<<<<< HEAD
+#: app/views/homepage.html:15
+msgid "{{currentCity.defaultName}} IST DEIN STUDIO"
+=======
 #: app/views/homepage.html:22
 #: app/views/homepage.html:45
 msgid "ZIP"
+>>>>>>> origin/master
 msgstr ""
 
 #: app/views/homepage.html:15
-msgid "{{campaign.defaultName}} IS YOUR STUDIO"
+msgid "{{currentCity.defaultName}} IS YOUR STUDIO"
 msgstr ""
 
 #: app/views/homepage.html:274

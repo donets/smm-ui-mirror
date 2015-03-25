@@ -2,25 +2,28 @@
 
 .home {
 	.b-main-cover {
-		@media (min-width: $containerMobileWidth) {
-			.b-main-slogan {
-				// background: url("/images/videoGrid.png") repeat center center;
-				background: rgba(0,0,0,0.4);
-			}
+		.b-main-slogan {
+			background: rgba(0,0,0,.4);
+			@extend %select-menu;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0,0,0,.6);
+			z-index: 0;
+		}
+
+		@media (max-width: $containerMobileWidth) {
+		}
+		@media (max-width: $containerMobileWidth640) {
 		}
 		@media (max-width: $containerMobileWidth) {
 			padding: 90px 10% 0;
 			height: 980px;
-			&:before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: rgba(0,0,0,0.6);
-				z-index: 0;
-			}
 		}
 		@media (max-width: $containerMobileWidth640) {
 			height: 480px;
@@ -74,9 +77,9 @@
 					margin-right: 8px;
 					&.zip {
 						width: 100px;
-                        &.wide {
-                          width: 125px;
-                        }
+						&.wide {
+							width: 125px;
+						}
 					}
 				}
 				@media (max-width: $containerMobileWidth) {
@@ -317,38 +320,38 @@
 	}
 }
 /*.b-advantages {
-	padding: 120px 0;
-	background: url("/images/berlin-2880.jpg") no-repeat center center;
-	@include background-size(cover);
-	@media (max-width: 1440px) {
-		background-image: url("/images/berlin-1440.jpg");
-	}
-	@media (max-width: $containerMobileWidth) {
-		padding: 60px 0;
-		background-image: url("/images/berlin-1080.jpg");
-	}
-	ul {
-		@include my-resetList();
-		@include display-flex;
-		@include flex-flow(row wrap);
-		@include justify-content(space-between);
-		li {
-			margin: 40px 0;
-			width: 400px;
-			color: #fff;
-			h3 {
-				font-family: $fontItalic;
-				font-style: italic;
-				font-size: 24px;
-				margin: 0 0 30px;
-				color: #fff;
-			}
-			p {
-				font-size: 18px;
-				padding: 0 20px;
-			}
-		}
-	}
+padding: 120px 0;
+background: url("/images/berlin-2880.jpg") no-repeat center center;
+@include background-size(cover);
+@media (max-width: 1440px) {
+background-image: url("/images/berlin-1440.jpg");
+}
+@media (max-width: $containerMobileWidth) {
+padding: 60px 0;
+background-image: url("/images/berlin-1080.jpg");
+}
+ul {
+@include my-resetList();
+@include display-flex;
+@include flex-flow(row wrap);
+@include justify-content(space-between);
+li {
+margin: 40px 0;
+width: 400px;
+color: #fff;
+h3 {
+font-family: $fontItalic;
+font-style: italic;
+font-size: 24px;
+margin: 0 0 30px;
+color: #fff;
+}
+p {
+font-size: 18px;
+padding: 0 20px;
+}
+}
+}
 }*/
 .b-testimonial {
 	.fb-like-box {
@@ -528,7 +531,7 @@
 		}
 		@media (min-width: $containerMobileWidth) {
 			position: absolute;
-            top: 0;
+			top: 0;
 			right: 0;
 		}
 		select {
@@ -693,6 +696,41 @@
 	background: #fff;
 	z-index: 10;
 }
+
+.b-main-slogan-nav {
+	@include my-resetList();
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 15px;
+	font-family: $fontRegular;
+}
+
+.b-main-slogan-nav_city-select {
+	> a {
+		font-size: 62px;
+		font-family: $fontBold;
+		letter-spacing: 0;
+		color: #fff;
+		text-transform: uppercase;
+		line-height: 80px;
+		text-shadow: 0 1px 1px rgba(27,23,26,.75);
+		padding-right: 40px;
+	}
+
+}
+
+.b-main-slogan-nav_city-widget {
+	@extend .b-header-nav_login-widget;
+	width: 100%;
+	ul {
+		@include my-resetList();
+		li {
+			text-align: left;
+		}
+	}
+}
+
 .b-media {
 	background: $colorBackTimetable;
 	padding: 50px 0;
@@ -834,39 +872,39 @@
 	@extend %carousel-mobile;
 }
 /*.b-advantages .b-card-carousel {
-	.carousel-inner > .item {
-		margin: 40px 0;
-		color: #fff;
-		height: 400px;
-		@media (max-width: $containerMobileWidth640) {
-			margin: 20px 0;
-			height: 200px;
-		}
-		h3 {
-			font-family: $fontItalic;
-			font-style: italic;
-			font-size: 32px;
-			margin: 0 0 60px;
-			color: #fff;
-			@media (max-width: $containerMobileWidth640) {
-				font-size: 18px;
-				margin: 0 0 30px;
-			}
-		}
-		p {
-			font-size: 30px;
-			padding: 0 20px;
-			@media (max-width: $containerMobileWidth640) {
-				font-size: 15px;
-			}
-		}
-	}
-	.carousel-indicators li {
-		background-color: getRgba(#fff, 0.3);
-	}
-	.carousel-indicators .active {
-		background-color: #fff;
-	}
+.carousel-inner > .item {
+margin: 40px 0;
+color: #fff;
+height: 400px;
+@media (max-width: $containerMobileWidth640) {
+margin: 20px 0;
+height: 200px;
+}
+h3 {
+font-family: $fontItalic;
+font-style: italic;
+font-size: 32px;
+margin: 0 0 60px;
+color: #fff;
+@media (max-width: $containerMobileWidth640) {
+font-size: 18px;
+margin: 0 0 30px;
+}
+}
+p {
+font-size: 30px;
+padding: 0 20px;
+@media (max-width: $containerMobileWidth640) {
+font-size: 15px;
+}
+}
+}
+.carousel-indicators li {
+background-color: getRgba(#fff, 0.3);
+}
+.carousel-indicators .active {
+background-color: #fff;
+}
 }*/
 .b-faq .b-card-carousel {
 	.carousel-inner > .item {
@@ -909,4 +947,8 @@
 		right: 10px;
 		top: 25px;
 	}
+}
+
+#width_tmp {
+	display: none;
 }

@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $timeout, getCities, getCityId, RestApi, gettextCatalog) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog) {
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
@@ -157,9 +157,9 @@ angular.module('boltApp.controllers.Signup', [])
 
                 $scope.showSpinner = false;
                 $scope.showCards = true;
-                $timeout(function () {
-                    $document.scrollToElementAnimated($('#step2'), 90, 800);
-                }, 0);
+                $interval(function () {
+                    $document.scrollToElementAnimated($('#step2'), 260, 800);
+                }, 0, 1, {invokeApply: false});
 
             }).error(function (response) {
 
@@ -176,9 +176,9 @@ angular.module('boltApp.controllers.Signup', [])
             };
             $scope.showCheckout = true;
             //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
-            $timeout(function () {
+            $interval(function () {
                 $document.scrollToElementAnimated($('#step3'), 60, 800);
-            }, 0);
+            }, 0, 1, {invokeApply: false});
         };
 
         $scope.checkoutSubmit = function () {

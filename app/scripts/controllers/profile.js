@@ -62,7 +62,7 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.upload = function (target) {
             $scope.modalInstance = $modal.open({
                 templateUrl: 'views/modalUpload.html',
-                controller: function ($scope, target, $window, $modalInstance) {
+                controller: function ($scope, target, $window, $modalInstance, $interval) {
 
                     $scope.target = target;
                     $scope.$window = $window;
@@ -75,9 +75,9 @@ angular.module('boltApp.controllers.Profile', [])
                     $scope.uploader = {
                         success: function ($flow, $file, $message) {
                             var message = angular.fromJson($message);
-                            setTimeout(function () {
+                            $interval(function () {
                                 $modalInstance.close(message.url);
-                            }, 1000);
+                            }, 1000, 1, {invokeApply: false});
                         }
                     };
 
@@ -325,9 +325,9 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$interval',
 
-                    function ($scope, $modalInstance, $http, $window, member) {
+                    function ($scope, $modalInstance, $http, $window, member, $interval) {
 
                         $scope.step_1 = true;
 
@@ -356,6 +356,9 @@ angular.module('boltApp.controllers.Profile', [])
                                 $scope.loading = false;
                                 $scope.step_2 = false;
                                 $scope.success = true;
+                                $interval(function () {
+                                    $modalInstance.close(true);
+                                }, 0, 1, {invokeApply: false});
                             }).error(function (response, status) {
                                     $scope.loading = false;
                                     console.error(status);

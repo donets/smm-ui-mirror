@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getCities', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getCities, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$interval', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -34,9 +34,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         var el = $('#subscribeMain');
 
-        $timeout(function () {
+        $interval(function () {
             $scope.scrollPos = Math.round(el.offset().top + 130);
-        }, 0);
+        }, 1000, 1, {invokeApply: false});
 
         angular.element($window).bind('resize', function() {
             $scope.scrollPos = Math.round(el.offset().top + 130);
@@ -70,86 +70,45 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.discipline = $location.search().discipline;
 
         $cookieStore.put('landingUrl', $location.url());
-		
-		$scope.guessCity = function() {
-			$scope.city = $location.search().city;
-			$scope.cityId = $cookieStore.get('cityId') || $scope.citiesList[0].id;
-			if ($scope.invitation) {
-				$cookieStore.put('invitation', true);
-			}
-			if ($scope.city) {
-				$scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
-				$scope.cityId = $scope.campaign && $scope.campaign.id && $scope.campaign.active ? $scope.campaign.id : $scope.cityId;
-				$cookieStore.put('cityId', $scope.cityId);
-			}
-			else if ($scope.cityId) {
-				$scope.campaign = _.findWhere($scope.citiesList, {id: $scope.cityId});
-			}
-			else {
-				$scope.campaign = $scope.disciplinesList.disciplines[$scope.discipline];
-			}
-			$scope.changeCity($scope.campaign || $scope.citiesList[0]);
-		};
 
-        $scope.changeCity = function(city) {
-            $scope.city = city.shortCode;
-            $scope.campaign = _.findWhere($scope.citiesList, {shortCode: $scope.city});
-            $rootScope.supportPhone = $scope.campaign.supportPhone;
-            RestApi.query({route: 'locations', cityId: $scope.campaign.id}).$promise.then(function (res) {
-                $scope.locations = _.reject(res, function (obj) {
-                    return obj.latitude === null || obj.longitude === null;
+        $scope.init = function() {
+            $scope.CityFactory = CityFactory.CityFactory;
+
+			$scope.$on('CityFactory.update', function(newState) {
+                var currentCityVar = CityFactory.getVariable();
+                $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
+                $scope.currentCityId = $scope.currentCity.id;
+                $rootScope.supportPhone = $scope.currentCity.supportPhone;
+			});
+
+			$scope.update = CityFactory.update;
+
+
+            CityFactory.getCities().then(function (res) {
+                $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
+                    return c.countryCode === $rootScope.countryCode;
                 });
-                _.map($scope.locations, function (obj) {
-                    obj.icon = '/images/marker.svg';
+
+                CityFactory.guessCity($scope.citiesList).then(function(res) {
+                    $scope.city = res.city;
+                    $scope.cityId = res.cityId;
+                    $scope.changeCity(res.currentCity.id);
                 });
-            });
-            RestApi.query({route: 'studios', cityId: $scope.campaign.id}).$promise.then(function (res) {
-                $scope.studios = res;
-            });
-            RestApi.query({route: 'plans', cityId: $scope.campaign.id}).$promise.then(function (res) {
-                $scope.cards = res;
-            });
-            uiGmapGoogleMapApi.then(function() {
-
-                $scope.map = {
-                    center: {
-                        latitude: $scope.campaign.lat,
-                        longitude: 	$scope.campaign.lon
-                    },
-                    zoom: 12,
-                    options: {
-                        mapTypeControl: false,
-                        overviewMapControl: false,
-                        panControl: false,
-                        zoomControl : true,
-                        streetViewControl : true,
-                        scrollwheel: false
-                    }
-                };
-
-                var markerIcon = new Image().src = '/images/marker.svg';
-                var markerIconHover = new Image().src = '/images/marker-hover.svg';
-
-                $scope.markerEvents = {
-                    mouseover : function(marker, eventName, model) {
-                        marker.setIcon(markerIconHover);
-                        model.show = true;
-                    },
-                    mouseout : function(marker, eventName, model) {
-                        marker.setIcon(markerIcon);
-                        model.show = false;
-                    }
-                };
-
             });
         };
 
-        getCities.$promise.then(function (res) {
-            $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
-                return c.countryCode === $rootScope.countryCode;
+
+        $scope.init();
+
+        $scope.changeCity = function(currentCityId) {
+            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
+            CityFactory.update(currentCity, $scope.citiesList);
+            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
+                $scope.studios = res.studios;
+                $scope.cards = res.cards;
             });
-			$scope.guessCity();
-        });
+        };
+
 
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -206,7 +165,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 console.error(status);
             });
         };
-        
+
         $scope.pushOptimizelyEvent = function (type) {
 			if (type === 'invitation' || $scope.invitation) {
 				//$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
@@ -220,7 +179,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.contactSubmit = function() {
             $scope.loadingContact = true;
             $scope.contact.message = 'contact teacher partnership';
-            $scope.contact.city = $scope.campaign.defaultName;
+            $scope.contact.city = $scope.currentCity.defaultName;
             $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.contact).success(function () {
                 $scope.loadingContact = false;
                 $scope.successContact = true;
@@ -236,9 +195,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.suggestStudio = function () {
             $modal.open({
                 templateUrl: 'views/modalSuggest.html',
-                controller: ['$scope', '$modalInstance', '$http', 'parentScope',
+                controller: ['$scope', '$modalInstance', '$http', 'parentScope', '$interval',
 
-                    function ($scope, $modalInstance, $http, parentScope) {
+                    function ($scope, $modalInstance, $http, parentScope, $interval) {
 
                         $scope.suggest = {};
 
@@ -247,16 +206,16 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                             var suggestedStudio = {
                                 email: $scope.suggest.userEmail || 'noreply@somuchmore.org',
                                 message: 'A user ' + ($scope.suggest.userName + ' ' || '') + 'suggest we should add studio: ' + $scope.suggest.studioName,
-                                city: parentScope.campaign.defaultName
+                                city: parentScope.currentCity.defaultName
                             };
                             $scope.loadingStudio = true;
                             $http.post($window.smmConfig.restUrlBase + '/api/message', suggestedStudio).success(function () {
                                 $scope.loadingStudio = false;
                                 $scope.successStudio = true;
                                 $window.ga('send', 'event', 'card_page', 'studio_suggestion');
-                                setTimeout(function () {
+                                $interval(function () {
                                     $modalInstance.dismiss();
-                                }, 200);
+                                }, 0, 1, {invokeApply: false});
                             }).error(function (response, status) {
                                 $scope.loadingStudio = false;
                                 $scope.errorStudio = true;
