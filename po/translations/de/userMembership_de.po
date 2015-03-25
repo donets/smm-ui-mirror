@@ -62,7 +62,7 @@ msgstr "Aktivierungsdatum ändern"
 
 #: app/views/userMembership.html:95
 msgid "Change Suspension Date"
-msgstr "Pausestart ändern"
+msgstr "Pausenstart ändern"
 
 #: app/views/userMembership.html:107 app/views/userMembership.html:121
 msgid "Credit card"
@@ -79,7 +79,7 @@ msgstr "Aktueller Preis pro Monat"
 # Passt "Direct debit" hier?
 #: app/views/userMembership.html:108
 msgid "Direct debit"
-msgstr "Abbuchung:"
+msgstr "Lastschrift"
 
 #: app/views/userMembership.html:80
 msgid "Discounted price:"
@@ -119,11 +119,11 @@ msgstr "Keine Kreditkarte?"
 
 #: app/views/userMembership.html:99
 msgid "Pause duration:"
-msgstr "Dauer der Pausieren:"
+msgstr "Dauer der Pause:"
 
 #: app/views/userMembership.html:92
 msgid "Pause scheduled from:"
-msgstr "Pausierung beginnt am:"
+msgstr "Pause beginnt am:"
 
 #: app/views/userMembership.html:195
 msgid "Payment by credit card?"
@@ -205,7 +205,7 @@ msgstr "Wohnort Details"
 
 #: app/views/userMembership.html:56
 msgid "Suspend subscription"
-msgstr "Mitgliedschaft suspendieren"
+msgstr "Mitgliedschaft pausieren:"
 
 #: app/views/userMembership.html:127 app/views/userMembership.html:157
 #: app/views/userMembership.html:174 app/views/userMembership.html:181
@@ -219,7 +219,7 @@ msgstr "Probezeit"
 
 #: app/views/userMembership.html:109
 msgid "Update payment data"
-msgstr "Zahlungsdateb aktualisieren"
+msgstr "Zahlungsdaten aktualisieren"
 
 #: app/views/userMembership.html:15 app/views/userMembership.html:9
 msgid "Upload Photo"
