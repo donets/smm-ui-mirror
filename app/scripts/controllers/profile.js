@@ -28,7 +28,8 @@ angular.module('boltApp.controllers.Profile', [])
                 $scope.currentCard = _.findWhere($scope.cards, {code: $scope.membership.type});
             });
             RestApi.query({route: 'cities'}).$promise.then(function (res) {
-                $scope.membership.city = _.findWhere(res, {id: $scope.membership.cityId});
+                $scope.cities = res;
+                $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
             });
             if ($scope.membership.discountGranted) {
                 getVoucher($scope.membership.discount.voucherCode);
@@ -197,6 +198,7 @@ angular.module('boltApp.controllers.Profile', [])
             }).result.then(function () {
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
+                        $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
                     })
                 });
         };
@@ -255,6 +257,7 @@ angular.module('boltApp.controllers.Profile', [])
             }).result.then(function () {
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
+                        $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
                     })
                 });
         };
@@ -318,6 +321,7 @@ angular.module('boltApp.controllers.Profile', [])
             }).result.then(function () {
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
+                        $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
                     })
                 });
         };
@@ -325,9 +329,9 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$interval',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
 
-                    function ($scope, $modalInstance, $http, $window, member, $interval) {
+                    function ($scope, $modalInstance, $http, $window, member) {
 
                         $scope.step_1 = true;
 
@@ -356,9 +360,6 @@ angular.module('boltApp.controllers.Profile', [])
                                 $scope.loading = false;
                                 $scope.step_2 = false;
                                 $scope.success = true;
-                                $interval(function () {
-                                    $modalInstance.close(true);
-                                }, 0, 1, {invokeApply: false});
                             }).error(function (response, status) {
                                     $scope.loading = false;
                                     console.error(status);
@@ -380,6 +381,7 @@ angular.module('boltApp.controllers.Profile', [])
             }).result.then(function () {
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
+                        $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
                     })
                 });
         };
@@ -401,6 +403,7 @@ angular.module('boltApp.controllers.Profile', [])
             }).result.then(function () {
                     Membership.get().$promise.then(function (res) {
                         $scope.membership = res.membership;
+                        $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
                     });
                     $scope.order = {
                         paymentProvider: 'STRIPE'

@@ -57,11 +57,11 @@
                         <a class="form-link" href="" ng-if="membership.active && !membership.cancelled && !(membership.pauseStartsOn !== null && isFuture(membership.pauseStartsOn))" ng-click="cancelMembership()" translate>Cancel subscription</a>
                         </div>
                     </li>
-                    <li ng-if="isFuture(membership.membershipActivatesOn)">
+                    <li>
                         <b translate>Membership activates:</b>
                         <div>
                         <p>{{membership.membershipActivatesOn | date: 'dd.MM.yyyy'}}</p>
-                            <a class="form-link" href="" ng-if="!membership.active" ng-click="changeActivationDate()" translate>Change Activation Date</a>
+                            <a class="form-link" href=""  ng-if="!membership.active && isFuture(membership.membershipActivatesOn)" ng-click="changeActivationDate()" translate>Change Activation Date</a>
                         </div>
                     </li>
                     <li>
@@ -83,10 +83,6 @@
                     <li ng-if="membership.discount">
                     <b translate>Current discount:</b>
                     <p>{{membership.discount.voucherCode}} <span ng-if="membership.discountExpires">expires {{membership.discountExpires | date: 'dd.MM.yyyy'}}</span></p>
-                    </li>
-                    <li>
-                        <b translate>Membership start date:</b>
-                        <p>{{membership.subscriptionStartsOn | date: 'dd.MM.yyyy'}}</p>
                     </li>
                     <li ng-if="membership.pauseStartsOn">
                         <b translate>Pause scheduled from:</b>

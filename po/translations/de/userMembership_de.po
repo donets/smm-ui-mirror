@@ -205,7 +205,7 @@ msgstr "Wohnort Details"
 
 #: app/views/userMembership.html:56
 msgid "Suspend subscription"
-msgstr "Mitgliedschaft pausieren:"
+msgstr "Mitgliedschaft pausieren"
 
 #: app/views/userMembership.html:127 app/views/userMembership.html:157
 #: app/views/userMembership.html:174 app/views/userMembership.html:181
