@@ -44,11 +44,11 @@ msgstr "Ok"
 
 #: app/views/modalSuspend.html:25
 msgid "Pause ends:"
-msgstr ""
+msgstr "Pauseend:"
 
 #: app/views/modalSuspend.html:16
 msgid "Pause starts:"
-msgstr ""
+msgstr "Pausestart:"
 
 #: app/views/modalSuspend.html:21 app/views/modalSuspend.html:28
 msgid "Select date"

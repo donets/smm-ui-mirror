@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.4\n"
 
 #: app/views/userMembership.html:73
 msgid "/ Month"
@@ -26,7 +26,7 @@ msgstr "0€ / Monat"
 
 #: app/views/userMembership.html:55
 msgid "Activate subscription"
-msgstr ""
+msgstr "Aktive Mitgliedschaft"
 
 #: app/views/userMembership.html:171
 msgid "Bank account holder"
@@ -38,11 +38,11 @@ msgstr "CVV"
 
 #: app/views/userMembership.html:57
 msgid "Cancel subscription"
-msgstr ""
+msgstr "Mitgliedschaft kündigen"
 
 #: app/views/userMembership.html:53
 msgid "Cancelled"
-msgstr ""
+msgstr "Gekündigt"
 
 #: app/views/userMembership.html:122
 msgid "Card number"
@@ -58,11 +58,11 @@ msgstr "Kartentyp:"
 
 #: app/views/userMembership.html:64
 msgid "Change Activation Date"
-msgstr ""
+msgstr "Aktivierungsdatum ändern"
 
 #: app/views/userMembership.html:95
 msgid "Change Suspension Date"
-msgstr ""
+msgstr "Pausestart ändern"
 
 #: app/views/userMembership.html:107 app/views/userMembership.html:121
 msgid "Credit card"
@@ -87,7 +87,7 @@ msgstr "Ermäßigter Preis:"
 
 #: app/views/userMembership.html:29
 msgid "Email:"
-msgstr ""
+msgstr "E-Mail:"
 
 #: app/views/userMembership.html:178
 msgid "IBAN"
@@ -205,7 +205,7 @@ msgstr "Wohnort Details"
 
 #: app/views/userMembership.html:56
 msgid "Suspend subscription"
-msgstr ""
+msgstr "Mitgliedschaft suspendieren"
 
 #: app/views/userMembership.html:127 app/views/userMembership.html:157
 #: app/views/userMembership.html:174 app/views/userMembership.html:181
@@ -215,15 +215,15 @@ msgstr "Dies ist eine Pflichtfeld"
 
 #: app/views/userMembership.html:52
 msgid "Trial"
-msgstr ""
+msgstr "Probezeit"
 
 #: app/views/userMembership.html:109
 msgid "Update payment data"
-msgstr ""
+msgstr "Zahlungsdateb aktualisieren"
 
 #: app/views/userMembership.html:15 app/views/userMembership.html:9
 msgid "Upload Photo"
-msgstr ""
+msgstr "Foto hochladen"
 
 #: app/views/userMembership.html:134
 msgid "Valid until"
@@ -250,13 +250,13 @@ msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr "z.B. DE12 3456 7890 1234 5678 90"
 
 #~ msgid ""
-#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"
-#~ "{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === "
-#~ "'EUR'\">&euro;</span> / Month"
+#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</"
+#~ "span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode "
+#~ "=== 'EUR'\">&euro;</span> / Month"
 #~ msgstr ""
-#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"
-#~ "{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === "
-#~ "'EUR'\">&euro;</span> / Monat"
+#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</"
+#~ "span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode "
+#~ "=== 'EUR'\">&euro;</span> / Monat"
 
 #~ msgid ""
 #~ "Payment information\n"
