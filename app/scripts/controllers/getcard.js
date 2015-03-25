@@ -67,14 +67,23 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.tab = 'map';
 
         $scope.invitation = $location.search().invitation;
-        $scope.discipline = $location.search().discipline;
+
+        var selectDiscipline = function() {
+            var locationDiscipline = $location.search().discipline;
+            var discipline = _.findWhere($scope.disciplinesList.disciplines, {name: locationDiscipline});
+            if(discipline) {
+                $scope.discipline = discipline;
+            }
+        };
+
+        selectDiscipline();
 
         $cookieStore.put('landingUrl', $location.url());
 
         $scope.init = function() {
             $scope.CityFactory = CityFactory.CityFactory;
 
-			$scope.$on('CityFactory.update', function(newState) {
+			$scope.$on('CityFactory.update', function() {
                 var currentCityVar = CityFactory.getVariable();
                 $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
                 $scope.currentCityId = $scope.currentCity.id;

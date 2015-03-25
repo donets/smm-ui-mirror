@@ -1,10 +1,86 @@
 {
-    "disciplines": {
-        "Yoga" : {
-            "title": "Ein Karte, unbegrenzt Yoga",
-            "amountCourses": "559",
-            "amountStudios": "22",
-            "termForStudios": "Yogastudios"
-        }
-    }
+	"disciplines": [{
+		"name": "Yoga",
+		"title": "Ein Karte, unbegrenzt Yoga",
+		"amountCourses": "559",
+		"amountStudios": "22",
+		"termForStudios": "Yogastudios"
+	},
+    {
+		"name": "Wellness",
+		"title": "Ein Karte, unbegrenzt Wellness",
+		"amountCourses": "69",
+		"amountStudios": "1",
+		"termForStudios": "Wellnessstudios"
+	},
+    {
+		"name": "Vocal Coaching",
+		"title": "Ein Karte, unbegrenzt Vocal Coaching",
+		"amountCourses": "2",
+		"amountStudios": "1",
+		"termForStudios": "Vocal-Coaching-Studios"
+	},
+    {
+		"name": "Tanz",
+		"title": "Ein Karte, unbegrenzt Tanz",
+		"amountCourses": "73",
+		"amountStudios": "5",
+		"termForStudios": "Tanzstudios"
+	},
+    {
+		"name": "Pilates",
+		"title": "Ein Karte, unbegrenzt Pilates",
+		"amountCourses": "105",
+		"amountStudios": "11",
+		"termForStudios": "Pilates-Studios"
+	},
+    {
+		"name": "Meditation",
+		"title": "Ein Karte, unbegrenzt Meditation",
+		"amountCourses": "20",
+		"amountStudios": "6",
+		"termForStudios": "Meditationstudios"
+	},
+    {
+		"name": "Kindertanz",
+		"title": "Ein Karte, unbegrenzt Kindertanz",
+		"amountCourses": "1",
+		"amountStudios": "1",
+		"termForStudios": "Kindertanzstudios"
+	},
+    {
+		"name": "Kampfkunst",
+		"title": "Ein Karte, unbegrenzt Kampfkunst",
+		"amountCourses": "96",
+		"amountStudios": "5",
+		"termForStudios": "Kampfkunst-Studios"
+	},
+    {
+		"name": "Fitnesstanz",
+		"title": "Ein Karte, unbegrenzt Fitnesstanz",
+		"amountCourses": "1",
+		"amountStudios": "1",
+		"termForStudios": "Fitnesstanzstudios"
+	},
+    {
+		"name": "Fitness",
+		"title": "Ein Karte, unbegrenzt Fitness",
+		"amountCourses": "53",
+		"amountStudios": "6",
+		"termForStudios": "Fitnessstudios"
+	},
+    {
+		"name": "Ernährungsberatung",
+		"title": "Ein Karte, unbegrenzt Ernährungsberatung",
+		"amountCourses": "2",
+		"amountStudios": "2",
+		"termForStudios": "Ernährungsberatungsstudios"
+	},
+    {
+		"name": "CrossFit",
+		"title": "Ein Karte, unbegrenzt CrossFit",
+		"amountCourses": "51",
+		"amountStudios": "1",
+		"termForStudios": "CrossFit-Studios"
+	}]
 }
