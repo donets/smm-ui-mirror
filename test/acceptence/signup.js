@@ -66,9 +66,8 @@ describe('Given signup form, User', function() {
         var submitOrderButton = element(by.css('#step3 button[type="submit"]'));
         submitOrderButton.click().then(function() {
             expect(element(by.css('.modal-dialog h2')).getText()).toContain("Danke");
+            done();
         });
-
-        done();
     });
 
     it('should be able to enter credentials and signin into existing account', function(done) {
@@ -80,8 +79,7 @@ describe('Given signup form, User', function() {
         element(by.css('form[name="loginForm"] input[name="password"]')).sendKeys(myPassword);
         element(by.css('form[name="loginForm"] button[type="submit"]')).click().then(function() {
             expect(element(by.css('#account a')).getText()).toContain(params.signup.firstName + ' ' + params.signup.lastName);
+            done();
         });
-
-        done();
     });
 });

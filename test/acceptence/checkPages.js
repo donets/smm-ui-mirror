@@ -18,9 +18,9 @@ describe('Given a set of info pages, User', function() {
             var text = element.all(by.css('.b-main-slogan h2 span')).first();
             text.getText().then(function(text){
                 expect(text).toBe('ENTDECKE SOMUCHMORE');
+                done();
             });
         });
-        done();
     });
 
     it('should see title on the impressum page', function(done) {
@@ -29,9 +29,9 @@ describe('Given a set of info pages, User', function() {
             var text = element.all(by.css('.b-main-slogan h2 span')).first();
             text.getText().then(function(text){
                 expect(text).toBe('IMPRESSUM (ANGABEN GEMÄSS § 5 TMG)');
+                done();
             });
         });
-        done();
     });
 
     it('should see title on the agb page', function(done) {
@@ -40,9 +40,9 @@ describe('Given a set of info pages, User', function() {
             var text = element.all(by.css('.b-main-slogan h2 span')).first();
             text.getText().then(function(text){
                 expect(text).toBe('ALLGEMEINE GESCHÄFTSBEDINGUNGEN');
+                done();
             });
         });
-        done();
     });
 
     it('should see title on the faq page', function(done) {
@@ -51,8 +51,8 @@ describe('Given a set of info pages, User', function() {
             var text = element(by.css('.about h1 span'));
             text.getText().then(function(text){
                 expect(text).toBe('Guide to Somuchmore');
+                done();
             });
         });
-        done();
     });
 });
