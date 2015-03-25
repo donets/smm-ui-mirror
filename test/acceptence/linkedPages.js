@@ -15,7 +15,7 @@ describe('Given the Home Page, User', function() {
     it('should see title on the home page', function(done) {
         var text = element(by.css('.b-main-slogan h2 span:first-child'));
 
-        expect(text.getText()).toBe('BERLIN IST DEIN STUDIO');
+        expect(text.getText()).toBe('BERLIN');
         done();
     });
 
@@ -24,7 +24,7 @@ describe('Given the Home Page, User', function() {
 
         var text = element(by.css('.b-main-slogan h2 span:first-child'));
 
-        expect(text.getText()).toBe('MÜNCHEN IST DEIN STUDIO');
+        expect(text.getText()).toBe('MÜNCHEN');
         done();
     });
 });
