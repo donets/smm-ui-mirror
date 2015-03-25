@@ -38,7 +38,7 @@ describe('Given the Kurse Page, User', function() {
 
         browser.sleep(1000);
 
-        var showUploadForm = element.all(by.css('.photo button')).get(0);
+        var showUploadForm = element.all(by.css('.photo .env-upload-box div')).get(0);
         showUploadForm.click();
 
         browser.sleep(1000);
