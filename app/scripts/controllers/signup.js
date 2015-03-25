@@ -158,7 +158,7 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.showSpinner = false;
                 $scope.showCards = true;
                 $interval(function () {
-                    $document.scrollToElementAnimated($('#step2'), 90, 800);
+                    $document.scrollToElementAnimated($('#step2'), 260, 800);
                 }, 0, 1, {invokeApply: false});
 
             }).error(function (response) {
