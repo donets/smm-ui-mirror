@@ -4,56 +4,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-msgid "Anfänger"
+msgid "Beginners"
 msgstr ""
 
 msgid "Medium"
 msgstr ""
 
-msgid "Fortgeschrittene"
-msgstr " "
+msgid "Advanced"
+msgstr ""
 
-msgid "Meditation kann Dir die Gehirnkapazität eines 25-jährigen erhalten."
+msgid "Meditation can increase your brain capacity to that of a 25-year-old."
 msgstr ""
 
 msgid "— NCBI (National Center for Biotechnology Information)"
 msgstr ""
 
-msgid "Yoga kann schon nach 3 Monaten Dein Selbstbild anheben."
+msgid "Yoga has been proven to help self-image and self-love after just 3 months."
 msgstr ""
 
-msgid "Tanzen hilft gegen Depressionen."
+msgid "Dancing helps to alleviate depression."
 msgstr ""
 
-msgid "Menschen, die meditieren, lösen Herausforderungen des Alltags kreativer."
+msgid "People who meditate are able to deal with everyday challenges more creatively."
 msgstr ""
 
 msgid "— WSU (Washington State University)"
 msgstr ""
 
-msgid "Yoga kann Angst dauerhaft reduzieren."
+msgid "Yoga helps to reduce anxiety and manage stress."
 msgstr ""
 
-msgid "Das Passwort ist zu schwach, muss mindestens 8 Zeichen sein, mit Ziffern, Groß und Kleinbuchstaben"
+msgid "Your password is too weak; it must contain at least 8 characters, including numbers and lower and uppercase letters"
 msgstr ""
 
-msgid "Der Link ist nicht mehr gültig"
+msgid "The link is no longer valid"
 msgstr ""
 
-msgid "Der Link ist nicht gültig"
+msgid "The link is invalid"
 msgstr ""
 
-msgid "Ich habe keine Kreditkarte, möchte die Somuchmore Card aber trotzdem bestellen. Bitte kontaktiert mich dazu!"
+msgid "I don’t have a credit card, but still wish to order the Somuchmore card. Please contact me!"
 msgstr ""
 
-msgid "Unbegrenzt"
+msgid "Unlimited"
 msgstr ""
 
-msgid "Jederzeit"
+msgid "Anytime"
 msgstr ""
 
-msgid "Ausgewählt"
+msgid "Selected"
 msgstr ""
 
-msgid "Auswählen"
+msgid "Select"
 msgstr ""
+
+msgid "In {{count}} month"
+msgid_plural "In {{count}} months"
+msgstr[0] ""
+msgstr[1] ""
