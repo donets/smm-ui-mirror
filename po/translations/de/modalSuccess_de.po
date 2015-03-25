@@ -8,16 +8,16 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "Language: de\n"
 
 #: app/views/modalSuccess.html:3
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: app/views/modalSuccess.html:8
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: app/views/modalSuccess.html:6
 msgid "Thank you!"
@@ -25,4 +25,4 @@ msgstr "Danke!"
 
 #: app/views/modalSuccess.html:7
 msgid "Your payment data has been updated."
-msgstr ""
+msgstr "Deine Zahlungsart wurde aktualisiert."

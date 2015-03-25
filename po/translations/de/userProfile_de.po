@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/userProfile.html:12
 msgid "Account"
@@ -22,7 +22,7 @@ msgstr "Hallo, {{userName}}!"
 
 #: app/views/userProfile.html:11
 msgid "Subscription"
-msgstr ""
+msgstr "Deine Mitgliedschaft"
 
 #: app/views/userProfile.html:5
 msgid "You can change your account and view your billing details here."

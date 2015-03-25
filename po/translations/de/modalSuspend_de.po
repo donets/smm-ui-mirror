@@ -8,60 +8,68 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "Language: de\n"
 
 #: app/views/modalSuspend.html:12
 msgid "Activate anytime after 1 month and use the remaining days"
 msgstr ""
+"Aktiviere Deine Karte jederzeit nach einem Monat und nutze die "
+"verbleibenden Tage"
 
 #: app/views/modalSuspend.html:10
 msgid "Choose any duration between 1 month & 3 months"
-msgstr ""
+msgstr "Wähle eine Laufzeit zwischen 1 & 3 Monaten."
 
 #: app/views/modalSuspend.html:4
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: app/views/modalSuspend.html:45
 msgid "It will reactivate on {{activateDate | date: 'dd.MM.yyyy'}}"
 msgstr ""
+"Deine Karte wird wieder aktiviert am {{activateDate | date: 'dd.MM.yyyy'}}"
 
 #: app/views/modalSuspend.html:46
 msgid ""
 "Note: You can continue using your account till suspension date. Moreover, "
 "you can reactivate anytime after 1 month from suspension date."
 msgstr ""
+"Hinweis: Du kannst Deine Mitgliedschaft bis zu Deiner Pause weiter "
+"nutzen. Nach einem Monat Pause kannst Du Deine Mitgliedschaft jederzeit "
+"reaktivieren."
 
 #: app/views/modalSuspend.html:47
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: app/views/modalSuspend.html:21 app/views/modalSuspend.html:28
 msgid "Select date"
-msgstr ""
+msgstr "Datum auswählen"
 
 #: app/views/modalSuspend.html:36
 msgid "Suspend my account"
-msgstr ""
+msgstr "Meinen Account pausieren"
 
 #: app/views/modalSuspend.html:8
 msgid "Suspending your account while you are away."
-msgstr ""
+msgstr "Pausiere Deinen Account während Du weg bist."
 
 #: app/views/modalSuspend.html:7
 msgid "Taking a break?"
-msgstr ""
+msgstr "Du möchtest pausieren?"
 
 #: app/views/modalSuspend.html:43
 msgid "We will miss you!"
-msgstr ""
+msgstr "Wir werden Dich vermissen!"
 
 #: app/views/modalSuspend.html:44
 msgid "Your account will be suspended on {{startDate | date: 'dd.MM.yyyy'}}"
-msgstr ""
+msgstr "Dein Account wird am {{startDate | date: 'dd.MM.yyyy'}} pausiert."
 
 #: app/views/modalSuspend.html:11
 msgid ""
 "Your remaining days in the membership cycle stay on hold and don't expire"
 msgstr ""
+"Die bereits bezahlte Laufzeit Deiner Mitgliedschaft steht Dir nach der "
+"Pause wieder zur Verfügung und verfällt nicht."
