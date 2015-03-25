@@ -201,7 +201,7 @@ msgstr "Wohnort:"
 
 #: app/views/userMembership.html:43
 msgid "Subscription details"
-msgstr "Wohnort Details"
+msgstr "Mitgliedschaft"
 
 #: app/views/userMembership.html:56
 msgid "Suspend subscription"

@@ -329,24 +329,15 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$q',
 
-                    function ($scope, $modalInstance, $http, $window, member) {
+                    function ($scope, $modalInstance, $http, $window, member, $q) {
 
                         $scope.step_1 = true;
 
                         $scope.cancelSubmit = function () {
-                            $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/cancel').success(function (res) {
-                                console.log(res);
-                                $scope.loading = false;
-                                $scope.step_1 = false;
-                                $scope.step_2 = true;
-                                $scope.cancellationDate = res.cancellationDate;
-                            }).error(function (res) {
-                                    console.log(res);
-                                    $scope.loading = false;
-                                });
+                            $scope.step_1 = false;
+                            $scope.step_2 = true;
                         };
 
                         $scope.suspendSubmit = function () {
@@ -356,14 +347,15 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.sendMessage = function (reason) {
                             $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/message', {message: reason, email: member.email}).success(function () {
-                                $scope.loading = false;
+                            $q.all([$http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/cancel'), $http.post($window.smmConfig.restUrlBase + '/api/message', {message: reason, email: member.email})]).then(function (res) {
+                                console.log(res[0].data);
                                 $scope.step_2 = false;
                                 $scope.success = true;
-                            }).error(function (response, status) {
-                                    $scope.loading = false;
-                                    console.error(status);
-                                });
+                                $scope.cancellationDate = res[0].data.cancellationDate;
+                            }, function (res) {
+                                console.log(res);
+                                $scope.loading = false;
+                            });
                         };
 
                         $scope.close = function () {
@@ -411,6 +403,7 @@ angular.module('boltApp.controllers.Profile', [])
                     $scope.form.formPayment.$setPristine();
                     $scope.changePayment = false;
                     $scope.creditCard = null;
+                    $scope.success = null;
                 });
         };
 
