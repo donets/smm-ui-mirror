@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/modalCancel.html:27
 msgid "Can't find my preferred studio"
@@ -72,8 +72,8 @@ msgstr "Mitgliedschaft ist zu teuer"
 msgid ""
 "Suspending your account gives you flexibility to take a break. Its simple!"
 msgstr ""
-"Das Pausieren Deiner Mitgliedschaft gibt Dir große Flexibilität. Es ist "
-"sehr einfach!"
+"Das Pausieren Deiner Mitgliedschaft gibt Dir große Flexibilität. Es ist sehr "
+"einfach!"
 
 #: app/views/modalCancel.html:13
 msgid "Use your remaining days once you are back!"
@@ -92,9 +92,8 @@ msgstr ""
 "MM.yyyy'}} nutzen."
 
 #: app/views/modalCancel.html:7
-#, fuzzy
 msgid "You sure you want to Cancel?"
-msgstr "Bist Du sicher, dass Du Deine Mitgliedschaft kündigen willst?"
+msgstr "Bist du sicher, dass Du kündigen möchtest?"
 
 #: app/views/modalCancel.html:12
 msgid ""

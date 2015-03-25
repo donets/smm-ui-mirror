@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/userMembership.html:73
 msgid "/ Month"
@@ -70,11 +70,11 @@ msgstr "Kreditkarte"
 
 #: app/views/userMembership.html:84
 msgid "Current discount:"
-msgstr "Aktuelle Ermäßigung"
+msgstr "Aktuelle Ermäßigung:"
 
 #: app/views/userMembership.html:72
 msgid "Current monthly price:"
-msgstr "Aktueller Preis pro Monat"
+msgstr "Aktueller Preis pro Monat:"
 
 # Passt "Direct debit" hier?
 #: app/views/userMembership.html:108
@@ -99,7 +99,7 @@ msgstr "Mitgliedschaft beginnt:"
 
 #: app/views/userMembership.html:88
 msgid "Membership start date:"
-msgstr "Startdatum der Mitgliedschaft"
+msgstr "Startdatum der Mitgliedschaft:"
 
 #: app/views/userMembership.html:137
 msgid "Month"
@@ -180,8 +180,8 @@ msgid "SWIFT-BIC"
 msgstr "BIC"
 
 #: app/views/userMembership.html:37
-msgid "Shipping address (for the card)"
-msgstr "Lieferadresse (für die Karte)"
+msgid "Shipping address (for the card):"
+msgstr "Lieferadresse (für die Karte):"
 
 #: app/views/userMembership.html:76
 msgid "Special price:"
@@ -250,13 +250,13 @@ msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr "z.B. DE12 3456 7890 1234 5678 90"
 
 #~ msgid ""
-#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</"
-#~ "span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode "
-#~ "=== 'EUR'\">&euro;</span> / Month"
+#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"
+#~ "{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === "
+#~ "'EUR'\">&euro;</span> / Month"
 #~ msgstr ""
-#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</"
-#~ "span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode "
-#~ "=== 'EUR'\">&euro;</span> / Monat"
+#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"
+#~ "{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === "
+#~ "'EUR'\">&euro;</span> / Monat"
 
 #~ msgid ""
 #~ "Payment information\n"

@@ -158,7 +158,7 @@ msgid "SWIFT-BIC"
 msgstr ""
 
 #: app/views/userMembership.html:37
-msgid "Shipping address (for the card)"
+msgid "Shipping address (for the card):"
 msgstr ""
 
 #: app/views/userMembership.html:76
