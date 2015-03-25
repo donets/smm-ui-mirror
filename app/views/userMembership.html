@@ -54,7 +54,7 @@
                         <p ng-hide="membership.orderRefundPossible || membership.cancelled">{{membership.current.status}}</p>
                         <a class="form-link" href="" ng-if="!membership.active && membership.earliestActivationPossible !== null" ng-click="activateMembership()" translate>Activate subscription</a>
                         <a class="form-link" href="" ng-if="membership.active && membership.earliestPausePossible !== null && membership.pauseStartsOn === null" ng-click="suspendMembership()" translate>Suspend subscription</a>
-                        <a class="form-link" href="" ng-if="membership.active && !membership.cancelled && membership.pauseStartsOn !== null && isFuture(membership.pauseStartsOn)" ng-click="cancelMembership()" translate>Cancel subscription</a>
+                        <a class="form-link" href="" ng-if="membership.active && !membership.cancelled && !(membership.pauseStartsOn !== null && isFuture(membership.pauseStartsOn))" ng-click="cancelMembership()" translate>Cancel subscription</a>
                         </div>
                     </li>
                     <li ng-if="isFuture(membership.membershipActivatesOn)">
