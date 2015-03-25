@@ -64,7 +64,7 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.upload = function (target) {
             $scope.modalInstance = $modal.open({
                 templateUrl: 'views/modalUpload.html',
-                controller: function ($scope, target, $window, $modalInstance) {
+                controller: function ($scope, target, $window, $modalInstance, $interval) {
 
                     $scope.target = target;
                     $scope.$window = $window;
@@ -77,9 +77,9 @@ angular.module('boltApp.controllers.Profile', [])
                     $scope.uploader = {
                         success: function ($flow, $file, $message) {
                             var message = angular.fromJson($message);
-                            setTimeout(function () {
+                            $interval(function () {
                                 $modalInstance.close(message.url);
-                            }, 1000);
+                            }, 1000, 1, {invokeApply: false});
                         }
                     };
 
@@ -102,9 +102,9 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.cancelMembership = function () {
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'name', 'email',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'name', 'email', '$interval',
 
-                    function ($scope, $modalInstance, $http, $window, name, email) {
+                    function ($scope, $modalInstance, $http, $window, name, email, $interval) {
 
                         $scope.message = {
                             name: name,
@@ -117,9 +117,9 @@ angular.module('boltApp.controllers.Profile', [])
                             $http.post($window.smmConfig.restUrlBase + '/api/message', $scope.message).success(function () {
                                 $scope.loading = false;
                                 $scope.success = true;
-                                setTimeout(function () {
+                                $interval(function () {
                                     $modalInstance.close(true);
-                                }, 0);
+                                }, 0, 1, {invokeApply: false});
                             }).error(function (response, status) {
                                 $scope.loading = false;
                                 $scope.error = true;

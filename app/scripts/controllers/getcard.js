@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$timeout', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $timeout, gettextCatalog, CityFactory) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$interval', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -34,9 +34,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         var el = $('#subscribeMain');
 
-        $timeout(function () {
+        $interval(function () {
             $scope.scrollPos = Math.round(el.offset().top + 130);
-        }, 0);
+        }, 1000, 1, {invokeApply: false});
 
         angular.element($window).bind('resize', function() {
             $scope.scrollPos = Math.round(el.offset().top + 130);
@@ -195,9 +195,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.suggestStudio = function () {
             $modal.open({
                 templateUrl: 'views/modalSuggest.html',
-                controller: ['$scope', '$modalInstance', '$http', 'parentScope',
+                controller: ['$scope', '$modalInstance', '$http', 'parentScope', '$interval',
 
-                    function ($scope, $modalInstance, $http, parentScope) {
+                    function ($scope, $modalInstance, $http, parentScope, $interval) {
 
                         $scope.suggest = {};
 
@@ -213,9 +213,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                                 $scope.loadingStudio = false;
                                 $scope.successStudio = true;
                                 $window.ga('send', 'event', 'card_page', 'studio_suggestion');
-                                setTimeout(function () {
+                                $interval(function () {
                                     $modalInstance.dismiss();
-                                }, 200);
+                                }, 0, 1, {invokeApply: false});
                             }).error(function (response, status) {
                                 $scope.loadingStudio = false;
                                 $scope.errorStudio = true;

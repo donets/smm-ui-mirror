@@ -130,9 +130,7 @@ angular.module('boltApp')
 							params: toParams,
 							state: toState
 						};
-						$rootScope.$state.go(redirectState, {
-							notify: false
-						});
+						$rootScope.$state.go(redirectState, {notify: false});
 					} else {
 						$rootScope.rejection = {
 							data: {
@@ -143,9 +141,7 @@ angular.module('boltApp')
 					}
 				} else if (toState.name === 'home' && $rootScope.roleMember) {
 					event.preventDefault();
-					$rootScope.$state.go('dashboard', {
-						notify: false
-					});
+					$rootScope.$state.go('dashboard', {notify: false});
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
@@ -304,19 +300,19 @@ angular.module('boltApp')
 			};
 		}];
 	})
-	.factory('resourceInterceptor', function($rootScope, $timeout) {
+	.factory('resourceInterceptor', function($rootScope, $interval) {
 		return {
 			response: function(response) {
 				$rootScope.success = response;
 				$rootScope.success.show = true;
-				$timeout(function() {
-					$rootScope.success = null;
-				}, 5000);
+                $interval(function() {
+                    $rootScope.success = null;
+                }, 5000, 1, {invokeApply: false});
 				return response;
 			}
 		};
 	})
-	.factory('myHttpInterceptor', ['$q', '$rootScope', '$cookieStore', '$timeout', function($q, $rootScope, $cookieStore, $timeout) {
+	.factory('myHttpInterceptor', ['$q', '$rootScope', '$cookieStore', '$interval', function($q, $rootScope, $cookieStore, $interval) {
 		var requestsData = [],
 			enabledLogRequests = false;
 		return {
@@ -333,10 +329,8 @@ angular.module('boltApp')
 					$rootScope.rejection.show = !($rootScope.handledError && $rootScope.handledType);
 				}
 				$interval(function() {
-					$rootScope.rejection = null;
-				}, 60000, 1, {
-					invokeApply: false
-				});
+                    $rootScope.rejection = null;
+                }, 60000, 1, {invokeApply: false});
 				return $q.reject(rejection);
 			},
 			request: function(config) {
@@ -382,11 +376,11 @@ angular.module('boltApp')
 				templateUrl: 'views/main.html',
 				resolve: {
 
-					// A function value resolves to the return
-					// value of the function
-					getEvents: function(Occurrences) {
-						return Occurrences.query();
-					}
+                    // A function value resolves to the return
+                    // value of the function
+                    getEvents: function(Occurrences) {
+                        return Occurrences.query();
+                    }
 				},
 				onEnter: function($rootScope) {
 					$rootScope.autoscroll = false;
@@ -419,9 +413,9 @@ angular.module('boltApp')
 				onEnter: ['$state', '$stateParams', '$modal', function($state, $stateParams, $modal) {
 					$modal.open({
 						templateUrl: 'views/modalContact.html',
-						controller: ['$scope', '$modalInstance', '$http', 'teacherId',
+						controller: ['$scope', '$modalInstance', '$http', 'teacherId', '$interval',
 
-							function($scope, $modalInstance, $http, teacherId) {
+							function($scope, $modalInstance, $http, teacherId, $interval) {
 
 								$scope.contact = {};
 
@@ -430,9 +424,9 @@ angular.module('boltApp')
 									$http.post('/api/message/' + teacherId, $scope.contact).success(function() {
 										$scope.loadingUpdate = false;
 										$scope.successUpdate = true;
-										setTimeout(function() {
-											$modalInstance.close(true);
-										}, 0);
+                                        $interval(function() {
+                                            $modalInstance.close(true);
+                                        }, 0, 1, {invokeApply: false});
 									}).error(function(response, status) {
 										$scope.loadingUpdate = false;
 										$scope.errorUpdate = true;
@@ -472,19 +466,9 @@ angular.module('boltApp')
 				controller: 'GetcardCtrl',
 				resolve: {
 
-					getCities: function(RestApi) {
-
-						return RestApi.query({
-							route: 'cities'
-						}).$promise;
-
-					},
-
 					getDisciplines: function($http) {
 
-						return $http.get('json/disciplines.json', {
-							cache: true
-						});
+						return $http.get('json/disciplines.json', {cache: true});
 
 					}
 
@@ -499,27 +483,19 @@ angular.module('boltApp')
 
 					getClasses: function(RestApi) {
 
-						return RestApi.query({
-							route: 'events'
-						}).$promise;
+						return RestApi.query({route: 'events'}).$promise;
 
 					},
 
 					getOccurrences: function(RestApi) {
 
-						return RestApi.query({
-							route: 'occurrences',
-							forDurationOfDays: 7,
-							withActiveParent: true
-						}).$promise;
+						return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
 
 					},
 
 					getNeigbourhood: function($http) {
 
-						return $http.get('json/neigbourhood.json', {
-							cache: true
-						});
+						return $http.get('json/neigbourhood.json', {cache: true});
 
 					}
 
@@ -534,9 +510,7 @@ angular.module('boltApp')
 
 					getCities: function(RestApi) {
 
-						return RestApi.query({
-							route: 'cities'
-						}).$promise;
+						return RestApi.query({route: 'cities'}).$promise;
 
 					},
 
@@ -565,11 +539,7 @@ angular.module('boltApp')
 
 					getStudio: function(RestApi, $stateParams) {
 
-						return RestApi.get({
-							route: 'studios'
-						}, {
-							id: $stateParams.studioId
-						}).$promise;
+						return RestApi.get({route: 'studios'}, {id: $stateParams.studioId}).$promise;
 
 					}
 
@@ -593,9 +563,7 @@ angular.module('boltApp')
 
 					getCards: function($http) {
 
-						return $http.get('json/cards.json', {
-							cache: true
-						});
+						return $http.get('json/cards.json', {cache: true});
 
 					}
 
@@ -620,9 +588,7 @@ angular.module('boltApp')
 
 					getClasses: function(RestApi) {
 
-						return RestApi.query({
-							route: 'events'
-						}).$promise;
+						return RestApi.query({route: 'events'}).$promise;
 
 					},
 
@@ -639,9 +605,7 @@ angular.module('boltApp')
 
 					getLocations: function(RestApi) {
 
-						return RestApi.query({
-							route: 'locations'
-						}).$promise;
+						return RestApi.query({route: 'locations'}).$promise;
 
 					},
 
@@ -656,18 +620,13 @@ angular.module('boltApp')
 
 					getNeigbourhood: function(RestApi, $stateParams) {
 
-						return RestApi.query({
-							route: 'districts',
-							cityId: $stateParams.city
-						}).$promise;
+						return RestApi.query({route: 'districts',cityId: $stateParams.city}).$promise;
 
 					},
 
 					getCities: function(RestApi) {
 
-						return RestApi.query({
-							route: 'cities'
-						}).$promise;
+						return RestApi.query({route: 'cities'}).$promise;
 
 					}
 
@@ -693,25 +652,19 @@ angular.module('boltApp')
 
 					getLocations: function(RestApi) {
 
-						return RestApi.query({
-							route: 'locations'
-						}).$promise;
+						return RestApi.query({route: 'locations'}).$promise;
 
 					},
 
 					getStudios: function(RestApi) {
 
-						return RestApi.query({
-							route: 'studios'
-						}).$promise;
+						return RestApi.query({route: 'studios'}).$promise;
 
 					},
 
 					getNeigbourhood: function($http) {
 
-						return $http.get('json/neigbourhood.json', {
-							cache: true
-						});
+						return $http.get('json/neigbourhood.json', {cache: true});
 
 					}
 
@@ -725,9 +678,7 @@ angular.module('boltApp')
 
 					getClasses: function(RestApi) {
 
-						return RestApi.query({
-							route: 'events'
-						}).$promise;
+						return RestApi.query({route: 'events'}).$promise;
 
 					}
 
@@ -748,9 +699,7 @@ angular.module('boltApp')
 					$scope.import = function() {
 						$scope.showSpinner = true;
 						$scope.entities = $scope.csv.result;
-						RestApi.saveList({
-							route: 'events'
-						}, $scope.entities).$promise.then(function(res) {
+						RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function(res) {
 							console.log(res);
 							$scope.showSpinner = false;
 							$rootScope.$state.go('admin.classes.list');
@@ -795,20 +744,13 @@ angular.module('boltApp')
 
 					getClass: function(RestApi, $stateParams) {
 
-						return RestApi.get({
-							route: 'events'
-						}, {
-							id: $stateParams.classId
-						}).$promise;
+						return RestApi.get({route: 'events'}, {id: $stateParams.classId}).$promise;
 
 					},
 
 					getOccurrences: function(RestApi, $stateParams) {
 
-						return RestApi.query({
-							route: 'occurrences',
-							parentId: $stateParams.classId
-						}).$promise;
+						return RestApi.query({route: 'occurrences',parentId: $stateParams.classId}).$promise;
 
 					}
 
@@ -823,17 +765,13 @@ angular.module('boltApp')
 
 					getEntityFields: function($http) {
 
-						return $http.get('json/entityFields.json', {
-							cache: true
-						});
+						return $http.get('json/entityFields.json', {cache: true});
 
 					},
 
 					getNeigbourhood: function($http) {
 
-						return $http.get('json/neigbourhood.json', {
-							cache: true
-						});
+						return $http.get('json/neigbourhood.json', {cache: true});
 
 					}
 
@@ -848,24 +786,17 @@ angular.module('boltApp')
 					$rootScope.coverage = ['NONE', 'PARTIAL', 'FULL'];
 
 					if ($rootScope.$stateParams.route === 'studios') {
-						RestApi.query({
-							route: 'locations'
-						}).$promise.then(function(response) {
+						RestApi.query({route: 'locations'}).$promise.then(function(response) {
 							$rootScope.locations = response;
 						});
-						RestApi.query({
-							route: 'cities'
-						}).$promise.then(function(response) {
+						RestApi.query({route: 'cities'}).$promise.then(function(response) {
 							$rootScope.cities = response;
-							$rootScope.cities.unshift({
-								id: 0,
-								defaultName: 'No location'
-							});
+							$rootScope.cities.unshift({id: 0,defaultName: 'No location'});
 						});
 						$rootScope.upload = function(target) {
 							$rootScope.modalInstance = $modal.open({
 								templateUrl: 'views/modalUpload.html',
-								controller: function($scope, target, id, $window, $modalInstance) {
+								controller: function($scope, target, id, $window, $modalInstance, $interval) {
 
 									$scope.target = target;
 									$scope.id = id;
@@ -883,9 +814,9 @@ angular.module('boltApp')
 									$scope.uploader = {
 										success: function($flow, $file, $message) {
 											var message = angular.fromJson($message);
-											setTimeout(function() {
-												$modalInstance.close(message.status);
-											}, 1000);
+                                            $interval(function() {
+                                                $modalInstance.close(message.status);
+                                            }, 1000, 1, {invokeApply: false});
 										}
 									};
 
@@ -993,9 +924,7 @@ angular.module('boltApp')
 
 					getEntityList: function(RestApi, $stateParams) {
 
-						return RestApi.query({
-							route: $stateParams.route
-						}).$promise;
+						return RestApi.query({route: $stateParams.route}).$promise;
 
 					}
 
@@ -1058,11 +987,7 @@ angular.module('boltApp')
 
 					getEntity: function(RestApi, $stateParams) {
 
-						return RestApi.get({
-							route: $stateParams.route
-						}, {
-							id: $stateParams.entityId
-						}).$promise;
+						return RestApi.get({route: $stateParams.route}, {id: $stateParams.entityId}).$promise;
 
 					}
 
@@ -1077,24 +1002,16 @@ angular.module('boltApp')
 
 					$scope.save = function() {
 						$scope.showSpinner = true;
-						$scope.entity.$update({
-							route: $rootScope.$stateParams.route,
-							id: $rootScope.$stateParams.entityId
-						}).then(function(res) {
+						$scope.entity.$update({route: $rootScope.$stateParams.route,id: $rootScope.$stateParams.entityId}).then(function(res) {
 							console.log(res);
 							$scope.showSpinner = false;
 						});
 					};
 
 					$scope.remove = function() {
-						$scope.entity.$delete({
-							route: $rootScope.$stateParams.route,
-							id: $rootScope.$stateParams.entityId
-						}).then(function(res) {
+						$scope.entity.$delete({route: $rootScope.$stateParams.route,id: $rootScope.$stateParams.entityId}).then(function(res) {
 							console.log(res);
-							$rootScope.$state.go('admin.entity.list', {
-								route: $rootScope.$stateParams.route
-							});
+							$rootScope.$state.go('admin.entity.list', {route: $rootScope.$stateParams.route});
 						});
 					};
 

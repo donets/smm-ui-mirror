@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', '$timeout', 'gettextCatalog', 'amMoment', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, $timeout, gettextCatalog, amMoment) {
+	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'gettextCatalog', 'amMoment', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, gettextCatalog, amMoment) {
 		$scope.init = function() {
 			$scope.data = {};
 			$scope.data.currentCity = [];
@@ -26,7 +26,7 @@ angular.module('boltApp.controllers.Login', [])
                 $cookieStore.put('globalLang', $rootScope.lang);
                 gettextCatalog.setCurrentLanguage($rootScope.lang);
                 amMoment.changeLocale($rootScope.lang);
-            }
+            };
 
 			CityFactory.getCities().then(function(res) {
 				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
