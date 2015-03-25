@@ -26,7 +26,7 @@ msgstr "0€ / Monat"
 
 #: app/views/userMembership.html:55
 msgid "Activate subscription"
-msgstr "Aktive Mitgliedschaft"
+msgstr "Mitgliedschaft aktivieren"
 
 #: app/views/userMembership.html:171
 msgid "Bank account holder"
