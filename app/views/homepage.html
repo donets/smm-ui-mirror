@@ -390,19 +390,6 @@
                 <div ng-show="successContact && contactForm.$pristine" class="form-message form-success" translate>Thank you!</div>
                 <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error" translate>The email address is incorrect</div>
             </div>
-        </div>
-        <div class="b-card b-contact">
-            <div class="container">
-                <p class="subtitle" translate>Are you a studio, coach or nutritionist? Do you want to work with us?</p>
-                <form name="contactForm" class="b-card-subscribe" ng-submit="contactSubmit()">
-                    <input type="email" name="email" ng-change="successContact = false" ng-model="contact.email" placeholder="{{'Email Address'|translate}}" required />
-                    <input type="text" name="phone" ng-change="successContact = false" class="phone" ng-model="contact.phone" placeholder="{{'Phone Number'|translate}}"/>
-                    <input type="submit" ng-disabled="loadingContact" value="{{'Contact me'|translate}}"/>
-                    <div class="form-response">
-                        <div ng-show="loadingContact" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="successContact && contactForm.$pristine" class="form-message form-success" translate>Thank you!</div>
-                        <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error" translate>The email address is incorrect</div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </form>
+    </div>
+</div>
