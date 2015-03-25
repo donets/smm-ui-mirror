@@ -14,7 +14,7 @@ angular.module('boltApp.controllers.Login', [])
 			$scope.data.currentCity = [];
 			$scope.CityFactory = CityFactory.CityFactory;
 
-			$scope.$on('CityFactory.update', function(newState) {
+			$scope.$on('CityFactory.update', function() {
 				var currentCityVar = CityFactory.getVariable();
 				$scope.data.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
 			});
@@ -26,7 +26,7 @@ angular.module('boltApp.controllers.Login', [])
                 $cookieStore.put('globalLang', $rootScope.lang);
                 gettextCatalog.setCurrentLanguage($rootScope.lang);
                 amMoment.changeLocale($rootScope.lang);
-            }
+            };
 
 			CityFactory.getCities().then(function(res) {
 				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {

@@ -71,11 +71,10 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         var selectDiscipline = function() {
             var locationDiscipline = $location.search().discipline;
             var discipline = _.findWhere($scope.disciplinesList.disciplines, {name: locationDiscipline});
-            console.log($scope.disciplinesList);
             if(discipline) {
                 $scope.discipline = discipline;
             }
-        }
+        };
 
         selectDiscipline();
 
@@ -84,7 +83,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         $scope.init = function() {
             $scope.CityFactory = CityFactory.CityFactory;
 
-			$scope.$on('CityFactory.update', function(newState) {
+			$scope.$on('CityFactory.update', function() {
                 var currentCityVar = CityFactory.getVariable();
                 $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
                 $scope.currentCityId = $scope.currentCity.id;
