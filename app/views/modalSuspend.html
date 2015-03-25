@@ -7,13 +7,13 @@
         <h2 translate>Taking a break?</h2>
         <p translate>Suspending your account while you are away.</p>
         <ul class="list">
-            <li translate>Choose any duration between 1 month & 3 months</li>
+            <li translate>Choose any duration between 1 month &amp; 3 months</li>
             <li translate>Your remaining days in the membership cycle stay on hold and don't expire</li>
             <li translate>Activate anytime after 1 month and use the remaining days</li>
         </ul>
         <div class="form-date">
             <div class="form-rel half">
-                <label class="form-label">Pause starts:</label>
+                <label class="form-label" translate>Pause starts:</label>
                 <div class="form-rel input-date date" ng-click="openDatepicker($event, 'from')">
                     <input datepicker-popup="yyyy-MM-dd" ng-click="openDatepicker($event, 'from')" is-open="showDatepicker.from"
                            datepicker-options="dateOptions" min-date="minStartDate"
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="form-rel half">
-                <label class="form-label">Pause ends:</label>
+                <label class="form-label" translate>Pause ends:</label>
                 <select chosen width="'100%'"
                         disable-search="true"
                         data-placeholder="{{'Select date'|translate}}"
