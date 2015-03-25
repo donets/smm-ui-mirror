@@ -49,19 +49,19 @@
                     <li>
                         <b translate>Status:</b>
                         <div>
-                        <p ng-if="membership.orderRefundPossible">Trial</p>
-                        <p ng-if="membership.cancelled">Cancelled</p>
+                        <p ng-if="membership.orderRefundPossible" translate>Trial</p>
+                        <p ng-if="membership.cancelled" translate>Cancelled</p>
                         <p ng-hide="membership.orderRefundPossible || membership.cancelled">{{membership.current.status}}</p>
-                        <a class="form-link" href="" ng-if="!membership.active && membership.earliestActivationPossible !== null" ng-click="activateMembership()">Activate subscription</a>
-                        <a class="form-link" href="" ng-if="membership.active && membership.earliestPausePossible !== null && membership.pauseStartsOn === null" ng-click="suspendMembership()">Suspend subscription</a>
-                        <a class="form-link" href="" ng-if="!membership.cancelled && membership.pauseStartsOn === null" ng-click="cancelMembership()">Cancel subscription</a>
+                        <a class="form-link" href="" ng-if="!membership.active && membership.earliestActivationPossible !== null" ng-click="activateMembership()" translate>Activate subscription</a>
+                        <a class="form-link" href="" ng-if="membership.active && membership.earliestPausePossible !== null && membership.pauseStartsOn === null" ng-click="suspendMembership()" translate>Suspend subscription</a>
+                        <a class="form-link" href="" ng-if="membership.active && !membership.cancelled && membership.pauseStartsOn !== null && isFuture(membership.pauseStartsOn)" ng-click="cancelMembership()" translate>Cancel subscription</a>
                         </div>
                     </li>
                     <li ng-if="isFuture(membership.membershipActivatesOn)">
                         <b translate>Membership activates:</b>
                         <div>
                         <p>{{membership.membershipActivatesOn | date: 'dd.MM.yyyy'}}</p>
-                            <a class="form-link" href="" ng-if="!membership.active" ng-click="changeActivationDate()">Change Activation Date</a>
+                            <a class="form-link" href="" ng-if="!membership.active" ng-click="changeActivationDate()" translate>Change Activation Date</a>
                         </div>
                     </li>
                     <li>
@@ -92,7 +92,7 @@
                         <b translate>Pause scheduled from:</b>
                         <div>
                             <p>{{membership.pauseStartsOn | date: 'dd.MM.yyyy'}}</p>
-                            <a class="form-link" href="" ng-if="isFuture(membership.pauseStartsOn)" ng-click="suspendMembership()">Change Suspension Date</a>
+                            <a class="form-link" href="" ng-if="isFuture(membership.pauseStartsOn)" ng-click="suspendMembership()" translate>Change Suspension Date</a>
                         </div>
                     </li>
                     <li ng-if="membership.pauseStartsOn">
@@ -106,7 +106,7 @@
                         <div>
                         <p ng-if="membership.paymentProvider === 'STRIPE'" translate>Credit card</p>
                         <p ng-if="membership.paymentProvider === 'ELV'" translate>Direct debit</p>
-                            <a class="form-link payment-link" ng-hide="changePayment" ng-click="showForm()" href="">Update payment data</a>
+                            <a class="form-link payment-link" ng-hide="changePayment" ng-click="showForm()" href="" translate>Update payment data</a>
                         </div>
                     </li>
                 </ul>

@@ -16,15 +16,27 @@ msgstr ""
 msgid "0€ / Month"
 msgstr ""
 
-#: app/views/userMembership.html:168
+#: app/views/userMembership.html:55
+msgid "Activate subscription"
+msgstr ""
+
+#: app/views/userMembership.html:171
 msgid "Bank account holder"
 msgstr ""
 
-#: app/views/userMembership.html:151
+#: app/views/userMembership.html:154
 msgid "CVV"
 msgstr ""
 
-#: app/views/userMembership.html:119
+#: app/views/userMembership.html:57
+msgid "Cancel subscription"
+msgstr ""
+
+#: app/views/userMembership.html:53
+msgid "Cancelled"
+msgstr ""
+
+#: app/views/userMembership.html:122
 msgid "Card number"
 msgstr ""
 
@@ -36,8 +48,16 @@ msgstr ""
 msgid "Card type:"
 msgstr ""
 
-#: app/views/userMembership.html:104
-#: app/views/userMembership.html:118
+#: app/views/userMembership.html:64
+msgid "Change Activation Date"
+msgstr ""
+
+#: app/views/userMembership.html:95
+msgid "Change Suspension Date"
+msgstr ""
+
+#: app/views/userMembership.html:107
+#: app/views/userMembership.html:121
 msgid "Credit card"
 msgstr ""
 
@@ -49,7 +69,7 @@ msgstr ""
 msgid "Current monthly price:"
 msgstr ""
 
-#: app/views/userMembership.html:105
+#: app/views/userMembership.html:108
 msgid "Direct debit"
 msgstr ""
 
@@ -61,7 +81,7 @@ msgstr ""
 msgid "Email:"
 msgstr ""
 
-#: app/views/userMembership.html:175
+#: app/views/userMembership.html:178
 msgid "IBAN"
 msgstr ""
 
@@ -73,7 +93,7 @@ msgstr ""
 msgid "Membership start date:"
 msgstr ""
 
-#: app/views/userMembership.html:134
+#: app/views/userMembership.html:137
 msgid "Month"
 msgstr ""
 
@@ -85,11 +105,11 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#: app/views/userMembership.html:161
+#: app/views/userMembership.html:164
 msgid "No credit card?"
 msgstr ""
 
-#: app/views/userMembership.html:96
+#: app/views/userMembership.html:99
 msgid "Pause duration:"
 msgstr ""
 
@@ -97,15 +117,15 @@ msgstr ""
 msgid "Pause scheduled from:"
 msgstr ""
 
-#: app/views/userMembership.html:192
+#: app/views/userMembership.html:195
 msgid "Payment by credit card?"
 msgstr ""
 
-#: app/views/userMembership.html:113
+#: app/views/userMembership.html:116
 msgid "Payment information"
 msgstr ""
 
-#: app/views/userMembership.html:102
+#: app/views/userMembership.html:105
 msgid "Payment method:"
 msgstr ""
 
@@ -113,27 +133,27 @@ msgstr ""
 msgid "Personal details"
 msgstr ""
 
-#: app/views/userMembership.html:125
+#: app/views/userMembership.html:128
 msgid "Please enter a valid credit card number"
 msgstr ""
 
-#: app/views/userMembership.html:155
+#: app/views/userMembership.html:158
 msgid "Please enter the 3 or 4-digit security number (on the back of your card)"
 msgstr ""
 
-#: app/views/userMembership.html:190
+#: app/views/userMembership.html:193
 msgid "Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer service team."
 msgstr ""
 
-#: app/views/userMembership.html:165
+#: app/views/userMembership.html:168
 msgid "SEPA direct debit"
 msgstr ""
 
-#: app/views/userMembership.html:189
+#: app/views/userMembership.html:192
 msgid "SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for services provided. I also instruct my bank to honour direct debit requests from this recipient."
 msgstr ""
 
-#: app/views/userMembership.html:182
+#: app/views/userMembership.html:185
 msgid "SWIFT-BIC"
 msgstr ""
 
@@ -149,7 +169,7 @@ msgstr ""
 msgid "Status:"
 msgstr ""
 
-#: app/views/userMembership.html:198
+#: app/views/userMembership.html:201
 msgid "Submit new payment data"
 msgstr ""
 
@@ -161,12 +181,24 @@ msgstr ""
 msgid "Subscription details"
 msgstr ""
 
-#: app/views/userMembership.html:124
-#: app/views/userMembership.html:154
-#: app/views/userMembership.html:171
-#: app/views/userMembership.html:178
-#: app/views/userMembership.html:185
+#: app/views/userMembership.html:56
+msgid "Suspend subscription"
+msgstr ""
+
+#: app/views/userMembership.html:127
+#: app/views/userMembership.html:157
+#: app/views/userMembership.html:174
+#: app/views/userMembership.html:181
+#: app/views/userMembership.html:188
 msgid "This is an obligatory field"
+msgstr ""
+
+#: app/views/userMembership.html:52
+msgid "Trial"
+msgstr ""
+
+#: app/views/userMembership.html:109
+msgid "Update payment data"
 msgstr ""
 
 #: app/views/userMembership.html:15
@@ -174,26 +206,26 @@ msgstr ""
 msgid "Upload Photo"
 msgstr ""
 
-#: app/views/userMembership.html:131
+#: app/views/userMembership.html:134
 msgid "Valid until"
 msgstr ""
 
-#: app/views/userMembership.html:144
+#: app/views/userMembership.html:147
 msgid "Year"
 msgstr ""
 
-#: app/views/userMembership.html:169
+#: app/views/userMembership.html:172
 msgid "Your Name"
 msgstr ""
 
-#: app/views/userMembership.html:152
+#: app/views/userMembership.html:155
 msgid "e.g. 123"
 msgstr ""
 
-#: app/views/userMembership.html:183
+#: app/views/userMembership.html:186
 msgid "e.g. ABCD1234"
 msgstr ""
 
-#: app/views/userMembership.html:176
+#: app/views/userMembership.html:179
 msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr ""

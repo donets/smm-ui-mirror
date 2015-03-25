@@ -9,7 +9,7 @@ msgid "Activate anytime after 1 month and use the remaining days"
 msgstr ""
 
 #: app/views/modalSuspend.html:10
-msgid "Choose any duration between 1 month & 3 months"
+msgid "Choose any duration between 1 month &amp; 3 months"
 msgstr ""
 
 #: app/views/modalSuspend.html:4
@@ -26,6 +26,14 @@ msgstr ""
 
 #: app/views/modalSuspend.html:47
 msgid "Ok"
+msgstr ""
+
+#: app/views/modalSuspend.html:25
+msgid "Pause ends:"
+msgstr ""
+
+#: app/views/modalSuspend.html:16
+msgid "Pause starts:"
 msgstr ""
 
 #: app/views/modalSuspend.html:21

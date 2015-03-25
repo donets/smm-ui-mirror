@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/modalActivate.html:114
 msgid "Activate my account now"
@@ -48,7 +48,7 @@ msgstr "Kreditkarte"
 
 #: app/views/modalActivate.html:100
 msgid "Earliest activation date: {{member.earliestActivationPossible}}"
-msgstr "Frühestes Startdatum"
+msgstr "Frühestes Startdatum: {{member.earliestActivationPossible}}"
 
 #: app/views/modalActivate.html:98
 msgid "Great! Lets activate your account"
@@ -117,7 +117,7 @@ msgstr "BIC"
 
 #: app/views/modalActivate.html:99
 msgid "Scheduled activation date: {{member.membershipActivatesOn}}"
-msgstr "Geplantes Startdatum: {{Mitglied.MitgliedschaftAktivierungAn}}"
+msgstr "Geplantes Startdatum: {{member.membershipActivatesOn}}"
 
 #: app/views/modalActivate.html:109
 msgid "Select date"
@@ -160,7 +160,7 @@ msgstr "Deine Karte ist jetzt aktiviert."
 #: app/views/modalActivate.html:128
 msgid "Your membership will activate on {{startDate | date: 'dd.MM.yyyy'}}"
 msgstr ""
-"Deine Mitgliedschaft wird am {{Startdatum | Datum: 'dd.MM.yyyy'}} aktiviert."
+"Deine Mitgliedschaft wird am {{startDate | date: 'dd.MM.yyyy'}} aktiviert."
 
 #: app/views/modalActivate.html:48
 msgid "e.g. 123"
