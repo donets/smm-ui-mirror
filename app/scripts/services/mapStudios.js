@@ -57,11 +57,11 @@ angular.module('boltApp.services.mapStudios', [])
           };
 
         });
-      }
+    };
 
       return {
         create: create
-      }
+    };
 
     }
   ]);

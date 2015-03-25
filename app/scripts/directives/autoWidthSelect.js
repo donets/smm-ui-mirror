@@ -12,8 +12,8 @@ angular.module('boltApp')
 			restrict: 'A',
 			link: function(scope, element) {
 				$(element).change(function() {
-                    $("#width_tmp").html($(element).find('option:selected').text());
-					$(this).width($("#width_tmp").width()-20);
+                    $('#width_tmp').html($(element).find('option:selected').text());
+					$(this).width($('#width_tmp').width()-20);
 				});
 			}
 		};

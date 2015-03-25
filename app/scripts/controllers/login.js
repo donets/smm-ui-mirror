@@ -14,7 +14,7 @@ angular.module('boltApp.controllers.Login', [])
 			$scope.data.currentCity = [];
 			$scope.CityFactory = CityFactory.CityFactory;
 
-			$scope.$on('CityFactory.update', function(newState) {
+			$scope.$on('CityFactory.update', function() {
 				var currentCityVar = CityFactory.getVariable();
 				$scope.data.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
 			});

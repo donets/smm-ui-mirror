@@ -1,4 +1,4 @@
-<div class="b-main-cover" ng-style="{ 'height' : desktop && windowHeight }">
+<div class="b-main-cover" ng-style="{ 'height' : desktop && documentWidth / windowHeight < (1280/720) ? documentWidth / (1280/720) : windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
     vg-player-ready="video.onPlayerReady"
     vg-complete="video.onCompleteVideo"
@@ -11,8 +11,9 @@
 
 </videogular>
 <div class="b-main-slogan"><h2 ng-if="!currentCity" translate>LONDON IS YOUR STUDIO</h2>
-    <h2 ng-if="currentCity && !(city || cityId)">{{currentCity.title}}</h2>
-    <h2 ng-if="currentCity && (city || cityId)" translate>
+    <h2 ng-if="discipline">{{discipline.title}}</h2>
+    <h2 ng-if="currentCity && !(city || cityId) && !discipline">{{currentCity.title}}</h2>
+    <h2 ng-if="currentCity && (city || cityId) && !discipline" translate>
         <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
             <option value="" ng-if="desktop"></option>
         </select>
@@ -30,10 +31,11 @@
             </li>
         </ul> -->
         <span id="width_tmp"></span>
-        IS YOUR STUDIO</h2>
-        <p ng-if="!currentCity" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
-        <p ng-if="currentCity && !(city || cityId)" translate>Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>.</p>
-        <p ng-if="currentCity && (city || cityId)" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
+        IS YOUR STUDIO
+        </h2>
+        <p ng-if="!currentCity && !discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
+        <p ng-if="currentCity && !(city || cityId) && !discipline" translate>Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>.</p>
+        <p ng-if="currentCity && (city || cityId) && !discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
@@ -266,14 +268,10 @@
 </div>
 <div class="b-card b-media">
     <div class="container">
-        <!-- <p class="subtitle">Bekannt aus</p> -->
         <ul class="b-card-list">
             <li>
                 <img src="images/tagesspiegel.png" alt="tagesspiegel"/>
             </li>
-            <!-- <li>
-                <img src="images/vice.png" alt="vice"/>
-            </li> -->
             <li>
                 <img src="images/ds.png" alt="ds"/>
             </li>
@@ -296,8 +294,7 @@
                 <p translate>– Konrad Knops, osteopath</p>
             </li><li>
                 <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore
-</em>
+                <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore</em>
                 <p translate>– Sonja Reifenhäuser, food coach</p>
             </li>
         </ul>
@@ -314,8 +311,7 @@
             </slide>
             <slide>
                 <img class="circle-image" src="images/sonia.jpg" alt=""/>
-                <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore
-</em>
+                <em translate>Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore</em>
                 <p translate>– Sonja Reifenhäuser, food coach</p>
             </slide>
         </carousel>
@@ -390,19 +386,6 @@
                 <div ng-show="successContact && contactForm.$pristine" class="form-message form-success" translate>Thank you!</div>
                 <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error" translate>The email address is incorrect</div>
             </div>
-        </div>
-        <div class="b-card b-contact">
-            <div class="container">
-                <p class="subtitle" translate>Are you a studio, coach or nutritionist? Do you want to work with us?</p>
-                <form name="contactForm" class="b-card-subscribe" ng-submit="contactSubmit()">
-                    <input type="email" name="email" ng-change="successContact = false" ng-model="contact.email" placeholder="{{'Email Address'|translate}}" required />
-                    <input type="text" name="phone" ng-change="successContact = false" class="phone" ng-model="contact.phone" placeholder="{{'Phone Number'|translate}}"/>
-                    <input type="submit" ng-disabled="loadingContact" value="{{'Contact me'|translate}}"/>
-                    <div class="form-response">
-                        <div ng-show="loadingContact" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        <div ng-show="successContact && contactForm.$pristine" class="form-message form-success" translate>Thank you!</div>
-                        <div ng-show="errorContact && contactForm.$dirty" class="form-message form-error" translate>The email address is incorrect</div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </form>
+    </div>
+</div>

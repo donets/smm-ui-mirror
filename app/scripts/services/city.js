@@ -12,7 +12,7 @@ angular.module('boltApp.services.city', [])
 		function(RestApi, $location, $cookieStore, $rootScope, $http, $q, mapStudios) {
 			var rootCity;
 
-			var broadcast = function(CityFactory) {
+			var broadcast = function() {
 				$rootScope.$broadcast('CityFactory.update', rootCity);
 			};
 
@@ -24,7 +24,7 @@ angular.module('boltApp.services.city', [])
 
 			var getVariable = function() {
 				return rootCity;
-			}
+			};
 
 			var guessCity = function(cities) {
 				var deferred = $q.defer(),
@@ -101,9 +101,7 @@ angular.module('boltApp.services.city', [])
 			};
 
 			var getDisciplines = function() {
-				return $http.get('json/disciplines.json', {
-					cache: true
-				});
+				return $http.get('json/disciplines.json', {cache: true});
 			};
 
 			var citiesList;
@@ -116,11 +114,11 @@ angular.module('boltApp.services.city', [])
 					RestApi.query({route: 'cities'}).$promise.then(function(res) {
 						citiesList = res;
 						deferred.resolve(res);
-					})
+					});
 				}
 				citiesList = deferred.promise;
 				return citiesList;
-			}
+			};
 
 			return {
 				update: update,
