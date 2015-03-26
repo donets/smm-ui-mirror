@@ -331,7 +331,7 @@ angular.module('boltApp')
 				} else {
 					$rootScope.rejection.show = !($rootScope.handledError && $rootScope.handledType);
 				}
-				$interval(function() {
+				$timeout(function() {
 					$rootScope.rejection = null;
 				}, 60000, 1, {
 					invokeApply: false
