@@ -21,12 +21,14 @@
                         separator="csv.separator"
                         entity="importEntity"
                         ignored-columns="csv.ignoredColumns"
+                        missing-columns="csv.missingColumns"
                         import-errors="csv.importErrors"
                         import-error="importError"
                         result="csv.result"></ng-csv-import>
             </div>
 
             <div class="ignored-columns" ng-if="csv.ignoredColumns.length > 0">{{formattedIgnoredColumns()}}</div>
+            <div class="ignored-columns" ng-if="csv.missingColumns.length > 0">{{formattedMissingColumns()}}</div>
 
             <div class="b-classes-list parsed-data" ng-if="csv.result">
                 <table class="timetable import-table" ng-show="desktop">

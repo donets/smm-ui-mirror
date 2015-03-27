@@ -16,6 +16,7 @@ angular.module('boltApp')
                 entity: '=',
                 result: '=',
                 ignoredColumns: '=',
+                missingColumns: '=',
                 importErrors: '=',
                 importError: '='
             },
@@ -72,6 +73,7 @@ angular.module('boltApp')
                     scope.importErrors = {};
                     scope.importError = false;
                     scope.ignoredColumns = [];
+                    scope.missingColumns = [];
                     var lines = content.csv.split('\n');
                     var result = [];
                     var start = 0;
@@ -81,6 +83,9 @@ angular.module('boltApp')
                     if (content.header) {
                         headers = lines[0].split(content.separator);
                         start = 1;
+                        if (!validateHeaders(headers)) {
+                            return null;
+                        }
                     }
 
                     for (var i = start; i < lines.length; i++) {
@@ -177,16 +182,24 @@ angular.module('boltApp')
                             var allowedValues = param.split(',');
                             return Validator.methods.optional(value) || _.contains(allowedValues, value.toLowerCase());
                         },
-                        remote: function (value, param) {
-                            var allowedValues = param.split(',');
-                            return Validator.methods.optional(value) || _.contains(allowedValues, value.toLowerCase());
-                        },
                         optional: function (value) {
                             return !Validator.methods.required(value);
                         }
                     }
-
                 };
+
+                var validateHeaders = function(headers) {
+                    var valid = true;
+                    _.each(scope.entity, function (value, key) {
+                        if (_.contains(_.keys(value.rules), 'required')) {
+                            if (!_.contains(headers, key)) {
+                                valid = false;
+                                scope.missingColumns.push(key);
+                            }
+                        }
+                    });
+                    return valid;
+                }
             }
         };
     });

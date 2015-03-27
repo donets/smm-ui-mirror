@@ -65,7 +65,10 @@
             "rules": {
                 "required": true,
                 "number": true,
-                "remote": "studios"
+                "remote": {
+                    "route": "studios",
+                    "field": "studioNumber"
+                }
             }
         },
         "locationId": {
@@ -73,7 +76,10 @@
             "rules": {
                 "required": true,
                 "number": true,
-                "remote": "locations"
+                "remote": {
+                    "route": "locations",
+                    "field": "id"
+                }
             }
         },
         "status": {

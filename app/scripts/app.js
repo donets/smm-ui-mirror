@@ -715,6 +715,7 @@ angular.module('boltApp')
                         separator: ',',
                         result: null,
                         ignoredColumns: [],
+                        missingColumns: [],
                         importErrors: {}
                     };
                     $scope.importEntity = getImportEntities.data.class;
@@ -728,11 +729,16 @@ angular.module('boltApp')
                     $scope.formattedIgnoredColumns = function () {
                         return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
                     };
+                    $scope.formattedMissingColumns = function () {
+                        return 'FATAL ERROR! The following required columns are missing in your file: ' + $scope.csv.missingColumns.join(', ');
+                    };
                     $scope.handleRemoteRules = function (entity) {
                         _.each(entity, function (value, key) {
                             if (_.contains(_.keys(value.rules), 'remote')) {
-                                RestApi.query({route: value.rules.remote}).$promise.then(function(res) {
-                                    value.rules.remote = _.map(res, function(obj) { return obj.id}).join(',');
+                                var remoteRule = value.rules.remote;
+                                delete value.rules.remote;
+                                RestApi.query({route: remoteRule.route}).$promise.then(function(res) {
+                                    value.rules.inclusion = _.map(res, function(obj) { return obj[remoteRule.field]}).join(',');
                                 })
                             }
                         });
