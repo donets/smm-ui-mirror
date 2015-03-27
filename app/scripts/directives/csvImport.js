@@ -88,7 +88,7 @@ angular.module('boltApp')
                     }
 
                     for (var i = start; i < lines.length; i++) {
-                        var obj = {errors: {}};
+                        var obj = {};
                         var currentline = lines[i].split(new RegExp(content.separator + '(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
                         if (currentline.length === columnCount) {
                             if (content.header) {
@@ -132,10 +132,11 @@ angular.module('boltApp')
                                             var rule = { method: method, parameters: currentField.rules[ method ] };
                                             var valid = Validator.methods[ rule.method ].call(this, parsedValue, rule.parameters);
                                             if (!valid) {
+                                                obj.errors = obj.errors || {};
                                                 obj.errors[headers[j]] = true;
-                                                scope.importError = true;
                                                 scope.importErrors[i] = scope.importErrors[i] || [];
                                                 scope.importErrors[i].push(headers[j]);
+                                                scope.importError = true;
                                             }
                                         }
 

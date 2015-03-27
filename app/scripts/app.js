@@ -702,6 +702,20 @@ angular.module('boltApp')
                     $scope.import = function () {
                         $scope.showSpinner = true;
                         $scope.entities = $scope.csv.result;
+                        _.each($scope.entities, function (entity) {
+                            _.each(entity, function (value, key) {
+                                switch ($scope.importEntity[key].type) {
+                                    case 'integer':
+                                        entity[key] = parseInt(value);
+                                        break;
+                                    case 'float':
+                                        entity[key] = parseFloat(value);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            })
+                        });
                         RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
                             console.log(res);
                             $scope.showSpinner = false;

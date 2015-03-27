@@ -28,7 +28,7 @@
             "rules": {}
         },
         "level": {
-            "type": "strings",
+            "type": "string",
             "rules": {}
         },
         "teacherName": {
@@ -86,7 +86,7 @@
             "type": "string",
             "rules": {
                 "required": true,
-                "inclusion": "live,draft,cancelled"
+                "inclusion": "live,draft,canceled"
             }
         },
         "earliestStart": {
