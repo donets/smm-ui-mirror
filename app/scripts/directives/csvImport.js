@@ -162,7 +162,7 @@ angular.module('boltApp')
                             return value.length > 0;
                         },
                         number: function (value, param) {
-                            return Validator.methods.optional(value) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
+                            return /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
                         },
                         min: function (value, param) {
                             return Validator.methods.optional(value) || value >= param;
