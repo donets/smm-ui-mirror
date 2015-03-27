@@ -689,54 +689,47 @@ angular.module('boltApp')
 				templateUrl: 'views/class.html',
 				controller: 'CreateClassCtrl'
 			})
-			.state('admin.classes.import', {
-				url: 'import/',
-				templateUrl: 'views/entityImport.html',
-				controller:
+            .state('admin.classes.import', {
+                url: 'import/',
+                templateUrl: 'views/entityImport.html',
+                resolve: {
+                    getImportEntities: function ($http) {
+                        return $http.get('json/import.json', {cache: true});
+                    }
+                },
+                controller: function ($scope, $rootScope, RestApi, getImportEntities) {
 
-					function($scope, $rootScope, RestApi) {
+                    $scope.import = function () {
+                        $scope.showSpinner = true;
+                        $scope.entities = $scope.csv.result;
+                        RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
+                            console.log(res);
+                            $scope.showSpinner = false;
+                            $rootScope.$state.go('admin.classes.list');
+                        });
+                    };
 
-					$scope.import = function() {
-						$scope.showSpinner = true;
-						$scope.entities = $scope.csv.result;
-						RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function(res) {
-							console.log(res);
-							$scope.showSpinner = false;
-							$rootScope.$state.go('admin.classes.list');
-						});
-					};
-
-					$scope.csv = {
-						content: null,
-						header: true,
-						test: null,
-						separator: ',',
-						result: null
-					};
-					$scope.importEntity = {
-						ClassId: 'integer',
-						Studio: 'string',
-						acceptedPlans: 'strings',
-						languages: 'strings',
-						visitorGenders: 'strings',
-						freeSchedule: 'boolean',
-						dropinPrice: 'string',
-						title: 'string',
-						discipline: 'string',
-						style: 'string',
-						level: 'string',
-						teacherName: 'string',
-						description: 'string',
-						day: 'string',
-						startTime: 'string',
-						endTime: 'string',
-						earliestStart: 'string',
-						endDate: 'string',
-						studioId: 'integer',
-						locationId: 'integer'
-					};
-				}
-			})
+                    $scope.csv = {
+                        content: null,
+                        header: true,
+                        separator: ',',
+                        result: null,
+                        ignoredColumns: [],
+                        importErrors: {}
+                    };
+                    $scope.importEntity = getImportEntities.data.class;
+                    $scope.formattedErrors = function () {
+                        var result = 'Errors found in lines: ';
+                        _.each($scope.csv.importErrors, function (value, key) {
+                            result += key + ' (columns: ' + value.join(', ') + '), ';
+                        });
+                        return result.slice(0, -2);
+                    };
+                    $scope.formattedIgnoredColumns = function () {
+                        return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
+                    };
+                }
+            })
 			.state('admin.classes.class', {
 				url: ':classId/',
 				templateUrl: 'views/class.html',

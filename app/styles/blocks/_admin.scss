@@ -141,6 +141,9 @@
                 &:nth-child(1), &:nth-child(2) {
                    font-size: 12px;
                 }
+                &.invalid {
+                  background: red;
+                }
             }
         }
         td {
@@ -377,6 +380,13 @@
     }
     .spinner {
         top: 50%;
+    }
+    .ignored-columns {
+        color: red;
+    }
+    .errors-holder {
+        color: red;
+        margin-top: 30px;
     }
 }
 .b-date-group {

@@ -1,0 +1,90 @@
+{
+    "class": {
+        "id": {
+            "type": "integer",
+            "rules": {
+                "number": true
+            }
+        },
+        "acceptedPlans": {
+            "type": "strings",
+            "rules": {}
+        },
+        "title": {
+            "type": "string",
+            "rules": {
+                "required": true
+            }
+        },
+        "discipline": {
+            "type": "string",
+            "rules": {
+                "required": true
+            }
+        },
+        "style": {
+            "type": "string",
+            "rules": {}
+        },
+        "level": {
+            "type": "strings",
+            "rules": {}
+        },
+        "teacherName": {
+            "type": "string",
+            "rules": {}
+        },
+        "day": {
+            "type": "string",
+            "rules": {
+                "inclusion": "mon,tue,wed,thu,fri,sat,sun"
+            }
+        },
+        "startTime": {
+            "type": "string",
+            "rules": {
+                "format": "^\\d{1,2}:\\d{2}$"
+            }
+        },
+        "endTime": {
+            "type": "string",
+            "rules": {
+                "format": "^\\d{1,2}:\\d{2}$"
+            }
+        },
+        "description": {
+            "type": "string",
+            "rules": {}
+        },
+        "studioId": {
+            "type": "integer",
+            "rules": {
+                "number": true
+            }
+        },
+        "locationId": {
+            "type": "integer",
+            "rules": {
+                "number": true
+            }
+        },
+        "status": {
+            "type": "string",
+            "rules": {
+                "inclusion": "live,draft,cancelled"
+            }
+        },
+        "earliestStart": {
+            "type": "string",
+            "rules": {
+                "format": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+        },
+        "endDate": {
+            "type": "string",
+            "rules": {
+                "format": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+        }
+    }
+}
