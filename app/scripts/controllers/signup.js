@@ -257,10 +257,15 @@ angular.module('boltApp.controllers.Signup', [])
 				$rootScope.$state.go('dashboard');
 
 			}).error(function(response) {
-
+				console.log(response);
 				$scope.showSpinner = false;
 				$rootScope.handledError = false;
 				$scope.error = response.type;
+				if($scope.error == 'CardException') {
+					$timeout(function() {
+						$document.scrollToElementAnimated($('#cardNumber'), 90, 800);
+					}, 0);
+				}
 				$scope.errorMsg = response.message;
 			});
 		};
