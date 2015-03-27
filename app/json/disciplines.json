@@ -82,5 +82,12 @@
 		"amountCourses": "51",
 		"amountStudios": "1",
 		"termForStudios": "CrossFit-Studios"
+	},
+    {
+		"name": "Yogilates",
+		"title": "Ein Karte, unbegrenzt Yogilates",
+		"amountCourses": "2",
+		"amountStudios": "1",
+		"termForStudios": "Yogilatesstudios"
 	}]
 }
