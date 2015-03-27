@@ -728,6 +728,17 @@ angular.module('boltApp')
                     $scope.formattedIgnoredColumns = function () {
                         return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
                     };
+                    $scope.handleRemoteRules = function (entity) {
+                        _.each(entity, function (value, key) {
+                            if (_.contains(_.keys(value.rules), 'remote')) {
+                                RestApi.query({route: value.rules.remote}).$promise.then(function(res) {
+                                    value.rules.remote = _.map(res, function(obj) { return obj.id}).join(',');
+                                })
+                            }
+                        });
+                        return entity;
+                    };
+                    $scope.importEntity = $scope.handleRemoteRules($scope.importEntity);
                 }
             })
 			.state('admin.classes.class', {

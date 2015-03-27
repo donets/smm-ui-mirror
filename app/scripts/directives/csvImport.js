@@ -95,20 +95,20 @@ angular.module('boltApp')
                                         // parse column value
                                         var parsedValue;
                                         switch (content.entity[headers[j]].type) {
-                                            case 'integer':
-                                                var parsedInt = parseInt(currentline[j].replace(/^"(.*)"$/, '$1'));
-                                                parsedValue = _.isFinite(parsedInt) ? parsedInt : currentline[j].replace(/^"(.*)"$/, '$1');
-                                                break;
-                                            case 'string':
-                                                parsedValue = currentline[j].replace(/^"(.*)"$/, '$1');
-                                                break;
-                                            case 'boolean':
-                                                parsedValue = currentline[j].replace(/^"(.*)"$/, '$1');
-                                                break;
-                                            case 'float':
-                                                var parsedFloat = parseFloat(currentline[j].replace(/^"(.*)"$/, '$1'));
-                                                parsedValue = _.isFinite(parsedFloat) ? parsedFloat : currentline[j].replace(/^"(.*)"$/, '$1');
-                                                break;
+//                                            case 'integer':
+//                                                var parsedInt = parseInt(currentline[j].replace(/^"(.*)"$/, '$1'));
+//                                                parsedValue = _.isFinite(parsedInt) ? parsedInt : currentline[j].replace(/^"(.*)"$/, '$1');
+//                                                break;
+//                                            case 'string':
+//                                                parsedValue = currentline[j].replace(/^"(.*)"$/, '$1');
+//                                                break;
+//                                            case 'boolean':
+//                                                parsedValue = currentline[j].replace(/^"(.*)"$/, '$1');
+//                                                break;
+//                                            case 'float':
+//                                                var parsedFloat = parseFloat(currentline[j].replace(/^"(.*)"$/, '$1'));
+//                                                parsedValue = _.isFinite(parsedFloat) ? parsedFloat : currentline[j].replace(/^"(.*)"$/, '$1');
+//                                                break;
                                             case 'strings':
                                                 parsedValue = currentline[j].replace(/^"(.*)"$/, '$1').split(',');
                                                 break;
@@ -162,7 +162,7 @@ angular.module('boltApp')
                             return value.length > 0;
                         },
                         number: function (value, param) {
-                            return /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
+                            return Validator.methods.optional(value) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
                         },
                         min: function (value, param) {
                             return Validator.methods.optional(value) || value >= param;
@@ -174,6 +174,10 @@ angular.module('boltApp')
                             return Validator.methods.optional(value) || new RegExp(param).test(value);
                         },
                         inclusion: function (value, param) {
+                            var allowedValues = param.split(',');
+                            return Validator.methods.optional(value) || _.contains(allowedValues, value.toLowerCase());
+                        },
+                        remote: function (value, param) {
                             var allowedValues = param.split(',');
                             return Validator.methods.optional(value) || _.contains(allowedValues, value.toLowerCase());
                         },
