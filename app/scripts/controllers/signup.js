@@ -13,26 +13,37 @@ angular.module('boltApp.controllers.Signup', [])
 
 
 		var onRouteChangeOff = $rootScope.$on('$stateChangeStart', routeChange);
+		var askConfirm = function(flag) {
 
+			function enableAsk() {
+				return "Are you sure you want to leave this page?"
+			}
 
-
-		function askConfirm() {
-			return "Are you sure you want to leave this page?";
+			if(flag) {
+				window.onbeforeunload = enableAsk;
+			} else {
+				window.onbeforeunload = false;
+			}
 		}
+		askConfirm(true);
+
+
 
 		function routeChange(event) {
-			if (!$scope.formSignup.$dirty && !$scope.formCheckout.$dirty) {
+			console.log(($scope.formSignup.$valid));
+			if (!$scope.formSignup.$dirty && !$scope.formCheckout.$dirty && (!$scope.formSignup.$valid && !$scope.formCheckout.$valid)) {
 				return;
-			}
-			window.onbeforeunload = askConfirm;
-			if (confirm('Are you sure you want to leave this page?')) {
-				console.log('true');
-				onRouteChangeOff();
-				$location.url('/');
 			} else {
-				event.preventDefault();
-				console.log('false');
-				return false;
+				console.log("dddd");
+				if (confirm('Are you sure you want to leave this page?')) {
+					console.log('true');
+					onRouteChangeOff();
+					$location.url('/');
+				} else {
+					event.preventDefault();
+					console.log('false');
+					return false;
+				}
 			}
 		}
 
@@ -242,6 +253,7 @@ angular.module('boltApp.controllers.Signup', [])
 				$rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
 				$cookieStore.put('session', response.user);
 				$cookieStore.put('signupPopap', true);
+				askConfirm(false);
 				$rootScope.$state.go('dashboard');
 
 			}).error(function(response) {

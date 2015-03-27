@@ -13,15 +13,19 @@ angular.module('boltApp')
 			link: function(scope, elem) {
 
 				// set up event handler on the form element
-				elem.on('submit', function() {
-
+				elem.on('click', function() {
 					// find the first invalid element
-					var firstInvalid = angular.element(
-						elem[0].querySelector('.ng-invalid'))[0];
+					var firstInvalid = elem.parents('form:first').find('.ng-invalid')[0];
+
+					console.log(firstInvalid);
 
 					// if we find one, set focus
 					if (firstInvalid) {
-						firstInvalid.focus();
+						var scrollEl = $(firstInvalid).offset().top - 200;
+						$('html, body').animate({
+	                        scrollTop: scrollEl
+	                    }, 300);
+						// firstInvalid.focus();
 					}
 				});
 			}

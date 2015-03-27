@@ -32,7 +32,7 @@
         </ul>
     </nav>
     <div class="container">
-        <form id="step1" name="formSignup" class="form-signup" ng-submit="signupSubmit()" accessible-form>
+        <form id="step1" name="formSignup" class="form-signup" ng-submit="signupSubmit()">
             <div class="form-group">
                 <div class="form-rel flex">
                     <div class="half">
@@ -91,7 +91,7 @@
             <div class="form-rel" ng-show="showSpinner">
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             </div>
-            <button type="submit" ng-hide="showSpinner || showCards" translate>Next</button>
+            <button type="submit" ng-hide="showSpinner || showCards" accessible-form translate>Next</button>
         </form>
         <div id="step2" ng-show="showCards">
             <div class="select-cards" ng-if="desktop">
@@ -152,7 +152,7 @@
                 </tr>
             </table>
         </div>
-        <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-submit="checkoutSubmit()" accessible-form>
+        <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-submit="checkoutSubmit()" >
             <div class="w-left">
                 <div ng-class="{ 'error': errorVoucher }" class="form-group">
                     <a href="" class="form-link" ng-click="showVoucher = !showVoucher" translate>Enter discount code</a>
@@ -337,7 +337,7 @@
                 <div class="form-rel" ng-show="showSpinner">
                     <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
                 </div>
-                <button class="large" type="submit" ng-hide="showSpinner" ><span class="variant variant_1 variant_2" translate>Place order</span><span class="variant variant_3" translate>FREE trial period</span></button>
+                <button class="large" type="submit" accessible-form ng-hide="showSpinner" ><span class="variant variant_1 variant_2" translate>Place order</span><span class="variant variant_3" translate>FREE trial period</span></button>
                 <span class="info variant variant_2" translate>After this it will be subject to a fee</span>
                 <div class="form-group center">
                     <div class="form-error" ng-if="error === 'CardException'" translate>Pleas check your credit card details: {{errorMsg}}</div>
