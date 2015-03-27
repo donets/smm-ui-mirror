@@ -738,8 +738,8 @@ angular.module('boltApp')
                                 var remoteRule = value.rules.remote;
                                 delete value.rules.remote;
                                 RestApi.query({route: remoteRule.route}).$promise.then(function(res) {
-                                    value.rules.inclusion = _.map(res, function(obj) { return obj[remoteRule.field]}).join(',');
-                                })
+                                    value.rules.inclusion = _.map(res, function(obj) { return obj[remoteRule.field]; }).join(',');
+                                });
                             }
                         });
                         return entity;

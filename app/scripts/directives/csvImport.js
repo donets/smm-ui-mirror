@@ -49,7 +49,6 @@ angular.module('boltApp')
 
                             scope.content = content.csv;
                             scope.headers = getHeaders(content);
-                            scope.loading = true;
                             scope.result = csvToJSON(content);
                         });
                     };
@@ -199,7 +198,7 @@ angular.module('boltApp')
                         }
                     });
                     return valid;
-                }
+                };
             }
         };
     });
