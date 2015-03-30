@@ -13,47 +13,55 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 # what is this?
-#: app/index.html:208
+#: app/index.html:215
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr "&copy; Somuchmore Marketplace UG, 2015"
 
-#: app/index.html:203
+#: app/index.html:210
 msgid "About us"
 msgstr "Über uns"
 
-#: app/index.html:162
+#: app/index.html:169
 msgid "Be inspired"
 msgstr "Lass Dich inspirieren"
 
-#: app/index.html:111 app/index.html:121 app/index.html:128
+#: app/index.html:111 app/index.html:121 app/index.html:128 app/index.html:135
 msgid "Close"
 msgstr "Close"
 
-#: app/index.html:184
+#: app/index.html:191
 msgid "Contact us"
 msgstr "Kontaktiere uns"
 
-#: app/index.html:149
+#: app/index.html:156
 msgid "Courses"
 msgstr "Kurse"
 
-#: app/index.html:206
+#: app/index.html:213
 msgid "FAQ"
 msgstr "faq"
 
-#: app/index.html:173
+#: app/index.html:180
 msgid "Follow us"
 msgstr "Folge uns"
 
-#: app/index.html:205
+#: app/index.html:212
 msgid "General terms &amp; conditions"
 msgstr "AGB"
 
-#: app/index.html:204
+#: app/index.html:132
+msgid ""
+"Important: Easter breaks are here! Please check the individual course plans "
+"on the websites of each studio for any changes. Thank you!"
+msgstr ""
+"Bitte beachtet während der Osterferien die aktuellen Kursänderungen auf den "
+"Webseiten der Studios! Vielen Dank!"
+
+#: app/index.html:211
 msgid "Legal notice"
 msgstr "Impressum"
 
-#: app/index.html:134
+#: app/index.html:141
 msgid "Somuchmore"
 msgstr "Somuchmore"
 
@@ -67,7 +75,7 @@ msgstr ""
 "(Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> "
 "um es erneut zu versuchen."
 
-#: app/index.html:150
+#: app/index.html:157
 msgid "Studios"
 msgstr "Studios"
 
@@ -88,11 +96,11 @@ msgstr ""
 "{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
 "event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
 
-#: app/index.html:167
+#: app/index.html:174
 msgid "Thank you!"
 msgstr "Danke!"
 
-#: app/index.html:168
+#: app/index.html:175
 msgid "The email address is incorrect"
 msgstr "Die Email-Adresse ist nicht korrekt"
 
@@ -116,7 +124,7 @@ msgstr ""
 "Sie haben keine Berechtigung für die Seite {{$state.href($state.current."
 "name, $state.params, {absolute: true})}}"
 
-#: app/index.html:164
+#: app/index.html:171
 msgid "Your email address"
 msgstr "Deine E-Mail-Adresse"
 

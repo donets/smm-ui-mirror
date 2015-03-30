@@ -165,6 +165,11 @@ angular.module('boltApp')
 				$window._fbq.push(['addPixelId', '1461407927469396']);
 				$window._fbq.push(['track', 'PixelInitialized', {}]);
 			});
+            $rootScope.easterMessage = (!$cookieStore.get('easterMessageViewed')) && (new Date() < new Date(2015,3,7));
+            $rootScope.closeEasterMessage = function() {
+                $cookieStore.put('easterMessageViewed', true);
+                $rootScope.easterMessage = false;
+            }
 		}
 	])
 	/*.run(['optimizely', function(optimizely) {
