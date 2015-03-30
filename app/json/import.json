@@ -67,7 +67,7 @@
                 "number": true,
                 "remote": {
                     "route": "studios",
-                    "field": "studioNumber"
+                    "field": "id"
                 }
             }
         },
