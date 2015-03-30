@@ -165,7 +165,10 @@
         </ui-gmap-google-map>
         <div class="static-map" ng-if="!currentCity.active">
             <img ng-src="//maps.googleapis.com/maps/api/staticmap?center={{currentCity.defaultName}}&zoom=10&scale=2&size=600x300&maptype=roadmap&format=png&visual_refresh=true" alt=""/>
-            <div class="overlay"><h2 translate>Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}</h2></div>
+            <div class="overlay">
+                <h2 ng-if="!currentCity.prelaunchMessage" translate>Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}</h2>
+                <h2 ng-if="currentCity.prelaunchMessage">{{currentCity.prelaunchMessage}}</h2>
+            </div>
         </div>
         <div ng-if="tab === 'list'">
             <ul class="b-studios-list">
