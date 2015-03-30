@@ -72,6 +72,7 @@ describe('Given signup form, User', function() {
 
     it('should be able to enter credentials and signin into existing account', function(done) {
 
+        element(by.css('.success button')).click();
         var login = element(by.css('#login'));
         login.click();
 

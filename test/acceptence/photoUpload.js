@@ -5,6 +5,7 @@
 describe('Given the Kurse Page, User', function() {
     beforeEach(function() {
         browser.get('/');
+        element(by.css('.success button')).click();
     });
 
     afterEach(function() {
