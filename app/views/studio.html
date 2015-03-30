@@ -18,7 +18,7 @@
                     <dd ng-if="studio.disciplines" translate>Disciplines:</dd><dt>{{studio.disciplines}}</dt>
                     <dd ng-if="studio.equipment" translate>Equipment:</dd><dt>{{studio.equipment}}</dt>
                     <dd ng-if="studio.locations" translate>Address:</dd><dt><ul>
-                        <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
+                        <li ng-repeat="location in studio.locationsFull">{{location.name}}, {{location.fullAddress}}</li>
                     </ul><a href="#map" du-smooth-scroll translate>Show on map</a></dt>
                 </dl>
             </div>
@@ -213,7 +213,7 @@
     <div class="container">
         <div class="location">
             <h2 translate>Location</h2>
-            <address><i class="fa fa-map-marker"></i>{{currLocation.fullAddress}}</address>
+            <address><i class="fa fa-map-marker"></i>{{currLocation.name}}, {{currLocation.fullAddress}}</address>
             <p translate><i class="fa fa-home"></i>Studio</p>
         </div>
     </div>
