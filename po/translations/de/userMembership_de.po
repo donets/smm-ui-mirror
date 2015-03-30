@@ -28,11 +28,11 @@ msgstr "0€ / Monat"
 msgid "Activate subscription"
 msgstr "Mitgliedschaft aktivieren"
 
-#: app/views/userMembership.html:171
+#: app/views/userMembership.html:167
 msgid "Bank account holder"
 msgstr "Kontoinhaber/in"
 
-#: app/views/userMembership.html:154
+#: app/views/userMembership.html:150
 msgid "CVV"
 msgstr "CVV"
 
@@ -44,7 +44,7 @@ msgstr "Mitgliedschaft kündigen"
 msgid "Cancelled"
 msgstr "Gekündigt"
 
-#: app/views/userMembership.html:122
+#: app/views/userMembership.html:118
 msgid "Card number"
 msgstr "Kartennummer"
 
@@ -60,11 +60,11 @@ msgstr "Kartentyp:"
 msgid "Change Activation Date"
 msgstr "Aktivierungsdatum ändern"
 
-#: app/views/userMembership.html:95
+#: app/views/userMembership.html:91
 msgid "Change Suspension Date"
 msgstr "Pausenstart ändern"
 
-#: app/views/userMembership.html:107 app/views/userMembership.html:121
+#: app/views/userMembership.html:103 app/views/userMembership.html:117
 msgid "Credit card"
 msgstr "Kreditkarte"
 
@@ -77,7 +77,7 @@ msgid "Current monthly price:"
 msgstr "Aktueller Preis pro Monat:"
 
 # Passt "Direct debit" hier?
-#: app/views/userMembership.html:108
+#: app/views/userMembership.html:104
 msgid "Direct debit"
 msgstr "Lastschrift"
 
@@ -89,7 +89,7 @@ msgstr "Ermäßigter Preis:"
 msgid "Email:"
 msgstr "E-Mail:"
 
-#: app/views/userMembership.html:178
+#: app/views/userMembership.html:174
 msgid "IBAN"
 msgstr "IBAN"
 
@@ -97,11 +97,7 @@ msgstr "IBAN"
 msgid "Membership activates:"
 msgstr "Mitgliedschaft beginnt:"
 
-#: app/views/userMembership.html:88
-msgid "Membership start date:"
-msgstr "Startdatum der Mitgliedschaft:"
-
-#: app/views/userMembership.html:137
+#: app/views/userMembership.html:133
 msgid "Month"
 msgstr "Monat"
 
@@ -113,27 +109,27 @@ msgstr "Mein Foto"
 msgid "Name:"
 msgstr "Name:"
 
-#: app/views/userMembership.html:164
+#: app/views/userMembership.html:160
 msgid "No credit card?"
 msgstr "Keine Kreditkarte?"
 
-#: app/views/userMembership.html:99
+#: app/views/userMembership.html:95
 msgid "Pause duration:"
 msgstr "Dauer der Pause:"
 
-#: app/views/userMembership.html:92
+#: app/views/userMembership.html:88
 msgid "Pause scheduled from:"
 msgstr "Pause beginnt am:"
 
-#: app/views/userMembership.html:195
+#: app/views/userMembership.html:191
 msgid "Payment by credit card?"
 msgstr "Zahlung mit Kreditkarte?"
 
-#: app/views/userMembership.html:116
+#: app/views/userMembership.html:112
 msgid "Payment information"
 msgstr "Zahlungsinformation"
 
-#: app/views/userMembership.html:105
+#: app/views/userMembership.html:101
 msgid "Payment method:"
 msgstr "Zahlungsart:"
 
@@ -141,17 +137,17 @@ msgstr "Zahlungsart:"
 msgid "Personal details"
 msgstr "Persönliche Daten"
 
-#: app/views/userMembership.html:128
+#: app/views/userMembership.html:124
 msgid "Please enter a valid credit card number"
 msgstr "Bitte eine gültige Kreditkartennummer eintragen"
 
-#: app/views/userMembership.html:158
+#: app/views/userMembership.html:154
 msgid ""
 "Please enter the 3 or 4-digit security number (on the back of your card)"
 msgstr ""
 "Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (Kartenrückseite)"
 
-#: app/views/userMembership.html:193
+#: app/views/userMembership.html:189
 msgid ""
 "Please note: You can cancel your direct debit payment any time by sending an "
 "e-mail to our customer service team."
@@ -160,11 +156,11 @@ msgstr ""
 "Kundenservice widerrufen."
 
 # Passt "Direct debit" hier?
-#: app/views/userMembership.html:168
+#: app/views/userMembership.html:164
 msgid "SEPA direct debit"
 msgstr "SEPA-Lastschrift"
 
-#: app/views/userMembership.html:192
+#: app/views/userMembership.html:188
 msgid ""
 "SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to "
 "debit my account for services provided. I also instruct my bank to honour "
@@ -175,7 +171,7 @@ msgstr ""
 "ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto "
 "gezogenen Lastschriften einzulösen."
 
-#: app/views/userMembership.html:185
+#: app/views/userMembership.html:181
 msgid "SWIFT-BIC"
 msgstr "BIC"
 
@@ -191,7 +187,7 @@ msgstr "Sonderpreis:"
 msgid "Status:"
 msgstr "Status:"
 
-#: app/views/userMembership.html:201
+#: app/views/userMembership.html:197
 msgid "Submit new payment data"
 msgstr "Teile uns die neuen Zahlungsdaten mit."
 
@@ -207,9 +203,9 @@ msgstr "Mitgliedschaft"
 msgid "Suspend subscription"
 msgstr "Mitgliedschaft pausieren"
 
-#: app/views/userMembership.html:127 app/views/userMembership.html:157
-#: app/views/userMembership.html:174 app/views/userMembership.html:181
-#: app/views/userMembership.html:188
+#: app/views/userMembership.html:123 app/views/userMembership.html:153
+#: app/views/userMembership.html:170 app/views/userMembership.html:177
+#: app/views/userMembership.html:184
 msgid "This is an obligatory field"
 msgstr "Dies ist eine Pflichtfeld"
 
@@ -217,7 +213,7 @@ msgstr "Dies ist eine Pflichtfeld"
 msgid "Trial"
 msgstr "Probezeit"
 
-#: app/views/userMembership.html:109
+#: app/views/userMembership.html:105
 msgid "Update payment data"
 msgstr "Zahlungsdaten aktualisieren"
 
@@ -225,29 +221,32 @@ msgstr "Zahlungsdaten aktualisieren"
 msgid "Upload Photo"
 msgstr "Foto hochladen"
 
-#: app/views/userMembership.html:134
+#: app/views/userMembership.html:130
 msgid "Valid until"
 msgstr "Gültig bis"
 
-#: app/views/userMembership.html:147
+#: app/views/userMembership.html:143
 msgid "Year"
 msgstr "Jahr"
 
-#: app/views/userMembership.html:172
+#: app/views/userMembership.html:168
 msgid "Your Name"
 msgstr "Dein Name"
 
-#: app/views/userMembership.html:155
+#: app/views/userMembership.html:151
 msgid "e.g. 123"
 msgstr "z.B. 123"
 
-#: app/views/userMembership.html:186
+#: app/views/userMembership.html:182
 msgid "e.g. ABCD1234"
 msgstr "z.B. ABCD1234"
 
-#: app/views/userMembership.html:179
+#: app/views/userMembership.html:175
 msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr "z.B. DE12 3456 7890 1234 5678 90"
+
+#~ msgid "Membership start date:"
+#~ msgstr "Startdatum der Mitgliedschaft:"
 
 #~ msgid ""
 #~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"

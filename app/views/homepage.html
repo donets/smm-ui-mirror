@@ -13,8 +13,8 @@
 <div class="b-main-slogan"><h2 ng-if="!currentCity" translate>LONDON IS YOUR STUDIO</h2>
     <h2 ng-if="discipline">{{discipline.title}}</h2>
     <h2 ng-if="currentCity && !(city || cityId) && !discipline">{{currentCity.title}}</h2>
-    <h2 ng-if="currentCity && (city || cityId) && !discipline" translate>
-        <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
+    <h2 ng-if="currentCity && (city || cityId) && !discipline">
+        <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'City'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
             <option value="" ng-if="desktop"></option>
         </select>
         <!-- <ul class="b-main-slogan-nav">
@@ -31,7 +31,7 @@
             </li>
         </ul> -->
         <span id="width_tmp"></span>
-        IS YOUR STUDIO
+        <span translate>IS YOUR STUDIO</span>
         </h2>
         <p ng-if="!currentCity && !discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
         <p ng-if="currentCity && !(city || cityId) && !discipline" translate>Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>.</p>
@@ -118,7 +118,7 @@
             </li>
             <li>
                 <b translate>Be inspired</b>
-                <p translate>Chose from thousands of classes. Workout when you want. Wherever you want.</p>
+                <p translate>Choose from thousands of classes. Workout when you want. Wherever you want.</p>
             </li>
             <li>
                 <b translate>Feel the burn</b>
