@@ -3,27 +3,64 @@ module.exports = {
   
   'Fill the form step 1': function (browser) {
 	  var params = browser.globals;
-	   // var randomUuid = function() {
-            // return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                // var r = Math.random() * 16 | 0,
-                    // v = c === 'x' ? r : (r & 0x3 | 0x8);
-                // return v.toString(16);
-            // });
-        // },
-  browser
-    .url(params.baseUrl)
-	.url("/p/signup")
-    .waitForElementVisible('body', 1000)
-	.useXpath()
-//	.assert.attributeEquals(".signup-nav li a","class","active")
-	.end();
-    // .click('a.login-link.ng-scope > span.ng-scope')
-    // .waitForElementVisible('input[name=email]', 1000)
-    // .setValue('input[name=email]', params.signup.email)
-    // .setValue('input[name=password]', params.signup.password);
+	  var randomUuid = function() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0,
+                    v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        };
+	  
+	browser
+    .url(params.baseUrl + '/p/signup/')
+    .waitForElementVisible('body', 2000)
+	.waitForElementVisible('nav.signup-nav', 1000)
+	.assert.attributeEquals('nav.signup-nav > ul > li:nth-of-type(1) > a','class','active') //verify that step highlighted correctly
+	.setValue('input[id=name]',params.signup.firstName)
+	.setValue('input[id=surname]',params.signup.lasstName)
+	.setValue('input[id=email]',randomUuid()+params.signup.emailSuffix)
+	.setValue('input[id=password]',params.signup.password)
+	.click('button[type=submit]')
   },
   
-  // 'Submit and check': function (browser) {
+  'Fill the form step 2': function (browser) {
+	browser
+    .waitForElementVisible('div[id=step2]', 2000)
+	.pause(1000) //wait for scrolling to pass the next assert correctly
+    .verify.attributeEquals('nav.signup-nav > ul > li:nth-of-type(2) > a','class','active') //verify that step highlighted correctly
+	.click('.select-cards > ul:nth-of-type(3) >li.card-button > button') //ul:nth-of-type(3) specifies the card (2-4)
+  },
+  
+  'Fill the form step 3': function (browser) {
+	  
+	var params = browser.globals;
+	  
+	browser
+    .waitForElementVisible('form[id=step3]', 2000)
+	.pause(1000) //wait for scrolling to pass the next assert correctly
+    .verify.attributeEquals('nav.signup-nav > ul > li:nth-of-type(3) > a','class','active') //verify that step highlighted correctly
+	.setValue('input[id=cardNumber]',params.signup.card.number)
+	.moveTo('#exp_month_chosen span')
+	.click('#exp_month_chosen span')
+	.click('li.active-result:nth-child('+params.signup.card.exp_month+')')
+	.moveTo('#exp_year_chosen span')
+	.click('#exp_year_chosen span')
+	//.moveTo('li.active-result:contains("'+params.signup.card.exp_year+'")')
+	.click('#exp_year_chosen > div:nth-child(2) > ul:nth-child(2) > li:nth-child(17)') //could not parametrise correctly because somehow pseudo class :contains() is not working in CSS selector - had to use static :nth-child...
+	.setValue('input[id=cardCVC]',params.signup.card.cvc)
+	.setValue('input[id=name]',params.signup.firstName)
+	.setValue('#street','testStreet123')
+	.setValue('#zip','123123')
+	.click('div.form-check >input')
+	.click('.large')
+	.waitForElementPresent('.modal-body > h2:nth-child(1)',15000)
+	.assert.elementPresent('.modal-body > h2:nth-child(1)')
+	.end();
+	
+	//.click('.select-cards > ul:nth-of-type(3) >li.card-button > button') //ul:nth-of-type(3) specifies the card (2-4)
+  },
+  
+  // 'Submit and check': function (browser) { #exp_year_chosen > div:nth-child(2) > ul:nth-child(2) > li:nth-child(4)
 	  // var params = browser.globals;
 	  
   // browser
@@ -35,49 +72,7 @@ module.exports = {
 };
 //----------------------------------------------------------------------
 
-// 'use strict';
 
-// describe('Given signup form, User', function() {
-
-    // beforeEach(function() {
-        // browser.get('/');
-    // });
-
-    // afterEach(function() {
-        // browser.driver.manage().deleteAllCookies();
-    // });
-
-    // var randomUuid = function() {
-            // return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                // var r = Math.random() * 16 | 0,
-                    // v = c === 'x' ? r : (r & 0x3 | 0x8);
-                // return v.toString(16);
-            // });
-        // },
-        // params = browser.params,
-        // myEmail = randomUuid() + params.signup.emailSuffix,
-        // myPassword = params.signup.password;
-
-    // browser.driver.manage().window().maximize();
-
-    // it('should be able to signup', function(done) {
-        // browser.get('/signup');
-        // expect(browser.getCurrentUrl()).toContain('/p/signup');
-
-        // element(by.css('#name')).sendKeys(params.signup.firstName);
-        // element(by.css('#surname')).sendKeys(params.signup.lastName);
-        // element(by.css('#email')).sendKeys(myEmail);
-        // element(by.css('#password')).sendKeys(myPassword);
-
-        // element(by.css('#step1 button[type="submit"]')).click();
-
-        // browser.executeScript('window.scrollTo(0,document.body.scrollHeight);');
-
-        // var typeButton0 = element.all(by.repeater('card in cards'))
-            // .get(0).element(by.css('button'));
-        // browser.sleep(2000);
-// //        expect(element.all(by.css(".signup-nav li a")).get(1).getAttribute('class')).toMatch('active');
-        // typeButton0.click();
 
         // element(by.css('#cardNumber')).sendKeys(params.signup.card.number);
         // element(by.css('#cardCVC')).sendKeys(params.signup.card.cvc);
