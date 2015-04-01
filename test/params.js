@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+	baseUrl: 'http://localhost:9000',
     signup: {
         firstName: 'Max',
         lastName: 'Musterman',
