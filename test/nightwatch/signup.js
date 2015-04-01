@@ -52,64 +52,13 @@ module.exports = {
 	.setValue('#street','testStreet123')
 	.setValue('#zip','123123')
 	.click('div.form-check >input')
-	.click('.large')
+  },
+  
+  'Submit form and assert welcome': function (browser) {
+	browser
+  	.click('.large')
 	.waitForElementPresent('.modal-body > h2:nth-child(1)',15000)
 	.assert.elementPresent('.modal-body > h2:nth-child(1)')
 	.end();
-	
-	//.click('.select-cards > ul:nth-of-type(3) >li.card-button > button') //ul:nth-of-type(3) specifies the card (2-4)
   },
-  
-  // 'Submit and check': function (browser) { #exp_year_chosen > div:nth-child(2) > ul:nth-child(2) > li:nth-child(4)
-	  // var params = browser.globals;
-	  
-  // browser
-    // .click('button[type=submit]')
-    // .waitForElementVisible('h1 > span.ng-scope', 5000)
-    // .assert.containsText('h1 > span.ng-scope', 'Finde einen Kurs')
-    // .end();
-  // }
 };
-//----------------------------------------------------------------------
-
-
-
-        // element(by.css('#cardNumber')).sendKeys(params.signup.card.number);
-        // element(by.css('#cardCVC')).sendKeys(params.signup.card.cvc);
-        // element(by.css('#exp_year_chosen span')).click();
-
-        // var expYear = element.all(by.css('#exp_year_chosen li')).first();
-        // element(by.cssContainingText('#exp_year_chosen li', params.signup.card.exp_year)).click();
-
-        // var expMonth = element(by.css('#exp_month_chosen span'));
-        // expMonth.click();
-
-        // var expMonthElem = element.all(by.cssContainingText('#exp_month_chosen li', params.signup.card.exp_month)).first();
-        // expMonthElem.click();
-
-        // element(by.css('#street')).sendKeys(params.signup.address);
-        // element(by.css('#zip')).sendKeys(params.signup.zipCode);
-
-        // var approve = element(by.css('label[for=approve]'));
-        // approve.click();
-
-        // var submitOrderButton = element(by.css('#step3 button[type="submit"]'));
-        // submitOrderButton.click().then(function() {
-            // expect(element(by.css('.modal-dialog h2')).getText()).toContain("Danke");
-            // done();
-        // });
-    // });
-
-    // it('should be able to enter credentials and signin into existing account', function(done) {
-
-        // var login = element(by.css('#login'));
-        // login.click();
-
-        // element(by.css('form[name="loginForm"] input[name="email"]')).sendKeys(myEmail);
-        // element(by.css('form[name="loginForm"] input[name="password"]')).sendKeys(myPassword);
-        // element(by.css('form[name="loginForm"] button[type="submit"]')).click().then(function() {
-            // expect(element(by.css('#account a')).getText()).toContain(params.signup.firstName + ' ' + params.signup.lastName);
-            // done();
-        // });
-    // });
-//});
