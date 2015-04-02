@@ -50,6 +50,7 @@
             bottom: 0;
             left: 0;
             right: 0;
+            z-index: 1;
         }
         .pre:before {
             content: '';
@@ -62,6 +63,9 @@
             height: 15px;
             opacity: 1;
             transition: opacity 1s linear 0s;
+        }
+        .pre.hide_loader {
+            z-index: 0;
         }
         .pre.hide_loader:before {
             opacity: 0;
@@ -301,6 +305,7 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/services/countryConfig.js"></script>
 <script src="scripts/services/events.js"></script>
 <script src="scripts/services/occurrences.js"></script>
 <script src="scripts/services/suppliers.js"></script>

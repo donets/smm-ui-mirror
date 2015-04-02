@@ -80,42 +80,45 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         $cookieStore.put('landingUrl', $location.url());
 
-        $scope.init = function() {
+        $scope.init = function () {
             $scope.CityFactory = CityFactory.CityFactory;
 
-			$scope.$on('CityFactory.update', function() {
+            $scope.$on('CityFactory.update', function () {
                 var currentCityVar = CityFactory.getVariable();
                 $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
                 $scope.currentCityId = $scope.currentCity.id;
                 $rootScope.supportPhone = $scope.currentCity.supportPhone;
-			});
+                if ($scope.currentCity.countryCode !== $rootScope.countryCode) {
+                    var newCountry = _.findWhere($scope.countries, {code: $scope.currentCity.countryCode});
+                    $window.location.href = newCountry.defaultDomain.absUrlBase + '?city=' + $scope.currentCity.shortCode;
+                }
+            });
 
-			$scope.update = CityFactory.update;
+            $scope.update = CityFactory.update;
 
-
-            CityFactory.getCities().then(function (res) {
-                $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
-                    return c.countryCode === $rootScope.countryCode;
-                });
-
-                CityFactory.guessCity($scope.citiesList).then(function(res) {
+            $scope.citiesList = $rootScope.configCities;
+            RestApi.query({route: 'countries'}).$promise.then(function (res) {
+                $scope.countries = res;
+                CityFactory.guessCity($scope.citiesList).then(function (res) {
                     $scope.city = res.city;
                     $scope.cityId = res.cityId;
+                    $rootScope.countryCode = res.currentCity.countryCode;
                     $scope.changeCity(res.currentCity.id);
                 });
             });
         };
 
+        $scope.$on('configLoaded', $scope.init);
 
-        $scope.init();
 
-        $scope.changeCity = function(currentCityId) {
-            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
-            CityFactory.update(currentCity, $scope.citiesList);
-            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
+        $scope.changeCity = function (currentCityId) {
+            $rootScope.currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
+            CityFactory.update($rootScope.currentCity, $scope.citiesList);
+            CityFactory.changeCity($rootScope.currentCity, $scope.citiesList).then(function (res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
             });
+            $rootScope.countryCode = $rootScope.currentCity.countryCode;
         };
 
 

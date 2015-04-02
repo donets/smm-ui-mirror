@@ -21,8 +21,8 @@ msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr "/ Monat für {{voucher.discountDuarationInMonths}} Monate"
 
 #: app/views/userMembership.html:77
-msgid "0€ / Month"
-msgstr "0€ / Monat"
+msgid "0 {{currentCard.currency}} / Month"
+msgstr "0 {{currentCard.currency}} / Monat"
 
 #: app/views/userMembership.html:55
 msgid "Activate subscription"
@@ -244,6 +244,9 @@ msgstr "z.B. ABCD1234"
 #: app/views/userMembership.html:175
 msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr "z.B. DE12 3456 7890 1234 5678 90"
+
+#~ msgid "0€ / Month"
+#~ msgstr "0€ / Monat"
 
 #~ msgid "Membership start date:"
 #~ msgstr "Startdatum der Mitgliedschaft:"

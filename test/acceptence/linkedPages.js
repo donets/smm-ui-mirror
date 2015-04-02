@@ -12,12 +12,12 @@ describe('Given the Home Page, User', function() {
 
     browser.driver.manage().window().maximize();
 
-    it('should see title on the home page', function(done) {
-        var text = element(by.css('.b-main-slogan h2 span:first-child'));
-
-        expect(text.getText()).toBe('BERLIN');
-        done();
-    });
+//    it('should see title on the home page', function(done) {
+//        var text = element(by.css('.b-main-slogan h2 span:first-child'));
+//
+//        expect(text.getText()).toBe('BERLIN');
+//        done();
+//    });
 
     it('should see MÜNCHEN title on the MÜNCHEN Home Page', function(done) {
         browser.executeScript('window.location = \"/?city=M\";');
