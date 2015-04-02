@@ -61,6 +61,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.services.restApi',
+        'boltApp.services.countryConfig',
         'boltApp.services.events',
         'boltApp.services.occurrences',
         'boltApp.services.suppliers',
@@ -71,8 +72,8 @@ angular.module('boltApp', [
         'boltApp.services.mapStudios'
     ]);
 angular.module('boltApp')
-	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',
-		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore) {
+	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig',
+		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore, CountryConfig) {
 			// It's very handy to add references to $state and $stateParams to the $rootScope
 			// so that you can access them from any scope within your applications.For example,
 			// <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -83,22 +84,6 @@ angular.module('boltApp')
 			$rootScope.pageReload = function() {
 				$window.location.reload();
 			};
-			$rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
-			var domains = [{
-				domain: 'DE',
-				countryCode: 'DE'
-			}, {
-				domain: 'UK',
-				countryCode: 'UK'
-			}, {
-				domain: 'COM',
-				countryCode: 'DE'
-			}];
-			$rootScope.domainProperties = _.findWhere(domains, {
-				domain: $rootScope.domain
-			});
-			$rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
-			console.log('country = ' + $rootScope.countryCode);
 			$rootScope.$on('$viewContentLoading', function() {
 				$window.rendering = true;
 			});
@@ -119,7 +104,43 @@ angular.module('boltApp')
 					    $cookieStore.put('cityId', 1);
 					    prerenderReady();
 					});*/
-					prerenderReady();
+                    if ($rootScope.configLoaded) {
+                        $rootScope.$broadcast('configLoaded');
+                        prerenderReady();
+                    } else {
+                        CountryConfig.guessCity().$promise.then(function (res) {
+                            console.log(res);
+                            $rootScope.configLoaded = true;
+                            $rootScope.configCountry = res.country;
+                            $rootScope.configCities = res.cities;
+                            $rootScope.currentCity = res.guessedCity;
+                            $rootScope.countryCode = $rootScope.configCountry.code;
+                            $rootScope.$broadcast('configLoaded');
+                            prerenderReady();
+                        }, function () {
+                            $rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
+                            var domains = [
+                                {
+                                    domain: 'DE',
+                                    countryCode: 'DE'
+                                },
+                                {
+                                    domain: 'UK',
+                                    countryCode: 'UK'
+                                },
+                                {
+                                    domain: 'COM',
+                                    countryCode: 'DE'
+                                }
+                            ];
+                            $rootScope.domainProperties = _.findWhere(domains, {
+                                domain: $rootScope.domain
+                            });
+                            $rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
+                            console.log('country = ' + $rootScope.countryCode);
+                            prerenderReady();
+                        })
+                    }
 				}
 			});
 			var checkRule = function(event, toState, toParams, redirectState) {

@@ -13,7 +13,7 @@ msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr ""
 
 #: app/views/userMembership.html:77
-msgid "0€ / Month"
+msgid "0 {{currentCard.currency}} / Month"
 msgstr ""
 
 #: app/views/userMembership.html:55

@@ -205,10 +205,10 @@
                     <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></li>
                 <li class="name">{{card.displayName}}</li>
                 <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">
-                    <span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                    {{card.monthlyPrice}} {{card.currency}}</strong>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                        <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
+                        <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
                     </b>
                 </li>
                 <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
@@ -225,10 +225,10 @@
             </tr>
             <tr>
                 <td translate>Price per month</td>
-                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.monthlyPrice}} {{card.currency}}</strong>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                        <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
+                        <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
                     </b></td>
             </tr>
             <tr>
