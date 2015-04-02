@@ -12,7 +12,7 @@ describe('Given the Kurse Page, User', function() {
     });
 
     var params = browser.params,
-        myPassword = params.signup.password;
+        myPassword = params.photoUpload.password;
     var path = require('path');
     browser.driver.manage().window().maximize();
 
@@ -20,11 +20,11 @@ describe('Given the Kurse Page, User', function() {
         var login = element(by.css('#login'));
         login.click();
 
-        element(by.css('form[name="loginForm"] input[name="email"]')).sendKeys(params.signup.email);
-        element(by.css('form[name="loginForm"] input[name="password"]')).sendKeys(params.signup.password);
+        element(by.css('form[name="loginForm"] input[name="email"]')).sendKeys(params.photoUpload.email);
+        element(by.css('form[name="loginForm"] input[name="password"]')).sendKeys(params.photoUpload.password);
         element(by.css('form[name="loginForm"] button[type="submit"]')).click();
 
-        expect(element(by.css('#account a')).getText()).toContain(params.signup.firstName + ' ' + params.signup.lastName);
+        expect(element(by.css('#account a')).getText()).toContain(params.photoUpload.firstName + ' ' + params.photoUpload.lastName);
 
         element(by.css('#account')).click();
 
