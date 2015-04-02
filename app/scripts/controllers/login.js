@@ -129,9 +129,7 @@ angular.module('boltApp.controllers.Login', [])
 			$scope.loadingLogin = true;
 			$scope.errorLogin = false;
 			$rootScope.handledError = true;
-			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + encodeURIComponent(this.emailLogin) + '&password=' + encodeURIComponent(this.passwordLogin), {
-				cache: false
-			}).success(function(response) {
+			$http.post($window.smmConfig.restUrlBase + '/api/auth/login/password', { email:this.emailLogin, password:this.passwordLogin }).success(function(response) {
 				console.log(response);
 				$scope.loadingLogin = false;
 				$rootScope.handledError = false;
