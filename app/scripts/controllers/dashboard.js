@@ -41,17 +41,15 @@ angular.module('boltApp.controllers.Dashboard', [])
             $scope.currDay = day;
             fetchClasses(city, day);
         };
-        getCities.$promise.then(function (res) {
+        $scope.init = function () {
+            $scope.cities = $rootScope.configCities;
             $scope.cityId = parseInt($rootScope.$stateParams.city);
-            $scope.cities = _.sortBy(res, 'id').filter(function (c) {
-                return c.countryCode === $rootScope.countryCode;
-            });
             if (! _.findWhere($scope.cities, {id: $scope.cityId})) {
                 $scope.cityId = $scope.cities[0].id;
             }
             $scope.changeDay($scope.cityId, $scope.today);
-            //$scope.cityChange();
-        });
+        };
+        $scope.$on('configLoaded', $scope.init);
         $scope.weekdays = [];
         $scope.today = moment();
         $scope.changeWeek = function (action) {
