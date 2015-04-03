@@ -61,6 +61,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.services.restApi',
+        'boltApp.services.detectCity',
         'boltApp.services.countryConfig',
         'boltApp.services.events',
         'boltApp.services.occurrences',
@@ -72,8 +73,8 @@ angular.module('boltApp', [
         'boltApp.services.mapStudios'
     ]);
 angular.module('boltApp')
-	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig',
-		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore, CountryConfig) {
+	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
+		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore, CountryConfig, DetectCity) {
 			// It's very handy to add references to $state and $stateParams to the $rootScope
 			// so that you can access them from any scope within your applications.For example,
 			// <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -108,13 +109,24 @@ angular.module('boltApp')
                         $rootScope.$broadcast('configLoaded');
                         prerenderReady();
                     } else {
+                        var detectedCity = DetectCity.getCityFromParams();
                         CountryConfig.guessCity().$promise.then(function (res) {
-                            console.log(res);
                             $rootScope.configLoaded = true;
                             $rootScope.configCountry = res.country;
                             $rootScope.configCities = res.cities;
-                            $rootScope.currentCity = res.guessedCity;
-                            $rootScope.countryCode = $rootScope.configCountry.code;
+                            if (detectedCity) {
+                                $rootScope.currentCity = _.find($rootScope.configCities, function (city) {
+                                    return city[detectedCity.field] == detectedCity.value;
+                                });
+                            } else {
+                                $rootScope.currentCity = res.guessedCity;
+                            }
+                            $rootScope.countryCode = $rootScope.currentCity.countryCode;
+                            if (!$cookieStore.get('globalLang')) {
+                                $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode)
+                            } else {
+                                $rootScope.$broadcast('changeLang', $cookieStore.get('globalLang'));
+                            }
                             $rootScope.$broadcast('configLoaded');
                             prerenderReady();
                         }, function () {
@@ -221,23 +233,12 @@ angular.module('boltApp')
 	})
 	.run(['gettextCatalog', '$cookieStore', '$rootScope', 'amMoment',
 		function(gettextCatalog, $cookieStore, $rootScope, amMoment) {
-			if (!$cookieStore.get('globalLang')) {
-				switch ($rootScope.countryCode) {
-					case 'DE':
-						$rootScope.lang = 'de';
-						break;
-					case 'UK':
-						$rootScope.lang = 'en';
-						break;
-					default:
-						$rootScope.lang = 'de';
-				}
-				$cookieStore.put('globalLang', $rootScope.lang);
-			} else {
-				$rootScope.lang = $cookieStore.get('globalLang');
-			}
-			gettextCatalog.setCurrentLanguage($rootScope.lang);
-			amMoment.changeLocale($rootScope.lang);
+            $rootScope.$on('changeLang', function(event, lang) {
+                $rootScope.lang = lang;
+                $cookieStore.put('globalLang', $rootScope.lang);
+                gettextCatalog.setCurrentLanguage($rootScope.lang);
+                amMoment.changeLocale($rootScope.lang);
+            })
 		}
 	])
 	.constant('angularMomentConfig', {
