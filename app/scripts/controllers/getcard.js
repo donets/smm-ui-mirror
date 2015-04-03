@@ -99,12 +99,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.citiesList = $rootScope.configCities;
             RestApi.query({route: 'countries'}).$promise.then(function (res) {
                 $scope.countries = res;
-                CityFactory.guessCity($scope.citiesList).then(function (res) {
-                    $scope.city = res.city;
-                    $scope.cityId = res.cityId;
-                    $rootScope.countryCode = res.currentCity.countryCode;
-                    $scope.changeCity(res.currentCity.id);
-                });
+                $scope.city = $rootScope.currentCity;
+                $scope.cityId = $rootScope.currentCity.id;
+                $scope.changeCity($rootScope.currentCity.id);
             });
         };
 

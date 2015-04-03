@@ -29,7 +29,6 @@ angular.module('boltApp.controllers.Signup', [])
             };
             RestApi.query({route: 'countries'}).$promise.then(function (res) {
                 $scope.countries = res;
-                $scope.currentCountry = $rootScope.configCountry;
                 $scope.cityChange();
             });
             setVoucher('EARLY_BIRD_2014');
