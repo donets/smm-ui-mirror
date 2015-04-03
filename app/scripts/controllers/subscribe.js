@@ -30,7 +30,14 @@ angular.module('boltApp.controllers.Subscribe', [])
             $scope.loadingUpdate = true;
             $scope.successUpdate = false;
             $scope.errorUpdate = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, newsletter: true, lang: $rootScope.lang, cityId: $scope.currentCity.id }).success(function () {
+            var newsletter = {
+                email: $scope.email,
+                newsletter: true,
+                landingUrl: $cookieStore.get('landingUrl'),
+                lang: $rootScope.lang,
+                cityId: $scope.currentCity.id
+            };
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', newsletter).success(function () {
                 $scope.loadingUpdate = false;
                 $scope.successUpdate = true;
                 $scope.email = '';
