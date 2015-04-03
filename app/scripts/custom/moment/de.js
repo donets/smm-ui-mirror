@@ -30,7 +30,7 @@ moment.locale('de', {
     calendar : {
         sameDay: '[Heute], LL',
         sameElse: 'LL',
-        nextDay: '[Morgen], LL',
+        nextDay: 'LL',
         nextWeek: 'LL',
         lastDay: '[Gestern] LL',
         lastWeek: '[letzten] LL'

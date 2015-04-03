@@ -78,7 +78,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         selectDiscipline();
 
-        $cookieStore.put('landingUrl', $location.url());
+        $cookieStore.put('landingUrl', $location.absUrl());
 
         $scope.init = function () {
             $scope.CityFactory = CityFactory.CityFactory;
@@ -142,7 +142,15 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $scope.cityId, interestedInProduct: true, lang: $rootScope.lang }).success(function () {
+            var invitation = {
+                email: $scope.invite.email,
+                postalCode: $scope.invite.postalCode,
+                landingUrl: $cookieStore.get('landingUrl'),
+                cityId: $scope.cityId,
+                interestedInProduct: true,
+                lang: $rootScope.lang
+            };
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $scope.invite = {};

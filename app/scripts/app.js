@@ -25,7 +25,7 @@ angular.module('boltApp', [
         'duScroll',
         'duParallax',
         'ngTagsInput',
-        'vr.directives.slider',
+        'ui-rangeSlider',
         'localytics.directives',
         'validation.match',
         'ezfb',

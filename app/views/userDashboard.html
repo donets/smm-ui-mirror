@@ -1,86 +1,172 @@
-<div class="dashboard-title">
+<div class="dashboard-title" sticky use-placeholder>
     <div class="container">
-        <h1 translate>Find a course</h1>
-        <p class="subtitle" translate>Today {{today | amDateFormat: 'dd DD.MM.'}}</p>
-        <ul class="weekdays">
-            <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
-        </ul>
+        <div class="b-filters cf">
+            <div ng-if="desktop" class="main-filters">
+                <em translate>Show</em>
+                <select chosen
+                        id="discipline"
+                        ng-model="search.class.discipline"
+                        data-placeholder="{{'All activities'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item for item in disciplines | orderBy: 'toString()'">
+                    <option value=""></option>
+                </select>
+                <em translate>in</em>
+                <select chosen name="city"
+                        ng-model="cityId" ng-change="cityChange()"
+                        data-placeholder="{{'City'|translate}}"
+                        ng-options-disabled="!item.active for item in cities"
+                        ng-options="item.id as item.defaultName for item in cities">
+                    <option value="" ng-show="desktop"></option>
+                </select>
+                <select chosen
+                        id="neigbourhood"
+                        ng-model="search.class.location"
+                        data-placeholder="{{'All districts'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
+                    <option value=""></option>
+                </select>
+                <em translate>, or</em>
+                <select chosen
+                        id="studio"
+                        ng-model="search.class.studioId"
+                        data-placeholder="{{'All studios'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.id as item.name for item in studios | orderBy: 'name'">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div ng-if="desktop" class="short-filters">
+                <ul class="filters-list">
+                    <li>{{search.class.discipline ? search.class.discipline : 'All activities'}}</li>
+                    <li>{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
+                    <li>{{search.class.location ? _.findWhere(neigbourhood, {id: search.class.location}).name : 'All districts'}}</li>
+                    <li>{{search.class.studioId ? _.findWhere(studios, {id: search.class.studioId}).name : 'All Studios'}}</li>
+                </ul>
+            </div>
+            <div ng-if="desktop" class="short-time">
+                {{currDay | amCalendar}}
+            </div>
+            <div ng-if="desktop" class="weekdays-wrapper">
+                <button ng-disabled="today.isSame(weekdays[0])" class="nav-button left" ng-click="changeWeek('sub')"><i class="fa fa-angle-left"></i></button>
+                <ul class="weekdays-dashboard">
+                    <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(cityId, w)">{{w | amCalendar}}</li>
+                </ul>
+                <button class="nav-button right" ng-click="changeWeek('add')"><i class="fa fa-angle-right"></i></button>
+            </div>
+            <div ng-if="desktop" class="slider">
+                <b class="time start">{{search.start}}:00</b><div range-slider min="search.min" max="search.max" model-min="search.start" model-max="search.end" step="1" show-values="false" prevent-equal-min-max="true"></div><b class="time end">{{search.end}}:00</b>
+            </div>
+            <div ng-if="mobile" class="mobile-controls">
+                <!--<button ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>-->
+                <div class="form-rel">
+                    <button class="control-button" ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>
+                    <input class="input-date" datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.mobile"
+                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(cityId, moment(currDay))"
+                           class="form-input" ng-model="currDay" type="text" show-button-bar="false"/>
+                </div>
+                <div class="form-rel">
+                    <button class="control-button" ng-click="filtersMobileShow()">
+                        {{search.class.discipline || search.class.location || search.class.studioId ? (events
+                        | isSame: 'start_date': currDay
+                        | isAfter: 'start_date': search.start
+                        | isBefore: 'end_date': search.end
+                        | dataFilter: 'class.discipline': search.class.discipline
+                        | dataFilter: 'class.style': search.class.style
+                        | dataFilter: 'class.locationId': search.class.location
+                        | dataFilter: 'class.studioId': search.class.studioId
+                        | dataFilter: 'class.levels': search.class.levels).length + ' found' : 'Search'}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
+                </div>
+            </div>
+            <div class="mobile-filters" ng-show="filtersMobile" ng-if="mobile">
+                <select chosen
+                        id="discipline" width="'100%'"
+                        ng-model="search.class.discipline"
+                        data-placeholder="{{'All activities'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item for item in disciplines | orderBy: 'toString()'">
+                    <option value=""></option>
+                </select>
+                <select chosen name="city" width="'100%'"
+                        ng-model="cityId" ng-change="cityChange()"
+                        data-placeholder="{{'City'|translate}}"
+                        ng-options-disabled="!item.active for item in cities"
+                        ng-options="item.id as item.defaultName for item in cities">
+                    <option value="" ng-show="desktop"></option>
+                </select>
+                <select chosen
+                        id="neigbourhood" width="'100%'"
+                        ng-model="search.class.location"
+                        data-placeholder="{{'All districts'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
+                    <option value=""></option>
+                </select>
+                <select chosen
+                        id="studio" width="'100%'"
+                        ng-model="search.class.studioId"
+                        data-placeholder="{{'All studios'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.id as item.name for item in studios | orderBy: 'name'">
+                    <option value=""></option>
+                </select>
+                <div class="slider">
+                    <b class="time start">{{search.start}}:00</b><div range-slider min="search.min" max="search.max" model-min="search.start" model-max="search.end" step="1" show-values="false" prevent-equal-min-max="true"></div><b class="time end">{{search.end}}:00</b>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="dashboard cf">
-    <div class="b-top-filters" sticky disable="{{showPopap}}" use-placeholder>
-        <div class="container">
-            <select chosen
-                    id="discipline"
-                    ng-model="search.class.discipline"
-                    data-placeholder="{{'All Disciplines'|translate}}"
-                    disable-search="false"
-                    allow-single-deselect="true"
-                    ng-options="item for item in disciplines | orderBy: 'toString()'">
-                <option value=""></option>
-            </select>
-            <select chosen
-                    id="style"
-                    ng-model="search.class.style"
-                    data-placeholder="{{'All Styles'|translate}}"
-                    disable-search="false"
-                    allow-single-deselect="true"
-                    ng-options="item for item in styles | orderBy: 'toString()'">
-                <option value=""></option>
-            </select>
-            <select chosen name="city"
-                    ng-model="cityId" ng-change="cityChange()"
-                    data-placeholder="{{'City'|translate}}"
-                    ng-options-disabled="!item.active for item in cities"
-                    ng-options="item.id as item.defaultName for item in cities">
-                <option value="" ng-show="desktop"></option>
-            </select>
+<div class="dashboard">
+    <div class="container cf">
+        <div class="w-left" ng-if="mobile">
+            <div class="b-class-item" ng-repeat="e in events
+                            | isSame: 'start_date': currDay
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
+                            | dataFilter: 'class.discipline': search.class.discipline
+                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.studioId': search.class.studioId
+                            | dataFilter: 'class.levels': search.class.levels">
+                <div class="b-class-item__time">
+                    <b>{{e.start_date | amDateFormat: 'HH:mm'}}<span ng-if="desktop"> – {{e.end_date | amDateFormat: 'HH:mm'}}</span></b>
+                </div>
+                <div class="b-class-item__info">
+                    <b>{{e.class.title}}</b>
+                    <p>{{e.class.discipline}}, {{e.class.teacherName}}</p>
+                    <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
+                </div>
+                <button class="class-button" ng-click="bookClass(e)" type="button" translate>Reserve</button>
+            </div>
+        </div>
+        <div class="b-class-table" ng-if="desktop">
+            <table class="timetable">
+                <tbody>
+                    <tr ng-repeat="e in events | isSame: 'start_date': currDay" >
+                        <td>
+                            <p>{{e.start_date | amDateFormat: 'HH:mm'}} - {{e.end_date | amDateFormat: 'HH:mm'}}</p>
+                        </td>
+                        <td><span class="title">{{e.class.title}}</span></td>
+                        <td>{{e.class.discipline}}</td>
+                        <td><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></td>
+                        <td><button class="class-button" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
+                    </tr>
+                    <tr ng-if="!(events | isSame: 'start_date': currDay).length">
+                        <td class="empty" colspan="7" translate>No more offers today.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="container cf">
-        <div class="w-left b-sidebar-filters" sticky disable="{{showPopap}}" offset="82">
-            <slider
-                    ng-model="search.start"
-                    ng-model-range="search.end"
-                    floor="6"
-                    ceiling="24"
-                    buffer="1"
-                    step-width="1"
-                    stretch="5"
-                    translate-fn="trans"
-                    translate-range-fn="transRange">
-            </slider>
-            <div class="input-search"><input type="text" ng-model="search.class.title" placeholder="{{'All Courses'|translate}}"/></div>
-            <select chosen
-                    id="neigbourhood"
-                    ng-model="search.class.location"
-                    data-placeholder="{{'All Districts'|translate}}"
-                    disable-search="false"
-                    allow-single-deselect="true"
-                    ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
-                <option value=""></option>
-            </select>
-            <select chosen
-                    id="studio"
-                    ng-model="search.class.studioId"
-                    data-placeholder="{{'All Studios'|translate}}"
-                    disable-search="false"
-                    allow-single-deselect="true"
-                    ng-options="item.id as item.name for item in studios | orderBy: 'name'">
-                <option value=""></option>
-            </select>
-            <select chosen
-                    id="level"
-                    ng-model="search.class.levels"
-                    data-placeholder="{{'All Levels'|translate}}"
-                    disable-search="true"
-                    allow-single-deselect="true"
-                    ng-options="item.id as item.text for item in levels">
-                <option value=""></option>
-            </select>
-            <div class="input-search"><input type="text" ng-model="search.class.teacherName" placeholder="{{'All Teachers'|translate}}"/></div>
-            <a class="clear-button" href="" ng-click="clearFilters()" translate>Reset filters</a>
-        </div>
+    <!--<div class="container cf">
         <div class="w-right b-classes-list">
             <table class="timetable user-classes">
                 <thead>
@@ -92,7 +178,7 @@
                         <th translate>Teacher</th>
                         <th translate>Studio</th>
                         <th translate>District</th>
-                        <!--<th></th>-->
+                        &lt;!&ndash;<th></th>&ndash;&gt;
                     </tr>
                 </thead>
                 <tbody>
@@ -122,7 +208,7 @@
                             <span ng-if="!e.class.studio.profileComplete && !e.class.studio.website">{{e.class.studio.name}}</span>
                         </td>
                         <td>{{e.class.location}}</td>
-                        <!--<td><button class="default" ng-click="attend(e)" type="button"></i>Teilnehmen</button></td>-->
+                        &lt;!&ndash;<td><button class="default" ng-click="attend(e)" type="button"></i>Teilnehmen</button></td>&ndash;&gt;
                     </tr>
                     <tr ng-if="!(events
                         | isSame: 'start_date': currDay
@@ -140,7 +226,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div>-->
     <div ng-if="showPopap" class="modal-backdrop fade in" style="position: absolute; z-index: 1040;"></div>
     <div ng-if="showPopap" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
         <div class="modal-dialog">

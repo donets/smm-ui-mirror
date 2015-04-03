@@ -56,7 +56,7 @@ module.exports = function(config) {
       'bower_components/ng-flow/dist/ng-flow.js',
       'bower_components/jcrop/js/jquery.Jcrop.js',
       'bower_components/angular-validation-match/dist/angular-input-match.min.js',
-      'bower_components/venturocket-angular-slider/build/angular-slider.js',
+      'bower_components/angular-rangeslider/angular.rangeSlider.js',
       'bower_components/ng-optimizely/ng-optimizely.js',
       'bower_components/angular-optimizely/ngshowvariant.js',
       'bower_components/angular-xeditable/dist/js/xeditable.js',
