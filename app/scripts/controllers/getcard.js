@@ -78,7 +78,8 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         selectDiscipline();
 
-        $cookieStore.put('landingUrl', $location.url());
+        $cookieStore.put('landingUrl', $location.absUrl());
+        //$cookieStore.put('landingUrl', $location.url());
 
         $scope.init = function() {
             $scope.CityFactory = CityFactory.CityFactory;
