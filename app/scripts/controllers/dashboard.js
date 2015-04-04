@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, $rootScope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, getCities, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window, $document, $interval) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, getCities, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
         $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise, getNeigbourhood.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {

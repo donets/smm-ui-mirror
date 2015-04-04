@@ -13,8 +13,8 @@ angular.module('boltApp')
 			link: function(scope, element) {
 				$(element).change(function() {
                     $('#width_tmp').html($(element).find('option:selected').text());
-                    var pad = $rootScope.desktop ? 20 : 0;
-					$(this).width($('#width_tmp').width() - pad);
+                    var pad = $rootScope.desktop ? -20 : 7;
+					$(this).width($('#width_tmp').width() + pad);
 				});
 			}
 		};
