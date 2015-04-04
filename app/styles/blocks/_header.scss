@@ -671,8 +671,13 @@ li.b-header-nav_city-select {
     @media (max-width: $containerMobileWidth) {
         select {
             -webkit-appearance: none;
-            background: none;
+            -moz-appearance: none;
+            background: url("/images/arrow-select-w.svg") no-repeat right 7px top 12px;
+            background-size: 24px 14px;
             border: 0;
+            padding: 0 36px 0 0;
+            @include box-sizing(content-box);
+            text-transform: uppercase;
             width: auto;
         }
         .chosen-container {
