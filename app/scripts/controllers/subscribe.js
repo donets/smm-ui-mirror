@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Subscribe', [])
-    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', 'CityFactory', function ($scope, $rootScope, $window, $http, CityFactory) {
+    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', 'CityFactory', '$cookieStore', function ($scope, $rootScope, $window, $http, CityFactory, $cookieStore) {
 
         $scope.getCurentCity = function() {
             CityFactory.getCities().then(function(res) {
