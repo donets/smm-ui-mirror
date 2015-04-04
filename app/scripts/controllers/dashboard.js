@@ -27,7 +27,7 @@ angular.module('boltApp.controllers.Dashboard', [])
             $scope.neigbourhood = res[4];
         });
         var fetchClasses = function (city, date) {
-            $http.post($window.smmConfig.restUrlBase + '/api/classes/get/mindbody', {cityId: city, date: date.format('YYYY-MM-DD')}).success(function (res) {
+            $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: city, date: date.format('YYYY-MM-DD')}).success(function (res) {
                 console.log(res);
             });
         };
@@ -114,9 +114,10 @@ angular.module('boltApp.controllers.Dashboard', [])
 
                         $scope.confirmBook = function () {
                             $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + $scope.event.sourceId + '/' + $scope.event.parent_event_id + '/' + $scope.event.id).success(function (res) {
+                            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + $scope.event.source.toLowerCase() + '/' + $scope.event.parent_event_id + '/' + $scope.event.id).success(function (res) {
                                 console.log(res);
                                 $scope.loading = false;
+                                $scope.success = true;
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.loading = false;
@@ -134,6 +135,18 @@ angular.module('boltApp.controllers.Dashboard', [])
                     }
                 },
                 windowClass: 'modal-book'
+            });
+        };
+        
+        $scope.submitBook = function (event) {
+            $scope.loading = true;
+            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + event.source.toLowerCase() + '/' + event.parent_event_id + '/' + event.id).success(function (res) {
+                console.log(res);
+                $scope.loading = false;
+                $scope.success = true;
+            }).error(function (res) {
+                console.log(res);
+                $scope.loading = false;
             });
         };
 

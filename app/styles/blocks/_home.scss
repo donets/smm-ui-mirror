@@ -865,14 +865,6 @@
 	box-sizing: border-box;
 	background: #fff url("/images/arrow-select.svg") no-repeat right 7px top 12px;
 	background-size: 24px 14px;
-	&:after {
-		color: #339900;
-		content: '\f00c';
-		font-family: FontAwesome;
-		position: absolute;
-		right: 10px;
-		top: 25px;
-	}
 }
 
 #width_tmp {

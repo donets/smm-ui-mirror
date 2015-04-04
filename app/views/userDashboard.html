@@ -72,14 +72,14 @@
                 <div class="form-rel">
                     <button class="control-button" ng-click="filtersMobileShow()">
                         {{search.class.discipline || search.class.location || search.class.studioId ? (events
-                        | isSame: 'start_date': currDay
-                        | isAfter: 'start_date': search.start
-                        | isBefore: 'end_date': search.end
-                        | dataFilter: 'class.discipline': search.class.discipline
-                        | dataFilter: 'class.style': search.class.style
-                        | dataFilter: 'class.locationId': search.class.location
-                        | dataFilter: 'class.studioId': search.class.studioId
-                        | dataFilter: 'class.levels': search.class.levels).length + ' found' : 'Search'}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
+                            | isSame: 'start_date': currDay
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
+                            | dataFilter: 'class.discipline': search.class.discipline
+                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.studioId': search.class.studioId
+                            | dataFilter: 'class.levels': search.class.levels).length + ' found' : 'Search'}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
                 </div>
             </div>
             <div class="mobile-filters" ng-show="filtersMobile" ng-if="mobile">
@@ -143,14 +143,24 @@
                     <b>{{e.class.title}}</b>
                     <p>{{e.class.discipline}}, {{e.class.teacherName}}</p>
                     <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
+                    <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
+                    <p class="success" ng-if="success" translate><i class="fa fa-check-circle"></i>Reserved for you</p>
                 </div>
-                <button class="class-button" ng-click="bookClass(e)" type="button" translate>Reserve</button>
+                <button class="class-button" ng-click="submitBook(e)" type="button" translate>Reserve</button>
             </div>
         </div>
         <div class="b-class-table" ng-if="desktop">
             <table class="timetable">
                 <tbody>
-                    <tr ng-repeat="e in events | isSame: 'start_date': currDay" >
+                    <tr ng-repeat="e in events
+                            | isSame: 'start_date': currDay
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
+                            | dataFilter: 'class.discipline': search.class.discipline
+                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.studioId': search.class.studioId
+                            | dataFilter: 'class.levels': search.class.levels" >
                         <td>
                             <p>{{e.start_date | amDateFormat: 'HH:mm'}} - {{e.end_date | amDateFormat: 'HH:mm'}}</p>
                         </td>
@@ -159,7 +169,15 @@
                         <td><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></td>
                         <td><button class="class-button" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
                     </tr>
-                    <tr ng-if="!(events | isSame: 'start_date': currDay).length">
+                    <tr ng-if="!(events
+                            | isSame: 'start_date': currDay
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
+                            | dataFilter: 'class.discipline': search.class.discipline
+                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.studioId': search.class.studioId
+                            | dataFilter: 'class.levels': search.class.levels).length">
                         <td class="empty" colspan="7" translate>No more offers today.</td>
                     </tr>
                 </tbody>

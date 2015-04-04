@@ -331,8 +331,20 @@
                 line-height: 1;
             }
         }
+        .success {
+            font-size: 14px;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: $colorMain;
+            .fa {
+                margin-right: 10px;
+                font-size: 20px;
+                vertical-align: text-bottom;
+            }
+        }
         .form-response {
             position: relative;
+            margin-top: 20px;
             height: 42px;
         }
         .form-button {

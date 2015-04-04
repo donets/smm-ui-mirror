@@ -15,7 +15,7 @@
     <div ng-show="showSpinner" class="form-response">
         <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 20}"></span>
     </div>
-    <div ng-show="successConfirmation" class="form-response">
-        <p translate>You have successfully reserved this class</p>
+    <div ng-if="success" class="form-response">
+        <p class="success" translate><i class="fa fa-check-circle"></i>Reserved for you</p>
     </div>
 </div>
