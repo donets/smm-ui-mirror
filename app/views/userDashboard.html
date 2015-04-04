@@ -87,14 +87,16 @@
                         id="discipline" width="'100%'"
                         ng-model="search.class.discipline"
                         data-placeholder="{{'All activities'|translate}}"
+                        placeholder="{{'City'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item for item in disciplines | orderBy: 'toString()'">
-                    <option value=""></option>
+                    <option value="" translate>All activities</option>
                 </select>
                 <select chosen name="city" width="'100%'"
                         ng-model="cityId" ng-change="cityChange()"
                         data-placeholder="{{'City'|translate}}"
+                        placeholder="{{'City'|translate}}"
                         ng-options-disabled="!item.active for item in cities"
                         ng-options="item.id as item.defaultName for item in cities">
                     <option value="" ng-show="desktop"></option>
@@ -106,7 +108,7 @@
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
-                    <option value=""></option>
+                    <option value="" translate>All districts</option>
                 </select>
                 <select chosen
                         id="studio" width="'100%'"
@@ -115,7 +117,7 @@
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item.id as item.name for item in studios | orderBy: 'name'">
-                    <option value=""></option>
+                    <option value="" translate>All studios</option>
                 </select>
                 <div class="slider">
                     <b class="time start">{{search.start}}:00</b><div range-slider min="search.min" max="search.max" model-min="search.start" model-max="search.end" step="1" show-values="false" prevent-equal-min-max="true"></div><b class="time end">{{search.end}}:00</b>

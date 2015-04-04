@@ -7,7 +7,7 @@
  * # sticky
  */
 angular.module('boltApp')
-    .directive('sticky', function($window, $document, $rootScope) {
+    .directive('sticky', function($window, $rootScope) {
         return {
             link: function(scope, element, attrs) {
 
@@ -17,7 +17,7 @@ angular.module('boltApp')
                     scope._stickyElements = [];
 
                     $win.bind('scroll.sticky', function() {
-                        var pos = $document.scrollTop();
+                        var pos = $win.scrollTop();
                         for (var i=0; i<scope._stickyElements.length; i++) {
 
                             var item = scope._stickyElements[i];
