@@ -12,6 +12,10 @@ msgstr ""
 msgid "About us"
 msgstr ""
 
+#: app/index.html:160
+msgid "Activities"
+msgstr ""
+
 #: app/index.html:173
 msgid "Be inspired"
 msgstr ""
@@ -25,10 +29,6 @@ msgstr ""
 
 #: app/index.html:195
 msgid "Contact us"
-msgstr ""
-
-#: app/index.html:160
-msgid "Courses"
 msgstr ""
 
 #: app/index.html:217

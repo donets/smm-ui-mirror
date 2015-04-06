@@ -10,32 +10,16 @@
     <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
 </videogular>
-<div class="b-main-slogan"><h2 ng-if="!currentCity" translate>LONDON IS YOUR STUDIO</h2>
+<div class="b-main-slogan">
     <h2 ng-if="discipline">{{discipline.title}}</h2>
-    <h2 ng-if="currentCity && !(city || cityId) && !discipline">{{currentCity.title}}</h2>
-    <h2 ng-if="currentCity && (city || cityId) && !discipline">
+    <h2 ng-if="currentCity && !discipline">
         <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'City'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
             <option value="" ng-if="desktop"></option>
         </select>
-        <!-- <ul class="b-main-slogan-nav">
-            <li class="b-main-slogan-nav_city-select" ng-class="{ 'popap': isPopupVisible }" toggle-popup>
-                <a href="" ng-click="togglePopup()">
-                    <span>{{currentCity.defaultName}}</span>
-                <div ng-if="isPopupVisible" class="b-main-slogan-nav_city-widget">
-                    <ul ng-click="togglePopup()">
-                        <li ng-repeat="c in citiesList">
-                            <a href="" ng-click="changeCity(c.id);">{{c.defaultName}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul> -->
         <span id="width_tmp"></span>
-        <span translate disable-animate>IS YOUR STUDIO</span>
+        <span translate>IS YOUR STUDIO</span>
         </h2>
-        <p ng-if="!currentCity && !discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
-        <p ng-if="currentCity && !(city || cityId) && !discipline" translate>Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>.</p>
-        <p ng-if="currentCity && (city || cityId) && discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
+        <p ng-if="currentCity" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over {{ currentCity.defaultName}} - with one card.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
