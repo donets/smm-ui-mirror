@@ -116,17 +116,13 @@ angular.module('boltApp')
                             $rootScope.configCities = res.cities;
                             if (detectedCity) {
                                 $rootScope.currentCity = _.find($rootScope.configCities, function (city) {
-                                    return city[detectedCity.field] == detectedCity.value;
+                                    return city[detectedCity.field] === detectedCity.value;
                                 });
                             } else {
                                 $rootScope.currentCity = res.guessedCity;
                             }
                             $rootScope.countryCode = $rootScope.currentCity.countryCode;
-                            if (!$cookieStore.get('globalLang')) {
-                                $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode)
-                            } else {
-                                $rootScope.$broadcast('changeLang', $cookieStore.get('globalLang'));
-                            }
+                            $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode);
                             $rootScope.$broadcast('configLoaded');
                             prerenderReady();
                         }, function () {
@@ -151,7 +147,7 @@ angular.module('boltApp')
                             $rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
                             console.log('country = ' + $rootScope.countryCode);
                             prerenderReady();
-                        })
+                        });
                     }
 				}
 			});
@@ -202,7 +198,7 @@ angular.module('boltApp')
             $rootScope.closeEasterMessage = function() {
                 $cookieStore.put('easterMessageViewed', true);
                 $rootScope.easterMessage = false;
-            }
+            };
 		}
 	])
 	/*.run(['optimizely', function(optimizely) {
@@ -238,7 +234,7 @@ angular.module('boltApp')
                 $cookieStore.put('globalLang', $rootScope.lang);
                 gettextCatalog.setCurrentLanguage($rootScope.lang);
                 amMoment.changeLocale($rootScope.lang);
-            })
+            });
 		}
 	])
 	.constant('angularMomentConfig', {
