@@ -146,7 +146,7 @@
                     <p>{{e.class.discipline}}, {{e.class.teacherName}}</p>
                     <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
-                    <p class="success" ng-if="success" translate><i class="fa fa-check-circle"></i>Reserved for you</p>
+                    <p class="success" ng-if="success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
                 </div>
                 <button class="class-button" ng-click="submitBook(e)" type="button" translate>Reserve</button>
             </div>
@@ -155,16 +155,13 @@
             <table class="timetable">
                 <tbody>
                     <tr ng-repeat="e in events
-                            | isSame: 'start_date': currDay
-                            | isAfter: 'start_date': search.start
-                            | isBefore: 'end_date': search.end
                             | dataFilter: 'class.discipline': search.class.discipline
                             | dataFilter: 'class.style': search.class.style
                             | dataFilter: 'class.locationId': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels" >
                         <td>
-                            <p>{{e.start_date | amDateFormat: 'HH:mm'}} - {{e.end_date | amDateFormat: 'HH:mm'}}</p>
+                            <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
                         <td><span class="title">{{e.class.title}}</span></td>
                         <td>{{e.class.discipline}}</td>

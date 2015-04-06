@@ -28,7 +28,14 @@ angular.module('boltApp.controllers.Dashboard', [])
         });
         var fetchClasses = function (city, date) {
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: city, date: date.format('YYYY-MM-DD')}).success(function (res) {
-                console.log(res);
+                $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
+                    event.start_date = moment(event.date + '' + event.startTime);
+                    event.end_date = moment(event.date + '' + event.endTime);
+                    event.startTime = event.startTime.slice(0,5);
+                    event.endTime = event.endTime.slice(0,5);
+                    event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
+                });
+                console.log($scope.events);
             });
         };
         $scope.cityChange = function() {

@@ -10,54 +10,54 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
 
 # what is this?
-#: app/index.html:220
+#: app/index.html:208
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr "&copy; Somuchmore Marketplace UG, 2015"
 
-#: app/index.html:215
+#: app/index.html:203
 msgid "About us"
 msgstr "Über uns"
 
-#: app/index.html:174
+#: app/index.html:149
+msgid "Activities"
+msgstr ""
+
+#: app/index.html:162
 msgid "Be inspired"
 msgstr "Lass Dich inspirieren"
 
-#: app/index.html:122 app/index.html:133 app/index.html:140
+#: app/index.html:111 app/index.html:121 app/index.html:128
 msgid "Close"
 msgstr "Close"
 
-#: app/index.html:196
+#: app/index.html:184
 msgid "Contact us"
 msgstr "Kontaktiere uns"
 
-#: app/index.html:161
-msgid "Courses"
-msgstr "Kurse"
-
-#: app/index.html:218
+#: app/index.html:206
 msgid "FAQ"
 msgstr "faq"
 
-#: app/index.html:185
+#: app/index.html:173
 msgid "Follow us"
 msgstr "Folge uns"
 
-#: app/index.html:217
+#: app/index.html:205
 msgid "General terms &amp; conditions"
 msgstr "AGB"
 
-#: app/index.html:216
+#: app/index.html:204
 msgid "Legal notice"
 msgstr "Impressum"
 
-#: app/index.html:146
+#: app/index.html:134
 msgid "Somuchmore"
 msgstr "Somuchmore"
 
-#: app/index.html:130
+#: app/index.html:118
 msgid ""
 "Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd"
 "+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try "
@@ -67,15 +67,15 @@ msgstr ""
 "(Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> "
 "um es erneut zu versuchen."
 
-#: app/index.html:162
+#: app/index.html:150
 msgid "Studios"
 msgstr "Studios"
 
-#: app/index.html:137
+#: app/index.html:125
 msgid "Successfully saved"
 msgstr "Erfolgreich gespeichert."
 
-#: app/index.html:119
+#: app/index.html:108
 msgid ""
 "Thank you for your booking: {{event.event.title}} | Teacher: {{event.event."
 "somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
@@ -88,27 +88,23 @@ msgstr ""
 "{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
 "event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
 
-#: app/index.html:179
+#: app/index.html:167
 msgid "Thank you!"
 msgstr "Danke!"
 
-#: app/index.html:180
+#: app/index.html:168
 msgid "The email address is incorrect"
 msgstr "Die Email-Adresse ist nicht korrekt"
 
-#: app/index.html:127
+#: app/index.html:116
 msgid ""
 "Unfortunately an error has occurred. Please contact our customer service "
 "team: <a href=\"mailto:kundenservice@somuchmore.org"
-"\">kundenservice@somuchmore.org</a> <br>\n"
-"Error details: {{rejection.data.message}}"
+"\">kundenservice@somuchmore.org</a> <br>Error details: {{rejection.data."
+"message}}"
 msgstr ""
-"Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren "
-"Kundenservice: <a href=\"mailto:kundenservice@somuchmore.org"
-"\">kundenservice@somuchmore.org</a> <br>\n"
-"            Fehlerdetails: {{rejection.data.message}}"
 
-#: app/index.html:129
+#: app/index.html:117
 msgid ""
 "You are not authorised to access this page {{$state.href($state.current."
 "name, $state.params, {absolute: true})}}"
@@ -116,9 +112,23 @@ msgstr ""
 "Sie haben keine Berechtigung für die Seite {{$state.href($state.current."
 "name, $state.params, {absolute: true})}}"
 
-#: app/index.html:176
+#: app/index.html:164
 msgid "Your email address"
 msgstr "Deine E-Mail-Adresse"
+
+#~ msgid "Courses"
+#~ msgstr "Kurse"
+
+#~ msgid ""
+#~ "Unfortunately an error has occurred. Please contact our customer service "
+#~ "team: <a href=\"mailto:kundenservice@somuchmore.org"
+#~ "\">kundenservice@somuchmore.org</a> <br>\n"
+#~ "Error details: {{rejection.data.message}}"
+#~ msgstr ""
+#~ "Leider ist ein Fehler aufgetreten. Kontaktieren Sie bitte unseren "
+#~ "Kundenservice: <a href=\"mailto:kundenservice@somuchmore.org"
+#~ "\">kundenservice@somuchmore.org</a> <br>\n"
+#~ "            Fehlerdetails: {{rejection.data.message}}"
 
 #~ msgid "+44 (0)20 3510 0240"
 #~ msgstr "030 - 577023101"

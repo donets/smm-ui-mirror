@@ -13,24 +13,13 @@
 <div class="b-main-slogan"><h2 ng-if="!currentCity" translate>LONDON IS YOUR STUDIO</h2>
     <h2 ng-if="discipline">{{discipline.title}}</h2>
     <h2 ng-if="currentCity && !(city || cityId) && !discipline">{{currentCity.title}}</h2>
-    <h2 ng-if="currentCity && (city || cityId) && !discipline" translate>
-        <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'Monat'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
+    <h2 ng-if="currentCity && (city || cityId) && !discipline">
+        <select auto-width-select chosen width="'auto'" ng-model="currentCityId"
+                disable-search="true" ng-change="changeCity(currentCityId)"
+                ng-options="c.id as c.defaultName for c in citiesList">
             <option value="" ng-if="desktop"></option>
         </select>
-        <!-- <ul class="b-main-slogan-nav">
-            <li class="b-main-slogan-nav_city-select" ng-class="{ 'popap': isPopupVisible }" toggle-popup>
-                <a href="" ng-click="togglePopup()">
-                    <span>{{currentCity.defaultName}}</span>
-                <div ng-if="isPopupVisible" class="b-main-slogan-nav_city-widget">
-                    <ul ng-click="togglePopup()">
-                        <li ng-repeat="c in citiesList">
-                            <a href="" ng-click="changeCity(c.id);">{{c.defaultName}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul> -->
-        <span id="width_tmp"></span>
+        <span id="width_tmp" translate></span>
         IS YOUR STUDIO
         </h2>
         <p ng-if="!currentCity && !discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>

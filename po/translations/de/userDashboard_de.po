@@ -10,61 +10,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
 
-#: app/views/userDashboard.html:53
-msgid "All Courses"
-msgstr "Alle Kurse"
+#: app/views/userDashboard.html:32
+msgid ", or"
+msgstr ""
 
-#: app/views/userDashboard.html:16
-msgid "All Disciplines"
-msgstr "Alle Disziplinen"
+#: app/views/userDashboard.html:89 app/views/userDashboard.html:9
+#: app/views/userDashboard.html:94
+msgid "All activities"
+msgstr ""
 
-#: app/views/userDashboard.html:57
-msgid "All Districts"
-msgstr "Alle Stadtteile"
+#: app/views/userDashboard.html:107 app/views/userDashboard.html:111
+#: app/views/userDashboard.html:26
+msgid "All districts"
+msgstr ""
 
-#: app/views/userDashboard.html:75
-msgid "All Levels"
-msgstr "Alle Levels"
+#: app/views/userDashboard.html:116 app/views/userDashboard.html:120
+#: app/views/userDashboard.html:36
+msgid "All studios"
+msgstr ""
 
-#: app/views/userDashboard.html:66
-msgid "All Studios"
-msgstr "Alle Studios"
-
-#: app/views/userDashboard.html:25
-msgid "All Styles"
-msgstr "Alle Stile"
-
-#: app/views/userDashboard.html:81
-msgid "All Teachers"
-msgstr "Alle Lehrer"
-
-#: app/views/userDashboard.html:33
+#: app/views/userDashboard.html:18 app/views/userDashboard.html:90
+#: app/views/userDashboard.html:98 app/views/userDashboard.html:99
 msgid "City"
 msgstr "Stadt"
 
-#: app/views/userDashboard.html:151
+#: app/views/userDashboard.html:254
 msgid "Continue to the courses"
 msgstr "Weiter zu den Kursen"
 
-#: app/views/userDashboard.html:89
-msgid "Course"
-msgstr "Kurs"
-
-#: app/views/userDashboard.html:90
-msgid "Disciplines"
-msgstr "Disziplinen"
-
-#: app/views/userDashboard.html:94
-msgid "District"
-msgstr "Stadtteil"
-
-#: app/views/userDashboard.html:3
-msgid "Find a course"
-msgstr "Finde einen Kurs"
-
-#: app/views/userDashboard.html:150
+#: app/views/userDashboard.html:253
 msgid ""
 "From now on you can find a list of all our partner studios here. You can "
 "even start before your card arrives. Print out your class confirmation and "
@@ -75,38 +51,84 @@ msgstr ""
 "lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im "
 "Studio vor). Viel Spaß!"
 
-#: app/views/userDashboard.html:82
-msgid "Reset filters"
-msgstr "Filter zurücksetzen"
+#: app/views/userDashboard.html:180
+msgid "No more offers today."
+msgstr ""
 
-#: app/views/userDashboard.html:93
-msgid "Studio"
-msgstr "Studio"
-
-#: app/views/userDashboard.html:91
-msgid "Styles"
-msgstr "Stile"
-
-#: app/views/userDashboard.html:92
-msgid "Teacher"
-msgstr "Lehrer"
+#: app/views/userDashboard.html:151 app/views/userDashboard.html:169
+msgid "Reserve"
+msgstr ""
 
 #: app/views/userDashboard.html:149
+msgid "Reserved for you"
+msgstr ""
+
+#: app/views/userDashboard.html:5
+msgid "Show"
+msgstr ""
+
+#: app/views/userDashboard.html:252
 msgid "Thank you for your registration!"
 msgstr "Danke für Deine Anmeldung!"
 
-#: app/views/userDashboard.html:138
-msgid ""
-"There are no courses available for this day and this search. Try another "
-"date or reset the filters."
+#: app/views/userDashboard.html:15
+msgid "in"
 msgstr ""
-"Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
-"anderen Datum oder setze die Filter zurück"
 
-#: app/views/userDashboard.html:88
-msgid "Time"
-msgstr "Zeit"
+#~ msgid "All Courses"
+#~ msgstr "Alle Kurse"
 
-#: app/views/userDashboard.html:4
-msgid "Today {{today | amDateFormat: 'dd DD.MM.'}}"
-msgstr "Heute {{today | amDateFormat: 'dd DD.MM.'}}"
+#~ msgid "All Disciplines"
+#~ msgstr "Alle Disziplinen"
+
+#~ msgid "All Districts"
+#~ msgstr "Alle Stadtteile"
+
+#~ msgid "All Levels"
+#~ msgstr "Alle Levels"
+
+#~ msgid "All Studios"
+#~ msgstr "Alle Studios"
+
+#~ msgid "All Styles"
+#~ msgstr "Alle Stile"
+
+#~ msgid "All Teachers"
+#~ msgstr "Alle Lehrer"
+
+#~ msgid "Course"
+#~ msgstr "Kurs"
+
+#~ msgid "Disciplines"
+#~ msgstr "Disziplinen"
+
+#~ msgid "District"
+#~ msgstr "Stadtteil"
+
+#~ msgid "Find a course"
+#~ msgstr "Finde einen Kurs"
+
+#~ msgid "Reset filters"
+#~ msgstr "Filter zurücksetzen"
+
+#~ msgid "Studio"
+#~ msgstr "Studio"
+
+#~ msgid "Styles"
+#~ msgstr "Stile"
+
+#~ msgid "Teacher"
+#~ msgstr "Lehrer"
+
+#~ msgid ""
+#~ "There are no courses available for this day and this search. Try another "
+#~ "date or reset the filters."
+#~ msgstr ""
+#~ "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
+#~ "anderen Datum oder setze die Filter zurück"
+
+#~ msgid "Time"
+#~ msgstr "Zeit"
+
+#~ msgid "Today {{today | amDateFormat: 'dd DD.MM.'}}"
+#~ msgstr "Heute {{today | amDateFormat: 'dd DD.MM.'}}"

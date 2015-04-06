@@ -3,7 +3,7 @@
     <button ng-click="close()" class="modal-close" type="button">
         <span class="sr-only" translate>Close</span>
     </button>
-    <p class="date" translate>{{event.start_date | amDateFormat: 'MMMM D, dddd'}}</p>
+    <p class="date">{{event.start_date | amDateFormat: 'MMMM D, dddd'}}</p>
     <h2><span class="time">{{event.start_date | amDateFormat: 'HH:mm'}} - {{event.end_date | amDateFormat: 'HH:mm'}}</span><b>{{event.class.title}}</b></h2>
     <p>{{event.class.discipline}}, {{event.class.teacherName}}</p>
     <p class="address"><i class="fa fa-map-marker"></i>{{event.class.location}}</p>
@@ -16,6 +16,6 @@
         <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 20}"></span>
     </div>
     <div ng-if="success" class="form-response">
-        <p class="success" translate><i class="fa fa-check-circle"></i>Reserved for you</p>
+        <p class="success"><i class="fa fa-check-circle"></i><span translate>Reserved for you</span></p>
     </div>
 </div>

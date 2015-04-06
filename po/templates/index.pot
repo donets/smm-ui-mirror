@@ -4,86 +4,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/index.html:220
+#: app/index.html:208
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr ""
 
-#: app/index.html:215
+#: app/index.html:203
 msgid "About us"
 msgstr ""
 
-#: app/index.html:174
-msgid "Be inspired"
-msgstr ""
-
-#: app/index.html:122
-#: app/index.html:133
-#: app/index.html:140
-msgid "Close"
-msgstr ""
-
-#: app/index.html:196
-msgid "Contact us"
-msgstr ""
-
-#: app/index.html:161
-msgid "Courses"
-msgstr ""
-
-#: app/index.html:218
-msgid "FAQ"
-msgstr ""
-
-#: app/index.html:185
-msgid "Follow us"
-msgstr ""
-
-#: app/index.html:217
-msgid "General terms &amp; conditions"
-msgstr ""
-
-#: app/index.html:216
-msgid "Legal notice"
-msgstr ""
-
-#: app/index.html:146
-msgid "Somuchmore"
-msgstr ""
-
-#: app/index.html:130
-msgid "Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try again."
+#: app/index.html:149
+msgid "Activities"
 msgstr ""
 
 #: app/index.html:162
+msgid "Be inspired"
+msgstr ""
+
+#: app/index.html:111
+#: app/index.html:121
+#: app/index.html:128
+msgid "Close"
+msgstr ""
+
+#: app/index.html:184
+msgid "Contact us"
+msgstr ""
+
+#: app/index.html:206
+msgid "FAQ"
+msgstr ""
+
+#: app/index.html:173
+msgid "Follow us"
+msgstr ""
+
+#: app/index.html:205
+msgid "General terms &amp; conditions"
+msgstr ""
+
+#: app/index.html:204
+msgid "Legal notice"
+msgstr ""
+
+#: app/index.html:134
+msgid "Somuchmore"
+msgstr ""
+
+#: app/index.html:118
+msgid "Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try again."
+msgstr ""
+
+#: app/index.html:150
 msgid "Studios"
 msgstr ""
 
-#: app/index.html:137
+#: app/index.html:125
 msgid "Successfully saved"
 msgstr ""
 
-#: app/index.html:119
+#: app/index.html:108
 msgid "Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details."
 msgstr ""
 
-#: app/index.html:179
+#: app/index.html:167
 msgid "Thank you!"
 msgstr ""
 
-#: app/index.html:180
+#: app/index.html:168
 msgid "The email address is incorrect"
 msgstr ""
 
-#: app/index.html:127
-msgid ""
-"Unfortunately an error has occurred. Please contact our customer service team: <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a> <br>\n"
-"Error details: {{rejection.data.message}}"
+#: app/index.html:116
+msgid "Unfortunately an error has occurred. Please contact our customer service team: <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a> <br>Error details: {{rejection.data.message}}"
 msgstr ""
 
-#: app/index.html:129
+#: app/index.html:117
 msgid "You are not authorised to access this page {{$state.href($state.current.name, $state.params, {absolute: true})}}"
 msgstr ""
 
-#: app/index.html:176
+#: app/index.html:164
 msgid "Your email address"
 msgstr ""
