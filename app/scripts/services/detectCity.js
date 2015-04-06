@@ -8,8 +8,8 @@
  * Factory in the boltApp.
  */
 angular.module('boltApp.services.detectCity', [])
-    .factory('DetectCity', ['RestApi', '$location', '$cookieStore', '$rootScope', '$http', '$q', 'mapStudios',
-        function(RestApi, $location, $cookieStore, $rootScope, $http, $q, mapStudios) {
+    .factory('DetectCity', ['RestApi', '$location', '$cookieStore',
+        function(RestApi, $location, $cookieStore) {
 
             var getCityFromParams = function() {
                 if ($location.search().city) {

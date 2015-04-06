@@ -116,7 +116,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.cards = res.cards;
             });
             $rootScope.countryCode = $rootScope.currentCity.countryCode;
-            $scope.$emit('changeLang', $rootScope.currentCity.languageCode)
+            $scope.$emit('changeLang', $rootScope.currentCity.languageCode);
         };
 
 

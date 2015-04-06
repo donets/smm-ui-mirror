@@ -116,7 +116,7 @@ angular.module('boltApp')
                             $rootScope.configCities = res.cities;
                             if (detectedCity) {
                                 $rootScope.currentCity = _.find($rootScope.configCities, function (city) {
-                                    return city[detectedCity.field] == detectedCity.value;
+                                    return city[detectedCity.field] === detectedCity.value;
                                 });
                             } else {
                                 $rootScope.currentCity = res.guessedCity;
@@ -147,7 +147,7 @@ angular.module('boltApp')
                             $rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
                             console.log('country = ' + $rootScope.countryCode);
                             prerenderReady();
-                        })
+                        });
                     }
 				}
 			});
@@ -198,7 +198,7 @@ angular.module('boltApp')
             $rootScope.closeEasterMessage = function() {
                 $cookieStore.put('easterMessageViewed', true);
                 $rootScope.easterMessage = false;
-            }
+            };
 		}
 	])
 	/*.run(['optimizely', function(optimizely) {
@@ -234,7 +234,7 @@ angular.module('boltApp')
                 $cookieStore.put('globalLang', $rootScope.lang);
                 gettextCatalog.setCurrentLanguage($rootScope.lang);
                 amMoment.changeLocale($rootScope.lang);
-            })
+            });
 		}
 	])
 	.constant('angularMomentConfig', {
