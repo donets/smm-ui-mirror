@@ -33,7 +33,7 @@ angular.module('boltApp.controllers.Subscribe', [])
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, newsletter: true, lang: $rootScope.lang, cityId: $scope.currentCity.id }).success(function () {
                 $scope.loadingUpdate = false;
                 $scope.successUpdate = true;
-                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.email, message: $window.smmConfig});
+                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.email, message: JSON.stringify($window.smmConfig)});
                 $scope.email = '';
                 $scope.form.$setPristine();
                 $window.ga('set', 'dimension1', '1');
