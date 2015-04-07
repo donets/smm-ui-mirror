@@ -1,7 +1,7 @@
 <div class="container">
     <h2>{{$stateParams.route}}</h2>
 </div>
-<div class="dashboard cf">
+<div class="admin-table cf">
     <div class="container">
         <div class="w-left b-sidebar-filters">
             <button class="control-button" ui-sref="admin.entity.new({route: $stateParams.route})" ng-if="$stateParams.route !== 'memberships'" type="button"><i class="fa fa-plus"></i>New {{$stateParams.route.slice(0, -1)}}</button>

@@ -658,6 +658,169 @@
         }
     }
 }
+.admin-table {
+    @extend .b-studio-timetable;
+    padding: 0 0 60px;
+    text-align: left;
+    .b-sidebar-filters {
+        width: 170px;
+        text-align: left;
+        padding: 50px 0 0;
+        &.stuck {
+            z-index: 1;
+        }
+        .chosen-container, .form-check, .control-button, .input-search {
+            margin: 0 0 20px;
+        }
+        select {
+            width: 100%;
+        }
+        .chosen-container {
+            width: 100%;
+        }
+        .control-button {
+            @extend %custom-button;
+            display: block;
+            min-width: 0;
+            width: 100%;
+            font-size: 15px;
+            font-family: $fontRegular;
+            .fa {
+                margin: 0 8px;
+            }
+        }
+        .clear-button {
+            display: block;
+            font-size: 15px;
+            text-align: center;
+            color: $colorText;
+            outline: none;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .input-search {
+            input {
+                width: 100%;
+                border-color: $colorLightGrey;
+            }
+        }
+    }
+    .b-classes-list {
+        width: 800px;
+        .info {
+            font-size: 22px;
+            text-align: justify;
+            margin: 0 50px;
+        }
+        &.parsed-data {
+            overflow-x: scroll;
+        }
+    }
+    .timetable {
+        width: 100%;
+        margin: 0;
+        th, td {
+            font-size: 12px;
+            height: 50px;
+            padding: 0 12px;
+        }
+        &.membership-table {
+            th, td {
+                max-width: 200px;
+            }
+            td {
+                &:nth-child(1), &:nth-child(2) {
+                    font-size: 12px;
+                }
+                &:nth-child(2) {
+                    div {
+                        width: 175px;
+                        word-break: break-all;
+                    }
+                }
+                &:nth-child(3) {
+                    div {
+                        width: 150px;
+                        word-break: break-all;
+                    }
+                }
+            }
+        }
+        &.import-table {
+            td {
+                font-size: 12px;
+                &:nth-child(1), &:nth-child(2) {
+                    font-size: 12px;
+                }
+            }
+        }
+        td {
+            line-height: 1.2;
+            border-width: 2px;
+            &:nth-child(1), &:nth-child(2) {
+                font-size: 15px;
+            }
+            &.empty {
+                background: none;
+                border: 0 none;
+                padding: 60px 20px!important;
+                font-size: 22px;
+                text-align: center;
+            }
+            .w-100 {
+                width: 100px;
+            }
+            .link-description {
+                font-size: 15px;
+            }
+            .entity {
+                span {
+                    display: block;
+                }
+            }
+        }
+        tr {
+            th:first-child, td:first-child {
+                @include border-left-radius(2px);
+                width: auto;
+            }
+            th:last-child, td:last-child {
+                padding: 0;
+                width: 100px;
+            }
+            &.ng-animate {
+                &.ng-move,
+                &.ng-enter,
+                &.ng-leave {
+                    @include transition(none);
+                }
+            }
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            font-size: 15px;
+            i {
+                margin-right: 8px;
+            }
+            span {
+                margin: 0;
+            }
+        }
+        &.user-classes {
+            tr {
+                th:last-child, td:last-child {
+                    width: 125px;
+                    button {
+                        width: 125px;
+                    }
+                }
+            }
+        }
+    }
+}
 .admin-title {
     text-align: center;
     margin: 50px 0;
