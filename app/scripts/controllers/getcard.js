@@ -150,7 +150,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
-                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: $window.smmConfig});
+                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: JSON.stringify($window.smmConfig)});
                 $scope.invite = {};
                 $scope.subscribeForm[locate].$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
