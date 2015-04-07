@@ -159,6 +159,7 @@ angular.module('boltApp.controllers.Signup', [])
 
                 $scope.showSpinner = false;
                 $scope.showCards = true;
+                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.order.email, message: $window.smmConfig});
                 $interval(function () {
                     $document.scrollToElementAnimated($('#step2'), 260, 800);
                 }, 0, 1, {invokeApply: false});
