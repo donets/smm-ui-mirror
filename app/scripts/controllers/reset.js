@@ -8,14 +8,24 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Reset', [])
-    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', 'gettextCatalog', function ($scope, $rootScope, $http, $window, gettextCatalog) {
+    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', 'gettextCatalog', '$cookieStore', function ($scope, $rootScope, $http, $window, gettextCatalog, $cookieStore) {
         $scope.resetPassword = function () {
             $scope.loadingReset = true;
             $scope.errorReset = false;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/changePasswordWithTokenAndLogin?token=' + $rootScope.$stateParams.token + '&newPassword=' + encodeURIComponent(this.passwordReset)).success(function (response) {
+            $http.post($window.smmConfig.restUrlBase + '/api/auth/changePasswordWithTokenAndLogin', { token: $rootScope.$stateParams.token, newPassword: this.passwordReset }).success(function (response) {
                 console.log(response);
                 $scope.loadingReset = false;
-                $rootScope.$state.transitionTo('home');
+                $rootScope.userName = response.user.name;
+                $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
+                $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
+                $cookieStore.put('session', response.user);
+                if ($rootScope.requestedState) {
+                    $rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
+                } else if ($rootScope.roleMember) {
+                    $rootScope.$state.go('dashboard', {
+                        notify: false
+                    });
+                }
             }).error(function (response, status) {
                 console.error(response);
                 console.error(status);

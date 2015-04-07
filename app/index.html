@@ -50,6 +50,7 @@
             bottom: 0;
             left: 0;
             right: 0;
+            z-index: 2;
         }
         .pre:before {
             content: '';
@@ -62,6 +63,9 @@
             height: 15px;
             opacity: 1;
             transition: opacity 1s linear 0s;
+        }
+        .pre.hide_loader {
+            z-index: 0;
         }
         .pre.hide_loader:before {
             opacity: 0;
@@ -124,6 +128,13 @@
     <div class="b-alert success" ng-if="success.show">
         <span translate>Successfully saved </span>
         <button ng-click="success.show = false" class="b-close" type="button">
+            <i class="fa fa-times"></i>
+            <span class="sr-only" translate>Close</span>
+        </button>
+    </div>
+    <div class="b-alert success" ng-if="easterMessage">
+        <span translate>Important: Easter breaks are here! Please check the individual course plans on the websites of each studio for any changes. Thank you!</span>
+        <button ng-click="closeEasterMessage()" class="b-close" type="button">
             <i class="fa fa-times"></i>
             <span class="sr-only" translate>Close</span>
         </button>
@@ -295,6 +306,8 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/services/detectCity.js"></script>
+<script src="scripts/services/countryConfig.js"></script>
 <script src="scripts/services/events.js"></script>
 <script src="scripts/services/occurrences.js"></script>
 <script src="scripts/services/suppliers.js"></script>

@@ -14,33 +14,32 @@ msgstr ""
 
 #: app/views/userDashboard.html:32
 msgid ", or"
-msgstr "oder"
+msgstr ", oder"
 
-#: app/views/userDashboard.html:89 app/views/userDashboard.html:9
-#: app/views/userDashboard.html:94
+#: app/views/userDashboard.html:87 app/views/userDashboard.html:9
+#: app/views/userDashboard.html:91
 msgid "All activities"
 msgstr "Alle Aktivitäten"
 
-#: app/views/userDashboard.html:107 app/views/userDashboard.html:111
+#: app/views/userDashboard.html:103 app/views/userDashboard.html:107
 #: app/views/userDashboard.html:26
 msgid "All districts"
 msgstr "Alle Bezirke"
 
-#: app/views/userDashboard.html:116 app/views/userDashboard.html:120
+#: app/views/userDashboard.html:112 app/views/userDashboard.html:116
 #: app/views/userDashboard.html:36
 msgid "All studios"
 msgstr "Alle Studios"
 
-#: app/views/userDashboard.html:18 app/views/userDashboard.html:90
-#: app/views/userDashboard.html:98 app/views/userDashboard.html:99
+#: app/views/userDashboard.html:18 app/views/userDashboard.html:95
 msgid "City"
 msgstr "Stadt"
 
-#: app/views/userDashboard.html:254
+#: app/views/userDashboard.html:266
 msgid "Continue to the courses"
 msgstr "Weiter zu den Kursen"
 
-#: app/views/userDashboard.html:253
+#: app/views/userDashboard.html:265
 msgid ""
 "From now on you can find a list of all our partner studios here. You can "
 "even start before your card arrives. Print out your class confirmation and "
@@ -51,15 +50,11 @@ msgstr ""
 "lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im "
 "Studio vor). Viel Spaß!"
 
-#: app/views/userDashboard.html:180
-msgid "No more offers today."
-msgstr "Heute keine weiteren Angebote."
-
-#: app/views/userDashboard.html:151 app/views/userDashboard.html:169
+#: app/views/userDashboard.html:146 app/views/userDashboard.html:179
 msgid "Reserve"
 msgstr "Reservieren"
 
-#: app/views/userDashboard.html:149
+#: app/views/userDashboard.html:144
 msgid "Reserved for you"
 msgstr "Für Dich reserviert"
 
@@ -67,13 +62,24 @@ msgstr "Für Dich reserviert"
 msgid "Show"
 msgstr "Zeige"
 
-#: app/views/userDashboard.html:252
+#: app/views/userDashboard.html:264
 msgid "Thank you for your registration!"
 msgstr "Danke für Deine Anmeldung!"
+
+#: app/views/userDashboard.html:159 app/views/userDashboard.html:189
+msgid ""
+"There are no courses available for this day and this search. Try another "
+"date or reset the filters."
+msgstr ""
+"Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
+"anderen Datum oder setze die Filter zurück"
 
 #: app/views/userDashboard.html:15
 msgid "in"
 msgstr "in"
+
+#~ msgid "No more offers today."
+#~ msgstr "Heute keine weiteren Angebote."
 
 #~ msgid "All Courses"
 #~ msgstr "Alle Kurse"
@@ -119,13 +125,6 @@ msgstr "in"
 
 #~ msgid "Teacher"
 #~ msgstr "Lehrer"
-
-#~ msgid ""
-#~ "There are no courses available for this day and this search. Try another "
-#~ "date or reset the filters."
-#~ msgstr ""
-#~ "Für diesen Tag und diese Suche gibt es keine Kurse. Versuche es mit einem "
-#~ "anderen Datum oder setze die Filter zurück"
 
 #~ msgid "Time"
 #~ msgstr "Zeit"

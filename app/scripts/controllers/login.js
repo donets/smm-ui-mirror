@@ -9,49 +9,52 @@
  */
 angular.module('boltApp.controllers.Login', [])
 	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'gettextCatalog', 'amMoment', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, gettextCatalog, amMoment) {
-		$scope.init = function() {
-			$scope.data = {};
-			$scope.data.currentCity = [];
-			$scope.CityFactory = CityFactory.CityFactory;
-
-			$scope.$on('CityFactory.update', function() {
-				var currentCityVar = CityFactory.getVariable();
-				$scope.data.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
-			});
-
-			$scope.update = CityFactory.update;
-
-            $scope.changeLanguage = function(city) {
-                $rootScope.lang = city;
-                $cookieStore.put('globalLang', $rootScope.lang);
-                gettextCatalog.setCurrentLanguage($rootScope.lang);
-                amMoment.changeLocale($rootScope.lang);
-            };
-
-			CityFactory.getCities().then(function(res) {
-				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
-					return c.countryCode === $rootScope.countryCode;
-				});
-				CityFactory.guessCity($scope.citiesList).then(function(res) {
-					$scope.city = res.city;
-					$scope.cityId = res.cityId;
-					$scope.changeCity(res.currentCity.id);
-				});
-			});
-		};
-
-		$scope.init();
-
-
-
-		$scope.changeCity = function(currentCityId) {
-            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
-            CityFactory.update(currentCity, $scope.citiesList);
-            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
-                $scope.studios = res.studios;
-                $scope.cards = res.cards;
-            });
-        };
+//		$scope.init = function() {
+//			$scope.data = {};
+//			$scope.data.currentCity = [];
+//			$scope.CityFactory = CityFactory.CityFactory;
+//
+//			$scope.$on('CityFactory.update', function() {
+//				var currentCityVar = CityFactory.getVariable();
+//				$scope.data.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
+//			});
+//
+//			$scope.update = CityFactory.update;
+//
+//            $scope.changeLanguage = function(city) {
+//                $rootScope.lang = city;
+//                $cookieStore.put('globalLang', $rootScope.lang);
+//                gettextCatalog.setCurrentLanguage($rootScope.lang);
+//                amMoment.changeLocale($rootScope.lang);
+//            };
+//
+//			CityFactory.getCities().then(function(res) {
+//				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
+//					return c.countryCode === $rootScope.countryCode;
+//				});
+//				CityFactory.guessCity($scope.citiesList).then(function(res) {
+//					$scope.city = res.city;
+//					$scope.cityId = res.cityId;
+//					$scope.changeCity(res.currentCity.id);
+//				});
+//			});
+////            $scope.citiesList = $rootScope.configCities;
+////            $scope.city = $rootScope.currentCity;
+////            $scope.cityId = $rootScope.currentCity.id;
+//		};
+//
+//		$scope.init();
+//
+//
+//
+//		$scope.changeCity = function(currentCityId) {
+//            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
+//            CityFactory.update(currentCity, $scope.citiesList);
+//            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
+//                $scope.studios = res.studios;
+//                $scope.cards = res.cards;
+//            });
+//        };
 
 		function sendLoginFB(res) {
 			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function(response) {
@@ -129,9 +132,7 @@ angular.module('boltApp.controllers.Login', [])
 			$scope.loadingLogin = true;
 			$scope.errorLogin = false;
 			$rootScope.handledError = true;
-			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/password?email=' + encodeURIComponent(this.emailLogin) + '&password=' + encodeURIComponent(this.passwordLogin), {
-				cache: false
-			}).success(function(response) {
+			$http.post($window.smmConfig.restUrlBase + '/api/auth/login/password', { email:this.emailLogin, password:this.passwordLogin }).success(function(response) {
 				console.log(response);
 				$scope.loadingLogin = false;
 				$rootScope.handledError = false;

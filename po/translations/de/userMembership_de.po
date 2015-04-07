@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: app/views/userMembership.html:73
 msgid "/ Month"
@@ -21,8 +21,8 @@ msgid "/ month for {{voucher.discountDuarationInMonths}} months"
 msgstr "/ Monat für {{voucher.discountDuarationInMonths}} Monate"
 
 #: app/views/userMembership.html:77
-msgid "0€ / Month"
-msgstr "0€ / Monat"
+msgid "0 {{currentCard.currency}} / Month"
+msgstr "0 {{currentCard.currency}} / Monat"
 
 #: app/views/userMembership.html:55
 msgid "Activate subscription"
@@ -245,17 +245,20 @@ msgstr "z.B. ABCD1234"
 msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr "z.B. DE12 3456 7890 1234 5678 90"
 
+#~ msgid "0€ / Month"
+#~ msgstr "0€ / Monat"
+
 #~ msgid "Membership start date:"
 #~ msgstr "Startdatum der Mitgliedschaft:"
 
 #~ msgid ""
-#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</"
-#~ "span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode "
-#~ "=== 'EUR'\">&euro;</span> / Month"
+#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"
+#~ "{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === "
+#~ "'EUR'\">&euro;</span> / Month"
 #~ msgstr ""
-#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</"
-#~ "span>{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode "
-#~ "=== 'EUR'\">&euro;</span> / Monat"
+#~ "<span ng-if=\"currentCard.currencyCode === 'GBP'\">&pound;</span>"
+#~ "{{currentCard.monthlyPrice}}<span ng-if=\"currentCard.currencyCode === "
+#~ "'EUR'\">&euro;</span> / Monat"
 
 #~ msgid ""
 #~ "Payment information\n"

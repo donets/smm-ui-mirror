@@ -96,7 +96,7 @@ msgid "City"
 msgstr ""
 
 #: app/views/signup.html:283
-msgid "County"
+msgid "Country"
 msgstr ""
 
 #: app/views/signup.html:102

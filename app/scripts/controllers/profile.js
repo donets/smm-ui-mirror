@@ -45,7 +45,7 @@ angular.module('boltApp.controllers.Profile', [])
             $scope.errorPass = false;
             $scope.successPass = false;
             $rootScope.handledError = true;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/changePassword?oldPassword=' + $scope.password.old + '&newPassword=' + $scope.password.new).success(function (response) {
+            $http.post($window.smmConfig.restUrlBase + '/api/auth/changePassword', { oldPassword:$scope.password.old, newPassword: $scope.password.new }).success(function (response) {
                 console.log(response);
                 $rootScope.handledError = false;
                 $scope.loading = false;

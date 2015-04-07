@@ -8,49 +8,43 @@ msgstr ""
 msgid ", or"
 msgstr ""
 
-#: app/views/userDashboard.html:89
+#: app/views/userDashboard.html:87
 #: app/views/userDashboard.html:9
-#: app/views/userDashboard.html:94
+#: app/views/userDashboard.html:91
 msgid "All activities"
 msgstr ""
 
+#: app/views/userDashboard.html:103
 #: app/views/userDashboard.html:107
-#: app/views/userDashboard.html:111
 #: app/views/userDashboard.html:26
 msgid "All districts"
 msgstr ""
 
+#: app/views/userDashboard.html:112
 #: app/views/userDashboard.html:116
-#: app/views/userDashboard.html:120
 #: app/views/userDashboard.html:36
 msgid "All studios"
 msgstr ""
 
 #: app/views/userDashboard.html:18
-#: app/views/userDashboard.html:90
-#: app/views/userDashboard.html:98
-#: app/views/userDashboard.html:99
+#: app/views/userDashboard.html:95
 msgid "City"
 msgstr ""
 
-#: app/views/userDashboard.html:254
+#: app/views/userDashboard.html:266
 msgid "Continue to the courses"
 msgstr ""
 
-#: app/views/userDashboard.html:253
+#: app/views/userDashboard.html:265
 msgid "From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!"
 msgstr ""
 
-#: app/views/userDashboard.html:180
-msgid "No more offers today."
-msgstr ""
-
-#: app/views/userDashboard.html:151
-#: app/views/userDashboard.html:169
+#: app/views/userDashboard.html:146
+#: app/views/userDashboard.html:179
 msgid "Reserve"
 msgstr ""
 
-#: app/views/userDashboard.html:149
+#: app/views/userDashboard.html:144
 msgid "Reserved for you"
 msgstr ""
 
@@ -58,8 +52,13 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: app/views/userDashboard.html:252
+#: app/views/userDashboard.html:264
 msgid "Thank you for your registration!"
+msgstr ""
+
+#: app/views/userDashboard.html:159
+#: app/views/userDashboard.html:189
+msgid "There are no courses available for this day and this search. Try another date or reset the filters."
 msgstr ""
 
 #: app/views/userDashboard.html:15

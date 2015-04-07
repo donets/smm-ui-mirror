@@ -61,6 +61,8 @@ angular.module('boltApp', [
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.services.restApi',
+        'boltApp.services.detectCity',
+        'boltApp.services.countryConfig',
         'boltApp.services.events',
         'boltApp.services.occurrences',
         'boltApp.services.suppliers',
@@ -71,8 +73,8 @@ angular.module('boltApp', [
         'boltApp.services.mapStudios'
     ]);
 angular.module('boltApp')
-	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',
-		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore) {
+	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
+		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore, CountryConfig, DetectCity) {
 			// It's very handy to add references to $state and $stateParams to the $rootScope
 			// so that you can access them from any scope within your applications.For example,
 			// <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -83,22 +85,6 @@ angular.module('boltApp')
 			$rootScope.pageReload = function() {
 				$window.location.reload();
 			};
-			$rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
-			var domains = [{
-				domain: 'DE',
-				countryCode: 'DE'
-			}, {
-				domain: 'UK',
-				countryCode: 'UK'
-			}, {
-				domain: 'COM',
-				countryCode: 'DE'
-			}];
-			$rootScope.domainProperties = _.findWhere(domains, {
-				domain: $rootScope.domain
-			});
-			$rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
-			console.log('country = ' + $rootScope.countryCode);
 			$rootScope.$on('$viewContentLoading', function() {
 				$window.rendering = true;
 			});
@@ -119,7 +105,50 @@ angular.module('boltApp')
 					    $cookieStore.put('cityId', 1);
 					    prerenderReady();
 					});*/
-					prerenderReady();
+                    if ($rootScope.configLoaded) {
+                        $rootScope.$broadcast('configLoaded');
+                        prerenderReady();
+                    } else {
+                        var detectedCity = DetectCity.getCityFromParams();
+                        CountryConfig.guessCity().$promise.then(function (res) {
+                            $rootScope.configLoaded = true;
+                            $rootScope.configCountry = res.country;
+                            $rootScope.configCities = res.cities;
+                            if (detectedCity) {
+                                $rootScope.currentCity = _.find($rootScope.configCities, function (city) {
+                                    return city[detectedCity.field] === detectedCity.value;
+                                });
+                            } else {
+                                $rootScope.currentCity = res.guessedCity;
+                            }
+                            $rootScope.countryCode = $rootScope.currentCity.countryCode;
+                            $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode);
+                            $rootScope.$broadcast('configLoaded');
+                            prerenderReady();
+                        }, function () {
+                            $rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
+                            var domains = [
+                                {
+                                    domain: 'DE',
+                                    countryCode: 'DE'
+                                },
+                                {
+                                    domain: 'UK',
+                                    countryCode: 'UK'
+                                },
+                                {
+                                    domain: 'COM',
+                                    countryCode: 'DE'
+                                }
+                            ];
+                            $rootScope.domainProperties = _.findWhere(domains, {
+                                domain: $rootScope.domain
+                            });
+                            $rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
+                            console.log('country = ' + $rootScope.countryCode);
+                            prerenderReady();
+                        });
+                    }
 				}
 			});
 			var checkRule = function(event, toState, toParams, redirectState) {
@@ -145,7 +174,8 @@ angular.module('boltApp')
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-				$rootScope.rejection = null;
+                $rootScope.easterMessage = (toState.name === 'dashboard') && (!$cookieStore.get('easterMessageViewed')) && (new Date() < new Date(2015,3,7));
+                $rootScope.rejection = null;
 				$rootScope.success = null;
 				var session = $cookieStore.get('session');
 				if (session) {
@@ -165,6 +195,10 @@ angular.module('boltApp')
 				$window._fbq.push(['addPixelId', '1461407927469396']);
 				$window._fbq.push(['track', 'PixelInitialized', {}]);
 			});
+            $rootScope.closeEasterMessage = function() {
+                $cookieStore.put('easterMessageViewed', true);
+                $rootScope.easterMessage = false;
+            };
 		}
 	])
 	/*.run(['optimizely', function(optimizely) {
@@ -195,23 +229,12 @@ angular.module('boltApp')
 	})
 	.run(['gettextCatalog', '$cookieStore', '$rootScope', 'amMoment',
 		function(gettextCatalog, $cookieStore, $rootScope, amMoment) {
-			if (!$cookieStore.get('globalLang')) {
-				switch ($rootScope.countryCode) {
-					case 'DE':
-						$rootScope.lang = 'de';
-						break;
-					case 'UK':
-						$rootScope.lang = 'en';
-						break;
-					default:
-						$rootScope.lang = 'de';
-				}
-				$cookieStore.put('globalLang', $rootScope.lang);
-			} else {
-				$rootScope.lang = $cookieStore.get('globalLang');
-			}
-			gettextCatalog.setCurrentLanguage($rootScope.lang);
-			amMoment.changeLocale($rootScope.lang);
+            $rootScope.$on('changeLang', function(event, lang) {
+                $rootScope.lang = lang;
+                $cookieStore.put('globalLang', $rootScope.lang);
+                gettextCatalog.setCurrentLanguage($rootScope.lang);
+                amMoment.changeLocale($rootScope.lang);
+            });
 		}
 	])
 	.constant('angularMomentConfig', {
@@ -596,11 +619,11 @@ angular.module('boltApp')
 //
 //					},
 
-					getCities: function(RestApi) {
-
-						return RestApi.query({route: 'cities'}).$promise;
-
-					}
+//					getCities: function(RestApi) {
+//
+//						return RestApi.query({route: 'cities'}).$promise;
+//
+//					}
 
 
 				},
