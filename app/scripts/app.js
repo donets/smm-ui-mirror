@@ -169,7 +169,7 @@ angular.module('boltApp')
             $rootScope.closeEasterMessage = function() {
                 $cookieStore.put('easterMessageViewed', true);
                 $rootScope.easterMessage = false;
-            }
+            };
 		}
 	])
 	/*.run(['optimizely', function(optimizely) {
