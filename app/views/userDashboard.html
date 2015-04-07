@@ -14,11 +14,11 @@
                 </select>
                 <em translate>in</em>
                 <select chosen name="city"
-                        ng-model="cityId" ng-change="cityChange()"
+                        ng-model="cityId" ng-change="changeCity(cityId)"
                         data-placeholder="{{'City'|translate}}"
                         ng-options-disabled="!item.active for item in cities"
                         ng-options="item.id as item.defaultName for item in cities">
-                    <option value="" ng-show="desktop"></option>
+                    <option value=""></option>
                 </select>
                 <select chosen
                         id="neigbourhood"
@@ -26,7 +26,7 @@
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
                     <option value=""></option>
                 </select>
                 <em translate>, or</em>
@@ -44,7 +44,7 @@
                 <ul class="filters-list">
                     <li>{{search.class.discipline ? search.class.discipline : 'All activities'}}</li>
                     <li>{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
-                    <li>{{search.class.location ? _.findWhere(neigbourhood, {id: search.class.location}).name : 'All districts'}}</li>
+                    <li>{{search.class.location ? search.class.location : 'All districts'}}</li>
                     <li>{{search.class.studioId ? _.findWhere(studios, {id: search.class.studioId}).name : 'All Studios'}}</li>
                 </ul>
             </div>
@@ -54,7 +54,7 @@
             <div ng-if="desktop" class="weekdays-wrapper">
                 <button ng-disabled="today.isSame(weekdays[0])" class="nav-button left" ng-click="changeWeek('sub')"><i class="fa fa-angle-left"></i></button>
                 <ul class="weekdays-dashboard">
-                    <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(cityId, w)">{{w | amCalendar}}</li>
+                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="changeDay(cityId, w)">{{w | amCalendar}}</li>
                 </ul>
                 <button class="nav-button right" ng-click="changeWeek('add')"><i class="fa fa-angle-right"></i></button>
             </div>
@@ -62,7 +62,6 @@
                 <b class="time start">{{search.start}}:00</b><div range-slider min="search.min" max="search.max" model-min="search.start" model-max="search.end" step="1" show-values="false" prevent-equal-min-max="true"></div><b class="time end">{{search.end}}:00</b>
             </div>
             <div ng-if="mobile" class="mobile-controls">
-                <!--<button ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>-->
                 <div class="form-rel">
                     <button class="control-button" ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>
                     <input class="input-date" datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.mobile"
@@ -72,14 +71,13 @@
                 <div class="form-rel">
                     <button class="control-button" ng-click="filtersMobileShow()">
                         {{search.class.discipline || search.class.location || search.class.studioId ? (events
-                            | isSame: 'start_date': currDay
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.discipline': search.class.discipline
                             | dataFilter: 'class.style': search.class.style
-                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
-                            | dataFilter: 'class.levels': search.class.levels).length + ' found' : 'Search'}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
+                            | dataFilter: 'class.levels': search.class.levels).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
                 </div>
             </div>
             <div class="mobile-filters" ng-show="filtersMobile" ng-if="mobile">
@@ -87,16 +85,14 @@
                         id="discipline" width="'100%'"
                         ng-model="search.class.discipline"
                         data-placeholder="{{'All activities'|translate}}"
-                        placeholder="{{'City'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item for item in disciplines | orderBy: 'toString()'">
                     <option value="" translate>All activities</option>
                 </select>
                 <select chosen name="city" width="'100%'"
-                        ng-model="cityId" ng-change="cityChange()"
+                        ng-model="cityId" ng-change="changeCity(cityId)"
                         data-placeholder="{{'City'|translate}}"
-                        placeholder="{{'City'|translate}}"
                         ng-options-disabled="!item.active for item in cities"
                         ng-options="item.id as item.defaultName for item in cities">
                     <option value="" ng-show="desktop"></option>
@@ -107,7 +103,7 @@
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
                     <option value="" translate>All districts</option>
                 </select>
                 <select chosen
@@ -130,14 +126,13 @@
     <div class="container cf">
         <div class="w-left" ng-if="mobile">
             <div class="b-class-item" ng-repeat="e in events
-                            | isSame: 'start_date': currDay
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.discipline': search.class.discipline
                             | dataFilter: 'class.style': search.class.style
-                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
-                            | dataFilter: 'class.levels': search.class.levels">
+                            | dataFilter: 'class.levels': search.class.levels | orderBy: 'startTime'">
                 <div class="b-class-item__time">
                     <b>{{e.start_date | amDateFormat: 'HH:mm'}}<span ng-if="desktop"> – {{e.end_date | amDateFormat: 'HH:mm'}}</span></b>
                 </div>
@@ -145,21 +140,36 @@
                     <b>{{e.class.title}}</b>
                     <p>{{e.class.discipline}}, {{e.class.teacherName}}</p>
                     <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
-                    <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
-                    <p class="success" ng-if="success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
+                    <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
+                    <p class="success" ng-if="e.success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
                 </div>
-                <button class="class-button" ng-click="submitBook(e)" type="button" translate>Reserve</button>
+                <button class="class-button" ng-hide="e.showSpinner || e.success" ng-click="submitBook(e)" type="button" translate>Reserve</button>
+                <div class="form-response">
+                    <div ng-show="e.showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                </div>
+            </div>
+            <div ng-if="!(events
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
+                            | dataFilter: 'class.discipline': search.class.discipline
+                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.studioId': search.class.studioId
+                            | dataFilter: 'class.levels': search.class.levels).length">
+                <p translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
             </div>
         </div>
         <div class="b-class-table" ng-if="desktop">
-            <table class="timetable">
+            <table ng-hide="showSpinner" class="timetable">
                 <tbody>
                     <tr ng-repeat="e in events
+                            | isAfter: 'start_date': search.start
+                            | isBefore: 'end_date': search.end
                             | dataFilter: 'class.discipline': search.class.discipline
                             | dataFilter: 'class.style': search.class.style
-                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
-                            | dataFilter: 'class.levels': search.class.levels" >
+                            | dataFilter: 'class.levels': search.class.levels | orderBy: 'startTime'" >
                         <td>
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
@@ -169,18 +179,20 @@
                         <td><button class="class-button" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
                     </tr>
                     <tr ng-if="!(events
-                            | isSame: 'start_date': currDay
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.discipline': search.class.discipline
                             | dataFilter: 'class.style': search.class.style
-                            | dataFilter: 'class.locationId': search.class.location
+                            | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
-                        <td class="empty" colspan="7" translate>No more offers today.</td>
+                        <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
                     </tr>
                 </tbody>
             </table>
+            <div ng-show="showSpinner" class="dashboard-spinner">
+                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
+            </div>
         </div>
     </div>
     <!--<div class="container cf">
@@ -195,7 +207,7 @@
                         <th translate>Teacher</th>
                         <th translate>Studio</th>
                         <th translate>District</th>
-                        &lt;!&ndash;<th></th>&ndash;&gt;
+                        &lt;!&ndash;<th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -225,7 +237,7 @@
                             <span ng-if="!e.class.studio.profileComplete && !e.class.studio.website">{{e.class.studio.name}}</span>
                         </td>
                         <td>{{e.class.location}}</td>
-                        &lt;!&ndash;<td><button class="default" ng-click="attend(e)" type="button"></i>Teilnehmen</button></td>&ndash;&gt;
+                        <td><button class="default" ng-click="attend(e)" type="button"></i>Teilnehmen</button></td>
                     </tr>
                     <tr ng-if="!(events
                         | isSame: 'start_date': currDay

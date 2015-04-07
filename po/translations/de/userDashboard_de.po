@@ -14,22 +14,22 @@ msgstr ""
 
 #: app/views/userDashboard.html:32
 msgid ", or"
-msgstr ""
+msgstr "oder"
 
 #: app/views/userDashboard.html:89 app/views/userDashboard.html:9
 #: app/views/userDashboard.html:94
 msgid "All activities"
-msgstr ""
+msgstr "Alle Aktivitäten"
 
 #: app/views/userDashboard.html:107 app/views/userDashboard.html:111
 #: app/views/userDashboard.html:26
 msgid "All districts"
-msgstr ""
+msgstr "Alle Bezirke"
 
 #: app/views/userDashboard.html:116 app/views/userDashboard.html:120
 #: app/views/userDashboard.html:36
 msgid "All studios"
-msgstr ""
+msgstr "Alle Studios"
 
 #: app/views/userDashboard.html:18 app/views/userDashboard.html:90
 #: app/views/userDashboard.html:98 app/views/userDashboard.html:99
@@ -53,19 +53,19 @@ msgstr ""
 
 #: app/views/userDashboard.html:180
 msgid "No more offers today."
-msgstr ""
+msgstr "Heute keine weiteren Angebote."
 
 #: app/views/userDashboard.html:151 app/views/userDashboard.html:169
 msgid "Reserve"
-msgstr ""
+msgstr "Reservieren"
 
 #: app/views/userDashboard.html:149
 msgid "Reserved for you"
-msgstr ""
+msgstr "Für Dich reserviert"
 
 #: app/views/userDashboard.html:5
 msgid "Show"
-msgstr ""
+msgstr "Zeige"
 
 #: app/views/userDashboard.html:252
 msgid "Thank you for your registration!"
@@ -73,7 +73,7 @@ msgstr "Danke für Deine Anmeldung!"
 
 #: app/views/userDashboard.html:15
 msgid "in"
-msgstr ""
+msgstr "in"
 
 #~ msgid "All Courses"
 #~ msgstr "Alle Kurse"

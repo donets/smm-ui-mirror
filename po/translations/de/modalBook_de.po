@@ -14,12 +14,12 @@ msgstr ""
 
 #: app/views/modalBook.html:4
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: app/views/modalBook.html:13
 msgid "Confirm Reservation"
-msgstr ""
+msgstr "Reservierung bestätigen"
 
 #: app/views/modalBook.html:19
 msgid "Reserved for you"
-msgstr ""
+msgstr "Für Dich reserviert"

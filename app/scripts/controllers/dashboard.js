@@ -8,8 +8,8 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, $rootScope, getClasses, getOccurrences, getStudios, getLocations, getNeigbourhood, getCities, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
-        $q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise, getNeigbourhood.$promise]).then(function (res) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, getCities, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
+        /*$q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise, getNeigbourhood.$promise]).then(function (res) {
             $scope.studios = res[2];
             _.map(res[0], function (obj) {
                 var studio = _.findWhere(res[2], {id: obj.studioId});
@@ -17,32 +17,48 @@ angular.module('boltApp.controllers.Dashboard', [])
                 obj.studio = obj.studioId && studio ? studio : '';
                 obj.location = obj.locationId && location ? location.neigbourhood : '';
             });
-            $scope.disciplines = _.uniq(_.pluck(res[0], 'discipline'));
-            $scope.styles = _.uniq(_.pluck(res[0], 'style'));
             $scope.events = _.each(res[1], function (event) {
                 event.start_date = moment(event.start_date);
                 event.end_date = moment(event.end_date);
                 event.class = _.findWhere(res[0], {id: event.parent_event_id});
             });
             $scope.neigbourhood = res[4];
-        });
+        });*/
         var fetchClasses = function (city, date) {
+            $scope.clearFilters();
+            $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: city, date: date.format('YYYY-MM-DD')}).success(function (res) {
-                $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
-                    event.start_date = moment(event.date + '' + event.startTime);
-                    event.end_date = moment(event.date + '' + event.endTime);
-                    event.startTime = event.startTime.slice(0,5);
-                    event.endTime = event.endTime.slice(0,5);
-                    event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
+                $q.all([RestApi.query({route: 'studios',cityId: city}).$promise,
+                        RestApi.query({route: 'locations',cityId: city}).$promise,
+                        RestApi.query({route: 'districts',cityId: city}).$promise
+                    ]).then(function (resolve) {
+                    _.map(res.classes.classAccesses, function (obj) {
+                        var studio = _.findWhere(resolve[0], {id: obj.studioId});
+                        var location = _.findWhere(resolve[1], {id: obj.locationId});
+                        obj.studio = obj.studioId && studio ? studio : '';
+                        obj.location = obj.locationId && location ? location.neigbourhood : '';
+                    });
+                    $scope.neigbourhood = resolve[2];
+                    $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
+                        event.start_date = moment(event.date + 'T' + event.startTime);
+                        event.end_date = moment(event.date + 'T' + event.endTime);
+                        event.startTime = event.startTime.slice(0,5);
+                        event.endTime = event.endTime.slice(0,5);
+                        event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
+                    });
+                    $scope.disciplines = _.uniq(_.pluck(res.classes.classAccesses, 'discipline'));
+                    $scope.studios = _.compact(_.uniq(_.pluck(res.classes.classAccesses, 'studio')));
+                    $scope.showSpinner = false;
+                    console.log($scope.events);
                 });
-                console.log($scope.events);
             });
         };
-        $scope.cityChange = function() {
-            var selectedCity = _.findWhere($scope.cities, {id: $scope.cityId});
-            $rootScope.$state.go('dashboard', {city: $scope.cityId});
+        $scope.changeCity = function(cityId) {
+            $scope.cityId = cityId;
+            var selectedCity = _.findWhere($scope.cities, {id: cityId});
+            $rootScope.$state.go('dashboard', {city: cityId});
             $rootScope.supportPhone = selectedCity.supportPhone;
-            fetchClasses($scope.cityId, $scope.currDay);
+            fetchClasses(cityId, $scope.currDay);
         };
         $scope.changeDay = function (city, day) {
             $scope.currDay = day;
@@ -122,14 +138,14 @@ angular.module('boltApp.controllers.Dashboard', [])
                         $scope.event = event;
 
                         $scope.confirmBook = function () {
-                            $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + $scope.event.source.toLowerCase() + '/' + $scope.event.parent_event_id + '/' + $scope.event.id).success(function (res) {
+                            $scope.showSpinner = true;
+                            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + $scope.event.source.toLowerCase() + '/' + $scope.event.classId + '/' + $scope.event.occurrenceId).success(function (res) {
                                 console.log(res);
-                                $scope.loading = false;
+                                $scope.showSpinner = false;
                                 $scope.success = true;
                             }).error(function (res) {
                                 console.log(res);
-                                $scope.loading = false;
+                                $scope.showSpinner = false;
                             });
                         };
 
@@ -148,14 +164,14 @@ angular.module('boltApp.controllers.Dashboard', [])
         };
         
         $scope.submitBook = function (event) {
-            $scope.loading = true;
-            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + event.source.toLowerCase() + '/' + event.parent_event_id + '/' + event.id).success(function (res) {
+            event.showSpinner = true;
+            $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + event.source.toLowerCase() + '/' + event.classId + '/' + event.occurrenceId).success(function (res) {
                 console.log(res);
-                $scope.loading = false;
-                $scope.success = true;
+                event.showSpinner = false;
+                event.success = true;
             }).error(function (res) {
                 console.log(res);
-                $scope.loading = false;
+                event.showSpinner = false;
             });
         };
 

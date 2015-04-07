@@ -561,43 +561,40 @@ angular.module('boltApp')
 				controller: 'DashboardCtrl',
 				resolve: {
 
-					getClasses: function(RestApi) {
+//					getClasses: function(RestApi) {
+//
+//						return RestApi.query({route: 'events'}).$promise;
+//
+//					},
+//
+//					getOccurrences: function(RestApi, $stateParams) {
+//
+//						return RestApi.query({
+//							route: 'occurrences',
+//							forDurationOfDays: 7,
+//							cityId: $stateParams.city,
+//							withActiveParent: true
+//						}).$promise;
+//
+//					},
 
-						return RestApi.query({route: 'events'}).$promise;
+//					getLocations: function(RestApi) {
+//
+//						return RestApi.query({route: 'locations'}).$promise;
+//
+//					},
 
-					},
-
-					getOccurrences: function(RestApi, $stateParams) {
-
-						return RestApi.query({
-							route: 'occurrences',
-							forDurationOfDays: 7,
-							cityId: $stateParams.city,
-							withActiveParent: true
-						}).$promise;
-
-					},
-
-					getLocations: function(RestApi) {
-
-						return RestApi.query({route: 'locations'}).$promise;
-
-					},
-
-					getStudios: function(RestApi, $stateParams) {
-
-						return RestApi.query({
-							route: 'studios',
-							cityId: $stateParams.city
-						}).$promise;
-
-					},
-
-					getNeigbourhood: function(RestApi, $stateParams) {
-
-						return RestApi.query({route: 'districts',cityId: $stateParams.city}).$promise;
-
-					},
+//					getStudios: function(RestApi, $stateParams) {
+//
+//						return RestApi.query({route: 'studios',cityId: $stateParams.city}).$promise;
+//
+//					},
+//
+//					getNeigbourhood: function(RestApi, $stateParams) {
+//
+//						return RestApi.query({route: 'districts',cityId: $stateParams.city}).$promise;
+//
+//					},
 
 					getCities: function(RestApi) {
 
