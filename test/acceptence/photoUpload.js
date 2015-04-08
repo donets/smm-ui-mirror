@@ -26,7 +26,6 @@ describe('Given the Kurse Page, User', function() {
 
         expect(element(by.css('#account a')).getText()).toContain(params.photoUpload.firstName + ' ' + params.photoUpload.lastName);
 
-        element(by.css('.success button')).click();
         element(by.css('#account')).click();
 
         var accountLink = element.all(by.css('.b-header-nav_login-widget ul li')).get(1);
