@@ -34,7 +34,7 @@ angular.module('boltApp.services.city', [])
 					returnObject = {},
 					currentCity;
 				city = $location.search().city;
-				cityId = $cookieStore.get('cityId') || citiesList[0].id;
+				cityId = $cookieStore.get('cityId') || $rootScope.currentCity.id;
 				var invitation = $location.search().invitation;
 				var discipline = $location.search().discipline;
 				var disciplinesList = getDisciplines().data;
@@ -56,7 +56,7 @@ angular.module('boltApp.services.city', [])
 					currentCity = disciplinesList.disciplines[discipline];
 				}
 				returnObject = {
-					currentCity: (currentCity || citiesList[0]),
+					currentCity: (currentCity || $rootScope.currentCity),
 					city: city,
 					cityId: cityId
 				};

@@ -110,7 +110,7 @@ msgid "City"
 msgstr "Stadt"
 
 #: app/views/signup.html:283
-msgid "County"
+msgid "Country"
 msgstr "Land"
 
 #: app/views/signup.html:102 app/views/signup.html:139

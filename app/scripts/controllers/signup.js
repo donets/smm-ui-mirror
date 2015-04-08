@@ -12,36 +12,40 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
-        $scope.order = {
-            deliveryAddress: {
-                city: 'Berlin',
-                countryCode: 'DE'
-            },
-            membershipActivatesOn: moment.tz('Europe/Berlin').format(),
-            paymentProvider: 'STRIPE',
-            newsletter: true,
-            landingUrl: $cookieStore.get('landingUrl'),
-            cityId: getCityId,
-            lang: $rootScope.lang
+
+        $scope.init = function () {
+            $scope.cities = $rootScope.configCities;
+            $scope.order = {
+                deliveryAddress: {
+                    city: $rootScope.currentCity.active ? $rootScope.currentCity.defaultName : $scope.cities[0].defaultName,
+                    countryCode: $rootScope.countryCode
+                },
+                membershipActivatesOn: moment.tz('Europe/Berlin').format(),
+                paymentProvider: 'STRIPE',
+                newsletter: true,
+                landingUrl: $cookieStore.get('landingUrl'),
+                cityId: $rootScope.currentCity.active ? $rootScope.currentCity.id : $scope.cities[0].id,
+                lang: $rootScope.lang
+            };
+            RestApi.query({route: 'countries'}).$promise.then(function (res) {
+                $scope.countries = res;
+                $scope.cityChange();
+            });
+            setVoucher('EARLY_BIRD_2014');
         };
-        $scope.cityChange = function() {
+
+        $scope.$on('configLoaded', $scope.init);
+
+        $scope.cityChange = function () {
             var selectedCity = _.findWhere($scope.cities, {id: $scope.order.cityId});
             $scope.order.deliveryAddress.city = selectedCity.defaultName;
             $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
             RestApi.query({route: 'plans', cityId: $scope.order.cityId}).$promise.then(function (res) {
                 $scope.cards = res;
             });
+            $scope.currentCountry = _.findWhere($scope.countries, {code: selectedCity.countryCode});
             $rootScope.supportPhone = selectedCity.supportPhone;
         };
-        getCities.$promise.then(function (res) {
-            $scope.cities = _.sortBy(res, 'id').filter(function (c) {
-                return c.countryCode === $rootScope.countryCode;
-            });
-            if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
-                $scope.order.cityId = $scope.cities[0].id;
-            }
-            $scope.cityChange();
-        });
 
         /*$scope.order = {
             "firstName": "Vlad",
@@ -96,8 +100,6 @@ angular.module('boltApp.controllers.Signup', [])
                 });
             }
         };
-
-        setVoucher('EARLY_BIRD_2014');
 
         $scope.checkVoucher = function (code) {
             $scope.successVoucher = false;
@@ -173,7 +175,8 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.checkVoucher($scope.code);
             $scope.overview = {
                 card: _.findWhere($scope.cards, {code: $scope.order.type}).displayName,
-                price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice
+                price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice,
+                currency: _.findWhere($scope.cards, {code: $scope.order.type}).currency
             };
             $scope.showCheckout = true;
             //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
