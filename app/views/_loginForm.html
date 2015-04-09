@@ -65,7 +65,8 @@
     <a href="" ng-click="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
     <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
         <ul class="user-nav" ng-click="togglePopup()">
-            <li><a ui-sref="dashboard" translate>Activities</a></li>
+            <li><a ui-sref="dashboard({city: 1})" translate>Activities</a></li>
+            <li><a ui-sref="allstudios({city: 1})" translate>Studios</a></li>
             <li ng-if="roleMember"><a ui-sref="profile.account" translate>Account</a></li>
             <li ng-if="roleMember"><a ui-sref="profile.membership" translate>My card</a></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.classes.list" translate>Classes</a></li>

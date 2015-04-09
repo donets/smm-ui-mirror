@@ -474,6 +474,7 @@ module.exports = function(grunt) {
                     'po/templates/studio.pot': ['app/views/studio.html'],
                     'po/templates/userAccount.pot': ['app/views/userAccount.html'],
                     'po/templates/userDashboard.pot': ['app/views/userDashboard.html'],
+                    'po/templates/userStudios.pot': ['app/views/userStudios.html'],
                     'po/templates/userMembership.pot': ['app/views/userMembership.html'],
                     'po/templates/userProfile.pot': ['app/views/userProfile.html'],
                     'po/templates/index.pot': ['app/index.html']

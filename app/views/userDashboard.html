@@ -62,13 +62,13 @@
                 <b class="time start">{{search.start}}:00</b><div range-slider min="search.min" max="search.max" model-min="search.start" model-max="search.end" step="1" show-values="false" prevent-equal-min-max="true"></div><b class="time end">{{search.end}}:00</b>
             </div>
             <div ng-if="mobile" class="mobile-controls">
-                <div class="form-rel">
+                <div class="form-rel half">
                     <button class="control-button" ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>
                     <input class="input-date" datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.mobile"
                            datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(cityId, moment(currDay))"
                            class="form-input" ng-model="currDay" type="text" show-button-bar="false"/>
                 </div>
-                <div class="form-rel">
+                <div class="form-rel half">
                     <button class="control-button" ng-click="filtersMobileShow()">
                         {{search.class.discipline || search.class.location || search.class.studioId ? (events
                             | isAfter: 'start_date': search.start
@@ -84,7 +84,6 @@
                 <select chosen
                         id="discipline" width="'100%'"
                         ng-model="search.class.discipline"
-                        data-placeholder="{{'All activities'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item for item in disciplines | orderBy: 'toString()'">
@@ -92,7 +91,6 @@
                 </select>
                 <select chosen name="city" width="'100%'"
                         ng-model="cityId" ng-change="changeCity(cityId)"
-                        data-placeholder="{{'City'|translate}}"
                         ng-options-disabled="!item.active for item in cities"
                         ng-options="item.id as item.defaultName for item in cities">
                     <option value="" ng-show="desktop"></option>
@@ -100,7 +98,6 @@
                 <select chosen
                         id="neigbourhood" width="'100%'"
                         ng-model="search.class.location"
-                        data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
@@ -109,7 +106,6 @@
                 <select chosen
                         id="studio" width="'100%'"
                         ng-model="search.class.studioId"
-                        data-placeholder="{{'All studios'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item.id as item.name for item in studios | orderBy: 'name'">
@@ -138,12 +134,12 @@
                 </div>
                 <div class="b-class-item__info">
                     <b>{{e.class.title}}</b>
-                    <p>{{e.class.discipline}}, {{e.class.teacherName}}</p>
+                    <p>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span>, {{e.class.teacherName}}</p>
                     <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
                     <p class="success" ng-if="e.success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
                 </div>
-                <button class="class-button" ng-hide="e.showSpinner || e.success" ng-click="submitBook(e)" type="button" translate>Reserve</button>
+                <button class="class-button" ng-if="e.bookable && roleMember" ng-hide="e.showSpinner || e.success" ng-click="submitBook(e)" type="button" translate>Reserve</button>
                 <div class="form-response">
                     <div ng-show="e.showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 </div>
@@ -156,7 +152,7 @@
                             | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
-                <p translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
+                <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
             </div>
         </div>
         <div class="b-class-table" ng-if="desktop">
@@ -174,9 +170,9 @@
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
                         <td><span class="title">{{e.class.title}}</span></td>
-                        <td>{{e.class.discipline}}</td>
+                        <td>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span></td>
                         <td><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></td>
-                        <td><button class="class-button" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
+                        <td><button class="class-button" ng-if="e.bookable && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
                     </tr>
                     <tr ng-if="!(events
                             | isAfter: 'start_date': search.start

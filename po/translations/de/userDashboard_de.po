@@ -16,30 +16,27 @@ msgstr ""
 msgid ", or"
 msgstr ", oder"
 
-#: app/views/userDashboard.html:87 app/views/userDashboard.html:9
-#: app/views/userDashboard.html:91
+#: app/views/userDashboard.html:9 app/views/userDashboard.html:90
 msgid "All activities"
 msgstr "Alle Aktivitäten"
 
-#: app/views/userDashboard.html:103 app/views/userDashboard.html:107
-#: app/views/userDashboard.html:26
+#: app/views/userDashboard.html:104 app/views/userDashboard.html:26
 msgid "All districts"
 msgstr "Alle Bezirke"
 
-#: app/views/userDashboard.html:112 app/views/userDashboard.html:116
-#: app/views/userDashboard.html:36
+#: app/views/userDashboard.html:112 app/views/userDashboard.html:36
 msgid "All studios"
 msgstr "Alle Studios"
 
-#: app/views/userDashboard.html:18 app/views/userDashboard.html:95
+#: app/views/userDashboard.html:18
 msgid "City"
 msgstr "Stadt"
 
-#: app/views/userDashboard.html:266
+#: app/views/userDashboard.html:262
 msgid "Continue to the courses"
 msgstr "Weiter zu den Kursen"
 
-#: app/views/userDashboard.html:265
+#: app/views/userDashboard.html:261
 msgid ""
 "From now on you can find a list of all our partner studios here. You can "
 "even start before your card arrives. Print out your class confirmation and "
@@ -50,11 +47,11 @@ msgstr ""
 "lege einfach die Bestätigungsmail + Deinen Ausweis bei der Anmeldung im "
 "Studio vor). Viel Spaß!"
 
-#: app/views/userDashboard.html:146 app/views/userDashboard.html:179
+#: app/views/userDashboard.html:142 app/views/userDashboard.html:175
 msgid "Reserve"
 msgstr "Reservieren"
 
-#: app/views/userDashboard.html:144
+#: app/views/userDashboard.html:140
 msgid "Reserved for you"
 msgstr "Für Dich reserviert"
 
@@ -62,11 +59,11 @@ msgstr "Für Dich reserviert"
 msgid "Show"
 msgstr "Zeige"
 
-#: app/views/userDashboard.html:264
+#: app/views/userDashboard.html:260
 msgid "Thank you for your registration!"
 msgstr "Danke für Deine Anmeldung!"
 
-#: app/views/userDashboard.html:159 app/views/userDashboard.html:189
+#: app/views/userDashboard.html:155 app/views/userDashboard.html:185
 msgid ""
 "There are no courses available for this day and this search. Try another "
 "date or reset the filters."

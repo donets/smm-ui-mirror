@@ -61,7 +61,7 @@ angular.module('boltApp.controllers.Dashboard', [])
             fetchClasses(cityId, $scope.currDay);
         };
         $scope.changeDay = function (city, day) {
-            $scope.currDay = day;
+            $scope.currDay = moment(day);
             fetchClasses(city, day);
         };
         $scope.init = function () {
