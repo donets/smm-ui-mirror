@@ -35,7 +35,6 @@ angular.module('boltApp', [
         'ngshowvariant',
         'xeditable',
         'angulartics',
-        'angulartics.debug',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
@@ -247,7 +246,7 @@ angular.module('boltApp')
                 'userAgent': $window.navigator.userAgent,
                 'deviceType': navigator.platform,
                 'webTheme': 'desktop'
-            })
+            });
         }
     ])
 	.constant('angularMomentConfig', {
