@@ -35,6 +35,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                     _.map(res.classes.classAccesses, function (obj) {
                         var studio = _.findWhere(resolve[0], {id: obj.studioId});
                         var location = _.findWhere(resolve[1], {id: obj.locationId});
+                        obj.disciplinestyle = [obj.discipline, obj.style];
                         obj.studio = obj.studioId && studio ? studio : '';
                         obj.location = obj.locationId && location ? location.neigbourhood : '';
                     });
@@ -47,7 +48,9 @@ angular.module('boltApp.controllers.Dashboard', [])
                         event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
                     });
                     $scope.disciplines = _.uniq(_.pluck(res.classes.classAccesses, 'discipline'));
-                    $scope.studios = _.compact(_.uniq(_.pluck(res.classes.classAccesses, 'studio')));
+                    $scope.styles = _.uniq(_.pluck(res.classes.classAccesses, 'style'));
+                    $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
+                    $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                     $scope.showSpinner = false;
                     console.log($scope.events);
                 });

@@ -9,7 +9,7 @@
                         data-placeholder="{{'All activities'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item for item in disciplines | orderBy: 'toString()'">
+                        ng-options="item for item in mergeDS | orderBy: 'toString()'">
                     <option value=""></option>
                 </select>
                 <em translate>in</em>
@@ -73,8 +73,7 @@
                         {{search.class.discipline || search.class.location || search.class.studioId ? (events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.discipline': search.class.discipline
-                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.disciplinestyle': search.class.discipline
                             | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
@@ -86,7 +85,7 @@
                         ng-model="search.class.discipline"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item for item in disciplines | orderBy: 'toString()'">
+                        ng-options="item for item in mergeDS | orderBy: 'toString()'">
                     <option value="" translate>All activities</option>
                 </select>
                 <select chosen name="city" width="'100%'"
@@ -124,8 +123,7 @@
             <div class="b-class-item" ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.discipline': search.class.discipline
-                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.disciplinestyle': search.class.discipline
                             | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels | orderBy: 'startTime'">
@@ -147,8 +145,7 @@
             <div ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.discipline': search.class.discipline
-                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.disciplinestyle': search.class.discipline
                             | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
@@ -161,8 +158,7 @@
                     <tr ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.discipline': search.class.discipline
-                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.disciplinestyle': search.class.discipline
                             | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels | orderBy: 'startTime'" >
@@ -177,8 +173,7 @@
                     <tr ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.discipline': search.class.discipline
-                            | dataFilter: 'class.style': search.class.style
+                            | dataFilter: 'class.disciplinestyle': search.class.discipline
                             | dataFilter: 'class.location': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
