@@ -26,7 +26,7 @@ msgstr ""
 msgid "<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate=\"\">(see course plan)</span>"
 msgstr ""
 
-#: app/views/studio.html:217
+#: app/views/studio.html:220
 msgid "<i class=\"fa fa-home\"></i>Studio"
 msgstr ""
 
@@ -48,11 +48,11 @@ msgstr ""
 msgid "Contact:"
 msgstr ""
 
-#: app/views/studio.html:74
+#: app/views/studio.html:77
 msgid "Course"
 msgstr ""
 
-#: app/views/studio.html:75
+#: app/views/studio.html:78
 msgid "Discipline"
 msgstr ""
 
@@ -68,11 +68,11 @@ msgstr ""
 msgid "Information:"
 msgstr ""
 
-#: app/views/studio.html:77
+#: app/views/studio.html:80
 msgid "Level"
 msgstr ""
 
-#: app/views/studio.html:215
+#: app/views/studio.html:218
 msgid "Location"
 msgstr ""
 
@@ -80,8 +80,8 @@ msgstr ""
 msgid "More &gt;"
 msgstr ""
 
-#: app/views/studio.html:91
-msgid "No more offers today."
+#: app/views/studio.html:94
+msgid "No more offers for this day"
 msgstr ""
 
 #: app/views/studio.html:66
@@ -92,10 +92,10 @@ msgstr ""
 msgid "Show on map"
 msgstr ""
 
-#: app/views/studio.html:76
+#: app/views/studio.html:79
 msgid "Teacher"
 msgstr ""
 
-#: app/views/studio.html:73
+#: app/views/studio.html:76
 msgid "Time"
 msgstr ""
