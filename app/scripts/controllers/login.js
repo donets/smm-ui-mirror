@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'gettextCatalog', 'amMoment', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, gettextCatalog, amMoment) {
+	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', '$analytics', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, $analytics) {
 //		$scope.init = function() {
 //			$scope.data = {};
 //			$scope.data.currentCity = [];
@@ -140,6 +140,11 @@ angular.module('boltApp.controllers.Login', [])
 				$rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
 				$rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
 				$cookieStore.put('session', response.user);
+                $analytics.eventTrack({
+                    'event': 'loginSuccess',
+                    'loginMethod': 'Website',
+                    'customerId': response.user.id
+                });
 				if ($rootScope.requestedState) {
 					$rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
 				} else if ($rootScope.roleMember) {

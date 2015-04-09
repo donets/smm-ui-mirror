@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$interval', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$interval', 'gettextCatalog', 'CityFactory', '$analytics', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory, $analytics) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -79,6 +79,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
         selectDiscipline();
 
         $cookieStore.put('landingUrl', $location.absUrl());
+        //$cookieStore.put('landingUrl', $location.url());
 
         $scope.init = function () {
             $scope.CityFactory = CityFactory.CityFactory;
@@ -172,6 +173,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                         google_conversion_label: 'GgJECOPfhgsQ_caEzgM',
                         google_remarketing_only: false
                     });
+                });
+                $analytics.eventTrack({
+                    'event': 'requestInvitation',
+                    'selectedCity': response.city,
+                    'zipCode': response.postalCode,
+                    'inviteIEmail': response.email
                 });
                 $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                     $window._fbq = $window._fbq || [];

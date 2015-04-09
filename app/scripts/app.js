@@ -35,8 +35,6 @@ angular.module('boltApp', [
         'ngshowvariant',
         'xeditable',
         'angulartics',
-        'angulartics.google.analytics',
-        'angulartics.google.tagmanager',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
@@ -71,7 +69,8 @@ angular.module('boltApp', [
         'boltApp.services.membership',
         'boltApp.services.navigator',
         'boltApp.services.city',
-        'boltApp.services.mapStudios'
+        'boltApp.services.mapStudios',
+        'angulartics.google.customtagmanager'
     ]);
 angular.module('boltApp')
 	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
@@ -183,6 +182,10 @@ angular.module('boltApp')
 					$rootScope.userName = session.name;
 					$rootScope.roleMember = _.include(session.roles, 'member') ? true : false;
 					$rootScope.roleAdmin = _.include(session.roles, 'admin') ? true : false;
+                    $window.rockVarSet.push({
+                        'customerId': session.id,
+                        'customerStatus': 'returning'
+                    });
 					checkRule(event, toState, toParams, 'accessDenied');
 				} else {
 					$rootScope.userName = null;
@@ -238,6 +241,15 @@ angular.module('boltApp')
             });
 		}
 	])
+    .run(['$window', '$location', 'navigator',
+        function($window, $location, navigator) {
+            $window.rockVarSet.push({
+                'userAgent': $window.navigator.userAgent,
+                'deviceType': navigator.platform,
+                'webTheme': 'desktop'
+            });
+        }
+    ])
 	.constant('angularMomentConfig', {
 		timezone: 'Europe/Berlin'
 	})
