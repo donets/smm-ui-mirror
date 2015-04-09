@@ -148,7 +148,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 interestedInProduct: true,
                 lang: $rootScope.lang
             };
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: JSON.stringify($window.smmConfig)});
