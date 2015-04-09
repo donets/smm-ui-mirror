@@ -165,7 +165,7 @@
                         <td>
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
-                        <td><span class="title">{{e.class.title}}</span></td>
+                        <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
                         <td>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span></td>
                         <td><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></td>
                         <td><button class="class-button" ng-if="e.bookable && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
@@ -186,67 +186,6 @@
             </div>
         </div>
     </div>
-    <!--<div class="container cf">
-        <div class="w-right b-classes-list">
-            <table class="timetable user-classes">
-                <thead>
-                    <tr>
-                        <th translate>Time</th>
-                        <th translate>Course</th>
-                        <th translate>Disciplines</th>
-                        <th translate>Styles</th>
-                        <th translate>Teacher</th>
-                        <th translate>Studio</th>
-                        <th translate>District</th>
-                        &lt;!&ndash;<th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="e in events
-                            | limitTo: showPopap ? 15 : events.length
-                            | isSame: 'start_date': currDay
-                            | isAfter: 'start_date': search.start
-                            | isBefore: 'end_date': search.end
-                            | filter: {class: {title: search.class.title}}
-                            | filter: {class: {teacherName: search.class.teacherName}}
-                            | dataFilter: 'class.discipline': search.class.discipline
-                            | dataFilter: 'class.style': search.class.style
-                            | dataFilter: 'class.location': search.class.location
-                            | dataFilter: 'class.studioId': search.class.studioId
-                            | dataFilter: 'class.levels': search.class.levels" >
-                        <td>
-                            <p>{{e.start_date | amDateFormat: 'HH:mm'}}</p>
-                            <p>{{e.end_date | amDateFormat: 'HH:mm'}}</p>
-                        </td>
-                        <td><a class="link-description" ng-click="attend(e)" href="" ng-if="e.class.description">{{e.class.title}}</a><span ng-if="!e.class.description">{{e.class.title}}</span></td>
-                        <td>{{e.class.discipline}}</td>
-                        <td>{{e.class.style}}</td>
-                        <td>{{e.class.teacherName}}</td>
-                        <td>
-                            <a ui-sref="studio({studioId: e.class.studio.id})" ng-if="e.class.studio.profileComplete">{{e.class.studio.name}}</a>
-                            <a ng-href="{{e.class.studio.website}}" ng-if="!e.class.studio.profileComplete && e.class.studio.website" target="_blank">{{e.class.studio.name}}</a>
-                            <span ng-if="!e.class.studio.profileComplete && !e.class.studio.website">{{e.class.studio.name}}</span>
-                        </td>
-                        <td>{{e.class.location}}</td>
-                        <td><button class="default" ng-click="attend(e)" type="button"></i>Teilnehmen</button></td>
-                    </tr>
-                    <tr ng-if="!(events
-                        | isSame: 'start_date': currDay
-                        | isAfter: 'start_date': search.start
-                        | isBefore: 'end_date': search.end
-                        | filter: {class: {title: search.class.title}}
-                        | filter: {class: {teacherName: search.class.teacherName}}
-                        | dataFilter: 'class.discipline': search.class.discipline
-                        | dataFilter: 'class.style': search.class.style
-                        | dataFilter: 'class.location': search.class.location
-                        | dataFilter: 'class.studioId': search.class.studioId
-                        | dataFilter: 'class.levels': search.class.levels).length">
-                        <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>-->
     <div ng-if="showPopap" class="modal-backdrop fade in" style="position: absolute; z-index: 1040;"></div>
     <div ng-if="showPopap" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
         <div class="modal-dialog">

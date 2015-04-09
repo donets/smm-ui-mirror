@@ -78,7 +78,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         selectDiscipline();
 
-        $cookieStore.put('landingUrl', $location.absUrl());
+        if (!$cookieStore.get('landingUrl')) {
+            $cookieStore.put('landingUrl', $location.absUrl());
+        }
 
         $scope.init = function () {
             $scope.CityFactory = CityFactory.CityFactory;
@@ -172,6 +174,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                         google_conversion_label: 'GgJECOPfhgsQ_caEzgM',
                         google_remarketing_only: false
                     });
+                });
+                $analytics.eventTrack({
+                    'event': 'requestInvitation',
+                    'selectedCity': response.city,
+                    'zipCode': response.postalCode,
+                    'inviteIEmail': response.email
                 });
                 $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                     $window._fbq = $window._fbq || [];
