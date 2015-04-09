@@ -10,22 +10,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/studio.html:16
 msgid "&lt; Less"
 msgstr "&lt; Weniger"
 
-#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+#: app/views/studio.html:34 app/views/studio.html:39
+#: app/views/studio.html:44
 msgid "(see course plan)"
 msgstr "(siehe Kursplan)"
 
-#: app/views/studio.html:33 app/views/studio.html:38 app/views/studio.html:43
+#: app/views/studio.html:33 app/views/studio.html:38
+#: app/views/studio.html:43
 msgid "<i class=\"fa fa-check\"></i>All courses"
 msgstr "<i class=\"fa fa-check\"></i>Alle Kurse"
 
 # Was bedeutet "Einige" hier?
-#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+#: app/views/studio.html:34 app/views/studio.html:39
+#: app/views/studio.html:44
 msgid ""
 "<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate="
 "\"\">(see course plan)</span>"
@@ -33,11 +36,12 @@ msgstr ""
 "<i class=\"fa fa-check\"></i>Einige Kurse <span class=\"light\" translate="
 "\"\">(siehe Kursplan)</span>"
 
-#: app/views/studio.html:217
+#: app/views/studio.html:220
 msgid "<i class=\"fa fa-home\"></i>Studio"
 msgstr "<i class=\"fa fa-home\"></i>Studio"
 
-#: app/views/studio.html:35 app/views/studio.html:40 app/views/studio.html:45
+#: app/views/studio.html:35 app/views/studio.html:40
+#: app/views/studio.html:45
 msgid "<i class=\"fa fa-times\"></i>Not accepted"
 msgstr "<i class=\"fa fa-times\"></i>Nicht akzeptiert"
 
@@ -53,11 +57,11 @@ msgstr "Adresse:"
 msgid "Contact:"
 msgstr "Kontaktieren:"
 
-#: app/views/studio.html:74
+#: app/views/studio.html:77
 msgid "Course"
 msgstr "Kurs"
 
-#: app/views/studio.html:75
+#: app/views/studio.html:78
 msgid "Discipline"
 msgstr "Disziplin"
 
@@ -74,11 +78,11 @@ msgstr "Ausstattung:"
 msgid "Information:"
 msgstr "Informationen:"
 
-#: app/views/studio.html:77
+#: app/views/studio.html:80
 msgid "Level"
 msgstr "Level"
 
-#: app/views/studio.html:215
+#: app/views/studio.html:218
 msgid "Location"
 msgstr "Location"
 
@@ -86,10 +90,9 @@ msgstr "Location"
 msgid "More &gt;"
 msgstr "Mehr &gt;"
 
-# Passt das?
-#: app/views/studio.html:91
-msgid "No more offers today."
-msgstr "Heute kein Angebot mehr."
+#: app/views/studio.html:94
+msgid "No more offers for this day"
+msgstr "Keine Angebote mehr für heute"
 
 #: app/views/studio.html:66
 msgid "Offer"
@@ -99,10 +102,14 @@ msgstr "Angebot"
 msgid "Show on map"
 msgstr "Auf Karte anzeigen"
 
-#: app/views/studio.html:76
+#: app/views/studio.html:79
 msgid "Teacher"
 msgstr "Lehrer"
 
-#: app/views/studio.html:73
+#: app/views/studio.html:76
 msgid "Time"
 msgstr "Zeit"
+
+# Passt das?
+#~ msgid "No more offers today."
+#~ msgstr "Heute kein Angebot mehr."

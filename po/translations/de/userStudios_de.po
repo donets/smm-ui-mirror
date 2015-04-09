@@ -28,4 +28,4 @@ msgstr "Stadt"
 
 #: app/views/userStudios.html:87
 msgid "There are no studios for this search. Try another filters."
-msgstr ""
+msgstr "Diese Suche hat keine Studios ergeben. Versuchen Sie mit anderen Filter."
