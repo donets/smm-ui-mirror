@@ -9,21 +9,6 @@
  */
 angular.module('boltApp.controllers.Dashboard', [])
     .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
-        /*$q.all([getClasses.$promise, getOccurrences.$promise, getStudios.$promise, getLocations.$promise, getNeigbourhood.$promise]).then(function (res) {
-            $scope.studios = res[2];
-            _.map(res[0], function (obj) {
-                var studio = _.findWhere(res[2], {id: obj.studioId});
-                var location = _.findWhere(res[3], {id: obj.locationId});
-                obj.studio = obj.studioId && studio ? studio : '';
-                obj.location = obj.locationId && location ? location.neigbourhood : '';
-            });
-            $scope.events = _.each(res[1], function (event) {
-                event.start_date = moment(event.start_date);
-                event.end_date = moment(event.end_date);
-                event.class = _.findWhere(res[0], {id: event.parent_event_id});
-            });
-            $scope.neigbourhood = res[4];
-        });*/
         var fetchClasses = function (city, date) {
             $scope.clearFilters();
             $scope.showSpinner = true;
@@ -52,7 +37,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                     $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
                     $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                     $scope.showSpinner = false;
-                    console.log($scope.events);
                 });
             });
         };
@@ -132,9 +116,9 @@ angular.module('boltApp.controllers.Dashboard', [])
         $scope.bookClass = function (event) {
             $modal.open({
                 templateUrl: 'views/modalBook.html',
-                controller: ['$scope', '$modalInstance', 'event',
+                controller: ['$scope', '$rootScope', '$modalInstance', 'event',
 
-                    function ($scope, $modalInstance, event) {
+                    function ($scope, $rootScope, $modalInstance, event) {
 
                         $scope.event = event;
 
