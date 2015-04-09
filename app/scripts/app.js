@@ -245,7 +245,7 @@ angular.module('boltApp')
         function($window, $location, navigator) {
             $window.rockVarSet.push({
                 'userAgent': $window.navigator.userAgent,
-                'deviceType': navigator.platform,
+                'deviceType': navigator.platform(),
                 'webTheme': 'desktop'
             });
         }
