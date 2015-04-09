@@ -769,6 +769,11 @@
                 }
             }
         }
+        tr:nth-child(even) {
+            td {
+                background: #fff;
+            }
+        }
     }
 }
 .admin-table {
