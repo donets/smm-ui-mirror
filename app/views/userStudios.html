@@ -66,7 +66,7 @@
                         data-placeholder="{{'All studios'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item.id as item.name for item in studios | orderBy: 'name'">
+                        ng-options="item.name as item.name for item in studios | orderBy: 'name'">
                     <option value="" translate>All studios</option>
                 </select>
             </div>
@@ -76,7 +76,7 @@
 <div class="dashboard">
     <div class="container cf">
         <div ng-hide="showSpinner" class="studios-list">
-            <div class="b-studio-item" ng-repeat="s in studios
+            <div class="b-studio-item" ui-sref="studio({studioId: s.id})" ng-repeat="s in studios
                             | dataFilter: 'neigbourhood': search.class.location
                             | dataFilter: 'id': search.class.studioId">
                 <div class="img-placeholder" ng-style="{'height': mobile && windowWidth / 2}"><img src="{{s.covers[0].cover1080}}" alt=""/></div>
