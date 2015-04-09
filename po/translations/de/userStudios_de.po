@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "X-Generator: Poedit 1.7.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de_DE\n"
+"Language: de\n"
 
 #: app/views/userStudios.html:15 app/views/userStudios.html:57
 #: app/views/userStudios.html:61
