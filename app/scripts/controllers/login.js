@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', 'CityFactory', 'gettextCatalog', 'amMoment', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, CityFactory, gettextCatalog, amMoment) {
+	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window) {
 //		$scope.init = function() {
 //			$scope.data = {};
 //			$scope.data.currentCity = [];
