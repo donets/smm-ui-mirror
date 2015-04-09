@@ -53,13 +53,16 @@
     position: absolute;
     height: 20px;
     width: 20px;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    left: 100%;
+    margin-left: 18px;
     @media (max-width: $containerMobileWidth) {
         height: 40px;
         width: 40px;
         top: 30px;
         right: 30px;
+        left: initial;
+        margin-right: 0;
     }
     @media (max-width: $containerMobileWidth640) {
         height: 20px;
@@ -285,6 +288,71 @@
     }
     .form-response {
         text-align: left;
+    }
+}
+.modal-book {
+    .modal-dialog {
+        @media (min-width: $containerMobileWidth) {
+            width: 360px;
+        }
+    }
+    .modal-body {
+        padding: 18px 40px 40px;
+        text-align: center;
+        .date {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 0 0 10px;
+            border-bottom: 1px solid $colorLightGrey;
+        }
+        p {
+            font-size: 14px;
+            color: $colorGrey;
+            .fa {
+                margin-right: 5px;
+            }
+        }
+        .address {
+            margin: 20px 0 0;
+        }
+        .description {
+            color: $colorText;
+            border-top: 1px solid $colorLightGrey;
+            padding: 15px 0 0;
+            margin-top: 20px;
+        }
+        h2 {
+            font-size: 26px;
+            color: $colorLink;
+            margin-bottom: 20px;
+            .time {
+                font-size: 22px;
+                display: block;
+                line-height: 1;
+            }
+        }
+        .success {
+            font-size: 14px;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: $colorMain;
+            .fa {
+                margin-right: 10px;
+                font-size: 20px;
+                vertical-align: text-bottom;
+            }
+        }
+        .form-response {
+            position: relative;
+            margin-top: 20px;
+            height: 42px;
+        }
+        .form-button {
+            min-width: 0;
+            margin-top: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
     }
 }
 .modal-upload {

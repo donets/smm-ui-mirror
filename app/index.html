@@ -140,7 +140,7 @@
         </button>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'black': $state.includes('dashboard')}">
+        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'black': $state.includes('dashboard') || $state.includes('allstudios')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home" translate>Somuchmore</a></div>
                 <!--<a class="b-header-likes" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
@@ -155,10 +155,10 @@
                              data-show-border="false"></div>
                     </div>
                 </a>-->
-                <nav class="b-top-nav" ng-show="$state.includes('dashboard')">
+                <nav class="b-top-nav" ng-if="($state.includes('dashboard') || $state.includes('allstudios')) && desktop">
                     <ul class="top-nav">
-                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard" translate>Courses</a></li><li>
-                        <a ui-sref="studios" translate>Studios</a></li>
+                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard({city: 1})" translate>Activities</a></li><li>
+                        <a ng-class="{'active': $state.includes('allstudios')}" ui-sref="allstudios({city: 1})" translate>Studios</a></li>
                     </ul>
                 </nav>
                 <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-hide="$state.includes('reset') || $state.includes('login')"></ng-include>
@@ -225,6 +225,7 @@
 <!-- build:css(.) styles/vendor.css -->
 <!-- bower:css -->
 <link rel="stylesheet" href="bower_components/videogular-themes-default/videogular.css" />
+<link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
 <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
 <!-- endbower -->
 <!-- endbuild -->
@@ -293,7 +294,7 @@
 <script src="bower_components/flow.js/dist/flow.js"></script>
 <script src="bower_components/ng-flow/dist/ng-flow.js"></script>
 <script src="bower_components/angular-validation-match/dist/angular-input-match.min.js"></script>
-<script src="bower_components/venturocket-angular-slider/build/angular-slider.js"></script>
+<script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
 <script src="bower_components/ng-optimizely/ng-optimizely.js"></script>
 <script src="bower_components/angular-optimizely/ngshowvariant.js"></script>
 <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
@@ -337,6 +338,7 @@
 <script src="scripts/controllers/createClass.js"></script>
 <script src="scripts/controllers/signup.js"></script>
 <script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/studios.js"></script>
 <script src="scripts/controllers/profile.js"></script>
 <script src="scripts/filters/cutstring.js"></script>
 <script src="scripts/filters/datafilter.js"></script>

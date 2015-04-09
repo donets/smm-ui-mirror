@@ -25,7 +25,7 @@ angular.module('boltApp', [
         'duScroll',
         'duParallax',
         'ngTagsInput',
-        'vr.directives.slider',
+        'ui-rangeSlider',
         'localytics.directives',
         'validation.match',
         'ezfb',
@@ -53,6 +53,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
         'boltApp.controllers.Dashboard',
+        'boltApp.controllers.Studios',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
@@ -500,31 +501,6 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
-			.state('home.classes', {
-				templateUrl: 'views/homeClasses.html',
-				resolve: {
-
-					getClasses: function(RestApi) {
-
-						return RestApi.query({route: 'events'}).$promise;
-
-					},
-
-					getOccurrences: function(RestApi) {
-
-						return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
-
-					},
-
-					getNeigbourhood: function($http) {
-
-						return $http.get('json/neigbourhood.json', {cache: true});
-
-					}
-
-				},
-				controller: 'DashboardCtrl'
-			})
 			.state('signup', {
 				url: '/p/signup/:cityId/?invitation',
 				templateUrl: 'views/signup.html',
@@ -607,54 +583,14 @@ angular.module('boltApp')
 				url: '/p/kurse/:city/',
 				templateUrl: 'views/userDashboard.html',
 				controller: 'DashboardCtrl',
-				resolve: {
-
-					getClasses: function(RestApi) {
-
-						return RestApi.query({route: 'events'}).$promise;
-
-					},
-
-					getOccurrences: function(RestApi, $stateParams) {
-
-						return RestApi.query({
-							route: 'occurrences',
-							forDurationOfDays: 7,
-							cityId: $stateParams.city,
-							withActiveParent: true
-						}).$promise;
-
-					},
-
-					getLocations: function(RestApi) {
-
-						return RestApi.query({route: 'locations'}).$promise;
-
-					},
-
-					getStudios: function(RestApi, $stateParams) {
-
-						return RestApi.query({
-							route: 'studios',
-							cityId: $stateParams.city
-						}).$promise;
-
-					},
-
-					getNeigbourhood: function(RestApi, $stateParams) {
-
-						return RestApi.query({route: 'districts',cityId: $stateParams.city}).$promise;
-
-					},
-
-					getCities: function(RestApi) {
-
-						return RestApi.query({route: 'cities'}).$promise;
-
-					}
-
-
-				},
+				onExit: function($rootScope) {
+					$rootScope.autoscroll = true;
+				}
+			})
+			.state('allstudios', {
+				url: '/p/studios/:city/',
+				templateUrl: 'views/userStudios.html',
+				controller: 'StudiosCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}

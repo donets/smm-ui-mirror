@@ -78,8 +78,9 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         selectDiscipline();
 
-        $cookieStore.put('landingUrl', $location.absUrl());
-        //$cookieStore.put('landingUrl', $location.url());
+        if (!$cookieStore.get('landingUrl')) {
+            $cookieStore.put('landingUrl', $location.absUrl());
+        }
 
         $scope.init = function () {
             $scope.CityFactory = CityFactory.CityFactory;
@@ -140,7 +141,15 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $scope.cityId, interestedInProduct: true, lang: $rootScope.lang }).success(function () {
+            var invitation = {
+                email: $scope.invite.email,
+                postalCode: $scope.invite.postalCode,
+                landingUrl: $cookieStore.get('landingUrl'),
+                cityId: $scope.cityId,
+                interestedInProduct: true,
+                lang: $rootScope.lang
+            };
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: JSON.stringify($window.smmConfig)});
@@ -165,6 +174,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                         google_conversion_label: 'GgJECOPfhgsQ_caEzgM',
                         google_remarketing_only: false
                     });
+                });
+                $analytics.eventTrack({
+                    'event': 'requestInvitation',
+                    'selectedCity': response.city,
+                    'zipCode': response.postalCode,
+                    'inviteIEmail': response.email
                 });
                 $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                     $window._fbq = $window._fbq || [];

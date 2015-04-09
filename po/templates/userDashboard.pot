@@ -4,90 +4,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/userDashboard.html:53
-msgid "All Courses"
+#: app/views/userDashboard.html:32
+msgid ", or"
 msgstr ""
 
-#: app/views/userDashboard.html:16
-msgid "All Disciplines"
+#: app/views/userDashboard.html:9
+#: app/views/userDashboard.html:90
+msgid "All activities"
 msgstr ""
 
-#: app/views/userDashboard.html:57
-msgid "All Districts"
+#: app/views/userDashboard.html:104
+#: app/views/userDashboard.html:26
+msgid "All districts"
 msgstr ""
 
-#: app/views/userDashboard.html:75
-msgid "All Levels"
+#: app/views/userDashboard.html:112
+#: app/views/userDashboard.html:36
+msgid "All studios"
 msgstr ""
 
-#: app/views/userDashboard.html:66
-msgid "All Studios"
-msgstr ""
-
-#: app/views/userDashboard.html:25
-msgid "All Styles"
-msgstr ""
-
-#: app/views/userDashboard.html:81
-msgid "All Teachers"
-msgstr ""
-
-#: app/views/userDashboard.html:33
+#: app/views/userDashboard.html:18
 msgid "City"
 msgstr ""
 
-#: app/views/userDashboard.html:151
+#: app/views/userDashboard.html:262
 msgid "Continue to the courses"
 msgstr ""
 
-#: app/views/userDashboard.html:89
-msgid "Course"
-msgstr ""
-
-#: app/views/userDashboard.html:90
-msgid "Disciplines"
-msgstr ""
-
-#: app/views/userDashboard.html:94
-msgid "District"
-msgstr ""
-
-#: app/views/userDashboard.html:3
-msgid "Find a course"
-msgstr ""
-
-#: app/views/userDashboard.html:150
+#: app/views/userDashboard.html:261
 msgid "From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!"
 msgstr ""
 
-#: app/views/userDashboard.html:82
-msgid "Reset filters"
+#: app/views/userDashboard.html:142
+#: app/views/userDashboard.html:175
+msgid "Reserve"
 msgstr ""
 
-#: app/views/userDashboard.html:93
-msgid "Studio"
+#: app/views/userDashboard.html:140
+msgid "Reserved for you"
 msgstr ""
 
-#: app/views/userDashboard.html:91
-msgid "Styles"
+#: app/views/userDashboard.html:5
+msgid "Show"
 msgstr ""
 
-#: app/views/userDashboard.html:92
-msgid "Teacher"
-msgstr ""
-
-#: app/views/userDashboard.html:149
+#: app/views/userDashboard.html:260
 msgid "Thank you for your registration!"
 msgstr ""
 
-#: app/views/userDashboard.html:138
+#: app/views/userDashboard.html:155
+#: app/views/userDashboard.html:185
 msgid "There are no courses available for this day and this search. Try another date or reset the filters."
 msgstr ""
 
-#: app/views/userDashboard.html:88
-msgid "Time"
-msgstr ""
-
-#: app/views/userDashboard.html:4
-msgid "Today {{today | amDateFormat: 'dd DD.MM.'}}"
+#: app/views/userDashboard.html:15
+msgid "in"
 msgstr ""

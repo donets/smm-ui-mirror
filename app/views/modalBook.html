@@ -1,0 +1,21 @@
+
+<div class="modal-body">
+    <button ng-click="close()" class="modal-close" type="button">
+        <span class="sr-only" translate>Close</span>
+    </button>
+    <p class="date">{{event.start_date | amDateFormat: 'MMMM D, dddd'}}</p>
+    <h2><span class="time">{{event.start_date | amDateFormat: 'HH:mm'}} - {{event.end_date | amDateFormat: 'HH:mm'}}</span><b>{{event.class.title}}</b></h2>
+    <p>{{event.class.discipline}}, {{event.class.teacherName}}</p>
+    <p class="address"><i class="fa fa-map-marker"></i>{{event.class.location}}</p>
+    <p>{{event.class.studio.name}}</p>
+    <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
+    <div ng-hide="showSpinner || success" ng-if="event.bookable && roleMember">
+        <button class="form-button" type="button" ng-click="confirmBook()" translate>Confirm Reservation</button>
+    </div>
+    <div ng-show="showSpinner" class="form-response">
+        <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 20}"></span>
+    </div>
+    <div ng-if="success" class="form-response">
+        <p class="success"><i class="fa fa-check-circle"></i><span translate>Reserved for you</span></p>
+    </div>
+</div>

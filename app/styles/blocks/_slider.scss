@@ -29,7 +29,7 @@ slider {
             }
             &.selection {
                 width: 0%;
-                background: $colorLink;
+                background: $colorMain;
                 z-index: 2;
             }
         }
@@ -37,13 +37,13 @@ slider {
             cursor: pointer;
             width: 14px;
             height: 14px;
-            top: -6px;
-            background-color: $colorGrey;
-            border: 1px solid #fff;
+            top: -8px;
+            background-color: $colorMain;
+            border: 3px solid #fff;
             z-index: 3;
             @include border-radius(1em);
             &.active:after {
-                background-color: $colorLink;
+                background-color: $colorMain;
             }
         }
         &.bubble {

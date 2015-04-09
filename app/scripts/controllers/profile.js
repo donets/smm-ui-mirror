@@ -158,9 +158,9 @@ angular.module('boltApp.controllers.Profile', [])
                                     $scope.step_0 = false;
                                     $scope.step_1 = true;
                                 }).error(function (res) {
-                                        console.log(res);
-                                        $scope.showSpinner = false;
-                                    });
+                                    console.log(res);
+                                    $scope.showSpinner = false;
+                                });
                             };
                         }
 
