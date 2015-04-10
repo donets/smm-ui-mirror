@@ -124,14 +124,19 @@ angular.module('boltApp.controllers.Dashboard', [])
                         $scope.event = event;
 
                         $scope.confirmBook = function () {
+                            $scope.error = null;
                             $scope.showSpinner = true;
+                            $rootScope.handledError = true;
                             $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + $scope.event.source.toLowerCase() + '/' + $scope.event.classId + '/' + $scope.event.occurrenceId).success(function (res) {
                                 console.log(res);
+                                $rootScope.handledError = false;
                                 $scope.showSpinner = false;
                                 $scope.success = true;
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
+                                $rootScope.handledError = false;
+                                $scope.error = res.type;
                             });
                         };
 
@@ -151,12 +156,17 @@ angular.module('boltApp.controllers.Dashboard', [])
         
         $scope.submitBook = function (event) {
             event.showSpinner = true;
+            event.error = null;
+            $rootScope.handledError = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/book/' + event.source.toLowerCase() + '/' + event.classId + '/' + event.occurrenceId).success(function (res) {
                 console.log(res);
+                $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
             }).error(function (res) {
                 console.log(res);
+                $rootScope.handledError = false;
+                event.error = res.type;
                 event.showSpinner = false;
             });
         };
