@@ -90,6 +90,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                 $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
                 $scope.currentCityId = $scope.currentCity.id;
                 $rootScope.supportPhone = $scope.currentCity.supportPhone;
+                $rootScope.supportEmail = $scope.currentCity.supportEmail;
                 if ($scope.currentCity.countryCode !== $rootScope.countryCode) {
                     var newCountry = _.findWhere($scope.countries, {code: $scope.currentCity.countryCode});
                     $window.location.href = newCountry.defaultDomain.absUrlBase + '?city=' + $scope.currentCity.shortCode;

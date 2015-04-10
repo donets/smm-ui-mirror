@@ -36,6 +36,7 @@ angular.module('boltApp.controllers.Studios', [])
             $scope.cityId = cityId;
             var selectedCity = _.findWhere($scope.cities, {id: cityId});
             $rootScope.supportPhone = selectedCity.supportPhone;
+            $rootScope.supportEmail = selectedCity.supportEmail;
             $rootScope.$state.go('allstudios', {city: cityId});
         };
         $scope.init = function () {

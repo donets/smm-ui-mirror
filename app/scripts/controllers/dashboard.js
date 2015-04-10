@@ -45,6 +45,7 @@ angular.module('boltApp.controllers.Dashboard', [])
             var selectedCity = _.findWhere($scope.cities, {id: cityId});
             $rootScope.$state.go('dashboard', {city: cityId});
             $rootScope.supportPhone = selectedCity.supportPhone;
+            $rootScope.supportEmail = selectedCity.supportEmail;
             fetchClasses(cityId, $scope.currDay);
         };
         $scope.changeDay = function (city, day) {

@@ -45,6 +45,7 @@ angular.module('boltApp.controllers.Signup', [])
             });
             $scope.currentCountry = _.findWhere($scope.countries, {code: selectedCity.countryCode});
             $rootScope.supportPhone = selectedCity.supportPhone;
+            $rootScope.supportEmail = selectedCity.supportEmail;
         };
 
         /*$scope.order = {
