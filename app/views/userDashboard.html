@@ -120,7 +120,7 @@
 <div class="dashboard">
     <div class="container cf">
         <div class="w-left" ng-if="mobile">
-            <div class="b-class-item" ng-repeat="e in events
+            <div class="b-class-item" ng-hide="showSpinner" ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
@@ -146,7 +146,7 @@
                     <div class="form-error" ng-if="e.error === 'ProviderNotAvailableException' || e.error === 'ClassBookingFailException'" translate>Sorry, your request could not be completed. Please Try again.</div>
                 </div>
             </div>
-            <div ng-if="!(events
+            <div ng-hide="showSpinner" ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
@@ -154,6 +154,9 @@
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
                 <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
+            </div>
+            <div ng-show="showSpinner" class="dashboard-spinner">
+                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
             </div>
         </div>
         <div class="b-class-table" ng-if="desktop">
