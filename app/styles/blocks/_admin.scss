@@ -564,6 +564,16 @@
             @media (max-width: $containerMobileWidth640) {
                 font-size: 12px;
             }
+            > span {
+                &:after {
+                    content: ",";
+                }
+                &:last-child {
+                    &:after {
+                        content: "";
+                    }
+                }
+            }
         }
         .description {
             display: none;
@@ -751,6 +761,16 @@
                 font-family: $fontLight;
                 cursor: pointer;
                 color: $colorLink;
+            }
+            > span {
+                &:after {
+                    content: ",";
+                }
+                &:last-child {
+                    &:after {
+                        content: "";
+                    }
+                }
             }
             .class-button {
                 height: 36px;

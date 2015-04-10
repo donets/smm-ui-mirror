@@ -5,7 +5,7 @@
     </button>
     <p class="date">{{event.start_date | amDateFormat: 'MMMM D, dddd'}}</p>
     <h2><span class="time">{{event.start_date | amDateFormat: 'HH:mm'}} - {{event.end_date | amDateFormat: 'HH:mm'}}</span><b>{{event.class.title}}</b></h2>
-    <p>{{event.class.discipline}}, {{event.class.teacherName}}</p>
+    <p><span ng-if="event.class.discipline">{{event.class.discipline}}</span> <span ng-if="event.class.style">{{event.class.style}}</span> <span ng-if="event.class.teacherName">{{event.class.teacherName}}</span></p>
     <p class="address"><i class="fa fa-map-marker"></i>{{event.class.location}}</p>
     <p>{{event.class.studio.name}}</p>
     <p class="description" ng-if="event.class.description">{{event.class.description}}</p>

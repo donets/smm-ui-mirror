@@ -132,8 +132,8 @@
                 </div>
                 <div class="b-class-item__info">
                     <b>{{e.class.title}}</b>
-                    <p>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span>, {{e.class.teacherName}}</p>
-                    <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
+                    <p><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span> <span ng-if="e.class.teacherName">{{e.class.teacherName}}</span></p>
+                    <p><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
                     <p class="success" ng-if="e.success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
                 </div>
@@ -173,8 +173,8 @@
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
                         <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
-                        <td>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span></td>
-                        <td><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></td>
+                        <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
+                        <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
                         <td><button class="class-button" ng-if="e.bookable && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
                     </tr>
                     <tr ng-if="!(events
