@@ -311,6 +311,16 @@
             .fa {
                 margin-right: 5px;
             }
+            > span {
+                &:after {
+                    content: ",";
+                }
+                &:last-child {
+                    &:after {
+                        content: "";
+                    }
+                }
+            }
         }
         .address {
             margin: 20px 0 0;

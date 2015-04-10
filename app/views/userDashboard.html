@@ -120,7 +120,7 @@
 <div class="dashboard">
     <div class="container cf">
         <div class="w-left" ng-if="mobile">
-            <div class="b-class-item" ng-repeat="e in events
+            <div class="b-class-item" ng-hide="showSpinner" ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
@@ -132,8 +132,8 @@
                 </div>
                 <div class="b-class-item__info">
                     <b>{{e.class.title}}</b>
-                    <p>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span>, {{e.class.teacherName}}</p>
-                    <p><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></p>
+                    <p><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span> <span ng-if="e.class.teacherName">{{e.class.teacherName}}</span></p>
+                    <p><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
                     <p class="success" ng-if="e.success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
                 </div>
@@ -146,7 +146,7 @@
                     <div class="form-error" ng-if="e.error === 'ProviderNotAvailableException' || e.error === 'ClassBookingFailException'" translate>Sorry, your request could not be completed. Please Try again.</div>
                 </div>
             </div>
-            <div ng-if="!(events
+            <div ng-hide="showSpinner" ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
@@ -154,6 +154,9 @@
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
                 <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
+            </div>
+            <div ng-show="showSpinner" class="dashboard-spinner">
+                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
             </div>
         </div>
         <div class="b-class-table" ng-if="desktop">
@@ -170,8 +173,8 @@
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
                         <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
-                        <td>{{e.class.discipline}}<span ng-if="e.class.style">, {{e.class.style}}</span></td>
-                        <td><i class="fa fa-map-marker"></i> {{e.class.location}}<span ng-if="e.class.studio.name">, {{e.class.studio.name}}</span></td>
+                        <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
+                        <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
                         <td><button class="class-button" ng-if="e.bookable && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
                     </tr>
                     <tr ng-if="!(events
