@@ -39,7 +39,7 @@
             "type": "string",
             "rules": {
                 "required": true,
-                "inclusion": "mon,tue,wed,thu,fri,sat,sun"
+                "inclusion": "mon,tue,wed,thu,fri,sat,sun,0,1,2,3,4,5,6,7"
             }
         },
         "startTime": {
