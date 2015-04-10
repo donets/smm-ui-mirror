@@ -320,6 +320,7 @@
             border-top: 1px solid $colorLightGrey;
             padding: 15px 0 0;
             margin-top: 20px;
+            word-wrap: break-word;
         }
         h2 {
             font-size: 26px;
@@ -332,7 +333,6 @@
             }
         }
         .success {
-            font-size: 14px;
             line-height: 40px;
             text-transform: uppercase;
             color: $colorMain;
@@ -345,6 +345,7 @@
         .form-response {
             position: relative;
             margin-top: 20px;
+            font-size: 14px;
             height: 42px;
         }
         .form-button {

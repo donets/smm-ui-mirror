@@ -342,7 +342,7 @@ angular.module('boltApp')
 		return {
 			responseError: function responseError(rejection) {
 				$rootScope.rejection = rejection;
-				var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException', 'UserNotFound'];
+				var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException', 'UserNotFound', 'ProviderWrongConfigurationException', 'ClassNotBookableException', 'ProviderNotAvailableException', 'ClassBookingFailException'];
 				$rootScope.handledType = _.include(types, rejection.data.type);
 				if (rejection.data.type === 'NoLoggedInUser') {
 					$rootScope.$state.go('login', {
