@@ -143,7 +143,7 @@
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="currentCity.active && tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
-                    <p class="info-window" ng-non-bindable>{{name}}</p>
+                    <span class="info-window" ng-non-bindable>{{name}}</span>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
