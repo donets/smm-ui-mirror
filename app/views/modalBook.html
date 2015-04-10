@@ -19,7 +19,7 @@
         <p class="success"><i class="fa fa-check-circle"></i><span translate>Reserved for you</span></p>
     </div>
     <div ng-if="error" class="form-response">
-        <div class="form-error" ng-if="error === 'ProviderWrongConfigurationException' || error === 'ClassNotBookableException'" translate>Sorry, there are no free spots available for this class.</div>
+        <div class="form-error" ng-if="error === 'ProviderWrongConfigurationException' || error === 'ClassNotBookableException' || error === 'default'" translate>Sorry, there are no free spots available for this class.</div>
         <div class="form-error" ng-if="error === 'ProviderNotAvailableException' || error === 'ClassBookingFailException'" translate>Sorry, your request could not be completed. Please Try again.</div>
     </div>
 </div>

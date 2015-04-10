@@ -142,7 +142,7 @@
                     <div ng-show="e.showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 </div>
                 <div ng-if="e.error" class="form-response">
-                    <div class="form-error" ng-if="e.error === 'ProviderWrongConfigurationException' || e.error === 'ClassNotBookableException'" translate>Sorry, there are no free spots available for this class.</div>
+                    <div class="form-error" ng-if="e.error === 'ProviderWrongConfigurationException' || e.error === 'ClassNotBookableException' || e.error === 'default'" translate>Sorry, there are no free spots available for this class.</div>
                     <div class="form-error" ng-if="e.error === 'ProviderNotAvailableException' || e.error === 'ClassBookingFailException'" translate>Sorry, your request could not be completed. Please Try again.</div>
                 </div>
             </div>

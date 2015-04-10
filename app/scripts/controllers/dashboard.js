@@ -136,7 +136,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                                 console.log(res);
                                 $scope.showSpinner = false;
                                 $rootScope.handledError = false;
-                                $scope.error = res.type;
+                                $scope.error = res.type || 'default';
                             });
                         };
 
@@ -166,7 +166,7 @@ angular.module('boltApp.controllers.Dashboard', [])
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
-                event.error = res.type;
+                event.error = res.type || 'default';
                 event.showSpinner = false;
             });
         };
