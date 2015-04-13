@@ -27,6 +27,13 @@
         width: 100%;
         z-index: 1;
         &:hover {
+            @media (min-width: $containerMobileWidth) {
+                background: #ededed;
+                cursor: pointer;
+            }
+        }
+        &.hover {
+            background: #fff;
             .b-filters {
                 text-align: center;
             }
@@ -96,6 +103,7 @@
             li {
                 display: inline-block;
                 vertical-align: top;
+                background: #fff;
                 font-size: 14px;
                 color: $colorGrey;
                 line-height: 22px;
