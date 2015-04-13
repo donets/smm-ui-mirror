@@ -21,7 +21,7 @@
             <span class="variant variant_1 variant_2" translate>(No minimum membership term)</span>
         </li>
     </ul>
-    <p class="b-signup-info"><span class="variant variant_1 variant_2" translate>Information about offer: After 14 days your free trial will be automatically upgraded to a paid Somuchmore membership (€39, €69 or €99 per month, incl. VAT). This membership can be cancelled at any time.</span></p>
+    <p class="b-signup-info"><span class="variant variant_1 variant_2" translate>Information about offer: After 14 days your free trial will be automatically upgraded to a paid Somuchmore membership of £89. This membership can be cancelled at any time.</span></p>
 </div>
 <div class="b-order">
     <nav class="signup-nav" sticky use-placeholder>
@@ -293,17 +293,17 @@
                         <p>{{overview.card}}</p>
                     </li><li>
                         <b translate>Term:</b>
-                        <p ng-if="!voucher.freeSubscriptionGranted || !voucher" translate>Unlimited <span class="details">(automatic extension by one month until cancellation)</span></p>
+                        <p ng-if="!voucher.freeSubscriptionGranted || !voucher" translate>Unlimited <span class="details">(Rolling monthly membership)</span></p>
                         <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b translate>Direct debit:</b>
-                        <p translate>Monthly <span class="details">(beginning with the first day of membership)</span></p>
+                        <p translate>Monthly <span class="details" ng-if="lang !== 'en'">(beginning with the first day of membership)</span></p>
                     </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
                         <b translate>Start:</b>
                         <p>{{order.membershipActivatesOn | amDateFormat: 'DD.MM.YYYY'}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b translate>Cancellation:</b>
-                        <p translate>Any time <span class="details">(monthly by the end of the month, effective as of the following month)</span></p>
+                        <p translate>Any time <span class="details">(On a monthly basis)</span></p>
                     </li>
                 </ul>
                 <ul>

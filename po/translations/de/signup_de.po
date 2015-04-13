@@ -62,9 +62,7 @@ msgstr ""
 "eine andere E-Mail"
 
 #: app/views/signup.html:306
-msgid ""
-"Any time <span class=\"details\">(monthly by the end of the month, effective "
-"as of the following month)</span>"
+msgid "Any time <span class=\"details\">(On a monthly basis)</span>"
 msgstr ""
 "Jederzeit <span class=\"details\">(monatlich bis zum Monatsende für den "
 "Folgemonat)</span>"
@@ -180,8 +178,8 @@ msgstr "Keine gültige Postleitzahl (immer 5 Ziffern)"
 #: app/views/signup.html:24
 msgid ""
 "Information about offer: After 14 days your free trial will be automatically "
-"upgraded to a paid Somuchmore membership (€39, €69 or €99 per month, incl. "
-"VAT). This membership can be cancelled at any time."
+"upgraded to a paid Somuchmore membership of £89. This membership can be "
+"cancelled at any time."
 msgstr ""
 "Hinweise zum Angebot: Nach 14 Tagen erfolgt der automatische Übergang in "
 "eine kostenpflichtige Somuchmore Mitgliedschaft (39€, 69€, 99€ /Monat, inkl. "
@@ -205,11 +203,11 @@ msgstr "Monat"
 
 #: app/views/signup.html:300
 msgid ""
-"Monthly <span class=\"details\">(beginning with the first day of membership)"
-"</span>"
+"Monthly <span class=\"details\" ng-if=\"lang !== 'en'\">(beginning with the "
+"first day of membership)</span>"
 msgstr ""
-"Monatlich <span class=\"details\">(beginnend mit dem Tag der Mitgliedschaft)"
-"</span>"
+"Monatlich <span class=\"details\" ng-if=\"lang !== 'en'\">(beginnend mit dem "
+"Tag der Mitgliedschaft)</span>"
 
 #: app/views/signup.html:101 app/views/signup.html:131
 msgid "Monthly price"
@@ -377,9 +375,7 @@ msgid "This voucher is only {{typeVoucher}} valid for the CARD"
 msgstr "Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig"
 
 #: app/views/signup.html:296
-msgid ""
-"Unlimited <span class=\"details\">(automatic extension by one month until "
-"cancellation)</span>"
+msgid "Unlimited <span class=\"details\">(Rolling monthly membership)</span>"
 msgstr ""
 "Unbefristet <span class=\"details\">(Verlängerung um je einen Monat, solange "
 "nicht gekündigt)</span>"

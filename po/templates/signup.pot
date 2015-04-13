@@ -49,7 +49,7 @@ msgid "An account already exists for this email account. Please log in or use a 
 msgstr ""
 
 #: app/views/signup.html:306
-msgid "Any time <span class=\"details\">(monthly by the end of the month, effective as of the following month)</span>"
+msgid "Any time <span class=\"details\">(On a monthly basis)</span>"
 msgstr ""
 
 #: app/views/signup.html:119
@@ -159,7 +159,7 @@ msgid "Incorrect postal code"
 msgstr ""
 
 #: app/views/signup.html:24
-msgid "Information about offer: After 14 days your free trial will be automatically upgraded to a paid Somuchmore membership (€39, €69 or €99 per month, incl. VAT). This membership can be cancelled at any time."
+msgid "Information about offer: After 14 days your free trial will be automatically upgraded to a paid Somuchmore membership of £89. This membership can be cancelled at any time."
 msgstr ""
 
 #: app/views/signup.html:163
@@ -179,7 +179,7 @@ msgid "Month"
 msgstr ""
 
 #: app/views/signup.html:300
-msgid "Monthly <span class=\"details\">(beginning with the first day of membership)</span>"
+msgid "Monthly <span class=\"details\" ng-if=\"lang !== 'en'\">(beginning with the first day of membership)</span>"
 msgstr ""
 
 #: app/views/signup.html:101
@@ -331,7 +331,7 @@ msgid "This voucher is only {{typeVoucher}} valid for the CARD"
 msgstr ""
 
 #: app/views/signup.html:296
-msgid "Unlimited <span class=\"details\">(automatic extension by one month until cancellation)</span>"
+msgid "Unlimited <span class=\"details\">(Rolling monthly membership)</span>"
 msgstr ""
 
 #: app/views/signup.html:189
