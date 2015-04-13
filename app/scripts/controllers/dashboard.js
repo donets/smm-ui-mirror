@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window, $document) {
         var fetchClasses = function (city, date) {
             $scope.clearFilters();
             $scope.showSpinner = true;
@@ -75,6 +75,19 @@ angular.module('boltApp.controllers.Dashboard', [])
         $scope.filtersMobileShow = function () {
             $scope.filtersMobile = !$scope.filtersMobile;
         };
+        $scope.expandFilters = false;
+        $document.on('scroll', function() {
+            if ($rootScope.desktop) {
+                if ($scope.expandFilters && $document.scrollTop() > 60) {
+                    $scope.expandFilters = false;
+                }
+            } else {
+                if ($scope.filtersMobile && $document.scrollTop() > 90) {
+                    $scope.filtersMobile = false;
+                }
+            }
+            $scope.$apply();
+        });
         $scope.trans = function (value) {
             var pad = '00';
             return value === '24' ? '00:00' : pad.substring(0, pad.length - value.length) + value + ':00';

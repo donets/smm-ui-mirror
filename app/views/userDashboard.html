@@ -1,4 +1,4 @@
-<div class="dashboard-title" sticky use-placeholder>
+<div class="dashboard-title" ng-class="{'hover': desktop && expandFilters}" ng-click="expandFilters = true" sticky use-placeholder>
     <div class="container">
         <div class="b-filters cf">
             <div ng-if="desktop" class="main-filters">
