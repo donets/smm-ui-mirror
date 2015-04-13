@@ -27,16 +27,16 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: app/views/userDashboard.html:196
+#: app/views/userDashboard.html:203
 msgid "Continue to the courses"
 msgstr ""
 
-#: app/views/userDashboard.html:195
+#: app/views/userDashboard.html:202
 msgid "From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!"
 msgstr ""
 
 #: app/views/userDashboard.html:140
-#: app/views/userDashboard.html:171
+#: app/views/userDashboard.html:178
 msgid "Reserve"
 msgstr ""
 
@@ -48,12 +48,20 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: app/views/userDashboard.html:194
+#: app/views/userDashboard.html:145
+msgid "Sorry, there are no free spots available for this class."
+msgstr ""
+
+#: app/views/userDashboard.html:146
+msgid "Sorry, your request could not be completed. Please Try again."
+msgstr ""
+
+#: app/views/userDashboard.html:201
 msgid "Thank you for your registration!"
 msgstr ""
 
-#: app/views/userDashboard.html:152
-#: app/views/userDashboard.html:180
+#: app/views/userDashboard.html:156
+#: app/views/userDashboard.html:187
 msgid "There are no courses available for this day and this search. Try another date or reset the filters."
 msgstr ""
 

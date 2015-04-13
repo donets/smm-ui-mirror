@@ -15,3 +15,11 @@ msgstr ""
 #: app/views/modalBook.html:19
 msgid "Reserved for you"
 msgstr ""
+
+#: app/views/modalBook.html:22
+msgid "Sorry, there are no free spots available for this class."
+msgstr ""
+
+#: app/views/modalBook.html:23
+msgid "Sorry, your request could not be completed. Please Try again."
+msgstr ""
