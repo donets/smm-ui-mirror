@@ -74,7 +74,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
-                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.location.neigbourhood': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
                 </div>
@@ -124,7 +124,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
-                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.location.neigbourhood': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels | orderBy: 'startTime'">
                 <div class="b-class-item__time">
@@ -133,7 +133,7 @@
                 <div class="b-class-item__info">
                     <b>{{e.class.title}}</b>
                     <p><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span> <span ng-if="e.class.teacherName">{{e.class.teacherName}}</span></p>
-                    <p><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
+                    <p><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
                     <p class="success" ng-if="e.success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
                 </div>
@@ -150,7 +150,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
-                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.location.neigbourhood': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
                 <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
@@ -166,7 +166,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
-                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.location.neigbourhood': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels | orderBy: 'startTime'" >
                         <td>
@@ -174,14 +174,14 @@
                         </td>
                         <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
                         <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
-                        <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
+                        <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
                         <td><button class="class-button" ng-if="e.bookable && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
                     </tr>
                     <tr ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | dataFilter: 'class.disciplinestyle': search.class.discipline
-                            | dataFilter: 'class.location': search.class.location
+                            | dataFilter: 'class.location.neigbourhood': search.class.location
                             | dataFilter: 'class.studioId': search.class.studioId
                             | dataFilter: 'class.levels': search.class.levels).length">
                         <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
