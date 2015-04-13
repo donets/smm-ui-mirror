@@ -167,7 +167,7 @@
         <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
         <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">
-            <div class="container">
+            <div class="container" disable-animate>
                 <div class="b-footer-top cf">
                     <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
                         <h3 translate>Be inspired</h3>
