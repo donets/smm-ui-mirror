@@ -6,10 +6,9 @@
 
 function setTimeList (timeList, start, end) {
     _.clearArray(timeList);
-    for (var minutes = 15; minutes <= 45; minutes = minutes + 15) {
+    for (var minutes = 5; minutes <= 55; minutes = minutes + 5) {
         if (start && +start.split(':')[1] < minutes) {
-            console.log(minutes);
-            timeList.push(start.split(':')[0] + ':' + minutes);
+            timeList.push(start.split(':')[0] + ':' + (minutes === 5 ? '0' + minutes : minutes));
         }
     }
     for (var hour = start ? +start.split(':')[0] + 1 : 6; hour <= (end ? end : 23); hour++) {
@@ -18,8 +17,8 @@ function setTimeList (timeList, start, end) {
         }
         timeList.push(hour + ':00');
         if(hour !== end) {
-            for (var min = 15; min <= 45; min = min + 15) {
-                timeList.push(hour + ':' + min);
+            for (var min = 5; min <= 55; min = min + 5) {
+                timeList.push(hour + ':' + (min === 5 ? '0' + min : min));
             }
         }
     }
@@ -51,7 +50,7 @@ function getScrollbarWidth() {
     var outer = document.createElement('div');
     outer.style.visibility = 'hidden';
     outer.style.width = '100px';
-    outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+    outer.style.msOverflowStyle = 'scrollbar';
 
     document.body.appendChild(outer);
 
