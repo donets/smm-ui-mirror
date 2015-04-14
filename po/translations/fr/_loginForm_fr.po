@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/_loginForm.html:70
+msgid "Account"
+msgstr ""
+
+#: app/views/_loginForm.html:68
+msgid "Activities"
+msgstr ""
+
+#: app/views/_loginForm.html:59
+msgid "Back to login"
+msgstr ""
+
+#: app/views/_loginForm.html:72
+msgid "Classes"
+msgstr ""
+
+#: app/views/_loginForm.html:31 app/views/_loginForm.html:46
+msgid "Email Address"
+msgstr ""
+
+#: app/views/_loginForm.html:58
+msgid "Forgot password?"
+msgstr ""
+
+#: app/views/_loginForm.html:40
+msgid "Incorrect email address or password"
+msgstr ""
+
+#: app/views/_loginForm.html:73
+msgid "Locations"
+msgstr ""
+
+#: app/views/_loginForm.html:21 app/views/_loginForm.html:37
+msgid "Login"
+msgstr ""
+
+#: app/views/_loginForm.html:76
+msgid "Memberships"
+msgstr ""
+
+#: app/views/_loginForm.html:3
+msgid "Monat"
+msgstr ""
+
+#: app/views/_loginForm.html:71
+msgid "My card"
+msgstr ""
+
+#: app/views/_loginForm.html:34
+msgid "Password"
+msgstr ""
+
+#: app/views/_loginForm.html:49
+msgid "Reset password"
+msgstr ""
+
+#: app/views/_loginForm.html:77
+msgid "Sign out"
+msgstr ""
+
+#: app/views/_loginForm.html:69 app/views/_loginForm.html:74
+msgid "Studios"
+msgstr ""
+
+#: app/views/_loginForm.html:75
+msgid "Vouchers"
+msgstr ""
+
+#: app/views/_loginForm.html:52
+msgid "You have been sent a reset email"
+msgstr ""
+
+#: app/views/_loginForm.html:53
+msgid "Your email address was not found"
+msgstr ""

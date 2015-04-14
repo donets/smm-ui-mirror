@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Beginners"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Meditation can increase your brain capacity to that of a 25-year-old."
+msgstr ""
+
+msgid "— NCBI (National Center for Biotechnology Information)"
+msgstr ""
+
+msgid ""
+"Yoga has been proven to help self-image and self-love after just 3 months."
+msgstr ""
+
+msgid "Dancing helps to alleviate depression."
+msgstr ""
+
+msgid ""
+"People who meditate are able to deal with everyday challenges more "
+"creatively."
+msgstr ""
+
+msgid "— WSU (Washington State University)"
+msgstr ""
+
+msgid "Yoga helps to reduce anxiety and manage stress."
+msgstr ""
+
+msgid ""
+"Your password is too weak; it must contain at least 8 characters, including "
+"numbers and lower and uppercase letters"
+msgstr ""
+
+msgid "The link is no longer valid"
+msgstr ""
+
+msgid "The link is invalid"
+msgstr ""
+
+msgid ""
+"I don’t have a credit card, but still wish to order the Somuchmore card. "
+"Please contact me!"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+msgid "Anytime"
+msgstr ""
+
+msgid "Selected"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "In {{count}} month"
+msgid_plural "In {{count}} months"
+msgstr[0] ""
+msgstr[1] ""

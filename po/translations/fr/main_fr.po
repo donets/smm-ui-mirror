@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/main.html:9
+msgid "Be who you were born to be."
+msgstr ""
+
+#: app/views/main.html:16 app/views/main.html:39
+msgid "Later"
+msgstr ""
+
+#: app/views/main.html:10
+msgid "Learn more &gt;"
+msgstr ""
+
+#: app/views/main.html:14
+msgid "Today"
+msgstr ""
+
+#: app/views/main.html:15 app/views/main.html:30
+msgid "Tomorrow"
+msgstr ""
+
+#: app/views/main.html:4
+msgid ""
+"Transform your mind, body and soul with exceptional teachers, trainers and "
+"therapists in London.\n"
+"            <a ui-sref=\"more\">Learn more</a>"
+msgstr ""
+
+#: app/views/main.html:3
+msgid "Welcome to you"
+msgstr ""

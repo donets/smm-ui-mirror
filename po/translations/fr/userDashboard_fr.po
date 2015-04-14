@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/userDashboard.html:32
+msgid ", or"
+msgstr ""
+
+#: app/views/userDashboard.html:89 app/views/userDashboard.html:9
+msgid "All activities"
+msgstr ""
+
+#: app/views/userDashboard.html:103 app/views/userDashboard.html:26
+msgid "All districts"
+msgstr ""
+
+#: app/views/userDashboard.html:111 app/views/userDashboard.html:36
+msgid "All studios"
+msgstr ""
+
+#: app/views/userDashboard.html:18
+msgid "City"
+msgstr ""
+
+#: app/views/userDashboard.html:203
+msgid "Continue to the courses"
+msgstr ""
+
+#: app/views/userDashboard.html:202
+msgid ""
+"From now on you can find a list of all our partner studios here. You can "
+"even start before your card arrives. Print out your class confirmation and "
+"take a photo ID to your chosen studio, et voilá! Have Fun!"
+msgstr ""
+
+#: app/views/userDashboard.html:140 app/views/userDashboard.html:178
+msgid "Reserve"
+msgstr ""
+
+#: app/views/userDashboard.html:138
+msgid "Reserved for you"
+msgstr ""
+
+#: app/views/userDashboard.html:5
+msgid "Show"
+msgstr ""
+
+#: app/views/userDashboard.html:145
+msgid "Sorry, there are no free spots available for this class."
+msgstr ""
+
+#: app/views/userDashboard.html:146
+msgid "Sorry, your request could not be completed. Please Try again."
+msgstr ""
+
+#: app/views/userDashboard.html:201
+msgid "Thank you for your registration!"
+msgstr ""
+
+#: app/views/userDashboard.html:156 app/views/userDashboard.html:187
+msgid ""
+"There are no courses available for this day and this search. Try another "
+"date or reset the filters."
+msgstr ""
+
+#: app/views/userDashboard.html:15
+msgid "in"
+msgstr ""

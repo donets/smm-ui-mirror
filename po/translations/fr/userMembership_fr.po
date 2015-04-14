@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/userMembership.html:73
+msgid "/ Month"
+msgstr ""
+
+#: app/views/userMembership.html:81
+msgid "/ month for {{voucher.discountDuarationInMonths}} months"
+msgstr ""
+
+#: app/views/userMembership.html:77
+msgid "0 {{currentCard.currency}} / Month"
+msgstr ""
+
+#: app/views/userMembership.html:55
+msgid "Activate subscription"
+msgstr ""
+
+#: app/views/userMembership.html:167
+msgid "Bank account holder"
+msgstr ""
+
+#: app/views/userMembership.html:150
+msgid "CVV"
+msgstr ""
+
+#: app/views/userMembership.html:57
+msgid "Cancel subscription"
+msgstr ""
+
+#: app/views/userMembership.html:53
+msgid "Cancelled"
+msgstr ""
+
+#: app/views/userMembership.html:118
+msgid "Card number"
+msgstr ""
+
+#: app/views/userMembership.html:46
+msgid "Card number:"
+msgstr ""
+
+#: app/views/userMembership.html:68
+msgid "Card type:"
+msgstr ""
+
+#: app/views/userMembership.html:64
+msgid "Change Activation Date"
+msgstr ""
+
+#: app/views/userMembership.html:91
+msgid "Change Suspension Date"
+msgstr ""
+
+#: app/views/userMembership.html:103 app/views/userMembership.html:117
+msgid "Credit card"
+msgstr ""
+
+#: app/views/userMembership.html:84
+msgid "Current discount:"
+msgstr ""
+
+#: app/views/userMembership.html:72
+msgid "Current monthly price:"
+msgstr ""
+
+#: app/views/userMembership.html:104
+msgid "Direct debit"
+msgstr ""
+
+#: app/views/userMembership.html:80
+msgid "Discounted price:"
+msgstr ""
+
+#: app/views/userMembership.html:29
+msgid "Email:"
+msgstr ""
+
+#: app/views/userMembership.html:174
+msgid "IBAN"
+msgstr ""
+
+#: app/views/userMembership.html:61
+msgid "Membership activates:"
+msgstr ""
+
+#: app/views/userMembership.html:133
+msgid "Month"
+msgstr ""
+
+#: app/views/userMembership.html:5
+msgid "My photo"
+msgstr ""
+
+#: app/views/userMembership.html:25
+msgid "Name:"
+msgstr ""
+
+#: app/views/userMembership.html:160
+msgid "No credit card?"
+msgstr ""
+
+#: app/views/userMembership.html:95
+msgid "Pause duration:"
+msgstr ""
+
+#: app/views/userMembership.html:88
+msgid "Pause scheduled from:"
+msgstr ""
+
+#: app/views/userMembership.html:191
+msgid "Payment by credit card?"
+msgstr ""
+
+#: app/views/userMembership.html:112
+msgid "Payment information"
+msgstr ""
+
+#: app/views/userMembership.html:101
+msgid "Payment method:"
+msgstr ""
+
+#: app/views/userMembership.html:22
+msgid "Personal details"
+msgstr ""
+
+#: app/views/userMembership.html:124
+msgid "Please enter a valid credit card number"
+msgstr ""
+
+#: app/views/userMembership.html:154
+msgid ""
+"Please enter the 3 or 4-digit security number (on the back of your card)"
+msgstr ""
+
+#: app/views/userMembership.html:189
+msgid ""
+"Please note: You can cancel your direct debit payment any time by sending an "
+"e-mail to our customer service team."
+msgstr ""
+
+#: app/views/userMembership.html:164
+msgid "SEPA direct debit"
+msgstr ""
+
+#: app/views/userMembership.html:188
+msgid ""
+"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to "
+"debit my account for services provided. I also instruct my bank to honour "
+"direct debit requests from this recipient."
+msgstr ""
+
+#: app/views/userMembership.html:181
+msgid "SWIFT-BIC"
+msgstr ""
+
+#: app/views/userMembership.html:37
+msgid "Shipping address (for the card):"
+msgstr ""
+
+#: app/views/userMembership.html:76
+msgid "Special price:"
+msgstr ""
+
+#: app/views/userMembership.html:50
+msgid "Status:"
+msgstr ""
+
+#: app/views/userMembership.html:197
+msgid "Submit new payment data"
+msgstr ""
+
+#: app/views/userMembership.html:33
+msgid "Subscription city:"
+msgstr ""
+
+#: app/views/userMembership.html:43
+msgid "Subscription details"
+msgstr ""
+
+#: app/views/userMembership.html:56
+msgid "Suspend subscription"
+msgstr ""
+
+#: app/views/userMembership.html:123 app/views/userMembership.html:153
+#: app/views/userMembership.html:170 app/views/userMembership.html:177
+#: app/views/userMembership.html:184
+msgid "This is an obligatory field"
+msgstr ""
+
+#: app/views/userMembership.html:52
+msgid "Trial"
+msgstr ""
+
+#: app/views/userMembership.html:105
+msgid "Update payment data"
+msgstr ""
+
+#: app/views/userMembership.html:15 app/views/userMembership.html:9
+msgid "Upload Photo"
+msgstr ""
+
+#: app/views/userMembership.html:130
+msgid "Valid until"
+msgstr ""
+
+#: app/views/userMembership.html:143
+msgid "Year"
+msgstr ""
+
+#: app/views/userMembership.html:168
+msgid "Your Name"
+msgstr ""
+
+#: app/views/userMembership.html:151
+msgid "e.g. 123"
+msgstr ""
+
+#: app/views/userMembership.html:182
+msgid "e.g. ABCD1234"
+msgstr ""
+
+#: app/views/userMembership.html:175
+msgid "e.g. DE12 3456 7890 1234 5678 90"
+msgstr ""

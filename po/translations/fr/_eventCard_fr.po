@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/_eventCard.html:19
+msgid "Go to event"
+msgstr ""
+
+#: app/views/_eventCard.html:7
+msgid "Places available"
+msgstr ""
+
+#: app/views/_eventCard.html:9
+msgid "Private lesson"
+msgstr ""
+
+#: app/views/_eventCard.html:8
+msgid "Sold out"
+msgstr ""
+
+#: app/views/_eventCard.html:28
+msgid "— with {{event.parent_event.teacherName}}"
+msgstr ""

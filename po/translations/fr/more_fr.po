@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/more.html:52
+msgid ""
+"All of our listed trainers and coaches have been handpicked by us personally "
+"and will take care of you individually."
+msgstr ""
+
+#: app/views/more.html:41
+msgid "Be coached on how to develop your true potential."
+msgstr ""
+
+#: app/views/more.html:53
+msgid ""
+"Beginners or advanced classes, in a small group or one-on-one: you will "
+"enjoy a fantastic session that is tailored to you."
+msgstr ""
+
+#: app/views/more.html:59
+msgid ""
+"Body, mind, soul, health, love, work, family: a holistic lifestyle means "
+"balance – and is the key to power, health and deeper fulfilment."
+msgstr ""
+
+#: app/views/more.html:62
+msgid "Connection"
+msgstr ""
+
+#: app/views/more.html:60
+msgid "Core"
+msgstr ""
+
+#: app/views/more.html:47
+msgid ""
+"Discover yoga, meditation, climbing, holistic fitness and wellness, singing, "
+"speech coaching, business communications, spiritual growth – or whatever it "
+"is you always wanted to do."
+msgstr ""
+
+#: app/views/more.html:58
+msgid "Holistic lifestyle"
+msgstr ""
+
+#: app/views/more.html:50
+msgid "It’s all about you."
+msgstr ""
+
+#: app/views/more.html:61
+msgid ""
+"No one else has the same set of talents as you – you have every right in the "
+"world to develop your true self."
+msgstr ""
+
+#: app/views/more.html:51
+msgid "Our teachers are exceptional people – and the best in their field."
+msgstr ""
+
+#: app/views/more.html:63
+msgid ""
+"People, animals, nature and the universe are all deeply interconnected – and "
+"this bond with the very root of existence is the source of all vitality and "
+"joy of life."
+msgstr ""
+
+#: app/views/more.html:46
+msgid "The decision is yours!"
+msgstr ""
+
+#: app/views/more.html:38
+msgid "Who do you want to be?"
+msgstr ""
+
+#: app/views/more.html:40
+msgid "You are already everything you want to be."
+msgstr ""
+
+#: app/views/more.html:44
+msgid "You are so much more."
+msgstr ""
+
+#: app/views/more.html:39
+msgid ""
+"You don’t need to do anything to be good, beautiful or valuable. You are all "
+"those things already!"
+msgstr ""
+
+#: app/views/more.html:45
+msgid ""
+"You want to be relaxed, fit and attractive? To enjoy a healthy diet and "
+"lifestyle? To realise your full potential in your personal or professional "
+"life? To experience intense feelings and thrilling sex with your partner? "
+"And happiness with your family and friends?"
+msgstr ""

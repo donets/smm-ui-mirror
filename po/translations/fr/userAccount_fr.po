@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/userAccount.html:27
+msgid "Change password"
+msgstr ""
+
+#: app/views/userAccount.html:20
+msgid "Confirm Password"
+msgstr ""
+
+#: app/views/userAccount.html:2
+msgid "Do you want to change your password?"
+msgstr ""
+
+#: app/views/userAccount.html:13
+msgid "New Password"
+msgstr ""
+
+#: app/views/userAccount.html:6
+msgid "Old Password"
+msgstr ""
+
+#: app/views/userAccount.html:22
+msgid "Passwords do not match"
+msgstr ""
+
+#: app/views/userAccount.html:15 app/views/userAccount.html:8
+msgid "This is an obligatory field"
+msgstr ""
+
+#: app/views/userAccount.html:26
+msgid "User name or password is incorrect"
+msgstr ""
+
+#: app/views/userAccount.html:16 app/views/userAccount.html:9
+msgid "Your password must contain at least 5 characters"
+msgstr ""

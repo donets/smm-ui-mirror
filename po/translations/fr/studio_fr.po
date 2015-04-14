@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/studio.html:16
+msgid "&lt; Less"
+msgstr ""
+
+#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+msgid "(see course plan)"
+msgstr ""
+
+#: app/views/studio.html:33 app/views/studio.html:38 app/views/studio.html:43
+msgid "<i class=\"fa fa-check\"></i>All courses"
+msgstr ""
+
+#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+msgid ""
+"<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate="
+"\"\">(see course plan)</span>"
+msgstr ""
+
+#: app/views/studio.html:220
+msgid "<i class=\"fa fa-home\"></i>Studio"
+msgstr ""
+
+#: app/views/studio.html:35 app/views/studio.html:40 app/views/studio.html:45
+msgid "<i class=\"fa fa-times\"></i>Not accepted"
+msgstr ""
+
+#: app/views/studio.html:30
+msgid "Accepted cards:"
+msgstr ""
+
+#: app/views/studio.html:20
+msgid "Address:"
+msgstr ""
+
+#: app/views/studio.html:54
+msgid "Contact:"
+msgstr ""
+
+#: app/views/studio.html:77
+msgid "Course"
+msgstr ""
+
+#: app/views/studio.html:78
+msgid "Discipline"
+msgstr ""
+
+#: app/views/studio.html:18
+msgid "Disciplines:"
+msgstr ""
+
+#: app/views/studio.html:19
+msgid "Equipment:"
+msgstr ""
+
+#: app/views/studio.html:50
+msgid "Information:"
+msgstr ""
+
+#: app/views/studio.html:80
+msgid "Level"
+msgstr ""
+
+#: app/views/studio.html:218
+msgid "Location"
+msgstr ""
+
+#: app/views/studio.html:16
+msgid "More &gt;"
+msgstr ""
+
+#: app/views/studio.html:94
+msgid "No more offers for this day"
+msgstr ""
+
+#: app/views/studio.html:66
+msgid "Offer"
+msgstr ""
+
+#: app/views/studio.html:22
+msgid "Show on map"
+msgstr ""
+
+#: app/views/studio.html:79
+msgid "Teacher"
+msgstr ""
+
+#: app/views/studio.html:76
+msgid "Time"
+msgstr ""

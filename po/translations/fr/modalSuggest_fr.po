@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/modalSuggest.html:4
+msgid "Close"
+msgstr ""
+
+#: app/views/modalSuggest.html:8
+msgid "Name of the studio"
+msgstr ""
+
+#: app/views/modalSuggest.html:11
+msgid "Refer"
+msgstr ""
+
+#: app/views/modalSuggest.html:6
+msgid "Refer a studio:"
+msgstr ""
+
+#: app/views/modalSuggest.html:15
+msgid "Sorry, your message was not delivered. Please try again later."
+msgstr ""
+
+#: app/views/modalSuggest.html:14
+msgid "Thank you!"
+msgstr ""
+
+#: app/views/modalSuggest.html:10
+msgid "Your Email Address"
+msgstr ""
+
+#: app/views/modalSuggest.html:9
+msgid "Your Name (Optional)"
+msgstr ""

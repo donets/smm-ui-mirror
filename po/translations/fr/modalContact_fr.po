@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/modalContact.html:5
+msgid "Close"
+msgstr ""
+
+#: app/views/modalContact.html:15
+msgid "Email"
+msgstr ""
+
+#: app/views/modalContact.html:21
+msgid "Message"
+msgstr ""
+
+#: app/views/modalContact.html:12
+msgid "Name"
+msgstr ""
+
+#: app/views/modalContact.html:18
+msgid "Phone"
+msgstr ""
+
+#: app/views/modalContact.html:24
+msgid "Submit"
+msgstr ""
+
+#: app/views/modalContact.html:27
+msgid "Your message could not be sent, please try again."
+msgstr ""

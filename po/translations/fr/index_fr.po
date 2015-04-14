@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/index.html:219
+msgid "&copy; Somuchmore Marketplace UG, 2015"
+msgstr ""
+
+#: app/index.html:214
+msgid "About us"
+msgstr ""
+
+#: app/index.html:160
+msgid "Activities"
+msgstr ""
+
+#: app/index.html:173
+msgid "Be inspired"
+msgstr ""
+
+#: app/index.html:115 app/index.html:125 app/index.html:132 app/index.html:139
+msgid "Close"
+msgstr ""
+
+#: app/index.html:195
+msgid "Contact us"
+msgstr ""
+
+#: app/index.html:217
+msgid "FAQ"
+msgstr ""
+
+#: app/index.html:184
+msgid "Follow us"
+msgstr ""
+
+#: app/index.html:216
+msgid "General terms &amp; conditions"
+msgstr ""
+
+#: app/index.html:136
+msgid ""
+"Important: Easter breaks are here! Please check the individual course plans "
+"on the websites of each studio for any changes. Thank you!"
+msgstr ""
+
+#: app/index.html:215
+msgid "Legal notice"
+msgstr ""
+
+#: app/index.html:145
+msgid "Somuchmore"
+msgstr ""
+
+#: app/index.html:122
+msgid ""
+"Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd"
+"+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try "
+"again."
+msgstr ""
+
+#: app/index.html:161
+msgid "Studios"
+msgstr ""
+
+#: app/index.html:129
+msgid "Successfully saved"
+msgstr ""
+
+#: app/index.html:112
+msgid ""
+"Thank you for your booking: {{event.event.title}} | Teacher: {{event.event."
+"somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
+"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
+"event.venue.region}}. <br> You will receive an e-mail with your ticket and "
+"details."
+msgstr ""
+
+#: app/index.html:178
+msgid "Thank you!"
+msgstr ""
+
+#: app/index.html:179
+msgid "The email address is incorrect"
+msgstr ""
+
+#: app/index.html:120
+msgid ""
+"Unfortunately an error has occurred. Please contact our customer service "
+"team: <a href=\"mailto:kundenservice@somuchmore.org"
+"\">kundenservice@somuchmore.org</a> <br>Error details: {{rejection.data."
+"message}}"
+msgstr ""
+
+#: app/index.html:121
+msgid ""
+"You are not authorised to access this page {{$state.href($state.current."
+"name, $state.params, {absolute: true})}}"
+msgstr ""
+
+#: app/index.html:175
+msgid "Your email address"
+msgstr ""
