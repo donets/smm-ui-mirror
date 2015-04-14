@@ -238,6 +238,9 @@ angular.module('boltApp')
             });
 		}
 	])
+    //.constant('angularMomentConfig', {
+    //    timezone: 'Europe/Berlin'
+    //})
 	.config(function(uiGmapGoogleMapApiProvider) {
 		uiGmapGoogleMapApiProvider.configure({
 			v: '3.17',
