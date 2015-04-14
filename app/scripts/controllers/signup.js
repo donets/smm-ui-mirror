@@ -20,7 +20,7 @@ angular.module('boltApp.controllers.Signup', [])
                     city: $rootScope.currentCity.active ? $rootScope.currentCity.defaultName : $scope.cities[0].defaultName,
                     countryCode: $rootScope.countryCode
                 },
-                membershipActivatesOn: moment.tz('Europe/Berlin').format(),
+                membershipActivatesOn: moment().format(),
                 paymentProvider: 'STRIPE',
                 newsletter: true,
                 landingUrl: $cookieStore.get('landingUrl'),
@@ -79,7 +79,7 @@ angular.module('boltApp.controllers.Signup', [])
             $event.stopPropagation();
             $rootScope.showDatepicker[type] = true;
         };
-        $rootScope.minStartDate = new Date();
+        $rootScope.minStartDate = moment();
         $rootScope.dateOptions = {
             startingDay: 1,
             showWeekNumbers: false,
