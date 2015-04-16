@@ -117,6 +117,17 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             CityFactory.changeCity($rootScope.currentCity, $scope.citiesList).then(function (res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
+                $scope.combinedLocations = [];
+                RestApi.query({route: 'locations'}).$promise.then(function (res) {
+                    _.each($scope.studios, function (studio) {
+                        _.each(studio.locations, function (locationId) {
+                            var location = _.findWhere(res, {id: locationId});
+                            location.studioProfileComplete = studio.profileComplete;
+                            location.studioId = studio.id;
+                            $scope.combinedLocations.push(location);
+                        });
+                    });
+                });
             });
             $rootScope.countryCode = $rootScope.currentCity.countryCode;
         };
