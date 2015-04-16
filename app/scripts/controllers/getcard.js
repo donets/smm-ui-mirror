@@ -87,7 +87,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.$on('CityFactory.update', function () {
                 var currentCityVar = CityFactory.getVariable();
                 $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
-                $scope.currentCityId = $scope.currentCity.id;
                 $rootScope.supportPhone = $scope.currentCity.supportPhone;
                 if ($scope.currentCity.countryCode !== $rootScope.countryCode) {
                     var newCountry = _.findWhere($scope.countries, {code: $scope.currentCity.countryCode});
@@ -100,8 +99,6 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.citiesList = $rootScope.configCities;
             RestApi.query({route: 'countries'}).$promise.then(function (res) {
                 $scope.countries = res;
-                $scope.city = $rootScope.currentCity;
-                $scope.cityId = $rootScope.currentCity.id;
                 $scope.changeCity($rootScope.currentCity.id);
             });
         };
@@ -140,7 +137,7 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $scope.cityId, interestedInProduct: true, lang: $rootScope.lang }).success(function (response) {
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $scope.currentCity.id, interestedInProduct: true, lang: $rootScope.lang }).success(function (response) {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
                 $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: JSON.stringify($window.smmConfig)});
