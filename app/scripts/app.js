@@ -171,7 +171,7 @@ angular.module('boltApp')
 					}
 				} else if (toState.name === 'home' && $rootScope.roleMember) {
 					event.preventDefault();
-					$rootScope.$state.go('dashboard', {notify: false});
+					$rootScope.$state.go('dashboard', {notify: false, city: $cookieStore.get('cityId') || 1});
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
