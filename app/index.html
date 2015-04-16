@@ -157,8 +157,8 @@
                 </a>-->
                 <nav class="b-top-nav" ng-if="($state.includes('dashboard') || $state.includes('allstudios')) && desktop">
                     <ul class="top-nav">
-                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard({city: 1})" translate>Activities</a></li><li>
-                        <a ng-class="{'active': $state.includes('allstudios')}" ui-sref="allstudios({city: 1})" translate>Studios</a></li>
+                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard({city: currentCity.id})" translate>Activities</a></li><li>
+                        <a ng-class="{'active': $state.includes('allstudios')}" ui-sref="allstudios({city: currentCity.id})" translate>Studios</a></li>
                     </ul>
                 </nav>
                 <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-hide="$state.includes('reset') || $state.includes('login')"></ng-include>

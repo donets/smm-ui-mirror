@@ -144,7 +144,8 @@ angular.module('boltApp.controllers.Login', [])
 					$rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
 				} else if ($rootScope.roleMember) {
 					$rootScope.$state.go('dashboard', {
-						notify: false
+						notify: false,
+                        city: $rootScope.currentCity.id
 					});
 				}
 			}).error(function(response, status) {

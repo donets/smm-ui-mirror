@@ -54,7 +54,7 @@ angular.module('boltApp.controllers.Dashboard', [])
         };
         $scope.init = function () {
             $scope.cities = $rootScope.configCities;
-            $scope.cityId = parseInt($rootScope.$stateParams.city);
+            $scope.cityId = $rootScope.currentCity.id;
             if (! _.findWhere($scope.cities, {id: $scope.cityId})) {
                 $scope.cityId = $scope.cities[0].id;
             }
