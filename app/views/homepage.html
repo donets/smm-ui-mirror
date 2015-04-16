@@ -156,7 +156,7 @@
         </div>
         <div ng-if="tab === 'list'">
             <ul class="b-studios-list">
-                <li ng-repeat="location in combinedLocations | orderBy: 'name'">
+                <li ng-repeat="location in combinedLocations | filter: {cityId: currentCity.id} | orderBy: 'name'">
                     <a ui-sref="studio({studioId: location.studioId})" ng-if="location.studioProfileComplete">{{location.name}}</a>
                     <!--<a ng-href="{{studio.website}}" ng-if="!studio.profileComplete && studio.website" target="_blank">{{studio.name}}</a>-->
                     <span ng-if="!location.studioProfileComplete">{{location.name}}</span>
