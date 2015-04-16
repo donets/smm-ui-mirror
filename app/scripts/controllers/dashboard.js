@@ -184,10 +184,10 @@ angular.module('boltApp.controllers.Dashboard', [])
             });
         };
 
-        $scope.showPopap = $cookieStore.get('signupPopap');
-        
-        $scope.hidePopap = function () {
-            $scope.showPopap = false;
+        $rootScope.signupPopap = $cookieStore.get('signupPopap');
+
+        $rootScope.hideSignupPopap = function () {
+            $rootScope.signupPopap = false;
             $cookieStore.remove('signupPopap');
         };
         

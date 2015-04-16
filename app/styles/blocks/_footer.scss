@@ -3,6 +3,13 @@
 .b-footer {
     background: $colorFooter;
     position: relative;
+    @media (min-width: $containerMobileWidth) {
+        position: absolute;
+        height: 155px;
+        width: 100%;
+        bottom: 0;
+        z-index: 1;
+    }
 }
 .b-footer-top {
     padding: 20px 0 3px;
