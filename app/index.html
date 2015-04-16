@@ -164,60 +164,61 @@
                 <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-hide="$state.includes('reset') || $state.includes('login')"></ng-include>
             </div>
         </div>
-        <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
-        <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">
-            <div class="container">
-                <div class="b-footer-top cf">
-                    <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
-                        <h3 translate>Be inspired</h3>
-                        <form name="form" class="app-email" ng-submit="subscribe()">
-                            <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Your email address'|translate}}" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
-                            <div class="form-response">
-                                <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                                <div ng-show="successUpdate" class="form-message form-success" translate>Thank you!</div>
-                                <div ng-show="errorUpdate" class="form-message form-error" translate>The email address is incorrect</div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="b-footer-block w-left" ng-show="desktop">
-                        <h3 translate>Follow us</h3>
-                        <div class="fb-like"
-                             data-href="https://www.facebook.com/somuchmoredeutsch"
-                             data-width="120"
-                             data-layout="button_count"
-                             data-action="like"
-                             data-show-faces="false"
-                             data-share="false">
+    </div>
+    <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">
+        <div class="container">
+            <div class="b-footer-top cf">
+                <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
+                    <h3 translate>Be inspired</h3>
+                    <form name="form" class="app-email" ng-submit="subscribe()">
+                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Your email address'|translate}}" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
+                        <div class="form-response">
+                            <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                            <div ng-show="successUpdate" class="form-message form-success" translate>Thank you!</div>
+                            <div ng-show="errorUpdate" class="form-message form-error" translate>The email address is incorrect</div>
                         </div>
-                    </div>
-                    <div class="b-footer-block w-left">
-                        <h3 translate>Contact us</h3>
-                        <div class="contact">
-                            <p class="phone" ng-if="supportPhone">{{supportPhone}}</p><a class="email" href="mailto:{{supportEmail}}">{{supportEmail}}</a>
-                        </div>
-                    </div>
-                    <!--<div class="b-footer-block w-left">
-                        <h3>Moneyback guarantee</h3>
-                        <div class="contact">
-                            <span>Cancel within 2 weeks</span>
-                            <ul class="payment-icons">
-                                <li><img src="/images/mastercard-icon.svg" alt="mastercard"/></li><li>
-                                <img src="/images/visa-icon.svg" alt="visa"/></li><li>
-                                <img src="/images/paypal-icon.svg" alt="paypal"/></li>
-                            </ul>
-                        </div>
-                    </div>-->
+                    </form>
                 </div>
-                <nav class="b-footer-nav cf">
-                    <ul class="b-footer-nav__menu">
-                        <li><a ui-sref="about" translate>About us</a></li><li>
-                        <a ui-sref="impressum" translate>Legal notice</a></li><li>
-                        <a class="" ui-sref="agb" translate>General terms &amp; conditions</a></li><li>
-                        <a class="upp" ui-sref="faq" translate>FAQ</a></li>
-                    </ul>
-                    <p class="b-footer-copyright" translate>&copy; Somuchmore Marketplace UG, 2015</p>
-                </nav>
+                <div class="b-footer-block w-left" ng-show="desktop">
+                    <h3 translate>Follow us</h3>
+                    <div class="fb-like"
+                         data-href="https://www.facebook.com/somuchmoredeutsch"
+                         data-width="120"
+                         data-layout="button_count"
+                         data-action="like"
+                         data-show-faces="false"
+                         data-share="false">
+                    </div>
+                </div>
+                <div class="b-footer-block w-left">
+                    <h3 translate>Contact us</h3>
+                    <div class="contact">
+                        <p class="phone" ng-if="supportPhone">{{supportPhone}}</p><a class="email" href="mailto:{{supportEmail}}">{{supportEmail}}</a>
+                    </div>
+                </div>
+            </div>
+            <nav class="b-footer-nav cf">
+                <ul class="b-footer-nav__menu">
+                    <li><a ui-sref="about" translate>About us</a></li><li>
+                    <a ui-sref="impressum" translate>Legal notice</a></li><li>
+                    <a class="" ui-sref="agb" translate>General terms &amp; conditions</a></li><li>
+                    <a class="upp" ui-sref="faq" translate>FAQ</a></li>
+                </ul>
+                <p class="b-footer-copyright" translate>&copy; Somuchmore Marketplace UG, 2015</p>
+            </nav>
+        </div>
+    </div>
+    <div ng-if="signupPopap" class="modal-backdrop fade in" style="position: absolute; z-index: 1040; opacity: 0.5;"></div>
+    <div ng-if="signupPopap" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body ng-scope">
+                    <h2 translate>Thank you for your registration!</h2>
+                    <p translate>From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!</p>
+                    <button class="form-button" ng-class="{'en': lang === 'en'}" ng-click="hideSignupPopap()" translate>Continue to the courses</button>
+                </div>
             </div>
         </div>
     </div>
