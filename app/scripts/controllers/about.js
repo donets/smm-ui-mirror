@@ -17,7 +17,6 @@ angular.module('boltApp.controllers.About', [])
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.email, interestedInProduct: true, lang: $rootScope.lang, landingUrl: $cookieStore.get('landingUrl') }).success(function () {
                 $scope.loadingSubscribe = false;
                 $scope.successSubscribe = true;
-                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.email, message: JSON.stringify($window.smmConfig)});
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);

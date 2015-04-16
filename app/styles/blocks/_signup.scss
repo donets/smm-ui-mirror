@@ -482,7 +482,7 @@
 }
 .select-cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 120px 0 500px;
     @media (max-width: $containerMobileWidth) {
         display: block;
@@ -513,6 +513,7 @@
     }
     .select-cards__card {
         @include my-resetList();
+        margin-left: 18px;
         @media (max-width: $containerMobileWidth) {
             margin: 150px 0 0;
         }
