@@ -94,7 +94,7 @@
             <button type="submit" ng-hide="showSpinner || showCards" ng-disabled="!formSignup.$valid" translate>Next</button>
         </form>
         <div id="step2" ng-show="showCards">
-            <div class="select-cards" ng-if="desktop">
+            <div class="select-cards" ng-class="{'one-card': cards.length === 1}" ng-if="desktop">
                 <ul class="select-cards__title">
                     <li></li>
                     <li></li>
@@ -117,8 +117,9 @@
                     <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
                     <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</li>
                     <li translate>Anytime</li>
-                    <li class="card-button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></li>
+                    <li class="card-button" ng-if="cards.length !== 1"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></li>
                 </ul>
+                <button type="button" class="form-button" ng-hide="showCheckout" ng-if="cards.length === 1" ng-click="changeType(cards[0].code)" translate>Next</button>
             </div>
             <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
                 <tr>
@@ -147,8 +148,13 @@
                     <td translate>Cancel / Freeze</td>
                     <td translate>Anytime</td>
                 </tr>
-                <tr>
+                <tr ng-if="cards.length !== 1">
                     <td colspan="2" class="button"><button ng-model="order.type" ng-change="changeType()" btn-radio="card.code"><i class="fa"></i>{{order.type === card.code ? localizedSelected : localizedSelect}}</button></td>
+                </tr>
+                <tr ng-if="cards.length === 1" ng-hide="showCheckout">
+                    <td colspan="2" class="button">
+                        <button ng-click="changeType(cards[0].code)" translate>Next</button>
+                    </td>
                 </tr>
             </table>
         </div>
