@@ -171,8 +171,11 @@ angular.module('boltApp.controllers.Signup', [])
             });
         };
 
-        $scope.changeType = function () {
+        $scope.changeType = function (type) {
             $scope.checkVoucher($scope.code);
+            if (type) {
+                $scope.order.type = type;
+            }
             $scope.overview = {
                 card: _.findWhere($scope.cards, {code: $scope.order.type}).displayName,
                 price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice,
