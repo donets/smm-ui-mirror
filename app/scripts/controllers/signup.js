@@ -218,6 +218,7 @@ angular.module('boltApp.controllers.Signup', [])
                     'promoCodeUsed': $scope.order.voucher,
                     'paymentMethod': response.membership.paymentProvider,
                     'ecommerce': {
+                        'currencyCode': _.findWhere($scope.cards, {code: $scope.order.type}).currency,
                         'purchase': {
                             'actionField': {
                                 'id': response.membership.id,
