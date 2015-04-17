@@ -306,7 +306,9 @@
     @extend %form-custom;
     padding: 60px 0;
     &.form-checkout {
-        margin-top: -400px;
+        @media (min-width: $containerMobileWidth) {
+            margin-top: -400px;
+        }
         width: 100%;
         .w-left, .w-clear {
             width: 500px;
@@ -484,6 +486,15 @@
     display: flex;
     justify-content: center;
     margin: 120px 0 500px;
+    &.one-card {
+        width: 500px;
+        margin: 120px auto 500px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .form-button {
+            margin: 40px 0 0;
+        }
+    }
     @media (max-width: $containerMobileWidth) {
         display: block;
     }
@@ -612,9 +623,9 @@
             padding: 0 22px;
             border-bottom: 2px solid $colorBackTimetable;
             @media (max-width: $containerMobileWidth640) {
-                height: 60px;
-                font-size: 20px;
-                padding: 0 16px;
+                height: 40px;
+                font-size: 15px;
+                padding: 0 11px;
                 border-bottom: 2px solid $colorBackTimetable;
             }
             &.button {
@@ -633,8 +644,8 @@
                     color: #fff;
                     padding: 0;
                     @media (max-width: $containerMobileWidth640) {
-                        height: 60px;
-                        font-size: 20px;
+                        height: 40px;
+                        font-size: 15px;
                     }
                     &:hover {
                         background: $colorMain;
@@ -668,7 +679,7 @@
                 font-size: 24px;
                 color: $colorGrey;
                 @media (max-width: $containerMobileWidth640) {
-                    font-size: 16px;
+                    font-size: 12px;
                 }
             }
         }
@@ -679,8 +690,8 @@
                 font-family: $fontItalic;
                 font-style: italic;
                 @media (max-width: $containerMobileWidth640) {
-                    height: 80px;
-                    font-size: 20px;
+                    height: 60px;
+                    font-size: 18px;
                 }
             }
         }
