@@ -19,7 +19,7 @@
     }
 }
 .modal-content {
-    border-radius: 2px;
+    border-radius: 3px;
     background: #fff;
     border: 0 none;
     @include box-shadow(0 1px 3px getRgba(#1b171a, 0.2));
@@ -296,8 +296,32 @@
             width: 360px;
         }
     }
+    .modal-footer {
+        background: $colorBackTimetable;
+        padding: 20px 30px 20px;
+        border: 0 none;
+        text-align: center;
+        @include border-bottom-radius(3px);
+        .form-button {
+            min-width: 0;
+            font-size: 14px;
+            background: #fff;
+            color: $colorLink;
+            margin: 0 0 15px;
+            text-transform: uppercase;
+            border: 1px solid $colorLightGrey;
+        }
+        p {
+            font-size: 12px;
+            color: $colorGrey;
+        }
+        .form-response {
+            position: static;
+            height: 32px;
+        }
+    }
     .modal-body {
-        padding: 18px 40px 40px;
+        padding: 18px 40px 20px;
         text-align: center;
         .date {
             font-size: 14px;

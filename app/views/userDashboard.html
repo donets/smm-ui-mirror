@@ -135,12 +135,15 @@
                     <p><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span> <span ng-if="e.class.teacherName">{{e.class.teacherName}}</span></p>
                     <p><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
-                    <p class="success" ng-if="e.success"><i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}</p>
+                    <p class="success cf" ng-if="e.bookingStatus === 'BOOKED'">
+                        <i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}
+                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'BOOKED' && roleMember" ng-hide="e.showSpinner" ng-click="cancelBook(e)" type="button" translate>Cancel</button></p>
                 </div>
-                <button class="class-button" ng-if="e.bookable && roleMember" ng-hide="e.showSpinner || e.success" ng-click="submitBook(e)" type="button" translate>Reserve</button>
+                <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'BOOKED' && roleMember" ng-hide="e.showSpinner" ng-click="submitBook(e)" type="button" translate>Reserve</button>
                 <div class="form-response">
                     <div ng-show="e.showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 </div>
+                <p class="tip">If you cant make it to the class, please cancel minimum 24 hours in advance to avoid late cancellation fees.</p>
                 <div ng-if="e.error" class="form-response">
                     <div class="form-error" ng-if="e.error === 'ProviderWrongConfigurationException' || e.error === 'ClassNotBookableException' || e.error === 'default'" translate>Sorry, there are no free spots available for this class.</div>
                     <div class="form-error" ng-if="e.error === 'ProviderNotAvailableException' || e.error === 'ClassBookingFailException'" translate>Sorry, your request could not be completed. Please Try again.</div>
@@ -175,7 +178,8 @@
                         <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
                         <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
                         <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
-                        <td><button class="class-button" ng-if="e.bookable && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button></td>
+                        <td disable-animate><button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'BOOKED' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
+                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'BOOKED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button></td>
                     </tr>
                     <tr ng-if="!(events
                             | isAfter: 'start_date': search.start

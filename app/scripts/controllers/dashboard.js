@@ -144,7 +144,24 @@ angular.module('boltApp.controllers.Dashboard', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                $scope.success = true;
+                                event.bookingStatus = 'BOOKED';
+                            }).error(function (res) {
+                                console.log(res);
+                                $scope.showSpinner = false;
+                                $rootScope.handledError = false;
+                                $scope.error = res.type || 'default';
+                            });
+                        };
+
+                        $scope.cancelBook = function () {
+                            $scope.error = null;
+                            $scope.showSpinner = true;
+                            $rootScope.handledError = true;
+                            $http.post($window.smmConfig.restUrlBase + '/api/classes/cancel/' + $scope.event.source.toLowerCase() + '/' + $scope.event.class.studioId + '/' + $scope.event.occurrenceId).success(function (res) {
+                                console.log(res);
+                                $rootScope.handledError = false;
+                                $scope.showSpinner = false;
+                                event.bookingStatus = 'CANCELED';
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -176,6 +193,24 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
+                event.bookingStatus = 'BOOKED';
+            }).error(function (res) {
+                console.log(res);
+                $rootScope.handledError = false;
+                event.error = res.type || 'default';
+                event.showSpinner = false;
+            });
+        };
+
+        $scope.cancelBook = function (event) {
+            event.error = null;
+            event.showSpinner = true;
+            $rootScope.handledError = true;
+            $http.post($window.smmConfig.restUrlBase + '/api/classes/cancel/' + event.source.toLowerCase() + '/' + event.class.studioId + '/' + event.occurrenceId).success(function (res) {
+                console.log(res);
+                $rootScope.handledError = false;
+                event.showSpinner = false;
+                event.bookingStatus = 'CANCELED';
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
