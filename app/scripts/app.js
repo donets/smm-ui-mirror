@@ -657,54 +657,78 @@ angular.module('boltApp')
 				templateUrl: 'views/class.html',
 				controller: 'CreateClassCtrl'
 			})
-			.state('admin.classes.import', {
-				url: 'import/',
-				templateUrl: 'views/entityImport.html',
-				controller:
+            .state('admin.classes.import', {
+                url: 'import/',
+                templateUrl: 'views/entityImport.html',
+                resolve: {
+                    getImportEntities: function ($http) {
+                        return $http.get('json/import.json', {cache: true});
+                    }
+                },
+                controller: function ($scope, $rootScope, RestApi, getImportEntities) {
 
-					function($scope, $rootScope, RestApi) {
+                    $scope.import = function () {
+                        $scope.showSpinner = true;
+                        $scope.entities = $scope.csv.result;
+                        _.each($scope.entities, function (entity) {
+                            _.each(entity, function (value, key) {
+                                switch ($scope.importEntity[key].type) {
+                                    case 'integer':
+                                        entity[key] = parseInt(value);
+                                        break;
+                                    case 'float':
+                                        entity[key] = parseFloat(value);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            })
+                        });
+                        RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
+                            console.log(res);
+                            $scope.showSpinner = false;
+                            $rootScope.$state.go('admin.classes.list');
+                        });
+                    };
 
-					$scope.import = function() {
-						$scope.showSpinner = true;
-						$scope.entities = $scope.csv.result;
-						RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function(res) {
-							console.log(res);
-							$scope.showSpinner = false;
-							$rootScope.$state.go('admin.classes.list');
-						});
-					};
-
-					$scope.csv = {
-						content: null,
-						header: true,
-						test: null,
-						separator: ',',
-						result: null
-					};
-					$scope.importEntity = {
-						ClassId: 'integer',
-						Studio: 'string',
-						acceptedPlans: 'strings',
-						languages: 'strings',
-						visitorGenders: 'strings',
-						freeSchedule: 'boolean',
-						dropinPrice: 'string',
-						title: 'string',
-						discipline: 'string',
-						style: 'string',
-						level: 'string',
-						teacherName: 'string',
-						description: 'string',
-						day: 'string',
-						startTime: 'string',
-						endTime: 'string',
-						earliestStart: 'string',
-						endDate: 'string',
-						studioId: 'integer',
-						locationId: 'integer'
-					};
-				}
-			})
+                    $scope.csv = {
+                        content: null,
+                        header: true,
+                        separator: ',',
+                        result: null,
+                        ignoredColumns: [],
+                        missingColumns: [],
+                        importErrors: {}
+                    };
+                    $scope.importEntity = getImportEntities.data.class;
+                    $scope.formattedErrors = function () {
+                        var result = 'Errors found in lines: ';
+                        _.each($scope.csv.importErrors, function (value, key) {
+                            result += key + ' (columns: ' + value.join(', ') + '), ';
+                        });
+                        return result.slice(0, -2);
+                    };
+                    $scope.formattedIgnoredColumns = function () {
+                        return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
+                    };
+                    $scope.formattedMissingColumns = function () {
+                        return 'FATAL ERROR! The following required columns are missing in your file: ' + $scope.csv.missingColumns.join(', ');
+                    };
+                    $scope.handleRemoteRules = function (entity) {
+                        _.each(entity, function (value, key) {
+                            if (_.contains(_.keys(value.rules), 'remote')) {
+                                var remoteRule = value.rules.remote;
+                                delete value.rules.remote;
+                                RestApi.query({route: remoteRule.route}).$promise.then(function(res) {
+                                    value.rules.inclusion = _.map(res, function(obj) { return obj[remoteRule.field]; }).join(',');
+                                });
+                            }
+                        });
+                        return entity;
+                    };
+                    $scope.importEntity = $scope.handleRemoteRules($scope.importEntity);
+                }
+            })
 			.state('admin.classes.class', {
 				url: ':classId/',
 				templateUrl: 'views/class.html',
