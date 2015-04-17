@@ -81,7 +81,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="e in events">
+                <tr ng-repeat="e in events | orderBy: 'startTime'">
                     <td>
                         <p>{{e.startTime}} - {{e.endTime}}</p>
                     </td>
