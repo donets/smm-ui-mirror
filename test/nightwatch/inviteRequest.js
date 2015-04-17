@@ -31,7 +31,7 @@ module.exports = {
 	  .waitForElementVisible('.subscribe-wrapper .form-response .form-success',2000)
 	  .assert.elementPresent('.subscribe-wrapper .form-response .form-success')
 	  .end();
-  },
+  }/*,
   
   'Checking email': function (browser) {
    var result=true;
@@ -83,7 +83,7 @@ module.exports = {
 		});
 		
 	  };
-  }
+  }*/
 }
  
 //    beforeEach(function() {
