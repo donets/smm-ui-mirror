@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Reset', [])
-    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', 'gettextCatalog', '$cookieStore', function ($scope, $rootScope, $http, $window, gettextCatalog, $cookieStore) {
+    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', 'gettextCatalog', '$cookieStore', '$analytics', function ($scope, $rootScope, $http, $window, gettextCatalog, $cookieStore, $analytics) {
         $scope.resetPassword = function () {
             $scope.loadingReset = true;
             $scope.errorReset = false;
@@ -19,6 +19,11 @@ angular.module('boltApp.controllers.Reset', [])
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                 $cookieStore.put('session', response.user);
+                $analytics.eventTrack({
+                    'event': 'loginSuccess',
+                    'loginMethod': 'Website',
+                    'customerId': response.user.id
+                });
                 if ($rootScope.requestedState) {
                     $rootScope.$state.go($rootScope.requestedState.state.name, $rootScope.requestedState.params);
                 } else if ($rootScope.roleMember) {

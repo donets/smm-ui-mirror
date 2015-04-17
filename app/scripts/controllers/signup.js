@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog, $analytics) {
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
@@ -207,6 +207,42 @@ angular.module('boltApp.controllers.Signup', [])
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                 $cookieStore.put('session', response.user);
                 $cookieStore.put('signupPopap', true);
+                $analytics.eventTrack({
+                    'event': 'registerSuccess',
+                    'registerMethod': 'Website',
+                    'customerId': response.user.id,
+                    'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName
+                });
+                $analytics.eventTrack({
+                    'event': 'transaction',
+                    'promoCodeUsed': $scope.order.voucher,
+                    'paymentMethod': response.membership.paymentProvider,
+                    'ecommerce': {
+                        'currencyCode': _.findWhere($scope.cards, {code: $scope.order.type}).currency,
+                        'purchase': {
+                            'actionField': {
+                                'id': response.membership.id,
+                                'revenue': response.membership.current.monthlyPrice,
+                                'coupon': $scope.order.voucher
+                            },
+                            'products': [
+                                {
+                                    'name': response.membership.current.type,
+                                    'id': response.membership.cardNumber,
+                                    'price': response.membership.current.monthlyPrice
+                                }
+                            ]}
+                    }
+                });
+                $analytics.eventTrack({
+                    'event': 'loginSuccess',
+                    'loginMethod': 'Website',
+                    'customerId': response.user.id
+                });
+                $window.rockVarSet.push({
+                    'customerId': response.user.id,
+                    'customerStatus': 'new'
+                });
                 $rootScope.$state.go('dashboard', {city: response.membership.cityId});
 
             }).error(function (response) {
