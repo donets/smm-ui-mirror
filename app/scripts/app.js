@@ -665,7 +665,7 @@ angular.module('boltApp')
                         return $http.get('json/import.json', {cache: true});
                     }
                 },
-                controller: function ($scope, $rootScope, RestApi, getImportEntities) {
+                controller: function ($scope, $rootScope, RestApi, getImportEntities, $modal) {
 
                     $scope.import = function () {
                         $scope.showSpinner = true;
@@ -682,12 +682,33 @@ angular.module('boltApp')
                                     default:
                                         break;
                                 }
-                            })
+                            });
                         });
                         RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
-                            console.log(res);
                             $scope.showSpinner = false;
-                            $rootScope.$state.go('admin.classes.list');
+                            $modal.open({
+                                templateUrl: 'views/modalImport.html',
+                                controller: ['$scope', '$modalInstance', 'data',
+
+                                    function ($scope, $modalInstance, data) {
+
+                                        $scope.close = function () {
+                                            $modalInstance.close(false);
+                                        };
+
+                                        $scope.data = data;
+
+                                    }],
+                                resolve: {
+                                    data: function () {
+                                        return res.data;
+                                    }
+                                },
+                                backdrop: 'static',
+                                windowClass: 'modal-cancel'
+                            });
+                        }, function (res) {
+                            console.log(res);
                         });
                     };
 

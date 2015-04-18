@@ -22,18 +22,8 @@ angular.module('boltApp')
             },
             template: '<div><input class="btn cta gray" type="file"/></div>',
             link: function (scope, element) {
-                element.on('keyup', function (e) {
-                    if (scope.content !== null) {
-                        var content = {
-                            csv: scope.content,
-                            header: scope.header,
-                            separator: e.target.value,
-                            entity: scope.entity
-                        };
-                        scope.headers = getHeaders(content);
-                        scope.result = csvToJSON(content);
-                        scope.$apply();
-                    }
+                element.on('click', function (e) {
+                    e.target.value = '';
                 });
 
                 element.on('change', function (onChangeEvent) {
