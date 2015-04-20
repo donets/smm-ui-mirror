@@ -26,7 +26,7 @@
     </div>
     <div class="w-right">
         <div class="b-main-sidebar">
-            <div class="b-studio-info" ng-if="studio.coverageBlack || studio.coverageWhite || studio.coverageLite">
+            <div class="b-studio-info" ng-if="lang !== 'en' && (studio.coverageBlack || studio.coverageWhite || studio.coverageLite)">
                 <b translate>Accepted cards:</b>
                 <ul>
                     <li ng-if="studio.coverageBlack"><img src="images/black-ico.png" alt=""/>Black Card:
