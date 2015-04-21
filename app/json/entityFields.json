@@ -3,25 +3,25 @@
        "locations": [
            {
                "model": "name",
-               "title": "Ortname"
+               "title": "Location name"
            }, {
-               "model": "address",
-               "title": "Strasse und Hausnummer"
+               "model": "cityId",
+               "modelSelect": "cities",
+               "title": "City",
+               "listed": false,
+               "order": "toString()",
+               "type": "select_object"
            }, {
                "model": "neigbourhood",
-               "title": "Bezirk",
+               "title": "Neigbourhood",
                "order": "toString()",
                "type": "select"
            }, {
                "model": "postal_code",
-               "title": "PLZ"
+               "title": "Postcode"
            }, {
-               "model": "cityId",
-               "modelSelect": "cities",
-               "title": "Stadt",
-               "listed": false,
-               "order": "toString()",
-               "type": "select_object"
+               "model": "address",
+               "title": "Street and house number"
            }
        ],
        "studios": [
