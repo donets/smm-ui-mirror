@@ -628,12 +628,6 @@ angular.module('boltApp')
 
 						return RestApi.query({route: 'studios'}).$promise;
 
-					},
-
-					getNeigbourhood: function($http) {
-
-						return $http.get('json/neigbourhood.json', {cache: true});
-
 					}
 
 				}
@@ -780,19 +774,12 @@ angular.module('boltApp')
 
 						return $http.get('json/entityFields.json', {cache: true});
 
-					},
-
-					getNeigbourhood: function($http) {
-
-						return $http.get('json/neigbourhood.json', {cache: true});
-
 					}
 
 				},
-				controller: function($rootScope, getEntityFields, getNeigbourhood, RestApi, $http, $window, $modal) {
+				controller: function($rootScope, getEntityFields, RestApi, $http, $window, $modal) {
 
 					$rootScope.fields = getEntityFields.data.entities[$rootScope.$stateParams.route];
-					$rootScope.neigbourhood = getNeigbourhood.data;
 					$rootScope.freeSubscriptionDuarationInMonths = _.range(1, 13);
 					$rootScope.discountDuarationInMonths = _.range(1, 13);
 					$rootScope.subscriptionType = ['BLACK', 'WHITE', 'LITE'];
@@ -900,6 +887,11 @@ angular.module('boltApp')
 						}).$promise.then(function(response) {
 							$rootScope.cities = response;
 						});
+                        $rootScope.changeCityLocation = function (city) {
+                            RestApi.query({route: 'districts',cityId: city}).$promise.then(function (res) {
+                                $rootScope.neigbourhood = _.pluck(res, 'name');
+                            });
+                        };
 					}
 
 					$rootScope.showDatepicker = {};
