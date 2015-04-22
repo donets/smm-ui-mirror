@@ -1045,6 +1045,14 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
+            .state('about_test', {
+                url: '/p/about_test/',
+                templateUrl: 'views/about_test.html',
+                controller: 'AboutCtrl',
+                onExit: function($rootScope) {
+                    $rootScope.autoscroll = true;
+                }
+            })
 			.state('login', {
 				url: '/p/login/',
 				templateUrl: 'views/login.html',
