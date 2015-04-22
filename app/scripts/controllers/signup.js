@@ -232,7 +232,8 @@ angular.module('boltApp.controllers.Signup', [])
                                 {
                                     'name': response.membership.current.type,
                                     'id': response.membership.cardNumber,
-                                    'price': response.membership.current.monthlyPrice
+                                    'price': response.membership.current.monthlyPrice,
+                                    'quantity': '1'
                                 }
                             ]}
                     }
