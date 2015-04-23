@@ -32,6 +32,9 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.cityChange();
             });
             setVoucher('EARLY_BIRD_2014');
+            $scope.localizedSelect = gettextCatalog.getString('Select');
+            $scope.localizedSelected = gettextCatalog.getString('Selected');
+            $scope.localizedUnlimited = gettextCatalog.getString('Unlimited');
         };
 
         $scope.$on('configLoaded', $scope.init);
@@ -324,9 +327,4 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.creditCard = null;
             }
         };
-
-      $scope.localizedSelect = gettextCatalog.getString('Select');
-      $scope.localizedSelected = gettextCatalog.getString('Selected');
-      $scope.localizedUnlimited = gettextCatalog.getString('Unlimited');
-
     });
