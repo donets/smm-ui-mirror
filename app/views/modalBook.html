@@ -5,8 +5,8 @@
     </button>
     <p class="date">{{event.start_date | amDateFormat: 'MMMM D, dddd'}}</p>
     <h2><span class="time">{{event.start_date | amDateFormat: 'HH:mm'}} - {{event.end_date | amDateFormat: 'HH:mm'}}</span><b>{{event.class.title}}</b></h2>
-    <p><span ng-if="event.class.discipline">{{event.class.discipline}}</span> <span ng-if="event.class.style">{{event.class.style}}</span> <span ng-if="event.class.teacherName">{{event.class.teacherName}}</span></p>
-    <p class="address"><i class="fa fa-map-marker"></i>{{event.class.location.neigbourhood || event.class.location.postal_code}}</p>
+    <p><span ng-if="event.class.discipline">{{event.class.discipline}}</span> <span ng-if="event.class.style">{{event.class.style}}</span> <span ng-if="event.teacherName">{{event.teacherName}}</span></p>
+    <p class="address"><i class="fa fa-map-marker"></i>{{event.location.neigbourhood || event.location.postal_code}}</p>
     <p>{{event.class.studio.name}}</p>
     <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
     <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus !== 'BOOKED' && roleMember">

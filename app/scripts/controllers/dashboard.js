@@ -19,9 +19,11 @@ angular.module('boltApp.controllers.Dashboard', [])
                     ]).then(function (resolve) {
                     _.map(res.classes.classAccesses, function (obj) {
                         var studio = _.findWhere(resolve[0], {id: obj.studioId});
-                        var location = _.findWhere(resolve[1], {id: obj.locationId});
-                        obj.disciplinestyle = [obj.discipline, obj.style];
                         obj.studio = obj.studioId && studio ? studio : '';
+                        obj.disciplinestyle = [obj.discipline, obj.style];
+                    });
+                    _.map(res.classes.occurenceAccesses, function (obj) {
+                        var location = _.findWhere(resolve[1], {id: obj.locationId});
                         obj.location = obj.locationId && location ? location : '';
                     });
                     $scope.neigbourhood = resolve[2];
