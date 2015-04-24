@@ -65,7 +65,7 @@ msgstr ""
 
 #: app/views/homepage.html:30
 #: app/views/homepage.html:53
-msgid "Congrats, you are on the list!"
+msgid "Super! You are on the waitlist"
 msgstr ""
 
 #: app/views/homepage.html:370
