@@ -39,7 +39,7 @@ msgstr "Kontaktiere uns"
 
 #: app/index.html:217
 msgid "FAQ"
-msgstr "faq"
+msgstr "FAQ"
 
 #: app/index.html:184
 msgid "Follow us"

@@ -1089,5 +1089,12 @@ angular.module('boltApp')
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
-			});
+			})
+            .state('privacyPolicy', {
+                url: '/p/privacyPolicy/',
+                templateUrl: 'views/privacyPolicy.html',
+                onExit: function($rootScope) {
+                    $rootScope.autoscroll = true;
+                }
+            });
 	}]);
