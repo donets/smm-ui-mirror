@@ -144,7 +144,11 @@ angular.module('boltApp.controllers.Reservations', [])
                     event.class = _.findWhere(res.bookings.classAccesses, {id: event.classId});
                 });
                 $scope.groupRes = _.groupBy(_.filter($scope.events, function (event) {
-                    return event.status === status;
+                    if (status === 'LIVE') {
+                        return moment(event.start_date).isAfter(moment());
+                    } else {
+                        return moment(event.start_date).isBefore(moment());
+                    }
                 }), 'date');
                 $scope.showSpinner = false;
             });

@@ -830,9 +830,20 @@
             font-size: 14px;
             font-weight: bold;
         }
-        tr:nth-child(even) {
-            td {
-                background: #fff;
+        tr {
+            &.cancelled {
+                td {
+                    background: getRgba(#fff, 0.5);
+                    text-decoration: line-through;
+                    & > span, p, i {
+                        opacity: 0.5;
+                    }
+                }
+            }
+            &:nth-child(even) {
+                td {
+                    background: #fff;
+                }
             }
         }
     }
