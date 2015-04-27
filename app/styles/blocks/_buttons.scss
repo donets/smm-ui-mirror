@@ -147,6 +147,51 @@
     }
 }
 
+.simple-button {
+    display: block;
+    height: 36px;
+    line-height: 34px;
+    background: $colorBackTimetable;
+    border: 1px solid $colorGrey;
+    @include transition(all .2s);
+    color: $colorGrey;
+    font-size: 15px;
+    @include box-sizing(border-box);
+    @include border-radius(3px);
+    text-align: center;
+    padding: 0 22px;
+    text-decoration: none;
+    @media (max-width: $containerMobileWidth) {
+        height: 80px;
+        border-width: 2px;
+        font-size: 26px;
+        line-height: 80px;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        height: 40px;
+        min-width: 0;
+        padding: 0 6px;
+        border-width: 1px;
+        font-size: 15px;
+        line-height: 40px;
+        .fa {
+            margin-left: 4px;
+        }
+    }
+    .fa {
+        color: $colorGrey;
+        margin-left: 8px;
+    }
+    &:hover {
+        border-color: $colorText;
+        color: $colorText;
+        text-decoration: none;
+        .fa {
+            color: $colorText;
+        }
+    }
+}
+
 button, input[type="submit"] {
     &[disabled] {
         opacity: 0.5;

@@ -59,6 +59,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Admin',
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
+        'boltApp.controllers.Reservations',
         'boltApp.services.restApi',
         'boltApp.services.detectCity',
         'boltApp.services.countryConfig',
@@ -587,6 +588,11 @@ angular.module('boltApp')
 			.state('profile.membership', {
 				url: 'membership/',
 				templateUrl: 'views/userMembership.html'
+			})
+			.state('profile.reservations', {
+				url: 'reservations/',
+				templateUrl: 'views/userReservations.html',
+                controller: 'ReservationsCtrl'
 			})
 			.state('dashboard', {
 				url: '/p/kurse/:city/',

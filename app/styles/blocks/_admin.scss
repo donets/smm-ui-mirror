@@ -770,6 +770,12 @@
     }
 }
 .b-class-table {
+    .table-title {
+        display: block;
+        font-size: 24px;
+        color: $colorGrey;
+        padding: 0 20px;
+    }
     .timetable {
         border-collapse: separate;
         td {
@@ -826,10 +832,34 @@
                 }
             }
         }
-        tr:nth-child(even) {
-            td {
-                background: #fff;
+        th {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        tr {
+            &.cancelled {
+                td {
+                    .title {
+                        text-decoration: line-through;
+                    }
+                }
             }
+            &:nth-child(even) {
+                td {
+                    background: #fff;
+                }
+            }
+        }
+    }
+    &.reservations {
+        .timetable {
+            margin: 10px 0 30px;
+        }
+        .simple-button {
+            margin: 0 auto;
+        }
+        .simple-button + .table-title {
+            margin: 50px 0 0; 
         }
     }
 }
