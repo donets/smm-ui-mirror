@@ -336,11 +336,13 @@
                 margin-right: 5px;
             }
             > span {
-                &:after {
-                    content: ",";
+                &:before {
+                    content: ", ";
+                    margin-left: -3px;
+
                 }
-                &:last-child {
-                    &:after {
+                &:first-child {
+                    &:before {
                         content: "";
                     }
                 }
