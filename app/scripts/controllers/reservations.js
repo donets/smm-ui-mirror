@@ -10,125 +10,9 @@
 angular.module('boltApp.controllers.Reservations', [])
     .controller('ReservationsCtrl', function ($scope, $rootScope, getMembership, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
 
-        $scope.getReservations = function (status) {
-            $scope.status = status;
+        $scope.getReservations = function () {
             $scope.showSpinner = true;
                 $http.get($window.smmConfig.restUrlBase + '/api/bookings/get').success(function (res) {
-                /*res = {
-                    "status": "success",
-                    "bookings": {
-                        "bookings": [
-                            {
-                                "id": 400,
-                                "occurrenceId": 1,
-                                "created": "2015-04-18T12:56:25.556+03:00",
-                                "updated": "2015-04-18T12:58:14.999+03:00",
-                                "status": "CANCELED",
-                                "signedIn": null,
-                                "studioId": 1
-                            },
-                            {
-                                "id": 390,
-                                "occurrenceId": 784,
-                                "created": "2015-04-18T12:44:05.655+03:00",
-                                "updated": "2015-04-18T13:06:21.551+03:00",
-                                "status": "CANCELED",
-                                "signedIn": null,
-                                "studioId": 1
-                            },
-                            {
-                                "id": 380,
-                                "occurrenceId": 4697,
-                                "created": "2015-04-18T12:35:05.593+03:00",
-                                "updated": "2015-04-18T12:48:56.467+03:00",
-                                "status": "CANCELED",
-                                "signedIn": null,
-                                "studioId": 1
-                            },
-                            {
-                                "id": 381,
-                                "occurrenceId": 3131,
-                                "created": "2015-04-14T21:30:00.000+03:00",
-                                "updated": "2015-04-14T21:30:00.000+03:00",
-                                "status": "BOOKED",
-                                "signedIn": true,
-                                "studioId": 1
-                            }
-                        ],
-                        "occurenceAccesses": [
-                            {
-                                "bookable": true,
-                                "bookingStatus": "CANCELED",
-                                "bookableSpotsLeft": null,
-                                "occurrenceId": 784,
-                                "classId": "1+1",
-                                "status": "LIVE",
-                                "date": "2015-04-20",
-                                "startTime": "20:30:00.000",
-                                "endTime": "21:30:00.000",
-                                "source": "MINDBODY",
-                                "studioId": "1"
-                            },
-                            {
-                                "bookable": true,
-                                "bookingStatus": "CANCELED",
-                                "bookableSpotsLeft": null,
-                                "occurrenceId": 1,
-                                "classId": "1+1",
-                                "status": "LIVE",
-                                "date": "2015-04-19",
-                                "startTime": "20:30:00.000",
-                                "endTime": "21:30:00.000",
-                                "source": "MINDBODY",
-                                "studioId": "1"
-                            },
-                            {
-                                "bookable": true,
-                                "bookingStatus": "CANCELED",
-                                "bookableSpotsLeft": null,
-                                "occurrenceId": 4697,
-                                "classId": "1+1",
-                                "status": "LIVE",
-                                "date": "2015-04-18",
-                                "startTime": "20:30:00.000",
-                                "endTime": "21:30:00.000",
-                                "source": "MINDBODY",
-                                "studioId": "1"
-                            },
-                            {
-                                "bookable": true,
-                                "bookingStatus": "BOOKED",
-                                "bookableSpotsLeft": null,
-                                "occurrenceId": 3131,
-                                "classId": "1+1",
-                                "status": "ENDED",
-                                "date": "2015-04-18",
-                                "startTime": "20:30:00.000",
-                                "endTime": "21:30:00.000",
-                                "source": "MINDBODY",
-                                "studioId": "1"
-                            }
-                        ],
-                        "classAccesses": [
-                            {
-                                "id": "1+1",
-                                "title": "TransSerfing",
-                                "discipline": null,
-                                "style": null,
-                                "locationId": null,
-                                "studioId": 1,
-                                "status": "LIVE",
-                                "description": null,
-                                "levels": null,
-                                "teacherName": "Viktor Talan",
-                                "requiresRegistration": true,
-                                "freeSchedule": false,
-                                "visitDurationMinutes": 60,
-                                "acceptedPlans": null
-                            }
-                        ]
-                    }
-                };*/
                 _.map(res.bookings.classAccesses, function (obj) {
                     var studio = _.findWhere($scope.studios, {id: obj.studioId});
                     var location = _.findWhere($scope.locations, {id: obj.locationId});
@@ -143,12 +27,11 @@ angular.module('boltApp.controllers.Reservations', [])
                     event.endTime = event.endTime.slice(0,5);
                     event.class = _.findWhere(res.bookings.classAccesses, {id: event.classId});
                 });
-                $scope.groupRes = _.groupBy(_.filter($scope.events, function (event) {
-                    if (status === 'LIVE') {
-                        return moment(event.start_date).isAfter(moment());
-                    } else {
-                        return moment(event.start_date).isBefore(moment());
-                    }
+                $scope.groupResAfter = _.groupBy(_.filter($scope.events, function (event) {
+                    return moment(event.start_date).isAfter(moment());
+                }), 'date');
+                $scope.groupResBefore = _.groupBy(_.filter($scope.events, function (event) {
+                    return moment(event.start_date).isBefore(moment());
                 }), 'date');
                 $scope.showSpinner = false;
             });
@@ -160,7 +43,7 @@ angular.module('boltApp.controllers.Reservations', [])
         ]).then(function (resolve) {
             $scope.studios = resolve[0];
             $scope.locations = resolve[1];
-            $scope.getReservations('LIVE');
+            $scope.getReservations();
         });
 
 
@@ -254,6 +137,10 @@ angular.module('boltApp.controllers.Reservations', [])
                 event.error = res.type || 'default';
                 event.showSpinner = false;
             });
+        };
+
+        $scope.showPastClassesClick = function () {
+            $scope.showPastClasses = true;
         };
 
     });

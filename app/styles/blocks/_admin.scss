@@ -770,6 +770,12 @@
     }
 }
 .b-class-table {
+    .table-title {
+        display: block;
+        font-size: 24px;
+        color: $colorGrey;
+        padding: 0 20px;
+    }
     .timetable {
         border-collapse: separate;
         td {
@@ -833,10 +839,8 @@
         tr {
             &.cancelled {
                 td {
-                    background: getRgba(#fff, 0.5);
-                    text-decoration: line-through;
-                    & > span, p, i {
-                        opacity: 0.5;
+                    .title {
+                        text-decoration: line-through;
                     }
                 }
             }
@@ -845,6 +849,17 @@
                     background: #fff;
                 }
             }
+        }
+    }
+    &.reservations {
+        .timetable {
+            margin: 10px 0 30px;
+        }
+        .simple-button {
+            margin: 0 auto;
+        }
+        .simple-button + .table-title {
+            margin: 50px 0 0; 
         }
     }
 }

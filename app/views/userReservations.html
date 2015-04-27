@@ -1,7 +1,3 @@
-<ul class="tab-nav">
-    <li><a href="" ng-class="{'active': status === 'ENDED'}" ng-click="getReservations('ENDED')">Past Classes</a></li><li>
-    <a href="" ng-class="{'active': status === 'LIVE'}" ng-click="getReservations('LIVE')">Upcoming Classes</a></li>
-</ul>
 <div class="dashboard">
     <div class="container cf">
         <div class="w-left" ng-if="mobile">
@@ -32,8 +28,28 @@
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
             </div>
         </div>
-        <div class="b-class-table" ng-if="desktop">
-            <table ng-hide="showSpinner" class="timetable" ng-repeat="events in groupRes">
+        <div class="b-class-table reservations" ng-if="desktop">
+            <b ng-hide="showSpinner" class="table-title">Upcoming Classes</b>
+            <table ng-hide="showSpinner" class="timetable" ng-repeat="events in groupResAfter">
+                <tbody>
+                    <tr>
+                        <th colspan="5">{{events[0].date | amDateFormat: 'MMMM D, dddd'}}</th>
+                    </tr>
+                    <tr ng-class="{'cancelled': e.bookingStatus === 'CANCELED'}" ng-repeat="e in events">
+                        <td>
+                            <p>{{e.startTime}} - {{e.endTime}}</p>
+                        </td>
+                        <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
+                        <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
+                        <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
+                        <td disable-animate><button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'BOOKED' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
+                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'BOOKED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="simple-button" ng-hide="showSpinner || showPastClasses" ng-click="showPastClassesClick()">Show Past Classes</button>
+            <b ng-hide="showSpinner" ng-if="showPastClasses" class="table-title">Past Classes</b>
+            <table ng-hide="showSpinner" ng-if="showPastClasses" class="timetable" ng-repeat="events in groupResBefore">
                 <tbody>
                     <tr>
                         <th colspan="5">{{events[0].date | amDateFormat: 'MMMM D, dddd'}}</th>
