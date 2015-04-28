@@ -1,0 +1,95 @@
+<div class="dashboard-title" sticky use-placeholder>
+    <div class="container">
+        <div class="b-filters cf">
+            <div ng-if="desktop" class="main-filters">
+                <select chosen name="city"
+                        ng-model="cityId" ng-change="changeCity(cityId)"
+                        data-placeholder="{{'City'|translate}}"
+                        ng-options-disabled="!item.active for item in cities"
+                        ng-options="item.id as item.defaultName for item in cities">
+                    <option value=""></option>
+                </select>
+                <select chosen
+                        id="neigbourhood"
+                        ng-model="search.class.location"
+                        data-placeholder="{{'All districts'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
+                    <option value=""></option>
+                </select>
+                <select chosen
+                        id="studio"
+                        ng-model="search.class.studioId"
+                        data-placeholder="{{'All studios'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.id as item.name for item in studios | orderBy: 'name'">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div ng-if="desktop" class="short-filters">
+                <ul class="filters-list">
+                    <li>{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
+                    <li>{{search.class.location ? search.class.location : 'All districts'}}</li>
+                    <li>{{search.class.studioId ? _.findWhere(studios, {id: search.class.studioId}).name : 'All Studios'}}</li>
+                </ul>
+            </div>
+            <div ng-if="mobile" class="mobile-controls">
+                <div class="form-rel">
+                    <button class="control-button" ng-click="filtersMobileShow()">
+                        {{search.class.location || search.class.studioId ? (events
+                            | dataFilter: 'neigbourhood': search.class.location
+                            | dataFilter: 'id': search.class.studioId).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
+                </div>
+            </div>
+            <div class="mobile-filters" ng-show="filtersMobile" ng-if="mobile">
+                <select chosen name="city" width="'100%'"
+                        ng-model="cityId" ng-change="changeCity(cityId)"
+                        data-placeholder="{{'City'|translate}}"
+                        ng-options-disabled="!item.active for item in cities"
+                        ng-options="item.id as item.defaultName for item in cities">
+                    <option value="" ng-show="desktop"></option>
+                </select>
+                <select chosen
+                        id="neigbourhood" width="'100%'"
+                        ng-model="search.class.location"
+                        data-placeholder="{{'All districts'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
+                    <option value="" translate>All districts</option>
+                </select>
+                <select chosen
+                        id="studio" width="'100%'"
+                        ng-model="search.class.studioId"
+                        data-placeholder="{{'All studios'|translate}}"
+                        disable-search="false"
+                        allow-single-deselect="true"
+                        ng-options="item.name as item.name for item in studios | orderBy: 'name'">
+                    <option value="" translate>All studios</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dashboard">
+    <div class="container cf">
+        <div ng-hide="showSpinner" class="studios-list">
+            <div class="b-studio-item" ui-sref="{{s.profileComplete ? 'studio({studioId: s.id})' : '.'}}" ng-class="{'active': s.profileComplete}" ng-repeat="s in studios
+                            | dataFilter: 'neigbourhood': search.class.location
+                            | dataFilter: 'id': search.class.studioId">
+                <div class="img-placeholder" ng-style="{'height': mobile && windowWidth / 2}"><img src="{{s.covers[0].cover1080}}" alt=""/></div>
+                <b class="studio-title"><span>{{s.name}}</span></b>
+                <p class="discipline">{{s.disciplines}}</p>
+                <address ng-repeat="l in s.locationsFull"><b><i class="fa fa-map-marker"></i> {{l.neigbourhood}}</b><span>{{l.address}}</span></address>
+            </div>
+            <p class="empty" ng-if="!(studios
+                        | dataFilter: 'neigbourhood': search.class.location
+                        | dataFilter: 'id': search.class.studioId).length" translate>There are no studios for this search. Try another filters.</p>
+        </div>
+        <div ng-show="showSpinner" class="dashboard-spinner">
+            <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
+        </div>
+    </div>
+</div>

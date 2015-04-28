@@ -18,7 +18,7 @@
         <span><i class="fa fa-phone"></i>{{supportPhone}}</span>
     </li>
     <li id="login" ng-class="{ 'popap': isPopupVisible }" toggle-popup ng-if="!userName">
-        <a href="" class="login-link" ng-click="togglePopup()" analytics-on="click" analytics-event="navmenu_login" analytics-category="card_page" translate>Login</a>
+        <a href="" class="login-link" ng-click="togglePopup()" translate>Login</a>
         <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
             <!--<div class="form-rel">
             <a class="fb_button" ng-click="loginFB()" href=""><i class="fa fa-facebook-square"></i>Login with Facebook</a>
@@ -65,7 +65,8 @@
     <a href="" ng-click="togglePopup()">{{userName}} <i class="fa fa-angle-down"></i></a>
     <div ng-if="isPopupVisible" class="b-header-nav_login-widget">
         <ul class="user-nav" ng-click="togglePopup()">
-            <li><a ui-sref="dashboard" translate>Classes</a></li>
+            <li><a ui-sref="dashboard({city: currentCity.id})" translate>Activities</a></li>
+            <li><a ui-sref="allstudios({city: currentCity.id})" translate>Studios</a></li>
             <li ng-if="roleMember"><a ui-sref="profile.account" translate>Account</a></li>
             <li ng-if="roleMember"><a ui-sref="profile.membership" translate>My card</a></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.classes.list" translate>Classes</a></li>
@@ -73,7 +74,7 @@
             <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'studios'})" translate>Studios</a></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'vouchers'})" translate>Vouchers</a></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'memberships'})" translate>Memberships</a></li>
-            <li><a class="logout" ng-click="logout()" href="" analytics-on="click" analytics-event="navmenu_logout" analytics-category="card_page" translate>Sign out</a></li>
+            <li><a class="logout" ng-click="logout()" href="" translate>Sign out</a></li>
         </ul>
     </div>
 </li>

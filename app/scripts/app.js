@@ -25,7 +25,7 @@ angular.module('boltApp', [
         'duScroll',
         'duParallax',
         'ngTagsInput',
-        'vr.directives.slider',
+        'ui-rangeSlider',
         'localytics.directives',
         'validation.match',
         'ezfb',
@@ -35,8 +35,6 @@ angular.module('boltApp', [
         'ngshowvariant',
         'xeditable',
         'angulartics',
-        'angulartics.google.analytics',
-        'angulartics.google.tagmanager',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
@@ -53,6 +51,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
         'boltApp.controllers.Dashboard',
+        'boltApp.controllers.Studios',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
         'boltApp.controllers.More',
@@ -61,6 +60,8 @@ angular.module('boltApp', [
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.services.restApi',
+        'boltApp.services.detectCity',
+        'boltApp.services.countryConfig',
         'boltApp.services.events',
         'boltApp.services.occurrences',
         'boltApp.services.suppliers',
@@ -68,11 +69,12 @@ angular.module('boltApp', [
         'boltApp.services.membership',
         'boltApp.services.navigator',
         'boltApp.services.city',
-        'boltApp.services.mapStudios'
+        'boltApp.services.mapStudios',
+        'angulartics.google.customtagmanager'
     ]);
 angular.module('boltApp')
-	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore',
-		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore) {
+	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
+		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore, CountryConfig, DetectCity) {
 			// It's very handy to add references to $state and $stateParams to the $rootScope
 			// so that you can access them from any scope within your applications.For example,
 			// <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
@@ -83,22 +85,6 @@ angular.module('boltApp')
 			$rootScope.pageReload = function() {
 				$window.location.reload();
 			};
-			$rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
-			var domains = [{
-				domain: 'DE',
-				countryCode: 'DE'
-			}, {
-				domain: 'UK',
-				countryCode: 'UK'
-			}, {
-				domain: 'COM',
-				countryCode: 'DE'
-			}];
-			$rootScope.domainProperties = _.findWhere(domains, {
-				domain: $rootScope.domain
-			});
-			$rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
-			console.log('country = ' + $rootScope.countryCode);
 			$rootScope.$on('$viewContentLoading', function() {
 				$window.rendering = true;
 			});
@@ -119,7 +105,50 @@ angular.module('boltApp')
 					    $cookieStore.put('cityId', 1);
 					    prerenderReady();
 					});*/
-					prerenderReady();
+                    if ($rootScope.configLoaded) {
+                        $rootScope.$broadcast('configLoaded');
+                        prerenderReady();
+                    } else {
+                        var detectedCity = DetectCity.getCityFromParams();
+                        CountryConfig.guessCity().$promise.then(function (res) {
+                            $rootScope.configLoaded = true;
+                            $rootScope.configCountry = res.country;
+                            $rootScope.configCities = res.cities;
+                            if (detectedCity) {
+                                $rootScope.currentCity = _.find($rootScope.configCities, function (city) {
+                                    return city[detectedCity.field] === detectedCity.value;
+                                });
+                            } else {
+                                $rootScope.currentCity = res.guessedCity;
+                            }
+                            $rootScope.countryCode = $rootScope.currentCity.countryCode;
+                            $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode);
+                            $rootScope.$broadcast('configLoaded');
+                            prerenderReady();
+                        }, function () {
+                            $rootScope.domain = _.last($window.location.hostname.split('.')).toUpperCase();
+                            var domains = [
+                                {
+                                    domain: 'DE',
+                                    countryCode: 'DE'
+                                },
+                                {
+                                    domain: 'UK',
+                                    countryCode: 'UK'
+                                },
+                                {
+                                    domain: 'COM',
+                                    countryCode: 'DE'
+                                }
+                            ];
+                            $rootScope.domainProperties = _.findWhere(domains, {
+                                domain: $rootScope.domain
+                            });
+                            $rootScope.countryCode = $rootScope.domainProperties ? $rootScope.domainProperties.countryCode : 'DE';
+                            console.log('country = ' + $rootScope.countryCode);
+                            prerenderReady();
+                        });
+                    }
 				}
 			});
 			var checkRule = function(event, toState, toParams, redirectState) {
@@ -141,7 +170,7 @@ angular.module('boltApp')
 					}
 				} else if (toState.name === 'home' && $rootScope.roleMember) {
 					event.preventDefault();
-					$rootScope.$state.go('dashboard', {notify: false});
+					$rootScope.$state.go('dashboard', {notify: false, city: $cookieStore.get('cityId') || 1});
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
@@ -153,6 +182,10 @@ angular.module('boltApp')
 					$rootScope.userName = session.name;
 					$rootScope.roleMember = _.include(session.roles, 'member') ? true : false;
 					$rootScope.roleAdmin = _.include(session.roles, 'admin') ? true : false;
+                    $window.rockVarSet.push({
+                        'customerId': session.id,
+                        'customerStatus': 'returning'
+                    });
 					checkRule(event, toState, toParams, 'accessDenied');
 				} else {
 					$rootScope.userName = null;
@@ -169,7 +202,7 @@ angular.module('boltApp')
             $rootScope.closeEasterMessage = function() {
                 $cookieStore.put('easterMessageViewed', true);
                 $rootScope.easterMessage = false;
-            }
+            };
 		}
 	])
 	/*.run(['optimizely', function(optimizely) {
@@ -200,28 +233,23 @@ angular.module('boltApp')
 	})
 	.run(['gettextCatalog', '$cookieStore', '$rootScope', 'amMoment',
 		function(gettextCatalog, $cookieStore, $rootScope, amMoment) {
-			if (!$cookieStore.get('globalLang')) {
-				switch ($rootScope.countryCode) {
-					case 'DE':
-						$rootScope.lang = 'de';
-						break;
-					case 'UK':
-						$rootScope.lang = 'en';
-						break;
-					default:
-						$rootScope.lang = 'de';
-				}
-				$cookieStore.put('globalLang', $rootScope.lang);
-			} else {
-				$rootScope.lang = $cookieStore.get('globalLang');
-			}
-			gettextCatalog.setCurrentLanguage($rootScope.lang);
-			amMoment.changeLocale($rootScope.lang);
+            $rootScope.$on('changeLang', function(event, lang) {
+                $rootScope.lang = lang;
+                $cookieStore.put('globalLang', $rootScope.lang);
+                gettextCatalog.setCurrentLanguage($rootScope.lang);
+                amMoment.changeLocale($rootScope.lang);
+            });
 		}
 	])
-	.constant('angularMomentConfig', {
-		timezone: 'Europe/Berlin'
-	})
+    .run(['$window', '$location', 'navigator',
+        function($window, $location, navigator) {
+            $window.rockVarSet.push({
+                'userAgent': $window.navigator.userAgent,
+                'deviceType': navigator.platform(),
+                'webTheme': 'desktop'
+            });
+        }
+    ])
 	.config(function(uiGmapGoogleMapApiProvider) {
 		uiGmapGoogleMapApiProvider.configure({
 			v: '3.17',
@@ -323,7 +351,7 @@ angular.module('boltApp')
 		return {
 			responseError: function responseError(rejection) {
 				$rootScope.rejection = rejection;
-				var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException', 'UserNotFound'];
+				var types = ['WrongUsernameOrPassword', 'CardException', 'AccountExists', 'VoucherCodeNotValid', 'NotFoundException', 'UserNotFound', 'ProviderWrongConfigurationException', 'ClassNotBookableException', 'ProviderNotAvailableException', 'ClassBookingFailException'];
 				$rootScope.handledType = _.include(types, rejection.data.type);
 				if (rejection.data.type === 'NoLoggedInUser') {
 					$rootScope.$state.go('login', {
@@ -482,31 +510,6 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
-			.state('home.classes', {
-				templateUrl: 'views/homeClasses.html',
-				resolve: {
-
-					getClasses: function(RestApi) {
-
-						return RestApi.query({route: 'events'}).$promise;
-
-					},
-
-					getOccurrences: function(RestApi) {
-
-						return RestApi.query({route: 'occurrences', forDurationOfDays: 7, withActiveParent: true}).$promise;
-
-					},
-
-					getNeigbourhood: function($http) {
-
-						return $http.get('json/neigbourhood.json', {cache: true});
-
-					}
-
-				},
-				controller: 'DashboardCtrl'
-			})
 			.state('signup', {
 				url: '/p/signup/:cityId/?invitation',
 				templateUrl: 'views/signup.html',
@@ -589,54 +592,14 @@ angular.module('boltApp')
 				url: '/p/kurse/:city/',
 				templateUrl: 'views/userDashboard.html',
 				controller: 'DashboardCtrl',
-				resolve: {
-
-					getClasses: function(RestApi) {
-
-						return RestApi.query({route: 'events'}).$promise;
-
-					},
-
-					getOccurrences: function(RestApi, $stateParams) {
-
-						return RestApi.query({
-							route: 'occurrences',
-							forDurationOfDays: 7,
-							cityId: $stateParams.city,
-							withActiveParent: true
-						}).$promise;
-
-					},
-
-					getLocations: function(RestApi) {
-
-						return RestApi.query({route: 'locations'}).$promise;
-
-					},
-
-					getStudios: function(RestApi, $stateParams) {
-
-						return RestApi.query({
-							route: 'studios',
-							cityId: $stateParams.city
-						}).$promise;
-
-					},
-
-					getNeigbourhood: function(RestApi, $stateParams) {
-
-						return RestApi.query({route: 'districts',cityId: $stateParams.city}).$promise;
-
-					},
-
-					getCities: function(RestApi) {
-
-						return RestApi.query({route: 'cities'}).$promise;
-
-					}
-
-
-				},
+				onExit: function($rootScope) {
+					$rootScope.autoscroll = true;
+				}
+			})
+			.state('allstudios', {
+				url: '/p/studios/:city/',
+				templateUrl: 'views/userStudios.html',
+				controller: 'StudiosCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
@@ -665,12 +628,6 @@ angular.module('boltApp')
 
 						return RestApi.query({route: 'studios'}).$promise;
 
-					},
-
-					getNeigbourhood: function($http) {
-
-						return $http.get('json/neigbourhood.json', {cache: true});
-
 					}
 
 				}
@@ -694,54 +651,99 @@ angular.module('boltApp')
 				templateUrl: 'views/class.html',
 				controller: 'CreateClassCtrl'
 			})
-			.state('admin.classes.import', {
-				url: 'import/',
-				templateUrl: 'views/entityImport.html',
-				controller:
+            .state('admin.classes.import', {
+                url: 'import/',
+                templateUrl: 'views/entityImport.html',
+                resolve: {
+                    getImportEntities: function ($http) {
+                        return $http.get('json/import.json', {cache: true});
+                    }
+                },
+                controller: function ($scope, $rootScope, RestApi, getImportEntities, $modal) {
 
-					function($scope, $rootScope, RestApi) {
+                    $scope.import = function () {
+                        $scope.showSpinner = true;
+                        $scope.entities = $scope.csv.result;
+                        _.each($scope.entities, function (entity) {
+                            _.each(entity, function (value, key) {
+                                switch ($scope.importEntity[key].type) {
+                                    case 'integer':
+                                        entity[key] = parseInt(value);
+                                        break;
+                                    case 'float':
+                                        entity[key] = parseFloat(value);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            });
+                        });
+                        RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
+                            $scope.showSpinner = false;
+                            $modal.open({
+                                templateUrl: 'views/modalImport.html',
+                                controller: ['$scope', '$modalInstance', 'data',
 
-					$scope.import = function() {
-						$scope.showSpinner = true;
-						$scope.entities = $scope.csv.result;
-						RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function(res) {
-							console.log(res);
-							$scope.showSpinner = false;
-							$rootScope.$state.go('admin.classes.list');
-						});
-					};
+                                    function ($scope, $modalInstance, data) {
 
-					$scope.csv = {
-						content: null,
-						header: true,
-						test: null,
-						separator: ',',
-						result: null
-					};
-					$scope.importEntity = {
-						ClassId: 'integer',
-						Studio: 'string',
-						acceptedPlans: 'strings',
-						languages: 'strings',
-						visitorGenders: 'strings',
-						freeSchedule: 'boolean',
-						dropinPrice: 'string',
-						title: 'string',
-						discipline: 'string',
-						style: 'string',
-						level: 'string',
-						teacherName: 'string',
-						description: 'string',
-						day: 'string',
-						startTime: 'string',
-						endTime: 'string',
-						earliestStart: 'string',
-						endDate: 'string',
-						studioId: 'integer',
-						locationId: 'integer'
-					};
-				}
-			})
+                                        $scope.close = function () {
+                                            $modalInstance.close(false);
+                                        };
+
+                                        $scope.data = data;
+
+                                    }],
+                                resolve: {
+                                    data: function () {
+                                        return res.data;
+                                    }
+                                },
+                                backdrop: 'static',
+                                windowClass: 'modal-cancel'
+                            });
+                        }, function (res) {
+                            console.log(res);
+                        });
+                    };
+
+                    $scope.csv = {
+                        content: null,
+                        header: true,
+                        separator: ',',
+                        result: null,
+                        ignoredColumns: [],
+                        missingColumns: [],
+                        importErrors: {}
+                    };
+                    $scope.importEntity = getImportEntities.data.class;
+                    $scope.formattedErrors = function () {
+                        var result = 'Errors found in lines: ';
+                        _.each($scope.csv.importErrors, function (value, key) {
+                            result += key + ' (columns: ' + value.join(', ') + '), ';
+                        });
+                        return result.slice(0, -2);
+                    };
+                    $scope.formattedIgnoredColumns = function () {
+                        return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
+                    };
+                    $scope.formattedMissingColumns = function () {
+                        return 'FATAL ERROR! The following required columns are missing in your file: ' + $scope.csv.missingColumns.join(', ');
+                    };
+                    $scope.handleRemoteRules = function (entity) {
+                        _.each(entity, function (value, key) {
+                            if (_.contains(_.keys(value.rules), 'remote')) {
+                                var remoteRule = value.rules.remote;
+                                delete value.rules.remote;
+                                RestApi.query({route: remoteRule.route}).$promise.then(function(res) {
+                                    value.rules.inclusion = _.map(res, function(obj) { return obj[remoteRule.field]; }).join(',');
+                                });
+                            }
+                        });
+                        return entity;
+                    };
+                    $scope.importEntity = $scope.handleRemoteRules($scope.importEntity);
+                }
+            })
 			.state('admin.classes.class', {
 				url: ':classId/',
 				templateUrl: 'views/class.html',
@@ -772,19 +774,12 @@ angular.module('boltApp')
 
 						return $http.get('json/entityFields.json', {cache: true});
 
-					},
-
-					getNeigbourhood: function($http) {
-
-						return $http.get('json/neigbourhood.json', {cache: true});
-
 					}
 
 				},
-				controller: function($rootScope, getEntityFields, getNeigbourhood, RestApi, $http, $window, $modal) {
+				controller: function($rootScope, getEntityFields, RestApi, $http, $window, $modal) {
 
 					$rootScope.fields = getEntityFields.data.entities[$rootScope.$stateParams.route];
-					$rootScope.neigbourhood = getNeigbourhood.data;
 					$rootScope.freeSubscriptionDuarationInMonths = _.range(1, 13);
 					$rootScope.discountDuarationInMonths = _.range(1, 13);
 					$rootScope.subscriptionType = ['BLACK', 'WHITE', 'LITE'];
@@ -892,6 +887,11 @@ angular.module('boltApp')
 						}).$promise.then(function(response) {
 							$rootScope.cities = response;
 						});
+                        $rootScope.changeCityLocation = function (city) {
+                            RestApi.query({route: 'districts',cityId: city}).$promise.then(function (res) {
+                                $rootScope.neigbourhood = _.pluck(res, 'name');
+                            });
+                        };
 					}
 
 					$rootScope.showDatepicker = {};
@@ -1045,6 +1045,14 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
+            .state('about_test', {
+                url: '/p/about_test/',
+                templateUrl: 'views/about_test.html',
+                controller: 'AboutCtrl',
+                onExit: function($rootScope) {
+                    $rootScope.autoscroll = true;
+                }
+            })
 			.state('login', {
 				url: '/p/login/',
 				templateUrl: 'views/login.html',

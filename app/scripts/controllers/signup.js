@@ -8,40 +8,45 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Signup', [])
-    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog) {
+    .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog, $analytics) {
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
         $scope.year = _.range(2014, 2033);
-        $scope.order = {
-            deliveryAddress: {
-                city: 'Berlin',
-                countryCode: 'DE'
-            },
-            membershipActivatesOn: moment.tz('Europe/Berlin').format(),
-            paymentProvider: 'STRIPE',
-            newsletter: true,
-            landingUrl: $cookieStore.get('landingUrl'),
-            cityId: getCityId,
-            lang: $rootScope.lang
+
+        $scope.init = function () {
+            $scope.cities = $rootScope.configCities;
+            $scope.order = {
+                deliveryAddress: {
+                    city: $rootScope.currentCity.active ? $rootScope.currentCity.defaultName : $scope.cities[0].defaultName,
+                    countryCode: $rootScope.countryCode
+                },
+                membershipActivatesOn: moment().format(),
+                paymentProvider: 'STRIPE',
+                newsletter: true,
+                landingUrl: $cookieStore.get('landingUrl'),
+                cityId: $rootScope.currentCity.active ? $rootScope.currentCity.id : $scope.cities[0].id,
+                lang: $rootScope.lang
+            };
+            RestApi.query({route: 'countries'}).$promise.then(function (res) {
+                $scope.countries = res;
+                $scope.cityChange();
+            });
+            setVoucher('EARLY_BIRD_2014');
         };
-        $scope.cityChange = function() {
+
+        $scope.$on('configLoaded', $scope.init);
+
+        $scope.cityChange = function () {
             var selectedCity = _.findWhere($scope.cities, {id: $scope.order.cityId});
             $scope.order.deliveryAddress.city = selectedCity.defaultName;
             $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
             RestApi.query({route: 'plans', cityId: $scope.order.cityId}).$promise.then(function (res) {
                 $scope.cards = res;
             });
+            $scope.currentCountry = _.findWhere($scope.countries, {code: selectedCity.countryCode});
             $rootScope.supportPhone = selectedCity.supportPhone;
+            $rootScope.supportEmail = selectedCity.supportEmail;
         };
-        getCities.$promise.then(function (res) {
-            $scope.cities = _.sortBy(res, 'id').filter(function (c) {
-                return c.countryCode === $rootScope.countryCode;
-            });
-            if (! _.findWhere($scope.cities, {id: $scope.order.cityId})) {
-                $scope.order.cityId = $scope.cities[0].id;
-            }
-            $scope.cityChange();
-        });
 
         /*$scope.order = {
             "firstName": "Vlad",
@@ -74,7 +79,7 @@ angular.module('boltApp.controllers.Signup', [])
             $event.stopPropagation();
             $rootScope.showDatepicker[type] = true;
         };
-        $rootScope.minStartDate = new Date();
+        $rootScope.minStartDate = moment();
         $rootScope.dateOptions = {
             startingDay: 1,
             showWeekNumbers: false,
@@ -96,8 +101,6 @@ angular.module('boltApp.controllers.Signup', [])
                 });
             }
         };
-
-        setVoucher('EARLY_BIRD_2014');
 
         $scope.checkVoucher = function (code) {
             $scope.successVoucher = false;
@@ -168,11 +171,15 @@ angular.module('boltApp.controllers.Signup', [])
             });
         };
 
-        $scope.changeType = function () {
+        $scope.changeType = function (type) {
             $scope.checkVoucher($scope.code);
+            if (type) {
+                $scope.order.type = type;
+            }
             $scope.overview = {
                 card: _.findWhere($scope.cards, {code: $scope.order.type}).displayName,
-                price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice
+                price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice,
+                currency: _.findWhere($scope.cards, {code: $scope.order.type}).currency
             };
             $scope.showCheckout = true;
             //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
@@ -203,7 +210,44 @@ angular.module('boltApp.controllers.Signup', [])
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                 $cookieStore.put('session', response.user);
                 $cookieStore.put('signupPopap', true);
-                $rootScope.$state.go('dashboard');
+                $analytics.eventTrack({
+                    'event': 'registerSuccess',
+                    'registerMethod': 'Website',
+                    'customerId': response.user.id,
+                    'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName
+                });
+                $analytics.eventTrack({
+                    'event': 'transaction',
+                    'promoCodeUsed': $scope.order.voucher,
+                    'paymentMethod': response.membership.paymentProvider,
+                    'ecommerce': {
+                        'currencyCode': _.findWhere($scope.cards, {code: $scope.order.type}).currency,
+                        'purchase': {
+                            'actionField': {
+                                'id': response.membership.id,
+                                'revenue': response.membership.current.monthlyPrice,
+                                'coupon': $scope.order.voucher
+                            },
+                            'products': [
+                                {
+                                    'name': response.membership.current.type,
+                                    'id': response.membership.cardNumber,
+                                    'price': response.membership.current.monthlyPrice,
+                                    'quantity': '1'
+                                }
+                            ]}
+                    }
+                });
+                $analytics.eventTrack({
+                    'event': 'loginSuccess',
+                    'loginMethod': 'Website',
+                    'customerId': response.user.id
+                });
+                $window.rockVarSet.push({
+                    'customerId': response.user.id,
+                    'customerStatus': 'new'
+                });
+                $rootScope.$state.go('dashboard', {city: response.membership.cityId});
 
             }).error(function (response) {
 

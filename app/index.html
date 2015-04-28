@@ -16,6 +16,8 @@
     <meta property="og:title"  content="Somuchmore | Bewege Körper, Geist und Seele" />
     <meta property="og:image"  content="https://so-much-more.de/images/static/fb-share-main.jpg" />
     <!-- /smm -->
+    <link rel="alternate" hreflang="de-de" href="https://so-much-more.de/"/>
+    <link rel="alternate" hreflang="en-uk" href="https://www.somuchmore.co.uk/"/>
 
     <script>
         window.smmConfig = {
@@ -50,6 +52,7 @@
             bottom: 0;
             left: 0;
             right: 0;
+            z-index: 2;
         }
         .pre:before {
             content: '';
@@ -62,6 +65,9 @@
             height: 15px;
             opacity: 1;
             transition: opacity 1s linear 0s;
+        }
+        .pre.hide_loader {
+            z-index: 0;
         }
         .pre.hide_loader:before {
             opacity: 0;
@@ -83,6 +89,9 @@
     </noscript>
 </head>
 <body>
+<script>
+    var rockVarSet = [];
+</script>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5SLRWK"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -90,7 +99,7 @@
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5SLRWK');</script>
+})(window,document,'script','rockVarSet','GTM-5SLRWK');</script>
 <!-- End Google Tag Manager -->
 <div id="fb-root"></div>
 <!--[if lt IE 7]>
@@ -136,7 +145,7 @@
         </button>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'black': $state.includes('dashboard')}">
+        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'black': $state.includes('dashboard') || $state.includes('allstudios')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home" translate>Somuchmore</a></div>
                 <!--<a class="b-header-likes" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
@@ -151,69 +160,70 @@
                              data-show-border="false"></div>
                     </div>
                 </a>-->
-                <nav class="b-top-nav" ng-show="$state.includes('dashboard')">
+                <nav class="b-top-nav" ng-if="($state.includes('dashboard') || $state.includes('allstudios')) && desktop">
                     <ul class="top-nav">
-                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard" translate>Courses</a></li><li>
-                        <a ui-sref="studios" translate>Studios</a></li>
+                        <li><a ng-class="{'active': $state.includes('dashboard')}" ui-sref="dashboard({city: currentCity.id})" translate>Activities</a></li><li>
+                        <a ng-class="{'active': $state.includes('allstudios')}" ui-sref="allstudios({city: currentCity.id})" translate>Studios</a></li>
                     </ul>
                 </nav>
                 <ng-include src="'views/_loginForm.html'" ng-controller="LoginCtrl" ng-hide="$state.includes('reset') || $state.includes('login')"></ng-include>
             </div>
         </div>
-        <div class="b-main" ng-class="{'white': $state.includes('more'), 'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup')}" ui-view autoscroll="autoscroll"></div>
 
-        <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">
-            <div class="container">
-                <div class="b-footer-top cf">
-                    <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
-                        <h3 translate>Be inspired</h3>
-                        <form name="form" class="app-email" ng-submit="subscribe()">
-                            <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Your email address'|translate}}" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
-                            <div class="form-response">
-                                <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                                <div ng-show="successUpdate" class="form-message form-success" translate>Thank you!</div>
-                                <div ng-show="errorUpdate" class="form-message form-error" translate>The email address is incorrect</div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="b-footer-block w-left" ng-show="desktop">
-                        <h3 translate>Follow us</h3>
-                        <div class="fb-like"
-                             data-href="https://www.facebook.com/somuchmoredeutsch"
-                             data-width="120"
-                             data-layout="button_count"
-                             data-action="like"
-                             data-show-faces="false"
-                             data-share="false">
+    </div>
+    <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">
+        <div class="container" disable-animate >
+            <div class="b-footer-top cf">
+                <div class="b-footer-block w-right" ng-controller="SubscribeCtrl">
+                    <h3 translate>Be inspired</h3>
+                    <form name="form" class="app-email" ng-submit="subscribe()">
+                        <input type="email" ng-model="email" ng-change="successUpdate = false" placeholder="{{'Your email address'|translate}}" name="email" required /><button type="submit"><i class="fa fa-angle-right"></i></button>
+                        <div class="form-response">
+                            <div ng-show="loadingUpdate" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                            <div ng-show="successUpdate" class="form-message form-success" translate>Thank you!</div>
+                            <div ng-show="errorUpdate" class="form-message form-error" translate>The email address is incorrect</div>
                         </div>
-                    </div>
-                    <div class="b-footer-block w-left">
-                        <h3 translate>Contact us</h3>
-                        <div class="contact">
-                            <p class="phone" ng-if="supportPhone">{{supportPhone}}</p><a class="email" href="mailto:info@somuchmore.org">info@somuchmore.org</a>
-                        </div>
-                    </div>
-                    <!--<div class="b-footer-block w-left">
-                        <h3>Moneyback guarantee</h3>
-                        <div class="contact">
-                            <span>Cancel within 2 weeks</span>
-                            <ul class="payment-icons">
-                                <li><img src="/images/mastercard-icon.svg" alt="mastercard"/></li><li>
-                                <img src="/images/visa-icon.svg" alt="visa"/></li><li>
-                                <img src="/images/paypal-icon.svg" alt="paypal"/></li>
-                            </ul>
-                        </div>
-                    </div>-->
+                    </form>
                 </div>
-                <nav class="b-footer-nav cf">
-                    <ul class="b-footer-nav__menu">
-                        <li><a ui-sref="about" translate>About us</a></li><li>
-                        <a ui-sref="impressum" translate>Legal notice</a></li><li>
-                        <a class="" ui-sref="agb" translate>General terms &amp; conditions</a></li><li>
-                        <a class="upp" ui-sref="faq" translate>FAQ</a></li>
-                    </ul>
-                    <p class="b-footer-copyright" translate>&copy; Somuchmore Marketplace UG, 2015</p>
-                </nav>
+                <div class="b-footer-block w-left" ng-show="desktop">
+                    <h3 translate>Follow us</h3>
+                    <div class="fb-like"
+                         data-href="https://www.facebook.com/somuchmoredeutsch"
+                         data-width="120"
+                         data-layout="button_count"
+                         data-action="like"
+                         data-show-faces="false"
+                         data-share="false">
+                    </div>
+                </div>
+                <div class="b-footer-block w-left">
+                    <h3 translate>Contact us</h3>
+                    <div class="contact">
+                        <p class="phone" ng-if="supportPhone">{{supportPhone}}</p><a class="email" href="mailto:{{supportEmail}}">{{supportEmail}}</a>
+                    </div>
+                </div>
+            </div>
+            <nav class="b-footer-nav cf">
+                <ul class="b-footer-nav__menu">
+                    <li><a ui-sref="about" translate>About us</a></li><li>
+                    <a ui-sref="impressum" translate>Legal notice</a></li><li>
+                    <a class="" ui-sref="agb" translate>General terms &amp; conditions</a></li><li>
+                    <a class="upp" ui-sref="faq" translate>FAQ</a></li>
+                </ul>
+                <p class="b-footer-copyright" translate>&copy; Somuchmore Marketplace UG, 2015</p>
+            </nav>
+        </div>
+    </div>
+    <div ng-if="signupPopap" class="modal-backdrop fade in" style="position: absolute; z-index: 1040; opacity: 0.5;"></div>
+    <div ng-if="signupPopap" class="modal fade modal-message in" style="position: absolute; z-index: 1050; display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body ng-scope">
+                    <h2 translate>Thank you for your registration!</h2>
+                    <p translate>From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!</p>
+                    <button class="form-button" ng-class="{'en': lang === 'en'}" ng-click="hideSignupPopap()" translate>Continue to the courses</button>
+                </div>
             </div>
         </div>
     </div>
@@ -222,6 +232,7 @@
 <!-- bower:css -->
 <link rel="stylesheet" href="bower_components/videogular-themes-default/videogular.css" />
 <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+<link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
 <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
 <!-- endbower -->
 <!-- endbuild -->
@@ -290,7 +301,7 @@
 <script src="bower_components/flow.js/dist/flow.js"></script>
 <script src="bower_components/ng-flow/dist/ng-flow.js"></script>
 <script src="bower_components/angular-validation-match/dist/angular-input-match.min.js"></script>
-<script src="bower_components/venturocket-angular-slider/build/angular-slider.js"></script>
+<script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
 <script src="bower_components/ng-optimizely/ng-optimizely.js"></script>
 <script src="bower_components/angular-optimizely/ngshowvariant.js"></script>
 <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
@@ -302,6 +313,8 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/services/detectCity.js"></script>
+<script src="scripts/services/countryConfig.js"></script>
 <script src="scripts/services/events.js"></script>
 <script src="scripts/services/occurrences.js"></script>
 <script src="scripts/services/suppliers.js"></script>
@@ -332,6 +345,7 @@
 <script src="scripts/controllers/createClass.js"></script>
 <script src="scripts/controllers/signup.js"></script>
 <script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/studios.js"></script>
 <script src="scripts/controllers/profile.js"></script>
 <script src="scripts/filters/cutstring.js"></script>
 <script src="scripts/filters/datafilter.js"></script>
@@ -344,6 +358,7 @@
 <script src="scripts/directives/toggleList.js"></script>
 <script src="scripts/directives/autoWidthSelect.js"></script>
 <script src="scripts/directives/csvImport.js"></script>
+<script src="scripts/providers/angulartics-custom-gtm.js"></script>
 <!-- endbuild -->
 
 </body>

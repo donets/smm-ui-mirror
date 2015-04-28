@@ -6,7 +6,10 @@ module.exports = {
     browser
       .url(params.baseUrl)
       .waitForElementVisible('body', 1000)
-      .click('a.login-link.ng-scope > span.ng-scope')
+	  .assert.elementPresent('.login-link > span:nth-child(1)')
+      .click('.login-link > span:nth-child(1)')
+	  .assert.elementPresent('input[name=email]')
+	  .assert.elementPresent('input[name=password]')
       .waitForElementVisible('input[name=email]', 1000)
       .setValue('input[name=email]', params.signup.email)
       .setValue('input[name=password]', params.signup.password);

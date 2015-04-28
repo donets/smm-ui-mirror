@@ -15,7 +15,7 @@ moment.defineLocale('en', {
     calendar : {
         sameDay: '[Today], LL',
         sameElse: 'LL',
-        nextDay: '[Tomorrow], LL',
+        nextDay: 'LL',
         nextWeek: 'LL',
         lastDay: '[Yesterday] LL',
         lastWeek: '[last] LL'

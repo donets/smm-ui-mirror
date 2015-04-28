@@ -96,6 +96,12 @@
         margin-top: 10px;
         line-height: 1;
     }
+    .studio-spinner {
+        height: 50px;
+        .spinner {
+            top: 100%;
+        }
+    }
     .weekdays {
         margin: 4px -8px;
         text-align: right;

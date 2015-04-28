@@ -19,7 +19,7 @@
     }
 }
 .modal-content {
-    border-radius: 2px;
+    border-radius: 3px;
     background: #fff;
     border: 0 none;
     @include box-shadow(0 1px 3px getRgba(#1b171a, 0.2));
@@ -53,13 +53,16 @@
     position: absolute;
     height: 20px;
     width: 20px;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    left: 100%;
+    margin-left: 18px;
     @media (max-width: $containerMobileWidth) {
         height: 40px;
         width: 40px;
         top: 30px;
         right: 30px;
+        left: initial;
+        margin-right: 0;
     }
     @media (max-width: $containerMobileWidth640) {
         height: 20px;
@@ -285,6 +288,106 @@
     }
     .form-response {
         text-align: left;
+    }
+}
+.modal-book {
+    .modal-dialog {
+        @media (min-width: $containerMobileWidth) {
+            width: 360px;
+        }
+    }
+    .modal-footer {
+        background: $colorBackTimetable;
+        padding: 20px 30px 20px;
+        border: 0 none;
+        text-align: center;
+        @include border-bottom-radius(3px);
+        .form-button {
+            min-width: 0;
+            font-size: 14px;
+            background: #fff;
+            color: $colorLink;
+            margin: 0 0 15px;
+            text-transform: uppercase;
+            border: 1px solid $colorLightGrey;
+        }
+        p {
+            font-size: 12px;
+            color: $colorGrey;
+        }
+        .form-response {
+            position: static;
+            height: 32px;
+        }
+    }
+    .modal-body {
+        padding: 18px 40px 20px;
+        text-align: center;
+        .date {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 0 0 10px;
+            border-bottom: 1px solid $colorLightGrey;
+        }
+        p {
+            font-size: 14px;
+            color: $colorGrey;
+            .fa {
+                margin-right: 5px;
+            }
+            > span {
+                &:after {
+                    content: ",";
+                }
+                &:last-child {
+                    &:after {
+                        content: "";
+                    }
+                }
+            }
+        }
+        .address {
+            margin: 20px 0 0;
+        }
+        .description {
+            color: $colorText;
+            border-top: 1px solid $colorLightGrey;
+            padding: 15px 0 0;
+            margin-top: 20px;
+            word-wrap: break-word;
+        }
+        h2 {
+            font-size: 26px;
+            color: $colorLink;
+            margin-bottom: 20px;
+            .time {
+                font-size: 22px;
+                display: block;
+                line-height: 1;
+            }
+        }
+        .success {
+            line-height: 40px;
+            text-transform: uppercase;
+            color: $colorMain;
+            .fa {
+                margin-right: 10px;
+                font-size: 20px;
+                vertical-align: text-bottom;
+            }
+        }
+        .form-response {
+            position: relative;
+            margin-top: 20px;
+            font-size: 14px;
+            height: 42px;
+        }
+        .form-button {
+            min-width: 0;
+            margin-top: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
     }
 }
 .modal-upload {

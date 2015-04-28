@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/modalBook.html:4
+msgid "Close"
+msgstr ""
+
+#: app/views/modalBook.html:13
+msgid "Confirm Reservation"
+msgstr ""
+
+#: app/views/modalBook.html:19
+msgid "Reserved for you"
+msgstr ""
+
+#: app/views/modalBook.html:22
+msgid "Sorry, there are no free spots available for this class."
+msgstr ""
+
+#: app/views/modalBook.html:23
+msgid "Sorry, your request could not be completed. Please Try again."
+msgstr ""

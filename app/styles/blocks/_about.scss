@@ -129,6 +129,16 @@ article {
             margin-bottom: 20px;
         }
     }
+    h3 {
+        font-size: 20px;
+        color: $colorGrey;
+        @media (max-width: $containerMobileWidth) {
+          font-size: 32px;
+        }
+        @media (max-width: $containerMobileWidth640) {
+          font-size: 18px;
+        }
+    }
 }
 .about .b-main-sidebar {
     width: 230px;
@@ -173,20 +183,16 @@ article {
 }
 .b-about-list {
     margin: 20px 0;
-    padding-left: 18px;
-    @media (max-width: $containerMobileWidth) {
-        padding-left: 28px;
-    }
     li {
-        font-size: 15px;
+        font-size: 20px;
         padding-left: 10px;
         margin: 10px 0;
+        color: $colorGrey;
         @media (max-width: $containerMobileWidth) {
-            font-size: 26px;
+            font-size: 32px;
         }
         @media (max-width: $containerMobileWidth640) {
-            font-size: 14px;
-            padding-left: 10px;
+            font-size: 18px;
         }
     }
 }

@@ -18,7 +18,7 @@
                     <dd ng-if="studio.disciplines" translate>Disciplines:</dd><dt>{{studio.disciplines}}</dt>
                     <dd ng-if="studio.equipment" translate>Equipment:</dd><dt>{{studio.equipment}}</dt>
                     <dd ng-if="studio.locations" translate>Address:</dd><dt><ul>
-                        <li ng-repeat="location in studio.locationsFull">{{location.fullAddress}}</li>
+                        <li ng-repeat="location in studio.locationsFull">{{location.name}}, {{location.fullAddress}}</li>
                     </ul><a href="#map" du-smooth-scroll translate>Show on map</a></dt>
                 </dl>
             </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="w-right">
         <div class="b-main-sidebar">
-            <div class="b-studio-info" ng-if="studio.coverageBlack || studio.coverageWhite || studio.coverageLite">
+            <div class="b-studio-info" ng-if="lang !== 'en' && (studio.coverageBlack || studio.coverageWhite || studio.coverageLite)">
                 <b translate>Accepted cards:</b>
                 <ul>
                     <li ng-if="studio.coverageBlack"><img src="images/black-ico.png" alt=""/>Black Card:
@@ -67,7 +67,10 @@
         <ul class="weekdays">
             <li ng-class="{'current' : currDay.isSame(w, 'day')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
         </ul>
-        <table class="timetable">
+        <div ng-show="showSpinner" class="studio-spinner">
+            <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
+        </div>
+        <table ng-hide="showSpinner" class="timetable">
             <thead>
                 <tr>
                     <th translate>Time</th>
@@ -78,17 +81,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="e in events | isSame: 'start_date': currDay" >
+                <tr ng-repeat="e in events | orderBy: 'startTime'">
                     <td>
-                        <p>{{e.start_date | amDateFormat: 'HH:mm'}} - {{e.end_date | amDateFormat: 'HH:mm'}}</p>
+                        <p>{{e.startTime}} - {{e.endTime}}</p>
                     </td>
                     <td><a class="link-description" ng-click="attend(e)" href="" ng-if="e.class.description">{{e.class.title}}</a><span ng-if="!e.class.description">{{e.class.title}}</span></td>
                     <td>{{e.class.discipline}}</td>
                     <td>{{e.class.teacherName}}</td>
                     <td><i ng-repeat="l in [1,2,3]" ng-class="{'on': l <= _.last(e.class.levels)}" class="fa fa-minus fa-rotate-90 level-stick"></i></td>
                 </tr>
-                <tr ng-if="!(events | isSame: 'start_date': currDay).length">
-                    <td class="empty" colspan="7" translate>No more offers today.</td>
+                <tr ng-if="!(events).length">
+                    <td class="empty" colspan="7" translate>No more offers for this day</td>
                 </tr>
             </tbody>
         </table>
@@ -213,7 +216,7 @@
     <div class="container">
         <div class="location">
             <h2 translate>Location</h2>
-            <address><i class="fa fa-map-marker"></i>{{currLocation.fullAddress}}</address>
+            <address><i class="fa fa-map-marker"></i>{{currLocation.name}}, {{currLocation.fullAddress}}</address>
             <p translate><i class="fa fa-home"></i>Studio</p>
         </div>
     </div>

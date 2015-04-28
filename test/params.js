@@ -5,7 +5,7 @@ module.exports = {
     signup: {
         firstName: 'Max',
         lastName: 'Musterman',
-        password: '12345',
+        password: '123456',
         emailSuffix: '+test@somuchmore.org',
         email: 'test@somuchmore.org',
         card: {
@@ -16,6 +16,13 @@ module.exports = {
         },
         address: 'Teststr. 1',
         zipCode: '10123'
+    },
+    photoUpload: {
+        firstName: 'test',
+        lastName: 'test',
+        password: 'password',
+        emailSuffix: '+test@somuchmore.org',
+        email: 'rocketblr@gmail.com'
     },
 
     helpers: {

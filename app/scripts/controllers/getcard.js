@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
-    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$interval', 'gettextCatalog', 'CityFactory', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory) {
+    .controller('GetcardCtrl', ['$scope', '$rootScope', '$location', '$http', '$cookieStore', 'parallaxHelper', 'getDisciplines', '$sce', '$window', '$document', '$modal', 'uiGmapGoogleMapApi', 'RestApi', '$interval', 'gettextCatalog', 'CityFactory', '$analytics', function ($scope, $rootScope, $location, $http, $cookieStore, parallaxHelper, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory, $analytics) {
         $scope.background = parallaxHelper.createAnimator(0.3, 50, 0, -$rootScope.windowHeight/2);
         $scope.fadeIn = parallaxHelper.createAnimator(-0.005, 1, 0, -$rootScope.windowHeight/1.2);
 
@@ -78,44 +78,59 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
 
         selectDiscipline();
 
-        $cookieStore.put('landingUrl', $location.url());
+        if (!$cookieStore.get('landingUrl')) {
+            $cookieStore.put('landingUrl', $location.absUrl());
+        }
 
-        $scope.init = function() {
+        $scope.init = function () {
             $scope.CityFactory = CityFactory.CityFactory;
 
-			$scope.$on('CityFactory.update', function() {
+            $scope.$on('CityFactory.update', function () {
                 var currentCityVar = CityFactory.getVariable();
                 $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
                 $scope.currentCityId = $scope.currentCity.id;
                 $rootScope.supportPhone = $scope.currentCity.supportPhone;
-			});
+                $rootScope.supportEmail = $scope.currentCity.supportEmail;
+                if ($scope.currentCity.countryCode !== $rootScope.countryCode) {
+                    var newCountry = _.findWhere($scope.countries, {code: $scope.currentCity.countryCode});
+                    $window.location.href = newCountry.defaultDomain.absUrlBase + '?city=' + $scope.currentCity.shortCode;
+                }
+            });
 
-			$scope.update = CityFactory.update;
+            $scope.update = CityFactory.update;
 
-
-            CityFactory.getCities().then(function (res) {
-                $scope.citiesList = _.sortBy(res, 'id').filter(function (c) {
-                    return c.countryCode === $rootScope.countryCode;
-                });
-
-                CityFactory.guessCity($scope.citiesList).then(function(res) {
-                    $scope.city = res.city;
-                    $scope.cityId = res.cityId;
-                    $scope.changeCity(res.currentCity.id);
-                });
+            $scope.citiesList = $rootScope.configCities;
+            RestApi.query({route: 'countries'}).$promise.then(function (res) {
+                $scope.countries = res;
+                $scope.city = $rootScope.currentCity;
+                $scope.cityId = $rootScope.currentCity.id;
+                $scope.changeCity($rootScope.currentCity.id);
             });
         };
 
+        $scope.$on('configLoaded', $scope.init);
 
-        $scope.init();
 
-        $scope.changeCity = function(currentCityId) {
-            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
-            CityFactory.update(currentCity, $scope.citiesList);
-            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
+        $scope.changeCity = function (currentCityId) {
+            $rootScope.currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
+            CityFactory.update($rootScope.currentCity, $scope.citiesList);
+            CityFactory.changeCity($rootScope.currentCity, $scope.citiesList).then(function (res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
+                $scope.combinedLocations = [];
+                RestApi.query({route: 'locations'}).$promise.then(function (res) {
+                    _.each($scope.studios, function (studio) {
+                        _.each(studio.locations, function (locationId) {
+                            var location = {};
+                            _.extend(location,_.findWhere(res, {id: locationId}));
+                            location.studioProfileComplete = studio.profileComplete;
+                            location.studioId = studio.id;
+                            $scope.combinedLocations.push(location);
+                        });
+                    });
+                });
             });
+            $rootScope.countryCode = $rootScope.currentCity.countryCode;
         };
 
 
@@ -139,9 +154,18 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', { email: $scope.invite.email, postalCode: $scope.invite.postalCode, landingUrl: $cookieStore.get('landingUrl'), cityId: $scope.cityId, interestedInProduct: true, lang: $rootScope.lang }).success(function () {
+            var invitation = {
+                email: $scope.invite.email,
+                postalCode: $scope.invite.postalCode,
+                landingUrl: $cookieStore.get('landingUrl'),
+                cityId: $scope.currentCity.id,
+                interestedInProduct: true,
+                lang: $rootScope.lang
+            };
+            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
+                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: JSON.stringify($window.smmConfig)});
                 $scope.invite = {};
                 $scope.subscribeForm[locate].$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
@@ -163,6 +187,12 @@ angular.module('boltApp.controllers.Getcard', ['uiGmapgoogle-maps'])
                         google_conversion_label: 'GgJECOPfhgsQ_caEzgM',
                         google_remarketing_only: false
                     });
+                });
+                $analytics.eventTrack({
+                    'event': 'requestInvitation',
+                    'selectedCity': response.city,
+                    'zipCode': response.postalCode,
+                    'inviteIEmail': response.email
                 });
                 $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
                     $window._fbq = $window._fbq || [];

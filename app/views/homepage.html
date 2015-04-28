@@ -1,4 +1,4 @@
-<div class="b-main-cover" ng-style="{ 'height' : desktop && documentWidth / windowHeight < (1280/720) ? documentWidth / (1280/720) : windowHeight }">
+<div class="b-main-cover" ng-style="{ 'height' : desktop && (documentWidth / windowHeight) < (1280/720) ? documentWidth / (1280/720) : windowHeight }">
     <videogular vg-autoplay="video.autoPlay" ng-show="desktop"
     vg-player-ready="video.onPlayerReady"
     vg-complete="video.onCompleteVideo"
@@ -10,36 +10,20 @@
     <vg-poster-image vg-url="video.poster.url"></vg-poster-image>
 
 </videogular>
-<div class="b-main-slogan"><h2 ng-if="!currentCity" translate>LONDON IS YOUR STUDIO</h2>
+<div class="b-main-slogan">
     <h2 ng-if="discipline">{{discipline.title}}</h2>
-    <h2 ng-if="currentCity && !(city || cityId) && !discipline">{{currentCity.title}}</h2>
-    <h2 ng-if="currentCity && (city || cityId) && !discipline">
+    <h2 ng-if="currentCity && !discipline">
         <select auto-width-select chosen ng-model="currentCityId" data-placeholder="{{'City'|translate}}" disable-search="true" ng-options="c.id as c.defaultName for c in citiesList" ng-change="changeCity(currentCityId)" width="'auto'">
             <option value="" ng-if="desktop"></option>
         </select>
-        <!-- <ul class="b-main-slogan-nav">
-            <li class="b-main-slogan-nav_city-select" ng-class="{ 'popap': isPopupVisible }" toggle-popup>
-                <a href="" ng-click="togglePopup()">
-                    <span>{{currentCity.defaultName}}</span>
-                <div ng-if="isPopupVisible" class="b-main-slogan-nav_city-widget">
-                    <ul ng-click="togglePopup()">
-                        <li ng-repeat="c in citiesList">
-                            <a href="" ng-click="changeCity(c.id);">{{c.defaultName}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul> -->
         <span id="width_tmp"></span>
         <span translate>IS YOUR STUDIO</span>
         </h2>
-        <p ng-if="!currentCity && !discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
-        <p ng-if="currentCity && !(city || cityId) && !discipline" translate>Discover <b>{{currentCity.amountCourses}} courses</b> in <b>{{currentCity.amountStudios}} {{currentCity.termForStudios}}</b> with <b>1 membership</b>.</p>
-        <p ng-if="currentCity && (city || cityId) && discipline" translate>Discover so much more Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over London - with one card.</p>
+        <p ng-if="currentCity" translate>Discover so much more - Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over {{ currentCity.defaultName }} - with one card.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'ZIP'|translate}}" ng-class="{'wide': lang === 'en'}" required/>
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'Postcode'|translate}}" ng-class="{'wide': lang === 'en'}" required/>
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Get your invitation'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -62,7 +46,7 @@
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'ZIP'|translate}}" ng-class="{'wide': lang === 'en'}" required />
+                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'Postcode'|translate}}" ng-class="{'wide': lang === 'en'}" required />
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Get your invitation'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
@@ -87,8 +71,8 @@
 <div class="b-card b-equipment" id="highligt">
     <div class="container">
         <h2 translate>One card. Unlimited classes.</h2>
-        <p translate>What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing your limits? <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Want to hit the dance floor? <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Strengthen your core and concentration? <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Learn more about <b>Nutrition</b> and <b>Health</b>? Or simply chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?</p>
-        <p translate>Feel it all. Explore it all. With just one card.</p>
+        <p translate>What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing yourself to the limits with <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Feel like hitting up the dance floor with a spot of <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Or want to slow it down a little, reconnect and strengthen your core and concentration with <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Fancy learning more about <b>Nutrition</b> and <b>Biomedicine</b>? Or simply want to chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?</p>
+        <p translate>Feel it all. Explore it all. #BeSomuchmore</p>
         <a ui-sref="dashboard({city: currentCity.id})" ng-show="currentCity.active" target="_blank" translate>Learn more about the offer here ›</a>
     </div>
 </div>
@@ -97,31 +81,31 @@
         <ul class="b-card-list" ng-show="mobile">
             <li>
                 <img class="card-image" src="images/f-01.svg" alt=""/>
-                <b translate>Simply try it out</b>
-                <span translate>(14 day trial. Money back guarantee )</span>
+                <b translate>Break free</b>
+                <span translate>Say goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything.</span>
             </li>
             <li>
                 <img class="card-image" src="images/f-02.svg" alt=""/>
-                <b translate>No obligation</b>
-                <span translate>(No minimum membership term. No binding monthly clause. And no cancellation or freeze fee)</span>
+                <b translate>Be inspired</b>
+                <span translate>Choose from thousands of classes. Workout when you want, wherever you want.</span>
             </li>
             <li>
                 <img class="card-image" src="images/f-03.svg" alt=""/>
-                <b translate>Huge savings</b>
-                <span translate>(No sign up fee. No cancellation fee. Just the freedom to go to unlimited classes all over the city, whenever you want)</span>
+                <b translate>Train and Tone</b>
+                <span translate>Create your personal workout plan. Spice up your routine. Stay motivated.</span>
             </li>
         </ul>
         <ul class="b-card-list" ng-show="desktop">
             <li>
                 <b translate>Break free</b>
-                <p translate>Say Goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything.</p>
+                <p translate>Say goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything.</p>
             </li>
             <li>
                 <b translate>Be inspired</b>
-                <p translate>Choose from thousands of classes. Workout when you want. Wherever you want.</p>
+                <p translate>Choose from thousands of classes. Workout when you want, wherever you want.</p>
             </li>
             <li>
-                <b translate>Feel the burn</b>
+                <b translate>Train and Tone</b>
                 <p translate>Create your personal workout plan. Spice up your routine. Stay motivated.</p>
             </li>
         </ul>
@@ -159,7 +143,7 @@
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-if="currentCity.active && tab === 'map'">
             <ui-gmap-markers models='locations' coords="'self'" fit="true" icon="'icon'" click="'onClick'" events="markerEvents">
                 <ui-gmap-windows show="'show'">
-                    <p class="info-window" ng-non-bindable>{{name}}</p>
+                    <span class="info-window" ng-non-bindable>{{name}}</span>
                 </ui-gmap-windows>
             </ui-gmap-markers>
         </ui-gmap-google-map>
@@ -172,10 +156,10 @@
         </div>
         <div ng-if="tab === 'list'">
             <ul class="b-studios-list">
-                <li ng-repeat="studio in studios | orderBy: 'name'">
-                    <a ui-sref="studio({studioId: studio.id})" ng-if="studio.profileComplete">{{studio.name}}</a>
-                    <a ng-href="{{studio.website}}" ng-if="!studio.profileComplete && studio.website" target="_blank">{{studio.name}}</a>
-                    <span ng-if="!studio.profileComplete && !studio.website">{{studio.name}}</span>
+                <li ng-repeat="location in combinedLocations | filter: {cityId: currentCity.id} | orderBy: 'name' track by $index">
+                    <a ui-sref="studio({studioId: location.studioId})" ng-if="location.studioProfileComplete">{{location.name}}</a>
+                    <!--<a ng-href="{{studio.website}}" ng-if="!studio.profileComplete && studio.website" target="_blank">{{studio.name}}</a>-->
+                    <span ng-if="!location.studioProfileComplete">{{location.name}}</span>
                 </li>
             </ul>
         </div>
@@ -205,10 +189,10 @@
                     <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></li>
                 <li class="name">{{card.displayName}}</li>
                 <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">
-                    <span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                    {{card.monthlyPrice}} {{card.currency}}</strong>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                        <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
+                        <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
                     </b>
                 </li>
                 <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
@@ -225,10 +209,10 @@
             </tr>
             <tr>
                 <td translate>Price per month</td>
-                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></strong>
+                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.monthlyPrice}} {{card.currency}}</strong>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
-                        <span ng-if="voucher.amountOff"><span ng-if="card.currencyCode === 'GBP'">&pound;</span>{{card.monthlyPrice - voucher.amountOff}}<span ng-if="card.currencyCode === 'EUR'">&euro;</span></span>
+                        <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
+                        <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
                     </b></td>
             </tr>
             <tr>

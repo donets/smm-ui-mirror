@@ -118,27 +118,31 @@
     @media (max-width: $containerMobileWidth640) {
         height: 42px;
         min-width: 0;
+        padding: 0 6px;
         border-width: 1px;
         font-size: 15px;
         line-height: 40px;
+        .fa {
+            margin-left: 4px;
+        }
     }
     .fa {
         color: $colorGrey;
-        margin-right: 8px;
+        margin-left: 8px;
     }
     &:hover {
-        border-color: $colorHover;
-        color: $colorHover;
+        border-color: $colorGrey;
+        color: $colorGrey;
         text-decoration: none;
         .fa {
-            color: $colorHover;
+            color: $colorGrey;
         }
     }
     &:active {
-        border-color: $colorActive;
-        color: $colorActive;
+        border-color: $colorText;
+        color: $colorText;
         .fa {
-            color: $colorActive;
+            color: $colorText;
         }
     }
 }

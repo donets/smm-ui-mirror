@@ -45,7 +45,7 @@ angular.module('boltApp.controllers.Profile', [])
             $scope.errorPass = false;
             $scope.successPass = false;
             $rootScope.handledError = true;
-            $http.get($window.smmConfig.restUrlBase + '/api/auth/changePassword?oldPassword=' + $scope.password.old + '&newPassword=' + $scope.password.new).success(function (response) {
+            $http.post($window.smmConfig.restUrlBase + '/api/auth/changePassword', { oldPassword:$scope.password.old, newPassword: $scope.password.new }).success(function (response) {
                 console.log(response);
                 $rootScope.handledError = false;
                 $scope.loading = false;
@@ -158,9 +158,9 @@ angular.module('boltApp.controllers.Profile', [])
                                     $scope.step_0 = false;
                                     $scope.step_1 = true;
                                 }).error(function (res) {
-                                        console.log(res);
-                                        $scope.showSpinner = false;
-                                    });
+                                    console.log(res);
+                                    $scope.showSpinner = false;
+                                });
                             };
                         }
 

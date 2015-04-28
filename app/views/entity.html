@@ -29,7 +29,7 @@
             </div>
             <select chosen
                     ng-model="entity[field.model]" ng-if="field.type === 'select'"
-                    data-placeholder="{{field.placeholder || 'Auswählen'}}"
+                    data-placeholder="{{field.placeholder || 'Select'}}"
                     allow-single-deselect="true"
                     disable-search="{{field.model !== 'neigbourhood'}}"
                     ng-options="item for item in {{field.modelSelect || field.model}} | orderBy: field.order">
@@ -37,14 +37,15 @@
             </select>
             <select chosen
                     ng-model="entity[field.model]" ng-if="field.type === 'select_object'"
-                    data-placeholder="{{field.placeholder || 'Auswählen'}}"
+                    data-placeholder="Select"
                     allow-single-deselect="true"
+                    ng-change="changeCityLocation(entity[field.model])"
                     ng-options="item.id as item.defaultName for item in {{field.modelSelect || field.model}} | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
             <select chosen multiple
                     ng-model="entity[field.model]" ng-if="field.type === 'multiple'"
-                    data-placeholder="{{field.placeholder || 'Auswählen'}}"
+                    data-placeholder="{{field.placeholder || 'Select'}}"
                     ng-options="item.id as item.displayName for item in {{field.model}} | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
