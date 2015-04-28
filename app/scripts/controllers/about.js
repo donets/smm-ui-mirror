@@ -20,28 +20,6 @@ angular.module('boltApp.controllers.About', [])
                 $scope.email = '';
                 $scope.subscribeForm.$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
-                $.getScript('//www.googleadservices.com/pagead/conversion_async.js').done( function() {
-                    $window.google_trackConversion({
-                        google_conversion_id: 970072239,
-                        google_conversion_language: 'de',
-                        google_conversion_format: '3',
-                        google_conversion_color: 'ffffff',
-                        google_conversion_label: 'fiXPCMmi_wkQr8HIzgM',
-                        google_remarketing_only: false
-                    });
-                    $window.google_trackConversion({
-                        google_conversion_id: 968958845,
-                        google_conversion_language: 'de',
-                        google_conversion_format: '3',
-                        google_conversion_color: 'ffffff',
-                        google_conversion_label: 'GgJECOPfhgsQ_caEzgM',
-                        google_remarketing_only: false
-                    });
-                });
-                $.getScript('//connect.facebook.net/en_US/fbds.js').done( function() {
-                    $window._fbq = $window._fbq || [];
-                    $window._fbq.push(['track', '6021957047725', {'value': '0.00','currency': 'EUR'}]);
-                });
             }).error(function (response, status) {
                 $scope.loadingSubscribe = false;
                 $scope.errorSubscribe = true;

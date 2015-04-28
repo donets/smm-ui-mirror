@@ -195,11 +195,6 @@ angular.module('boltApp')
 					checkRule(event, toState, toParams, 'login');
 				}
 			});
-			$.getScript('//connect.facebook.net/en_US/fbds.js').done(function() {
-				$window._fbq = $window._fbq || [];
-				$window._fbq.push(['addPixelId', '1461407927469396']);
-				$window._fbq.push(['track', 'PixelInitialized', {}]);
-			});
             $rootScope.closeEasterMessage = function() {
                 $cookieStore.put('easterMessageViewed', true);
                 $rootScope.easterMessage = false;
