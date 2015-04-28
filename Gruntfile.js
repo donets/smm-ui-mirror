@@ -26,6 +26,7 @@ module.exports = function(grunt) {
 
     // Define the configuration for all the tasks
     grunt.initConfig({
+		
 
         // Project settings
         yeoman: appConfig,
@@ -429,7 +430,37 @@ module.exports = function(grunt) {
                 singleRun: true
             }
         },
-
+		nightwatch:{
+			options: { 
+				src_folders : ["test/nightwatch"],
+				globals_path : "test/params.js",
+				test_settings : {
+					"default" : {
+					  "launch_url" : "http://localhost",
+					  "selenium_port"  : 4444,
+					  "selenium_host"  : "localhost",
+					  "silent": true,
+					  "screenshots" : {
+						"enabled" : false,
+						"path" : ""
+					  },
+					  "desiredCapabilities": {
+						"browserName": "firefox",
+						"javascriptEnabled": true,
+						"acceptSslCerts": true
+					  }
+					}
+				},
+				selenium : {
+					"start_process" : false,
+					"host" : "127.0.0.1",
+					"port" : 4444
+					
+				},
+				
+			}
+		},
+			
         // protractor: {
             // options: {
                 // configFile: 'test/protractor-conf.js',
@@ -492,7 +523,8 @@ module.exports = function(grunt) {
             }
         }
     });
-
+	
+	grunt.loadNpmTasks('grunt-nightwatch');
 
     grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
         if (target === 'dist') {
@@ -520,7 +552,7 @@ module.exports = function(grunt) {
         'autoprefixer',
         'connect:test',
         'karma',
-        'protractor'
+        'nightwatch'
     ]);
 
     grunt.registerTask('build', [
