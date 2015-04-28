@@ -9,14 +9,14 @@ module.exports = {
   },
  
 
-  'Check kurses link on page': function (browser) {
+  /*'Check kurses link on page': function (browser) {
     var params = browser.globals;
     browser
 	  .verify.containsText('#highligt > div:nth-child(1) > a:nth-child(4) > span:nth-child(1)','Hier geht es zum Angebot')
       .click('#highligt > div:nth-child(1) > a:nth-child(4) > span:nth-child(1)')
 	  .waitForElementVisible('h1 > span.ng-scope',3000,false,undefined,'Page must be opened in same window')
       .verify.containsText('.dashboard-title > div:nth-child(1) > h1:nth-child(1) > span:nth-child(1)', 'Finde einen Kurs')
-  },
+  },*/
 
   'Check FAQ link on page': function (browser) {
     browser
