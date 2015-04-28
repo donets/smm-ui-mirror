@@ -60,6 +60,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.controllers.Reservations',
+        'boltApp.controllers.Classfilters',
         'boltApp.services.restApi',
         'boltApp.services.detectCity',
         'boltApp.services.countryConfig',
