@@ -3,7 +3,7 @@ module.exports = {
  beforeEach : function(browser) {
     var params = browser.globals;
     browser
-      .url(params.baseUrl)
+      .url(params.baseUrl+'/?city=B')
       .waitForElementVisible('body', 1000)
 	  .windowMaximize()
   },
@@ -14,7 +14,7 @@ module.exports = {
     browser
 	  .verify.containsText('#highligt > div:nth-child(1) > a:nth-child(4) > span:nth-child(1)','Hier geht es zum Angebot')
       .click('#highligt > div:nth-child(1) > a:nth-child(4) > span:nth-child(1)')
-	  .waitForElementVisible('h1 > span.ng-scope',2000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('h1 > span.ng-scope',3000,false,undefined,'Page must be opened in same window')
       .verify.containsText('.dashboard-title > div:nth-child(1) > h1:nth-child(1) > span:nth-child(1)', 'Finde einen Kurs')
   },
 
@@ -22,15 +22,15 @@ module.exports = {
     browser
 	  .verify.containsText('.faq-link > span:nth-child(1)','Weitere Fragen? Hier geht es zu den FAQ')
       .click('.faq-link > span:nth-child(1)')
-	  .waitForElementVisible('.faq__article > h1:nth-child(1) > span:nth-child(1)',2000,false,undefined,'Page must be opened in same window')
-      .verify.containsText('.faq__article > h1:nth-child(1) > span:nth-child(1)', 'Guide to Somuchmore')
+	  .waitForElementVisible('.faq__article > h1:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+      .verify.containsText('.faq__article > h1:nth-child(1)', 'Guide to Somuchmore')
   },
 
   'Check AboutUS link on bottom': function (browser) {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)','Über uns')
       .click('.b-footer-nav__menu > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',2000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'ENTDECKE')
   },
 
@@ -38,7 +38,7 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(2) > a:nth-child(1) > span:nth-child(1)','Impressum')
       .click('.b-footer-nav__menu > li:nth-child(2) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',2000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'IMPRESSUM')
   },
 
@@ -46,7 +46,7 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(3) > a:nth-child(1) > span:nth-child(1)','AGB')
       .click('.b-footer-nav__menu > li:nth-child(3) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',2000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'ALLGEMEINE')
   },
 
@@ -54,8 +54,8 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)','FAQ')
       .click('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.faq__article > h1:nth-child(1) > span:nth-child(1)',2000,false,undefined,'Page must be opened in same window')
-      .verify.containsText('.faq__article > h1:nth-child(1) > span:nth-child(1)', 'Guide to Somuchmore')
+	  .waitForElementVisible('.faq__article > h1:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+      .verify.containsText('.faq__article > h1:nth-child(1)', 'Guide to Somuchmore')
 	  .end()
   }
 };

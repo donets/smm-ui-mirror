@@ -19,8 +19,8 @@ module.exports = {
     var params = browser.globals;
     browser
       .click('button[type=submit]')
-      .waitForElementVisible('h1 > span.ng-scope', 5000)
-      .assert.containsText('h1 > span.ng-scope', 'Finde einen Kurs')
+	  .waitForElementVisible('#account', 5000)
+      .assert.elementPresent('#account')
       .end();
   }
 };

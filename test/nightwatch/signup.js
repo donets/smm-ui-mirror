@@ -12,6 +12,7 @@ module.exports = {
     };
 
     browser
+	  .url(params.baseUrl + '/?city=B')
       .url(params.baseUrl + '/p/signup/')
       .windowMaximize()
       .waitForElementVisible('body', 2000)
@@ -29,7 +30,7 @@ module.exports = {
       .waitForElementVisible('div[id=step2]', 3000)
       .pause(1000) //wait for scrolling to pass the next assert correctly
       .verify.attributeEquals('nav.signup-nav > ul > li:nth-of-type(2) > a','class','active') //verify that step highlighted correctly
-      .click('.select-cards > ul:nth-of-type(3) >li.card-button > button') //ul:nth-of-type(3) specifies the card (2-4)
+      .click('.select-cards > ul:nth-of-type(3) > li.card-button > button') //ul:nth-of-type(3) specifies the card (2-4)
   },
 
   'Fill the form step 3': function (browser) {
@@ -60,7 +61,7 @@ module.exports = {
   'Submit form and assert welcome': function (browser) {
     browser
       .click('#step3 > div.w-clear > button')
-      .waitForElementPresent('body > div.bolt-app.ng-scope > div.wrapper > div.b-main.ng-scope > div.dashboard.cf.ng-scope > div.modal.fade.modal-message.in.ng-scope > div > div > div > h2 > span',15000)
+      .waitForElementPresent('.modal-dialog',10000)
       .end();
   }
 };
