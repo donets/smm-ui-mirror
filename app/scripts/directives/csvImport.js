@@ -63,14 +63,14 @@ angular.module('boltApp')
                     scope.importError = false;
                     scope.ignoredColumns = [];
                     scope.missingColumns = [];
-                    var lines = content.csv.split('\n');
+                    var lines = content.csv.csvToArray({head:!content.header, rSep:"\n", fSep: content.separator});
                     var result = [];
                     var start = 0;
-                    var columnCount = lines[0].split(content.separator).length;
+                    var columnCount = lines[0].length;
 
                     var headers = [];
                     if (content.header) {
-                        headers = lines[0].split(content.separator);
+                        headers = lines[0];
                         start = 1;
                         if (!validateHeaders(headers)) {
                             return null;
@@ -79,7 +79,7 @@ angular.module('boltApp')
 
                     for (var i = start; i < lines.length; i++) {
                         var obj = {};
-                        var currentline = lines[i].split(new RegExp(content.separator + '(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
+                        var currentline = lines[i];
                         if (currentline.length === columnCount) {
                             if (content.header) {
                                 for (var j = 0; j < headers.length; j++) {
