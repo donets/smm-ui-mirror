@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
-    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, getStudio, $http, $window, RestApi, uiGmapGoogleMapApi) {
+    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, getStudio, $http, $window, RestApi, uiGmapGoogleMapApi, $document) {
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/landing-2880.jpg' : '/images/landing-1080.jpg';
         $scope._ = _;
         getStudio.$promise.then(function () {
@@ -24,21 +24,18 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
         });
 
         $scope.showDescription = false;
-
-        $scope.weekdays = [];
-        $scope.today = moment();
-        $scope.changeDay = function (day) {
-            $scope.currDay = day;
+        $scope.changeDay = function (c, day) {
+            $scope.currDay = moment(day);
             $scope.setLocation($scope.currLocation);
         };
-        for (var d = 0; d < 7; d++) {
-            $scope.weekdays.push(moment().add(d, 'day'));
-        }
 
         $scope.setLocation = function (location) {
             $scope.currLocation = location;
             $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {locationId: location.id, date: $scope.currDay.format('YYYY-MM-DD')}).success(function (res) {
+                _.map(res.classes.classAccesses, function (obj) {
+                    obj.disciplinestyle = [obj.discipline, obj.style];
+                });
                 $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
                     event.start_date = moment(event.date + 'T' + event.startTime);
                     event.end_date = moment(event.date + 'T' + event.endTime);
@@ -46,6 +43,12 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                     event.endTime = event.endTime.slice(0,5);
                     event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
                 });
+                $scope.events = _.filter($scope.events, function (event) {
+                    return moment(event.start_date).isAfter(moment());
+                });
+                $scope.disciplines = _.uniq(_.pluck(res.classes.classAccesses, 'discipline'));
+                $scope.styles = _.uniq(_.pluck(res.classes.classAccesses, 'style'));
+                $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
                 $scope.showSpinner = false;
             });
             uiGmapGoogleMapApi.then(function() {
@@ -75,29 +78,6 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                     icon: '/images/marker.svg'
                 };
 
-            });
-        };
-
-        $scope.attend = function (event) {
-            $modal.open({
-                templateUrl: 'views/modalAttend.html',
-                controller: ['$scope', '$modalInstance', 'event',
-
-                    function ($scope, $modalInstance, event) {
-
-                        $scope.event = event;
-
-                        $scope.close = function () {
-                            $modalInstance.close(true);
-                        };
-
-                    }],
-                resolve: {
-                    event: function () {
-                        return event;
-                    }
-                },
-                windowClass: 'modal-attend'
             });
         };
 
