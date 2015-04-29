@@ -9,3 +9,4 @@ bower_components
 /.project
 /.settings/org.eclipse.core.resources.prefs
 po/**/*.mo
+/reports
