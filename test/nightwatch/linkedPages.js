@@ -4,7 +4,7 @@ module.exports = {
   'Open Home page': function (browser) {
     var params = browser.globals;
     browser
-      .url(params.baseUrl)
+      .url(params.baseUrl+ '/?city=B')
       .waitForElementVisible('body', 1000)
 	  .windowMaximize()
   },

@@ -43,7 +43,8 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
 	"nightwatch": "^0.6.4",
-	"node-mandrill": "^1.0.1"
+	"node-mandrill": "^1.0.1",
+	"grunt-nightwatch":"^0.4.6"
   },
   "engines": {
     "node": ">=0.10.0"
