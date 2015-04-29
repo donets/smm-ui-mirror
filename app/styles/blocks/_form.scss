@@ -347,9 +347,7 @@ textarea {
 }
 
 .form-response {
-    position: absolute;
-    left: 0;
-    top: 100%;
+    font-size: 20px;
     .fa {
         font-size: 20px;
         @media (max-width: $containerMobileWidth) {
@@ -384,7 +382,6 @@ textarea {
 }
 
 .form-message {
-    font-size: 15px;
     margin: 5px;
     .fa {
         margin-right: 5px; 
@@ -400,7 +397,20 @@ textarea {
 }
 
 .form-success {
+    font-size: 34px;
     color: $colorMessageSuccess;
+    font-weight: 700;
+    text-align: center;
+    b {
+        font-size:34px;
+        display: inline-block;
+        font-family: FontAwesome;
+        position: static !important;
+        color: $colorMessageSuccess !important;
+        &:before {
+            content:"\f00c"
+        }
+    }
 }
 
 .form-error {
