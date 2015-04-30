@@ -225,8 +225,9 @@ angular.module('boltApp.controllers.Class', [])
             }
             for (var d = 0; d<= $scope.schedule.times; d++) {
                 var obj = {
-                    start_date: moment.tz(date, 'Europe/Berlin').add(d, step).hours($scope.schedule.startTime.split(':')[0]).minutes($scope.schedule.startTime.split(':')[1]),
-                    end_date: moment.tz(date, 'Europe/Berlin').add(d, step).hours($scope.schedule.endTime.split(':')[0]).minutes($scope.schedule.endTime.split(':')[1]),
+                    date: moment(date).local().add(d, step).format('YYYY-MM-DD'),
+                    startTime: $scope.schedule.startTime,
+                    endTime: $scope.schedule.endTime,
                     parent_event_id: +$rootScope.$stateParams.classId
                 };
                 arr.push(obj);
@@ -241,8 +242,9 @@ angular.module('boltApp.controllers.Class', [])
             switch ($scope.schedule.repeat) {
                 case 'Single': {
                     var obj = new RestApi();
-                    obj.start_date = moment.tz($scope.schedule.startDate, 'Europe/Berlin').hours($scope.schedule.startTime.split(':')[0]).minutes($scope.schedule.startTime.split(':')[1]);
-                    obj.end_date = moment.tz($scope.schedule.startDate, 'Europe/Berlin').hours($scope.schedule.endTime.split(':')[0]).minutes($scope.schedule.endTime.split(':')[1]);
+                    obj.date = moment($scope.schedule.startDate).local().format('YYYY-MM-DD');
+                    obj.startTime = $scope.schedule.startTime;
+                    obj.endTime = $scope.schedule.endTime;
                     if ($scope.newEvent) {
                         obj.parent_event_id = +$rootScope.$stateParams.classId;
                         obj.$save({route: 'occurrences'}).then(function () {
@@ -322,8 +324,8 @@ angular.module('boltApp.controllers.Class', [])
         var groupOccurrences = function (occurrences) {
             occurrences = _.sortBy(occurrences, 'start_date');
             _.each(occurrences, function(obj) {
-                var startDate = moment.tz(obj.start_date, 'Europe/Berlin');
-                var endDate = moment.tz(obj.end_date, 'Europe/Berlin');
+                var startDate = moment(obj.start_date);
+                var endDate = moment(obj.end_date);
                 obj.startDate = startDate;
                 obj.endDate = endDate;
                 obj.startTime = startDate.format('HH:mm');

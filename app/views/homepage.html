@@ -22,12 +22,12 @@
         <p ng-if="currentCity" translate>Discover so much more - Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over {{ currentCity.defaultName }} - with one card.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-                <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
-                <input type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'Postcode'|translate}}" ng-class="{'wide': lang === 'en'}" required/>
-                <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Get your invitation'|translate}}"/>
+                <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
+                <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'Postcode'|translate}}" ng-class="{'wide': lang === 'en'}" required/>
+                <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="submit" ng-disabled="form.loadingSubscribe" value="{{'Get your invitation'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="form.successSubscribe && subscribeForm.header.$pristine" class="form-message form-success" translate>Congrats, you are on the list!</div>
+                    <div ng-show="form.successSubscribe && subscribeForm.header.$pristine" class="form-message form-success" translate>Super! You are on the waitlist</div>
                     <div ng-show="form.errorSubscribe && subscribeForm.header.$dirty" class="form-message form-error" translate>The email address is incorrect </div>
                 </div>
             </form>
@@ -50,7 +50,7 @@
                 <input type="submit" ng-disabled="form.loadingSubscribe" value="{{'Get your invitation'|translate}}"/>
                 <div class="form-response">
                     <div ng-show="form.loadingSubscribe" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                    <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success" translate>Congrats, you are on the list!</div>
+                    <div ng-show="form.successSubscribe && subscribeForm.top.$pristine" class="form-message form-success" translate>Super! You are on the waitlist</div>
                     <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error" translate>The email address is incorrect </div>
                 </div>
             </form>

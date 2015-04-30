@@ -88,8 +88,8 @@ msgstr ""
 "approach to living is what attracted me to SoMuchMore\r"
 
 #: app/views/homepage.html:26 app/views/homepage.html:49
-msgid "Congrats, you are on the list!"
-msgstr "Congrats, you are on the list!"
+msgid "Super! You are on the waitlist"
+msgstr "Super! You are on the waitlist"
 
 #: app/views/homepage.html:370
 msgid "Thank you!"
