@@ -43,7 +43,8 @@
     "angular-optimizely": "~0.0.3",
     "angular-xeditable": "~0.1.8",
     "angular-gettext": "~2.0.2",
-    "angular-options-disabled": "*"
+    "angular-options-disabled": "*",
+    "angular-websocket": "~1.0.9"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",
