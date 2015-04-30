@@ -35,6 +35,7 @@ angular.module('boltApp', [
         'ngshowvariant',
         'xeditable',
         'angulartics',
+        'ngWebSocket',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
@@ -71,6 +72,7 @@ angular.module('boltApp', [
         'boltApp.services.navigator',
         'boltApp.services.city',
         'boltApp.services.mapStudios',
+        'boltApp.services.websocket',
         'angulartics.google.customtagmanager'
     ]);
 angular.module('boltApp')
@@ -665,7 +667,7 @@ angular.module('boltApp')
                         return $http.get('json/import.json', {cache: true});
                     }
                 },
-                controller: function ($scope, $rootScope, RestApi, getImportEntities, $modal) {
+                controller: function ($scope, $rootScope, RestApi, getImportEntities, $modal, ImportData) {
 
                     $scope.import = function () {
                         $scope.showSpinner = true;
@@ -684,31 +686,37 @@ angular.module('boltApp')
                                 }
                             });
                         });
-                        RestApi.saveList({route: 'events'}, $scope.entities).$promise.then(function (res) {
+                        $scope.importData.submit($scope.entities).then(function () {
                             $scope.showSpinner = false;
                             $modal.open({
                                 templateUrl: 'views/modalImport.html',
-                                controller: ['$scope', '$modalInstance', 'data',
+                                controller: ['$scope', '$modalInstance', 'importData',
 
-                                    function ($scope, $modalInstance, data) {
+                                    function ($scope, $modalInstance, importData) {
 
                                         $scope.close = function () {
                                             $modalInstance.close(false);
                                         };
 
-                                        $scope.data = data;
-
+                                        $scope.finished = false;
+                                        $scope.stats = importData.stats;
+                                        $scope.$watch(function() { return $scope.stats.processed },
+                                            function(oldVal, newVal) {
+                                                if ($scope.stats.processed === $scope.stats.total) {
+                                                    $scope.finished = true;
+                                                }
+                                            }
+                                        );
                                     }],
                                 resolve: {
-                                    data: function () {
-                                        return res.data;
+                                    importData: function() {
+                                        return $scope.importData
                                     }
                                 },
                                 backdrop: 'static',
                                 windowClass: 'modal-cancel'
                             });
-                        }, function (res) {
-                            console.log(res);
+                        }, function () {
                         });
                     };
 
@@ -748,6 +756,7 @@ angular.module('boltApp')
                         return entity;
                     };
                     $scope.importEntity = $scope.handleRemoteRules($scope.importEntity);
+                    $scope.importData = ImportData;
                 }
             })
 			.state('admin.classes.class', {
