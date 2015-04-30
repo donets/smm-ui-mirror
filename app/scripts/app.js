@@ -72,7 +72,7 @@ angular.module('boltApp', [
         'boltApp.services.navigator',
         'boltApp.services.city',
         'boltApp.services.mapStudios',
-        'angulartics.google.customtagmanager'
+        'angulartics.google.customtagmanager',
     ]);
 angular.module('boltApp')
 	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',

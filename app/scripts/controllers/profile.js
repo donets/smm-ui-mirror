@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Profile', [])
-    .controller('ProfileCtrl', function ($scope, $rootScope, $window, $http, $modal, RestApi, getMembership, Membership) {
+    .controller('ProfileCtrl', function ($scope, $rootScope, $window, $http, $modal, RestApi, getMembership, Membership, $analytics) {
 
         var getVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -252,6 +252,7 @@ angular.module('boltApp.controllers.Profile', [])
                 resolve: {
                     member: function () {
                         return $scope.membership;
+
                     }
                 }
             }).result.then(function () {
@@ -263,6 +264,11 @@ angular.module('boltApp.controllers.Profile', [])
         };
 
         var suspend = $scope.suspendMembership = function () {
+            $analytics.eventTrack({
+                'event': 'suspendSubscription',
+                'actionStep': '1 - Suspend Button Clicked',
+                'cardType': $scope.membership.type
+            });
             $modal.open({
                 templateUrl: 'views/modalSuspend.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'member', 'gettextCatalog',
@@ -293,6 +299,11 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.suspendSubmit = function () {
                             $scope.loading = true;
+                            $analytics.eventTrack({
+                                'event': 'suspendSubscription',
+                                'actionStep': '2 - Subscription Suspended',
+                                'cardType': $scope.membership.type
+                            });
                             $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/schedulePause', {}, {params: {from: moment($scope.startDate).format('YYYY-MM-DD'), durationMonths: $scope.durationMonths}}).success(function (res) {
                                 console.log(res);
                                 $scope.loading = false;
@@ -327,6 +338,11 @@ angular.module('boltApp.controllers.Profile', [])
         };
 
         $scope.cancelMembership = function () {
+            $analytics.eventTrack({
+                'event': 'cancelSubscription',
+                'actionStep': '1 - Cancel Button Clicked',
+                'cardType': $scope.membership.type
+            });
             $modal.open({
                 templateUrl: 'views/modalCancel.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$q',
@@ -337,9 +353,13 @@ angular.module('boltApp.controllers.Profile', [])
 
                         $scope.cancelSubmit = function () {
                             $scope.step_1 = false;
+                            $analytics.eventTrack({
+                                'event': 'cancelSubscription',
+                                'actionStep': '2 - Subscription Cancelled',
+                                'cardType': member.type
+                            });
                             $scope.step_2 = true;
                         };
-
                         $scope.suspendSubmit = function () {
                             $modalInstance.close(false);
                             suspend();
@@ -349,9 +369,16 @@ angular.module('boltApp.controllers.Profile', [])
                             $scope.loading = true;
                             $q.all([$http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/cancel'), $http.post($window.smmConfig.restUrlBase + '/api/message', {message: reason, email: member.email})]).then(function (res) {
                                 console.log(res[0].data);
+
                                 $scope.step_2 = false;
                                 $scope.success = true;
                                 $scope.cancellationDate = res[0].data.cancellationDate;
+                                $analytics.eventTrack({
+                                    'event': 'cancelSubscription',
+                                    'actionStep': '3 - Subscription Cancelled',
+                                    'cancellationReason': reason,
+                                    'cardType': member.type
+                                });
                             }, function (res) {
                                 console.log(res);
                                 $scope.loading = false;

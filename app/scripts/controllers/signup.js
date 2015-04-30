@@ -14,6 +14,15 @@ angular.module('boltApp.controllers.Signup', [])
         $scope.year = _.range(2014, 2033);
 
         $scope.init = function () {
+            $analytics.eventTrack({
+                'event': 'checkout',
+                'checkoutStep': '1 – Checkout Started',
+                'ecommerce': {
+                    'checkout': {
+                        'actionField': {'step': 1}
+                    }
+                }
+            });
             $scope.cities = $rootScope.configCities;
             $scope.order = {
                 deliveryAddress: {
@@ -27,6 +36,10 @@ angular.module('boltApp.controllers.Signup', [])
                 cityId: $rootScope.currentCity.active ? $rootScope.currentCity.id : $scope.cities[0].id,
                 lang: $rootScope.lang
             };
+            $analytics.eventTrack({
+                'event': 'changeCity',
+                'selectedCity': $scope.currentCity.defaultName
+            });
             RestApi.query({route: 'countries'}).$promise.then(function (res) {
                 $scope.countries = res;
                 $scope.cityChange();
@@ -163,7 +176,17 @@ angular.module('boltApp.controllers.Signup', [])
                 $interval(function () {
                     $document.scrollToElementAnimated($('#step2'), 260, 800);
                 }, 0, 1, {invokeApply: false});
-
+                $analytics.eventTrack({
+                    'event': 'checkout',
+                    'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
+                    'daysToStart': '0',                 // Set to nr of days left to the start of subscription (default is 0).
+                    'checkoutStep': '2 – Personal Info Set',
+                    'ecommerce': {
+                        'checkout': {
+                            'actionField': {'step': 2}
+                        }
+                    }
+                });
             }).error(function (response) {
 
                 $scope.showSpinner = false;
@@ -183,6 +206,19 @@ angular.module('boltApp.controllers.Signup', [])
             };
             $scope.showCheckout = true;
             //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
+            $analytics.eventTrack({
+                'event': 'checkout',
+                'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
+                'checkoutStep': '3 – Card Selected',
+                'ecommerce': {
+                    'checkout': {
+                        'actionField': {
+                            'step': 3,
+                            'option': _.findWhere($scope.cards, {code: $scope.order.type}).displayName
+                        }     // set to a chosen card type: 'White Card Lite'|'White Card'|'Black Card'
+                    }
+                }
+            });
             $interval(function () {
                 $document.scrollToElementAnimated($('#step3'), 60, 800);
             }, 0, 1, {invokeApply: false});
@@ -250,11 +286,26 @@ angular.module('boltApp.controllers.Signup', [])
                 $rootScope.$state.go('dashboard', {city: response.membership.cityId});
 
             }).error(function (response) {
-
+                $analytics.eventTrack({
+                    'event': 'paymentFailed',
+                    'paymentMethod': $scope.order.paymentProvider,
+                    'errorMessage': 'Entered card number is invalid'
+                });
+                $analytics.eventTrack({
+                    'event': 'loginFailed',
+                    'loginMethod': 'Website',
+                    'errorMessage': response.type
+                });
                 $scope.showSpinner = false;
                 $rootScope.handledError = false;
                 $scope.error = response.type;
                 $scope.errorMsg = response.message;
+                $analytics.eventTrack({
+                    'event': 'registerFailed',
+                    'registerMethod': 'Website',
+                    'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
+                    'errorMessage': $scope.error
+                });
             });
         };
 
