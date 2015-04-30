@@ -62,6 +62,7 @@ module.exports = function(config) {
       'bower_components/angular-xeditable/dist/js/xeditable.js',
       'bower_components/angular-gettext/dist/angular-gettext.js',
       'bower_components/angular-options-disabled/src/angular-options-disabled.js',
+      'bower_components/angular-websocket/angular-websocket.min.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
