@@ -56,7 +56,7 @@ msgid "Legal notice"
 msgstr ""
 
 #: app/index.html:141
-msgid "Please check studios websites for any last minute holiday weekend schedule changes"
+msgid "Please check studios' websites for any last minute holiday weekend schedule changes"
 msgstr ""
 
 #: app/index.html:150
