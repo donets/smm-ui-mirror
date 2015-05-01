@@ -2,6 +2,8 @@
 
 module.exports = {
 	baseUrl: 'http://localhost:9001',
+	waitPOST: 20000,
+	waitUI: 10000,
     signup: {
         firstName: 'Max',
         lastName: 'Musterman',

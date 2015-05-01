@@ -5,7 +5,7 @@ module.exports = {
     var params = browser.globals;
     browser
       .url(params.baseUrl)
-      .waitForElementVisible('body', 1000)
+      .waitForElementVisible('body', browser.globals.waitUI)
 	  .windowMaximize()
   },
   'Inviting someone': function (browser) {
@@ -21,7 +21,7 @@ module.exports = {
       .setValue('form[name="subscribeForm.header"] input[name="email"]',randomUuid()+params.signup.emailSuffix )
       .setValue('form[name="subscribeForm.header"] input.zip', params.signup.zipCode)
 	  .click('form[name="subscribeForm.header"] input[type=\'submit\']')
-	  .waitForElementVisible('.subscribe-wrapper .form-response .form-success',2000)
+	  .waitForElementVisible('.subscribe-wrapper .form-response .form-success',browser.globals.waitUI)
 	  .assert.elementPresent('.subscribe-wrapper .form-response .form-success')
       .end();
   }

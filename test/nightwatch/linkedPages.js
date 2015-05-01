@@ -5,7 +5,7 @@ module.exports = {
     var params = browser.globals;
     browser
       .url(params.baseUrl+ '/?city=B')
-      .waitForElementVisible('body', 1000)
+      .waitForElementVisible('body', browser.globals.waitUI)
 	  .windowMaximize()
   },
   'Switch the city and asert correct': function (browser) {

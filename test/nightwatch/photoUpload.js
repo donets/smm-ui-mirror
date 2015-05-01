@@ -6,16 +6,16 @@ module.exports = {
     var params = browser.globals;
     browser
       .url(params.baseUrl + '/?city=L')
-      .waitForElementVisible('body', 1000)
+      .waitForElementVisible('body', browser.globals.waitUI)
 	  .assert.elementPresent('.login-link > span:nth-child(1)')
       .click('.login-link > span:nth-child(1)')
 	  .assert.elementPresent('input[name=email]')
 	  .assert.elementPresent('input[name=password]')
-      .waitForElementVisible('input[name=email]', 1000)
+      .waitForElementVisible('input[name=email]', browser.globals.waitUI)
       .setValue('input[name=email]', params.signup.email)
       .setValue('input[name=password]', params.signup.password)
       .click('button[type=submit]')
-	  .waitForElementVisible('#account', 5000)
+	  .waitForElementVisible('#account', browser.globals.waitPOST)
       .assert.elementPresent('#account');
   },
 
@@ -26,15 +26,15 @@ module.exports = {
       absolutePath = path.resolve(__dirname, fileToUpload);
     browser
       .url(params.baseUrl + '/my/account/')
-      .waitForElementVisible('.profile-title > h2:nth-child(1) > span:nth-child(1)', 5000)
+      .waitForElementVisible('.profile-title > h2:nth-child(1) > span:nth-child(1)', browser.globals.waitPOST)
       .assert.containsText('.profile-title > h2:nth-child(1) > span:nth-child(1)', 'Hello')
       .click('.tab-nav > li:nth-child(1) > a:nth-child(1)')
-      .waitForElementVisible('div.env-upload-box > div',2000)
+      .waitForElementVisible('div.env-upload-box > div',browser.globals.waitUI)
       .click('div.env-upload-box > div')
       .execute('$(\'.button_upload input\').css("visibility", "visible");')
       .setValue('.button_upload input',absolutePath)
       .click('.action .upload_button')
-      .waitForElementNotVisible('div.modal-dialog',10000)
+      .waitForElementNotVisible('div.modal-dialog',browser.globals.waitPOST)
       .end();//add assertion of image for complete test
   }
 };

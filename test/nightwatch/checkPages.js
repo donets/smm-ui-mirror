@@ -4,7 +4,7 @@ module.exports = {
     var params = browser.globals;
     browser
       .url(params.baseUrl+'/?city=B')
-      .waitForElementVisible('body', 1000)
+      .waitForElementVisible('body', browser.globals.waitUI)
 	  .windowMaximize()
   },
  
@@ -22,7 +22,7 @@ module.exports = {
     browser
 	  .verify.containsText('.faq-link > span:nth-child(1)','Weitere Fragen? Hier geht es zu den FAQ')
       .click('.faq-link > span:nth-child(1)')
-	  .waitForElementVisible('.faq__article > h1:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.faq__article > h1:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.faq__article > h1:nth-child(1)', 'Guide to Somuchmore')
   },
 
@@ -30,7 +30,7 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)','Über uns')
       .click('.b-footer-nav__menu > li:nth-child(1) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'ENTDECKE')
   },
 
@@ -38,7 +38,7 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(2) > a:nth-child(1) > span:nth-child(1)','Impressum')
       .click('.b-footer-nav__menu > li:nth-child(2) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'IMPRESSUM')
   },
 
@@ -46,7 +46,7 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(3) > a:nth-child(1) > span:nth-child(1)','AGB')
       .click('.b-footer-nav__menu > li:nth-child(3) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'ALLGEMEINE')
   },
 
@@ -54,7 +54,7 @@ module.exports = {
     browser
 	  .assert.containsText('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)','FAQ')
       .click('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)')
-	  .waitForElementVisible('.faq__article > h1:nth-child(1)',3000,false,undefined,'Page must be opened in same window')
+	  .waitForElementVisible('.faq__article > h1:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.faq__article > h1:nth-child(1)', 'Guide to Somuchmore')
 	  .end()
   }
