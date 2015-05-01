@@ -432,31 +432,31 @@ module.exports = function(grunt) {
         },
 		nightwatch:{
 			options: { 
-				src_folders : ["test/nightwatch"],
-				globals_path : "test/params.js",
+				src_folders : ['test/nightwatch'],
+				globals_path : 'test/params.js',
 				test_settings : {
-					"default" : {
-					  "launch_url" : "http://localhost",
-					  "selenium_port"  : 4444,
-					  "selenium_host"  : "localhost",
-					  "silent": true,
-					  "screenshots" : {
-						"enabled" : false,
-						"path" : ""
+					'default' : {
+					  'launch_url' : 'http://localhost',
+					  'selenium_port'  : 4444,
+					  'selenium_host'  : 'localhost',
+					  'silent': true,
+					  'screenshots' : {
+						'enabled' : false,
+						'path' : ''
 					  },
-					  "desiredCapabilities": {
-						"browserName": "firefox",
-						"javascriptEnabled": true,
-						"acceptSslCerts": true
+					  'desiredCapabilities': {
+						'browserName': 'firefox',
+						'javascriptEnabled': true,
+						'acceptSslCerts': true
 					  }
 					}
 				},
 				selenium : {
-					"start_process" : false,
-					"host" : "127.0.0.1",
-					"port" : 4444
+					'start_process' : false,
+					'host' : '127.0.0.1',
+					'port' : 4444
 					
-				},
+				}
 				
 			}
 		},
