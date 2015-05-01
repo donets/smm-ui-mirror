@@ -63,7 +63,7 @@ angular.module('boltApp')
                     scope.importError = false;
                     scope.ignoredColumns = [];
                     scope.missingColumns = [];
-                    var lines = content.csv.csvToArray({head:!content.header, rSep:"\n", fSep: content.separator});
+                    var lines = content.csv.csvToArray({head:!content.header, rSep:'\n', fSep: content.separator});
                     var result = [];
                     var start = 0;
                     var columnCount = lines[0].length;
