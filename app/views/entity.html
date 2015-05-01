@@ -38,7 +38,7 @@
             <select chosen
                     ng-model="entity[field.model]" ng-if="field.type === 'select_object'"
                     data-placeholder="Select"
-                    allow-single-deselect="true"
+                    allow-single-deselect="true" ng-init="changeCityLocation(entity[field.model])"
                     ng-change="changeCityLocation(entity[field.model])"
                     ng-options="item.id as item.defaultName for item in {{field.modelSelect || field.model}} | orderBy: 'toString()'">
                 <option value=""></option>
