@@ -60,7 +60,7 @@ tags-input {
                 @extend .fa;
                 &:before {
                     font-size: 16px;
-                    content: $fa-var-times;
+                    content: "\f00d";
                 }
 
                 &:active {

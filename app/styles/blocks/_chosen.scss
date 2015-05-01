@@ -162,7 +162,7 @@
                 height: 20px;
                 color: $colorGrey;
                 &:before {
-                    content: $fa-var-search;
+                    content: "\f002";
                 }
             }
         }
@@ -197,7 +197,7 @@
         }
         &:before {
             @extend .fa;
-            content: $fa-var-search;
+            content: "\f002";
             position: absolute;
             font-size: 16px;
             color: $colorGrey;
@@ -326,7 +326,7 @@
         }
         &:after {
             @extend .fa;
-            content: $fa-var-search;
+            content: "\f002";
             position: absolute;
             font-size: 16px;
             color: $colorLightGrey;
@@ -454,7 +454,7 @@
                 background: inherit;
                 b {
                     &:before {
-                        content: $fa-var-search;
+                        content: "\f002";
                     }
                 }
             }
