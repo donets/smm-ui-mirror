@@ -701,8 +701,8 @@ angular.module('boltApp')
 
                                         $scope.finished = false;
                                         $scope.stats = importData.stats;
-                                        $scope.$watch(function() { return $scope.stats.processed },
-                                            function(oldVal, newVal) {
+                                        $scope.$watch(function() { return $scope.stats.processed; },
+                                            function() {
                                                 if ($scope.stats.processed === $scope.stats.total) {
                                                     $scope.finished = true;
                                                 }
@@ -711,12 +711,23 @@ angular.module('boltApp')
                                     }],
                                 resolve: {
                                     importData: function() {
-                                        return $scope.importData
+                                        return $scope.importData;
                                     }
                                 },
                                 backdrop: 'static',
                                 windowClass: 'modal-cancel'
-                            });
+                            }).result.then(function () {
+                                    $scope.csv = {
+                                        content: null,
+                                        header: true,
+                                        separator: ',',
+                                        result: null,
+                                        ignoredColumns: [],
+                                        missingColumns: [],
+                                        importErrors: {}
+                                    };
+                                    $scope.importData.reload();
+                                });
                         }, function () {
                         });
                     };

@@ -8,24 +8,32 @@
  * Factory in the boltApp.
  */
 angular.module('boltApp.services.websocket', [])
-    .factory('ImportData', function($websocket) {
-        // Open a WebSocket connection
-        var dataStream = $websocket('wss://stage-smm-api.herokuapp.com/api/rest/events/bulk');
-        var stats = { "processed":0, "total": null };
+    .factory('ImportData', ['$websocket', '$window',
+        function ($websocket, $window) {
+            // Open a WebSocket connection
+            var dataStream = $websocket($window.smmConfig.restUrlBase.replace('https', 'wss') + '/api/rest/events/bulk');
+            var stats = { 'processed': 0, 'total': null };
 
-        dataStream.onMessage(function(message) {
-            if (message.data) {
-                stats.processed = JSON.parse(message.data).processed;
-                stats.total = JSON.parse(message.data).total;
-            }
-        });
+            dataStream.onMessage(function (message) {
+                if (message.data) {
+                    stats.processed = JSON.parse(message.data).processed;
+                    stats.total = JSON.parse(message.data).total;
+                }
+            });
 
-        var methods = {
-            submit: function(json) {
-                return dataStream.send(json);
-            },
-            stats: stats
-        };
+            var methods = {
+                submit: function (json) {
+                    return dataStream.send(json);
+                },
+                stats: stats,
+                close: function() {
+                    dataStream.close();
+                },
+                reload: function() {
+                    dataStream.reconnect();
+                }
+            };
 
-        return methods;
-    });
+            return methods;
+        }
+    ]);
