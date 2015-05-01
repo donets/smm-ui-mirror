@@ -13,59 +13,70 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 # what is this?
-#: app/index.html:219
+#: app/index.html:214
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr "&copy; Somuchmore Marketplace UG, 2015"
 
-#: app/index.html:214
+#: app/index.html:209
 msgid "About us"
 msgstr "Über uns"
 
-#: app/index.html:160
+#: app/index.html:165
 msgid "Activities"
 msgstr ""
 
-#: app/index.html:173
+#: app/index.html:179
 msgid "Be inspired"
 msgstr "Lass Dich inspirieren"
 
-#: app/index.html:115 app/index.html:125 app/index.html:132 app/index.html:139
+#: app/index.html:120 app/index.html:130 app/index.html:137 app/index.html:144
 msgid "Close"
 msgstr "Close"
 
-#: app/index.html:195
+#: app/index.html:201
 msgid "Contact us"
 msgstr "Kontaktiere uns"
 
-#: app/index.html:217
+#: app/index.html:225
+msgid "Continue to the courses"
+msgstr ""
+
+#: app/index.html:212
 msgid "FAQ"
 msgstr "faq"
 
-#: app/index.html:184
+#: app/index.html:190
 msgid "Follow us"
 msgstr "Folge uns"
 
-#: app/index.html:216
+#: app/index.html:224
+msgid ""
+"From now on you can find a list of all our partner studios here. You can "
+"even start before your card arrives. Print out your class confirmation and "
+"take a photo ID to your chosen studio, et voilá! Have Fun!"
+msgstr ""
+
+#: app/index.html:211
 msgid "General terms &amp; conditions"
 msgstr "AGB"
 
-#: app/index.html:136
-msgid ""
-"Important: Easter breaks are here! Please check the individual course plans "
-"on the websites of each studio for any changes. Thank you!"
-msgstr ""
-"Bitte beachtet während der Osterferien die aktuellen Kursänderungen auf den "
-"Webseiten der Studios! Vielen Dank!"
-
-#: app/index.html:215
+#: app/index.html:210
 msgid "Legal notice"
 msgstr "Impressum"
 
-#: app/index.html:145
+#: app/index.html:141
+msgid ""
+"Please check studio's websites for any last minute holiday weekend schedule "
+"changes"
+msgstr ""
+"Feiertag 1. Mai, bitte schaut heute auf die Webseiten der Studios für "
+"aktualisierte Stundenpläne"
+
+#: app/index.html:150
 msgid "Somuchmore"
 msgstr "Somuchmore"
 
-#: app/index.html:122
+#: app/index.html:127
 msgid ""
 "Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd"
 "+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try "
@@ -75,15 +86,15 @@ msgstr ""
 "(Cmd+R für Mac) oder clicke <a href=\"\" ng-click=\"pageReload()\">hier</a> "
 "um es erneut zu versuchen."
 
-#: app/index.html:161
+#: app/index.html:166
 msgid "Studios"
 msgstr "Studios"
 
-#: app/index.html:129
+#: app/index.html:134
 msgid "Successfully saved"
 msgstr "Erfolgreich gespeichert."
 
-#: app/index.html:112
+#: app/index.html:117
 msgid ""
 "Thank you for your booking: {{event.event.title}} | Teacher: {{event.event."
 "somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
@@ -96,15 +107,19 @@ msgstr ""
 "{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
 "event.venue.region}}. <br> Du bekommst eine Email mit Ticket und Details."
 
-#: app/index.html:178
+#: app/index.html:223
+msgid "Thank you for your registration!"
+msgstr ""
+
+#: app/index.html:184
 msgid "Thank you!"
 msgstr "Danke!"
 
-#: app/index.html:179
+#: app/index.html:185
 msgid "The email address is incorrect"
 msgstr "Die Email-Adresse ist nicht korrekt"
 
-#: app/index.html:120
+#: app/index.html:125
 msgid ""
 "Unfortunately an error has occurred. Please contact our customer service "
 "team: <a href=\"mailto:kundenservice@somuchmore.org"
@@ -116,7 +131,7 @@ msgstr ""
 "\">kundenservice@somuchmore.org</a> <br>Fehlerdetails: {{rejection.data."
 "message}}"
 
-#: app/index.html:121
+#: app/index.html:126
 msgid ""
 "You are not authorised to access this page {{$state.href($state.current."
 "name, $state.params, {absolute: true})}}"
@@ -124,9 +139,16 @@ msgstr ""
 "Sie haben keine Berechtigung für die Seite {{$state.href($state.current."
 "name, $state.params, {absolute: true})}}"
 
-#: app/index.html:175
+#: app/index.html:181
 msgid "Your email address"
 msgstr "Deine E-Mail-Adresse"
+
+#~ msgid ""
+#~ "Important: Easter breaks are here! Please check the individual course "
+#~ "plans on the websites of each studio for any changes. Thank you!"
+#~ msgstr ""
+#~ "Bitte beachtet während der Osterferien die aktuellen Kursänderungen auf "
+#~ "den Webseiten der Studios! Vielen Dank!"
 
 #~ msgid "Courses"
 #~ msgstr "Kurse"

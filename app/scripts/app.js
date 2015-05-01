@@ -178,7 +178,7 @@ angular.module('boltApp')
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-                $rootScope.easterMessage = (toState.name === 'dashboard') && (!$cookieStore.get('easterMessageViewed')) && (new Date() < new Date(2015,3,7));
+                $rootScope.mayMessage = (toState.name === 'dashboard') && (!$cookieStore.get('mayMessageViewed')) && (new Date() < new Date(2015,4,5));
                 $rootScope.rejection = null;
 				$rootScope.success = null;
 				var session = $cookieStore.get('session');
@@ -203,9 +203,9 @@ angular.module('boltApp')
 				$window._fbq.push(['addPixelId', '1461407927469396']);
 				$window._fbq.push(['track', 'PixelInitialized', {}]);
 			});
-            $rootScope.closeEasterMessage = function() {
-                $cookieStore.put('easterMessageViewed', true);
-                $rootScope.easterMessage = false;
+            $rootScope.closeMayMessage = function() {
+                $cookieStore.put('mayMessageViewed', true);
+                $rootScope.mayMessage = false;
             };
 		}
 	])
