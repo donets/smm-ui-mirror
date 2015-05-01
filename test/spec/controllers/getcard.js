@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: GetcardCtrl', function () {
+describe('Controller: HomepageCtrl', function () {
 
   // load the controller's module
   beforeEach(module('boltApp'));
 
-  var GetcardCtrl,
+  var HomepageCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    GetcardCtrl = $controller('GetcardCtrl', {
+    HomepageCtrl = $controller('HomepageCtrl', {
       $scope: scope
     });
   }));

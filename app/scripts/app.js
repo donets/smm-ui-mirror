@@ -20,11 +20,8 @@ angular.module('boltApp', [
         'angular-data.DSCacheFactory',
         'angularMoment',
         'gettext',
-        'ngProgress',
         'angularSpinner',
         'duScroll',
-        'duParallax',
-        'ngTagsInput',
         'ui-rangeSlider',
         'localytics.directives',
         'validation.match',
@@ -32,22 +29,20 @@ angular.module('boltApp', [
         'flow',
         'ngOptionsDisabled',
         'ng-optimizely',
-        'ngshowvariant',
         'xeditable',
-        'angulartics',
         'ngWebSocket',
+        'angulartics',
+        'angulartics.google.customtagmanager',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.overlayplay',
         'com.2fdevs.videogular.plugins.buffering',
         'com.2fdevs.videogular.plugins.poster',
-        'boltApp.controllers.Main',
-        'boltApp.controllers.Event',
+        'boltApp.controllers.Homepage',
         'boltApp.controllers.Studio',
         'boltApp.controllers.Social',
         'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
-        'boltApp.controllers.Getcard',
         'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
         'boltApp.controllers.CreateClass',
@@ -73,8 +68,7 @@ angular.module('boltApp', [
         'boltApp.services.navigator',
         'boltApp.services.city',
         'boltApp.services.mapStudios',
-        'boltApp.services.websocket',
-        'angulartics.google.customtagmanager'
+        'boltApp.services.websocket'
     ]);
 angular.module('boltApp')
 	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
@@ -99,16 +93,6 @@ angular.module('boltApp')
 					$('.pre').addClass('hide_loader');
 				};
 				if ($window.rendering) {
-					/*$http.get('//ipinfo.io/json/?token=c2989e43470111', {withCredentials: false}).success(function (response) {
-					    RestApi.query({route: 'cities'}).$promise.then(function (res) {
-					        var city = _.findWhere(res, {defaultName: response.city});
-					        $cookieStore.put('cityId', city && city.active ? city.id : 1);
-					        prerenderReady();
-					    });
-					}).error(function () {
-					    $cookieStore.put('cityId', 1);
-					    prerenderReady();
-					});*/
                     if ($rootScope.configLoaded) {
                         $rootScope.$broadcast('configLoaded');
                         prerenderReady();
@@ -209,9 +193,6 @@ angular.module('boltApp')
             };
 		}
 	])
-	/*.run(['optimizely', function(optimizely) {
-	    optimizely.loadProject('2367521283');
-	}])*/
 	.run(['$http', 'DSCacheFactory',
 		function($http, DSCacheFactory) {
 			var defaultCache = DSCacheFactory('defaultCache', { // jshint ignore:line
@@ -303,40 +284,9 @@ angular.module('boltApp')
 		ezfbProvider.setLoadSDKFunction(myLoadSDKFunction);
 	}])
 	.config(['$httpProvider', function($httpProvider) {
-		//$httpProvider.responseInterceptors.push('HttpProgressInterceptor');
 		$httpProvider.interceptors.push('myHttpInterceptor');
 		$httpProvider.defaults.withCredentials = true;
 	}])
-	.provider('HttpProgressInterceptor', function HttpProgressInterceptor() {
-		this.$get = ['$injector', '$q', function($injector, $q) {
-			var my = this;
-			var ngProgress;
-
-			this.getNgProgress = function() {
-				ngProgress = ngProgress || $injector.get('ngProgress');
-				return ngProgress;
-			};
-
-			return function(promise) {
-				ngProgress = my.getNgProgress();
-				ngProgress.color('#ff695c');
-				ngProgress.height('3px');
-				ngProgress.reset();
-				ngProgress.start();
-				return promise
-					.then(
-						function(response) {
-							ngProgress.complete();
-							return response;
-						},
-						function(response) {
-							ngProgress.complete();
-							return $q.reject(response);
-						}
-					);
-			};
-		}];
-	})
 	.factory('resourceInterceptor', function($rootScope, $interval) {
 		return {
 			response: function(response) {
@@ -408,99 +358,10 @@ angular.module('boltApp')
 		$analyticsProvider.firstPageview(false);
 		//noinspection JSValidateTypes
 		$stateProvider
-			.state('main', {
-				url: '/p/events/',
-				templateUrl: 'views/main.html',
-				resolve: {
-
-                    // A function value resolves to the return
-                    // value of the function
-                    getEvents: function(Occurrences) {
-                        return Occurrences.query();
-                    }
-				},
-				onEnter: function($rootScope) {
-					$rootScope.autoscroll = false;
-				},
-				onExit: function($rootScope) {
-					$rootScope.autoscroll = true;
-				},
-				controller: 'MainCtrl'
-			})
-			.state('view', {
-				url: '/p/event/:eventId/',
-				templateUrl: 'views/event.html',
-				resolve: {
-
-					getEvent: function(Occurrences, $stateParams) {
-
-						// Extract customer ID from $stateParams
-
-						// Return a promise to make sure the customer is completely
-						// resolved before the controller is instantiated
-						return Occurrences.get({
-							occurrenceId: $stateParams.eventId
-						}).$promise;
-					}
-				},
-				controller: 'EventCtrl'
-			})
-			.state('view.contact', {
-				url: 'contact/',
-				onEnter: ['$state', '$stateParams', '$modal', function($state, $stateParams, $modal) {
-					$modal.open({
-						templateUrl: 'views/modalContact.html',
-						controller: ['$scope', '$modalInstance', '$http', 'teacherId', '$interval',
-
-							function($scope, $modalInstance, $http, teacherId, $interval) {
-
-								$scope.contact = {};
-
-								$scope.submitMessage = function() {
-									$scope.loadingUpdate = true;
-									$http.post('/api/message/' + teacherId, $scope.contact).success(function() {
-										$scope.loadingUpdate = false;
-										$scope.successUpdate = true;
-                                        $interval(function() {
-                                            $modalInstance.close(true);
-                                        }, 0, 1, {invokeApply: false});
-									}).error(function(response, status) {
-										$scope.loadingUpdate = false;
-										$scope.errorUpdate = true;
-										console.error(status);
-									});
-								};
-
-								$scope.close = function() {
-									$modalInstance.close(true);
-								};
-
-							}
-						],
-						backdrop: 'static',
-						resolve: {
-							teacherId: function(Occurrences) {
-								var occurrenceId = $stateParams.occurrenceId;
-								return Occurrences.get({
-									occurrenceId: occurrenceId
-								}).$promise.then(function(res) {
-									return res.event.somuchmore.teacherId;
-								});
-							}
-						}
-					}).result.then(function(result) {
-						if (result) {
-							return $state.transitionTo('view', {
-								occurrenceId: $stateParams.occurrenceId
-							});
-						}
-					});
-				}]
-			})
 			.state('home', {
 				url: '/',
 				templateUrl: 'views/homepage.html',
-				controller: 'GetcardCtrl',
+				controller: 'HomepageCtrl',
 				resolve: {
 
 					getDisciplines: function($http) {
