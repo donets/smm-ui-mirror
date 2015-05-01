@@ -71,7 +71,7 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     display: inline-block;
     &:before {
         @extend .fa;
-        content: $fa-var-search;
+        content: "\f002";
         position: absolute;
         top: 0;
         right: 12px;
@@ -97,7 +97,7 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
     }
     &:before {
         @extend .fa;
-        content: $fa-var-calendar-o;
+        content: "\f133";
         position: absolute;
         top: 0;
         right: 16px;
@@ -519,7 +519,7 @@ input:-webkit-autofill {
 .form-check {
     > .fa {
         &:before {
-            content: $fa-var-square-o;
+            content: "\f096";
         }
     }
     input:checked ~ .fa {
@@ -535,7 +535,7 @@ input:-webkit-autofill {
             line-height: 14px;
         }
         &:before {
-            content: $fa-var-check-square;
+            content: "\f14a";
         }
     }
 }
