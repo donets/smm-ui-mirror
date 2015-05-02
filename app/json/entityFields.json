@@ -99,6 +99,10 @@
                "large": true,
                "listed": false
            }, {
+               "model": "linkClassesToStudioDisciplines",
+               "title": "Link classes to studio disciplines",
+               "type": "checkbox"
+           }, {
                "model": "profileComplete",
                "title": "Profile Complete",
                "type": "checkbox"

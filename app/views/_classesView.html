@@ -9,7 +9,7 @@
                         data-placeholder="{{'All activities'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item for item in mergeDS | orderBy: 'toString()'">
+                        ng-options="item.name as item.name group by item.type for item in mergeDS">
                     <option value=""></option>
                 </select>
                 <em ng-if="cities" translate>in</em>
@@ -54,7 +54,7 @@
             <div ng-if="desktop" class="weekdays-wrapper">
                 <button ng-disabled="today.isSame(weekdays[0])" class="nav-button left" ng-click="changeWeek('sub')"><i class="fa fa-angle-left"></i></button>
                 <ul class="weekdays-dashboard">
-                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="clearFilters();changeDay(cityId, w)">{{w | amCalendar}}</li>
+                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="changeDay(cityId, w)">{{w | amCalendar}}</li>
                 </ul>
                 <button class="nav-button right" ng-click="changeWeek('add')"><i class="fa fa-angle-right"></i></button>
             </div>
@@ -65,7 +65,7 @@
                 <div class="form-rel half">
                     <button class="control-button" ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>
                     <input class="input-date" datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.mobile"
-                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="clearFilters();changeDay(cityId, moment(currDay))"
+                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(cityId, moment(currDay))"
                            class="form-input" ng-model="currDay" type="text" show-button-bar="false"/>
                 </div>
                 <div class="form-rel half">
@@ -84,7 +84,7 @@
                         ng-model="search.class.discipline"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item for item in mergeDS | orderBy: 'toString()'">
+                        ng-options="item.name as item.name group by item.type for item in mergeDS">
                     <option value="" translate>All activities</option>
                 </select>
                 <select chosen name="city" width="'100%'" ng-if="cities"

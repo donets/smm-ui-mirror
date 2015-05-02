@@ -10,23 +10,46 @@
 angular.module('boltApp.controllers.Dashboard', [])
     .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
         var fetchClasses = function (city, date) {
-            /*$scope.clearFilters();*/
             $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: city, date: date.format('YYYY-MM-DD')}).success(function (res) {
-                $q.all([RestApi.query({route: 'studios',cityId: city}).$promise,
+                var qD = $q.defer();
+                var qS = $q.defer();
+                $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + city).success(function (res) {
+                    _.map(res, function (item) {
+                        item.type = gettextCatalog.getString('Activities');
+                    });
+                    $scope.disciplines = _.sortBy(res, 'name');
+                    qD.resolve();
+                });
+                $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + city).success(function (res) {
+                    _.map(res, function (item) {
+                        item.type = gettextCatalog.getString('Disciplines');
+                    });
+                    $scope.styles = _.sortBy(res, 'name');
+                    qS.resolve();
+                });
+                $q.all([RestApi.query({route: 'studios',cityId: city}, {cache: true}).$promise,
                         RestApi.query({route: 'locations',cityId: city}).$promise,
-                        RestApi.query({route: 'districts',cityId: city}).$promise
+                        RestApi.query({route: 'districts',cityId: city}).$promise,
+                        qD.$promise,
+                        qS.$promise
                     ]).then(function (resolve) {
+                        $scope.allstudios = resolve[0];
+                        $scope.locations = resolve[1];
+                        $scope.neigbourhood = resolve[2];
                     _.map(res.classes.classAccesses, function (obj) {
-                        var studio = _.findWhere(resolve[0], {id: obj.studioId});
+                        var studio = _.findWhere($scope.allstudios, {id: obj.studioId});
                         obj.studio = obj.studioId && studio ? studio : '';
-                        obj.disciplinestyle = [obj.discipline, obj.style];
+                        if(obj.studio.linkClassesToStudioDisciplines) {
+                            obj.disciplinestyle = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
+                        } else {
+                            obj.disciplinestyle = [obj.discipline, obj.style];
+                        }
                     });
                     _.map(res.classes.occurenceAccesses, function (obj) {
-                        var location = _.findWhere(resolve[1], {id: obj.locationId});
+                        var location = _.findWhere($scope.locations, {id: obj.locationId});
                         obj.location = obj.locationId && location ? location : '';
                     });
-                    $scope.neigbourhood = resolve[2];
                     $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
                         event.start_date = moment(event.date + 'T' + event.startTime);
                         event.end_date = moment(event.date + 'T' + event.endTime);
@@ -37,8 +60,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                     $scope.events = _.filter($scope.events, function (event) {
                         return moment(event.start_date).isAfter(moment());
                     });
-                    $scope.disciplines = _.uniq(_.pluck(res.classes.classAccesses, 'discipline'));
-                    $scope.styles = _.uniq(_.pluck(res.classes.classAccesses, 'style'));
                     $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
                     $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                     $scope.showSpinner = false;
