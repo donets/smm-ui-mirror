@@ -61,6 +61,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                         return moment(event.start_date).isAfter(moment());
                     });
                     $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
+                    //console.log($scope.mergeDS);
                     $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                     $scope.showSpinner = false;
                 });
