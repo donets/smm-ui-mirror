@@ -17,7 +17,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + city).success(function (response) {
                     _.map(response, function (item) {
                         item.type = gettextCatalog.getString('Activities');
-                        item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'discipline')), item.name);
                     });
                     $scope.disciplines = _.sortBy(response, 'name');
                     qD.resolve();
