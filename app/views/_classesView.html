@@ -9,6 +9,7 @@
                         data-placeholder="{{'All activities'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
+                        ng-options-disabled="item.disabled for item in mergeDS"
                         ng-options="item.name as item.name group by item.type for item in mergeDS">
                     <option value=""></option>
                 </select>

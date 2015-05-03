@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
-    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, getStudio, $http, $window, RestApi, uiGmapGoogleMapApi) {
+    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, getStudio, $http, $window, RestApi, gettextCatalog, uiGmapGoogleMapApi) {
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/landing-2880.jpg' : '/images/landing-1080.jpg';
         $scope._ = _;
         getStudio.$promise.then(function () {
@@ -33,23 +33,47 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
             $scope.currLocation = location;
             $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {locationId: location.id, date: $scope.currDay.format('YYYY-MM-DD')}).success(function (res) {
-                _.map(res.classes.classAccesses, function (obj) {
-                    obj.disciplinestyle = [obj.discipline, obj.style];
+                var qD = $q.defer();
+                var qS = $q.defer();
+                $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + location.cityId).success(function (response) {
+                    _.map(response, function (item) {
+                        item.type = gettextCatalog.getString('Activities');
+                        item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'discipline')), item.name);
+                    });
+                    $scope.disciplines = _.sortBy(response, 'name');
+                    qD.resolve();
                 });
-                $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
-                    event.start_date = moment(event.date + 'T' + event.startTime);
-                    event.end_date = moment(event.date + 'T' + event.endTime);
-                    event.startTime = event.startTime.slice(0,5);
-                    event.endTime = event.endTime.slice(0,5);
-                    event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
+                $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + location.cityId).success(function (response) {
+                    _.map(response, function (item) {
+                        item.type = gettextCatalog.getString('Disciplines');
+                        item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
+                    });
+                    $scope.styles = _.sortBy(response, 'name');
+                    qS.resolve();
                 });
-                $scope.events = _.filter($scope.events, function (event) {
-                    return moment(event.start_date).isAfter(moment());
+                $q.all([qD.$promise, qS.$promise]).then(function (resolve) {
+                    _.map(res.classes.classAccesses, function (obj) {
+                        obj.disciplinestyle = [obj.discipline, obj.style];
+                        if(getStudio.linkClassesToStudioDisciplines) {
+                            obj.disciplinestyle = _.union([obj.discipline, obj.style], getStudio.disciplines.split(', '));
+                        } else {
+                            obj.disciplinestyle = [obj.discipline, obj.style];
+                        }
+                    });
+                    console.log(resolve);
+                    $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
+                        event.start_date = moment(event.date + 'T' + event.startTime);
+                        event.end_date = moment(event.date + 'T' + event.endTime);
+                        event.startTime = event.startTime.slice(0,5);
+                        event.endTime = event.endTime.slice(0,5);
+                        event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
+                    });
+                    $scope.events = _.filter($scope.events, function (event) {
+                        return moment(event.start_date).isAfter(moment());
+                    });
+                    $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
+                    $scope.showSpinner = false;
                 });
-                $scope.disciplines = _.uniq(_.pluck(res.classes.classAccesses, 'discipline'));
-                $scope.styles = _.uniq(_.pluck(res.classes.classAccesses, 'style'));
-                $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
-                $scope.showSpinner = false;
             });
             uiGmapGoogleMapApi.then(function() {
 

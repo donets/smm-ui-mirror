@@ -14,21 +14,23 @@ angular.module('boltApp.controllers.Dashboard', [])
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: city, date: date.format('YYYY-MM-DD')}).success(function (res) {
                 var qD = $q.defer();
                 var qS = $q.defer();
-                $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + city).success(function (res) {
-                    _.map(res, function (item) {
+                $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + city).success(function (response) {
+                    _.map(response, function (item) {
                         item.type = gettextCatalog.getString('Activities');
+                        item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'discipline')), item.name);
                     });
-                    $scope.disciplines = _.sortBy(res, 'name');
+                    $scope.disciplines = _.sortBy(response, 'name');
                     qD.resolve();
                 });
-                $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + city).success(function (res) {
-                    _.map(res, function (item) {
+                $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + city).success(function (response) {
+                    _.map(response, function (item) {
                         item.type = gettextCatalog.getString('Disciplines');
+                        item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
                     });
-                    $scope.styles = _.sortBy(res, 'name');
+                    $scope.styles = _.sortBy(response, 'name');
                     qS.resolve();
                 });
-                $q.all([RestApi.query({route: 'studios',cityId: city}, {cache: true}).$promise,
+                $q.all([RestApi.query({route: 'studios',cityId: city}).$promise,
                         RestApi.query({route: 'locations',cityId: city}).$promise,
                         RestApi.query({route: 'districts',cityId: city}).$promise,
                         qD.$promise,
@@ -61,7 +63,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                         return moment(event.start_date).isAfter(moment());
                     });
                     $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
-                    //console.log($scope.mergeDS);
                     $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                     $scope.showSpinner = false;
                 });
