@@ -548,6 +548,7 @@ angular.module('boltApp')
                                 }
                             });
                         });
+                        $scope.importData.reload();
                         $scope.importData.submit($scope.entities).then(function () {
                             $scope.showSpinner = false;
                             $modal.open({
@@ -587,7 +588,6 @@ angular.module('boltApp')
                                         missingColumns: [],
                                         importErrors: {}
                                     };
-                                    $scope.importData.reload();
                                 });
                         }, function () {
                         });
