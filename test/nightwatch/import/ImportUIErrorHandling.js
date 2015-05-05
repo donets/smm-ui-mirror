@@ -1,6 +1,5 @@
-// it is not working with phantomJS i don't know why but phantomJS just loops in itself without any errors
 module.exports = {
-  tags: ['login','image','upload'],
+  tags: ['login','import','upload'],
 
   'LogIN': function (browser) {
     var params = browser.globals;
@@ -12,14 +11,14 @@ module.exports = {
 	  .assert.elementPresent('input[name=email]')
 	  .assert.elementPresent('input[name=password]')
       .waitForElementVisible('input[name=email]', browser.globals.waitUI)
-      .setValue('input[name=email]', params.admin.email)
-      .setValue('input[name=password]', params.admin.password)
+      .setValue('input[name=email]', params.signup.email)
+      .setValue('input[name=password]', params.signup.password)
       .click('button[type=submit]')
 	  .waitForElementVisible('#account', browser.globals.waitPOST)
       .assert.elementPresent('#account');
   },
 
-  'Go to classes and initiate import': function (browser) {
+  'Go to my account and upload photo': function (browser) {
      var path = require('path');
      var params = browser.globals;
       fileToUpload = '../../app/images/alexandra.jpg',

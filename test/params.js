@@ -19,12 +19,10 @@ module.exports = {
         address: 'Teststr. 1',
         zipCode: '10123'
     },
-    photoUpload: {
-        firstName: 'test',
-        lastName: 'test',
-        password: 'password',
-        emailSuffix: '+test@somuchmore.org',
-        email: 'rocketblr@gmail.com'
+    admin: {
+	    email: 'admin@test.com',
+        password: 'Test1234'
+
     },
 
     helpers: {
