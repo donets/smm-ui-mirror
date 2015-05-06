@@ -1,5 +1,5 @@
 module.exports = {
-  tags: ['login','import','upload'],
+  tags: ['login','import','upload','incorrect'],
 
   'LogIN': function (browser) {
     var params = browser.globals;
@@ -18,7 +18,7 @@ module.exports = {
       .assert.elementPresent('#account');
   },
 
-  'Go to my account and upload photo': function (browser) {
+  'Go to classes and initiate import': function (browser) {
      var path = require('path');
      var params = browser.globals;
       fileToUpload = '../../test_import_err.csv',
@@ -29,11 +29,11 @@ module.exports = {
       .waitForElementVisible('.btn', browser.globals.waitPOST)
       .setValue('.btn',absolutePath)	  
 	  .waitForElementVisible('tr.ng-scope:nth-child(1) > td:nth-child(2)',browser.globals.waitUI)
-	  .pause(1000)//задержка чтоб ответ пришел от АПИ на предмет серверсайдовых валидаций, не удивлюсь если на CI будет падать....
+	  .pause(10000)//задержка чтоб ответ пришел от АПИ на предмет серверсайдовых валидаций, не удивлюсь если на CI будет падать....
   },
   
     'Validate all rows contain an error': function (browser) { 
-	//элементы для падающих в данный момент тестов ['9','17'],['10','17'],['11','17'],['12','7'],['13','7'],['20','3'],['21','3'],['22','3'],['22','3']
+	//элементы длЯ падающих в данный момент тестов ['9','17'],['10','17'],['11','17'],['12','7'],['13','7'],['20','3'],['21','3'],['22','3'],['22','3']
 	//после фикса SMMWEB-79 добавить их в массив
 	var tests=[['1','2'],['2','9'],['3','10'],['4','11'],['5','16'],['6','16'],['7','17'],['8','17'],['14','15'],['15','15'],['16','13'],
 		['17','13'],['18','14'],['19','14'],['23','2'],['24','4'],['25','5'],['26','9'],['27','10'],['28','11'],['29','16'],['30','17'],
@@ -48,7 +48,7 @@ module.exports = {
 		  this.assert.cssClassPresent('tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child('+tests[i][1]+')','invalid','FAILED:'+result.value)//проверяем и выводим ошибку если фейлится
 		  });*/
 	}
-	s=s+'.end()};'
+	s=s+'.waitForElementVisible(\'.green\',browser.globals.waitUI).assert.attributeEquals(\'.green\',\'disabled\',\'true\')\n.end()};'
 	//console.log(s);
 	eval(s);//а вот эта та самая часть почему я считаю джаваскрипт извратом...
 	TestAll();//я создал монстра...
