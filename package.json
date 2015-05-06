@@ -39,13 +39,14 @@
     "time-grunt": "^0.3.1"
   },
   "devDependencies": {
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-nightwatch": "^0.4.6",
     "grunt-protractor-runner": "^1.2.1",
     "jasmine-spec-reporter": "^1.1.2",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "nightwatch": "^0.6.4",
-    "node-mandrill": "^1.0.1",
-    "grunt-nightwatch": "^0.4.6"
+    "node-mandrill": "^1.0.1"
   },
   "engines": {
     "node": ">=0.10.0"

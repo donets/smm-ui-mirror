@@ -12,6 +12,7 @@ module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
     grunt.loadNpmTasks('grunt-angular-gettext');
+    grunt.loadNpmTasks('grunt-angular-templates');
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
@@ -68,6 +69,10 @@ module.exports = function(grunt) {
             poChanged: {
                 files: ['po/translations/{,*/}*.po'],
                 tasks: ['nggettext_compile']
+            },
+            htmlChanged: {
+                files: ['app/views/{,*/}*.html'],
+                tasks: ['ngtemplates']
             }
         },
 
@@ -519,6 +524,25 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'app/scripts/custom/translations.js': ['po/translations/de/*.po', 'po/translations/en/*.po']
+                }
+            }
+        },
+        ngtemplates:  {
+            app:        {
+                src:      'app/views/{,*/}*.html',
+                dest:     'app/scripts/custom/templates.js',
+                options: {
+                    module: 'boltApp',
+                    htmlmin: {
+                        collapseBooleanAttributes:      true,
+                        collapseWhitespace:             true,
+                        removeAttributeQuotes:          true,
+                        removeComments:                 true, // Only if you don't use comment directives!
+                        removeEmptyAttributes:          true,
+                        removeRedundantAttributes:      true,
+                        removeScriptTypeAttributes:     true,
+                        removeStyleLinkTypeAttributes:  true
+                    }
                 }
             }
         }
