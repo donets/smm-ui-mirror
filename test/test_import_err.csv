@@ -1,0 +1,34 @@
+id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description
+test12,test#001 IncorrectID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201283,test#002 wrong day,Lol,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201284,test#003 wrong Stime,Sat,25:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201285,test#004 wrong Etime,Sat,21:30,25:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201286,test#005 wrong Format Sdate1,Sat,21:30,23:55,2015-22-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201287,test#006 wrong Format Sdate2,Sat,21:30,23:55,2015-05-35,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201288,test#007 wrong Format Edate1,Sat,21:30,23:55,2015-05-24,2020-22-22,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201289,test#008 wrong Format Edate2,Sat,21:30,23:55,2015-05-24,2020-05-35,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201290,test#009 SDate>EDate Year,Sat,21:30,23:55,2020-05-24,2015-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201291,test#010 SDate>EDate Month,Sat,21:30,23:55,2015-07-24,2015-06-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201292,test#011 SDate>EDate Day,Sat,21:30,23:55,2015-07-24,2015-07-01,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201293,test#012 wrong level,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,100500,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201294,test#013 wrong level format,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,OlOlO,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201295,test#014 wrong status,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,1,,2,2,LIFE,"BLACK,WHITE,LITE",test
+201296,test#015 wrong status format,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,1,,2,2,123,"BLACK,WHITE,LITE",test
+201297,test#016 wrong studioID,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,1,,9999999999999999999999,2,LIVE,"BLACK,WHITE,LITE",test
+201298,test#017 wrong studioID format,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,1,,test,2,LIVE,"BLACK,WHITE,LITE",test
+201299,test#018 wrong locationId,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,1,,2,9999999999999999999999,LIVE,"BLACK,WHITE,LITE",test
+201300,test#019 wrong locationId format,Sat,21:30,23:55,2015-07-24,2020-05-24,Tanz,Tango,1,,2,test,LIVE,"BLACK,WHITE,LITE",test
+201301,test#020 wrong acceptedPlans1 data,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,LOL,LITE",test
+201302,test#021 wrong acceptedPlans2 delimiter,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK;WHITE;LITE",test
+201303,test#022 wrong acceptedPlans3 format,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"1,2,3",test
+,test#023 Missing Mandatory - ID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201305,,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201306,test#025 Missing Mandatory - Discipline,Sat,21:30,23:55,2015-05-22,2020-05-24,,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201307,test#026 Missing Mandatory - Day,,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201308,test#027 Missing Mandatory - Stime,Sat,,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201309,test#028 Missing Mandatory - Etime,Sat,21:30,,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201310,test#029 Missing Mandatory - Sdate,Sat,21:30,23:55,,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201311,test#030 Missing Mandatory - Edate,Sat,21:30,23:55,2015-05-22,,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test
+201312,test#031 Missing Mandatory - Status,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,,"BLACK,WHITE,LITE",test
+201313,test#032 Missing Mandatory - StudioID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,,2,LIVE,"BLACK,WHITE,LITE",test
+201314,test#033 Missing Mandatory - LocationID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,,LIVE,"BLACK,WHITE,LITE",test

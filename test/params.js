@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	baseUrl: 'http://localhost:9001',
+	baseUrl: 'http://localhost:9000',
 	waitPOST: 20000,
 	waitUI: 10000,
     signup: {
