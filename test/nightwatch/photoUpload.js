@@ -19,7 +19,7 @@ module.exports = {
       .assert.elementPresent('#account');
   },
 
-  'Go to classes and initiate import': function (browser) {
+  'Go to my account and upload photo': function (browser) {
      var path = require('path');
      var params = browser.globals;
       fileToUpload = '../../app/images/alexandra.jpg',
