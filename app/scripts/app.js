@@ -182,9 +182,9 @@ angular.module('boltApp')
 					checkRule(event, toState, toParams, 'login');
 				}
 			});
-            $rootScope.closeEasterMessage = function() {
-                $cookieStore.put('easterMessageViewed', true);
-                $rootScope.easterMessage = false;
+            $rootScope.closeMayMessage = function() {
+                $cookieStore.put('mayMessageViewed', true);
+                $rootScope.mayMessage = false;
             };
 		}
 	])
