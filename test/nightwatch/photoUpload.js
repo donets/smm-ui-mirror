@@ -12,8 +12,8 @@ module.exports = {
 	  .assert.elementPresent('input[name=email]')
 	  .assert.elementPresent('input[name=password]')
       .waitForElementVisible('input[name=email]', browser.globals.waitUI)
-      .setValue('input[name=email]', params.admin.email)
-      .setValue('input[name=password]', params.admin.password)
+      .setValue('input[name=email]', params.signup.email)
+      .setValue('input[name=password]', params.signup.password)
       .click('button[type=submit]')
 	  .waitForElementVisible('#account', browser.globals.waitPOST)
       .assert.elementPresent('#account');
