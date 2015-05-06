@@ -433,7 +433,7 @@ module.exports = function(grunt) {
 		nightwatch:{
 			options: { 
 				src_folders : ['test/nightwatch'],
-				globals_path : 'test/params.js',
+				globals_path : 'test/paramsCI.js',
 				test_settings : {
 					'default' : {
 					  'launch_url' : 'http://localhost',
