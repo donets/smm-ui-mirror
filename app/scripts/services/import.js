@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc service
- * @name boltApp.Events
+ * @name boltApp.ImportData
  * @description
- * # Events
+ * # ImportData
  * Factory in the boltApp.
  */
 angular.module('boltApp.services.websocket', [])

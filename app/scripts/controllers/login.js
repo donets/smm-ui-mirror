@@ -8,53 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Login', [])
-	.controller('LoginCtrl', ['$rootScope', '$scope', '$http', 'ezfb', 'User', '$cookieStore', '$window', '$analytics', function($rootScope, $scope, $http, ezfb, User, $cookieStore, $window, $analytics) {
-//		$scope.init = function() {
-//			$scope.data = {};
-//			$scope.data.currentCity = [];
-//			$scope.CityFactory = CityFactory.CityFactory;
-//
-//			$scope.$on('CityFactory.update', function() {
-//				var currentCityVar = CityFactory.getVariable();
-//				$scope.data.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
-//			});
-//
-//			$scope.update = CityFactory.update;
-//
-//            $scope.changeLanguage = function(city) {
-//                $rootScope.lang = city;
-//                $cookieStore.put('globalLang', $rootScope.lang);
-//                gettextCatalog.setCurrentLanguage($rootScope.lang);
-//                amMoment.changeLocale($rootScope.lang);
-//            };
-//
-//			CityFactory.getCities().then(function(res) {
-//				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
-//					return c.countryCode === $rootScope.countryCode;
-//				});
-//				CityFactory.guessCity($scope.citiesList).then(function(res) {
-//					$scope.city = res.city;
-//					$scope.cityId = res.cityId;
-//					$scope.changeCity(res.currentCity.id);
-//				});
-//			});
-////            $scope.citiesList = $rootScope.configCities;
-////            $scope.city = $rootScope.currentCity;
-////            $scope.cityId = $rootScope.currentCity.id;
-//		};
-//
-//		$scope.init();
-//
-//
-//
-//		$scope.changeCity = function(currentCityId) {
-//            var currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
-//            CityFactory.update(currentCity, $scope.citiesList);
-//            CityFactory.changeCity(currentCity, $scope.citiesList).then(function(res) {
-//                $scope.studios = res.studios;
-//                $scope.cards = res.cards;
-//            });
-//        };
+	.controller('LoginCtrl', function($rootScope, $scope, $http, ezfb, $cookieStore, $window, $analytics) {
 
 		function sendLoginFB(res) {
 			$http.get($window.smmConfig.restUrlBase + '/api/auth/login/facebook?accessToken=' + res.authResponse.accessToken).success(function(response) {
@@ -75,21 +29,6 @@ angular.module('boltApp.controllers.Login', [])
 				(more || angular.noop)();
 			});
 		}
-
-		/*var checkUser = function () {
-		    User.get().$promise.then(function (response) {
-		        console.log(response);
-		        if (response.currentUser) {
-		            $rootScope.userName = response.currentUser.name;
-		            $rootScope.roleMember = _.include(response.currentUser.roles, 'member') ? true : false;
-		            $rootScope.roleAdmin = _.include(response.currentUser.roles, 'admin') ? true : false;
-		        } else {
-		            $rootScope.userName = null;
-		            $rootScope.roleMember = null;
-		            $rootScope.roleAdmin = null;
-		        }
-		    });
-		};*/
 
 		$scope.loginFB = function() {
 
@@ -183,4 +122,4 @@ angular.module('boltApp.controllers.Login', [])
 			});
 		};
 
-	}]);
+	});

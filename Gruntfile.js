@@ -382,16 +382,6 @@ module.exports = function(grunt) {
                     cwd: '<%= yeoman.app %>',
                     src: 'json/*',
                     dest: '<%= yeoman.dist %>'
-                }, {
-                    expand: true,
-                    cwd: '.',
-                    src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-                    dest: '<%= yeoman.dist %>'
-                }, {
-                    expand: true,
-                    cwd: '.',
-                    src: 'bower_components/font-awesome/fonts/*',
-                    dest: '<%= yeoman.dist %>'
                 }]
             },
             styles: {
@@ -474,7 +464,6 @@ module.exports = function(grunt) {
         nggettext_extract: {
             pot: {
                 files: {
-                    'po/templates/eventCard.pot': ['app/views/_eventCard.html'],
                     'po/templates/loginForm.pot': ['app/views/_loginForm.html'],
                     'po/templates/about.pot': ['app/views/about.html'],
                     'po/templates/agb.pot': ['app/views/agb.html'],
@@ -482,24 +471,19 @@ module.exports = function(grunt) {
                     'po/templates/classes.pot': ['app/views/classes.html'],
                     'po/templates/entity.pot': ['app/views/entity.html'],
                     'po/templates/entityList.pot': ['app/views/entityList.html'],
-                    'po/templates/event.pot': ['app/views/event.html'],
                     'po/templates/faq.pot': ['app/views/faq.html'],
                     'po/templates/homepage.pot': ['app/views/homepage.html'],
                     'po/templates/impressum.pot': ['app/views/impressum.html'],
                     'po/templates/login.pot': ['app/views/login.html'],
-                    'po/templates/main.pot': ['app/views/main.html'],
                     'po/templates/modalActivate.pot': ['app/views/modalActivate.html'],
-                    'po/templates/modalAttend.pot': ['app/views/modalAttend.html'],
                     'po/templates/modalBook.pot': ['app/views/modalBook.html'],
                     'po/templates/modalCancel.pot': ['app/views/modalCancel.html'],
-                    'po/templates/modalContact.pot': ['app/views/modalContact.html'],
                     'po/templates/modalMessage.pot': ['app/views/modalMessage.html'],
                     'po/templates/modalSubscribe.pot': ['app/views/modalSubscribe.html'],
                     'po/templates/modalSuccess.pot': ['app/views/modalSuccess.html'],
                     'po/templates/modalSuggest.pot': ['app/views/modalSuggest.html'],
                     'po/templates/modalSuspend.pot': ['app/views/modalSuspend.html'],
                     'po/templates/modalUpload.pot': ['app/views/modalUpload.html'],
-                    'po/templates/more.pot': ['app/views/more.html'],
                     'po/templates/resetPassword.pot': ['app/views/resetPassword.html'],
                     'po/templates/signup.pot': ['app/views/signup.html'],
                     'po/templates/studio.pot': ['app/views/studio.html'],
@@ -557,7 +541,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'wiredep',
+        //'wiredep',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
