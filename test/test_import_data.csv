@@ -1,0 +1,53 @@
+id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description
+900005,test#005 Random data check-1,Mon,6:20,7:20,2017-05-01,2017-05-07,Tanz,Grinberg Methode,1,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
+Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt."
+900005,test#005 Random data check-2,Tue,6:25,7:25,2017-05-012017-05-07,Tanz,Grinberg Methode,2,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE",
+900007,test#005 Random data check-3,Wed,6:30,7:30,2017-05-01,2017-05-07,Tanz,Grinberg Methode,3,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
+Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt."
+900008,test#005 Random data check-4,Thu,6:35,7:35,2017-05-01,2017-05-07,Tanz,,,,27453,27452,LIVE,"BLACK,WHITE,LITE",
+900009,test#005 Random data check-5,Mon,6:40,7:40,2017-05-01,2017-05-07,Bewusstes Atmen ,Ballett,"2,3",Alex,27453,27452,LIVE,"BLACK,WHITE,LITE",test#005
+900010,test#005 Random data check-6,Tue,6:45,7:45,2017-05-01,2017-05-07,Body & Mind,Ballett Barre Fitness,"1,2,3",Irina,27453,27452,LIVE,"WHITE,LITE",test#005
+900011,test#005 Random data check-7,Wed,6:50,7:50,2017-05-01,2017-05-07,Bodystyling,Barre Workout,1,Gabe,27453,27452,LIVE,WHITE,test#007
+900012,test#005 Random data check-8,Thu,6:55,7:55,2017-05-01,2017-05-07,Cardio,Basic,2,Ron,27453,27452,LIVE,BLACK,test#008
+900013,test#005 Random data check-9,Fri,7:00,8:00,2017-05-01,2017-05-07,CrossFit,Bauch Beine Po,3,Dana,27453,27452,LIVE,LITE,test#009
+900014,test#005 Random data check-10,Sat,7:05,8:05,2017-05-01,2017-05-07,Deepwork,Bikram,"1,2",Richard,27453,27452,LIVE,"BLACK,WHITE",test#010
+900015,test#005 Random data check-11,Sun,7:10,8:10,2017-05-01,2017-05-07,Ernährung,Dance Work,"2,3",Helen,27453,27452,LIVE,"BLACK,WHITE,LITE",test#011
+900016,test#005 Random data check-12,Thu,7:15,8:15,2017-05-01,2017-05-07,Feldenkrais,Ernährungsberatung,"1,2,3",Anny,27453,27452,LIVE,"WHITE,LITE",test#012
+900017,test#005 Random data check-13,Mon,7:20,8:20,2017-05-01,2017-05-07,Fitness,Flow,1,Kristin,27453,27452,LIVE,WHITE,test#013
+900018,test#005 Random data check-07,Tue,7:25,8:25,2017-05-01,2017-05-07,Gymnastik,Hatha,2,Jessica,27453,27452,LIVE,BLACK,test#014
+900019,test#005 Random data check-15,Wed,7:30,8:30,2017-05-01,2017-05-07,Kampfkunst,Hip Hop,3,Ben,27453,27452,LIVE,LITE,test#015
+900020,test#005 Random data check-16,Thu,7:35,8:35,2017-05-01,2017-05-07,Yoga und Pilates,Hot,"1,2",Kate,27453,27452,LIVE,"BLACK,WHITE",test#016
+900021,test#005 Random data check-17,Fri,7:40,8:40,2017-05-01,2017-05-07,Meditation,Iyengar,"2,3",Johan,27453,27452,LIVE,"BLACK,WHITE,LITE",test#017
+900022,test#005 Random data check-18,Sat,7:45,8:45,2017-05-01,2017-05-07,Meditation / Yoga,Jazz ,"1,2,3",Johanes,27453,27452,LIVE,"WHITE,LITE",test#018
+900023,test#005 Random data check-19,Sun,7:50,8:50,2017-05-01,2017-05-07,Mobility,Jiu Jitsu,1,Tanishia,27453,27452,LIVE,WHITE,test#019
+900024,test#005 Random data check-20,Thu,7:55,8:55,2017-05-01,2017-05-07,Pilates,Joon Do,2,Felicity,27453,27452,LIVE,BLACK,test#020
+900025,test#005 Random data check-21,Mon,8:00,9:00,2017-05-01,2017-05-07,Rückbildungskurse,Latin Streetstyle,3,Bob,27453,27452,LIVE,LITE,test#021
+900026,test#005 Random data check-22,Tue,8:05,9:05,2017-05-01,2017-05-07,Rückentraining,Lyrical Jazz,"1,2",Victoria,27453,27452,LIVE,"BLACK,WHITE",test#022
+900027,test#005 Random data check-23,Wed,8:10,9:10,2017-05-01,2017-05-07,Stretch & Relax,Modern Dance,"2,3",Julia,27453,27452,LIVE,"BLACK,WHITE,LITE",test#023
+900028,test#005 Random data check-24,Thu,8:15,9:15,2017-05-01,2017-05-07,Tanz,Modern Jazz,"1,2,3",Peter,27453,27452,LIVE,"WHITE,LITE",test#024
+900029,test#005 Random data check-25,Fri,8:20,9:20,2017-05-01,2017-05-07,Vocal Coaching,Nordic Walking,1,Jessy,27453,27452,LIVE,WHITE,test#025
+900030,test#005 Random data check-26,Sat,8:25,9:25,2017-05-01,2017-05-07,Wellness,Pole Dance,2,Albert,27453,27452,LIVE,BLACK,test#026
+900031,test#005 Random data check-27,Sun,8:30,9:30,2017-05-01,2017-05-07,Yoga,Pränatal,3,Alex,27453,27452,LIVE,LITE,test#027
+900032,test#005 Random data check-28,Thu,8:35,9:35,2017-05-01,2017-05-07,Fitnesstanz,Rückbildung mit Pilates,"1,2",Irina,27453,27452,LIVE,"BLACK,WHITE",test#028
+900033,test#005 Random data check-29,Mon,8:40,9:40,2017-05-01,2017-05-07,Spa,Rückbildung mit Yoga und Pilates,"2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#029
+900034,test#005 Random data check-30,Tue,8:45,9:45,2017-05-01,2017-05-07,Boxen,Spitzentraining,"1,2,3",Ron,27453,27452,LIVE,"WHITE,LITE",test#030
+900035,test#005 Random data check-31,Wed,8:50,9:50,2017-05-01,2017-05-07,EMS,Tribal Bellydance,1,Dana,27453,27452,LIVE,WHITE,test#031
+900036,test#005 Random data check-32,Thu,8:55,9:55,2017-05-01,2017-05-07,Power Plate,TRX,2,Richard,27453,27452,LIVE,BLACK,test#032
+900037,test#005 Random data check-33,Fri,9:00,10:00,2017-05-01,2017-05-07,Zirkeltraining,Workout,3,Helen,27453,27452,LIVE,LITE,test#033
+900038,test#005 Random data check-34,Sat,9:05,10:05,2017-05-01,2017-05-07,Slimyonik,Zumba,"1,2",Anny,27453,27452,LIVE,"BLACK,WHITE",test#034
+900039,test#005 Random data check-35,Sun,9:10,10:10,2017-05-01,2017-05-07,Personal Training,Zumba Hip Hop,"2,3",Kristin,27453,27452,LIVE,"BLACK,WHITE,LITE",test#035
+900040,test#005 Random data check-36,Thu,9:15,10:15,2017-05-01,2017-05-07,Gewichtsreduktion,Rückengymnastik,"1,2,3",Jessica,27453,27452,LIVE,"WHITE,LITE",test#036
+900041,test#005 Random data check-37,Mon,9:20,10:20,2017-05-01,2017-05-07,Fitness,Kickboxen,1,Ben,27453,27452,LIVE,WHITE,test#037
+900042,test#005 Random data check-38,Tue,9:25,10:25,2017-05-01,2017-05-07,Klettern,Dance Fitness,2,Kate,27453,27452,LIVE,BLACK,test#038
+900043,test#005 Random data check-39,Wed,9:30,10:30,2017-05-01,2017-05-07,Bouldern,Thai Chi,3,Johan,27453,27452,LIVE,LITE,test#039
+900044,test#005 Random data check-40,Thu,9:35,10:35,2017-05-01,2017-05-07,Workout,Selbstverteidigung,"1,2",Johanes,27453,27452,LIVE,"BLACK,WHITE",test#040
+900045,test#005 Random data check-41,Mon,9:40,10:40,2017-05-01,2017-05-07,Mental Work,Yogilates,"2,3",Tanishia,27453,27452,LIVE,"BLACK,WHITE,LITE",test#041
+900046,test#005 Random data check-42,Tue,9:45,10:45,2017-05-01,2017-05-07,Sling Training,Tango,"1,2,3",Felicity,27453,27452,LIVE,"WHITE,LITE",test#042
+900047,test#005 Random data check-43,Wed,9:50,10:50,2017-05-01,2017-05-07,Mental Balance,Kundalini Yoga,1,Bob,27453,27452,LIVE,WHITE,test#043
+900048,test#005 Random data check-44,Thu,9:55,10:55,2017-05-01,2017-05-07,LNB,Spa,2,Victoria,27453,27452,LIVE,BLACK,test#044
+900049,test#005 Random data check-45,Fri,10:00,11:00,2017-05-01,2017-05-07,Atemübungen,Jivamukti,3,Julia,27453,27452,LIVE,LITE,test#045
+900050,test#005 Random data check-46,Sat,10:05,11:05,2017-05-01,2017-05-07,Athletics,Yin LSD,"1,2",Peter,27453,27452,LIVE,"BLACK,WHITE",test#046
+900051,test#005 Random data check-47,Sun,10:10,11:10,2017-05-01,2017-05-07,Ausdauer,Vinyasa,"2,3",Jessy,27453,27452,LIVE,"BLACK,WHITE,LITE",test#047
+900052,test#005 Random data check-48,Mon,10:15,11:15,2017-05-01,2017-05-07,Beckenbodentraining,Satsang/Kirtan,"1,2,3",Albert,27453,27452,LIVE,"WHITE,LITE",test#048
+900053,test#005 Random data check-49,Thu,10:20,11:20,2017-05-01,2017-05-07,Bewusstes Atmen ,Gerätetraining,1,Alex,27453,27452,LIVE,WHITE,test#049
+900054,test#005 Random data check-50,Fri,10:25,11:25,2017-05-01,2017-05-07,Body & Mind,Anusara,2,Irina,27453,27452,LIVE,BLACK,test#050

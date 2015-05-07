@@ -4,6 +4,15 @@ module.exports = {
 	baseUrl: 'http://localhost:9001',
 	waitPOST: 20000,
 	waitUI: 10000,
+	waitImport: 300000,
+	conString: {
+		user: 'smmre',
+		password: 'PM2sEMC17iU8i2KrdbSJ',
+		database: 'stage_events',
+		host: 'pg-smm.maketank.net',
+		port: 5432,
+		ssl: true
+		},
     signup: {
         firstName: 'Max',
         lastName: 'Musterman',
