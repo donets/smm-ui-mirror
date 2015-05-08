@@ -280,7 +280,7 @@ msgid "This voucher can only be redeemed from 1.1.2015"
 msgstr ""
 
 #: app/views/signup.html:151
-msgid "This voucher is only {{typeVoucher}} valid for the CARD"
+msgid "This voucher is only valid for the {{typeVoucher}} CARD"
 msgstr ""
 
 #: app/views/signup.html:283

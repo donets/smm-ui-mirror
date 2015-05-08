@@ -4,27 +4,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/_classesView.html:33
+#: app/views/_classesView.html:34
 msgid ", or"
 msgstr ""
 
-#: app/views/_classesView.html:89
 #: app/views/_classesView.html:9
+#: app/views/_classesView.html:90
 msgid "All activities"
 msgstr ""
 
-#: app/views/_classesView.html:103
+#: app/views/_classesView.html:104
 #: app/views/_classesView.html:27
 msgid "All districts"
 msgstr ""
 
-#: app/views/_classesView.html:111
-#: app/views/_classesView.html:37
+#: app/views/_classesView.html:112
+#: app/views/_classesView.html:38
 msgid "All studios"
 msgstr ""
 
-#: app/views/_classesView.html:139
-#: app/views/_classesView.html:179
+#: app/views/_classesView.html:140
+#: app/views/_classesView.html:180
 msgid "Cancel"
 msgstr ""
 
@@ -32,16 +32,16 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: app/views/_classesView.html:180
+#: app/views/_classesView.html:181
 msgid "Details"
 msgstr ""
 
-#: app/views/_classesView.html:141
-#: app/views/_classesView.html:178
+#: app/views/_classesView.html:142
+#: app/views/_classesView.html:179
 msgid "Reserve"
 msgstr ""
 
-#: app/views/_classesView.html:138
+#: app/views/_classesView.html:139
 msgid "Reserved for you"
 msgstr ""
 
@@ -49,16 +49,16 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: app/views/_classesView.html:147
+#: app/views/_classesView.html:148
 msgid "Sorry, there are no free spots available for this class."
 msgstr ""
 
-#: app/views/_classesView.html:148
+#: app/views/_classesView.html:149
 msgid "Sorry, your request could not be completed. Please Try again."
 msgstr ""
 
-#: app/views/_classesView.html:157
-#: app/views/_classesView.html:189
+#: app/views/_classesView.html:158
+#: app/views/_classesView.html:190
 msgid "There are no courses available for this day and this search. Try another date or reset the filters."
 msgstr ""
 

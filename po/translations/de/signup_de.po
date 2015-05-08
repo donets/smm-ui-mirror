@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
 # What is this?
 #: app/views/signup.html:305
@@ -30,12 +30,18 @@ msgid "3. Payment"
 msgstr "3. Bezahlung"
 
 #: app/views/signup.html:330
-msgid "An account already exists for this email account. Please log in or use a different e-mail address."
-msgstr "Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle eine andere E-Mail"
+msgid ""
+"An account already exists for this email account. Please log in or use a "
+"different e-mail address."
+msgstr ""
+"Ein Account für diese E-Mail existiert bereits. Logge Dich ein oder wähle "
+"eine andere E-Mail"
 
 #: app/views/signup.html:293
 msgid "Any time <span class=\"details\">(On a monthly basis)</span>"
-msgstr "Jederzeit <span class=\"details\">(monatlich bis zum Monatsende für den Folgemonat)</span>"
+msgstr ""
+"Jederzeit <span class=\"details\">(monatlich bis zum Monatsende für den "
+"Folgemonat)</span>"
 
 #: app/views/signup.html:100 app/views/signup.html:130
 msgid "Anytime"
@@ -120,11 +126,13 @@ msgstr "Straße & Hausnummer"
 
 #: app/views/signup.html:314
 msgid ""
-"I agree to the <a ui-sref=\"agb\">terms &amp; conditions</a> and <a ui-sref=\"agb\">data protection "
-"provisions</a> and am aware of my <a ui-sref=\"agb\">statutory rights </a> ."
+"I agree to the <a ui-sref=\"agb\">terms &amp; conditions</a> and <a ui-sref="
+"\"agb\">data protection provisions</a> and am aware of my <a ui-sref=\"agb"
+"\">statutory rights </a> ."
 msgstr ""
-"Ich stimme den <a ui-sref=\"agb\">AGB</a> und <a ui-sref=\"agb\">Datenschutzbestimmungen</a> zu und "
-"habe mein gesetzliches <a ui-sref=\"agb\">Widerrufsrecht</a> zur Kenntnis genommen."
+"Ich stimme den <a ui-sref=\"agb\">AGB</a> und <a ui-sref=\"agb"
+"\">Datenschutzbestimmungen</a> zu und habe mein gesetzliches <a ui-sref=\"agb"
+"\">Widerrufsrecht</a> zur Kenntnis genommen."
 
 #: app/views/signup.html:320
 msgid "I would like to subscribe to the newsletter about holistic lifestyles"
@@ -157,11 +165,11 @@ msgstr "Monat"
 
 #: app/views/signup.html:287
 msgid ""
-"Monthly <span class=\"details\" ng-if=\"lang !== 'en'\">(beginning with the first day of membership)</"
-"span>"
+"Monthly <span class=\"details\" ng-if=\"lang !== 'en'\">(beginning with the "
+"first day of membership)</span>"
 msgstr ""
-"Monatlich <span class=\"details\" ng-if=\"lang !== 'en'\">(beginnend mit dem Tag der Mitgliedschaft)</"
-"span>"
+"Monatlich <span class=\"details\" ng-if=\"lang !== 'en'\">(beginnend mit dem "
+"Tag der Mitgliedschaft)</span>"
 
 #: app/views/signup.html:113 app/views/signup.html:82
 msgid "Monthly price"
@@ -171,7 +179,8 @@ msgstr "Preis pro Monat"
 msgid "Monthly price:"
 msgstr "Monatlicher Preis:"
 
-#: app/views/signup.html:103 app/views/signup.html:137 app/views/signup.html:75
+#: app/views/signup.html:103 app/views/signup.html:137
+#: app/views/signup.html:75
 msgid "Next"
 msgstr "Weiter"
 
@@ -198,12 +207,12 @@ msgstr "Zahlung mit Kreditkarte?"
 #: app/views/signup.html:158
 msgid ""
 "Payment information\n"
-"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src="
-"\"images/stripe.svg\" alt=\"stripe\"></a>"
+"                        <a class=\"stripe-link\" target=\"_blank\" href="
+"\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
 msgstr ""
 "Zahlungsinformationen\n"
-"                        <a class=\"stripe-link\" target=\"_blank\" href=\"https://stripe.com\"><img src="
-"\"images/stripe.svg\" alt=\"stripe\"></a>"
+"                        <a class=\"stripe-link\" target=\"_blank\" href="
+"\"https://stripe.com\"><img src=\"images/stripe.svg\" alt=\"stripe\"></a>"
 
 #: app/views/signup.html:327
 msgid "Place order"
@@ -218,19 +227,27 @@ msgid "Please enter a valid credit card number"
 msgstr "Bitte eine gültige Kreditkartennummer eintragen"
 
 #: app/views/signup.html:200
-msgid "Please enter the 3 or 4-digit security number (on the back of your card)"
-msgstr "Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-Rückseite)"
+msgid ""
+"Please enter the 3 or 4-digit security number (on the back of your card)"
+msgstr ""
+"Bitte die 3- bzw. 4-stellige Karten-Prüfnummer eingeben (auf Karten-"
+"Rückseite)"
 
 #: app/views/signup.html:235
 msgid ""
-"Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer "
-"service team."
-msgstr "Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren Kundenservice widerrufen."
+"Please note: You can cancel your direct debit payment any time by sending an "
+"e-mail to our customer service team."
+msgstr ""
+"Hinweis: Sie können den Bankeinzug jederzeit per E-Mail an unseren "
+"Kundenservice widerrufen."
 
 #: app/views/signup.html:331
 msgid ""
-"Please select your card, fill out all fields and accept the terms &amp; conditions and privacy policy."
-msgstr "Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und Datenschutzbestimmung."
+"Please select your card, fill out all fields and accept the terms &amp; "
+"conditions and privacy policy."
+msgstr ""
+"Bitte wähle Deine Karte, fülle alle Felder aus und akzeptiere AGB und "
+"Datenschutzbestimmung."
 
 #: app/views/signup.html:254
 msgid "Postal code"
@@ -246,12 +263,14 @@ msgstr "SEPA-Lastschrift"
 
 #: app/views/signup.html:234
 msgid ""
-"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for "
-"services provided. I also instruct my bank to honour direct debit requests from this recipient."
+"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to "
+"debit my account for services provided. I also instruct my bank to honour "
+"direct debit requests from this recipient."
 msgstr ""
-"SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, Zahlungen von meinem Konto "
-"mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von dem "
-"Zahlungsempfänger auf mein Konto gezogenen Lastschriften einzulösen."
+"SEPA-Lastschriftmandat: Ich ermächtige den Zahlungsempfänger Somuchmore UG, "
+"Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise "
+"ich mein Kreditinstitut an, die von dem Zahlungsempfänger auf mein Konto "
+"gezogenen Lastschriften einzulösen."
 
 # what does this mean?
 #: app/views/signup.html:227
@@ -259,8 +278,12 @@ msgid "SWIFT-BIC"
 msgstr "BIC"
 
 #: app/views/signup.html:4
-msgid "Sign up now, takes less than 90 seconds and start attending classes, immediately."
-msgstr "Melde Dich in unter 90 Sekunden an - and besuche schon heute Kurse, Studios und Spas."
+msgid ""
+"Sign up now, takes less than 90 seconds and start attending classes, "
+"immediately."
+msgstr ""
+"Melde Dich in unter 90 Sekunden an - and besuche schon heute Kurse, Studios "
+"und Spas."
 
 #: app/views/signup.html:301
 msgid "Special price:"
@@ -282,9 +305,11 @@ msgstr "Nachname"
 msgid "Term:"
 msgstr "Laufzeit:"
 
-#: app/views/signup.html:169 app/views/signup.html:199 app/views/signup.html:216
-#: app/views/signup.html:223 app/views/signup.html:23 app/views/signup.html:230 app/views/signup.html:249
-#: app/views/signup.html:257 app/views/signup.html:265 app/views/signup.html:30 app/views/signup.html:38
+#: app/views/signup.html:169 app/views/signup.html:199
+#: app/views/signup.html:216 app/views/signup.html:223
+#: app/views/signup.html:23 app/views/signup.html:230
+#: app/views/signup.html:249 app/views/signup.html:257
+#: app/views/signup.html:265 app/views/signup.html:30 app/views/signup.html:38
 #: app/views/signup.html:46
 msgid "This is an obligatory field"
 msgstr "Dies ist eine Pflichtfeld"
@@ -294,13 +319,14 @@ msgid "This voucher can only be redeemed from 1.1.2015"
 msgstr "Dieses Voucher kann erst ab dem 1.1.2015 eingelöst werden"
 
 #: app/views/signup.html:151
-msgid "This voucher is only {{typeVoucher}} valid for the CARD"
-msgstr "Dieses Voucher ist nur {{typeVoucher}} für die CARD gültig"
+msgid "This voucher is only valid for the {{typeVoucher}} CARD"
+msgstr "Dieses Voucher ist nur für die {{typeVoucher}} CARD gültig"
 
 #: app/views/signup.html:283
 msgid "Unlimited <span class=\"details\">(Rolling monthly membership)</span>"
 msgstr ""
-"Unbefristet <span class=\"details\">(Verlängerung um je einen Monat, solange nicht gekündigt)</span>"
+"Unbefristet <span class=\"details\">(Verlängerung um je einen Monat, solange "
+"nicht gekündigt)</span>"
 
 #: app/views/signup.html:176
 msgid "Valid until"
@@ -376,11 +402,13 @@ msgstr "name@beispiel.com"
 #~ msgstr "Jetzt KOSTENLOS testen"
 
 #~ msgid ""
-#~ "Information about offer: After 14 days your free trial will be automatically upgraded to a paid "
-#~ "Somuchmore membership of £89. This membership can be cancelled at any time."
+#~ "Information about offer: After 14 days your free trial will be "
+#~ "automatically upgraded to a paid Somuchmore membership of £89. This "
+#~ "membership can be cancelled at any time."
 #~ msgstr ""
-#~ "Hinweise zum Angebot: Nach 14 Tagen erfolgt der automatische Übergang in eine kostenpflichtige "
-#~ "Somuchmore Mitgliedschaft (39€, 69€, 99€ /Monat, inkl. MwSt., jederzeit kündbar)."
+#~ "Hinweise zum Angebot: Nach 14 Tagen erfolgt der automatische Übergang in "
+#~ "eine kostenpflichtige Somuchmore Mitgliedschaft (39€, 69€, 99€ /Monat, "
+#~ "inkl. MwSt., jederzeit kündbar)."
 
 #~ msgid "No enrolment fee"
 #~ msgstr "Keine Aufnahmegebühr"
@@ -391,8 +419,12 @@ msgstr "name@beispiel.com"
 #~ msgid "Order your Somuchmore card"
 #~ msgstr "Bestelle die Somuchmore Card"
 
-#~ msgid "Register in less than a minute – and attend your first course straight away."
-#~ msgstr "Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs."
+#~ msgid ""
+#~ "Register in less than a minute – and attend your first course straight "
+#~ "away."
+#~ msgstr ""
+#~ "Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen "
+#~ "ersten Kurs."
 
 #~ msgid "Satisfaction guaranteed"
 #~ msgstr "Garantierte Zufriedenheit"

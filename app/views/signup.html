@@ -148,7 +148,7 @@
                         <div>
                             <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                             <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>Invalid code</div>
-                            <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>This voucher is only {{typeVoucher}} valid for the CARD</div>
+                            <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>This voucher is only valid for the {{typeVoucher}} CARD</div>
                             <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error" translate>This voucher can only be redeemed from 1.1.2015</div>
                         </div>
                         <i ng-show="successVoucher" class="fa fa-check check-valid"></i>
