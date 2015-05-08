@@ -8,7 +8,7 @@ module.exports = {
   'Open Home page': function (browser) {
     var params = browser.globals;
     browser
-      .url(params.baseUrl)
+      .url(params.baseUrl + '/?city=L')
       .waitForElementVisible('body', browser.globals.waitUI)
 	  .windowMaximize()
   },
@@ -28,8 +28,8 @@ module.exports = {
       .setValue('form[name="subscribeForm.header"] input[name="email"]',pregenerateduid+params.signup.emailSuffix )
       .setValue('form[name="subscribeForm.header"] input.zip', params.signup.zipCode)
 	  .click('form[name="subscribeForm.header"] input[type=\'submit\']')
-	  .waitForElementVisible('.subscribe-wrapper .form-response .form-success',browser.globals.waitUI)
-	  .assert.elementPresent('.subscribe-wrapper .form-response .form-success')
+	  .waitForElementVisible('.signup',browser.globals.waitUI)
+	  .assert.containsText('.signup-title > h2:nth-child(1) > span:nth-child(1)','Congratulations, Your spot is free!')//also asserting that language set correctly
 	  .end();
   }/*,
   

@@ -4,7 +4,7 @@ module.exports = {
   'Open Home page': function (browser) {
     var params = browser.globals;
     browser
-      .url(params.baseUrl)
+      .url(params.baseUrl + '/?city=L')
       .waitForElementVisible('body', browser.globals.waitUI)
 	  .windowMaximize()
   },
@@ -18,11 +18,8 @@ module.exports = {
       });
     };
     browser
-      .setValue('form[name="subscribeForm.header"] input[name="email"]',randomUuid()+params.signup.emailSuffix )
-      .setValue('form[name="subscribeForm.header"] input.zip', params.signup.zipCode)
-	  .click('form[name="subscribeForm.header"] input[type=\'submit\']')
-	  .waitForElementVisible('.subscribe-wrapper .form-response .form-success',browser.globals.waitUI)
-	  .assert.elementPresent('.subscribe-wrapper .form-response .form-success')
+	  .waitForElementVisible('h2.ng-scope > span:nth-child(4) > span:nth-child(1)',browser.globals.waitUI)
+	  .assert.containsText('h2.ng-scope > span:nth-child(4) > span:nth-child(1)','IS YOUR STUDIO')
       .end();
   }
 };
