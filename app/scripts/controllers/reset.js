@@ -51,6 +51,11 @@ angular.module('boltApp.controllers.Reset', [])
                         $scope.errorMessage = response.type;
                         break;
                 }
+                $analytics.eventTrack({
+                    'event': 'loginFailed',
+                    'loginMethod': 'Website',
+                    'errorMessage': response.type
+                });
             });
         };
     });

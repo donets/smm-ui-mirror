@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Classfilters', [])
-    .controller('ClassfiltersCtrl', function ($scope, $rootScope, $modal, $http, $window, $document) {
+    .controller('ClassfiltersCtrl', function ($scope, $rootScope, $modal, $http, $window, $document, $analytics) {
 
         $scope._ = $window._;
         $scope.moment = $window.moment;
@@ -78,9 +78,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                 controller: ['$scope', '$rootScope', '$modalInstance', 'event',
 
                     function ($scope, $rootScope, $modalInstance, event) {
-
                         $scope.event = event;
-
                         $scope.confirmBook = function () {
                             $scope.error = null;
                             $scope.showSpinner = true;
@@ -90,6 +88,16 @@ angular.module('boltApp.controllers.Classfilters', [])
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
                                 event.bookingStatus = 'BOOKED';
+                                $analytics.eventTrack({
+                                    'event': 'bookclass',
+                                    'studioName': event.class.studio,            // Salon/fitness club/etc name.
+                                    'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
+                                    //'studioLocation': 'Berlin_Prenzlauer Berg',      // Salon/fitness club/etc city and district.
+                                    'className': event.class.title,                     // class name.
+                                    'classId': event.class.id,                            // class ID.
+                                    //'classTime': 'Fri_17:00-18:00',                // Populate with: dayOfWeek_time
+                                    'classCategory': event.class.discipline                    // class category.
+                                });
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -156,6 +164,16 @@ angular.module('boltApp.controllers.Classfilters', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.bookingStatus = 'CANCELED';
+                $analytics.eventTrack({
+                    'event': 'cancelBooking',
+                    'studioName': event.class.studio,            // Salon/fitness club/etc name.
+                    'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
+                    'studioLocation': 'Enter location',      // Salon/fitness club/etc city and district.
+                    'className': event.class.title,                     // class name.
+                    'classId': event.class.id,
+                    'classTime': 'Enter day and time',                // Populate with: dayOfWeek_time
+                    'classCategory': event.class.discipline
+                });
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;

@@ -174,11 +174,6 @@ angular.module('boltApp')
 					checkRule(event, toState, toParams, 'login');
 				}
 			});
-			$.getScript('//connect.facebook.net/en_US/fbds.js').done(function() {
-				$window._fbq = $window._fbq || [];
-				$window._fbq.push(['addPixelId', '1461407927469396']);
-				$window._fbq.push(['track', 'PixelInitialized', {}]);
-			});
             $rootScope.closeMayMessage = function() {
                 $cookieStore.put('mayMessageViewed', true);
                 $rootScope.mayMessage = false;
@@ -534,6 +529,7 @@ angular.module('boltApp')
                                 }
                             });
                         });
+                        $scope.importData.reload();
                         $scope.importData.submit($scope.entities).then(function () {
                             $scope.showSpinner = false;
                             $modal.open({
@@ -573,7 +569,6 @@ angular.module('boltApp')
                                         missingColumns: [],
                                         importErrors: {}
                                     };
-                                    $scope.importData.reload();
                                 });
                         }, function () {
                         });

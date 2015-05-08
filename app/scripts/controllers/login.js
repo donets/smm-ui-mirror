@@ -98,6 +98,11 @@ angular.module('boltApp.controllers.Login', [])
 				$scope.loadingLogin = false;
 				$scope.errorLogin = response.type === 'WrongUsernameOrPassword';
 				$rootScope.handledError = false;
+                $analytics.eventTrack({
+                    'event': 'loginFailed',
+                    'loginMethod': 'Website',
+                    'errorMessage': response.type
+                });
 			});
 		};
 
@@ -106,6 +111,9 @@ angular.module('boltApp.controllers.Login', [])
 			$scope.successSubscribe = false;
 			$scope.errorForgot = false;
 			$rootScope.handledError = true;
+            $analytics.eventTrack({
+                'event': 'passwordForgotten'
+            });
 			$http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + encodeURIComponent(this.emailForgot), {
 				cache: false
 			}).success(function(response) {
