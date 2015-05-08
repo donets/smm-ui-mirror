@@ -27,6 +27,7 @@
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
+                        ng-options-disabled="item.disabled for item in neigbourhood"
                         ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
                     <option value=""></option>
                 </select>

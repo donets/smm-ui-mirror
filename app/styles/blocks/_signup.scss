@@ -1,10 +1,16 @@
 @import "../_base/base";
 
 .signup-title {
-    padding: 120px 0 0;
+    padding: 60px 0 0;
     text-align: center;
     h2 {
         @extend %title-light;
+    }
+    @media (max-width: $containerMobileWidth) {
+        padding: 90px 0 0;
+    }
+    @media (max-width: $containerMobileWidth640) {
+        padding: 60px 0 0;
     }
 }
 .b-signup-list {
@@ -126,7 +132,7 @@
     text-align: center;
     background: $colorBackTimetable;
     padding: 30px 0 0;
-    margin: 120px 0 0;
+    margin: 20px 0 0;
     @media (max-width: $containerMobileWidth) {
         padding: 0;
         margin: 100px 0 0;

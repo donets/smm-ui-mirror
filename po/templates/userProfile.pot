@@ -4,12 +4,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/userProfile.html:12
+#: app/views/userProfile.html:13
 msgid "Account"
 msgstr ""
 
 #: app/views/userProfile.html:4
 msgid "Hello {{userName}}!"
+msgstr ""
+
+#: app/views/userProfile.html:12
+msgid "Reservations"
 msgstr ""
 
 #: app/views/userProfile.html:11

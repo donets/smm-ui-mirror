@@ -4,86 +4,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/homepage.html:240
+#: app/views/homepage.html:234
 msgid "1. Order your card"
 msgstr ""
 
-#: app/views/homepage.html:68
-msgid "14 day free trial"
-msgstr ""
-
-#: app/views/homepage.html:245
+#: app/views/homepage.html:239
 msgid "2. Book your class"
 msgstr ""
 
-#: app/views/homepage.html:250
+#: app/views/homepage.html:244
 msgid "3. Get moving"
 msgstr ""
 
-#: app/views/homepage.html:280
-#: app/views/homepage.html:296
+#: app/views/homepage.html:274
+#: app/views/homepage.html:290
 msgid "A holistic lifestyle is the key to longevity and happiness. Somuchmore opens up new options. The card gives me the freedom of not being tied to just one studio."
 msgstr ""
 
-#: app/views/homepage.html:361
+#: app/views/homepage.html:355
 msgid "Anymore questions? Read our FAQ here ›"
 msgstr ""
 
-#: app/views/homepage.html:200
-#: app/views/homepage.html:228
+#: app/views/homepage.html:194
+#: app/views/homepage.html:222
 msgid "Anytime"
 msgstr ""
 
-#: app/views/homepage.html:366
+#: app/views/homepage.html:360
 msgid "Are you a studio, coach or nutritionist? Do you want to work with us?"
 msgstr ""
 
-#: app/views/homepage.html:104
-#: app/views/homepage.html:89
+#: app/views/homepage.html:83
+#: app/views/homepage.html:98
 msgid "Be inspired"
 msgstr ""
 
-#: app/views/homepage.html:100
-#: app/views/homepage.html:84
+#: app/views/homepage.html:78
+#: app/views/homepage.html:94
 msgid "Break free"
 msgstr ""
 
-#: app/views/homepage.html:184
-#: app/views/homepage.html:227
+#: app/views/homepage.html:178
+#: app/views/homepage.html:221
 msgid "Cancel / Freeze"
 msgstr ""
 
-#: app/views/homepage.html:105
-#: app/views/homepage.html:90
+#: app/views/homepage.html:84
+#: app/views/homepage.html:99
 msgid "Choose from thousands of classes. Workout when you want, wherever you want."
 msgstr ""
 
-#: app/views/homepage.html:131
+#: app/views/homepage.html:125
 #: app/views/homepage.html:16
 msgid "City"
 msgstr ""
 
-#: app/views/homepage.html:30
-#: app/views/homepage.html:53
-msgid "Super! You are on the waitlist"
-msgstr ""
-
-#: app/views/homepage.html:370
+#: app/views/homepage.html:364
 msgid "Contact me"
 msgstr ""
 
-#: app/views/homepage.html:182
-#: app/views/homepage.html:219
+#: app/views/homepage.html:176
+#: app/views/homepage.html:213
 msgid "Courses per month"
 msgstr ""
 
-#: app/views/homepage.html:183
-#: app/views/homepage.html:223
+#: app/views/homepage.html:177
+#: app/views/homepage.html:217
 msgid "Courses per provider / month"
 msgstr ""
 
-#: app/views/homepage.html:109
-#: app/views/homepage.html:95
+#: app/views/homepage.html:103
+#: app/views/homepage.html:89
 msgid "Create your personal workout plan. Spice up your routine. Stay motivated."
 msgstr ""
 
@@ -91,56 +82,56 @@ msgstr ""
 msgid "Discover so much more - Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over {{ currentCity.defaultName }} - with one card."
 msgstr ""
 
-#: app/views/homepage.html:339
+#: app/views/homepage.html:333
 msgid "Do I have to book <br> my classes in advance?"
 msgstr ""
 
-#: app/views/homepage.html:354
+#: app/views/homepage.html:348
 msgid "Do I have to book my classes in advance?"
 msgstr ""
 
 #: app/views/homepage.html:25
-#: app/views/homepage.html:368
-#: app/views/homepage.html:48
+#: app/views/homepage.html:362
+#: app/views/homepage.html:46
 msgid "Email Address"
 msgstr ""
 
-#: app/views/homepage.html:178
+#: app/views/homepage.html:172
 msgid "Enjoy your <br>free<br> 14 day trial!"
 msgstr ""
 
-#: app/views/homepage.html:45
+#: app/views/homepage.html:43
 msgid "Enjoy your <u>free</u> 14 day trial!"
 msgstr ""
 
-#: app/views/homepage.html:75
+#: app/views/homepage.html:69
 msgid "Feel it all. Explore it all. #BeSomuchmore"
 msgstr ""
 
-#: app/views/homepage.html:246
+#: app/views/homepage.html:240
 msgid "Find your class in seconds using our online calendar."
 msgstr ""
 
-#: app/views/homepage.html:36
-#: app/views/homepage.html:59
-#: app/views/homepage.html:69
+#: app/views/homepage.html:34
+#: app/views/homepage.html:55
+#: app/views/homepage.html:63
 msgid "Get your card"
 msgstr ""
 
 #: app/views/homepage.html:27
-#: app/views/homepage.html:50
+#: app/views/homepage.html:48
 msgid "Get your invitation"
 msgstr ""
 
-#: app/views/homepage.html:66
+#: app/views/homepage.html:62
 msgid "Get your invitation today"
 msgstr ""
 
-#: app/views/homepage.html:342
+#: app/views/homepage.html:336
 msgid "How do I cancel or freeze <br> my membership?"
 msgstr ""
 
-#: app/views/homepage.html:357
+#: app/views/homepage.html:351
 msgid "How do I cancel or freeze my membership?"
 msgstr ""
 
@@ -148,159 +139,160 @@ msgstr ""
 msgid "IS YOUR STUDIO"
 msgstr ""
 
-#: app/views/homepage.html:336
-#: app/views/homepage.html:351
+#: app/views/homepage.html:330
+#: app/views/homepage.html:345
 msgid "Is my card valid everywhere?"
 msgstr ""
 
-#: app/views/homepage.html:241
+#: app/views/homepage.html:235
 msgid "It takes less than 90 seconds. You can start right away."
 msgstr ""
 
-#: app/views/homepage.html:236
+#: app/views/homepage.html:230
 msgid "It’s so simple!"
 msgstr ""
 
-#: app/views/homepage.html:153
+#: app/views/homepage.html:147
 msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
 msgstr ""
 
-#: app/views/homepage.html:76
+#: app/views/homepage.html:70
 msgid "Learn more about the offer here ›"
 msgstr ""
 
-#: app/views/homepage.html:139
+#: app/views/homepage.html:133
 msgid "List of studios"
 msgstr ""
 
-#: app/views/homepage.html:172
+#: app/views/homepage.html:166
 msgid "Live a healthy and fulfilled life"
 msgstr ""
 
-#: app/views/homepage.html:116
+#: app/views/homepage.html:110
 msgid "London is calling"
 msgstr ""
 
-#: app/views/homepage.html:138
+#: app/views/homepage.html:132
 msgid "Map of studios"
 msgstr ""
 
-#: app/views/homepage.html:284
-#: app/views/homepage.html:301
+#: app/views/homepage.html:278
+#: app/views/homepage.html:295
 msgid "Mindfulness effects everything. Your movement, the way you eat, drink and think. Being mindful promotes a healthy mind, body and soul. This holistic approach to living is what attracted me to SoMuchMore"
 msgstr ""
 
-#: app/views/homepage.html:276
-#: app/views/homepage.html:291
+#: app/views/homepage.html:270
+#: app/views/homepage.html:285
 msgid "Modern everyday life and a holistic lifestyle don’t have to be contradictions. With Somuchmore it becomes easier to combine the two, which is important to me: meditating or learning more about personal growth."
 msgstr ""
 
-#: app/views/homepage.html:73
+#: app/views/homepage.html:67
 msgid "One card. Unlimited classes."
 msgstr ""
 
-#: app/views/homepage.html:173
+#: app/views/homepage.html:167
 msgid "Order your card – and set your life in motion."
 msgstr ""
 
-#: app/views/homepage.html:334
-#: app/views/homepage.html:349
+#: app/views/homepage.html:328
+#: app/views/homepage.html:343
 msgid "Participate in fitness, health and wellbeing classes. Visit gyms, spas and studios."
 msgstr ""
 
-#: app/views/homepage.html:369
+#: app/views/homepage.html:363
 msgid "Phone Number"
 msgstr ""
 
 #: app/views/homepage.html:26
-#: app/views/homepage.html:49
+#: app/views/homepage.html:47
 msgid "Postcode"
 msgstr ""
 
-#: app/views/homepage.html:181
-#: app/views/homepage.html:211
+#: app/views/homepage.html:175
+#: app/views/homepage.html:205
 msgid "Price per month"
 msgstr ""
 
-#: app/views/homepage.html:166
+#: app/views/homepage.html:160
 msgid "Refer a studio"
 msgstr ""
 
-#: app/views/homepage.html:67
-msgid "Register now for free"
-msgstr ""
-
-#: app/views/homepage.html:101
-#: app/views/homepage.html:85
+#: app/views/homepage.html:79
+#: app/views/homepage.html:95
 msgid "Say goodbye to long-term contracts. Cancel or freeze your card anytime. No obligation to anybody, or anything."
 msgstr ""
 
-#: app/views/homepage.html:174
+#: app/views/homepage.html:168
 msgid "Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}"
 msgstr ""
 
-#: app/views/homepage.html:330
+#: app/views/homepage.html:324
 msgid "Still have some more questions?"
 msgstr ""
 
-#: app/views/homepage.html:373
+#: app/views/homepage.html:30
+#: app/views/homepage.html:51
+msgid "Super! You are on the waitlist"
+msgstr ""
+
+#: app/views/homepage.html:367
 msgid "Thank you!"
 msgstr ""
 
 #: app/views/homepage.html:31
-#: app/views/homepage.html:374
-#: app/views/homepage.html:54
+#: app/views/homepage.html:368
+#: app/views/homepage.html:52
 msgid "The email address is incorrect"
 msgstr ""
 
-#: app/views/homepage.html:117
+#: app/views/homepage.html:111
 msgid "The finest studios all over the city are awaiting you."
 msgstr ""
 
-#: app/views/homepage.html:108
-#: app/views/homepage.html:94
+#: app/views/homepage.html:102
+#: app/views/homepage.html:88
 msgid "Train and Tone"
 msgstr ""
 
-#: app/views/homepage.html:251
+#: app/views/homepage.html:245
 msgid "Visit classes as often as you want."
 msgstr ""
 
-#: app/views/homepage.html:74
+#: app/views/homepage.html:68
 msgid "What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing yourself to the limits with <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Feel like hitting up the dance floor with a spot of <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Or want to slow it down a little, reconnect and strengthen your core and concentration with <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Fancy learning more about <b>Nutrition</b> and <b>Biomedicine</b>? Or simply want to chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?"
 msgstr ""
 
-#: app/views/homepage.html:333
-#: app/views/homepage.html:348
+#: app/views/homepage.html:327
+#: app/views/homepage.html:342
 msgid "What can I do with my card?"
 msgstr ""
 
-#: app/views/homepage.html:340
-#: app/views/homepage.html:355
+#: app/views/homepage.html:334
+#: app/views/homepage.html:349
 msgid "Yes. Please always check our online calendar in advance."
+msgstr ""
+
+#: app/views/homepage.html:331
+#: app/views/homepage.html:346
+msgid "Yes. Your card is valid with all our partners."
 msgstr ""
 
 #: app/views/homepage.html:337
 #: app/views/homepage.html:352
-msgid "Yes. Your card is valid with all our partners."
-msgstr ""
-
-#: app/views/homepage.html:343
-#: app/views/homepage.html:358
 msgid "You can cancel on a monthly base. Or freeze your membership for a month or more."
 msgstr ""
 
-#: app/views/homepage.html:277
-#: app/views/homepage.html:292
+#: app/views/homepage.html:271
+#: app/views/homepage.html:286
 msgid "– Alexandra Liakou, director"
 msgstr ""
 
-#: app/views/homepage.html:281
-#: app/views/homepage.html:297
+#: app/views/homepage.html:275
+#: app/views/homepage.html:291
 msgid "– Konrad Knops, osteopath"
 msgstr ""
 
-#: app/views/homepage.html:285
-#: app/views/homepage.html:302
+#: app/views/homepage.html:279
+#: app/views/homepage.html:296
 msgid "– Sonja Reifenhäuser, food coach"
 msgstr ""

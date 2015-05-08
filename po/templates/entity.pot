@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/entity.html:73
+#: app/views/entity.html:74
 msgid "(min resolution 2560x1706)"
 msgstr ""
 
@@ -24,11 +24,11 @@ msgstr ""
 msgid "Dieser Code existiert bereits"
 msgstr ""
 
-#: app/views/entity.html:79
+#: app/views/entity.html:80
 msgid "Download"
 msgstr ""
 
-#: app/views/entity.html:74
+#: app/views/entity.html:75
 msgid "Hochladen"
 msgstr ""
 
@@ -36,6 +36,6 @@ msgstr ""
 msgid "Select date"
 msgstr ""
 
-#: app/views/entity.html:81
+#: app/views/entity.html:82
 msgid "kein Foto"
 msgstr ""

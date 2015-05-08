@@ -53,7 +53,7 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                 $q.all([qD.$promise, qS.$promise]).then(function (resolve) {
                     _.map(res.classes.classAccesses, function (obj) {
                         obj.disciplinestyle = [obj.discipline, obj.style];
-                        if(getStudio.linkClassesToStudioDisciplines) {
+                        if(getStudio.linkClassesToStudioDisciplines && getStudio.disciplines) {
                             obj.disciplinestyle = _.union([obj.discipline, obj.style], getStudio.disciplines.split(', '));
                         } else {
                             obj.disciplinestyle = [obj.discipline, obj.style];

@@ -36,7 +36,7 @@ msgstr ""
 "<i class=\"fa fa-check\"></i>Einige Kurse <span class=\"light\" translate="
 "\"\">(siehe Kursplan)</span>"
 
-#: app/views/studio.html:220
+#: app/views/studio.html:70
 msgid "<i class=\"fa fa-home\"></i>Studio"
 msgstr "<i class=\"fa fa-home\"></i>Studio"
 
@@ -57,14 +57,6 @@ msgstr "Adresse:"
 msgid "Contact:"
 msgstr "Kontaktieren:"
 
-#: app/views/studio.html:77
-msgid "Course"
-msgstr "Kurs"
-
-#: app/views/studio.html:78
-msgid "Discipline"
-msgstr "Disziplin"
-
 #: app/views/studio.html:18
 msgid "Disciplines:"
 msgstr "Disziplinen:"
@@ -78,11 +70,7 @@ msgstr "Ausstattung:"
 msgid "Information:"
 msgstr "Informationen:"
 
-#: app/views/studio.html:80
-msgid "Level"
-msgstr "Level"
-
-#: app/views/studio.html:218
+#: app/views/studio.html:68
 msgid "Location"
 msgstr "Location"
 
@@ -90,25 +78,30 @@ msgstr "Location"
 msgid "More &gt;"
 msgstr "Mehr &gt;"
 
-#: app/views/studio.html:94
-msgid "No more offers for this day"
-msgstr "Keine Angebote mehr für heute"
-
-#: app/views/studio.html:66
-msgid "Offer"
-msgstr "Angebot"
-
 #: app/views/studio.html:22
 msgid "Show on map"
 msgstr "Auf Karte anzeigen"
 
-#: app/views/studio.html:79
-msgid "Teacher"
-msgstr "Lehrer"
+#~ msgid "Course"
+#~ msgstr "Kurs"
 
-#: app/views/studio.html:76
-msgid "Time"
-msgstr "Zeit"
+#~ msgid "Discipline"
+#~ msgstr "Disziplin"
+
+#~ msgid "Level"
+#~ msgstr "Level"
+
+#~ msgid "No more offers for this day"
+#~ msgstr "Keine Angebote mehr für heute"
+
+#~ msgid "Offer"
+#~ msgstr "Angebot"
+
+#~ msgid "Teacher"
+#~ msgstr "Lehrer"
+
+#~ msgid "Time"
+#~ msgstr "Zeit"
 
 # Passt das?
 #~ msgid "No more offers today."

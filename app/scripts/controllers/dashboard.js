@@ -41,7 +41,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                     _.map(res.classes.classAccesses, function (obj) {
                         var studio = _.findWhere($scope.allstudios, {id: obj.studioId});
                         obj.studio = obj.studioId && studio ? studio : '';
-                        if(obj.studio.linkClassesToStudioDisciplines) {
+                        if(obj.studio.linkClassesToStudioDisciplines && obj.studio.disciplines) {
                             obj.disciplinestyle = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
                         } else {
                             obj.disciplinestyle = [obj.discipline, obj.style];
@@ -50,6 +50,9 @@ angular.module('boltApp.controllers.Dashboard', [])
                     _.map(res.classes.occurenceAccesses, function (obj) {
                         var location = _.findWhere($scope.locations, {id: obj.locationId});
                         obj.location = obj.locationId && location ? location : '';
+                    });
+                    _.map($scope.neigbourhood, function (item) {
+                        item.disabled = !_.include(_.uniq(_.pluck(_.pluck(res.classes.occurenceAccesses, 'location'), 'neigbourhood')), item.name);
                     });
                     $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
                         event.start_date = moment(event.date + 'T' + event.startTime);

@@ -435,6 +435,8 @@
 }
 .studio {
     .b-main-cover, .carousel {
-        min-height: 60px;
+        @media (min-width: $containerMobileWidth) {
+            min-height: 60px;
+        }
     }
 }

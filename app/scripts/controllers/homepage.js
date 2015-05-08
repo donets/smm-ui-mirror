@@ -157,6 +157,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
                 postalCode: $scope.invite.postalCode,
                 landingUrl: $cookieStore.get('landingUrl'),
                 cityId: $scope.currentCity.id,
+                checkoutStarted: true,
                 interestedInProduct: true,
                 lang: $rootScope.lang
             };
@@ -167,26 +168,18 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
                 $scope.invite = {};
                 $scope.subscribeForm[locate].$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);
-                //$window.optimizely.push(['trackEvent', 'engagement_invitation_requested']);
                 $analytics.eventTrack({
                     'event': 'requestInvitation',
                     'selectedCity': response.city,
                     'zipCode': response.postalCode,
                     'inviteIEmail': response.email
                 });
+                $rootScope.$state.go('signup', {cityId: $scope.currentCity.id});
             }).error(function (response, status) {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.errorSubscribe = true;
                 console.error(status);
             });
-        };
-
-        $scope.pushOptimizelyEvent = function (type) {
-			if (type === 'invitation' || $scope.invitation) {
-				//$window.optimizely.push(['trackEvent', 'engagement_cta_invited']);
-			} else {
-				//$window.optimizely.push(['trackEvent', 'engagement_cta_direct']);
-			}
         };
 
         $scope.contact = {};

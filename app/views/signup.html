@@ -1,27 +1,8 @@
 <div class="container">
     <div class="signup-title">
-        <h2 translate>Order your Somuchmore card</h2>
-        <p class="subtitle" translate>Register in less than a minute – and attend your first course straight away.</p>
+        <h2 translate>Congratulations, Your spot is free!</h2>
+        <p class="subtitle" translate>Sign up now, takes less than 90 seconds and start attending classes, immediately.</p>
     </div>
-    <ul class="b-signup-list">
-        <li>
-            <b class="variant variant_3" translate>No enrolment fee</b>
-            <b class="variant variant_1 variant_2" translate>14 day free trial</b>
-        </li><li>
-            <b class="variant variant_3" translate>No minimum membership term</b>
-            <span class="variant variant_3" translate>(Cancellation on a monthly basis)</span>
-            <b class="variant variant_1 variant_2" translate>No enrolment fee </b>
-        </li><li>
-            <b class="variant variant_3 " translate>14 day trial</b>
-            <b class="variant variant_1 variant_2" translate>Your credit card will not be charged</b>
-        </li><li>
-            <b class="variant variant_3 " translate>Satisfaction guaranteed</b>
-            <span class="variant variant_3" translate>(Money back guarantee if you haven’t attended more than 3 classes)</span>
-            <b class="variant variant_1 variant_2" translate>Cancel your membership any time</b>
-            <span class="variant variant_1 variant_2" translate>(No minimum membership term)</span>
-        </li>
-    </ul>
-    <p class="b-signup-info"><span class="variant variant_1 variant_2" translate>Information about offer: After 14 days your free trial will be automatically upgraded to a paid Somuchmore membership of £89. This membership can be cancelled at any time.</span></p>
 </div>
 <div class="b-order">
     <nav class="signup-nav" sticky use-placeholder>
@@ -343,8 +324,7 @@
                 <div class="form-rel" ng-show="showSpinner">
                     <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
                 </div>
-                <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid || errorVoucher"><span class="variant variant_1 variant_2" translate>Place order</span><span class="variant variant_3" translate>FREE trial period</span></button>
-                <span class="info variant variant_2" translate>After this it will be subject to a fee</span>
+                <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid || errorVoucher"><span translate>Place order</span></button>
                 <div class="form-group center">
                     <div class="form-error" ng-if="error === 'CardException'" translate>Pleas check your credit card details: {{errorMsg}}</div>
                     <div class="form-error" ng-if="error === 'AccountExists'" translate>An account already exists for this email account. Please log in or use a different e-mail address.</div>

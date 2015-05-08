@@ -31,9 +31,7 @@
                     <div ng-show="form.errorSubscribe && subscribeForm.header.$dirty" class="form-message form-error" translate>The email address is incorrect </div>
                 </div>
             </form>
-            <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Register now for free</a>-->
-            <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 day free trial</a>-->
-            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/{{cityId}}/?invitation={{invitation}}" translate>Get your card</a>
+            <a class="form-button signup-button" ng-show="invitation" ng-href="/p/signup/{{cityId}}/?invitation={{invitation}}" translate>Get your card</a>
         </div>
         <a class="arrow-bottom" href="#highligt" ng-show="desktop" du-smooth-scroll duration="500" offset="0" analytics-on="click" analytics-event="scroll_button" analytics-category="card_page"></a>
     </div>
@@ -54,19 +52,15 @@
                     <div ng-show="form.errorSubscribe && subscribeForm.top.$dirty" class="form-message form-error" translate>The email address is incorrect </div>
                 </div>
             </form>
-            <!--<a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">Register now for free</a>-->
-            <!--<a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup">14 day free trial</a>-->
-            <a class="form-button signup-button" ng-show="invitation" ng-click="pushOptimizelyEvent('invitation')" ng-href="/p/signup/{{cityId}}/?invitation={{invitation}}" translate>Get your card</a>
+            <a class="form-button signup-button" ng-show="invitation" ng-href="/p/signup/{{cityId}}/?invitation={{invitation}}" translate>Get your card</a>
         </div>
     </div>
 </div>
 
 
 <div class="mobile-stick" ng-show="mobile" ng-class="{'show-bottom': showBottomMobile}">
-    <a class="form-button signup-button variant variant_1" ng-if="!invitation" href="" ng-click="openSubscribe()" translate>Get your invitation today  </a>
-    <a class="form-button signup-button variant variant_2" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup" translate>Register now for free</a>
-    <a class="form-button signup-button variant variant_3" ng-if="!invitation" ng-click="pushOptimizelyEvent('direct')" ui-sref="signup" translate>14 day free trial</a>
-    <a class="form-button signup-button" ng-if="invitation" ng-click="pushOptimizelyEvent('invitation')" ui-sref="signup" translate>Get your card</a>
+    <a class="form-button signup-button" ng-if="!invitation" href="" ng-click="openSubscribe()" translate>Get your invitation today</a>
+    <a class="form-button signup-button" ng-if="invitation" ui-sref="signup" translate>Get your card</a>
 </div>
 <div class="b-card b-equipment" id="highligt">
     <div class="container">

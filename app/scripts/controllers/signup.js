@@ -155,7 +155,6 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.error = null;
             $scope.showSpinner = true;
             $scope.order.freeTrialGranted = $('#freeTrialGranted').val();
-            //$window.optimizely.push(['trackEvent', 'signup_step_click_1']);
             var tracking = $cookieStore.get('invitation') ? 'invitation' : 'direct';
             var platform = $rootScope.desktop ? 'web' : 'mobile';
             var invitation = {
@@ -205,7 +204,6 @@ angular.module('boltApp.controllers.Signup', [])
                 currency: _.findWhere($scope.cards, {code: $scope.order.type}).currency
             };
             $scope.showCheckout = true;
-            //$window.optimizely.push(['trackEvent', 'signup_step_click_2']);
             $analytics.eventTrack({
                 'event': 'checkout',
                 'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
@@ -230,17 +228,11 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.errorMsg = '';
             $scope.showSpinner = true;
             $rootScope.handledError = true;
-            //$window.optimizely.push(['trackEvent', 'signup_step_click_3']);
             $http.post($window.smmConfig.restUrlBase + '/api/membership/order', $scope.order).success(function (response) {
 
                 $rootScope.handledError = false;
                 console.log(response);
                 $window.ga('send', 'event', 'Signup', 'onOrder');
-                if ($scope.invitation) {
-                    //$window.optimizely.push(['trackEvent', 'invited_signup_completed']);
-                } else {
-                    //$window.optimizely.push(['trackEvent', 'direct_signup_completed']);
-                }
                 $rootScope.userName = response.user.name;
                 $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                 $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;

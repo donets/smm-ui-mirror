@@ -16,7 +16,7 @@ msgstr ""
 msgid "Back to login"
 msgstr ""
 
-#: app/views/_loginForm.html:72
+#: app/views/_loginForm.html:73
 msgid "Classes"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Incorrect email address or password"
 msgstr ""
 
-#: app/views/_loginForm.html:73
+#: app/views/_loginForm.html:74
 msgid "Locations"
 msgstr ""
 
@@ -42,12 +42,16 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: app/views/_loginForm.html:76
+#: app/views/_loginForm.html:77
 msgid "Memberships"
 msgstr ""
 
 #: app/views/_loginForm.html:3
 msgid "Monat"
+msgstr ""
+
+#: app/views/_loginForm.html:72
+msgid "My Reservations"
 msgstr ""
 
 #: app/views/_loginForm.html:71
@@ -62,16 +66,16 @@ msgstr ""
 msgid "Reset password"
 msgstr ""
 
-#: app/views/_loginForm.html:77
+#: app/views/_loginForm.html:78
 msgid "Sign out"
 msgstr ""
 
 #: app/views/_loginForm.html:69
-#: app/views/_loginForm.html:74
+#: app/views/_loginForm.html:75
 msgid "Studios"
 msgstr ""
 
-#: app/views/_loginForm.html:75
+#: app/views/_loginForm.html:76
 msgid "Vouchers"
 msgstr ""
 
