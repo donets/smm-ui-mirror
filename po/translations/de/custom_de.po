@@ -83,5 +83,11 @@ msgid_plural "In {{count}} months"
 msgstr[0] "In {{count}} Monat"
 msgstr[1] "In {{count}} Monaten"
 
+msgid "Activities"
+msgstr "Aktivitäten"
+
+msgid "Disciplines"
+msgstr "Disziplinen"
+
 #~ msgid "In {{count}} months"
 #~ msgstr "In {{count}} Monaten"
