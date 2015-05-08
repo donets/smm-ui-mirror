@@ -31,6 +31,8 @@ angular.module('boltApp.services.websocket', [])
                 },
                 reload: function() {
                     dataStream.reconnect();
+                    stats.processed = 0;
+                    stats.total = null;
                 }
             };
 
