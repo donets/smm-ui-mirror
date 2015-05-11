@@ -248,7 +248,7 @@
         > span {
             display: inline-block;
             font-size: 16px;
-            color: #fff;
+            color: $colorLightGrey; 
             .fa {
                 margin: 0 5px 0 0;
             }
@@ -510,9 +510,12 @@ li.b-header-nav_city-select {
                 line-height: 60px;
                 padding: 0 20px;
                 font-size: 16px;
-                color: $colorGrey;
+                color: $colorLightGrey;
                 text-decoration: none;
                 outline: none;
+                &:hover {
+                    color: #fff;
+                }
                 &.active {
                     color: #fff;
                 }
