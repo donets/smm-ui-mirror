@@ -179,11 +179,14 @@
             </ul>
             <ul class="select-cards__card" ng-repeat="card in cards">
                 <li><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
+                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE' || card.code === 'LONDON_SPECIAL'" src="images/card-white.png" alt=""/>
                     <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></li>
                 <li class="name">{{card.displayName}}</li>
-                <li><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">
-                    {{card.monthlyPrice}} {{card.currency}}</strong>
+                <li><strong ng-class="{'old': (!voucher.freeSubscriptionGranted && voucher) || (card.monthlyPrice < card.preOfferPrice) }">
+                    {{card.preOfferPrice}} {{card.currency}}</strong>
+                    <b ng-if="card.monthlyPrice < card.preOfferPrice && (!voucher || voucher.freeSubscriptionGranted)">
+                        {{card.monthlyPrice}} {{card.currency}}
+                    </b>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher">
                         <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
                         <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
@@ -197,17 +200,21 @@
         <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
             <tr>
                 <td><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE'" src="images/card-white.png" alt=""/>
+                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE' || card.code === 'LONDON_SPECIAL'" src="images/card-white.png" alt=""/>
                     <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></td>
                 <td>{{card.displayName}}</td>
             </tr>
             <tr>
                 <td translate>Price per month</td>
-                <td><strong ng-class="{'old': !voucher.freeSubscriptionGranted && voucher }">{{card.monthlyPrice}} {{card.currency}}</strong>
+                <td><strong ng-class="{'old': (!voucher.freeSubscriptionGranted && voucher) || (card.monthlyPrice < card.preOfferPrice) }">{{card.preOfferPrice}} {{card.currency}}</strong>
+                    <b ng-if="card.monthlyPrice < card.preOfferPrice && (!voucher || voucher.freeSubscriptionGranted)">
+                        {{card.monthlyPrice}} {{card.currency}}
+                    </b>
                     <b ng-if="!voucher.freeSubscriptionGranted && voucher">
                         <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
                         <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
-                    </b></td>
+                    </b>
+                </td>
             </tr>
             <tr>
                 <td translate>Courses per month</td>

@@ -147,7 +147,6 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
 
         setVoucher('EARLY_BIRD_2014');
 
-
         $scope.subscribeCard = function (locate) {
             $scope.form.loadingSubscribe = true;
             $scope.form.successSubscribe = false;

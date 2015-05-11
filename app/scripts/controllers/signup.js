@@ -201,6 +201,7 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.overview = {
                 card: _.findWhere($scope.cards, {code: $scope.order.type}).displayName,
                 price: _.findWhere($scope.cards, {code: $scope.order.type}).monthlyPrice,
+                preOfferPrice: _.findWhere($scope.cards, {code: $scope.order.type}).preOfferPrice,
                 currency: _.findWhere($scope.cards, {code: $scope.order.type}).currency
             };
             $scope.showCheckout = true;

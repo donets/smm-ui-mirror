@@ -287,6 +287,11 @@
                     &.discount {
                         color: $colorMain;
                     }
+                    .old {
+                        text-decoration: line-through;
+                        color: $colorLink;
+                        font-weight: normal;
+                    }
                 }
             }
             &:last-child {
@@ -569,9 +574,10 @@
             strong, b {
                 font-family: $fontBold;
                 color: $colorMain;
+                font-weight: normal;
                 &.old {
                     text-decoration: line-through;
-                    color: $colorText;
+                    color: $colorLink;
                 }
             }
             button {
@@ -715,9 +721,10 @@
     strong, b {
         font-family: $fontBold;
         color: $colorMain;
+        font-weight: normal;
         &.old {
             text-decoration: line-through;
-            color: $colorText;
+            color: $colorLink;
         }
     }
 }
