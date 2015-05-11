@@ -8,23 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Subscribe', [])
-    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', 'CityFactory', '$cookieStore', function ($scope, $rootScope, $window, $http, CityFactory, $cookieStore) {
-
-        $scope.getCurentCity = function() {
-            CityFactory.getCities().then(function(res) {
-				$scope.citiesList = _.sortBy(res, 'id').filter(function(c) {
-					return c.countryCode === $rootScope.countryCode;
-				});
-                $scope.currentCity = $scope.citiesList[0];
-			});
-            $scope.$on('CityFactory.update', function() {
-                var currentCityVar = CityFactory.getVariable();
-                $scope.currentCity = _.findWhere($scope.citiesList, {id: currentCityVar.id});
-            });
-        };
-
-        $scope.getCurentCity();
-
+    .controller('SubscribeCtrl', [ '$scope', '$rootScope', '$window', '$http', '$cookieStore', function ($scope, $rootScope, $window, $http, $cookieStore) {
 
         $scope.subscribe = function() {
             $scope.loadingUpdate = true;
@@ -35,7 +19,7 @@ angular.module('boltApp.controllers.Subscribe', [])
                 newsletter: true,
                 landingUrl: $cookieStore.get('landingUrl'),
                 lang: $rootScope.lang,
-                cityId: $scope.currentCity.id
+                cityId: $rootScope.currentCity.id
             };
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', newsletter).success(function () {
                 $scope.loadingUpdate = false;

@@ -29,7 +29,7 @@
             </div>
             <select chosen
                     ng-model="entity[field.model]" ng-if="field.type === 'select'"
-                    data-placeholder="{{field.placeholder || 'Select'}}"
+                    placeholder-text-single="field.placeholder"
                     allow-single-deselect="true"
                     disable-search="{{field.model !== 'neigbourhood'}}"
                     ng-options="item for item in {{field.modelSelect || field.model}} | orderBy: field.order">
