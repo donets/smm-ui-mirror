@@ -24,8 +24,8 @@ angular.module('boltApp.services.mapStudios', [])
 
           $rootScope.map = {
             center: {
-              latitude: city.lat,
-              longitude: city.lon
+              latitude: +city.lat,
+              longitude: +city.lon
             },
             zoom: 12,
             options: {
