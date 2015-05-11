@@ -11,9 +11,9 @@ module.exports = {
       .click('.b-main-slogan .chosen-container')
       .waitForElementVisible('.b-main-slogan .chosen-container .chosen-drop .chosen-results li', browser.globals.waitUI)
 	  .useXpath()
-	  .assert.containsText("//li[text()='München']","MÜNCHEN")
+	  .assert.containsText("//li[text()='München']","MÜNCHEN")	 
+	  .click("//li[text()='München']")
 	  .useCss()
-	  .click('li.active-result:nth-child(3)')
 	  .waitForElementVisible('h2.ng-scope > div:nth-child(2) > a:nth-child(1) > span:nth-child(1)',browser.globals.waitUI)
 	  .assert.containsText('h2.ng-scope > div:nth-child(2) > a:nth-child(1) > span:nth-child(1)','MÜNCHEN')
       .end();
