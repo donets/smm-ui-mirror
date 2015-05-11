@@ -30,7 +30,7 @@ module.exports = {
       .waitForElementVisible('div[id=step2]', browser.globals.waitPOST)
       //.pause(browser.globals.waitPOST) //wait for scrolling to pass the next assert correctly
       //.verify.attributeEquals('nav.signup-nav > ul > li:nth-of-type(2) > a','class','active') //verify that step highlighted correctly
-      .click('.select-cards > ul:nth-of-type(3) > li.card-button > button') //ul:nth-of-type(3) specifies the card (2-4)
+      .click('ul.select-cards__card:nth-child(2) > li:nth-child(7) > button:nth-child(1)') //ul:nth-of-type(3) specifies the card (2-4) 
   },
 
   'Fill the form step 3': function (browser) {
