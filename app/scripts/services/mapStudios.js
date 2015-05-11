@@ -13,17 +13,13 @@ angular.module('boltApp.services.mapStudios', [])
 
 
       var create = function(city) {
-        RestApi.query({
-          route: 'locations',
-          cityId: city.id
-        }).$promise.then(function(res) {
-          $rootScope.locations = _.reject(res, function(obj) {
+
+          $rootScope.locations = _.reject($rootScope.locations, function(obj) {
             return obj.latitude === null || obj.longitude === null;
           });
           _.map($rootScope.locations, function(obj) {
             obj.icon = '/images/marker.svg';
           });
-        });
         uiGmapGoogleMapApi.then(function() {
 
           $rootScope.map = {

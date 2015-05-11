@@ -88,14 +88,18 @@ angular.module('boltApp.services.city', [])
 					RestApi.query({
 						route: 'plans',
 						cityId: currentCity.id
-					}).$promise
+					}).$promise,
+                        RestApi.query({
+                            route: 'locations',
+                            cityId: currentCity.id
+                        }).$promise
 				]).then(function (res) {
 					returnObject.studios = res[0];
 					returnObject.cards = res[1];
+                    returnObject.locations = res[2];
 					deferred.resolve(returnObject);
 				});
 
-				mapStudios.create(currentCity);
 				return deferred.promise;
 
 			};
