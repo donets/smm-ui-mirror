@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
-    .controller('HomepageCtrl', function ($scope, $rootScope, $location, $http, $cookieStore, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory, $analytics) {
+    .controller('HomepageCtrl', function ($scope, $rootScope, $location, $http, $cookieStore, getDisciplines, $sce, $window, $document, $modal, uiGmapGoogleMapApi, RestApi, $interval, gettextCatalog, CityFactory, $analytics, mapStudios) {
 
         $scope.video = {
             sources: [
@@ -115,16 +115,18 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
             CityFactory.changeCity($rootScope.currentCity, $scope.citiesList).then(function (res) {
                 $scope.studios = res.studios;
                 $scope.cards = res.cards;
+                $rootScope.locations = res.locations;
+                mapStudios.create($rootScope.currentCity);
                 $scope.combinedLocations = [];
-                RestApi.query({route: 'locations'}).$promise.then(function (res) {
-                    _.each($scope.studios, function (studio) {
-                        _.each(studio.locations, function (locationId) {
-                            var location = {};
-                            _.extend(location,_.findWhere(res, {id: locationId}));
+                _.each($scope.studios, function (studio) {
+                    _.each(studio.locations, function (locationId) {
+                        var location = {};
+                        if (_.findWhere($rootScope.locations, {id: locationId})) {
+                            _.extend(location, _.findWhere($rootScope.locations, {id: locationId}));
                             location.studioProfileComplete = studio.profileComplete;
                             location.studioId = studio.id;
                             $scope.combinedLocations.push(location);
-                        });
+                        }
                     });
                 });
             });
