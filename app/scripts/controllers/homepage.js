@@ -175,7 +175,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
                     'event': 'requestInvitation',
                     'selectedCity': response.city,
                     'zipCode': response.postalCode,
-                    'inviteIEmail': response.email
+                    'inviteId': response.id
                 });
                 $rootScope.$state.go('signup', {cityId: $scope.currentCity.id});
             }).error(function (response, status) {
