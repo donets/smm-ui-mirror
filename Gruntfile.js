@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 
     // Define the configuration for all the tasks
     grunt.initConfig({
-		
+
 
         // Project settings
         yeoman: appConfig,
@@ -86,7 +86,9 @@ module.exports = function(grunt) {
             },
             livereload: {
                 options: {
-                    open: true,
+                    open: {
+                      appName: 'Google Chrome'
+                    },
                     middleware: function(connect) {
                         return [
                             modRewrite(['^[^\\.]*$ /index.html [L]']),
@@ -436,7 +438,7 @@ module.exports = function(grunt) {
             }
         },
 		nightwatch:{
-			options: { 
+			options: {
 				src_folders : ['test/nightwatch'],
 				globals_path : 'test/paramsCI.js',
 				test_settings : {
@@ -460,12 +462,12 @@ module.exports = function(grunt) {
 					'start_process' : false,
 					'host' : '127.0.0.1',
 					'port' : 4444
-					
+
 				}
-				
+
 			}
 		},
-			
+
         // protractor: {
             // options: {
                 // configFile: 'test/protractor-conf.js',
@@ -546,9 +548,20 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+
+        nodemon: {
+          dev: {
+            script: 'web.js',
+            options: {
+              cwd: __dirname,
+              ignore: ['node_modules/**'],
+              watch: ['nodeapp', 'web.js'],
+            }
+          }
         }
     });
-	
+
 	grunt.loadNpmTasks('grunt-nightwatch');
 
     grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {

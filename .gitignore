@@ -10,3 +10,4 @@ bower_components
 /.settings/org.eclipse.core.resources.prefs
 po/**/*.mo
 /reports
+.DS_Store
