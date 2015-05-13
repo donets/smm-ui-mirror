@@ -8,35 +8,38 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalSuggest.html:4
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalSuggest.html:8
 msgid "Name of the studio"
-msgstr ""
+msgstr "Nom du studio"
 
 #: app/views/modalSuggest.html:11
 msgid "Refer"
-msgstr ""
+msgstr "Recommander"
 
 #: app/views/modalSuggest.html:6
 msgid "Refer a studio:"
-msgstr ""
+msgstr "Recommander un studio"
 
 #: app/views/modalSuggest.html:15
 msgid "Sorry, your message was not delivered. Please try again later."
-msgstr ""
+msgstr "Votre message n'a pas été livré. Veuillez réessayer plus tard s'il vous plait."
 
 #: app/views/modalSuggest.html:14
 msgid "Thank you!"
-msgstr ""
+msgstr "Merci !"
 
 #: app/views/modalSuggest.html:10
 msgid "Your Email Address"
-msgstr ""
+msgstr "Votre adresse e-mail"
 
 #: app/views/modalSuggest.html:9
 msgid "Your Name (Optional)"
-msgstr ""
+msgstr "Votre nom (Facultatif)"

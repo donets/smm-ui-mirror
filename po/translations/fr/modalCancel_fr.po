@@ -8,87 +8,93 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalCancel.html:27
 msgid "Can't find my preferred studio"
-msgstr ""
+msgstr "Impossible de trouver ma salle favorite"
 
 #: app/views/modalCancel.html:11
 msgid "Choose any duration between 1 month & 3 months"
-msgstr ""
+msgstr "Choisir une durée entre 1 et 3 mois"
 
 #: app/views/modalCancel.html:4
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalCancel.html:17
 msgid "I still want to cancel"
-msgstr ""
+msgstr "Je veux toujours résilier"
 
 #: app/views/modalCancel.html:34
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: app/views/modalCancel.html:30
 msgid "No time for fitness"
-msgstr ""
+msgstr "Pas de temps pour le fitness"
 
 #: app/views/modalCancel.html:28
 msgid "Not many options in my neighbourhood"
-msgstr ""
+msgstr "Pas beaucoup d'options dans mon quartier"
 
 #: app/views/modalCancel.html:43
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: app/views/modalCancel.html:16
 msgid "Ok, Suspend my account"
-msgstr ""
+msgstr "Ok, suspendre mon compte"
 
 #: app/views/modalCancel.html:24
 msgid "One more step"
-msgstr ""
+msgstr "Dernière étape"
 
 #: app/views/modalCancel.html:31
 msgid "Others"
-msgstr ""
+msgstr "Autres"
 
 #: app/views/modalCancel.html:25
 msgid "Reason for cancellation?"
-msgstr ""
+msgstr "Raison de résiliation ?"
 
 #: app/views/modalCancel.html:41
 msgid "Subscription cancelled"
-msgstr ""
+msgstr "Abonnement résilié"
 
 #: app/views/modalCancel.html:29
 msgid "Subscription is expensive"
-msgstr ""
+msgstr "L'abonnement est coûteux"
 
 #: app/views/modalCancel.html:9
 msgid ""
 "Suspending your account gives you flexibility to take a break. Its simple!"
-msgstr ""
+msgstr "Geler vous donne la possibilité de faire une pause. C'est simple !"
 
 #: app/views/modalCancel.html:13
 msgid "Use your remaining days once you are back!"
-msgstr ""
+msgstr "Utilisez vos jours restants à votre retour !"
 
 #: app/views/modalCancel.html:8
 msgid "You can choose to suspend your account."
-msgstr ""
+msgstr "Vous pouvez choisir de geler votre compte."
 
 #: app/views/modalCancel.html:42
 msgid ""
 "You can continue to use your account till {{cancellationDate | date: 'dd.MM."
 "yyyy'}}"
 msgstr ""
+"Vous pouvez continuer d'utiliser votre abonnement jusqu'au "
+"{{cancellationDate | date: 'dd.MM.yyyy'}}"
 
 #: app/views/modalCancel.html:7
 msgid "You sure you want to Cancel?"
-msgstr ""
+msgstr "Etes-vous sûr(e) de vouloir Annuler?"
 
 #: app/views/modalCancel.html:12
 msgid ""
 "Your remaining days in the membership cycle stay on hold and don't expire"
 msgstr ""
+"Les jours restants de votre abonnement sont en attente et n'expirent pas"

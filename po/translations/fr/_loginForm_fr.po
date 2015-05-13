@@ -8,79 +8,82 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/_loginForm.html:70
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: app/views/_loginForm.html:68
 msgid "Activities"
-msgstr ""
+msgstr "Activités"
 
 #: app/views/_loginForm.html:59
 msgid "Back to login"
-msgstr ""
+msgstr "Retour à la connexion"
 
 #: app/views/_loginForm.html:72
 msgid "Classes"
-msgstr ""
+msgstr "Cours"
 
 #: app/views/_loginForm.html:31 app/views/_loginForm.html:46
 msgid "Email Address"
-msgstr ""
+msgstr "Adresse e-mail"
 
 #: app/views/_loginForm.html:58
 msgid "Forgot password?"
-msgstr ""
+msgstr "Mot de passe oublié ? "
 
 #: app/views/_loginForm.html:40
 msgid "Incorrect email address or password"
-msgstr ""
+msgstr "Adresse e-mail ou mot de passe incorrect"
 
 #: app/views/_loginForm.html:73
 msgid "Locations"
-msgstr ""
+msgstr "Lieux"
 
 #: app/views/_loginForm.html:21 app/views/_loginForm.html:37
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: app/views/_loginForm.html:76
 msgid "Memberships"
-msgstr ""
+msgstr "Abonnement"
 
 #: app/views/_loginForm.html:3
 msgid "Monat"
-msgstr ""
+msgstr "Mois"
 
 #: app/views/_loginForm.html:71
 msgid "My card"
-msgstr ""
+msgstr "Ma carte"
 
 #: app/views/_loginForm.html:34
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: app/views/_loginForm.html:49
 msgid "Reset password"
-msgstr ""
+msgstr "Réinitialiser le mot de passe"
 
 #: app/views/_loginForm.html:77
 msgid "Sign out"
-msgstr ""
+msgstr "Déconnexion"
 
 #: app/views/_loginForm.html:69 app/views/_loginForm.html:74
 msgid "Studios"
-msgstr ""
+msgstr "Studios"
 
 #: app/views/_loginForm.html:75
 msgid "Vouchers"
-msgstr ""
+msgstr "Bons"
 
 #: app/views/_loginForm.html:52
 msgid "You have been sent a reset email"
-msgstr ""
+msgstr "Vous allez recevoir un e-mail de réinitialisation"
 
 #: app/views/_loginForm.html:53
 msgid "Your email address was not found"
-msgstr ""
+msgstr "Votre adresse e-mail est introuvable"

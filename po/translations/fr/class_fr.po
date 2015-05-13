@@ -8,151 +8,154 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/class.html:12
 msgid "<i class=\"fa fa-save\"></i>Save &amp; go live"
-msgstr ""
+msgstr "<i class=\"fa fa-save\"></i>Enregistrer &amp; partir vivre"
 
 #: app/views/class.html:11
 msgid "<i class=\"fa fa-save\"></i>Save as draft"
-msgstr ""
+msgstr "<i class=\"fa fa-save\"></i>Enregistrement provisoire"
 
 #: app/views/class.html:13
 msgid "<i class=\"fa fa-trash\"></i>Delete"
-msgstr ""
+msgstr "<i class=\"fa fa-trash\"></i>Effacer"
 
 #: app/views/class.html:77
 msgid "Add dates"
-msgstr ""
+msgstr "Ajouter des réservations"
 
 #: app/views/class.html:170
 msgid "All Levels"
-msgstr ""
+msgstr "Tous les niveaux"
 
 #: app/views/class.html:225
 msgid "Black Card only"
-msgstr ""
+msgstr "Carte Black uniquement"
 
 #: app/views/class.html:160
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: app/views/class.html:4
 msgid "Classes"
-msgstr ""
+msgstr "Cours"
 
 #: app/views/class.html:78
 msgid "Delete dates"
-msgstr ""
+msgstr "Supprimer des réservations"
 
 #: app/views/class.html:200
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: app/views/class.html:192
 msgid "Discipline"
-msgstr ""
+msgstr "Discipline"
 
 #: app/views/class.html:83
 msgid "Edit a single date"
-msgstr ""
+msgstr "Modifier une réservation"
 
 #: app/views/class.html:84
 msgid "Edit {{schedule.repeat | lowercase}} repeating dates"
-msgstr ""
+msgstr "Modifier {{schedule.repeat | lowercase}} des dates récurrentes"
 
 #: app/views/class.html:86
 msgid "Event repeats"
-msgstr ""
+msgstr "Evénement récurrent"
 
 #: app/views/class.html:211
 msgid "Fixed visit length (in minutes, empty = unlimited)"
-msgstr ""
+msgstr "Durée fixée de la visite (en minutes, vide = illimité)"
 
 #: app/views/class.html:207
 msgid "Free visit?"
-msgstr ""
+msgstr "Visite gratuite ?"
 
 #: app/views/class.html:110
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #: app/views/class.html:166
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 #: app/views/class.html:37
 msgid "Location"
-msgstr ""
+msgstr "Lieu"
 
 #: app/views/class.html:179
 msgid "Max. no. of participants"
-msgstr ""
+msgstr "Nombre maximum de participants"
 
 #: app/views/class.html:22
 msgid "Name of class"
-msgstr ""
+msgstr "Nom du cours"
 
 #: app/views/class.html:157
 msgid "No. of dates created by schedule"
-msgstr ""
+msgstr "Nombre de réservations créées sur l'agenda"
 
 #: app/views/class.html:183
 msgid "Price of a drop-in class"
-msgstr ""
+msgstr "Prix d'un cours sans abonnement"
 
 #: app/views/class.html:218
 msgid "Registration required"
-msgstr ""
+msgstr "Inscription requise"
 
 #: app/views/class.html:98
 msgid "Repeating every"
-msgstr ""
+msgstr "Ayant lieu chaque"
 
 #: app/views/class.html:160
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: app/views/class.html:82
 msgid "Schedule Dates"
-msgstr ""
+msgstr "Agenda des réservations"
 
 #: app/views/class.html:141 app/views/class.html:148
 msgid "Select Date"
-msgstr ""
+msgstr "Choisir une date"
 
 #: app/views/class.html:41
 msgid "Select Location"
-msgstr ""
+msgstr "Choisir un lieu"
 
 #: app/views/class.html:103 app/views/class.html:91
 msgid "Select Repeats"
-msgstr ""
+msgstr "Choisir une récurrence"
 
 #: app/views/class.html:30
 msgid "Select Studio"
-msgstr ""
+msgstr "Choisir un studio"
 
 #: app/views/class.html:115 app/views/class.html:127
 msgid "Select Time"
-msgstr ""
+msgstr "Choisir un horaire"
 
 #: app/views/class.html:26
 msgid "Studio"
-msgstr ""
+msgstr "Studio"
 
 #: app/views/class.html:196
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 #: app/views/class.html:188
 msgid "Teacher"
-msgstr ""
+msgstr "Professeur"
 
 #: app/views/class.html:122
 msgid "To"
-msgstr ""
+msgstr "A"
 
 #: app/views/class.html:6
 msgid "{{occurrences.length}} Classes scheduled"
-msgstr ""
+msgstr "{{occurrences.length}} Cours programmés"

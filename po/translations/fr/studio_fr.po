@@ -8,93 +8,102 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/studio.html:16
 msgid "&lt; Less"
-msgstr ""
+msgstr "&lt; Moins"
 
-#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+#: app/views/studio.html:34 app/views/studio.html:39
+#: app/views/studio.html:44
 msgid "(see course plan)"
-msgstr ""
+msgstr "(voir plan du cours)"
 
-#: app/views/studio.html:33 app/views/studio.html:38 app/views/studio.html:43
+#: app/views/studio.html:33 app/views/studio.html:38
+#: app/views/studio.html:43
 msgid "<i class=\"fa fa-check\"></i>All courses"
-msgstr ""
+msgstr "<i class=\"fa fa-check\"></i>Tous les cours"
 
-#: app/views/studio.html:34 app/views/studio.html:39 app/views/studio.html:44
+#: app/views/studio.html:34 app/views/studio.html:39
+#: app/views/studio.html:44
 msgid ""
 "<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate="
 "\"\">(see course plan)</span>"
 msgstr ""
+"<i class=\"fa fa-check\"></i>quelques cours <span class=\"légers\" "
+"translate=\"\">(voir plan du cours)</span>"
 
 #: app/views/studio.html:220
 msgid "<i class=\"fa fa-home\"></i>Studio"
-msgstr ""
+msgstr "<i class=\"fa fa-home\"></i>Studio"
 
-#: app/views/studio.html:35 app/views/studio.html:40 app/views/studio.html:45
+#: app/views/studio.html:35 app/views/studio.html:40
+#: app/views/studio.html:45
 msgid "<i class=\"fa fa-times\"></i>Not accepted"
-msgstr ""
+msgstr "<i class=\"fa fa-times\"></i>Non accepté"
 
 #: app/views/studio.html:30
 msgid "Accepted cards:"
-msgstr ""
+msgstr "Cartes acceptées :"
 
 #: app/views/studio.html:20
 msgid "Address:"
-msgstr ""
+msgstr "Adresse :"
 
 #: app/views/studio.html:54
 msgid "Contact:"
-msgstr ""
+msgstr "Coordonnées :"
 
 #: app/views/studio.html:77
 msgid "Course"
-msgstr ""
+msgstr "Cours"
 
 #: app/views/studio.html:78
 msgid "Discipline"
-msgstr ""
+msgstr "Discipline"
 
 #: app/views/studio.html:18
 msgid "Disciplines:"
-msgstr ""
+msgstr "Disciplines :"
 
 #: app/views/studio.html:19
 msgid "Equipment:"
-msgstr ""
+msgstr "Equipement :"
 
 #: app/views/studio.html:50
 msgid "Information:"
-msgstr ""
+msgstr "Information :"
 
 #: app/views/studio.html:80
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 #: app/views/studio.html:218
 msgid "Location"
-msgstr ""
+msgstr "Lieu"
 
 #: app/views/studio.html:16
 msgid "More &gt;"
-msgstr ""
+msgstr "Plus &gt;"
 
 #: app/views/studio.html:94
 msgid "No more offers for this day"
-msgstr ""
+msgstr "Pas de possibilité à cette date"
 
 #: app/views/studio.html:66
 msgid "Offer"
-msgstr ""
+msgstr "Offre"
 
 #: app/views/studio.html:22
 msgid "Show on map"
-msgstr ""
+msgstr "Voir sur la carte"
 
 #: app/views/studio.html:79
 msgid "Teacher"
-msgstr ""
+msgstr "Professeur"
 
 #: app/views/studio.html:76
 msgid "Time"
-msgstr ""
+msgstr "Horaire"

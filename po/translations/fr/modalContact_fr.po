@@ -8,31 +8,34 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalContact.html:5
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalContact.html:15
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: app/views/modalContact.html:21
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: app/views/modalContact.html:12
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: app/views/modalContact.html:18
 msgid "Phone"
-msgstr ""
+msgstr "Téléphone"
 
 #: app/views/modalContact.html:24
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: app/views/modalContact.html:27
 msgid "Your message could not be sent, please try again."
-msgstr ""
+msgstr "Votre message n'a pas été envoyé, veuillez réessayer."

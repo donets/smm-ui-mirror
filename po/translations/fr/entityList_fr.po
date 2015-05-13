@@ -8,43 +8,46 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/entityList.html:66
 msgid "<i class=\"fa fa-eye\"></i>View"
-msgstr ""
+msgstr "<i class=\"fa fa-eye\"></i>Voir"
 
 #: app/views/entityList.html:65
 msgid "<i class=\"fa fa-pencil\"></i>Manage"
-msgstr ""
+msgstr "<i class=\"fa fa-pencil\"></i>Gérer"
 
 #: app/views/entityList.html:23
 msgid "All cities"
-msgstr ""
+msgstr "Toutes les villes"
 
 #: app/views/entityList.html:32
 msgid "Alle Karten"
-msgstr ""
+msgstr "Toutes les cartes"
 
 #: app/views/entityList.html:11
 msgid "Filter card"
-msgstr ""
+msgstr "Filtrer par carte"
 
 #: app/views/entityList.html:10
 msgid "Filter code"
-msgstr ""
+msgstr "Filtrer par code"
 
 #: app/views/entityList.html:14
 msgid "Filter email"
-msgstr ""
+msgstr "Filtrer par email"
 
 #: app/views/entityList.html:17 app/views/entityList.html:9
 msgid "Filter name"
-msgstr ""
+msgstr "Filtrer par nom"
 
 #: app/views/entityList.html:43
 msgid "Filter zurücksetzen"
-msgstr ""
+msgstr "Réinitialiser les filtres"
 
 #: app/views/entityList.html:41
 msgid "Foto"
-msgstr ""
+msgstr "Photo"

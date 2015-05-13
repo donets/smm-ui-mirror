@@ -8,23 +8,26 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalBook.html:4
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalBook.html:13
 msgid "Confirm Reservation"
-msgstr ""
+msgstr "Confirmer la réservation"
 
 #: app/views/modalBook.html:19
 msgid "Reserved for you"
-msgstr ""
+msgstr "Réservé pour vous"
 
 #: app/views/modalBook.html:22
 msgid "Sorry, there are no free spots available for this class."
-msgstr ""
+msgstr "Désolé, il n'y a plus de place disponible pour ce cours."
 
 #: app/views/modalBook.html:23
 msgid "Sorry, your request could not be completed. Please Try again."
-msgstr ""
+msgstr "Désolé, votre demande n'a pas pu aboutir. Veuillez réessayez."

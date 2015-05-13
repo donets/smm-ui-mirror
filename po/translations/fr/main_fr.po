@@ -8,26 +8,29 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/main.html:9
 msgid "Be who you were born to be."
-msgstr ""
+msgstr "Devenez ce pour quoi vous êtes né(e)."
 
 #: app/views/main.html:16 app/views/main.html:39
 msgid "Later"
-msgstr ""
+msgstr "Ultérieurement"
 
 #: app/views/main.html:10
 msgid "Learn more &gt;"
-msgstr ""
+msgstr "En savoir plus &gt;"
 
 #: app/views/main.html:14
 msgid "Today"
-msgstr ""
+msgstr "Aujourd'hui"
 
 #: app/views/main.html:15 app/views/main.html:30
 msgid "Tomorrow"
-msgstr ""
+msgstr "Demain"
 
 #: app/views/main.html:4
 msgid ""
@@ -35,7 +38,10 @@ msgid ""
 "therapists in London.\n"
 "            <a ui-sref=\"more\">Learn more</a>"
 msgstr ""
+"Transformez votre esprit, corps et âme avec des professeurs, entraîneurs "
+"et thérapeutes exceptionnels à Paris (?).\n"
+"            <a ui-sref=\"plus\">En savoir plus</a>"
 
 #: app/views/main.html:3
 msgid "Welcome to you"
-msgstr ""
+msgstr "Bienvenue à vous"

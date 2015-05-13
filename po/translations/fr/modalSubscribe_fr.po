@@ -8,31 +8,34 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalSubscribe.html:4
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalSubscribe.html:8
 msgid "Email Address"
-msgstr ""
+msgstr "Adresse e-mail"
 
 #: app/views/modalSubscribe.html:10
 msgid "GET INVOLVED"
-msgstr ""
+msgstr "REJOIGNEZ-NOUS"
 
 #: app/views/modalSubscribe.html:6
 msgid "Get your invitation today:"
-msgstr ""
+msgstr "Obtenez votre invitation aujourd'hui :"
 
 #: app/views/modalSubscribe.html:9
 msgid "Post Code"
-msgstr ""
+msgstr "Code postal"
 
 #: app/views/modalSubscribe.html:16
 msgid "Thank you!"
-msgstr ""
+msgstr "Merci !"
 
 #: app/views/modalSubscribe.html:13
 msgid "The email address is incorrect"
-msgstr ""
+msgstr "L'adresse e-mail est incorrecte"

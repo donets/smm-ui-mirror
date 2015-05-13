@@ -8,69 +8,82 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 msgid "Beginners"
-msgstr ""
+msgstr "Débutant"
 
 msgid "Medium"
-msgstr ""
+msgstr "Intermédiaire"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 msgid "Meditation can increase your brain capacity to that of a 25-year-old."
 msgstr ""
+"La méditation peut augmenter les capacités cérébrales jusqu'à retrouver "
+"celles de vos 25 ans."
 
 msgid "— NCBI (National Center for Biotechnology Information)"
-msgstr ""
+msgstr "— NCBI (Centre National pour l'Information des Biotechnologies)"
 
 msgid ""
 "Yoga has been proven to help self-image and self-love after just 3 months."
 msgstr ""
+"Il est reconnu qu'après seulement 3 mois, la pratique du Yoga renforce "
+"l'estime et l'amour de soi."
 
 msgid "Dancing helps to alleviate depression."
-msgstr ""
+msgstr "La danse aide à apaiser la dépression."
 
 msgid ""
 "People who meditate are able to deal with everyday challenges more "
 "creatively."
 msgstr ""
+"Les gens pratiquant la méditation sont plus à même de faire face aux défis "
+"du quotidien avec créativité."
 
 msgid "— WSU (Washington State University)"
-msgstr ""
+msgstr "— WSU (Université de l'Etat de Washington)"
 
 msgid "Yoga helps to reduce anxiety and manage stress."
-msgstr ""
+msgstr "Le Yoga aide à réduire l'anxiété et à gérer le stress."
 
 msgid ""
 "Your password is too weak; it must contain at least 8 characters, including "
 "numbers and lower and uppercase letters"
 msgstr ""
+"Votre mot de passe est trop faible ; il doit contenir au moins 8 caractères "
+"comprenant des minuscules, majuscules et des chiffres"
 
 msgid "The link is no longer valid"
-msgstr ""
+msgstr "Ce lien n'est plus actif"
 
 msgid "The link is invalid"
-msgstr ""
+msgstr "Ce lien n'est pas valide"
 
 msgid ""
 "I don’t have a credit card, but still wish to order the Somuchmore card. "
 "Please contact me!"
 msgstr ""
+"Je n'ai pas de carte bancaire, mais j'aimerais tout de même obtenir la "
+"carte Somuchmore. Contactez-moi s'il-vous-plait!"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Illimité"
 
 msgid "Anytime"
-msgstr ""
+msgstr "A tout moment"
 
 msgid "Selected"
-msgstr ""
+msgstr "Sélectionné(e)"
 
 msgid "Select"
-msgstr ""
+msgstr "Selectionner"
 
 msgid "In {{count}} month"
 msgid_plural "In {{count}} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "En {{count}} mois"
+msgstr[1] "En {{count}} mois"

@@ -8,7 +8,10 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/agb.html:3
 msgid "Terms and Conditions"
-msgstr ""
+msgstr "Conditions Générales"

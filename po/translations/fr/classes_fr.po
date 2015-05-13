@@ -8,59 +8,62 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/classes.html:53
 msgid "<i class=\"fa fa-pencil\"></i>Manage"
-msgstr ""
+msgstr "<i class=\"fa fa-pencil\"></i>Gérer"
 
 #: app/views/classes.html:8
 msgid "<i class=\"fa fa-plus\"></i>Bulk Import"
-msgstr ""
+msgstr "<i class=\"fa fa-plus\"></i>Importation en désordre"
 
 #: app/views/classes.html:7
 msgid "<i class=\"fa fa-plus\"></i>New Class"
-msgstr ""
+msgstr "<i class=\"fa fa-plus\"></i>Nouveau cours"
 
 #: app/views/classes.html:21
 msgid "All Levels"
-msgstr ""
+msgstr "Tous les niveaux"
 
 #: app/views/classes.html:13
 msgid "All Studios"
-msgstr ""
+msgstr "Tous les studios"
 
 #: app/views/classes.html:2
 msgid "Classes"
-msgstr ""
+msgstr "Cours"
 
 #: app/views/classes.html:40
 msgid "Discipline"
-msgstr ""
+msgstr "Discipline"
 
 #: app/views/classes.html:30
 msgid "Draft"
-msgstr ""
+msgstr "Brouillon"
 
 #: app/views/classes.html:9
 msgid "Filter name"
-msgstr ""
+msgstr "Filtrer par nom"
 
 #: app/views/classes.html:39
 msgid "Name of class"
-msgstr ""
+msgstr "Nom du cours"
 
 #: app/views/classes.html:32
 msgid "Reset filters"
-msgstr ""
+msgstr "Réinitialiser les filtres"
 
 #: app/views/classes.html:38
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 #: app/views/classes.html:41
 msgid "Studio"
-msgstr ""
+msgstr "Studio"
 
 #: app/views/classes.html:42
 msgid "Teacher"
-msgstr ""
+msgstr "Professeur"

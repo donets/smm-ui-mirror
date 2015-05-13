@@ -8,36 +8,46 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/more.html:52
 msgid ""
 "All of our listed trainers and coaches have been handpicked by us personally "
 "and will take care of you individually."
 msgstr ""
+"Nous avons personnellement sélectionné tous nos coaches et entraineurs, ils "
+"prendront soin de vous individuellement."
 
 #: app/views/more.html:41
 msgid "Be coached on how to develop your true potential."
-msgstr ""
+msgstr "Soyez entrainé(e) à développer votre vrai potentiel."
 
 #: app/views/more.html:53
 msgid ""
 "Beginners or advanced classes, in a small group or one-on-one: you will "
 "enjoy a fantastic session that is tailored to you."
 msgstr ""
+"Débutant ou avancé, en petit groupe ou individuellement : vous profiterez de "
+"fantastiques sessions sur-mesure."
 
 #: app/views/more.html:59
 msgid ""
 "Body, mind, soul, health, love, work, family: a holistic lifestyle means "
 "balance – and is the key to power, health and deeper fulfilment."
 msgstr ""
+"Corps, âme, esprit, santé, amour, travail, famille : un mode de vie épanoui "
+"implique de l'équilibre - c'est la clé du pouvoir, de la santé et d'une "
+"satisfaction profonde."
 
 #: app/views/more.html:62
 msgid "Connection"
-msgstr ""
+msgstr "Connexion"
 
 #: app/views/more.html:60
 msgid "Core"
-msgstr ""
+msgstr "Noyau"
 
 #: app/views/more.html:47
 msgid ""
@@ -45,24 +55,31 @@ msgid ""
 "speech coaching, business communications, spiritual growth – or whatever it "
 "is you always wanted to do."
 msgstr ""
+"Découvrez le yoga, la méditation, l'escalade, le fitness & bien-être, le "
+"chant, le coaching de discours public, la communication commerciale, la "
+"croissance spirituelle - ou même autre chose que avez toujours voulu faire."
 
 #: app/views/more.html:58
 msgid "Holistic lifestyle"
-msgstr ""
+msgstr "Mode de vie épanoui"
 
 #: app/views/more.html:50
 msgid "It’s all about you."
-msgstr ""
+msgstr "Ça ne dépend que de vous."
 
 #: app/views/more.html:61
 msgid ""
 "No one else has the same set of talents as you – you have every right in the "
 "world to develop your true self."
 msgstr ""
+"Personne d'autre n'a la même panoplie de talents que vous - vous avez tous "
+"les droits du monde de développer votre vrai vous."
 
 #: app/views/more.html:51
 msgid "Our teachers are exceptional people – and the best in their field."
 msgstr ""
+"Nos professeurs sont des gens exceptionnels - et les meilleurs dans leur "
+"domaine."
 
 #: app/views/more.html:63
 msgid ""
@@ -70,28 +87,33 @@ msgid ""
 "this bond with the very root of existence is the source of all vitality and "
 "joy of life."
 msgstr ""
+"Les gens, les animaux, la nature et l'univers sont tous profondément "
+"interconnectés - et ce lien avec la racine même de l'existence est la source "
+"de toute vitalité et de joie de vivre."
 
 #: app/views/more.html:46
 msgid "The decision is yours!"
-msgstr ""
+msgstr "C'est votre décision !"
 
 #: app/views/more.html:38
 msgid "Who do you want to be?"
-msgstr ""
+msgstr "Qui voulez-vous être ?"
 
 #: app/views/more.html:40
 msgid "You are already everything you want to be."
-msgstr ""
+msgstr "Vous êtes déjà tout ce que vous voulez être."
 
 #: app/views/more.html:44
 msgid "You are so much more."
-msgstr ""
+msgstr "Vous êtes tellement plus que ça."
 
 #: app/views/more.html:39
 msgid ""
 "You don’t need to do anything to be good, beautiful or valuable. You are all "
 "those things already!"
 msgstr ""
+"Vous n'avez pas besoin de faire quoi que ce soit pour être fort, beau ou "
+"précieux. Vous l'êtes déjà !"
 
 #: app/views/more.html:45
 msgid ""
@@ -100,3 +122,8 @@ msgid ""
 "life? To experience intense feelings and thrilling sex with your partner? "
 "And happiness with your family and friends?"
 msgstr ""
+"Vous voulez être relaxé(e), en forme et attrayant(e) ? Bénéficier d'un mode "
+"de vie et d'un régime sain ? Réaliser votre plein potentiel dans votre vie "
+"personnelle et professionnelle ? Avoir une vie sentimentale et sexuelle plus "
+"stimulante avec votre partenaire ? Etre heureux avec vos amis et votre "
+"famille ?"

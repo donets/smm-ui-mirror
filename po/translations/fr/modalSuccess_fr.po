@@ -8,19 +8,22 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalSuccess.html:3
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalSuccess.html:8
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: app/views/modalSuccess.html:6
 msgid "Thank you!"
-msgstr ""
+msgstr "Merci !"
 
 #: app/views/modalSuccess.html:7
 msgid "Your payment data has been updated."
-msgstr ""
+msgstr "Vos informations de paiement ont été modifiées."

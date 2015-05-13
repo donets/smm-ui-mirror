@@ -8,39 +8,42 @@ msgstr ""
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalUpload.html:20
 msgid "&mdash; or &mdash;"
-msgstr ""
+msgstr "&mdash; ou &mdash;"
 
 #: app/views/modalUpload.html:34
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: app/views/modalUpload.html:33
 msgid "Change"
-msgstr ""
+msgstr "Modifier"
 
 #: app/views/modalUpload.html:21
 msgid "Choose photo"
-msgstr ""
+msgstr "Choisir une photo"
 
 #: app/views/modalUpload.html:14
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: app/views/modalUpload.html:19
 msgid "Drag photo"
-msgstr ""
+msgstr "Faire glisser une photo"
 
 #: app/views/modalUpload.html:38
 msgid "Retry"
-msgstr ""
+msgstr "Réessayer"
 
 #: app/views/modalUpload.html:26
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: app/views/modalUpload.html:31
 msgid "Upload"
-msgstr ""
+msgstr "Télécharger"
