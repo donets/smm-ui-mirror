@@ -355,7 +355,7 @@ angular.module('boltApp.controllers.Profile', [])
                             $scope.step_1 = false;
                             $analytics.eventTrack({
                                 'event': 'cancelSubscription',
-                                'actionStep': '2 - Subscription Cancelled',
+                                'actionStep': '2 - Cancellation Approved',
                                 'cardType': member.type
                             });
                             $scope.step_2 = true;
