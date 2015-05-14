@@ -14,17 +14,35 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
         getStudio.$promise.then(function () {
             $scope.studio = getStudio;
             $scope.studio.locationsFull = [];
-            RestApi.query({route: 'locations'}).$promise.then(function (res) {
-                _.each($scope.studio.locations, function (locationId) {
-                    $scope.studio.locationsFull.push(_.findWhere(res, {id: locationId}));
+            var qD = $q.defer();
+            var qS = $q.defer();
+            $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + $scope.studio.cityId[0]).success(function (response) {
+                _.map(response, function (item) {
+                    item.type = gettextCatalog.getString('Activities');
                 });
-                $scope.currDay = moment();
-                $scope.setLocation($scope.studio.locationsFull[0]);
+                $scope.disciplines = _.sortBy(response, 'name');
+                qD.resolve();
             });
+            $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + $scope.studio.cityId[0]).success(function (response) {
+                _.map(response, function (item) {
+                    item.type = gettextCatalog.getString('Disciplines');
+                });
+                $scope.styles = _.sortBy(response, 'name');
+                qS.resolve();
+            });
+            $q.all([RestApi.query({route: 'locations'}).$promise],
+                qD.$promise,
+                qS.$promise).then(function (res) {
+                    _.each($scope.studio.locations, function (locationId) {
+                        $scope.studio.locationsFull.push(_.findWhere(res[0], {id: locationId}));
+                    });
+                    $scope.currDay = moment();
+                    $scope.setLocation($scope.studio.locationsFull[0]);
+                });
         });
 
         $scope.showDescription = false;
-        $scope.changeDay = function (c, day) {
+        $scope.changeDay = function (day) {
             $scope.currDay = moment(day);
             $scope.setLocation($scope.currLocation);
         };
@@ -33,46 +51,31 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
             $scope.currLocation = location;
             $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {locationId: location.id, date: $scope.currDay.format('YYYY-MM-DD')}).success(function (res) {
-                var qD = $q.defer();
-                var qS = $q.defer();
-                $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + location.cityId).success(function (response) {
-                    _.map(response, function (item) {
-                        item.type = gettextCatalog.getString('Activities');
-                    });
-                    $scope.disciplines = _.sortBy(response, 'name');
-                    qD.resolve();
-                });
-                $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + location.cityId).success(function (response) {
-                    _.map(response, function (item) {
-                        item.type = gettextCatalog.getString('Disciplines');
-                        item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
-                    });
-                    $scope.styles = _.sortBy(response, 'name');
-                    qS.resolve();
-                });
-                $q.all([qD.$promise, qS.$promise]).then(function (resolve) {
-                    _.map(res.classes.classAccesses, function (obj) {
+
+                _.map(res.classes.classAccesses, function (obj) {
+                    obj.disciplinestyle = [obj.discipline, obj.style];
+                    if(getStudio.linkClassesToStudioDisciplines && getStudio.disciplines) {
+                        obj.disciplinestyle = _.union([obj.discipline, obj.style], getStudio.disciplines.split(', '));
+                    } else {
                         obj.disciplinestyle = [obj.discipline, obj.style];
-                        if(getStudio.linkClassesToStudioDisciplines && getStudio.disciplines) {
-                            obj.disciplinestyle = _.union([obj.discipline, obj.style], getStudio.disciplines.split(', '));
-                        } else {
-                            obj.disciplinestyle = [obj.discipline, obj.style];
-                        }
-                    });
-                    console.log(resolve);
-                    $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
-                        event.start_date = moment(event.date + 'T' + event.startTime);
-                        event.end_date = moment(event.date + 'T' + event.endTime);
-                        event.startTime = event.startTime.slice(0,5);
-                        event.endTime = event.endTime.slice(0,5);
-                        event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
-                    });
-                    $scope.events = _.filter($scope.events, function (event) {
-                        return moment(event.start_date).isAfter(moment());
-                    });
-                    $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
-                    $scope.showSpinner = false;
+                    }
                 });
+                $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
+                    event.start_date = moment(event.date + 'T' + event.startTime);
+                    event.end_date = moment(event.date + 'T' + event.endTime);
+                    event.startTime = event.startTime.slice(0,5);
+                    event.endTime = event.endTime.slice(0,5);
+                    event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
+                });
+                $scope.events = _.filter($scope.events, function (event) {
+                    return moment(event.start_date).isAfter(moment());
+                });
+                _.map($scope.styles, function (item) {
+                    item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
+                });
+                $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
+                $scope.showSpinner = false;
+
             });
             uiGmapGoogleMapApi.then(function() {
 
