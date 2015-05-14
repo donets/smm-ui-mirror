@@ -40,7 +40,7 @@
 
 <div class="b-header stick" ng-show="desktop" ng-class="{'show-top': showTopHeader, 'home': $state.includes('home'), 'admin': $state.includes('admin')}">
     <div class="container">
-        <span class="form-block__title" translate>Enjoy your <u>free</u> 14 day trial!</span>
+        <span class="form-block__title" ng-class="{'two-line': lang === 'fr'}" translate>Enjoy your <u>free</u> 14 day trial!</span>
         <div class="subscribe-wrapper" ng-class="{'invited': invitation}">
             <form name="subscribeForm.top" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('top')">
                 <input type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />

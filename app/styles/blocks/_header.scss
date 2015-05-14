@@ -29,6 +29,10 @@
             text-align: left;
             float: left;
             line-height: 36px;
+            &.two-line {
+                line-height: 18px;
+                max-width: 330px;
+            }
         }
         &.show-top {
             opacity: 1;
