@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Reservations', [])
-    .controller('ReservationsCtrl', function ($scope, $rootScope, getMembership, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
+    .controller('ReservationsCtrl', function ($scope, $rootScope, getMembership, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window, $analytics) {
 
         $scope.getReservations = function () {
             $scope.showSpinner = true;
@@ -131,6 +131,16 @@ angular.module('boltApp.controllers.Reservations', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.bookingStatus = res.bookingStatus;
+                $analytics.eventTrack({
+                    'event': 'cancelBooking',
+                    'studioName': 'Rotana salon unisex',            // Salon/fitness club/etc name.
+                    'studioId': 'M-0206',                           // Salon/fitness club/etc ID.
+                    'studioLocation': 'Berlin,Prenzlauer Berg',      // Salon/fitness club/etc city and district.
+                    'className': 'Rotana Yoga',                     // class name.
+                    'classId': 'M-0206',                            // class ID.
+                    'classTime': 'Fri_17:00-18:00',                // Populate with: dayOfWeek_time
+                    'classCategory': 'Yoga'
+                });
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;

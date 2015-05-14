@@ -79,6 +79,17 @@ angular.module('boltApp.controllers.Classfilters', [])
 
                     function ($scope, $rootScope, $modalInstance, event) {
                         $scope.event = event;
+                        $analytics.eventTrack({
+                            'event': 'PDP',
+                            'elementClicked': 'title',              // Set to 'title'|'CTA'. title-if class headline was clicked, CTA if 'RESERVE' button was clicked.
+                            'studioName': event.class.studio,            // Salon/fitness club/etc name.
+                            'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
+                            'studioLocation': event.location.displayName,      // Salon/fitness club/etc city and district.
+                            'className': event.class.title,                     // class name.
+                            'classId': event.class.id,                            // class ID.
+                            'classTime': event.start_date.format("ddd") + '_' + event.startTime + '-' + event.endTime,                // Populate with: dayOfWeek_time
+                            'classCategory': event.class.discipline
+                        });
                         $scope.confirmBook = function () {
                             $scope.error = null;
                             $scope.showSpinner = true;
