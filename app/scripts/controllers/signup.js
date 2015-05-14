@@ -34,7 +34,8 @@ angular.module('boltApp.controllers.Signup', [])
                 newsletter: true,
                 landingUrl: $cookieStore.get('landingUrl'),
                 cityId: $rootScope.currentCity.active ? $rootScope.currentCity.id : $scope.cities[0].id,
-                lang: $rootScope.lang
+                lang: $rootScope.lang,
+                email: $window.sessionStorage.getItem('email')
             };
             $analytics.eventTrack({
                 'event': 'changeCity',

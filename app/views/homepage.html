@@ -178,9 +178,7 @@
                 <li translate>Cancel / Freeze</li>
             </ul>
             <ul class="select-cards__card" ng-repeat="card in cards">
-                <li><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE' || card.code === 'LONDON_SPECIAL'" src="images/card-white.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></li>
+                <li><img class="card-image" ng-src="{{card.planPictureUrl}}" alt=""/></li>
                 <li class="name">{{card.displayName}}</li>
                 <li><strong ng-class="{'old': (!voucher.freeSubscriptionGranted && voucher) || (card.monthlyPrice < card.preOfferPrice) }">
                     {{card.preOfferPrice}} {{card.currency}}</strong>
@@ -199,9 +197,7 @@
         </div>
         <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
             <tr>
-                <td><img class="card-image" ng-if="card.code === 'LITE'" src="images/card-lite.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'WHITE' || card.code === 'LONDON_WHITE' || card.code === 'LONDON_SPECIAL'" src="images/card-white.png" alt=""/>
-                    <img class="card-image" ng-if="card.code === 'BLACK' || card.code === 'LONDON_BLACK'" src="images/card-black.png" alt=""/></td>
+                <td><img class="card-image" ng-src="{{card.planPictureUrl}}" alt=""/></td>
                 <td>{{card.displayName}}</td>
             </tr>
             <tr>
