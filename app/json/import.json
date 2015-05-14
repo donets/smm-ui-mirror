@@ -106,7 +106,6 @@
         "requiresRegistration": {
             "type": "string",
             "rules": {
-                "required": true,
                 "inclusion": "0,1,false,true"
             }
         }
