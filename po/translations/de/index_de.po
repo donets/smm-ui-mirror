@@ -69,7 +69,7 @@ msgid ""
 "Please check studios' websites for any last minute holiday weekend schedule "
 "changes"
 msgstr ""
-"Feiertag 1. Mai, bitte schaut heute auf die Webseiten der Studios für "
+"Feiertag 14. Mai, bitte schaut heute auf die Webseiten der Studios für "
 "aktualisierte Stundenpläne"
 
 #: app/index.html:150

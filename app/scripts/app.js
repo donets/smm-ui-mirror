@@ -162,7 +162,7 @@ angular.module('boltApp')
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-                $rootScope.mayMessage = (toState.name === 'dashboard') && (!$cookieStore.get('mayMessageViewed')) && (new Date() < new Date(2015,4,5));
+                $rootScope.mayMessage2 = (toState.name === 'dashboard') && (!$cookieStore.get('mayMessage2Viewed')) && (new Date() < new Date(2015,4,15));
                 $rootScope.rejection = null;
 				$rootScope.success = null;
 				var session = $cookieStore.get('session');
@@ -183,8 +183,8 @@ angular.module('boltApp')
 				}
 			});
             $rootScope.closeMayMessage = function() {
-                $cookieStore.put('mayMessageViewed', true);
-                $rootScope.mayMessage = false;
+                $cookieStore.put('mayMessage2Viewed', true);
+                $rootScope.mayMessage2 = false;
             };
 		}
 	])
