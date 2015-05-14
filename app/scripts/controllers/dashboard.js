@@ -11,7 +11,7 @@ angular.module('boltApp.controllers.Dashboard', [])
     .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
         var fetchClasses = function (date) {
             $scope.showSpinner = true;
-            $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {date: date.format('YYYY-MM-DD')}).success(function (res) {
+            $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: $scope.cityId, date: date.format('YYYY-MM-DD')}).success(function (res) {
                 _.map(res.classes.classAccesses, function (obj) {
                     var studio = _.findWhere($scope.allstudios, {id: obj.studioId});
                     obj.studio = obj.studioId && studio ? studio : '';
@@ -77,12 +77,9 @@ angular.module('boltApp.controllers.Dashboard', [])
         $scope.changeCity = function(cityId) {
             $scope.cityId = cityId;
             var selectedCity = _.findWhere($scope.cities, {id: cityId});
-            $rootScope.$state.go('dashboard', {city: cityId}, {reload: true});
+            $rootScope.$state.go('dashboard', {city: cityId});
             $rootScope.supportPhone = selectedCity.supportPhone;
             $rootScope.supportEmail = selectedCity.supportEmail;
-            /*fetchData(cityId).then(function () {
-                fetchClasses($scope.currDay);
-            });*/
         };
         $scope.changeDay = function (day) {
             $scope.currDay = moment(day);
