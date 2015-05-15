@@ -49,8 +49,8 @@ module.exports = {
 
 		RESTclient.post("https://stage-smm-api.herokuapp.com/api/classes/get/all", args, function(data,response) {
 			assert.equal(data.status,"success",data.messages);
-			assert.equal(data.classes.occurenceAccesses.length,49);
-			assert.equal(data.classes.classAccesses.length,49);
+			assert.equal(data.classes.occurenceAccesses.length,50);
+			assert.equal(data.classes.classAccesses.length,50);
 			for (i = 0; i < data.classes.classAccesses.length; i++) {
 				assert.equal(data.classes.classAccesses[i].title.indexOf("test#005")>-1,true,'PASSED:'+data.classes.classAccesses[i].title);
 			}
