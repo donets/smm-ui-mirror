@@ -34,7 +34,7 @@ module.exports = {
       .execute('$(\'.button_upload input\').css("visibility", "visible");')
       .setValue('.button_upload input',absolutePath)
       .click('.action .upload_button')
-      .waitForElementNotVisible('div.modal-dialog',browser.globals.waitPOST)
+      .waitForElementNotVisible('div.modal-dialog',browser.globals.waitImport)
       .end();//add assertion of image for complete test
   }
 };
