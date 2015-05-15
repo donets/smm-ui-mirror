@@ -1,12 +1,12 @@
 id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description,requiresRegistration
 900001,test#001 Кириллица в названии,Mon,15:00,19:30,2017-05-01,2018-12-01,Tanz,Grinberg Methode,1,Julia,2,2,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
-Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",1
-900002,test#002 Ümlauts,Tue,9:00,15:00,2017-05-02,2018-12-02,Tanz,Grinberg Methode,2,Julia,2,2,LIVE,"BLACK,WHITE,LITE",,0
+Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",true
+900002,test#002 Ümlauts,Tue,9:00,15:00,2017-05-02,2018-12-02,Tanz,Grinberg Methode,2,Julia,2,2,LIVE,"BLACK,WHITE,LITE",,false
 900003,test#003 Description in 2 rows,Wed,15:00,19:30,2017-05-03,2018-12-03,Tanz,Grinberg Methode,3,Julia,2,2,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
 Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",false
 900004,test#004 Skipped unrequired fields,Thu,9:00,19:00,2017-05-04,2018-12-04,Tanz,,,,2,2,LIVE,"BLACK,WHITE,LITE",,true
-900005,test#005 Random data check-1,Fri,6:00,7:00,2017-05-05,2018-12-05,Atemübungen,Aerial Yoga,1,Julia,2,2,LIVE,WHITE,test#001,1
-900006,test#005 Random data check-2,Sat,6:05,7:05,2017-05-06,2018-12-06,Athletics,Aerobic,2,Peter,2,2,LIVE,BLACK,test#002,0
+900005,test#005 Random data check-1,Fri,6:00,7:00,2017-05-05,2018-12-05,Atemübungen,Aerial Yoga,1,Julia,2,2,LIVE,WHITE,test#001,true
+900006,test#005 Random data check-2,Sat,6:05,7:05,2017-05-06,2018-12-06,Athletics,Aerobic,2,Peter,2,2,LIVE,BLACK,test#002,false
 900007,test#005 Random data check-3,Sun,6:10,7:10,2017-05-07,2018-12-07,Ausdauer,Ashtanga,3,Jessy,2,2,LIVE,LITE,test#003,
 900008,test#005 Random data check-4,Wed,6:15,7:15,2017-05-08,2018-12-08,Beckenbodentraining,Autogenes Training,"1,2",Albert,2,2,LIVE,"BLACK,WHITE",test#004,
 900009,test#005 Random data check-5,Mon,6:20,7:20,2017-05-09,2018-12-09,Bewusstes Atmen ,Ballett,"2,3",Alex,2,2,LIVE,"BLACK,WHITE,LITE",test#005,
