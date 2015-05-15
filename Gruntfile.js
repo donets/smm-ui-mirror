@@ -618,4 +618,9 @@ module.exports = function(grunt) {
         'test',
         'build'
     ]);
+
+    grunt.registerTask('nodeapp', [
+        'build',
+        'nodemon'
+    ]);
 };

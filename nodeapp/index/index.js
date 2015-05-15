@@ -1,32 +1,59 @@
 var swig = require('swig'),
     config = require('../config/config'),
     request = require('request'),
-    Promise = require('bluebird');
+    Promise = require('bluebird'),
+    Gettext = require('node-gettext'),
+    fs = Promise.promisifyAll(require('fs')),
+    translate = require('../translate/translate'),
+    sprintf = require('sprintf').sprintf,
+    validateResponse = require('./validateResponse')
+    ;
 
 module.exports = function(req, res, next) {
 
-    function guessLanguage(host) {
+    function guessLocation(host) {
       return new Promise(function(resolve, reject) {
         headers = config.get('useUserHostName') ? {'Host': host} : {};
         request({
           url: config.get('restUrlBase') + '/api/country/guess/config?guessCity=true',
           headers: headers
         }, function (error, response, body) {
-          body = body || {};
-          if (error || !body.guessedCity) {
-            return resolve(config.get('fallbackLanguage'));
+
+          var json,
+              resolveFallback = function() {
+                resolve(
+                  config.get('fallbackLanguage'),
+                  config.get('fallbackCity'),
+                  config.get('fallbackUrl')
+                );
+              };
+
+          if (error) {
+            console.error('error during guess city request: ' + error);
+            return resolveFallback();
           }
 
-          resolve(body.guessedCity.languageCode);
+          try {
+            json = JSON.parse(body);
+          } catch (e) {
+            console.error('cannot parse guess city request: ' + e.stack);
+            return resolveFallback();
+          }
+
+          if (!validateResponse(json)) {
+            return resolveFallback();
+          }
+
+          resolve(
+            json.guessedCity.languageCode,
+            json.guessedCity.defaultName,
+            json.country.defaultDomain.absUrlBase
+          );
         });
       });
     }
 
-    function loadTokens(languageCode) {
-
-    }
-
-    function render() {
+    function render(lang, city, url) {
       var tpl = swig.compileFile(__dirname + '/index.html', {
         varControls: ['<%=', '=%>'],
         tagControls: ['<%', '%>']
@@ -35,11 +62,17 @@ module.exports = function(req, res, next) {
       res.send(tpl({
         restUrlBaseOld: config.get('restUrlBaseOld'),
         restUrlBase: config.get('restUrlBase'),
-        fbClientId: config.get('fbClientId')
+        fbClientId: config.get('fbClientId'),
+        fbAppId: config.get('fbAppId'),
+        title: translate(lang, "Somuchmore | Move Body, Mind and Soul"),
+        description: translate(lang, sprintf(
+          "Discover unlimited Yoga, Pilates, Fighting arts, Meditation, Dancing, Health, Nutrition and personal Freedom throughout %s.",
+          city
+        )),
+        url: url,
       }));
     };
 
-    guessLanguage()
-    .then(loadTokens)
-    .then(render)
+    guessLocation(req.headers.host)
+    .then(render);
 };

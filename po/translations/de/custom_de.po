@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.6\n"
 
 msgid "Beginners"
 msgstr "Anfänger"
@@ -88,6 +88,16 @@ msgstr "Aktivitäten"
 
 msgid "Disciplines"
 msgstr "Disziplinen"
+
+msgid ""
+"Discover unlimited Yoga, Pilates, Fighting arts, Meditation, Dancing, "
+"Health, Nutrition and personal Freedom throughout %s."
+msgstr ""
+"Entdecke unbegrenzt Yoga, Pilates, Kampfkunst, Meditation, Tanz, "
+"Gesundheit, Ernährung und persönliche Entfaltung in ganz Berlin."
+
+msgid "Somuchmore | Move Body, Mind and Soul"
+msgstr "Somuchmore | Bewege Körper, Geist und Seele"
 
 #~ msgid "In {{count}} months"
 #~ msgstr "In {{count}} Monaten"

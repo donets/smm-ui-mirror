@@ -68,3 +68,9 @@ msgstr ""
 
 msgid "Disciplines"
 msgstr ""
+
+msgid "Discover unlimited Yoga, Pilates, Fighting arts, Meditation, Dancing, Health, Nutrition and personal Freedom throughout %s."
+msgstr ""
+
+msgid "Somuchmore | Move Body, Mind and Soul"
+msgstr ""

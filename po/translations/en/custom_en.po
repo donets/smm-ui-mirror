@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.6\n"
 
 msgid "Beginners"
 msgstr "Beginners"
@@ -18,8 +18,8 @@ msgstr "Beginners"
 msgid "Medium"
 msgstr "Medium"
 
-msgid "Advanced "
-msgstr "Advanced "
+msgid "Advanced"
+msgstr ""
 
 msgid "Meditation can increase your brain capacity to that of a 25-year-old."
 msgstr "Meditation can increase your brain capacity to that of a 25-year-old."
@@ -79,3 +79,27 @@ msgstr "Selected"
 
 msgid "Select"
 msgstr "Select"
+
+msgid "In {{count}} month"
+msgid_plural "In {{count}} months"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Activities"
+msgstr ""
+
+msgid "Disciplines"
+msgstr ""
+
+msgid ""
+"Discover unlimited Yoga, Pilates, Fighting arts, Meditation, Dancing, "
+"Health, Nutrition and personal Freedom throughout %s."
+msgstr ""
+"Discover unlimited Yoga, Pilates, Fighting arts, Meditation, Dancing, "
+"Health, Nutrition and personal Freedom throughout %s."
+
+msgid "Somuchmore | Move Body, Mind and Soul"
+msgstr "Somuchmore | Move Body, Mind and Soul"
+
+#~ msgid "Advanced "
+#~ msgstr "Advanced "
