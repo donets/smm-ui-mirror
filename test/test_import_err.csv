@@ -32,4 +32,6 @@ test12,test#001 IncorrectID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,
 201312,test#031 Missing Mandatory - Status,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,,"BLACK,WHITE,LITE",test,
 201313,test#032 Missing Mandatory - StudioID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,,2,LIVE,"BLACK,WHITE,LITE",test,
 201314,test#033 Missing Mandatory - LocationID,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,,LIVE,"BLACK,WHITE,LITE",test,
-201314,test#034 wrong requiresRegistration format,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test,test
+201315,test#034 wrong requiresRegistration format1,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test,test
+201316,test#035 wrong requiresRegistration format2,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test,1
+201317,test#036 wrong requiresRegistration format3,Sat,21:30,23:55,2015-05-22,2020-05-24,Tanz,Tango,1,,2,2,LIVE,"BLACK,WHITE,LITE",test,0
