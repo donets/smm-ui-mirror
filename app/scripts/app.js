@@ -12,12 +12,12 @@ angular.module('boltApp', [
         'ngAnimate',
         'ngCookies',
         'ngResource',
-        'ngRoute',
+        //'ngRoute',
         'ngSanitize',
         'ngTouch',
         'ui.router',
         'ui.bootstrap',
-        'angular-data.DSCacheFactory',
+        //'angular-data.DSCacheFactory',
         'angularMoment',
         'gettext',
         'angularSpinner',
@@ -28,7 +28,6 @@ angular.module('boltApp', [
         'ezfb',
         'flow',
         'ngOptionsDisabled',
-        'ng-optimizely',
         'xeditable',
         'ngWebSocket',
         'angulartics',
@@ -40,8 +39,6 @@ angular.module('boltApp', [
         'com.2fdevs.videogular.plugins.poster',
         'boltApp.controllers.Homepage',
         'boltApp.controllers.Studio',
-        'boltApp.controllers.Social',
-        'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
@@ -50,7 +47,6 @@ angular.module('boltApp', [
         'boltApp.controllers.Studios',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
-        'boltApp.controllers.More',
         'boltApp.controllers.Login',
         'boltApp.controllers.Admin',
         'boltApp.controllers.Signup',
@@ -60,10 +56,6 @@ angular.module('boltApp', [
         'boltApp.services.restApi',
         'boltApp.services.detectCity',
         'boltApp.services.countryConfig',
-        'boltApp.services.events',
-        'boltApp.services.occurrences',
-        'boltApp.services.suppliers',
-        'boltApp.services.user',
         'boltApp.services.membership',
         'boltApp.services.navigator',
         'boltApp.services.city',
@@ -188,7 +180,7 @@ angular.module('boltApp')
             };
 		}
 	])
-	.run(['$http', 'DSCacheFactory',
+	/*.run(['$http', 'DSCacheFactory',
 		function($http, DSCacheFactory) {
 			var defaultCache = DSCacheFactory('defaultCache', { // jshint ignore:line
 				maxAge: 900000, // Items added to this cache expire after 15 minutes.
@@ -197,7 +189,7 @@ angular.module('boltApp')
 			});
 			$http.defaults.cache = DSCacheFactory.get('defaultCache');
 		}
-	])
+	])*/
 	.run(['$rootScope', '$modalStack',
 		function($rootScope, $modalStack) {
 			$rootScope.$on('$stateChangeStart', function() {
@@ -426,12 +418,6 @@ angular.module('boltApp')
 					getMembership: function(Membership) {
 
 						return Membership.get().$promise;
-
-					},
-
-					getCards: function($http) {
-
-						return $http.get('json/cards.json', {cache: true});
 
 					}
 
@@ -911,14 +897,6 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 
-			})
-			.state('more', {
-				url: '/p/more/',
-				templateUrl: 'views/more.html',
-				controller: 'MoreCtrl',
-				onExit: function($rootScope) {
-					$rootScope.autoscroll = true;
-				}
 			})
 			.state('about', {
 				url: '/p/about/',
