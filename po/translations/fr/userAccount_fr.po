@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/userAccount.html:27
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: app/views/userAccount.html:20
+msgid "Confirm Password"
+msgstr "Confirmer le mot de passe"
+
+#: app/views/userAccount.html:2
+msgid "Do you want to change your password?"
+msgstr "Voulez-vous changer de mot de passe ?"
+
+#: app/views/userAccount.html:13
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: app/views/userAccount.html:6
+msgid "Old Password"
+msgstr "Ancien mot de passe"
+
+#: app/views/userAccount.html:22
+msgid "Passwords do not match"
+msgstr "Le mot de passe ne correspond pas"
+
+#: app/views/userAccount.html:15 app/views/userAccount.html:8
+msgid "This is an obligatory field"
+msgstr "Ce champs est obligatoire"
+
+#: app/views/userAccount.html:26
+msgid "User name or password is incorrect"
+msgstr "Nom d'utilisateur ou mot de passe incorrect"
+
+#: app/views/userAccount.html:16 app/views/userAccount.html:9
+msgid "Your password must contain at least 5 characters"
+msgstr "Votre mot de passe doit contenir au moins 5 caractères"
