@@ -6,6 +6,7 @@
     "connect-modrewrite": "^0.7.9",
     "express": "^4.9.5",
     "grunt": "^0.4.1",
+    "grunt-angular-templates": "^0.5.7",
     "grunt-angular-gettext": "^2.0.1",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-cli": "^0.1.13",
@@ -38,7 +39,6 @@
     "time-grunt": "^0.3.1"
   },
   "devDependencies": {
-    "grunt-angular-templates": "^0.5.7",
     "grunt-nightwatch": "^0.4.6",
     "grunt-protractor-runner": "^1.2.1",
     "jasmine-spec-reporter": "^1.1.2",
