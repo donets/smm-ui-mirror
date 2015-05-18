@@ -1,7 +1,7 @@
 id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description,requiresRegistration
 900005,test#005 Random data check-1,Mon,6:20,7:20,2017-05-01,2017-05-07,Tanz,Grinberg Methode,1,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
 Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",true
-900005,test#005 Random data check-2,Tue,6:25,7:25,2017-05-012017-05-07,Tanz,Grinberg Methode,2,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE",false
+900006,test#005 Random data check-2,Tue,6:25,7:25,2017-05-012017-05-07,Tanz,Grinberg Methode,2,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE",false
 900007,test#005 Random data check-3,Wed,6:30,7:30,2017-05-01,2017-05-07,Tanz,Grinberg Methode,3,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
 Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",true
 900008,test#005 Random data check-4,Thu,6:35,7:35,2017-05-01,2017-05-07,Tanz,,,,27453,27452,LIVE,"BLACK,WHITE,LITE",false
@@ -14,7 +14,7 @@ Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag 
 900015,test#005 Random data check-11,Sun,7:10,8:10,2017-05-01,2017-05-07,Ernährung,Dance Work,"2,3",Helen,27453,27452,LIVE,"BLACK,WHITE,LITE",test#011,true
 900016,test#005 Random data check-12,Thu,7:15,8:15,2017-05-01,2017-05-07,Feldenkrais,Ernährungsberatung,"1,2,3",Anny,27453,27452,LIVE,"WHITE,LITE",test#012,true
 900017,test#005 Random data check-13,Mon,7:20,8:20,2017-05-01,2017-05-07,Fitness,Flow,1,Kristin,27453,27452,LIVE,WHITE,test#013,false
-900018,test#005 Random data check-07,Tue,7:25,8:25,2017-05-01,2017-05-07,Gymnastik,Hatha,2,Jessica,27453,27452,LIVE,BLACK,test#014,false
+900018,test#005 Random data check-14,Tue,7:25,8:25,2017-05-01,2017-05-07,Gymnastik,Hatha,2,Jessica,27453,27452,LIVE,BLACK,test#014,false
 900019,test#005 Random data check-15,Wed,7:30,8:30,2017-05-01,2017-05-07,Kampfkunst,Hip Hop,3,Ben,27453,27452,LIVE,LITE,test#015,false
 900020,test#005 Random data check-16,Thu,7:35,8:35,2017-05-01,2017-05-07,Yoga und Pilates,Hot,"1,2",Kate,27453,27452,LIVE,"BLACK,WHITE",test#016,false
 900021,test#005 Random data check-17,Fri,7:40,8:40,2017-05-01,2017-05-07,Meditation,Iyengar,"2,3",Johan,27453,27452,LIVE,"BLACK,WHITE,LITE",test#017,false
