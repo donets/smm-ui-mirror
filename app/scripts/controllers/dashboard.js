@@ -36,11 +36,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                     event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
                 });
                 $scope.events = _.filter($scope.events, function (event) {
-                    if (event.source === 'INTERNAL') {
-                        return moment(event.start_date).isAfter(moment().add(1, 'd'));
-                    } else {
-                        return moment(event.start_date).isAfter(moment());
-                    }
+                    return moment(event.start_date).isAfter(moment());
                 });
                 _.map($scope.styles, function (item) {
                     item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
