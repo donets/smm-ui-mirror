@@ -37,7 +37,7 @@
                     <tr>
                         <th colspan="5">{{events[0].date | amDateFormat: 'MMMM D, dddd'}}</th>
                     </tr>
-                    <tr ng-class="{'cancelled': e.bookingStatus === 'CANCELED'}" ng-repeat="e in events">
+                    <tr ng-class="{'cancelled': e.bookingStatus === 'CANCELLED'}" ng-repeat="e in events">
                         <td>
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
@@ -61,7 +61,7 @@
                     <tr>
                         <th colspan="5">{{events[0].date | amDateFormat: 'MMMM D, dddd'}}</th>
                     </tr>
-                    <tr ng-class="{'cancelled': e.bookingStatus === 'CANCELED'}" ng-repeat="e in events">
+                    <tr ng-class="{'cancelled': e.bookingStatus === 'CANCELLED'}" ng-repeat="e in events">
                         <td>
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
