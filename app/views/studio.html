@@ -61,7 +61,7 @@
 <ul class="studio-tabs" ng-if="studio.locations.length > 1">
     <li ng-repeat="location in studio.locationsFull"><a ng-class="{'active': currLocation.id === location.id}" href="" ng-click="setLocation(location)">{{location.name}}</a></li>
 </ul>
-<ng-include src="'views/_classesView.html'" ng-controller="ClassfiltersCtrl"></ng-include>
+<ng-include src="'app/views/_classesView.html'" ng-controller="ClassfiltersCtrl"></ng-include>
 <div id="map" class="b-studio-map" ng-if="studio.locations">
     <div class="container">
         <div class="location">

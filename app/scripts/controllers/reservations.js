@@ -49,7 +49,7 @@ angular.module('boltApp.controllers.Reservations', [])
 
         $scope.bookClass = function (event) {
             $modal.open({
-                templateUrl: 'views/modalBook.html',
+                templateUrl: 'app/views/modalBook.html',
                 controller: ['$scope', '$rootScope', '$modalInstance', 'event',
 
                     function ($scope, $rootScope, $modalInstance, event) {

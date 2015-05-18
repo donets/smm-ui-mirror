@@ -348,7 +348,9 @@ angular.module('boltApp')
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: 'views/homepage.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/homepage.html');
+                },
 				controller: 'HomepageCtrl',
 				resolve: {
 
@@ -365,7 +367,9 @@ angular.module('boltApp')
 			})
 			.state('signup', {
 				url: '/p/signup/:cityId/?invitation',
-				templateUrl: 'views/signup.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/signup.html');
+                },
 				controller: 'SignupCtrl',
 				resolve: {
 
@@ -394,7 +398,9 @@ angular.module('boltApp')
 			})
 			.state('studio', {
 				url: '/p/studio/:studioId/',
-				templateUrl: 'views/studio.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/studio.html');
+                },
 				controller: 'StudioCtrl',
 				resolve: {
 
@@ -412,7 +418,9 @@ angular.module('boltApp')
 			.state('profile', {
 				url: '/my/',
 				abstract: true,
-				templateUrl: '../views/userProfile.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userProfile.html');
+                },
 				controller: 'ProfileCtrl',
 				resolve: {
 
@@ -429,20 +437,28 @@ angular.module('boltApp')
 			})
 			.state('profile.account', {
 				url: 'account/',
-				templateUrl: 'views/userAccount.html'
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userAccount.html');
+                }
 			})
 			.state('profile.membership', {
 				url: 'membership/',
-				templateUrl: 'views/userMembership.html'
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userMembership.html');
+                }
 			})
 			.state('profile.reservations', {
 				url: 'reservations/',
-				templateUrl: 'views/userReservations.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userReservations.html');
+                },
                 controller: 'ReservationsCtrl'
 			})
 			.state('dashboard', {
 				url: '/p/kurse/:city/',
-				templateUrl: 'views/userDashboard.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userDashboard.html');
+                },
 				controller: 'DashboardCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -450,7 +466,9 @@ angular.module('boltApp')
 			})
 			.state('allstudios', {
 				url: '/p/studios/:city/',
-				templateUrl: 'views/userStudios.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userStudios.html');
+                },
 				controller: 'StudiosCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -459,7 +477,9 @@ angular.module('boltApp')
 			.state('admin', {
 				url: '/admin/v2/',
 				abstract: true,
-				templateUrl: 'views/admin.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/admin.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
@@ -486,7 +506,9 @@ angular.module('boltApp')
 			})
 			.state('admin.classes.list', {
 				url: '',
-				templateUrl: 'views/classes.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/classes.html');
+                },
 				controller: 'ClassesCtrl',
 				resolve: {
 
@@ -500,12 +522,16 @@ angular.module('boltApp')
 			})
 			.state('admin.classes.new', {
 				url: 'new/',
-				templateUrl: 'views/class.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/class.html');
+                },
 				controller: 'CreateClassCtrl'
 			})
             .state('admin.classes.import', {
                 url: 'import/',
-                templateUrl: 'views/entityImport.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entityImport.html');
+                },
                 resolve: {
                     getImportEntities: function ($http) {
                         return $http.get('json/import.json', {cache: true});
@@ -534,7 +560,7 @@ angular.module('boltApp')
                         $scope.importData.submit($scope.entities).then(function () {
                             $scope.showSpinner = false;
                             $modal.open({
-                                templateUrl: 'views/modalImport.html',
+                                templateUrl: 'app/views/modalImport.html',
                                 controller: ['$scope', '$modalInstance', 'importData',
 
                                     function ($scope, $modalInstance, importData) {
@@ -616,7 +642,9 @@ angular.module('boltApp')
             })
 			.state('admin.classes.class', {
 				url: ':classId/',
-				templateUrl: 'views/class.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/class.html');
+                },
 				resolve: {
 
 					getClass: function(RestApi, $stateParams) {
@@ -636,7 +664,9 @@ angular.module('boltApp')
 			})
             .state('admin.booking', {
                 url: 'bookings/:bookingId/',
-                templateUrl: 'views/booking.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/booking.html');
+                },
                 resolve: {
 
                     getBooking: function($http, $stateParams, $window) {
@@ -681,7 +711,7 @@ angular.module('boltApp')
 						});
 						$rootScope.upload = function(target) {
 							$rootScope.modalInstance = $modal.open({
-								templateUrl: 'views/modalUpload.html',
+								templateUrl: 'app/views/modalUpload.html',
 								controller: function($scope, target, id, $window, $modalInstance, $interval) {
 
 									$scope.target = target;
@@ -810,7 +840,9 @@ angular.module('boltApp')
 			})
 			.state('admin.entity.list', {
 				url: '/',
-				templateUrl: 'views/entityList.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entityList.html');
+                },
 				resolve: {
 
 					getEntityList: function(RestApi, $stateParams) {
@@ -834,7 +866,9 @@ angular.module('boltApp')
 			})
 			.state('admin.entity.new', {
 				url: '/new/',
-				templateUrl: 'views/entity.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entity.html');
+                },
 				controller:
 
 					function($scope, $rootScope, RestApi) {
@@ -873,7 +907,9 @@ angular.module('boltApp')
 			})
 			.state('admin.entity.item', {
 				url: '/:entityId/',
-				templateUrl: 'views/entity.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entity.html');
+                },
 				resolve: {
 
 					getEntity: function(RestApi, $stateParams) {
@@ -917,7 +953,9 @@ angular.module('boltApp')
 			})
 			.state('about', {
 				url: '/p/about/',
-				templateUrl: 'views/about.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/about.html');
+                },
 				controller: 'AboutCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -925,7 +963,9 @@ angular.module('boltApp')
 			})
             .state('about_test', {
                 url: '/p/about_test/',
-                templateUrl: 'views/about_test.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/about_test.html');
+                },
                 controller: 'AboutCtrl',
                 onExit: function($rootScope) {
                     $rootScope.autoscroll = true;
@@ -933,7 +973,9 @@ angular.module('boltApp')
             })
 			.state('login', {
 				url: '/p/login/',
-				templateUrl: 'views/login.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/login.html');
+                },
 				controller: 'LoginCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -941,7 +983,9 @@ angular.module('boltApp')
 			})
 			.state('reset', {
 				url: '/p/password/reset/:token',
-				templateUrl: 'views/resetPassword.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/resetPassword.html');
+                },
 				controller: 'ResetCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -949,21 +993,27 @@ angular.module('boltApp')
 			})
 			.state('impressum', {
 				url: '/p/impressum/',
-				templateUrl: 'views/impressum.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/impressum.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
 			})
 			.state('faq', {
 				url: '/p/faq/',
-				templateUrl: 'views/faq.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/faq.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
 			})
 			.state('agb', {
 				url: '/p/agb/',
-				templateUrl: 'views/agb.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/agb.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
