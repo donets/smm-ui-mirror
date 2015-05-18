@@ -35,5 +35,6 @@ module.exports = {
   },
   read: function(file) {
     config = JSON.parse(fs.readFileSync(file).toString('utf-8'));
+    return this;
   }
 };
