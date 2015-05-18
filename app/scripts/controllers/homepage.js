@@ -205,7 +205,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
 
         $scope.suggestStudio = function () {
             $modal.open({
-                templateUrl: 'views/modalSuggest.html',
+                templateUrl: 'app/views/modalSuggest.html',
                 controller: ['$scope', '$modalInstance', '$http', 'parentScope', '$interval',
 
                     function ($scope, $modalInstance, $http, parentScope, $interval) {
@@ -251,7 +251,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
 
         $scope.openSubscribe = function () {
             $modal.open({
-                templateUrl: 'views/modalSubscribe.html',
+                templateUrl: 'app/views/modalSubscribe.html',
                 controller: ['$scope', '$modalInstance', '$http', 'scope',
 
                     function ($scope, $modalInstance, $http, scope) {

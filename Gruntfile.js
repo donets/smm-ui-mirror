@@ -330,7 +330,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: ['*.html', 'views/{,*/}*.html'],
+                    src: ['*.html'],
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -514,14 +514,15 @@ module.exports = function(grunt) {
                 options: {
                     module: 'boltApp',
                     htmlmin: {
-                        collapseBooleanAttributes:      true,
-                        collapseWhitespace:             true,
-                        removeAttributeQuotes:          true,
-                        removeComments:                 true, // Only if you don't use comment directives!
-                        removeEmptyAttributes:          true,
-                        removeRedundantAttributes:      true,
-                        removeScriptTypeAttributes:     true,
-                        removeStyleLinkTypeAttributes:  true
+                        removeComments: true,
+                        collapseWhitespace: true,
+                        conservativeCollapse: true,
+                        removeCommentsFromCDATA: true,
+                        removeCDATASectionsFromCDATA: true,
+                        ignoreCustomComments: [
+                            /^\s+smm/,
+                            /\/smm\s+$/
+                        ]
                     }
                 }
             }
@@ -560,7 +561,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        //'wiredep',
+        'ngtemplates',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',

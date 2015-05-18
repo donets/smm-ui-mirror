@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
   tags: ['login','import','upload','correct'],
 
   'LogIN': function (browser) {
@@ -74,4 +74,4 @@ module.exports = {
 	.pause(3000)//pause to sync SQL function execution from previous lines
 	.end()
   }
-};
+};*/

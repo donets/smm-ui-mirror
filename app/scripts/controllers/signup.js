@@ -305,7 +305,7 @@ angular.module('boltApp.controllers.Signup', [])
 
         $scope.missingCard = function () {
             $modal.open({
-                templateUrl: 'views/modalMessage.html',
+                templateUrl: 'app/views/modalMessage.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'name', 'email',
 
                     function ($scope, $modalInstance, $http, $window, name, email) {
