@@ -64,7 +64,7 @@ angular.module('boltApp.controllers.Reservations', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = event.class.requiresRegistration ? 'REQUESTED' : 'CONFIRMED';
+                                event.bookingStatus = res["action status"];
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -81,7 +81,7 @@ angular.module('boltApp.controllers.Reservations', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = 'CANCELED';
+                                event.bookingStatus = res["action status"];
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -113,7 +113,7 @@ angular.module('boltApp.controllers.Reservations', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
-                event.bookingStatus = event.class.requiresRegistration ? 'REQUESTED' : 'CONFIRMED';
+                event.bookingStatus = res["action status"];
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
@@ -130,7 +130,7 @@ angular.module('boltApp.controllers.Reservations', [])
                 console.log(res);
                 $rootScope.handledError = false;
                 event.showSpinner = false;
-                event.bookingStatus = 'CANCELED';
+                event.bookingStatus = res["action status"];
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
