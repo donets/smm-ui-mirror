@@ -7,9 +7,28 @@ var modRewrite = require('connect-modrewrite');
 var swig = require('swig');
 var app = express();
 
-require('./nodeapp/config/config').read(__dirname + '/nodeapp/config/config.json');
+// read json to be available in all functions
+var config = require('./nodeapp/config/config');
+config.read(__dirname + '/nodeapp/config/config.json');
 
-swig.setDefaults({ loader: swig.loaders.fs(__dirname + '/') });
+// This is where all the magic happens!
+app.engine('html', swig.renderFile);
+
+app.set('view engine', 'html');
+app.set('views', __dirname + '/nodeapp');
+
+// Swig will cache templates for you, but you can disable
+// that and use Express's caching instead, if you like:
+app.set('view cache', false);
+
+// NOTE: You should always cache templates in a production environment.
+// Don't leave both of these to `false` in production!
+swig.setDefaults({
+  // because of angular js tags {{}} I need to change the default
+  // swig tags
+  varControls: ['<%=', '=%>'],
+  tagControls: ['<%', '%>']
+});
 
 app.use(morgan('dev'));
 app.use(modRewrite(['^[^\\.]*$ /index.html [L]']));

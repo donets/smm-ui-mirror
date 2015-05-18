@@ -1,5 +1,4 @@
-var swig = require('swig'),
-    config = require('../config/config'),
+var config = require('../config/config'),
     request = require('request'),
     Promise = require('bluebird'),
     Gettext = require('node-gettext'),
@@ -54,12 +53,12 @@ module.exports = function(req, res, next) {
     }
 
     function render(lang, city, url) {
-      var tpl = swig.compileFile(__dirname + '/index.html', {
-        varControls: ['<%=', '=%>'],
-        tagControls: ['<%', '%>']
-      });
+      // var tpl = swig.compileFile(__dirname + '/index.html', {
+      //   varControls: ['<%=', '=%>'],
+      //   tagControls: ['<%', '%>']
+      // });
 
-      res.send(tpl({
+      res.render('index/index', {
         restUrlBaseOld: config.get('restUrlBaseOld'),
         restUrlBase: config.get('restUrlBase'),
         fbClientId: config.get('fbClientId'),
@@ -70,8 +69,8 @@ module.exports = function(req, res, next) {
           city
         )),
         url: url,
-      }));
-    };
+      });
+    }
 
     guessLocation(req.headers.host)
     .then(render);
