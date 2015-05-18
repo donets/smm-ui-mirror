@@ -87,7 +87,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = 'BOOKED';
+                                event.bookingStatus = event.class.requiresRegistration ? 'REQUESTED' : 'CONFIRMED';
                                 $analytics.eventTrack({
                                     'event': 'bookclass',
                                     'studioName': event.class.studio,            // Salon/fitness club/etc name.
@@ -146,7 +146,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
-                event.bookingStatus = 'BOOKED';
+                event.bookingStatus = event.class.requiresRegistration ? 'REQUESTED' : 'CONFIRMED';
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;

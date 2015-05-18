@@ -53,6 +53,7 @@ angular.module('boltApp', [
         'boltApp.controllers.Profile',
         'boltApp.controllers.Reservations',
         'boltApp.controllers.Classfilters',
+        'boltApp.controllers.Booking',
         'boltApp.services.restApi',
         'boltApp.services.detectCity',
         'boltApp.services.countryConfig',
@@ -633,6 +634,22 @@ angular.module('boltApp')
 				},
 				controller: 'ClassCtrl'
 			})
+            .state('admin.booking', {
+                url: 'bookings/:bookingId/',
+                templateUrl: 'views/booking.html',
+                resolve: {
+
+                    getBooking: function($http, $stateParams, $window) {
+
+                        return $http.get($window.smmConfig.restUrlBase + '/api/bookings/' + $stateParams.bookingId).then(function(res) {
+                            return res.data.bookings;
+                        })
+
+                    }
+
+                },
+                controller: 'BookingCtrl'
+            })
 			.state('admin.entity', {
 				url: ':route',
 				template: '<div ui-view></div>',
