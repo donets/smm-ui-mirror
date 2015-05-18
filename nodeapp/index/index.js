@@ -53,12 +53,7 @@ module.exports = function(req, res, next) {
     }
 
     function render(lang, city, url) {
-      // var tpl = swig.compileFile(__dirname + '/index.html', {
-      //   varControls: ['<%=', '=%>'],
-      //   tagControls: ['<%', '%>']
-      // });
-
-      res.render('index/index', {
+      res.render('index/templates/index' + (config.get('isDev') ? '_dev' : ''), {
         restUrlBaseOld: config.get('restUrlBaseOld'),
         restUrlBase: config.get('restUrlBase'),
         fbClientId: config.get('fbClientId'),

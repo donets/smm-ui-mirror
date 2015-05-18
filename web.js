@@ -27,7 +27,10 @@ swig.setDefaults({
   // because of angular js tags {{}} I need to change the default
   // swig tags
   varControls: ['<%=', '=%>'],
-  tagControls: ['<%', '%>']
+  tagControls: ['<%', '%>'],
+  locals: {
+    florian: 'florianss'
+  }
 });
 
 app.use(morgan('dev'));

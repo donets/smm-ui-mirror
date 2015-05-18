@@ -7,5 +7,6 @@
   "fbAppId": 1403268876590849,
   "fallbackLanguage": "en",
   "fallbackUrl": "https://so-much-more.de/",
-  "fallbackCity": "Berlin"
+  "fallbackCity": "Berlin",
+  "isDev": true
 }

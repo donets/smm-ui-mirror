@@ -17,7 +17,8 @@ module.exports = function(grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    var modRewrite = require('connect-modrewrite');
+    var modRewrite = require('connect-modrewrite'),
+        request = require('request');
 
     // Configurable paths for the application
     var appConfig = {
@@ -91,6 +92,12 @@ module.exports = function(grunt) {
                     },
                     middleware: function(connect) {
                         return [
+                            function(req, res, next) {
+                              if (req.url !== '/') return next();
+                              var indexHtmlReq = request.get('http://localhost:5000/index.html');
+                              req.pipe(indexHtmlReq);
+                              indexHtmlReq.pipe(res);
+                            },
                             modRewrite(['^[^\\.]*$ /index.html [L]']),
                             connect.static('.tmp'),
                             connect().use(
