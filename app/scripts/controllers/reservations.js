@@ -64,7 +64,7 @@ angular.module('boltApp.controllers.Reservations', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = 'BOOKED';
+                                event.bookingStatus = event.class.requiresRegistration ? 'REQUESTED' : 'CONFIRMED';
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -113,7 +113,7 @@ angular.module('boltApp.controllers.Reservations', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
-                event.bookingStatus = 'BOOKED';
+                event.bookingStatus = event.class.requiresRegistration ? 'REQUESTED' : 'CONFIRMED';
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
