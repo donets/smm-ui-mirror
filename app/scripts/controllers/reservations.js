@@ -49,7 +49,7 @@ angular.module('boltApp.controllers.Reservations', [])
 
         $scope.bookClass = function (event) {
             $modal.open({
-                templateUrl: 'views/modalBook.html',
+                templateUrl: 'app/views/modalBook.html',
                 controller: ['$scope', '$rootScope', '$modalInstance', 'event',
 
                     function ($scope, $rootScope, $modalInstance, event) {
@@ -64,7 +64,7 @@ angular.module('boltApp.controllers.Reservations', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = res["action status"];
+                                event.bookingStatus = res.bookingStatus;
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -81,7 +81,7 @@ angular.module('boltApp.controllers.Reservations', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = res["action status"];
+                                event.bookingStatus = res.bookingStatus;
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -113,7 +113,7 @@ angular.module('boltApp.controllers.Reservations', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
-                event.bookingStatus = res["action status"];
+                event.bookingStatus = res.bookingStatus;
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
@@ -130,7 +130,7 @@ angular.module('boltApp.controllers.Reservations', [])
                 console.log(res);
                 $rootScope.handledError = false;
                 event.showSpinner = false;
-                event.bookingStatus = res["action status"];
+                event.bookingStatus = res.bookingStatus;
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
