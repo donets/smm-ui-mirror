@@ -27,8 +27,8 @@
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options-disabled="item.disabled for item in neigbourhood"
-                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options-disabled="item.disabled for item in neigbourhoodUPD"
+                        ng-options="item.name as item.name for item in neigbourhoodUPD | orderBy: 'toString()'">
                     <option value=""></option>
                 </select>
                 <em ng-if="studios" translate>, or</em>
