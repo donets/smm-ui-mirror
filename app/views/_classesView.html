@@ -179,7 +179,7 @@
                     <td disable-animate>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
-                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Enquiry</button>
+                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Request</button>
                         <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
                         <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
                         <button class="class-button cancel" ng-if="!e.bookable" ng-click="bookClass(e)" type="button" translate>Details</button>
