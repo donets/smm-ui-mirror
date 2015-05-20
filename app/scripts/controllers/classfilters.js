@@ -87,7 +87,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = res["action status"];
+                                event.bookingStatus = res.bookingStatus;
                                 $analytics.eventTrack({
                                     'event': 'bookclass',
                                     'studioName': event.class.studio,            // Salon/fitness club/etc name.
@@ -114,7 +114,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                                 console.log(res);
                                 $rootScope.handledError = false;
                                 $scope.showSpinner = false;
-                                event.bookingStatus = res["action status"];
+                                event.bookingStatus = res.bookingStatus;
                             }).error(function (res) {
                                 console.log(res);
                                 $scope.showSpinner = false;
@@ -146,7 +146,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                 $rootScope.handledError = false;
                 event.showSpinner = false;
                 event.success = true;
-                event.bookingStatus = res["action status"];
+                event.bookingStatus = res.bookingStatus;
             }).error(function (res) {
                 console.log(res);
                 $rootScope.handledError = false;
@@ -163,7 +163,7 @@ angular.module('boltApp.controllers.Classfilters', [])
                 console.log(res);
                 $rootScope.handledError = false;
                 event.showSpinner = false;
-                event.bookingStatus = res["action status"];
+                event.bookingStatus = res.bookingStatus;
                 $analytics.eventTrack({
                     'event': 'cancelBooking',
                     'studioName': event.class.studio,            // Salon/fitness club/etc name.
