@@ -369,15 +369,20 @@
                 line-height: 1;
             }
         }
-        .success {
+        .success, .cancel {
             line-height: 40px;
             text-transform: uppercase;
-            color: $colorMain;
             .fa {
                 margin-right: 10px;
                 font-size: 20px;
                 vertical-align: text-bottom;
             }
+        }
+        .success {
+            color: $colorMain;
+        }
+        .cancel {
+            color: $colorRed;
         }
         .form-response {
             position: relative;

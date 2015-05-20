@@ -28,6 +28,9 @@
     <div ng-if="event.bookingStatus === 'REQUESTED'" class="form-response">
         <p class="success"><i class="fa fa-check-circle"></i><span translate>Request received</span></p>
     </div>
+    <div ng-if="event.bookingStatus === 'CANCELLED'" class="form-response">
+        <p class="cancel"><i class="fa fa-times-circle"></i><span translate>Cancelled for you</span></p>
+    </div>
     <div ng-if="error" class="form-response">
         <div class="form-error" ng-if="error === 'ProviderWrongConfigurationException' || error === 'ClassNotBookableException' || error === 'default'" translate>Sorry, there are no free spots available for this class.</div>
         <div class="form-error" ng-if="error === 'ProviderNotAvailableException' || error === 'ClassBookingFailException'" translate>Sorry, your request could not be completed. Please Try again.</div>

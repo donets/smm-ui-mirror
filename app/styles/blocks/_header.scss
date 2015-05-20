@@ -497,6 +497,9 @@ li.b-header-nav_city-select {
                 color: $colorLink;
             }
         }
+        &.border {
+            height: auto;
+        }
     }
 }
 
