@@ -1,0 +1,30 @@
+<div class="modal-body modal-cancel">
+    <button ng-click="close()" class="modal-close" type="button">
+        <span class="sr-only" translate>Close</span>
+    </button>
+    <div ng-hide="success">
+        <h2 translate>Reason for decline?</h2>
+        <ul class="list reasons">
+            <li><label><input type="radio" ng-model="declineReason"
+                              value="CLASS_FULL"
+                              name="cancel-reason"/><span translate>Class full</span></label></li>
+            <li><label><input type="radio" ng-model="declineReason"
+                              value="STUDIO_UNREACHABLE"
+                              name="cancel-reason"/><span translate>Cannot Reach Studio</span></label>
+            </li>
+            <li><label><input type="radio" ng-model="declineReason"
+                              value="CLASS_CANCELLED"
+                              name="cancel-reason"/><span translate>Class Cancelled</span></label></li>
+        </ul>
+        <div ng-hide="loading">
+            <button class="form-button" type="button" ng-click="declineBook(declineReason)" translate>Decline</button>
+        </div>
+        <div ng-show="loading" class="form-response">
+            <div class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+    </div>
+    <div ng-show="success">
+        <h2 translate>Booking has been successfully declined</h2>
+        <button class="form-button narrow" type="button" ng-click="close()" translate>Ok</button>
+    </div>
+</div>
