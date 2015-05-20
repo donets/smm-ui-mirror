@@ -607,6 +607,7 @@ angular.module('boltApp')
                         separator: ',',
                         result: null,
                         ignoredColumns: [],
+                        ignoredLines: [],
                         missingColumns: [],
                         importErrors: {}
                     };
@@ -620,6 +621,9 @@ angular.module('boltApp')
                     };
                     $scope.formattedIgnoredColumns = function () {
                         return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
+                    };
+                    $scope.formattedIgnoredLines = function () {
+                        return 'The following lines of the original file have been ignored (column count doesn\'t match header): ' + $scope.csv.ignoredLines.join(', ');
                     };
                     $scope.formattedMissingColumns = function () {
                         return 'FATAL ERROR! The following required columns are missing in your file: ' + $scope.csv.missingColumns.join(', ');

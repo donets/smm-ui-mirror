@@ -21,6 +21,7 @@
                         separator="csv.separator"
                         entity="importEntity"
                         ignored-columns="csv.ignoredColumns"
+                        ignored-lines="csv.ignoredLines"
                         missing-columns="csv.missingColumns"
                         import-errors="csv.importErrors"
                         import-error="importError"
@@ -28,6 +29,7 @@
             </div>
 
             <div class="ignored-columns" ng-if="csv.ignoredColumns.length > 0">{{formattedIgnoredColumns()}}</div>
+            <div class="ignored-columns" ng-if="csv.ignoredLines.length > 0">{{formattedIgnoredLines()}}</div>
             <div class="ignored-columns" ng-if="csv.missingColumns.length > 0">{{formattedMissingColumns()}}</div>
             <div class="errors-holder" ng-if="importError">{{formattedErrors()}}</div>
 
