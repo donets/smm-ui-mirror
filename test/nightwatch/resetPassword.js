@@ -6,6 +6,7 @@
   browser
     .url(params.baseUrl+'/?city=L')
     .waitForElementVisible('body', browser.globals.waitUI)
+	.waitForElementVisible('.login-link > span:nth-child(1)', browser.globals.waitUI)
 	.assert.elementPresent('.login-link > span:nth-child(1)')
     .click('.login-link > span:nth-child(1)')
     .waitForElementVisible('.b-header-nav_login-widget',browser.globals.waitUI)

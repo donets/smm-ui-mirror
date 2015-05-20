@@ -7,6 +7,7 @@ module.exports = {
     browser
       .url(params.baseUrl + '/?city=L')
       .waitForElementVisible('body', browser.globals.waitUI)
+	  .waitForElementVisible('.login-link > span:nth-child(1)', browser.globals.waitUI)
 	  .assert.elementPresent('.login-link > span:nth-child(1)')
       .click('.login-link > span:nth-child(1)')
 	  .assert.elementPresent('input[name=email]')
