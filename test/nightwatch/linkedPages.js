@@ -11,8 +11,10 @@ module.exports = {
   'Switch the city and asert correct': function (browser) {
     var params = browser.globals;
     browser
+	  .waitForElementVisible('.b-main-slogan h2 span:first-child', browser.globals.waitUI)
 	  .verify.containsText('.b-main-slogan h2 span:first-child','BERLIN')
-	  .execute('window.location = \"/?city=M\";')
+	  .url(params.baseUrl+ '/?city=M')
+	  .waitForElementVisible('.b-main-slogan h2 span:first-child', browser.globals.waitUI)
 	  .assert.containsText('.b-main-slogan h2 span:first-child','MÜNCHEN')
       .end();
   }
