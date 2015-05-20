@@ -114,7 +114,8 @@ angular.module('boltApp.controllers.Login', [])
             $analytics.eventTrack({
                 'event': 'passwordForgotten'
             });
-			$http.get($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset?email=' + encodeURIComponent(this.emailForgot), {
+			$http.post($window.smmConfig.restUrlBase + '/api/auth/requestPwdReset', {
+                email: this.emailForgot,
 				cache: false
 			}).success(function(response) {
 				console.log(response);
