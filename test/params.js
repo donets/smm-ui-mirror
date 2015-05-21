@@ -2,9 +2,9 @@
 
 module.exports = {
 	baseUrl: 'http://localhost:9000',
-	waitPOST: 20000,
-	waitUI: 10000,
-	waitImport: 300000,
+	waitPOST: 5000,
+	waitUI: 2000,
+	waitImport: 10000,
 	conString: {
 		user: 'stage_user09',
 		password: 'ieg5cooWr4rnu',

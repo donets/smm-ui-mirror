@@ -1,10 +1,10 @@
 id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description,requiresRegistration
 900005,test#005 Random data check-1,Mon,6:20,7:20,2017-05-01,2017-05-07,Tanz,Grinberg Methode,1,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
 Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",true
-900006,test#005 Random data check-2,Tue,6:25,7:25,2017-05-012017-05-07,Tanz,Grinberg Methode,2,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE",false
+900006,test#005 Random data check-2,Tue,6:25,7:25,2017-05-01,2017-05-07,Tanz,Grinberg Methode,2,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE",,false
 900007,test#005 Random data check-3,Wed,6:30,7:30,2017-05-01,2017-05-07,Tanz,Grinberg Methode,3,Julia,27453,27452,LIVE,"BLACK,WHITE,LITE","Termine bitte telefonisch oder per E-mail (mit Rückrufnummer) individuell vereinbaren. Eine Sitzung dauert ca. 60 - 90 Minuten. Die erste Sitzung ist frei, ab der zweiten wird eine Zuzahlung von 40 Euro vor Ort gezahlt.
 Wenn Termine weniger als 24 Std. vorher storniert werden, wird der volle Betrag in Rechnung gestellt.",true
-900008,test#005 Random data check-4,Thu,6:35,7:35,2017-05-01,2017-05-07,Tanz,,,,27453,27452,LIVE,"BLACK,WHITE,LITE",false
+900008,test#005 Random data check-4,Thu,6:35,7:35,2017-05-01,2017-05-07,Tanz,,,,27453,27452,LIVE,"BLACK,WHITE,LITE",,false
 900009,test#005 Random data check-5,Mon,6:40,7:40,2017-05-01,2017-05-07,Bewusstes Atmen ,Ballett,"2,3",Alex,27453,27452,LIVE,"BLACK,WHITE,LITE",test#005,true
 900010,test#005 Random data check-6,Tue,6:45,7:45,2017-05-01,2017-05-07,Body & Mind,Ballett Barre Fitness,"1,2,3",Irina,27453,27452,LIVE,"WHITE,LITE",test#005,true
 900011,test#005 Random data check-7,Wed,6:50,7:50,2017-05-01,2017-05-07,Bodystyling,Barre Workout,1,Gabe,27453,27452,LIVE,WHITE,test#007,true

@@ -28,9 +28,9 @@ module.exports = {
     browser
       .url(params.baseUrl + '/admin/v2/classes/import/')
       .waitForElementVisible('.btn', browser.globals.waitPOST)
+	  .pause(browser.globals.waitUI)//задержка чтоб ответ пришел от јѕ на предмет серверсайдовых валидаций, не удивлюсь если на CI будет падать....
       .setValue('.btn',absolutePath)	  
 	  .waitForElementVisible('tr.ng-scope:nth-child(1) > td:nth-child(2)',browser.globals.waitUI)
-	  .pause(10000)//задержка чтоб ответ пришел от јѕ» на предмет серверсайдовых валидаций, не удивлюсь если на CI будет падать....
   },
   
     'Validate all rows contain an error': function (browser) { 
@@ -42,7 +42,8 @@ module.exports = {
 		s = 'function TestAll(){'
 		s = s+'browser\n'
     for (i = 0; i < tests.length; i++) { //эта балалайка строит статическую функцию потому-что итеративно выполнить не получилось...
-	s= s+'.getText(\'tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child(4) > div\',function(result) {\n'+
+	s= s+'.verify.containsText(\'.errors-holder\'," '+tests[i][0]+' ")\n' + //проверяем что есть упоминание о этой строке в сообщении об ошибке
+		 '.getText(\'tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child(4) > div\',function(result) {\n'+
 			'this.verify.cssClassPresent(\'tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child('+tests[i][1]+')\',\'invalid\',\'Running:\'+result.value)})\n'
 	 /*browser
 	  .getText('tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child(4) > div',function(result) {//вычитываем название теста
