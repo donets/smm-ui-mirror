@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/modalSuspend.html:12
+msgid "Activate anytime after 1 month and use the remaining days"
+msgstr "Activer à tout moment après 1 mois et utiliser les jours restants"
+
+#: app/views/modalSuspend.html:10
+msgid "Choose any duration between 1 month &amp; 3 months"
+msgstr "Choisir n'importe quelle durée entre 1 &amp; 3 mois"
+
+#: app/views/modalSuspend.html:4
+msgid "Close"
+msgstr "Fermer"
+
+#: app/views/modalSuspend.html:45
+msgid "It will reactivate on {{activateDate | date: 'dd.MM.yyyy'}}"
+msgstr "Il sera réactivé le {{activateDate | date: 'dd.MM.yyyy'}}"
+
+#: app/views/modalSuspend.html:46
+msgid ""
+"Note: You can continue using your account till suspension date. Moreover, "
+"you can reactivate anytime after 1 month from suspension date."
+msgstr ""
+"A noter : Vous pouvez continuer d'utiliser le compte jusqu'à la date de "
+"suspension. De plus, vous pouvez le réactiver à tout moment 1 mois après "
+"cette date."
+
+#: app/views/modalSuspend.html:47
+msgid "Ok"
+msgstr "Ok"
+
+#: app/views/modalSuspend.html:25
+msgid "Pause ends:"
+msgstr "La pause se termine :"
+
+#: app/views/modalSuspend.html:16
+msgid "Pause starts:"
+msgstr "La pause commence :"
+
+#: app/views/modalSuspend.html:21 app/views/modalSuspend.html:28
+msgid "Select date"
+msgstr "Sélectionner une date"
+
+#: app/views/modalSuspend.html:36
+msgid "Suspend my account"
+msgstr "Suspendre mon compte"
+
+#: app/views/modalSuspend.html:8
+msgid "Suspending your account while you are away."
+msgstr "Suspendre votre compte lorsque vous êtes absent(e)."
+
+#: app/views/modalSuspend.html:7
+msgid "Taking a break?"
+msgstr "Faire une pause ?"
+
+#: app/views/modalSuspend.html:43
+msgid "We will miss you!"
+msgstr "Vous allez nous manquer !"
+
+#: app/views/modalSuspend.html:44
+msgid "Your account will be suspended on {{startDate | date: 'dd.MM.yyyy'}}"
+msgstr ""
+"Votre compte sera suspendu à dater du {{startDate | date: 'dd.MM.yyyy'}}"
+
+#: app/views/modalSuspend.html:11
+msgid ""
+"Your remaining days in the membership cycle stay on hold and don't expire"
+msgstr ""
+"Vos jours restants de votre abonnement sont en attente et n'expirent pas"

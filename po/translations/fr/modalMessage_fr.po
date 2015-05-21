@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/modalMessage.html:4
+msgid "Close"
+msgstr "Fermer"
+
+#: app/views/modalMessage.html:6
+msgid "Message Somuchmore"
+msgstr "Contacter Somuchmore"
+
+#: app/views/modalMessage.html:19
+msgid "OK"
+msgstr "Ok"
+
+#: app/views/modalMessage.html:11
+msgid "Send"
+msgstr "Envoyer"
+
+#: app/views/modalMessage.html:14
+msgid "Sorry, your message was not delivered. Please try again later."
+msgstr "Désolé, votre message n'a pas été délivré. Veuillez réessayer plus tard s'il vous plait."
+
+#: app/views/modalMessage.html:18
+msgid "Thank you, your message has been sent to Somuchmore!"
+msgstr "Merci, votre message a été envoyé à Somuchmore !"
+
+#: app/views/modalMessage.html:9
+msgid "Your Email Address"
+msgstr "Votre adresse e-mail"
+
+#: app/views/modalMessage.html:8
+msgid "Your Name"
+msgstr "Votre nom"

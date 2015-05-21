@@ -10,14 +10,26 @@
     <p ng-if="event.class.studio.profileComplete"><a ui-sref="studio({studioId: event.class.studio.id})" target="_blank">{{event.class.studio.name}}</a></p>
     <p ng-if="!event.class.studio.profileComplete">{{event.class.studio.name}}</p>
     <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
-    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus !== 'BOOKED' && roleMember">
+    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus !== 'CONFIRMED' && event.source === 'MINDBODY' && roleMember">
         <button class="form-button" type="button" ng-click="confirmBook()" translate>Confirm Reservation</button>
+    </div>
+    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus !== 'CONFIRMED' && event.source === 'INTERNAL' && !event.class.requiresRegistration && roleMember">
+        <button class="form-button" type="button" ng-click="confirmBook()" translate>Confirm Reservation</button>
+    </div>
+    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus !== 'CONFIRMED' && event.bookingStatus !== 'REQUESTED' && event.source === 'INTERNAL' && event.class.requiresRegistration && roleMember">
+        <button class="form-button" type="button" ng-click="confirmBook()" translate>Request</button>
     </div>
     <div ng-show="showSpinner" class="form-response">
         <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 20}"></span>
     </div>
-    <div ng-if="event.bookingStatus === 'BOOKED'" class="form-response">
+    <div ng-if="event.bookingStatus === 'CONFIRMED'" class="form-response">
         <p class="success"><i class="fa fa-check-circle"></i><span translate>Reserved for you</span></p>
+    </div>
+    <div ng-if="event.bookingStatus === 'REQUESTED'" class="form-response">
+        <p class="success"><i class="fa fa-check-circle"></i><span translate>Request received</span></p>
+    </div>
+    <div ng-if="event.bookingStatus === 'CANCELLED'" class="form-response">
+        <p class="cancel"><i class="fa fa-times-circle"></i><span translate>Cancelled for you</span></p>
     </div>
     <div ng-if="error" class="form-response">
         <div class="form-error" ng-if="error === 'ProviderWrongConfigurationException' || error === 'ClassNotBookableException' || error === 'default'" translate>Sorry, there are no free spots available for this class.</div>
@@ -25,8 +37,11 @@
     </div>
 </div>
 <div class="modal-footer">
-    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus === 'BOOKED' && roleMember">
+    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus === 'CONFIRMED' && roleMember">
         <button class="form-button" type="button" ng-click="cancelBook()" translate>Cancel Reservation</button>
+    </div>
+    <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus === 'REQUESTED' && event.source === 'INTERNAL' && event.class.requiresRegistration && roleMember">
+        <button class="form-button" type="button" ng-click="cancelBook()" translate>Cancel Request</button>
     </div>
     <p>If you cant make it to the class, please cancel minimum 24 hours in advance to avoid late cancellation fees.</p>
 </div>

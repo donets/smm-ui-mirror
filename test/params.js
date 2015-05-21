@@ -2,14 +2,14 @@
 
 module.exports = {
 	baseUrl: 'http://localhost:9000',
-	waitPOST: 20000,
-	waitUI: 10000,
-	waitImport: 300000,
+	waitPOST: 5000,
+	waitUI: 2000,
+	waitImport: 10000,
 	conString: {
-		user: 'smmre',
-		password: 'PM2sEMC17iU8i2KrdbSJ',
-		database: 'stage_events',
-		host: 'pg-smm.maketank.net',
+		user: 'stage_user09',
+		password: 'ieg5cooWr4rnu',
+		database: 'events09',
+		host: 'stagedbs.somuchmore.org',
 		port: 5432,
 		ssl: true
 		},

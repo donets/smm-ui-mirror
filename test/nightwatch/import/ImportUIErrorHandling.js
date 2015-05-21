@@ -5,6 +5,7 @@ module.exports = {
     var params = browser.globals;
     browser
       .url(params.baseUrl + '/?city=L')
+	  .waitForElementVisible('body', browser.globals.waitUI)
       .waitForElementVisible('.login-link > span:nth-child(1)', browser.globals.waitUI)
 	  .assert.elementPresent('.login-link > span:nth-child(1)')
       .click('.login-link > span:nth-child(1)')
@@ -27,9 +28,9 @@ module.exports = {
     browser
       .url(params.baseUrl + '/admin/v2/classes/import/')
       .waitForElementVisible('.btn', browser.globals.waitPOST)
+	  .pause(browser.globals.waitUI)//задержка чтоб ответ пришел от јѕ на предмет серверсайдовых валидаций, не удивлюсь если на CI будет падать....
       .setValue('.btn',absolutePath)	  
 	  .waitForElementVisible('tr.ng-scope:nth-child(1) > td:nth-child(2)',browser.globals.waitUI)
-	  .pause(10000)//задержка чтоб ответ пришел от јѕ» на предмет серверсайдовых валидаций, не удивлюсь если на CI будет падать....
   },
   
     'Validate all rows contain an error': function (browser) { 
@@ -37,11 +38,12 @@ module.exports = {
 	//после фикса SMMWEB-79 добавить их в массив
 	var tests=[['1','2'],['2','9'],['3','10'],['4','11'],['5','16'],['6','16'],['7','17'],['8','17'],['14','15'],['15','15'],['16','13'],
 		['17','13'],['18','14'],['19','14'],['23','2'],['24','4'],['25','5'],['26','9'],['27','10'],['28','11'],['29','16'],['30','17'],
-		['31','15'],['32','13'],['33','14']] //массив с провер€емыми €чейками, новые добавить сюда-же в любое место
+		['31','15'],['32','13'],['33','14'],['34','18'],['35','18'],['36','18']] //массив с провер€емыми €чейками, новые добавить сюда-же в любое место
 		s = 'function TestAll(){'
 		s = s+'browser\n'
     for (i = 0; i < tests.length; i++) { //эта балалайка строит статическую функцию потому-что итеративно выполнить не получилось...
-	s= s+'.getText(\'tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child(4) > div\',function(result) {\n'+
+	s= s+'.verify.containsText(\'.errors-holder\'," '+tests[i][0]+' ")\n' + //проверяем что есть упоминание о этой строке в сообщении об ошибке
+		 '.getText(\'tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child(4) > div\',function(result) {\n'+
 			'this.verify.cssClassPresent(\'tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child('+tests[i][1]+')\',\'invalid\',\'Running:\'+result.value)})\n'
 	 /*browser
 	  .getText('tr.ng-scope:nth-child('+tests[i][0]+') > td:nth-child(4) > div',function(result) {//вычитываем название теста

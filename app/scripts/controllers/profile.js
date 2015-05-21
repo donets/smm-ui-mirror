@@ -62,7 +62,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.upload = function (target) {
             $scope.modalInstance = $modal.open({
-                templateUrl: 'views/modalUpload.html',
+                templateUrl: 'app/views/modalUpload.html',
                 controller: function ($scope, target, $window, $modalInstance, $interval) {
 
                     $scope.target = target;
@@ -100,7 +100,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.activateMembership = function () {
             $modal.open({
-                templateUrl: 'views/modalActivate.html',
+                templateUrl: 'app/views/modalActivate.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
 
                     function ($scope, $modalInstance, $http, $window, member) {
@@ -205,7 +205,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.changeActivationDate = function () {
             $modal.open({
-                templateUrl: 'views/modalActivate.html',
+                templateUrl: 'app/views/modalActivate.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
 
                     function ($scope, $modalInstance, $http, $window, member) {
@@ -270,7 +270,7 @@ angular.module('boltApp.controllers.Profile', [])
                 'cardType': $scope.membership.type
             });
             $modal.open({
-                templateUrl: 'views/modalSuspend.html',
+                templateUrl: 'app/views/modalSuspend.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'member', 'gettextCatalog',
 
                     function ($scope, $modalInstance, $http, $window, member, gettextCatalog) {
@@ -344,7 +344,7 @@ angular.module('boltApp.controllers.Profile', [])
                 'cardType': $scope.membership.type
             });
             $modal.open({
-                templateUrl: 'views/modalCancel.html',
+                templateUrl: 'app/views/modalCancel.html',
                 controller: ['$scope', '$modalInstance', '$http', '$window', 'member', '$q',
 
                     function ($scope, $modalInstance, $http, $window, member, $q) {
@@ -407,7 +407,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         $scope.paymentUpdateSuccess = function () {
             $modal.open({
-                templateUrl: 'views/modalSuccess.html',
+                templateUrl: 'app/views/modalSuccess.html',
                 controller: ['$scope', '$modalInstance',
 
                     function ($scope, $modalInstance) {

@@ -97,7 +97,9 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
 
             $scope.update = CityFactory.update;
 
-            $scope.citiesList = $rootScope.configCities;
+            $scope.citiesList = _.filter($rootScope.configCities, function(city) {
+                return city.visible === true;
+            });
             RestApi.query({route: 'countries'}).$promise.then(function (res) {
                 $scope.countries = res;
                 $scope.city = $rootScope.currentCity;
@@ -107,7 +109,6 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
         };
 
         $scope.$on('configLoaded', $scope.init);
-
 
         $scope.changeCity = function (currentCityId) {
             $rootScope.currentCity = _.findWhere($scope.citiesList, {id: currentCityId});
@@ -162,6 +163,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
                 interestedInProduct: true,
                 lang: $rootScope.lang
             };
+            $window.sessionStorage.setItem('email', $scope.invite.email);
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
@@ -203,7 +205,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
 
         $scope.suggestStudio = function () {
             $modal.open({
-                templateUrl: 'views/modalSuggest.html',
+                templateUrl: 'app/views/modalSuggest.html',
                 controller: ['$scope', '$modalInstance', '$http', 'parentScope', '$interval',
 
                     function ($scope, $modalInstance, $http, parentScope, $interval) {
@@ -249,7 +251,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
 
         $scope.openSubscribe = function () {
             $modal.open({
-                templateUrl: 'views/modalSubscribe.html',
+                templateUrl: 'app/views/modalSubscribe.html',
                 controller: ['$scope', '$modalInstance', '$http', 'scope',
 
                     function ($scope, $modalInstance, $http, scope) {

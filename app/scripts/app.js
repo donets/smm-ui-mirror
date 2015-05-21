@@ -12,12 +12,12 @@ angular.module('boltApp', [
         'ngAnimate',
         'ngCookies',
         'ngResource',
-        'ngRoute',
+        //'ngRoute',
         'ngSanitize',
         'ngTouch',
         'ui.router',
         'ui.bootstrap',
-        'angular-data.DSCacheFactory',
+        //'angular-data.DSCacheFactory',
         'angularMoment',
         'gettext',
         'angularSpinner',
@@ -28,7 +28,6 @@ angular.module('boltApp', [
         'ezfb',
         'flow',
         'ngOptionsDisabled',
-        'ng-optimizely',
         'xeditable',
         'ngWebSocket',
         'angulartics',
@@ -40,8 +39,6 @@ angular.module('boltApp', [
         'com.2fdevs.videogular.plugins.poster',
         'boltApp.controllers.Homepage',
         'boltApp.controllers.Studio',
-        'boltApp.controllers.Social',
-        'boltApp.controllers.Confirmation',
         'boltApp.controllers.Subscribe',
         'boltApp.controllers.Classes',
         'boltApp.controllers.Class',
@@ -50,20 +47,16 @@ angular.module('boltApp', [
         'boltApp.controllers.Studios',
         'boltApp.controllers.Reset',
         'boltApp.controllers.About',
-        'boltApp.controllers.More',
         'boltApp.controllers.Login',
         'boltApp.controllers.Admin',
         'boltApp.controllers.Signup',
         'boltApp.controllers.Profile',
         'boltApp.controllers.Reservations',
         'boltApp.controllers.Classfilters',
+        'boltApp.controllers.Booking',
         'boltApp.services.restApi',
         'boltApp.services.detectCity',
         'boltApp.services.countryConfig',
-        'boltApp.services.events',
-        'boltApp.services.occurrences',
-        'boltApp.services.suppliers',
-        'boltApp.services.user',
         'boltApp.services.membership',
         'boltApp.services.navigator',
         'boltApp.services.city',
@@ -162,7 +155,7 @@ angular.module('boltApp')
 				}
 			};
 			$rootScope.$on('$stateChangeStart', function(event, toState, toParams) {
-                $rootScope.mayMessage = (toState.name === 'dashboard') && (!$cookieStore.get('mayMessageViewed')) && (new Date() < new Date(2015,4,5));
+                $rootScope.mayMessage2 = (toState.name === 'dashboard') && (!$cookieStore.get('mayMessage2Viewed')) && (new Date() < new Date(2015,4,15));
                 $rootScope.rejection = null;
 				$rootScope.success = null;
 				var session = $cookieStore.get('session');
@@ -183,12 +176,12 @@ angular.module('boltApp')
 				}
 			});
             $rootScope.closeMayMessage = function() {
-                $cookieStore.put('mayMessageViewed', true);
-                $rootScope.mayMessage = false;
+                $cookieStore.put('mayMessage2Viewed', true);
+                $rootScope.mayMessage2 = false;
             };
 		}
 	])
-	.run(['$http', 'DSCacheFactory',
+	/*.run(['$http', 'DSCacheFactory',
 		function($http, DSCacheFactory) {
 			var defaultCache = DSCacheFactory('defaultCache', { // jshint ignore:line
 				maxAge: 900000, // Items added to this cache expire after 15 minutes.
@@ -197,7 +190,7 @@ angular.module('boltApp')
 			});
 			$http.defaults.cache = DSCacheFactory.get('defaultCache');
 		}
-	])
+	])*/
 	.run(['$rootScope', '$modalStack',
 		function($rootScope, $modalStack) {
 			$rootScope.$on('$stateChangeStart', function() {
@@ -355,7 +348,9 @@ angular.module('boltApp')
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: 'views/homepage.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/homepage.html');
+                },
 				controller: 'HomepageCtrl',
 				resolve: {
 
@@ -372,7 +367,9 @@ angular.module('boltApp')
 			})
 			.state('signup', {
 				url: '/p/signup/:cityId/?invitation',
-				templateUrl: 'views/signup.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/signup.html');
+                },
 				controller: 'SignupCtrl',
 				resolve: {
 
@@ -401,7 +398,9 @@ angular.module('boltApp')
 			})
 			.state('studio', {
 				url: '/p/studio/:studioId/',
-				templateUrl: 'views/studio.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/studio.html');
+                },
 				controller: 'StudioCtrl',
 				resolve: {
 
@@ -419,19 +418,15 @@ angular.module('boltApp')
 			.state('profile', {
 				url: '/my/',
 				abstract: true,
-				templateUrl: '../views/userProfile.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userProfile.html');
+                },
 				controller: 'ProfileCtrl',
 				resolve: {
 
 					getMembership: function(Membership) {
 
 						return Membership.get().$promise;
-
-					},
-
-					getCards: function($http) {
-
-						return $http.get('json/cards.json', {cache: true});
 
 					}
 
@@ -442,20 +437,28 @@ angular.module('boltApp')
 			})
 			.state('profile.account', {
 				url: 'account/',
-				templateUrl: 'views/userAccount.html'
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userAccount.html');
+                }
 			})
 			.state('profile.membership', {
 				url: 'membership/',
-				templateUrl: 'views/userMembership.html'
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userMembership.html');
+                }
 			})
 			.state('profile.reservations', {
 				url: 'reservations/',
-				templateUrl: 'views/userReservations.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userReservations.html');
+                },
                 controller: 'ReservationsCtrl'
 			})
 			.state('dashboard', {
 				url: '/p/kurse/:city/',
-				templateUrl: 'views/userDashboard.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userDashboard.html');
+                },
 				controller: 'DashboardCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -463,7 +466,9 @@ angular.module('boltApp')
 			})
 			.state('allstudios', {
 				url: '/p/studios/:city/',
-				templateUrl: 'views/userStudios.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/userStudios.html');
+                },
 				controller: 'StudiosCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -472,7 +477,9 @@ angular.module('boltApp')
 			.state('admin', {
 				url: '/admin/v2/',
 				abstract: true,
-				templateUrl: 'views/admin.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/admin.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
@@ -499,7 +506,9 @@ angular.module('boltApp')
 			})
 			.state('admin.classes.list', {
 				url: '',
-				templateUrl: 'views/classes.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/classes.html');
+                },
 				controller: 'ClassesCtrl',
 				resolve: {
 
@@ -513,12 +522,16 @@ angular.module('boltApp')
 			})
 			.state('admin.classes.new', {
 				url: 'new/',
-				templateUrl: 'views/class.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/class.html');
+                },
 				controller: 'CreateClassCtrl'
 			})
             .state('admin.classes.import', {
                 url: 'import/',
-                templateUrl: 'views/entityImport.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entityImport.html');
+                },
                 resolve: {
                     getImportEntities: function ($http) {
                         return $http.get('json/import.json', {cache: true});
@@ -547,7 +560,7 @@ angular.module('boltApp')
                         $scope.importData.submit($scope.entities).then(function () {
                             $scope.showSpinner = false;
                             $modal.open({
-                                templateUrl: 'views/modalImport.html',
+                                templateUrl: 'app/views/modalImport.html',
                                 controller: ['$scope', '$modalInstance', 'importData',
 
                                     function ($scope, $modalInstance, importData) {
@@ -594,6 +607,7 @@ angular.module('boltApp')
                         separator: ',',
                         result: null,
                         ignoredColumns: [],
+                        ignoredLines: [],
                         missingColumns: [],
                         importErrors: {}
                     };
@@ -607,6 +621,9 @@ angular.module('boltApp')
                     };
                     $scope.formattedIgnoredColumns = function () {
                         return 'The following columns have been ignored: ' + $scope.csv.ignoredColumns.join(', ');
+                    };
+                    $scope.formattedIgnoredLines = function () {
+                        return 'The following lines of the original file have been ignored (column count doesn\'t match header): ' + $scope.csv.ignoredLines.join(', ');
                     };
                     $scope.formattedMissingColumns = function () {
                         return 'FATAL ERROR! The following required columns are missing in your file: ' + $scope.csv.missingColumns.join(', ');
@@ -629,7 +646,9 @@ angular.module('boltApp')
             })
 			.state('admin.classes.class', {
 				url: ':classId/',
-				templateUrl: 'views/class.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/class.html');
+                },
 				resolve: {
 
 					getClass: function(RestApi, $stateParams) {
@@ -647,6 +666,24 @@ angular.module('boltApp')
 				},
 				controller: 'ClassCtrl'
 			})
+            .state('admin.booking', {
+                url: 'bookings/:bookingId/',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/booking.html');
+                },
+                resolve: {
+
+                    getBooking: function($http, $stateParams, $window) {
+
+                        return $http.get($window.smmConfig.restUrlBase + '/api/bookings/' + $stateParams.bookingId).then(function(res) {
+                            return res.data.bookings;
+                        })
+
+                    }
+
+                },
+                controller: 'BookingCtrl'
+            })
 			.state('admin.entity', {
 				url: ':route',
 				template: '<div ui-view></div>',
@@ -678,7 +715,7 @@ angular.module('boltApp')
 						});
 						$rootScope.upload = function(target) {
 							$rootScope.modalInstance = $modal.open({
-								templateUrl: 'views/modalUpload.html',
+								templateUrl: 'app/views/modalUpload.html',
 								controller: function($scope, target, id, $window, $modalInstance, $interval) {
 
 									$scope.target = target;
@@ -807,7 +844,9 @@ angular.module('boltApp')
 			})
 			.state('admin.entity.list', {
 				url: '/',
-				templateUrl: 'views/entityList.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entityList.html');
+                },
 				resolve: {
 
 					getEntityList: function(RestApi, $stateParams) {
@@ -831,7 +870,9 @@ angular.module('boltApp')
 			})
 			.state('admin.entity.new', {
 				url: '/new/',
-				templateUrl: 'views/entity.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entity.html');
+                },
 				controller:
 
 					function($scope, $rootScope, RestApi) {
@@ -870,7 +911,9 @@ angular.module('boltApp')
 			})
 			.state('admin.entity.item', {
 				url: '/:entityId/',
-				templateUrl: 'views/entity.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/entity.html');
+                },
 				resolve: {
 
 					getEntity: function(RestApi, $stateParams) {
@@ -912,17 +955,11 @@ angular.module('boltApp')
 				}
 
 			})
-			.state('more', {
-				url: '/p/more/',
-				templateUrl: 'views/more.html',
-				controller: 'MoreCtrl',
-				onExit: function($rootScope) {
-					$rootScope.autoscroll = true;
-				}
-			})
 			.state('about', {
 				url: '/p/about/',
-				templateUrl: 'views/about.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/about.html');
+                },
 				controller: 'AboutCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -930,7 +967,9 @@ angular.module('boltApp')
 			})
             .state('about_test', {
                 url: '/p/about_test/',
-                templateUrl: 'views/about_test.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/about_test.html');
+                },
                 controller: 'AboutCtrl',
                 onExit: function($rootScope) {
                     $rootScope.autoscroll = true;
@@ -938,7 +977,9 @@ angular.module('boltApp')
             })
 			.state('login', {
 				url: '/p/login/',
-				templateUrl: 'views/login.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/login.html');
+                },
 				controller: 'LoginCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -946,7 +987,9 @@ angular.module('boltApp')
 			})
 			.state('reset', {
 				url: '/p/password/reset/:token',
-				templateUrl: 'views/resetPassword.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/resetPassword.html');
+                },
 				controller: 'ResetCtrl',
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
@@ -954,21 +997,27 @@ angular.module('boltApp')
 			})
 			.state('impressum', {
 				url: '/p/impressum/',
-				templateUrl: 'views/impressum.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/impressum.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
 			})
 			.state('faq', {
 				url: '/p/faq/',
-				templateUrl: 'views/faq.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/faq.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
 			})
 			.state('agb', {
 				url: '/p/agb/',
-				templateUrl: 'views/agb.html',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/agb.html');
+                },
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}

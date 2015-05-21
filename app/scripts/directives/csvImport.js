@@ -16,6 +16,7 @@ angular.module('boltApp')
                 entity: '=',
                 result: '=',
                 ignoredColumns: '=',
+                ignoredLines: '=',
                 missingColumns: '=',
                 importErrors: '=',
                 importError: '='
@@ -62,6 +63,7 @@ angular.module('boltApp')
                     scope.importErrors = {};
                     scope.importError = false;
                     scope.ignoredColumns = [];
+                    scope.ignoredLines = [];
                     scope.missingColumns = [];
                     var lines = content.csv.csvToArray({head:!content.header, rSep:'\n', fSep: content.separator});
                     var result = [];
@@ -142,6 +144,8 @@ angular.module('boltApp')
                                 }
                             }
                             result.push(obj);
+                        } else {
+                            scope.ignoredLines.push(i);
                         }
                     }
                     return result;

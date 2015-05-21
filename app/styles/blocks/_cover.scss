@@ -74,16 +74,6 @@
             background-image: url("/images/about-1080.jpg");
         }
     }
-    &.signup-cover {
-        background-image: url("/images/signup-2880.jpg");
-        height: 350px;
-        @media (max-width: 1440px) {
-            background-image: url("/images/signup-1440.jpg");
-        }
-        @media (max-width: $containerMobileWidth) {
-            background-image: url("/images/signup-1080.jpg");
-        }
-    }
     &.profile-cover {
         background-image: url("/images/profile-2880.jpg");
         height: 350px;
@@ -102,15 +92,6 @@
         }
         @media (max-width: $containerMobileWidth) {
             background-image: url("/images/faq-1080.jpg");
-        }
-    }
-    &.contact-cover {
-        background-image: url("/images/contact-2880.jpg");
-        @media (max-width: 1440px) {
-            background-image: url("/images/contact-1440.jpg");
-        }
-        @media (max-width: $containerMobileWidth) {
-            background-image: url("/images/contact-1080.jpg");
         }
     }
 }

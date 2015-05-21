@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/modalUpload.html:20
+msgid "&mdash; or &mdash;"
+msgstr "&mdash; ou &mdash;"
+
+#: app/views/modalUpload.html:34
+msgid "Cancel"
+msgstr "Annuler"
+
+#: app/views/modalUpload.html:33
+msgid "Change"
+msgstr "Modifier"
+
+#: app/views/modalUpload.html:21
+msgid "Choose photo"
+msgstr "Choisir une photo"
+
+#: app/views/modalUpload.html:14
+msgid "Close"
+msgstr "Fermer"
+
+#: app/views/modalUpload.html:19
+msgid "Drag photo"
+msgstr "Faire glisser une photo"
+
+#: app/views/modalUpload.html:38
+msgid "Retry"
+msgstr "Réessayer"
+
+#: app/views/modalUpload.html:26
+msgid "Title"
+msgstr "Titre"
+
+#: app/views/modalUpload.html:31
+msgid "Upload"
+msgstr "Télécharger"

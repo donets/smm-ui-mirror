@@ -5,6 +5,7 @@ module.exports = {
     var params = browser.globals;
     browser
       .url(params.baseUrl + '/?city=L')
+	  .waitForElementVisible('body', browser.globals.waitUI)
       .waitForElementVisible('.login-link > span:nth-child(1)', browser.globals.waitUI)
 	  .assert.elementPresent('.login-link > span:nth-child(1)')
       .click('.login-link > span:nth-child(1)')
@@ -31,8 +32,9 @@ module.exports = {
 	  .waitForElementVisible('tr.ng-scope:nth-child(1) > td:nth-child(2)',browser.globals.waitUI)
   },
   
-    'Validate no error message present and ': function (browser) { 
+    'Validate no error message present': function (browser) { 
 	browser
+	.assert.elementNotPresent('.ignored-columns')
 	.getAttribute('.green', 'disabled', function(result) {this.assert.equal(result.value, null);})//asserting that all rows are OK and import button is enabled
 	.end()
   }

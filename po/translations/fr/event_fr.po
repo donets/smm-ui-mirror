@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/event.html:38
+msgid "&lt; Less"
+msgstr "&lt; Moins"
+
+#: app/views/event.html:67
+msgid ", {{teacher.teacherProfile.numberOfClassesTaught}} hours"
+msgstr ", {{teacher.teacherProfile.numberOfClassesTaught}} heures"
+
+#: app/views/event.html:24
+msgid "<i class=\"fa fa-calendar\"></i>Book a different date"
+msgstr "<i class=\"fa fa-calendar\"></i>Réserver à une autre date"
+
+#: app/views/event.html:47
+msgid "<i class=\"fa fa-clock-o\"></i>{{duration}} minutes"
+msgstr "<i class=\"fa fa-clock-o\"></i>{{duration}} minutes"
+
+#: app/views/event.html:62 app/views/event.html:71
+msgid "<i class=\"fa fa-envelope\"></i>Questions about the event?"
+msgstr "<i class=\"fa fa-envelope\"></i>Des questions sur cet évènement ?"
+
+#: app/views/event.html:22
+msgid "Book this event"
+msgstr "Réserver cet évènement"
+
+#: app/views/event.html:23
+msgid ""
+"Book this event<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} &euro;</"
+"span>"
+msgstr ""
+"Réserver cet évènement<span>&nbsp;|&nbsp;{{minPrice.ticket.display_price}} "
+"&euro;</span>"
+
+#: app/views/event.html:59
+msgid "Experienced teacher"
+msgstr "Professeur Confirmé"
+
+#: app/views/event.html:60
+msgid "Master Teacher"
+msgstr "Professeur Expert"
+
+#: app/views/event.html:37
+msgid "More &gt;"
+msgstr "Plus &gt;"
+
+#: app/views/event.html:20
+msgid "Private lesson"
+msgstr "Cours Privé"
+
+#: app/views/event.html:66
+msgid "Since {{2014 - teacher.teacherProfile.teachingSince}}"
+msgstr "Depuis {{2014 - teacher.teacherProfile.teachingSince}}"
+
+#: app/views/event.html:19
+msgid "Sold out"
+msgstr "Complet"
+
+#: app/views/event.html:58
+msgid "Teacher"
+msgstr "Professeur"
+
+#: app/views/event.html:18
+msgid ""
+"{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} "
+"Places available"
+msgstr ""
+"{{event.occurrence.total_tickets_left}}/{{event.occurrence.total_tickets}} "
+"Places disponibles"

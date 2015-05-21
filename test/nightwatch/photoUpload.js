@@ -7,6 +7,7 @@ module.exports = {
     browser
       .url(params.baseUrl + '/?city=L')
       .waitForElementVisible('body', browser.globals.waitUI)
+	  .waitForElementVisible('.login-link > span:nth-child(1)', browser.globals.waitUI)
 	  .assert.elementPresent('.login-link > span:nth-child(1)')
       .click('.login-link > span:nth-child(1)')
 	  .assert.elementPresent('input[name=email]')
@@ -34,7 +35,7 @@ module.exports = {
       .execute('$(\'.button_upload input\').css("visibility", "visible");')
       .setValue('.button_upload input',absolutePath)
       .click('.action .upload_button')
-      .waitForElementNotVisible('div.modal-dialog',browser.globals.waitPOST)
+      .waitForElementNotVisible('div.modal-dialog',browser.globals.waitImport)
       .end();//add assertion of image for complete test
   }
 };

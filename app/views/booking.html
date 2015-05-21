@@ -1,0 +1,75 @@
+<div class="b-class-block class" sticky use-placeholder>
+    <div class="container cf">
+        <div class="w-left">
+            <h2>Bookings / {{booking.id}}</h2>
+        </div>
+        <div class="w-right">
+            <button ng-if="booking.status === 'REQUESTED'" ng-hide="showSpinner" class="green" type="button"
+                    ng-click="accept()" translate>Confirm
+            </button>
+            <button ng-if="booking.status === 'REQUESTED'" ng-hide="showSpinner" type="button" class="red"
+                    ng-click="decline()" translate>Decline
+            </button>
+            <div ng-show="showSpinner" class="spinner-wrapper"><span class="spinner"
+                                                                     us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="b-class-edit">
+        <h3>Booking info</h3>
+
+        <div class="form-rel">
+            <label class="form-label">Status</label>
+
+            <p>{{booking.status}}</p>
+        </div>
+
+        <h3>Class info</h3>
+
+        <div class="form-rel">
+            <label class="form-label">Title</label>
+
+            <p><b>{{event.class.title}}</b></p>
+        </div>
+        <div class="form-rel">
+            <label class="form-label">Date</label>
+
+            <p>{{event.start_date | amDateFormat: 'MMMM D, dddd'}}</p>
+        </div>
+        <div class="form-rel">
+            <label class="form-label">Time</label>
+
+            <p>{{event.start_date | amDateFormat: 'HH:mm'}} - {{event.end_date | amDateFormat: 'HH:mm'}}</p>
+
+        </div>
+        <div class="form-rel">
+            <label class="form-label">Details</label>
+
+            <p class="comma-span"><span ng-if="event.class.discipline">{{event.class.discipline}}</span> <span
+                    ng-if="event.class.style">{{event.class.style}}</span>
+                <span ng-if="event.teacherName">{{event.teacherName}}</span></p>
+        </div>
+        <div class="form-rel">
+            <label class="form-label">Location</label>
+
+            <p class="comma-span"><span>{{event.location.neigbourhood || event.location.postal_code}}</span>
+                <span>{{event.location.fullAddress}}</span></p>
+        </div>
+        <div class="form-rel">
+            <label class="form-label">Studio</label>
+
+            <p ng-if="event.class.studio.profileComplete"><a ui-sref="studio({studioId: event.class.studio.id})"
+                                                             target="_blank">{{event.class.studio.name}}</a></p>
+
+            <p ng-if="!event.class.studio.profileComplete">{{event.class.studio.name}}</p>
+        </div>
+        <div class="form-rel">
+            <label class="form-label">Description</label>
+
+            <p ng-if="event.class.description">{{event.class.description}}</p>
+        </div>
+
+    </div>
+</div>

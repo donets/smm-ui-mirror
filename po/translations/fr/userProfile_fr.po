@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/userProfile.html:12
+msgid "Account"
+msgstr "Compte"
+
+#: app/views/userProfile.html:4
+msgid "Hello {{userName}}!"
+msgstr "Bonjour {{userName}} !"
+
+#: app/views/userProfile.html:11
+msgid "Subscription"
+msgstr "Abonnement"
+
+#: app/views/userProfile.html:5
+msgid "You can change your account and view your billing details here."
+msgstr "Vous pouvez modifier votre compte et consulter vos informations de facturation ici."

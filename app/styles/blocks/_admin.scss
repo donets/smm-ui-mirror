@@ -373,6 +373,9 @@
                 z-index: 1;
             }
         }
+        .chosen-results {
+            max-height: 240px;
+        }
         &.large {
             width: 320px;
         }

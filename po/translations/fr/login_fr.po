@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/index.html:219
+msgid "&copy; Somuchmore Marketplace UG, 2015"
+msgstr "&copy; Somuchmore Marketplace UG, 2015"
+
+#: app/index.html:214
+msgid "About us"
+msgstr "A propos de nous"
+
+#: app/index.html:160
+msgid "Activities"
+msgstr "Activités"
+
+#: app/index.html:173
+msgid "Be inspired"
+msgstr "Restons inspirés"
+
+#: app/index.html:115 app/index.html:125 app/index.html:132
+#: app/index.html:139
+msgid "Close"
+msgstr "Fermer"
+
+#: app/index.html:195
+msgid "Contact us"
+msgstr "Nous contacter"
+
+#: app/index.html:217
+msgid "FAQ"
+msgstr "FAQ"
+
+#: app/index.html:184
+msgid "Follow us"
+msgstr "Nous suivre"
+
+#: app/index.html:216
+msgid "General terms &amp; conditions"
+msgstr "Termes et conditions générales"
+
+#: app/index.html:136
+msgid ""
+"Important: Easter breaks are here! Please check the individual course plans "
+"on the websites of each studio for any changes. Thank you!"
+msgstr ""
+"Important : Les vacances de Pâques arrivent. Vérifiez les plannings des "
+"cours individuels de chaque salle sur notre site pour contrôler qu'il n'y "
+"ait pas de changements."
+
+#: app/index.html:215
+msgid "Legal notice"
+msgstr "Mentions légales"
+
+#: app/index.html:145
+msgid "Somuchmore"
+msgstr "Somuchmore"
+
+#: app/index.html:122
+msgid ""
+"Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd"
+"+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try "
+"again."
+msgstr ""
+"Excusez-nous, impossible de rejoindre le serveur! Maintenez appuyés Ctrl+R "
+"(Cmd+R pour Mac) ou cliquez <a href=\"\" ng-click=\"pageReload()\">ici</a> "
+"pour réessayer."
+
+#: app/index.html:161
+msgid "Studios"
+msgstr "Studios"
+
+#: app/index.html:129
+msgid "Successfully saved"
+msgstr "Enregistré avec succès"
+
+#: app/index.html:112
+msgid ""
+"Thank you for your booking: {{event.event.title}} | Teacher: {{event.event."
+"somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
+"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
+"event.venue.region}}. <br> You will receive an e-mail with your ticket and "
+"details."
+msgstr ""
+"Merci d'avoir réservé {{event.event.title}} | Professeur: {{event.event."
+"somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | "
+"{{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event."
+"event.venue.region}}. <br> Vous allez recevoir un e-mail où vous trouverez "
+"votre ticket et toutes le informations nécessaires."
+
+#: app/index.html:178
+msgid "Thank you!"
+msgstr "Merci !"
+
+#: app/index.html:179
+msgid "The email address is incorrect"
+msgstr "L'adresse e-mail est incorrecte"
+
+#: app/index.html:120
+msgid ""
+"Unfortunately an error has occurred. Please contact our customer service "
+"team: <a href=\"mailto:kundenservice@somuchmore.org"
+"\">kundenservice@somuchmore.org</a> <br>Error details: {{rejection.data."
+"message}}"
+msgstr ""
+"Malheureusement, une erreur s'est produite. Contactez notre service client: "
+"<a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore."
+"org</a> <br>Détails de l'erreur : {{rejection.data.message}}"
+
+#: app/index.html:121
+msgid ""
+"You are not authorised to access this page {{$state.href($state.current."
+"name, $state.params, {absolute: true})}}"
+msgstr ""
+"Vous n'êtes pas autorisé(e) à voir cette page {{$state.href($state.current."
+"name, $state.params, {absolute: true})}}"
+
+#: app/index.html:175
+msgid "Your email address"
+msgstr "Votre adresse e-mail"

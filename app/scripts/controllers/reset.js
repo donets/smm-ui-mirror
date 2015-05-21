@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Reset', [])
-    .controller('ResetCtrl', [ '$scope', '$rootScope', '$http', '$window', 'gettextCatalog', '$cookieStore', '$analytics', function ($scope, $rootScope, $http, $window, gettextCatalog, $cookieStore, $analytics) {
+    .controller('ResetCtrl', function ($scope, $rootScope, $http, $window, gettextCatalog, $cookieStore, $analytics) {
         $scope.resetPassword = function () {
             $scope.loadingReset = true;
             $scope.errorReset = false;
@@ -58,4 +58,4 @@ angular.module('boltApp.controllers.Reset', [])
                 });
             });
         };
-    }]);
+    });

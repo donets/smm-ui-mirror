@@ -22,13 +22,13 @@
                     <option value=""></option>
                 </select>
                 <select chosen
-                        id="neigbourhood" ng-if="neigbourhood"
+                        id="neigbourhood" ng-if="cities"
                         ng-model="search.location"
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options-disabled="item.disabled for item in neigbourhood"
-                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options-disabled="item.disabled for item in neigbourhoodUPD"
+                        ng-options="item.name as item.name for item in neigbourhoodUPD | orderBy: 'toString()'">
                     <option value=""></option>
                 </select>
                 <em ng-if="studios" translate>, or</em>
@@ -56,7 +56,7 @@
             <div ng-if="desktop" class="weekdays-wrapper">
                 <button ng-disabled="today.isSame(weekdays[0])" class="nav-button left" ng-click="changeWeek('sub')"><i class="fa fa-angle-left"></i></button>
                 <ul class="weekdays-dashboard">
-                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="changeDay(cityId, w)">{{w | amCalendar}}</li>
+                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
                 </ul>
                 <button class="nav-button right" ng-click="changeWeek('add')"><i class="fa fa-angle-right"></i></button>
             </div>
@@ -67,7 +67,7 @@
                 <div class="form-rel half">
                     <button class="control-button" ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>
                     <input class="input-date" datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.mobile"
-                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(cityId, moment(currDay))"
+                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(moment(currDay))"
                            class="form-input" ng-model="currDay" type="text" show-button-bar="false"/>
                 </div>
                 <div class="form-rel half">
@@ -96,7 +96,7 @@
                     <option value="" ng-show="desktop"></option>
                 </select>
                 <select chosen
-                        id="neigbourhood" width="'100%'" ng-if="neigbourhood"
+                        id="neigbourhood" width="'100%'" ng-if="cities"
                         ng-model="search.location"
                         disable-search="false"
                         allow-single-deselect="true"
@@ -135,11 +135,11 @@
                     <p><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span> <span ng-if="e.teacherName">{{e.teacherName}}</span></p>
                     <p><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
                     <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
-                    <p class="success cf" ng-if="e.bookingStatus === 'BOOKED'">
+                    <p class="success cf" ng-if="e.bookingStatus === 'CONFIRMED'">
                         <i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}
-                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'BOOKED' && roleMember" ng-hide="e.showSpinner" ng-click="cancelBook(e)" type="button" translate>Cancel</button></p>
+                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-hide="e.showSpinner" ng-click="cancelBook(e)" type="button" translate>Cancel</button></p>
                 </div>
-                <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'BOOKED' && roleMember" ng-hide="e.showSpinner" ng-click="submitBook(e)" type="button" translate>Reserve</button>
+                <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && roleMember" ng-hide="e.showSpinner" ng-click="submitBook(e)" type="button" translate>Reserve</button>
                 <div class="form-response">
                     <div ng-show="e.showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                 </div>
@@ -176,8 +176,12 @@
                     <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
                     <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
                     <td><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.class.studio"><a ui-sref="studio({studioId: e.class.studio.id})" ng-if="e.class.studio.profileComplete" target="_blank">{{e.class.studio.name}}</a><span ng-if="!e.class.studio.profileComplete">{{e.class.studio.name}}</span></span></td>
-                    <td disable-animate><button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'BOOKED' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
-                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'BOOKED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
+                    <td disable-animate>
+                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
+                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
+                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Request</button>
+                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
+                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
                         <button class="class-button cancel" ng-if="!e.bookable" ng-click="bookClass(e)" type="button" translate>Details</button>
                     </td>
                 </tr>

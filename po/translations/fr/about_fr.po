@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: app/views/about.html:18
+msgid "A holistic lifestyle begins with mindfulness"
+msgstr "Un mode de vie épanoui commence par une pleine conscience de soi-même"
+
+#: app/views/about.html:26
+msgid ""
+"All of the studios we work with fulfill the highest quality standards, and "
+"every teacher qualified to the highest standards in their field. We verify "
+"everything personally to ensure you have the best experience possible."
+msgstr ""
+"Toutes nos salles sont équipées de matériel de grande qualité et chaque "
+"professeur est hautement qualifié dans son domaine. L'équipe de Somuchmore "
+"procède à cette vérification avec le plus grand soin afin de vous assurer la "
+"meilleure expérience possible."
+
+#: app/views/about.html:62
+msgid "Ask a question"
+msgstr "Poser une question"
+
+#: app/views/about.html:21
+msgid "Body, mind and soul united"
+msgstr "Corps, âme et esprit en harmonie"
+
+#: app/views/about.html:3
+msgid "Discover Somuchmore"
+msgstr "Découvrir Somuchmore"
+
+#: app/views/about.html:50
+msgid "Do you fully understand how Somuchmore works now? How do you like it?"
+msgstr ""
+"Comprenez-vous parfaitement comment Somuchmore fonctionne ? Qu'en pensez-"
+"vous ? Donnez-nous votre avis ! "
+
+#: app/views/about.html:59
+msgid "Do you have any questions?"
+msgstr "Avez-vous des questions ?"
+
+#: app/views/about.html:63
+msgid "E-mail Address"
+msgstr "Adresse e-mail"
+
+#: app/views/about.html:22
+msgid ""
+"Everyone has the potential to live healthily and happily if they want to."
+msgstr ""
+"Tout le monde a le potentiel de vivre une vie saine et heureuse, ce n'est "
+"qu'une question de volonté."
+
+#: app/views/about.html:20
+msgid ""
+"Exercise, nutrition, relaxation, breathing, sleep, love, work and fun are of "
+"equal importance in our lives"
+msgstr ""
+"Entrainement, nutrition, relaxation, respiration, sommeil, amour, travail et "
+"amusement ont la même importance dans la vie."
+
+#: app/views/about.html:36
+msgid "Get your invitation"
+msgstr "Obtenez votre invitation"
+
+#: app/views/about.html:15
+msgid "Know your worth"
+msgstr "Sachez ce que vous valez"
+
+#: app/views/about.html:12
+msgid "One card. Unlimited classes."
+msgstr "Une carte. Accès illimité aux cours."
+
+#: app/views/about.html:13
+msgid "Our philosophy:"
+msgstr "Notre philosophie :"
+
+#: app/views/about.html:63
+msgid "Send"
+msgstr "Envoyer"
+
+#: app/views/about.html:10
+msgid ""
+"Somuchmore is new online wellbeing community. Your gateway to a fulfilled, "
+"mindful and active life."
+msgstr ""
+"Somuchmore est la nouvelle communauté de bien-être en ligne. Votre "
+"passerelle vers une vie active, comblée et épanouie."
+
+#: app/views/about.html:53
+msgid "Thank you for your feedback!"
+msgstr "Merci pour vos commentaires !"
+
+#: app/views/about.html:39 app/views/about.html:66
+msgid "Thank you!"
+msgstr "Merci !"
+
+#: app/views/about.html:40 app/views/about.html:67
+msgid "The e-mail address is incorrect"
+msgstr "L'adresse e-mail est incorrecte"
+
+#: app/views/about.html:52
+msgid "Unfortunately not"
+msgstr "Malheureusement non"
+
+#: app/views/about.html:17
+msgid "Unleash your full potential"
+msgstr "Libérez tout votre potentiel"
+
+#: app/views/about.html:11
+msgid ""
+"With Somuchmore you can experience hundreds of health and fitness classes "
+"all over your city.  From Yoga, Pilates, Meditation, Martial Arts, Dance, "
+"Nutrition, Health and Personal Growth classes and workshops, you will be "
+"amazed what is offer around you with Somuchmore."
+msgstr ""
+"Avec Somuchmore, vous avez accès à des centaines de cours de fitness mais "
+"aussi à des cours relatifs au bien-être partout dans votre ville. Qu'il "
+"s'agisse de Yoga, Pilates, Méditation, Arts Martiaux, Danse, Nutrition, "
+"Santé et Développement Personnel, vous serez fasciné(e) par la multitude de "
+"cours qu'offre Somuchmore près de chez vous."
+
+#: app/views/about.html:52
+msgid "Yesss!"
+msgstr "Ouiiii !"
+
+#: app/views/about.html:19
+msgid "You can only develop personally if you are inspired and free"
+msgstr "Vous ne pouvez vous épanouir qu'en étant libre et inspiré(e)"
+
+#: app/views/about.html:28
+msgid ""
+"You have a free trial period, short contract terms and details about every "
+"class at your fingertips."
+msgstr ""
+"En quelques clics, vous avez accès à une période d'essai gratuite, à la "
+"possibilité de vous engager sur de courtes durées en plus d'informations "
+"détaillées pour chaque cours !"
+
+#: app/views/about.html:16
+msgid "You have unique potential"
+msgstr "Votre potentiel est unique"
+
+#: app/views/about.html:27
+msgid ""
+"You pay a fraction of what you would for each individual class. Once you "
+"have your card, all the costs are covered."
+msgstr ""
+"Vous ne payez qu'une partie de ce que vous devriez pour chaque cours "
+"individuel. Une fois votre carte obtenue, tous les coûts sont couverts. "
+
+#: app/views/about.html:36
+msgid "Your E-mail Address"
+msgstr "Votre adresse e-mail"
+
+#: app/views/about.html:24
+msgid "Your benefits"
+msgstr "Vos avantages"

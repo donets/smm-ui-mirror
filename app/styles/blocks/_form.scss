@@ -248,6 +248,14 @@ textarea {
     .form-row {
         width: 150px;
     }
+    .comma-span {
+        span:after {
+            content: ","
+        }
+        span:last-child:after {
+            content: ""
+        }
+    }
     @media (max-width: $containerMobileWidth) {
         width: auto;
         margin: 30px 0;
