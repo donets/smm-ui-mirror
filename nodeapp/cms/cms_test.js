@@ -5,7 +5,7 @@ var request = require('supertest')('http://localhost:5000'),
 describe('cms test', function() {
   it('requests cms', function(done) {
     request
-    .get('/p/faq/')
+    .get('/cms/faq')
     .end(function(err, res) {
         if (err) return done(err);
 				done();

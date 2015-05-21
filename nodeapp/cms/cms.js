@@ -1,5 +1,4 @@
-var renderIndex = require('../index/render'),
-		Promise = require('bluebird'),
+var Promise = require('bluebird'),
 		config = require('../config/config'),
 		request = Promise.promisifyAll(require('request')),
 		_ = require('lodash');
@@ -27,15 +26,20 @@ module.exports = function(req, res, next) {
 		return body.content;
 	}
 
-	var cmsPageName = getCmsNameFromUrl(req.url);
+	var cmsPageName = req.param('cms');
 
 	request.getAsync(config.get('wordpressCms.restUrl') + '/posts?filter[name]=' + cmsPageName)
 	.then(getContent)
 	.then(function(content) {
-		renderIndex(req, res, next, content);
+		res.send({
+			content: content
+		});
 	})
 	.catch(function() {
 		console.error('error occurred');
-		next();
+		res.send({
+			success: false,
+			content: null
+		});
 	});
 }

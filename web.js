@@ -37,7 +37,8 @@ app.use(morgan('dev'));
  * requests start here
  */
 
-app.get(['/p/faq', '/p/agb'], require('./nodeapp/cms/cms'));
+
+app.get('/cms/:cms', require('./nodeapp/cms/cms'));
 
 // index.html request for injecting custom html
 app.use(require('./nodeapp/index/index'));
