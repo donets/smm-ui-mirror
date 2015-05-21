@@ -27,14 +27,20 @@ swig.setDefaults({
   // because of angular js tags {{}} I need to change the default
   // swig tags
   varControls: ['<%=', '=%>'],
-  tagControls: ['<%', '%>'],
-  locals: {
-    florian: 'florianss'
-  }
+  tagControls: ['<%', '%>']
 });
 
 app.use(morgan('dev'));
-app.use(modRewrite(['^[^\\.]*$ /index.html [L]']));
-app.get('/index.html', require('./nodeapp/index/index'));
+// app.use(modRewrite(['^[^\\.]*$ /index.html [L]']));
+
+/**
+ * requests start here
+ */
+
+app.get(['/p/faq', '/p/agb'], require('./nodeapp/cms/cms'));
+
+// index.html request for injecting custom html
+app.use(require('./nodeapp/index/index'));
+
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(process.env.PORT || 5000);

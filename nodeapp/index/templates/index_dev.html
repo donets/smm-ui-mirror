@@ -1,13 +1,11 @@
 <% extends '../../../app/index.html' %>
 
 <% block custom_head_content %>
-
-<% include 'header.html' %>
-
+	<% include 'header.html' %>
 <% endblock %>
 
+<% block main_content %><%= mainContent() =%><% endblock %>
+
 <% block custom_head_script %>
-
-<% include 'smmConfig.html' %>
-
+	<% include 'smmConfig.html' %>
 <% endblock %>

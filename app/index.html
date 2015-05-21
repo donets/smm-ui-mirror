@@ -132,7 +132,7 @@
                 <ng-include src="'app/views/_loginForm.html'" ng-controller="LoginCtrl" ng-hide="$state.includes('reset') || $state.includes('login')"></ng-include>
             </div>
         </div>
-        <div class="b-main" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup'), 'studio': $state.includes('studio')}" ui-view autoscroll="autoscroll"></div>
+        <div class="b-main" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'signup': $state.includes('signup'), 'studio': $state.includes('studio')}" ui-view autoscroll="autoscroll"><% block main_content %><% endblock %></div>
 
     </div>
     <div class="b-footer" ng-show="prerenderReady" ng-class="{'hidden': $state.includes('signup')}">

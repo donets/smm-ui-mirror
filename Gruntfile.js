@@ -26,6 +26,10 @@ module.exports = function(grunt) {
         dist: 'dist'
     };
 
+    function isRequestServedByNode(url) {
+      return url.slice(-1) === '/'
+    }
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
@@ -93,10 +97,16 @@ module.exports = function(grunt) {
                     middleware: function(connect) {
                         return [
                             function(req, res, next) {
-                              if (req.url.slice(-1) !== '/') return next();
-                              var indexHtmlReq = request.get('http://localhost:5000/index.html');
+                              if (!isRequestServedByNode(req.url)) {
+                                return next();
+                              }
+
+                              var indexHtmlReq = request.get('http://localhost:5000' + req.url);
                               req.pipe(indexHtmlReq);
-                              indexHtmlReq.pipe(res);
+                              indexHtmlReq.pipe(res)
+                              .on('error', function() {
+                                console.log("error while retrieving index.html");
+                              });
                             },
                             modRewrite(['^[^\\.]*$ /index.html [L]']),
                             connect.static('.tmp'),
