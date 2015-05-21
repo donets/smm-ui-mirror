@@ -153,45 +153,21 @@ angular.module('boltApp.controllers.Signup', [])
 
         $scope.signupSubmit = function () {
             $scope.formSignup.$setPristine();
-            $scope.error = null;
-            $scope.showSpinner = true;
-            $scope.order.freeTrialGranted = $('#freeTrialGranted').val();
-            var tracking = $cookieStore.get('invitation') ? 'invitation' : 'direct';
-            var platform = $rootScope.desktop ? 'web' : 'mobile';
-            var invitation = {
-                firstName: $scope.order.firstName,
-                lastName: $scope.order.lastName,
-                email: $scope.order.email,
-                name: $scope.order.firstName + ' ' + $scope.order.lastName,
-                checkoutStarted: true,
-                tracking: tracking + ',' + platform,
-                landingUrl: $cookieStore.get('landingUrl'),
-                cityId: $scope.order.cityId,
-                lang: $rootScope.lang
-            };
-            $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function () {
-
-                $scope.showSpinner = false;
-                $scope.showCards = true;
-                $interval(function () {
-                    $document.scrollToElementAnimated($('#step2'), 260, 800);
-                }, 0, 1, {invokeApply: false});
-                $analytics.eventTrack({
-                    'event': 'checkout',
-                    'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
-                    'daysToStart': '0',                 // Set to nr of days left to the start of subscription (default is 0).
-                    'checkoutStep': '2 – Personal Info Set',
-                    'ecommerce': {
-                        'checkout': {
-                            'actionField': {'step': 2}
-                        }
+            $scope.showCards = true;
+            $analytics.eventTrack({
+                'event': 'checkout',
+                'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
+                'daysToStart': '0',                 // Set to nr of days left to the start of subscription (default is 0).
+                'checkoutStep': '2 – Personal Info Set',
+                'ecommerce': {
+                    'checkout': {
+                        'actionField': {'step': 2}
                     }
-                });
-            }).error(function (response) {
-
-                $scope.showSpinner = false;
-                $scope.error = response.type;
+                }
             });
+            $interval(function () {
+                $document.scrollToElementAnimated($('#step2'), 260, 800);
+            }, 0, 1, {invokeApply: false});
         };
 
         $scope.changeType = function (type) {
