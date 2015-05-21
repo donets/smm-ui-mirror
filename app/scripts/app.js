@@ -537,7 +537,7 @@ angular.module('boltApp')
                         return $http.get('json/import.json', {cache: true});
                     }
                 },
-                controller: function ($scope, $rootScope, RestApi, getImportEntities, $modal, ImportData) {
+                controller: function ($scope, $rootScope, RestApi, getImportEntities, $modal, ImportData, $q) {
 
                     $scope.import = function () {
                         $scope.showSpinner = true;
@@ -629,14 +629,21 @@ angular.module('boltApp')
                         return 'FATAL ERROR! The following required columns are missing in your file: ' + $scope.csv.missingColumns.join(', ');
                     };
                     $scope.handleRemoteRules = function (entity) {
+                        var resolves = [];
                         _.each(entity, function (value, key) {
                             if (_.contains(_.keys(value.rules), 'remote')) {
                                 var remoteRule = value.rules.remote;
                                 delete value.rules.remote;
+                                var qD = $q.defer();
+                                resolves.push(qD.$promise);
                                 RestApi.query({route: remoteRule.route}).$promise.then(function(res) {
                                     value.rules.inclusion = _.map(res, function(obj) { return obj[remoteRule.field]; }).join(',');
+                                    qD.resolve();
                                 });
                             }
+                        });
+                        $q.all(resolves).then(function (res) {
+                            $scope.importServerData = true;
                         });
                         return entity;
                     };

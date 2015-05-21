@@ -12,7 +12,8 @@
 <div class="admin-table">
     <div class="container import-container">
         <div class="b-class-edit">
-            <div class="form-rel">
+            <div ng-hide="importServerData">Fetching data from the server...</div>
+            <div class="form-rel" ng-if="importServerData">
                 <ng-csv-import
                         class="import"
                         content="csv.content"
