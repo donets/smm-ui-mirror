@@ -93,7 +93,7 @@ module.exports = function(grunt) {
                     middleware: function(connect) {
                         return [
                             function(req, res, next) {
-                              if (req.url !== '/') return next();
+                              if (req.url.slice(-1) !== '/') return next();
                               var indexHtmlReq = request.get('http://localhost:5000/index.html');
                               req.pipe(indexHtmlReq);
                               indexHtmlReq.pipe(res);
