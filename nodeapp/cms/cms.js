@@ -1,17 +1,39 @@
 var Promise = require('bluebird'),
 		config = require('../config/config'),
 		request = Promise.promisifyAll(require('request')),
-		_ = require('lodash');
+		_ = require('lodash'),
+		cache = require('../cache/cache');
 
 module.exports = function(req, res, next) {
-	function getCmsNameFromUrl(url) {
-		if (url[url.length - 1] === '/') {
-			url = url.substring(0, url.length - 1);
-		}
-		var urlParts = url.split('/');
-		return urlParts[url.split.length];
+
+	/**
+	 * @param string cmsPageName
+	 * @return promise
+	 */
+	function requestContent(cmsPageName) {
+		return new Promise(function(resolve, reject) {
+			// first request cache
+			var cachedContent = cache.get('cms/' + cmsPageName);
+			if (cachedContent) {
+				return resolve(cachedContent);
+			}
+			// then make request
+			request.getAsync(config.get('wordpressCms.restUrl') + '/posts?filter[name]=' + cmsPageName)
+			// then put content from request to cache and resolve
+			.then(function() {
+				var cmsContent = getContent.apply(this, arguments);
+				cache.set('cms/' + cmsPageName, cmsContent);
+				return resolve(cmsContent);
+			})
+		});
 	}
 
+	/**
+	 * get content from request response
+	 *
+	 * @param Object args
+	 * @return String
+	 */
 	function getContent(args) {
 		var response = args[0],
 				body;
@@ -26,10 +48,7 @@ module.exports = function(req, res, next) {
 		return body.content;
 	}
 
-	var cmsPageName = req.param('cms');
-
-	request.getAsync(config.get('wordpressCms.restUrl') + '/posts?filter[name]=' + cmsPageName)
-	.then(getContent)
+	requestContent(req.param('cms'))
 	.then(function(content) {
 		res.send({
 			content: content

@@ -11,7 +11,8 @@
   "isDev": true,
 
   "wordpressCms": {
-    "restUrl": "http://somuchmore.wpengine.com/wp-json",
-    "cachettl": 300
-  }
+    "restUrl": "http://somuchmore.wpengine.com/wp-json"
+  },
+
+  "cachettl": 300
 }

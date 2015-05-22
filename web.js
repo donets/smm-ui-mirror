@@ -11,6 +11,11 @@ var app = express();
 var config = require('./nodeapp/config/config');
 config.read(__dirname + '/nodeapp/config/config.json');
 
+// initialize cache
+require('./nodeapp/cache/cache').init(
+  require('./nodeapp/cache/adapter/nodecache')(config.get('cachettl'))
+);
+
 // This is where all the magic happens!
 app.engine('html', swig.renderFile);
 
