@@ -1013,6 +1013,20 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
+			.state('faq_test', {
+				url: '/p/faq_test/',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/faq_test.html');
+                },
+				onExit: function($rootScope) {
+					$rootScope.autoscroll = true;
+				},
+                controller: function ($scope, $http) {
+                    $http.get('https://localhost:5000/cms/faq').success(function (res) {
+                        console.log(res);
+                    });
+                }
+			})
 			.state('agb', {
 				url: '/p/agb/',
                 templateProvider: function($templateCache){

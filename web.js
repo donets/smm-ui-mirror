@@ -42,7 +42,12 @@ app.use(morgan('dev'));
  * requests start here
  */
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Access-Control-Allow-Credentials", "true");
+});
 app.get('/cms/:cms', require('./nodeapp/cms/cms'));
 
 // index.html request for injecting custom html
