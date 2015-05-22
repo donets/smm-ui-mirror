@@ -318,7 +318,9 @@
     padding: 60px 0;
     &.form-checkout {
         @media (min-width: $containerMobileWidth) {
-            margin-top: -400px;
+            &.negative-margin {
+                margin-top: -400px
+            };
         }
         width: 100%;
         .w-left, .w-clear {
@@ -352,10 +354,42 @@
                 margin: 10px 0 0;
             }
         }
+        .payment-selector {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 20px;
+            ul {
+                margin: 0;
+                li a {
+                    width: 170px;
+                    font-size: 16px;
+                }
+            }
+        }
+        .trial-message {
+            color: #777;
+            margin-top: 20px;
+            span.trial {
+                text-decoration: underline;
+            }
+        }
+        button {
+            width: 100%;
+        }
     }
     .form-group {
         &:first-child {
             margin-top: 0;
+        }
+        &.newsletter-step-1 {
+            margin-bottom: 25px;
+            .newsletter-row {
+                margin-top: 20px;
+                .fa {
+                  color: #3bcbbd;
+                }
+            }
         }
     }
     .form-rel {

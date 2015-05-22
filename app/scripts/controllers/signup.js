@@ -56,6 +56,14 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
             RestApi.query({route: 'plans', cityId: $scope.order.cityId}).$promise.then(function (res) {
                 $scope.cards = res;
+                if ($scope.signupSubmitted) {
+                    if ($scope.cards.length === 1) {
+                        $scope.changeType($scope.cards[0].code);
+                        $scope.showCards = false;
+                    } else {
+                        $scope.showCards = true;
+                    }
+                }
             });
             $scope.currentCountry = _.findWhere($scope.countries, {code: selectedCity.countryCode});
             $rootScope.supportPhone = selectedCity.supportPhone;
@@ -152,8 +160,15 @@ angular.module('boltApp.controllers.Signup', [])
         };
 
         $scope.signupSubmit = function () {
+            $scope.signupSubmitted = true;
             $scope.formSignup.$setPristine();
-            $scope.showCards = true;
+            if ($scope.cards.length === 1) {
+                $scope.changeType($scope.cards[0].code);
+                $scope.showCards = false;
+            } else {
+                $scope.showCards = true;
+            }
+
             $analytics.eventTrack({
                 'event': 'checkout',
                 'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
