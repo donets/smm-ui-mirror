@@ -298,6 +298,10 @@
                 margin: 0;
             }
         }
+        .voucher-row {
+            width: 100%;
+            margin: 0;
+        }
     }
     .form-title {
         background: #fff;
@@ -525,6 +529,23 @@
         @media (max-width: $containerMobileWidth640) {
             margin: 13px;
         }
+    }
+    .submit-voucher {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        width: 60px;
+        background-color: $colorMain;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        //@media (max-width: $containerMobileWidth) {
+        //  margin: 26px;
+        //}
+        //@media (max-width: $containerMobileWidth640) {
+        //  margin: 13px;
+        //}
     }
 }
 .select-cards {

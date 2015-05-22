@@ -7,9 +7,9 @@
 <div class="b-order">
     <nav class="signup-nav" sticky use-placeholder>
         <ul>
-            <li><a class="active" href="#step1" du-smooth-scroll du-scrollspy offset="60" translate>1. Registration</a></li><li>
+            <li><a class="active" href="#step1" du-smooth-scroll du-scrollspy offset="60" translate>1. Registration</a></li><li ng-hide="!showCards && signupSubmitted">
             <a href="#step2" du-smooth-scroll du-scrollspy offset="260" translate>2. Product selection</a></li><li>
-            <a href="#step3" du-smooth-scroll du-scrollspy offset="60" translate>3. Payment</a></li>
+            <a href="#step3" du-smooth-scroll du-scrollspy offset="60" translate>{{ !showCards && signupSubmitted ? '2' : '3'}}. Payment</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -160,12 +160,9 @@
                                ng-click="order.paymentProvider = 'ELV';order.card = {}" translate>Direct Debit</a>
                         </li>
                     </ul>
-                    <a ng-if="order.paymentProvider === 'STRIPE'" class="stripe-link" target="_blank" href="https://stripe.com"><img src="images/stripe.svg" alt="stripe"/></a>
                 </div>
                 <div ng-if="order.paymentProvider === 'STRIPE'">
-                    <h3 class="form-title cf" ng-if="lang === 'en'" translate>Credit / Debit Card
-                        <a class="stripe-link" target="_blank" href="https://stripe.com"><img src="images/stripe.svg" alt="stripe"/></a>
-                    </h3>
+                    <h3 class="form-title cf" ng-if="lang === 'en'" translate>Credit / Debit Card</h3>
                     <div ng-class="{'error': error === 'CardException'}" class="form-group">
                         <div class="form-rel">
                             <label class="form-label required" for="cardNumber" translate>Credit card</label>
@@ -320,17 +317,18 @@
                 </ul>
                 <ul>
                     <li>
-                        <div ng-class="{ 'error': errorVoucher }" class="form-group">
-                            <a href="" class="form-link" ng-click="showVoucher = !showVoucher" translate>Enter discount code</a>
+                        <div ng-class="{ 'error': errorVoucher }" class="form-group voucher-row">
+                            <a href="" class="form-link" ng-click="showVoucher = !showVoucher" translate>Add promocode</a>
                             <div class="form-rel" ng-show="showVoucher">
-                                <input type="text" ng-model="code" ng-blur="checkVoucher(code)" name="voucher" placeholder="{{'Voucher Code (if available)'|translate}}"/>
+                                <input type="text" ng-model="code" ng-focus="typingVoucher = true" name="voucher" placeholder="{{'Enter your promocode'|translate}}"/>
+                                <i ng-show="successVoucher && !typingVoucher" class="fa fa-check check-valid"></i>
+                                <i ng-show="typingVoucher" ng-click="typingVoucher = false; checkVoucher(code)" class="submit-voucher">OK</i>
                                 <div>
                                     <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                                    <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>Invalid code</div>
-                                    <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>This voucher is only valid for the {{typeVoucher}} CARD</div>
-                                    <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error" translate>This voucher can only be redeemed from 1.1.2015</div>
+                                    <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>Not a valid promocode</div>
+                                    <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>This promocode is only valid for the {{typeVoucher}} CARD</div>
+                                    <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error" translate>This promocode can only be redeemed from 1.1.2015</div>
                                 </div>
-                                <i ng-show="successVoucher" class="fa fa-check check-valid"></i>
                             </div>
                         </div>
                     </li>
@@ -339,8 +337,8 @@
                         <p class="price">0 {{overview.currency}}</p>
                     </li>
                     <li ng-if="!voucher.freeSubscriptionGranted && voucher">
-                    <b translate>Reduced price:</b>
-                    <p class="price discount"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}} {{overview.currency}}</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}} {{overview.currency}}</span> <span ng-if="voucher.discountDuarationInMonths" class="details" translate> (for{{voucher.discountDuarationInMonths}} months)</span></p>
+                    <b translate>New Monthly price:</b>
+                    <p class="price discount"><span ng-if="voucher.percentOff">{{(Math.floor(overview.price * (10 - voucher.percentOff / 10) * 10) / 100).toFixed(2)}} {{overview.currency}}</span><span ng-if="voucher.amountOff">{{overview.price - voucher.amountOff}} {{overview.currency}}</span> <span ng-if="voucher.discountDuarationInMonths" class="details" translate> (for the first {{voucher.discountDuarationInMonths}} months)</span></p>
                 </li>
                 </ul>
             </div>

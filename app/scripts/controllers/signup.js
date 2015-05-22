@@ -62,6 +62,9 @@ angular.module('boltApp.controllers.Signup', [])
                         $scope.showCards = false;
                     } else {
                         $scope.showCards = true;
+                        $interval(function () {
+                            $document.scrollToElementAnimated($('#step2'), 260, 800);
+                        }, 0, 1, {invokeApply: false});
                     }
                 }
             });
@@ -167,6 +170,9 @@ angular.module('boltApp.controllers.Signup', [])
                 $scope.showCards = false;
             } else {
                 $scope.showCards = true;
+                $interval(function () {
+                    $document.scrollToElementAnimated($('#step2'), 260, 800);
+                }, 0, 1, {invokeApply: false});
             }
 
             $analytics.eventTrack({
@@ -180,9 +186,6 @@ angular.module('boltApp.controllers.Signup', [])
                     }
                 }
             });
-            $interval(function () {
-                $document.scrollToElementAnimated($('#step2'), 260, 800);
-            }, 0, 1, {invokeApply: false});
         };
 
         $scope.changeType = function (type) {
