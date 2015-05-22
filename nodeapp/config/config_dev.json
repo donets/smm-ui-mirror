@@ -8,5 +8,10 @@
   "fallbackLanguage": "en",
   "fallbackUrl": "https://so-much-more.de/",
   "fallbackCity": "Berlin",
-  "isDev": true
+  "isDev": true,
+
+  "wordpressCms": {
+    "restUrl": "http://somuchmore.wpengine.com/wp-json",
+    "cachettl": 300
+  }
 }
