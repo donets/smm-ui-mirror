@@ -327,5 +327,5 @@ msgid "name@example.com"
 msgstr ""
 
 #: app/views/signup.html:12
-msgid "{{ !showCards && signupSubmitted ? '2' : '3'}}. Payment"
+msgid "Payment"
 msgstr ""
