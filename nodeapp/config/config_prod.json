@@ -1,0 +1,12 @@
+{
+  "restUrlBaseOld": "https://so-much-more.de",
+  "restUrlBase": "https://api2.so-much-more.de",
+  "fbClientId": "1500112250239844",
+  "useUserHostName": false,
+  "fallbackCity": "Berlin",
+  "fbAppId": 1403268876590849,
+  "fallbackLanguage": "en",
+  "fallbackUrl": "https://so-much-more.de/",
+  "fallbackCity": "Berlin",
+  "isDev": false
+}

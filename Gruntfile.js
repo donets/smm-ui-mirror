@@ -91,9 +91,7 @@ module.exports = function(grunt) {
             },
             livereload: {
                 options: {
-                    open: {
-                      appName: 'Google Chrome'
-                    },
+                    open: true,
                     middleware: function(connect) {
                         return [
                             function(req, res, next) {
@@ -408,6 +406,14 @@ module.exports = function(grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            config_dev: {
+              src: 'nodeapp/config/config_dev.json',
+              dest: 'nodeapp/config/config.json'
+            },
+            config_prod: {
+              src: 'nodeapp/config/config_prod.json',
+              dest: 'nodeapp/config/config.json'
             }
         },
 
@@ -599,8 +605,12 @@ module.exports = function(grunt) {
         'nightwatch'
     ]);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('build', 'Build the app for different environments', function(target) {
+      target = target || 'prod';
+
+      grunt.task.run([
         'clean:dist',
+        'copy:config_' + target,
         'ngtemplates',
         'useminPrepare',
         'concurrent:dist',
@@ -613,7 +623,8 @@ module.exports = function(grunt) {
         'filerev',
         'usemin',
         'htmlmin'
-    ]);
+      ]);
+    });
 
     grunt.registerTask('heroku', [
         'build'
