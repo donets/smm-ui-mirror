@@ -1022,7 +1022,7 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				},
                 controller: function ($scope, $http) {
-                    $http.get('https://localhost:5000/cms/faq').success(function (res) {
+                    $http.get('/cms/faq').success(function (res) {
                         console.log(res);
                     });
                 }
