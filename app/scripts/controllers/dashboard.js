@@ -25,7 +25,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                     var location = _.findWhere($scope.locations, {id: obj.locationId});
                     obj.location = obj.locationId && location ? location : '';
                 });
-                $scope.neigbourhoodUPD = $scope.neigbourhood;
+                $scope.neigbourhoodUPD = _.sortBy($scope.neigbourhood, 'name');
                 _.map($scope.neigbourhoodUPD, function (item) {
                     item.disabled = !_.include(_.compact(_.uniq(_.pluck(_.pluck(res.classes.occurenceAccesses, 'location'), 'neigbourhood'))), item.name);
                 });

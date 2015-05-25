@@ -28,7 +28,7 @@
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options-disabled="item.disabled for item in neigbourhoodUPD"
-                        ng-options="item.name as item.name for item in neigbourhoodUPD | orderBy: 'toString()'">
+                        ng-options="item.name as item.name for item in neigbourhoodUPD">
                     <option value=""></option>
                 </select>
                 <em ng-if="studios" translate>, or</em>
@@ -100,7 +100,8 @@
                         ng-model="search.location"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options-disabled="item.disabled for item in neigbourhoodUPD"
+                        ng-options="item.name as item.name for item in neigbourhoodUPD">
                     <option value="" translate>All districts</option>
                 </select>
                 <select chosen
