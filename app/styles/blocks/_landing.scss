@@ -1,0 +1,75 @@
+@import "../_base/base";
+
+.landing {
+    .b-main-slogan {
+        h2 {
+            display: inline-block;
+            font-size: 48px;
+            width: 850px;
+            margin: 0 0 30px;
+        }
+        .signup-button {
+            display: inline-block;
+            width: 290px;
+            font-size: 18px;
+        }
+    }
+    .white-bar {
+        position: absolute;
+        width: 100%;
+        margin-bottom: 50px;
+        bottom: 100%;
+        ul {
+            @include my-resetList();
+            background: #fff;
+            display: flex;
+            padding: 30px 0 20px;
+            @include box-shadow(0 2px 0 rgba(0,0,0,0.1));
+            li {
+                width: 33%;
+                b {
+                    background: url('/images/check.svg') center left no-repeat;
+                    background-size: 21px 16px;
+                    font-size: 20px;
+                    padding-left: 32px;
+                    font-family: $fontItalic;
+                    font-style: italic;
+                }
+                span {
+                    display: block;
+                    font-size: 16px;
+                    color: $colorGrey;
+                }
+            }
+        }
+    }
+    .b-equipment {
+        background-position: top center;
+        .container {
+            width: 880px;
+        }
+        h2 {
+            margin: 20px 0 40px;
+        }
+    }
+    .b-cta {
+        background: url('/images/static/fact_04-1440.jpg');
+        padding: 70px 0 90px;
+        text-align: center;
+        p {
+            width: 400px;
+            font-size: 20px;
+            font-family: $fontItalic;
+            font-style: italic;
+            color: #fff;
+            margin: 20px auto 30px;
+        }
+        .signup-button {
+            display: inline-block;
+            width: 290px;
+            font-size: 18px;
+        }
+    }
+}
+
+

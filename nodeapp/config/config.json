@@ -12,6 +12,6 @@
   "wordpressCms": {
     "restUrl": "http://somuchmore.wpengine.com/wp-json"
   },
-  
+
   "cachettl": 300
 }

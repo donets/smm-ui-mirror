@@ -1035,5 +1035,18 @@ angular.module('boltApp')
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}
-			});
+			})
+            .state('landing', {
+                url: '/p/:params/',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/landing.html');
+                },
+                controller: function ($scope, $stateParams) {
+                    var params = _.compact(_.flatten([$stateParams.params.split(/-\d+/g),$stateParams.params.split(/-|[a-zA-Z]+/g)]));
+                    console.log(params);
+                },
+                onExit: function($rootScope) {
+                    $rootScope.autoscroll = true;
+                }
+            });
 	}]);

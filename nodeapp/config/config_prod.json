@@ -7,5 +7,11 @@
   "fbAppId": 1403268876590849,
   "fallbackLanguage": "en",
   "fallbackUrl": "https://so-much-more.de/",
-  "isDev": false
+  "isDev": false,
+
+  "wordpressCms": {
+      "restUrl": "http://somuchmore.wpengine.com/wp-json"
+  },
+
+  "cachettl": 300
 }
