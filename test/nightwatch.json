@@ -41,8 +41,16 @@
         "acceptSslCerts": true
       }
     },
+	
+	 "firefox" : {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
 
-    "phantomjs" : {
+    "phantom" : {
       "desiredCapabilities": {
         "browserName": "phantomjs",
         "javascriptEnabled": true,

@@ -445,22 +445,9 @@ module.exports = function(grunt) {
 					'start_process' : false,
 					'host' : '127.0.0.1',
 					'port' : 4444
-					
 				}
-				
 			}
 		},
-			
-        // protractor: {
-            // options: {
-                // configFile: 'test/protractor-conf.js',
-                // keepAlive: false, // If false, the grunt process stops when the test fails.
-                // noColor: false, // If true, protractor will not use colors in its output.
-                // args: {}
-            // },
-            // all: {}
-        // },
-
         nggettext_extract: {
             pot: {
                 files: {
@@ -556,7 +543,7 @@ module.exports = function(grunt) {
         'autoprefixer',
         'connect:test',
         'karma',
-        'nightwatch'
+		'nightwatch'
     ]);
 
     grunt.registerTask('build', [

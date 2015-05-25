@@ -45,7 +45,7 @@ module.exports = {
 		var RESTClient = require('node-rest-client').Client;
 		var RESTclient = new RESTClient();
 		var args = {
-		  data: { "cityId":4,"locationId":"27452"},
+		  data: { "cityId":4,"locationId":"27452","discipline":"Tanz"},
 		  headers:{"Content-Type": "application/json"} 
 		};
 
