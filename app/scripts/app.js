@@ -1027,10 +1027,7 @@ angular.module('boltApp')
                 templateProvider: function($templateCache){
                     return $templateCache.get('app/views/landing.html');
                 },
-                controller: function ($scope, $stateParams) {
-                    var params = _.compact(_.flatten([$stateParams.params.split(/-\d+/g),$stateParams.params.split(/-|[a-zA-Z]+/g)]));
-                    console.log(params);
-                },
+                controller: 'LandingCtrl',
                 onExit: function($rootScope) {
                     $rootScope.autoscroll = true;
                 }
