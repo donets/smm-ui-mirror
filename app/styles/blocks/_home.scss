@@ -173,6 +173,7 @@
 		justify-content: space-between;
 		@media (max-width: $containerMobileWidth) {
 			flex-wrap: wrap;
+            justify-content: space-around;
 		}
 		li {
 			@extend %card-li;

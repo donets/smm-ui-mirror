@@ -8,7 +8,7 @@
 </div>
 <div class="b-card b-equipment">
     <div class="container">
-        <div class="white-bar">
+        <div class="white-bar" ng-if="desktop">
             <ul>
                 <li>
                     <b>Riesen Auswahl</b>
@@ -25,8 +25,18 @@
         <h2 translate>One card. Unlimited classes.</h2>
         <p translate>What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or <b>Meditation</b>? Pushing yourself to the limits with <b>CrossFit</b>, <b>TRX</b> or <b>Barre Core</b>? Feel like hitting up the dance floor with a spot of <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Or want to slow it down a little, reconnect and strengthen your core and concentration with <b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Fancy learning more about <b>Nutrition</b> and <b>Biomedicine</b>? Or simply want to chill out and unwind in the <b>Sauna</b> or <b>Spa</b>?</p>
         <p translate>Feel it all. Explore it all. #BeSomuchmore</p>
+        <ul class="tab-nav" ng-show="desktop">
+            <li><a ng-class="{'active': discipline === 'Yoga'}" href="" ng-click="discipline = 'Yoga'">Yoga</a></li><li>
+            <a ng-class="{'active': discipline === 'Fitness'}" href="" ng-click="discipline = 'Fitness'">Fitness</a></li><li>
+            <a ng-class="{'active': discipline === 'Dance'}" href="" ng-click="discipline = 'Dance'">Dance</a></li><li>
+            <a ng-class="{'active': discipline === 'Meditation'}" href="" ng-click="discipline = 'Meditation'">Meditation</a></li><li>
+            <a ng-class="{'active': discipline === 'Pilates'}" href="" ng-click="discipline = 'Pilates'">Pilates</a></li><li>
+            <a ng-class="{'active': discipline === 'Crossfit'}" href="" ng-click="discipline = 'Crossfit'">Crossfit</a></li>
+        </ul>
     </div>
 </div>
+<p class="subtitle landing-subtitle" ng-if="mobile">Classes to visit in Berlin, with SoMuchMore:</p>
+<div class="b-classes-landing" landing-classes></div>
 <div class="b-card b-hiw">
     <div class="container">
         <h2 translate>It’s so simple!</h2>
@@ -49,12 +59,12 @@
         </ul>
     </div>
 </div>
-<div class="b-card b-price" ng-if="currentCity.showPlansOnHomepage">
+<div class="b-card b-price" ng-if="desktop">
     <div class="container">
         <h2 translate>Live a healthy and fulfilled life</h2>
         <p class="subtitle" translate>Order your card – and set your life in motion.</p>
-        <p class="subtitle" ng-if="showDiscount" translate>Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}</p>
-        <div class="select-cards" ng-if="desktop">
+        <p class="subtitle" translate>Secure a 20% discount for the first three months if you sign up by {{validUntilIn | amDateFormat: 'D MMMM'}}</p>
+        <div class="select-cards">
             <ul class="select-cards__title">
                 <li>
                     <div class="select-cards__circle" ng-if="desktop"><span translate>Enjoy your <br>free<br> 14 day trial!</span></div>
@@ -65,59 +75,44 @@
                 <li translate>Courses per provider / month</li>
                 <li translate>Cancel / Freeze</li>
             </ul>
-            <ul class="select-cards__card" ng-repeat="card in cards">
-                <li><img class="card-image" ng-src="{{card.planPictureUrl}}" alt=""/></li>
-                <li class="name">{{card.displayName}}</li>
-                <li><strong ng-class="{'old': (!voucher.freeSubscriptionGranted && voucher) || (card.monthlyPrice < card.preOfferPrice) }">
-                    {{card.preOfferPrice}} {{card.currency}}</strong>
-                    <b ng-if="card.monthlyPrice < card.preOfferPrice && (!voucher || voucher.freeSubscriptionGranted)">
-                        {{card.monthlyPrice}} {{card.currency}}
-                    </b>
-                    <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
-                        <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
-                    </b>
-                </li>
-                <li>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</li>
-                <li>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</li>
-                <li translate>Anytime</li>
+            <ul class="select-cards__card">
+                <li><img class="card-image" src="/images/card-lite.png" alt=""/></li>
+                <li class="name">White Card Lite</li>
+                <li><b>39€</b></li>
+                <li>4</li>
+                <li>3</li>
+                <li>Jederzeit</li>
+            </ul>
+            <ul class="select-cards__card">
+                <li><img class="card-image" src="/images/card-white.png" alt=""/></li>
+                <li class="name">White Card</li>
+                <li><b>69€</b></li>
+                <li>Unbegrenzt</li>
+                <li>3</li>
+                <li>Jederzeit</li>
+            </ul>
+            <ul class="select-cards__card">
+                <li><img class="card-image" src="/images/card-black.png" alt=""/></li>
+                <li class="name">Black Card</li>
+                <li><b>99€</b></li>
+                <li>Unbegrenzt</li>
+                <li>Unbegrenzt</li>
+                <li>Jederzeit</li>
             </ul>
         </div>
-        <table class="select-cards_table" ng-repeat="card in cards" ng-if="mobile">
-            <tr>
-                <td><img class="card-image" ng-src="{{card.planPictureUrl}}" alt=""/></td>
-                <td>{{card.displayName}}</td>
-            </tr>
-            <tr>
-                <td translate>Price per month</td>
-                <td><strong ng-class="{'old': (!voucher.freeSubscriptionGranted && voucher) || (card.monthlyPrice < card.preOfferPrice) }">{{card.preOfferPrice}} {{card.currency}}</strong>
-                    <b ng-if="card.monthlyPrice < card.preOfferPrice && (!voucher || voucher.freeSubscriptionGranted)">
-                        {{card.monthlyPrice}} {{card.currency}}
-                    </b>
-                    <b ng-if="!voucher.freeSubscriptionGranted && voucher">
-                        <span ng-if="voucher.percentOff">{{Math.floor(card.monthlyPrice * (10 - voucher.percentOff / 10) / 10)}} {{card.currency}}</span>
-                        <span ng-if="voucher.amountOff">{{card.monthlyPrice - voucher.amountOff}} {{card.currency}}</span>
-                    </b>
-                </td>
-            </tr>
-            <tr>
-                <td translate>Courses per month</td>
-                <td>{{card.coursesPerMonth !== -1 ? card.coursesPerMonth : localizedUnlimited}}</td>
-            </tr>
-            <tr>
-                <td translate>Courses per provider / month</td>
-                <td>{{card.coursesPerSupplierPerMonth !== -1 ? card.coursesPerSupplierPerMonth : localizedUnlimited}}</td>
-            </tr>
-            <tr>
-                <td translate>Cancel / Freeze</td>
-                <td translate>Anytime</td>
-            </tr>
-        </table>
     </div>
 </div>
-<div class="b-cta">
+<div class="b-cta" ng-if="desktop">
     <div class="container">
         <p>Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs.</p>
+        <a class="form-button signup-button" ng-href="/p/signup/{{cityId}}/" translate>Jetzt kostenlos ausprobieren</a>
+    </div>
+</div>
+<div class="b-card b-cta-mobile" ng-if="mobile">
+    <div class="container">
+        <h2 translate>Bestelle die Somuchmore Card</h2>
+        <p class="subtitle">Melde Dich in weniger als 1 Minute an - und besuche gleich danach Deinen ersten Kurs.</p>
+        <img class="card-image" src="/images/card-white-1080.png" alt=""/>
         <a class="form-button signup-button" ng-href="/p/signup/{{cityId}}/" translate>Jetzt kostenlos ausprobieren</a>
     </div>
 </div>
