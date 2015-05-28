@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp')
-    .controller('LandingCtrl', function ($scope, $http, $window, $stateParams, RestApi, $q) {
+    .controller('LandingCtrl', function ($scope, $http, $window, $stateParams, RestApi, $q, $sce) {
         var params = _.compact(_.flatten([$stateParams.params.split(/-\d+/g),$stateParams.params.split(/-|[a-zA-Z]+/g)]));
         /*var tmp = {
 
@@ -24,6 +24,10 @@ angular.module('boltApp')
             { id: 6, name: 'Crossfit' }
         ];
         var discipline = _.findWhere(disciplineList, {id: +params[1]});
+        $http.get('/views/landing.html').success(function (res) {
+            $scope.content = res;
+        });
+        $scope.sce = $sce.trustAsResourceUrl('/views/landingTemp.html');
         $scope.discipline = discipline ? discipline.name : 'Yoga';
         $scope.disciplineId = params[1];
         $scope.versionId = params[2];
