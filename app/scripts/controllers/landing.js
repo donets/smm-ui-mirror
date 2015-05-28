@@ -20,7 +20,7 @@ angular.module('boltApp')
         ];
         var discipline = _.findWhere(disciplineList, {id: +params[1]});
         $scope.Math = $window.Math;
-        $scope.sce = $sce.trustAsResourceUrl($window.smmConfig.restUrlBase + '/utils/wp/yoga-1-1-1');
+        $scope.sce = $sce.trustAsResourceUrl($window.smmConfig.restUrlBase + '/utils/wp/' + $stateParams.params);
         var setVoucher = function (code) {
             $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                 if(res.valid && res.subscriptionType === null) {
