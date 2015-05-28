@@ -2,7 +2,7 @@
 
 .landing {
     .b-main-slogan {
-        h2 {
+        h2, h2 > p {
             display: inline-block;
             font-size: 48px;
             width: 850px;
@@ -121,15 +121,22 @@
             margin: 30px 15px 0;
         }
     }
+    .b-hiw {
+        .b-card-list {
+            li {
+                span {
+                    font-size: 18px;
+                    color: $colorGrey;
+                }
+            }
+        }
+    }
     .b-cta {
         background: url('/images/static/fact_04-1440.jpg');
         padding: 70px 0 90px;
         text-align: center;
         p {
             width: 400px;
-            font-size: 20px;
-            font-family: $fontItalic;
-            font-style: italic;
             color: #fff;
             margin: 20px auto 30px;
         }
