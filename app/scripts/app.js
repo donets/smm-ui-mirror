@@ -366,6 +366,16 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
+            .state('landing', {
+                url: '/:params/',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/landing.html');
+                },
+                controller: 'LandingCtrl',
+                onExit: function($rootScope) {
+                    $rootScope.autoscroll = true;
+                }
+            })
 			.state('signup', {
 				url: '/p/signup/:cityId/?invitation',
                 templateProvider: function($templateCache){

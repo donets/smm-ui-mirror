@@ -80,19 +80,9 @@ angular.module('boltApp.services.city', [])
 
 				supportPhone = currentCity.supportPhone;
 
-				$q.all([
-					RestApi.query({
-						route: 'studios',
-						cityId: currentCity.id
-					}).$promise,
-					RestApi.query({
-						route: 'plans',
-						cityId: currentCity.id
-					}).$promise,
-                        RestApi.query({
-                            route: 'locations',
-                            cityId: currentCity.id
-                        }).$promise
+				$q.all([RestApi.query({route: 'studios',cityId: currentCity.id}).$promise,
+					    RestApi.query({route: 'plans',cityId: currentCity.id}).$promise,
+                        RestApi.query({route: 'locations',cityId: currentCity.id}).$promise
 				]).then(function (res) {
 					returnObject.studios = res[0];
 					returnObject.cards = res[1];
