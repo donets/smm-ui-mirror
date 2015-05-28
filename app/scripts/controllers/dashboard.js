@@ -50,14 +50,14 @@ angular.module('boltApp.controllers.Dashboard', [])
         var fetchData = function (city) {
             var qD = $q.defer();
             var qS = $q.defer();
-            $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + city).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/disciplineLangs?langId=' + $rootScope.langId).success(function (response) {
                 _.map(response, function (item) {
                     item.type = gettextCatalog.getString('Activities');
                 });
                 $scope.disciplines = _.sortBy(response, 'name');
                 qD.resolve();
             });
-            $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + city).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplineLangs?langId=' + $rootScope.langId).success(function (response) {
                 _.map(response, function (item) {
                     item.type = gettextCatalog.getString('Disciplines');
                 });

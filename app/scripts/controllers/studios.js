@@ -29,7 +29,6 @@ angular.module('boltApp.controllers.Studios', [])
                 $scope.neigbourhood = resolve[2];
                 $scope.studios = resolve[0];
                 $scope.showSpinner = false;
-                console.log($scope.studios);
             });
         };
         $scope.changeCity = function(cityId) {

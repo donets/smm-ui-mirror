@@ -102,6 +102,7 @@ angular.module('boltApp')
                             } else {
                                 $rootScope.currentCity = res.guessedCity;
                             }
+                            $rootScope.langId = $rootScope.currentCity.langId;
                             $rootScope.countryCode = $rootScope.currentCity.countryCode;
                             $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode);
                             $rootScope.$broadcast('configLoaded');
@@ -402,15 +403,6 @@ angular.module('boltApp')
                     return $templateCache.get('app/views/studio.html');
                 },
 				controller: 'StudioCtrl',
-				resolve: {
-
-					getStudio: function(RestApi, $stateParams) {
-
-						return RestApi.get({route: 'studios'}, {id: $stateParams.studioId}).$promise;
-
-					}
-
-				},
 				onExit: function($rootScope) {
 					$rootScope.autoscroll = true;
 				}

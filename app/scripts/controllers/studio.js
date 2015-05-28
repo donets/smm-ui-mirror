@@ -8,22 +8,22 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
-    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, getStudio, $http, $window, RestApi, gettextCatalog, uiGmapGoogleMapApi) {
+    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, $http, $window, RestApi, gettextCatalog, uiGmapGoogleMapApi) {
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/landing-2880.jpg' : '/images/landing-1080.jpg';
         $scope._ = _;
-        getStudio.$promise.then(function () {
-            $scope.studio = getStudio;
+        RestApi.get({route: 'studios'}, {id: $rootScope.$stateParams.studioId}).$promise.then(function (res) {
+            $scope.studio = res;
             $scope.studio.locationsFull = [];
             var qD = $q.defer();
             var qS = $q.defer();
-            $http.get($window.smmConfig.restUrlBase + '/api/disciplines/all?cityId=' + $scope.studio.cityId[0]).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/disciplineLangs?langId=' + $rootScope.langId).success(function (response) {
                 _.map(response, function (item) {
                     item.type = gettextCatalog.getString('Activities');
                 });
                 $scope.disciplines = _.sortBy(response, 'name');
                 qD.resolve();
             });
-            $http.get($window.smmConfig.restUrlBase + '/api/styles/all?cityId=' + $scope.studio.cityId[0]).success(function (response) {
+            $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplineLangs?langId=' + $rootScope.langId).success(function (response) {
                 _.map(response, function (item) {
                     item.type = gettextCatalog.getString('Disciplines');
                 });
@@ -54,8 +54,8 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
 
                 _.map(res.classes.classAccesses, function (obj) {
                     obj.disciplinestyle = [obj.discipline, obj.style];
-                    if(getStudio.linkClassesToStudioDisciplines && getStudio.disciplines) {
-                        obj.disciplinestyle = _.union([obj.discipline, obj.style], getStudio.disciplines.split(', '));
+                    if($scope.studio.linkClassesToStudioDisciplines && $scope.studio.disciplines) {
+                        obj.disciplinestyle = _.union([obj.discipline, obj.style], $scope.studio.disciplines.split(', '));
                     } else {
                         obj.disciplinestyle = [obj.discipline, obj.style];
                     }
