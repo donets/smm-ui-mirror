@@ -11,7 +11,7 @@ angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog, $analytics) {
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
-        $scope.year = _.range(2014, 2033);
+        $scope.year = _.range(2015, 2033);
 
         $scope.init = function () {
             $analytics.eventTrack({
@@ -344,6 +344,26 @@ angular.module('boltApp.controllers.Signup', [])
             if (type === 'card' && $scope.error === 'CardException') {
                 $scope.error = null;
             }
+        };
+
+        $scope.changePaymentProvider = function (provider) {
+
+            $scope.order.paymentProvider = provider;
+
+            if (provider === 'ELV') {
+                $scope.order.card = null;
+                $scope.order.bankAccount = {
+                    currency: "EUR",
+                    address: {
+                        city: $rootScope.currentCity.active ? $rootScope.currentCity.defaultName : $scope.cities[0].defaultName,
+                        countryCode: $rootScope.countryCode
+                    }
+                };
+            } else {
+                $scope.order.card = {};
+                $scope.order.bankAccount = null;
+            }
+
         };
 
         $scope.checkCard = function (card) {
