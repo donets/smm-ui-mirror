@@ -542,6 +542,7 @@
         background-color: $colorMain;
         height: 42px;
         line-height: 42px;
+        cursor: pointer;
         text-align: center;
         @media (max-width: $containerMobileWidth) {
             height: 40px;
@@ -550,6 +551,15 @@
         //@media (max-width: $containerMobileWidth640) {
         //  margin: 13px;
         //}
+    }
+}
+.payment-provider {
+    &.ng-animate {
+        &.ng-move,
+        &.ng-enter,
+        &.ng-leave {
+            @include transition(none);
+        }
     }
 }
 .select-cards {
