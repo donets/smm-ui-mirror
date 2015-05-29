@@ -29,7 +29,6 @@ angular.module('boltApp')
                     $scope.validUntilIn = moment(res.validUntil).subtract(1, 'd');
                 }
             }).error(function (res) {
-                console.log(res);
                 $scope.voucher = null;
             });
         };
