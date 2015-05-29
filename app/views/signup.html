@@ -7,9 +7,9 @@
 <div class="b-order">
     <nav class="signup-nav" sticky use-placeholder>
         <ul>
-            <li><a class="active" href="#step1" du-smooth-scroll du-scrollspy offset="60" translate>1. Registration</a></li><li ng-hide="!showCards && signupSubmitted">
+            <li><a class="active" href="#step1" du-smooth-scroll du-scrollspy offset="60" translate>1. Registration</a></li><li ng-hide="cards.length === 1">
             <a href="#step2" du-smooth-scroll du-scrollspy offset="260" translate>2. Product selection</a></li><li>
-            <a href="#step3" du-smooth-scroll du-scrollspy offset="60">{{ !showCards && signupSubmitted ? '2' : '3'}}. <span translate>Payment</span></a></li>
+            <a href="#step3" du-smooth-scroll du-scrollspy offset="60">{{ cards.length === 1 ? '2' : '3'}}. <span translate>Payment</span></a></li>
         </ul>
     </nav>
     <div class="container">
@@ -262,8 +262,8 @@
                         <a class="form-link" href="" ng-click="missingCard()" translate>Other payment method</a>
                     </div>
                 </div>
-                <h3 ng-show="order.deliveryAddress.countryCode === 'DE'" class="form-title" translate>Delivery address</h3>
-                <div ng-show="order.deliveryAddress.countryCode === 'DE'" class="form-group">
+                <h3 ng-if="order.deliveryAddress.countryCode === 'DE'" class="form-title" translate>Delivery address</h3>
+                <div ng-if="order.deliveryAddress.countryCode === 'DE'" class="form-group">
                     <div class="form-rel">
                         <label class="form-label required" for="street" translate>House no. and street</label>
                         <input type="text" ng-model="order.deliveryAddress.streetAndHouse" id="street" name="street" placeholder="{{'e.g. Buckingham St. 1'|translate}}" required />
