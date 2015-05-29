@@ -466,6 +466,9 @@
     }
 }
 .modal-message {
+    &:before {
+        display: none;
+    }
     .modal-dialog {
         @media (min-width: $containerMobileWidth) {
             width: 660px;
