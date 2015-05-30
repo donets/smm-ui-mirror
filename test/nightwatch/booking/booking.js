@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
   tags: ['login','booking','MBO','NonMBO','correct'],
 
   'LogIN': function (browser) {
@@ -85,4 +85,4 @@ module.exports = {
 	.click('.modal-close')//closing modal
 	.end()
   }
-};
+};*/

@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
   tags: ['kurses'],
   
 	'Open Home page': function (browser) {
@@ -58,4 +58,4 @@ module.exports = {
 		})
 		.end();
 	}
-}
+}*/
