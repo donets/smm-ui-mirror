@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-rel" ng-show="showSpinner">
+            <div class="form-rel" ng-show="showSpinner && !signupSubmitted">
                 <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
             </div>
             <button type="submit" ng-hide="showSpinner || signupSubmitted" ng-disabled="!formSignup.$valid" translate>Next</button>
