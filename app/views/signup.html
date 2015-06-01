@@ -309,7 +309,6 @@
                     <div class="form-group center">
                         <div class="form-error" ng-if="error === 'CardException'" translate>Pleas check your credit card details: {{errorMsg}}</div>
                         <div class="form-error" ng-if="error === 'AccountExists'" translate>An account already exists for this email account. Please log in or use a different e-mail address.</div>
-                        <div class="form-error" ng-if="!formCheckout.$valid" translate>Please select your card, fill out all fields and accept the terms &amp; conditions and privacy policy.</div>
                     </div>
                 </div>
             </div>
@@ -319,16 +318,9 @@
                     <li>
                         <b translate>Card:</b>
                         <p>{{overview.card}}</p>
-                    </li><li>
-                        <b translate>Term:</b>
-                        <p ng-if="!voucher.freeSubscriptionGranted || !voucher" translate>Unlimited <span class="details">(Rolling monthly membership)</span></p>
-                        <p ng-if="voucher.freeSubscriptionGranted">{{voucher.freeSubscriptionDuarationInMonths}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b translate>Direct debit:</b>
                         <p translate>Monthly <span class="details" ng-if="order.deliveryAddress.countryCode === 'DE'">(beginning with the first day of membership)</span></p>
-                    </li><li ng-class="{'column-break': !voucher.freeSubscriptionGranted}">
-                        <b translate>Start:</b>
-                        <p>{{order.membershipActivatesOn | amDateFormat: 'DD.MM.YYYY'}}</p>
                     </li><li ng-if="!voucher.freeSubscriptionGranted || !voucher">
                         <b translate>Cancellation:</b>
                         <p translate>Any time <span class="details">(On a monthly basis)</span></p>
