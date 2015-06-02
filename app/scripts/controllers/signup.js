@@ -139,6 +139,11 @@ angular.module('boltApp.controllers.Signup', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
+                    if(res.valid && res.freeSubscriptionGranted) {
+                        $scope.order.paymentProvider = null;
+                    } else {
+                        $scope.order.paymentProvider === null ? $scope.order.paymentProvider = 'STRIPE' : 0;
+                    }
                     if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01')) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
@@ -158,6 +163,7 @@ angular.module('boltApp.controllers.Signup', [])
                 });
             } else {
                 $scope.formCheckout.voucher.$setPristine();
+                $scope.order.paymentProvider === null ? $scope.order.paymentProvider = 'STRIPE' : 0;
                 setVoucher('EARLY_BIRD_2014');
             }
         };

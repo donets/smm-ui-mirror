@@ -150,7 +150,7 @@
         </div>
         <form name="formCheckout" id="step3" ng-show="showCheckout" class="form-signup form-checkout" ng-class="{'negative-margin': showCards}" ng-submit="checkoutSubmit()">
             <div class="w-left">
-                <div class="payment-selector" ng-if="order.deliveryAddress.countryCode === 'DE'">
+                <div class="payment-selector" ng-if="order.paymentProvider && order.deliveryAddress.countryCode === 'DE'">
                     <ul class="tab-nav">
                         <li>
                             <a ng-class="{'active': order.paymentProvider === 'STRIPE'}" href=""
