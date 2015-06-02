@@ -219,11 +219,10 @@
     }
 }
 .cover-bottom {
-    height: 270px;
-    background: url('/images/signup-bg-b-2880.jpg') no-repeat;
+    background-image: url('/images/signup-bg-b-2880.jpg');
+    background-size: contain;
     @media (max-width: 1440px) {
-        height: 135px;
-        background: url('/images/signup-bg-b-1440.jpg') no-repeat;
+        background-image: url('/images/signup-bg-b-1440.jpg');
     }
     @media (max-width: $containerMobileWidth) {
         display: none;
