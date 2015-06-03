@@ -20,7 +20,7 @@ module.exports = {
         emailSuffix: '+test@somuchmore.org',
         email: 'test@somuchmore.org',
         card: {
-            number: '5555555555554444',
+            number: '5200828282828210',
             cvc: '123',
             exp_year: '2030',
             exp_month: '1'
