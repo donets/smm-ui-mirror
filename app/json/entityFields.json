@@ -22,6 +22,9 @@
            }, {
                "model": "address",
                "title": "Street and house number"
+           }, {
+               "model": "address_2",
+               "title": "Additional address"
            }
        ],
        "studios": [
