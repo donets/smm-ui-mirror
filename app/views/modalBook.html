@@ -10,6 +10,7 @@
     <p ng-if="event.class.studio.profileComplete"><a ui-sref="studio({studioId: event.class.studio.id})" target="_blank">{{event.class.studio.name}}</a></p>
     <p ng-if="!event.class.studio.profileComplete">{{event.class.studio.name}}</p>
     <p class="description" ng-if="event.class.description">{{event.class.description}}</p>
+    <p class="description" ng-if="!roleMember && $stateParams.city === '4'">Advance booking is required prior to attendance. Please <a ui-sref="signup({cityId: 4})">register</a>/<a ui-sref="login">login</a> to reserve your spot.</p>
     <div ng-hide="showSpinner" ng-if="event.bookable && event.bookingStatus !== 'CONFIRMED' && event.source === 'MINDBODY' && roleMember">
         <button class="form-button" type="button" ng-click="confirmBook()" translate>Confirm Reservation</button>
     </div>
