@@ -60,7 +60,7 @@
     }
 }
 .signup-nav {
-    background: $colorBackTimetable;
+    background: #fcfaf7;
     width: 100%;
     height: 60px;
     @media (max-width: $containerMobileWidth) {
@@ -127,11 +127,21 @@
         }
     }
 }
+.signup {
+    padding: 0; 
+}
 .b-order {
     font-size: 18px;
     text-align: center;
-    background: $colorBackTimetable;
-    padding: 30px 0 0;
+    background-color: #fcfaf7;
+    background-image: url('/images/signup-bg-a-2880.jpg');
+    background-attachment: fixed;
+    @media (max-width: 1440px) {
+        background-image: url('/images/signup-bg-a-1440.jpg');
+    }
+    @media (max-width: $containerMobileWidth) {
+        background-image: url('/images/signup-bg-a-mobile.jpg');
+    }
     margin: 20px 0 0;
     @media (max-width: $containerMobileWidth) {
         padding: 0;
@@ -206,6 +216,16 @@
     }
     b {
         font-family: $fontBold;
+    }
+}
+.cover-bottom {
+    background-image: url('/images/signup-bg-b-2880.jpg');
+    background-size: contain;
+    @media (max-width: 1440px) {
+        background-image: url('/images/signup-bg-b-1440.jpg');
+    }
+    @media (max-width: $containerMobileWidth) {
+        display: none;
     }
 }
 .form-overview {
@@ -298,6 +318,10 @@
                 margin: 0;
             }
         }
+        .voucher-row {
+            width: 100%;
+            margin: 0;
+        }
     }
     .form-title {
         background: #fff;
@@ -318,7 +342,9 @@
     padding: 60px 0;
     &.form-checkout {
         @media (min-width: $containerMobileWidth) {
-            margin-top: -400px;
+            &.negative-margin {
+                margin-top: -400px
+            };
         }
         width: 100%;
         .w-left, .w-clear {
@@ -352,10 +378,45 @@
                 margin: 10px 0 0;
             }
         }
+        .payment-selector {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 20px;
+            ul {
+                margin: 0;
+                li a {
+                    width: 170px;
+                    font-size: 16px;
+                    @media (max-width: $containerMobileWidth) {
+                      width: 140px;
+                    }
+                }
+            }
+        }
+        .trial-message {
+            color: #777;
+            margin-top: 20px;
+            span.trial {
+                text-decoration: underline;
+            }
+        }
+        button {
+            width: 100%;
+        }
     }
     .form-group {
         &:first-child {
             margin-top: 0;
+        }
+        &.newsletter-step-1 {
+            margin-bottom: 25px;
+            .newsletter-row {
+                margin-top: 20px;
+                .fa {
+                  color: #3bcbbd;
+                }
+            }
         }
     }
     .form-rel {
@@ -490,6 +551,34 @@
         }
         @media (max-width: $containerMobileWidth640) {
             margin: 13px;
+        }
+    }
+    .submit-voucher {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        width: 60px;
+        background-color: $colorMain;
+        height: 42px;
+        line-height: 42px;
+        cursor: pointer;
+        text-align: center;
+        @media (max-width: $containerMobileWidth) {
+            height: 40px;
+            line-height: 40px;
+        }
+        //@media (max-width: $containerMobileWidth640) {
+        //  margin: 13px;
+        //}
+    }
+}
+.payment-provider {
+    &.ng-animate {
+        &.ng-move,
+        &.ng-enter,
+        &.ng-leave {
+            @include transition(none);
         }
     }
 }

@@ -11,7 +11,7 @@ angular.module('boltApp.controllers.Signup', [])
     .controller('SignupCtrl', function ($scope, $rootScope, $q, $http, $cookieStore, $window, $document, $location, $modal, $interval, getCities, getCityId, RestApi, gettextCatalog, $analytics) {
         $scope.Math = $window.Math;
         $scope.month = _.range(1, 13);
-        $scope.year = _.range(2014, 2033);
+        $scope.year = _.range(2015, 2033);
 
         $scope.init = function () {
             $analytics.eventTrack({
@@ -56,6 +56,17 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.order.deliveryAddress.countryCode = selectedCity.countryCode;
             RestApi.query({route: 'plans', cityId: $scope.order.cityId}).$promise.then(function (res) {
                 $scope.cards = res;
+                if ($scope.signupSubmitted) {
+                    if ($scope.cards.length === 1) {
+                        $scope.changeType($scope.cards[0].code);
+                        $scope.showCards = false;
+                    } else {
+                        $scope.showCards = true;
+                        $interval(function () {
+                            $document.scrollToElementAnimated($('#step2'), 260, 800);
+                        }, 0, 1, {invokeApply: false});
+                    }
+                }
             });
             $scope.currentCountry = _.findWhere($scope.countries, {code: selectedCity.countryCode});
             $rootScope.supportPhone = selectedCity.supportPhone;
@@ -128,6 +139,11 @@ angular.module('boltApp.controllers.Signup', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
+                    if(res.valid && res.freeSubscriptionGranted) {
+                        $scope.order.paymentProvider = null;
+                    } else {
+                        $scope.order.paymentProvider === null ? $scope.order.paymentProvider = 'STRIPE' : 0;
+                    }
                     if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01')) {
                         $scope.errorVoucher = 'notStarted';
                     } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
@@ -147,13 +163,24 @@ angular.module('boltApp.controllers.Signup', [])
                 });
             } else {
                 $scope.formCheckout.voucher.$setPristine();
+                $scope.order.paymentProvider === null ? $scope.order.paymentProvider = 'STRIPE' : 0;
                 setVoucher('EARLY_BIRD_2014');
             }
         };
 
         $scope.signupSubmit = function () {
+            $scope.signupSubmitted = true;
             $scope.formSignup.$setPristine();
-            $scope.showCards = true;
+            if ($scope.cards.length === 1) {
+                $scope.changeType($scope.cards[0].code);
+                $scope.showCards = false;
+            } else {
+                $scope.showCards = true;
+                $interval(function () {
+                    $document.scrollToElementAnimated($('#step2'), 260, 800);
+                }, 0, 1, {invokeApply: false});
+            }
+
             $analytics.eventTrack({
                 'event': 'checkout',
                 'subscriptionCity': _.findWhere($scope.cities, {id: $scope.order.cityId}).defaultName,
@@ -165,9 +192,6 @@ angular.module('boltApp.controllers.Signup', [])
                     }
                 }
             });
-            $interval(function () {
-                $document.scrollToElementAnimated($('#step2'), 260, 800);
-            }, 0, 1, {invokeApply: false});
         };
 
         $scope.changeType = function (type) {
@@ -326,6 +350,26 @@ angular.module('boltApp.controllers.Signup', [])
             if (type === 'card' && $scope.error === 'CardException') {
                 $scope.error = null;
             }
+        };
+
+        $scope.changePaymentProvider = function (provider) {
+
+            $scope.order.paymentProvider = provider;
+
+            if (provider === 'ELV') {
+                $scope.order.card = null;
+                $scope.order.bankAccount = {
+                    currency: "EUR",
+                    address: {
+                        city: $rootScope.currentCity.active ? $rootScope.currentCity.defaultName : $scope.cities[0].defaultName,
+                        countryCode: $rootScope.countryCode
+                    }
+                };
+            } else {
+                $scope.order.card = {};
+                $scope.order.bankAccount = null;
+            }
+
         };
 
         $scope.checkCard = function (card) {
