@@ -15,7 +15,7 @@ module.exports = {
 	  .url(params.baseUrl + '/?city=B')
       .url(params.baseUrl + '/p/signup/')
       .windowMaximize()
-      .waitForElementVisible('body', browser.globals.waitPOST)
+      //.waitForElementVisible('body', browser.globals.waitPOST)
       .waitForElementVisible('nav.signup-nav', browser.globals.waitUI)
       //.assert.attributeEquals('nav.signup-nav > ul > li:nth-of-type(1) > a','class','active') //verify that step highlighted correctly
       .setValue('input[id=name]',params.signup.firstName)
@@ -49,7 +49,7 @@ module.exports = {
       .click('#exp_year_chosen span')
       //.moveTo('li.active-result:contains("'+params.signup.card.exp_year+'")')
       .click('#exp_year_chosen > div:nth-child(2) > ul:nth-child(2) > li:nth-child(17)') //could not parametrise correctly because somehow pseudo class :contains() is not working in CSS selector - had to use static :nth-child...
-      .setValue('input[id=cardCVC]',params.signup.card.cvc)
+      .setValue('#cardCVC',params.signup.card.cvc)
       .setValue('input[id=name]',params.signup.firstName)
       .setValue('#street','testStreet123')
       .setValue('#zip','123123')
@@ -60,7 +60,7 @@ module.exports = {
 
   'Submit form and assert welcome': function (browser) {
     browser
-      .click('#step3 > div.w-clear > button')
+      .click('.large')
       .waitForElementPresent('.modal-dialog',browser.globals.waitPOST)
       .end();
   }
