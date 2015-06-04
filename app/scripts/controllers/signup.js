@@ -139,27 +139,28 @@ angular.module('boltApp.controllers.Signup', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
-                    if(res.valid && res.freeSubscriptionGranted) {
+                    if(res.valid && res.deactivateProlongation) {
                         $scope.order.paymentProvider = null;
                     } else {
                         $scope.order.paymentProvider === null ? $scope.order.paymentProvider = 'STRIPE' : 0;
                     }
-                    if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01')) {
-                        $scope.errorVoucher = 'notStarted';
-                    } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
+                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
                         $scope.voucher = res;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
                         $scope.typeVoucher = res.subscriptionType;
+                        $scope.code = null;
                     } else {
                         $scope.errorVoucher = 'valid';
+                        $scope.code = null;
                     }
                 }).error(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
                     $scope.errorVoucher = res.type === 'NotFoundException' ? 'valid' : true;
+                    $scope.code = null;
                 });
             } else {
                 $scope.formCheckout.voucher.$setPristine();
