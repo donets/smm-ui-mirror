@@ -4,101 +4,96 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/index.html:200
+#: app/index.html:191
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr ""
 
-#: app/index.html:195
+#: app/index.html:186
 msgid "About us"
 msgstr ""
 
-#: app/index.html:151
+#: app/index.html:142
 msgid "Activities"
 msgstr ""
 
-#: app/index.html:165
+#: app/index.html:156
 msgid "Be inspired"
 msgstr ""
 
-#: app/index.html:106
-#: app/index.html:116
-#: app/index.html:123
-#: app/index.html:130
+#: app/index.html:107
+#: app/index.html:114
+#: app/index.html:121
 msgid "Close"
 msgstr ""
 
-#: app/index.html:187
+#: app/index.html:178
 msgid "Contact us"
 msgstr ""
 
-#: app/index.html:211
+#: app/index.html:202
 msgid "Continue to the courses"
 msgstr ""
 
-#: app/index.html:198
+#: app/index.html:189
 msgid "FAQ"
 msgstr ""
 
-#: app/index.html:176
+#: app/index.html:167
 msgid "Follow us"
 msgstr ""
 
-#: app/index.html:210
+#: app/index.html:201
 msgid "From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!"
 msgstr ""
 
-#: app/index.html:197
+#: app/index.html:188
 msgid "General terms &amp; conditions"
 msgstr ""
 
-#: app/index.html:196
+#: app/index.html:187
 msgid "Legal notice"
 msgstr ""
 
-#: app/index.html:127
+#: app/index.html:118
 msgid "Please check studios' websites for any last minute holiday weekend schedule changes"
 msgstr ""
 
-#: app/index.html:136
+#: app/index.html:127
 msgid "Somuchmore"
 msgstr ""
 
-#: app/index.html:113
+#: app/index.html:104
 msgid "Sorry, it was not possible to reach the server! Please hold down Ctrl+R (Cmd+R for Mac) or click <a href=\"\" ng-click=\"pageReload()\">here</a> to try again."
 msgstr ""
 
-#: app/index.html:152
+#: app/index.html:143
 msgid "Studios"
 msgstr ""
 
-#: app/index.html:120
+#: app/index.html:111
 msgid "Successfully saved"
 msgstr ""
 
-#: app/index.html:103
-msgid "Thank you for your booking: {{event.event.title}} | Teacher: {{event.event.somuchmore.teacherName}} | {{event.event.start_date | onDateFormat: 'L'}} | {{event.event.venue.address}}, {{event.event.venue.postal_code}} {{event.event.venue.region}}. <br> You will receive an e-mail with your ticket and details."
-msgstr ""
-
-#: app/index.html:209
+#: app/index.html:200
 msgid "Thank you for your registration!"
 msgstr ""
 
-#: app/index.html:170
+#: app/index.html:161
 msgid "Thank you!"
 msgstr ""
 
-#: app/index.html:171
+#: app/index.html:162
 msgid "The email address is incorrect"
 msgstr ""
 
-#: app/index.html:111
+#: app/index.html:102
 msgid "Unfortunately an error has occurred. Please contact our customer service team: <a href=\"mailto:kundenservice@somuchmore.org\">kundenservice@somuchmore.org</a> <br>Error details: {{rejection.data.message}}"
 msgstr ""
 
-#: app/index.html:112
+#: app/index.html:103
 msgid "You are not authorised to access this page {{$state.href($state.current.name, $state.params, {absolute: true})}}"
 msgstr ""
 
-#: app/index.html:167
+#: app/index.html:158
 msgid "Your email address"
 msgstr ""

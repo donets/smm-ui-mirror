@@ -177,7 +177,7 @@
                                 <div ng-show="formCheckout.cardNumber.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                                 <div ng-show="formCheckout.cardNumber.$error.pattern" class="form-message form-error" translate>Please enter a valid credit card number</div>
                             </div>
-                            <i ng-show="formCheckout.cardNumber.$valid" class="fa fa-check check-valid"></i>
+                            <i ng-show="formCheckout.cardNumber.$valid && error !== 'CardException'" class="fa fa-check check-valid"></i>
                         </div>
                         <div class="form-rel flex">
                             <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
