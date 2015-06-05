@@ -73,6 +73,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $scope.allstudios = resolve[0];
                 $scope.locations = resolve[1];
                 $scope.neigbourhood = resolve[2];
+                $scope.changeDay(moment());
             });
         };
         $scope.changeCity = function(cityId) {
@@ -93,7 +94,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $scope.cityId = $scope.cities[0].id;
             }
             fetchData($scope.cityId);
-            $scope.changeDay(moment());
         };
         $scope.$on('configLoaded', $scope.init);
 
