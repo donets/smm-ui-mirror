@@ -342,8 +342,8 @@
                                 <i ng-show="typingVoucher" ng-click="typingVoucher = false; checkVoucher(code)" class="submit-voucher">OK</i>
                                 <div>
                                     <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                                    <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>{{order.voucher}} is not a valid voucher code.</div>
-                                    <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>{{order.voucher}} is only valid for the {{typeVoucher}} CARD</div>
+                                    <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>{{errorVoucherCode}} is not a valid voucher code.</div>
+                                    <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>{{errorVoucherCode}} is only valid for the {{typeVoucher}} CARD</div>
                                 </div>
                             </div>
                         </div>

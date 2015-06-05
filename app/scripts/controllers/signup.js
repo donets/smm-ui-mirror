@@ -133,7 +133,6 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.voucher = null;
             $scope.order.voucher = null;
             if (code) {
-                $scope.order.voucher = code;
                 $scope.loadingVoucher = true;
                 $rootScope.handledError = true;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
@@ -147,12 +146,15 @@ angular.module('boltApp.controllers.Signup', [])
                     if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
                         $scope.voucher = res;
+                        $scope.order.voucher = code;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
                         $scope.typeVoucher = res.subscriptionType;
+                        $scope.errorVoucherCode = code;
                         $scope.code = null;
                     } else {
                         $scope.errorVoucher = 'valid';
+                        $scope.errorVoucherCode = code;
                         $scope.code = null;
                     }
                 }).error(function (res) {
@@ -160,6 +162,7 @@ angular.module('boltApp.controllers.Signup', [])
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
                     $scope.errorVoucher = res.type === 'NotFoundException' ? 'valid' : true;
+                    $scope.errorVoucherCode = code;
                     $scope.code = null;
                 });
             } else {
