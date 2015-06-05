@@ -4,18 +4,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/faq.html:326
+#: app/views/faq.html:400
 msgid "Get your invitation"
 msgstr ""
 
-#: app/views/faq.html:329
+#: app/views/faq.html:403
 msgid "Thank you!"
 msgstr ""
 
-#: app/views/faq.html:330
+#: app/views/faq.html:404
 msgid "The Email Address is incorrect"
 msgstr ""
 
-#: app/views/faq.html:325
+#: app/views/faq.html:399
 msgid "Your Email Address"
 msgstr ""

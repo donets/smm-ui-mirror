@@ -133,33 +133,37 @@ angular.module('boltApp.controllers.Signup', [])
             $scope.voucher = null;
             $scope.order.voucher = null;
             if (code) {
-                $scope.order.voucher = code;
                 $scope.loadingVoucher = true;
                 $rootScope.handledError = true;
                 $http.get($window.smmConfig.restUrlBase + '/api/rest/vouchers/' + code).success(function (res) {
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
-                    if(res.valid && res.freeSubscriptionGranted) {
+                    if(res.valid && res.deactivateProlongation) {
                         $scope.order.paymentProvider = null;
                     } else {
                         $scope.order.paymentProvider === null ? $scope.order.paymentProvider = 'STRIPE' : 0;
                     }
-                    if(res.valid && res.freeSubscriptionGranted && moment().isBefore('2015-01-01')) {
-                        $scope.errorVoucher = 'notStarted';
-                    } else if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
+                    if(res.valid && (res.subscriptionType === null || res.subscriptionType === $scope.order.type)) {
                         $scope.successVoucher = true;
                         $scope.voucher = res;
+                        $scope.order.voucher = code;
                     } else if(res.valid && res.subscriptionType !== $scope.order.type) {
                         $scope.errorVoucher = 'type';
                         $scope.typeVoucher = res.subscriptionType;
+                        $scope.errorVoucherCode = code;
+                        $scope.code = null;
                     } else {
                         $scope.errorVoucher = 'valid';
+                        $scope.errorVoucherCode = code;
+                        $scope.code = null;
                     }
                 }).error(function (res) {
                     console.log(res);
                     $scope.loadingVoucher = false;
                     $rootScope.handledError = false;
                     $scope.errorVoucher = res.type === 'NotFoundException' ? 'valid' : true;
+                    $scope.errorVoucherCode = code;
+                    $scope.code = null;
                 });
             } else {
                 $scope.formCheckout.voucher.$setPristine();

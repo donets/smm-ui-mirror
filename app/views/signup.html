@@ -165,6 +165,7 @@
                 </div>
                 <div class="payment-provider" ng-if="order.paymentProvider === 'STRIPE'">
                     <h3 class="form-title cf" ng-if="order.deliveryAddress.countryCode !== 'DE'" translate>Credit / Debit Card</h3>
+                    <p class="text" ng-if="voucher.freeSubscriptionGranted" translate>Payment details are required to validate your identity, for future transactions after the promotional period ends, and in the event of class no-show and late cancellation fees - if any. You may still cancel or pause your membership prior to the start of your paid membership. </p>
                     <div ng-class="{'error': error === 'CardException'}" class="form-group">
                         <div class="form-rel">
                             <label class="form-label required" for="cardNumber" translate>Credit card</label>
@@ -176,7 +177,7 @@
                                 <div ng-show="formCheckout.cardNumber.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                                 <div ng-show="formCheckout.cardNumber.$error.pattern" class="form-message form-error" translate>Please enter a valid credit card number</div>
                             </div>
-                            <i ng-show="formCheckout.cardNumber.$valid" class="fa fa-check check-valid"></i>
+                            <i ng-show="formCheckout.cardNumber.$valid && error !== 'CardException'" class="fa fa-check check-valid"></i>
                         </div>
                         <div class="form-rel flex">
                             <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
@@ -212,6 +213,7 @@
                     </div>
                 </div>
                 <div class="payment-provider" ng-if="order.paymentProvider === 'ELV'">
+                    <p class="text" ng-if="voucher.freeSubscriptionGranted" translate>Payment details are required to validate your identity, for future transactions after the promotional period ends, and in the event of class no-show and late cancellation fees - if any. You may still cancel or pause your membership prior to the start of your paid membership. </p>
                     <div class="form-group">
                         <div class="form-rel">
                             <label class="form-label required" for="nameAccount" translate>Bank account holder</label>
@@ -305,7 +307,7 @@
                     <div class="form-rel" ng-show="showSpinner">
                         <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
                     </div>
-                    <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid || errorVoucher"><span translate>Place order</span></button>
+                    <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid"><span translate>Place order</span></button>
                     <div class="form-group center">
                         <div class="form-error" ng-if="error === 'CardException'" translate>Pleas check your credit card details: {{errorMsg}}</div>
                         <div class="form-error" ng-if="error === 'AccountExists'" translate>An account already exists for this email account. Please log in or use a different e-mail address.</div>
@@ -340,9 +342,8 @@
                                 <i ng-show="typingVoucher" ng-click="typingVoucher = false; checkVoucher(code)" class="submit-voucher">OK</i>
                                 <div>
                                     <div ng-show="loadingVoucher" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                                    <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>Not a valid promocode</div>
-                                    <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>This promocode is only valid for the {{typeVoucher}} CARD</div>
-                                    <div ng-show="errorVoucher === 'notStarted'" class="form-message form-error" translate>This promocode can only be redeemed from 1.1.2015</div>
+                                    <div ng-show="errorVoucher === 'valid'" class="form-message form-error" translate>{{errorVoucherCode}} is not a valid voucher code.</div>
+                                    <div ng-show="errorVoucher === 'type'" class="form-message form-error" translate>{{errorVoucherCode}} is only valid for the {{typeVoucher}} CARD</div>
                                 </div>
                             </div>
                         </div>

@@ -456,8 +456,8 @@
         }
     }
     .form-error {
-        font-size: 15px;
-        color: $colorMain;
+        font-size: 14px;
+        color: $colorError;
         font-family: $fontRegular;
         @media (max-width: $containerMobileWidth) {
             font-size: 24px;
@@ -512,7 +512,7 @@
         }
     }
     .text {
-        font-size: 15px;
+        font-size: 13px;
         text-align: left;
         @media (max-width: $containerMobileWidth) {
             font-size: 24px;
@@ -562,6 +562,7 @@
         background-color: $colorMain;
         height: 42px;
         line-height: 42px;
+        font-style: normal;
         cursor: pointer;
         text-align: center;
         @media (max-width: $containerMobileWidth) {
