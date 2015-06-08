@@ -41,16 +41,16 @@
                         <td>
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
-                        <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
+                        <td><span class="title" ng-click="bookClass(e, 'title')">{{e.class.title}}</span></td>
                         <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
                         <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
                         <td>{{e.bookingStatus}}</td>
                         <td disable-animate>
-                            <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
-                            <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
-                            <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Request</button>
-                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
-                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button>
+                            <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
+                            <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
+                            <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Request')" type="button" translate>Request</button>
+                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e, 'Cancel')" type="button" translate>Cancel</button>
+                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Cancel')" type="button" translate>Cancel</button>
                         </td>
                     </tr>
                 </tbody>
@@ -66,12 +66,12 @@
                         <td>
                             <p>{{e.startTime}} - {{e.endTime}}</p>
                         </td>
-                        <td><span class="title" ng-click="bookClass(e)">{{e.class.title}}</span></td>
+                        <td><span class="title" ng-click="bookClass(e, 'title')">{{e.class.title}}</span></td>
                         <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
                         <td><i class="fa fa-map-marker"></i> <span ng-if="e.class.location">{{e.class.location.neigbourhood || e.class.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></td>
                         <td>{{e.bookingStatus}}</td>
-                        <td disable-animate><button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && roleMember" ng-click="bookClass(e)" type="button" translate>Reserve</button>
-                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e)" type="button" translate>Cancel</button></td>
+                        <td disable-animate><button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
+                            <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e, 'Cancel')" type="button" translate>Cancel</button></td>
                     </tr>
                 </tbody>
             </table>

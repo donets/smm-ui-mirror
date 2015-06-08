@@ -47,7 +47,7 @@ angular.module('boltApp.controllers.Reservations', [])
         });
 
 
-        $scope.bookClass = function (event) {
+        $scope.bookClass = function (event, elementClicked) {
             $modal.open({
                 templateUrl: 'app/views/modalBook.html',
                 controller: ['$scope', '$rootScope', '$modalInstance', 'event',
@@ -55,6 +55,17 @@ angular.module('boltApp.controllers.Reservations', [])
                     function ($scope, $rootScope, $modalInstance, event) {
 
                         $scope.event = event;
+                        $analytics.eventTrack({
+                            'event': 'PDP',
+                            'elementClicked': elementClicked,              // Set to 'title'|'CTA'. title-if class headline was clicked, CTA if 'RESERVE' button was clicked.
+                            'studioName': event.class.studio === '' ? event.class.studio : event.class.studio.name,            // Salon/fitness club/etc name.
+                            'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
+                            'studioLocation': event.class.location === '' ? event.class.location : event.class.location.displayName,      // Salon/fitness club/etc city and district.
+                            'className': event.class.title,                     // class name.
+                            'classId': event.class.id,                            // class ID.
+                            'classTime': event.start_date.format("ddd") + '_' + event.startTime + '-' + event.endTime,                // Populate with: dayOfWeek_time
+                            'classCategory': event.class.discipline
+                        });
 
                         $scope.confirmBook = function () {
                             $scope.error = null;
@@ -98,6 +109,9 @@ angular.module('boltApp.controllers.Reservations', [])
                 resolve: {
                     event: function () {
                         return event;
+                    },
+                    elementClicked: function () {
+                        return elementClicked;
                     }
                 },
                 windowClass: 'modal-book'

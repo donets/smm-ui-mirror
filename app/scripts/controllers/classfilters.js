@@ -72,7 +72,7 @@ angular.module('boltApp.controllers.Classfilters', [])
             showWeeks: false
         };
 
-        $scope.bookClass = function (event) {
+        $scope.bookClass = function (event, elementClicked) {
             $modal.open({
                 templateUrl: 'app/views/modalBook.html',
                 controller: ['$scope', '$rootScope', '$modalInstance', 'event',
@@ -81,8 +81,8 @@ angular.module('boltApp.controllers.Classfilters', [])
                         $scope.event = event;
                         $analytics.eventTrack({
                             'event': 'PDP',
-                            'elementClicked': 'title',              // Set to 'title'|'CTA'. title-if class headline was clicked, CTA if 'RESERVE' button was clicked.
-                            'studioName': event.class.studio,            // Salon/fitness club/etc name.
+                            'elementClicked': elementClicked,              // Set to 'title'|'CTA'. title-if class headline was clicked, CTA if 'RESERVE' button was clicked.
+                            'studioName': event.class.studio.name,            // Salon/fitness club/etc name.
                             'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
                             'studioLocation': event.location.displayName,      // Salon/fitness club/etc city and district.
                             'className': event.class.title,                     // class name.
@@ -142,6 +142,9 @@ angular.module('boltApp.controllers.Classfilters', [])
                 resolve: {
                     event: function () {
                         return event;
+                    },
+                    elementClicked: function () {
+                        return elementClicked;
                     }
                 },
                 windowClass: 'modal-book'
