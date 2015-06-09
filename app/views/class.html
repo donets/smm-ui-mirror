@@ -201,7 +201,7 @@
             <select chosen
                     id="subdisciplineId"
                     ng-model="class.subDisciplineId"
-                    disable-search="true"
+                    disable-search="false"
                     allow-single-deselect="true" ng-change="setDisciplineId(class.subDisciplineId)"
                     ng-options="item.id as item.displayName for item in disciplinesList">
                 <option value=""></option>

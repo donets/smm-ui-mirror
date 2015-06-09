@@ -18,7 +18,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                     if(obj.studio.linkClassesToStudioDisciplines && obj.studio.disciplines) {
                         obj.disciplinestyle = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
                     } else {
-                        obj.disciplinestyle = [obj.discipline, obj.style];
+                        obj.disciplinestyle = [obj.disciplineId, obj.subDisciplineId];
                     }
                 });
                 _.map(res.classes.occurenceAccesses, function (obj) {
