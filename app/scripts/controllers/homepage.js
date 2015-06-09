@@ -155,7 +155,7 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
             $scope.form.successSubscribe = false;
             $scope.form.errorSubscribe = false;
             var invitation = {
-                email: $scope.invite.email,
+                email: $scope.invite.email.toLowerCase(),
                 postalCode: $scope.invite.postalCode,
                 landingUrl: $cookieStore.get('landingUrl'),
                 cityId: $scope.currentCity.id,
@@ -163,11 +163,11 @@ angular.module('boltApp.controllers.Homepage', ['uiGmapgoogle-maps'])
                 interestedInProduct: true,
                 lang: $rootScope.lang
             };
-            $window.sessionStorage.setItem('email', $scope.invite.email);
+            $window.sessionStorage.setItem('email', $scope.invite.email.toLowerCase());
             $http.post($window.smmConfig.restUrlBase + '/api/rest/invitations', invitation).success(function (response) {
                 $scope.form.loadingSubscribe = false;
                 $scope.form.successSubscribe = true;
-                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email, message: JSON.stringify($window.smmConfig)});
+                $http.post($window.smmConfig.restUrlBase + '/api/message', {email: $scope.invite.email.toLowerCase(), message: JSON.stringify($window.smmConfig)});
                 $scope.invite = {};
                 $scope.subscribeForm[locate].$setPristine();
                 $window.ga('send', 'event', 'Invitations', 'onSubscribe', locate);

@@ -22,7 +22,7 @@
         <p ng-if="currentCity" translate>Discover so much more - Yoga, Meditation, Fitness, Pilates, Dance, Martial Arts and Holistic Wellbeing in the finest studios all over {{ currentCity.defaultName }} - with one card.</p>
         <div class="subscribe-wrapper" id="subscribeMain" ng-class="{'invited': invitation}">
             <form name="subscribeForm.header" ng-show="!invitation" class="b-card-subscribe" ng-submit="subscribeCard('header')">
-                <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+\.[a-z0-9-]/" required />
+                <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="email" name="email" ng-model="invite.email" placeholder="{{'Email Address'|translate}}" ng-pattern="/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]/" required />
                 <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="text" class="zip" name="zip" ng-model="invite.postalCode" placeholder="{{'Postcode'|translate}}" ng-class="{'wide': lang === 'en'}" required/>
                 <input ng-hide="form.successSubscribe && subscribeForm.header.$pristine" type="submit" ng-disabled="form.loadingSubscribe" value="{{'Get your invitation'|translate}}"/>
                 <div class="form-response">
