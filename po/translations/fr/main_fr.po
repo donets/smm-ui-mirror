@@ -10,7 +10,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 
 #: app/views/main.html:9
 msgid "Be who you were born to be."
@@ -38,10 +38,10 @@ msgid ""
 "therapists in London.\n"
 "            <a ui-sref=\"more\">Learn more</a>"
 msgstr ""
-"Transformez votre esprit, corps et âme avec des professeurs, entraîneurs "
+"Transformez votre corps et votre esprit avec des professeurs, entraîneurs "
 "et thérapeutes exceptionnels à Paris (?).\n"
 "            <a ui-sref=\"plus\">En savoir plus</a>"
 
 #: app/views/main.html:3
 msgid "Welcome to you"
-msgstr "Bienvenue à vous"
+msgstr "Bienvenue"

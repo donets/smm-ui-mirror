@@ -10,7 +10,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 
 #: app/index.html:219
 msgid "&copy; Somuchmore Marketplace UG, 2015"
@@ -18,7 +18,7 @@ msgstr "&copy; Somuchmore Marketplace UG, 2015"
 
 #: app/index.html:214
 msgid "About us"
-msgstr "A propos de nous"
+msgstr "A propos"
 
 #: app/index.html:160
 msgid "Activities"
@@ -26,7 +26,7 @@ msgstr "Activités"
 
 #: app/index.html:173
 msgid "Be inspired"
-msgstr "Restons inspirés"
+msgstr "Soyons actifs"
 
 #: app/index.html:115 app/index.html:125 app/index.html:132
 #: app/index.html:139
@@ -47,7 +47,7 @@ msgstr "Nous suivre"
 
 #: app/index.html:216
 msgid "General terms &amp; conditions"
-msgstr "Termes et conditions générales"
+msgstr "Conditions générales"
 
 #: app/index.html:136
 msgid ""

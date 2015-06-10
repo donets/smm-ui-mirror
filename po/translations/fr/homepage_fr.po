@@ -14,7 +14,7 @@ msgstr ""
 
 #: app/views/homepage.html:240
 msgid "1. Order your card"
-msgstr "1. Obtenez votre carte"
+msgstr "1. Commandez votre carte"
 
 #: app/views/homepage.html:68
 msgid "14 day free trial"
@@ -22,11 +22,11 @@ msgstr "14 jours d'essai gratuits"
 
 #: app/views/homepage.html:245
 msgid "2. Book your class"
-msgstr "2. Réservez votre cours"
+msgstr "2. Réservez vos cours"
 
 #: app/views/homepage.html:250
 msgid "3. Get moving"
-msgstr "3. Restez actif"
+msgstr "3. Vivez Somuchmore"
 
 #: app/views/homepage.html:280 app/views/homepage.html:296
 msgid ""
@@ -34,10 +34,9 @@ msgid ""
 "up new options. The card gives me the freedom of not being tied to just one "
 "studio."
 msgstr ""
-"Un lifestyle holistique est la clé pour une vie plus saine et plus "
-"équilibré. Somuchmore offre une nouvelle manière de faire qui combine à la "
-"fois sport, bien-être et spiritualité. La carte me donne la liberté d’aller "
-"où je veux, quand je veux."
+"Un mode de vie épanoui est la clé d'une existence longue et heureuse. "
+"Somuchmore offre d'incroyables perspectives. La carte me donne la liberté et "
+"la flexibilité que je recherchais."
 
 #: app/views/homepage.html:361
 msgid "Anymore questions? Read our FAQ here ›"
@@ -50,16 +49,16 @@ msgstr "A tout moment"
 #: app/views/homepage.html:366
 msgid "Are you a studio, coach or nutritionist? Do you want to work with us?"
 msgstr ""
-"Vous êtes propriétaire d'une salle, coach ou nutritionniste ? Vous souhaitez "
-"travailler avec nous ?"
+"Vous êtes gérant d'une salle ? Vous êtes coach ou nutritionniste ? Vous "
+"souhaitez travailler avec nous ?"
 
 #: app/views/homepage.html:104 app/views/homepage.html:89
 msgid "Be inspired"
-msgstr "Un choix illimité"
+msgstr "Sur-mesure"
 
 #: app/views/homepage.html:100 app/views/homepage.html:84
 msgid "Break free"
-msgstr "Sans engagement"
+msgstr "Cours illimités"
 
 #: app/views/homepage.html:184 app/views/homepage.html:227
 msgid "Cancel / Freeze"
@@ -69,8 +68,8 @@ msgstr "Annuler / Geler"
 msgid ""
 "Choose from thousands of classes. Workout when you want, wherever you want."
 msgstr ""
-"Choisissez parmi des milliers de cours. Paris est votre espace bien-être, "
-"profitez-en !"
+"Faites vous conseiller et accompagner par nos experts, coachs sportifs et "
+"nutritionnistes. "
 
 #: app/views/homepage.html:131 app/views/homepage.html:16
 msgid "City"
@@ -90,12 +89,14 @@ msgstr "Cours par mois"
 
 #: app/views/homepage.html:183 app/views/homepage.html:223
 msgid "Courses per provider / month"
-msgstr "Cours par prestataire / mois"
+msgstr "Cours par partenaire / mois"
 
 #: app/views/homepage.html:109 app/views/homepage.html:95
 msgid ""
 "Create your personal workout plan. Spice up your routine. Stay motivated."
-msgstr "Vivez votre programme sur-mesure, en fonction de vos envies."
+msgstr ""
+"Votre carte Somuchmore est mensuelle et sans engagement : gelez ou résiliez "
+"votre abonnement quand vous le souhaitez !"
 
 #: app/views/homepage.html:22
 msgid ""
@@ -103,9 +104,10 @@ msgid ""
 "Arts and Holistic Wellbeing in the finest studios all over {{ currentCity."
 "defaultName }} - with one card."
 msgstr ""
-"Vous avez tant à découvrir - Yoga, Méditation, Fitness, Pilates, Danse, Arts "
-"Martiaux, Bien-être ... des milliers d'activités dans les meilleurs studios "
-"à {{ currentCity.defaultName }}"
+"Accédez aux plus beaux spas, massages, studios et clubs de gym à Paris. "
+"<b>Demandez votre invitation maintenant </b>et profitez des meilleurs cours "
+"de Yoga, Fitness, Pilates, Boxe, Danse, Arts Martiaux, à  {{ currentCity."
+"defaultName }}."
 
 #: app/views/homepage.html:339
 msgid "Do I have to book <br> my classes in advance?"
@@ -134,7 +136,8 @@ msgstr "Respirez. Explorez. #BeSomuchmore"
 
 #: app/views/homepage.html:246
 msgid "Find your class in seconds using our online calendar."
-msgstr "Choisissez vos cours en un clic grâce à notre calendrier en ligne."
+msgstr ""
+"Trouvez votre cours en quelques secondes grâce à notre calendrier en ligne."
 
 #: app/views/homepage.html:36 app/views/homepage.html:59
 #: app/views/homepage.html:69
@@ -147,7 +150,7 @@ msgstr "Obtenir votre invitation"
 
 #: app/views/homepage.html:66
 msgid "Get your invitation today"
-msgstr "Obtenir votre invitation dès aujourd'hui"
+msgstr "Obtenir votre invitation aujourd'hui"
 
 #: app/views/homepage.html:342
 msgid "How do I cancel or freeze <br> my membership?"
@@ -167,11 +170,11 @@ msgstr "Ma carte est-elle valable partout ?"
 
 #: app/views/homepage.html:241
 msgid "It takes less than 90 seconds. You can start right away."
-msgstr "Une minute devant vous ? Commencez tout de suite."
+msgstr "Cela prend moins de 90 secondes. Vous pouvez commencer tout de suite."
 
 #: app/views/homepage.html:236
 msgid "It’s so simple!"
-msgstr "Comment ça marche ?"
+msgstr "C'est si simple !"
 
 #: app/views/homepage.html:153
 msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
@@ -179,7 +182,7 @@ msgstr "Lancement {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
 
 #: app/views/homepage.html:76
 msgid "Learn more about the offer here ›"
-msgstr "Parcourez nos activités ›"
+msgstr "Découvrez plus sur l'offre ici ›"
 
 #: app/views/homepage.html:139
 msgid "List of studios"
@@ -187,7 +190,7 @@ msgstr "Liste des studios"
 
 #: app/views/homepage.html:172
 msgid "Live a healthy and fulfilled life"
-msgstr "Mieux vivre, plus sainement \n"
+msgstr "Vivez une vie saine et comblée"
 
 #: app/views/homepage.html:116
 msgid "London is calling"
@@ -203,10 +206,11 @@ msgid ""
 "think. Being mindful promotes a healthy mind, body and soul. This holistic "
 "approach to living is what attracted me to SoMuchMore"
 msgstr ""
-"L’esprit et le corps ne forment qu’un. Vos mouvements, votre façon de "
-"manger, de boire et de penser sont intimement liés. Le moral et la confiance "
-"en soi a un réel impact sur le corps. C'est cette philosophie qui m’a "
-"inspiré chez Somuchmore"
+"La conscience a un impact sur toute chose. Vos mouvements, votre façon de "
+"manger, boire et penser. Avoir la conscience de soi influera naturellement "
+"et positivement sur l'esprit, le corps et l'âme. C'est l'approche générale "
+"sur la conception d'un mode de vie sain qui m'a le plus attiré vers "
+"SoMuchMore."
 
 #: app/views/homepage.html:276 app/views/homepage.html:291
 msgid ""
@@ -214,13 +218,13 @@ msgid ""
 "contradictions. With Somuchmore it becomes easier to combine the two, which "
 "is important to me: meditating or learning more about personal growth."
 msgstr ""
-"Nos vies surmenées ne nous laissent pas forcément le temps de prendre soin "
-"de nous. Le pass Somuchmore me permet d’aller méditer chaque semaine et de "
-"reprendre confiance en moi grâce à un programme personnalisé. "
+"Mode de vie moderne et épanouissement ne sont pas obligatoirement en "
+"contradiction. Avec Somuchmore il devient plus facile de combiner les deux, "
+"ce qui m'importe: méditer ou apprendre sur le développement personnel."
 
 #: app/views/homepage.html:73
 msgid "One card. Unlimited classes."
-msgstr "Une carte. Cours illimités."
+msgstr "Une carte. Cours illimité."
 
 #: app/views/homepage.html:173
 msgid "Order your card – and set your life in motion."
@@ -231,16 +235,16 @@ msgid ""
 "Participate in fitness, health and wellbeing classes. Visit gyms, spas and "
 "studios."
 msgstr ""
-"Participez en illimité à tous les cours proposés sur Somuchmore. Rendez-vous "
-"dans nos salles, studios et spas partenaires."
+"Participez aux cours de fitness, santé et bien-être. Rendez-vous dans les "
+"salles de sport et les spas."
 
 #: app/views/homepage.html:369
 msgid "Phone Number"
-msgstr "Téléphone"
+msgstr "Numéro de Téléphone"
 
 #: app/views/homepage.html:26 app/views/homepage.html:49
 msgid "Postcode"
-msgstr "Code Postal"
+msgstr "C. Postal"
 
 #: app/views/homepage.html:181 app/views/homepage.html:211
 msgid "Price per month"
@@ -259,8 +263,8 @@ msgid ""
 "Say goodbye to long-term contracts. Cancel or freeze your card anytime. No "
 "obligation to anybody, or anything."
 msgstr ""
-"Oubliez les abonnements à long terme. Résiliez ou gelez votre abonnement à "
-"tout moment, quand vous le souhaitez."
+"Votre carte Somuchmore vous donne accès en illimité à plus de 2000 activités "
+"chaque semaine. Découvrez, profitez, progressez à volonté !"
 
 #: app/views/homepage.html:174
 msgid ""
@@ -289,11 +293,11 @@ msgstr "Les meilleurs studios de la ville vous attendent."
 
 #: app/views/homepage.html:108 app/views/homepage.html:94
 msgid "Train and Tone"
-msgstr "Restez actif"
+msgstr "Sans engagement"
 
 #: app/views/homepage.html:251
 msgid "Visit classes as often as you want."
-msgstr "Participez aux cours autant que vous le souhaitez, c'est illimité !"
+msgstr "Participez aux cours aussi souvent que vous voulez."
 
 #: app/views/homepage.html:74
 msgid ""
@@ -306,14 +310,14 @@ msgid ""
 "<b>Nutrition</b> and <b>Biomedicine</b>? Or simply want to chill out and "
 "unwind in the <b>Sauna</b> or <b>Spa</b>?"
 msgstr ""
-"Qu'avez-vous envie de faire aujourd'hui ? b>Yoga</b>, <b>Pilates</b> ou "
-"<b>Méditation</b> ? D’humeur plutôt extrême avec un cours de <b>CrossFit</"
-"b>, <b>TRX</b> ou <b>Barre Core</b> ? Envie de vous déhancher sur du "
-"<b>Tango</b>, <b>du Hip-Hop</b> ou <b>de la Salsa</b> ? Ou de vous relaxer "
-"et d’apaiser votre esprit grâce au <b>Tai Chi</b>, <b>au Qi Gong</b> ou "
-"<b>au Kung-Fu</b> ? Envie d'en apprendre plus sur la <b>Nutrition</b> et la "
-"<b>Médecine Holistique</b> ? Ou tout simplement, envie de décompresser dans "
-"un <b>Sauna</b> ou dans un <b>Spa</b> ?"
+"Qu'avez-vous envie de faire aujourd'hui ?<b> Yoga</b>, <b>Pilates</b> ou "
+"<b>Méditation</b> ? Vous pousser à l'extrême au <b>CrossFit</b>, <b>TRX</b> "
+"ou <b>Barre Core</b> ? Envie d'envahir la piste de danse sur du <b>Tango</"
+"b>, <b>Hip-Hop</b> ou <b>Salsa</b> ? Ou envie de se calmer, de se "
+"reconnecter en renforçant votre concentration grâce au <b>Tai Chi</b>, <b>Qi "
+"Gong</b> ou <b>Kung-Fu</b> ? Envie de découvrir ou d'en apprendre sur la "
+"<b>Nutrition</b> et la <b>Médecine holistique</b> ? Ou simplement envie de "
+"vous détendre et de décompresser au <b>Sauna</b> ou <b>Spa</b> ?"
 
 #: app/views/homepage.html:333 app/views/homepage.html:348
 msgid "What can I do with my card?"
@@ -331,7 +335,9 @@ msgstr "Oui. Votre carte est valable chez tous nos partenaires."
 msgid ""
 "You can cancel on a monthly base. Or freeze your membership for a month or "
 "more."
-msgstr "Vous pouvez résilier ou gelez à tout moment. C'est ça la liberté !"
+msgstr ""
+"Vous pouvez résilier mensuellement. Ou geler votre abonnement pendant un "
+"mois ou plus."
 
 #: app/views/homepage.html:277 app/views/homepage.html:292
 msgid "– Alexandra Liakou, director"
