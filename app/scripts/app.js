@@ -1015,6 +1015,15 @@ angular.module('boltApp')
 					$rootScope.autoscroll = true;
 				}
 			})
+			.state('privacy', {
+				url: '/p/privacy/',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/privacy.html');
+                },
+				onExit: function($rootScope) {
+					$rootScope.autoscroll = true;
+				}
+			})
 			.state('agb', {
 				url: '/p/agb/',
                 templateProvider: function($templateCache){

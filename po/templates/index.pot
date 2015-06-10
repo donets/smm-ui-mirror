@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/index.html:191
+#: app/index.html:192
 msgid "&copy; Somuchmore Marketplace UG, 2015"
 msgstr ""
 
@@ -30,11 +30,11 @@ msgstr ""
 msgid "Contact us"
 msgstr ""
 
-#: app/index.html:202
+#: app/index.html:203
 msgid "Continue to the courses"
 msgstr ""
 
-#: app/index.html:189
+#: app/index.html:190
 msgid "FAQ"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Follow us"
 msgstr ""
 
-#: app/index.html:201
+#: app/index.html:202
 msgid "From now on you can find a list of all our partner studios here. You can even start before your card arrives. Print out your class confirmation and take a photo ID to your chosen studio, et voilá! Have Fun!"
 msgstr ""
 
@@ -56,6 +56,10 @@ msgstr ""
 
 #: app/index.html:118
 msgid "Please check studios' websites for any last minute holiday weekend schedule changes"
+msgstr ""
+
+#: app/index.html:189
+msgid "Privacy policy"
 msgstr ""
 
 #: app/index.html:127
@@ -74,7 +78,7 @@ msgstr ""
 msgid "Successfully saved"
 msgstr ""
 
-#: app/index.html:200
+#: app/index.html:201
 msgid "Thank you for your registration!"
 msgstr ""
 

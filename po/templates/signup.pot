@@ -310,9 +310,9 @@ msgid "name@example.com"
 msgstr ""
 
 #: app/views/signup.html:345
-msgid "{{order.voucher}} is not a valid voucher code."
+msgid "{{errorVoucherCode}} is not a valid voucher code."
 msgstr ""
 
 #: app/views/signup.html:346
-msgid "{{order.voucher}} is only valid for the {{typeVoucher}} CARD"
+msgid "{{errorVoucherCode}} is only valid for the {{typeVoucher}} CARD"
 msgstr ""

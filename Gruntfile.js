@@ -455,6 +455,7 @@ module.exports = function(grunt) {
                     'po/templates/loginForm.pot': ['app/views/_loginForm.html'],
                     'po/templates/about.pot': ['app/views/about.html'],
                     'po/templates/agb.pot': ['app/views/agb.html'],
+                    'po/templates/privacy.pot': ['app/views/privacy.html'],
                     'po/templates/class.pot': ['app/views/class.html'],
                     'po/templates/classes.pot': ['app/views/classes.html'],
                     'po/templates/entity.pot': ['app/views/entity.html'],
