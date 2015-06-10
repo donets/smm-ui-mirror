@@ -21,7 +21,7 @@ angular.module('boltApp.controllers.Class', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplineLangs?langId=' + ($rootScope.langId || 1)),
                 $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplines')]).then(function (res) {
                 _.map(res[2].data, function (obj) {
-                    var discipline = _.findWhere(res[0].data, {disciplineId: obj.id});
+                    var discipline = _.findWhere(res[0].data, {disciplineId: obj.disciplineId});
                     var subDiscipline = _.findWhere(res[1].data, {subDisciplineId: obj.id});
                     obj.disciplineName = discipline ? discipline.name : 'none';
                     obj.subDisciplineName = subDiscipline ? subDiscipline.name : 'none';
