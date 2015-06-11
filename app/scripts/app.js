@@ -529,28 +529,6 @@ angular.module('boltApp')
                 },
 				controller: 'CreateClassCtrl'
 			})
-            .state('admin.classes.class', {
-                url: ':classId/',
-                templateProvider: function($templateCache){
-                    return $templateCache.get('app/views/class.html');
-                },
-                resolve: {
-
-                    getClass: function(RestApi, $stateParams) {
-
-                        return RestApi.get({route: 'events'}, {id: $stateParams.classId}).$promise;
-
-                    },
-
-                    getOccurrences: function(RestApi, $stateParams) {
-
-                        return RestApi.query({route: 'occurrences',parentId: $stateParams.classId}).$promise;
-
-                    }
-
-                },
-                controller: 'ClassCtrl'
-            })
             .state('admin.classes.import', {
                 url: 'import/',
                 templateProvider: function($templateCache){
@@ -667,6 +645,28 @@ angular.module('boltApp')
                     $scope.importEntity = $scope.handleRemoteRules($scope.importEntity);
                     $scope.importData = ImportData;
                 }
+            })
+            .state('admin.classes.class', {
+                url: ':classId/',
+                templateProvider: function($templateCache){
+                    return $templateCache.get('app/views/class.html');
+                },
+                resolve: {
+
+                    getClass: function(RestApi, $stateParams) {
+
+                        return RestApi.get({route: 'events'}, {id: $stateParams.classId}).$promise;
+
+                    },
+
+                    getOccurrences: function(RestApi, $stateParams) {
+
+                        return RestApi.query({route: 'occurrences',parentId: $stateParams.classId}).$promise;
+
+                    }
+
+                },
+                controller: 'ClassCtrl'
             })
             .state('admin.booking', {
                 url: 'bookings/:bookingId/',
