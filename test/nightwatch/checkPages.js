@@ -41,6 +41,7 @@ module.exports = {
 	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'IMPRESSUM')
   },
+  
 
   'Check AGB link on bottom': function (browser) {
     browser
@@ -49,11 +50,19 @@ module.exports = {
 	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'ALLGEMEINE')
   },
+  
+  'Check Privacy Policy link on bottom': function (browser) {
+    browser
+	  .assert.containsText('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)','Privacy policy')
+      .click('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)')
+	  .waitForElementVisible('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
+      .verify.containsText('.b-main-slogan > h2:nth-child(1) > span:nth-child(1)', 'PRIVACY AND COOKIES POLICY')
+  },
 
   'Check FAQ link on bottom': function (browser) {
     browser
-	  .assert.containsText('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)','FAQ')
-      .click('.b-footer-nav__menu > li:nth-child(4) > a:nth-child(1) > span:nth-child(1)')
+	  .assert.containsText('.b-footer-nav__menu > li:nth-child(5) > a:nth-child(1) > span:nth-child(1)','FAQ')
+      .click('.b-footer-nav__menu > li:nth-child(5) > a:nth-child(1) > span:nth-child(1)')
 	  .waitForElementVisible('.faq__article > h1:nth-child(1)',browser.globals.waitPOST,false,undefined,'Page must be opened in same window')
       .verify.containsText('.faq__article > h1:nth-child(1)', 'Guide to Somuchmore')
 	  .end()
