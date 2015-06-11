@@ -59,17 +59,6 @@ angular.module('boltApp.controllers.Classfilters', [])
         };
         $scope.clearFilters();
 
-        $scope.searchDiscipline = function(discipline) {
-            if (discipline) {
-                if (discipline.type === 'Activities') {
-                    $scope.search.class.disciplineId = discipline.disciplineId;
-                } else {
-                    $scope.search.class.disciplineId = discipline.subDisciplineId;
-                }
-                console.log($scope.search.class.disciplineId);
-            }
-        };
-
         $scope.showDatepicker = {};
         $scope.openDatepicker = function($event, type) {
             $event.preventDefault();

@@ -16,9 +16,9 @@ angular.module('boltApp.controllers.Dashboard', [])
                     var studio = _.findWhere($scope.allstudios, {id: obj.studioId});
                     obj.studio = obj.studioId && studio ? studio : '';
                     if(obj.studio.linkClassesToStudioDisciplines && obj.studio.disciplines) {
-                        obj.disciplinestyle = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
+                        obj.disciplinestyleName = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
                     } else {
-                        obj.disciplinestyle = [obj.disciplineId, obj.subDisciplineId];
+                        obj.disciplinestyleId = [obj.disciplineId, obj.subDisciplineId];
                     }
                 });
                 _.map(res.classes.occurenceAccesses, function (obj) {
@@ -40,7 +40,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                     return moment(event.start_date).isAfter(moment());
                 });
                 _.map($scope.styles, function (item) {
-                    item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
+                    item.disabled = !_.include(_.compact(_.uniq(_.pluck(res.classes.classAccesses, 'subDisciplineId'))), item.subDisciplineId);
                 });
                 $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                 $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
