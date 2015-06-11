@@ -25,9 +25,9 @@ angular.module('boltApp.controllers.Class', [])
                     var subDiscipline = _.findWhere(res[1].data, {subDisciplineId: obj.id});
                     obj.disciplineName = discipline ? discipline.name : 'none';
                     obj.subDisciplineName = subDiscipline ? subDiscipline.name : 'none';
-                    return obj.displayName = obj.id + '.' + obj.disciplineName + '-' + obj.subDisciplineName;
+                    return obj.displayName = obj.id + '. ' + obj.disciplineName + '-' + obj.subDisciplineName;
                 });
-                $scope.disciplinesList = res[2].data;
+                $scope.disciplinesList = _.sortBy(res[2].data, 'id');
             });
         };
 

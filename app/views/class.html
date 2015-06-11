@@ -202,6 +202,7 @@
                     id="subdisciplineId"
                     ng-model="class.subDisciplineId"
                     disable-search="false"
+                    search-contains="true"
                     allow-single-deselect="true" ng-change="setDisciplineId(class.subDisciplineId)"
                     ng-options="item.id as item.displayName for item in disciplinesList">
                 <option value=""></option>
