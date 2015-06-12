@@ -176,7 +176,7 @@
                     </td>
                     <td><span class="title" ng-click="bookClass(e, 'title')">{{e.class.title}}</span></td>
                     <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
-                    <td><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.class.studio"><a ui-sref="studio({studioId: e.class.studio.id})" ng-if="e.class.studio.profileComplete" target="_blank">{{e.class.studio.name}}</a><span ng-if="!e.class.studio.profileComplete">{{e.class.studio.name}}</span></span></td>
+                    <td ng-if="!$state.includes('studio')"><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.class.studio"><a ui-sref="studio({studioId: e.class.studio.id})" ng-if="e.class.studio.profileComplete" target="_blank">{{e.class.studio.name}}</a><span ng-if="!e.class.studio.profileComplete">{{e.class.studio.name}}</span></span></td>
                     <td disable-animate>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>

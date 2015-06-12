@@ -79,6 +79,7 @@ angular.module('boltApp.controllers.Classfilters', [])
 
                     function ($scope, $rootScope, $modalInstance, event) {
                         $scope.event = event;
+                        console.log(event);
                         $analytics.eventTrack({
                             'event': 'PDP',
                             'elementClicked': elementClicked,              // Set to 'title'|'CTA'. title-if class headline was clicked, CTA if 'RESERVE' button was clicked.

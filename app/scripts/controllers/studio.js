@@ -59,6 +59,10 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                     } else {
                         obj.disciplinestyle = [obj.discipline, obj.style];
                     }
+                    obj.studio = $scope.studio;
+                });
+                _.map(res.classes.occurenceAccesses, function (obj) {
+                    obj.location = location;
                 });
                 $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
                     event.start_date = moment(event.date + 'T' + event.startTime);
