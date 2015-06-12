@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window, $interval) {
         var fetchClasses = function (date) {
             $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: $scope.cityId, date: date.format('YYYY-MM-DD')}).success(function (res) {
@@ -45,6 +45,10 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                 $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
                 $scope.showSpinner = false;
+                $interval(function () {
+                    $('#neigbourhood').trigger("chosen:updated");
+                    $('#discipline').trigger("chosen:updated");
+                }, 0, 1, {invokeApply: false});
             });
         };
         var fetchData = function (city) {

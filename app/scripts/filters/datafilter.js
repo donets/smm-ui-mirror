@@ -47,7 +47,6 @@ angular.module('boltApp')
         return function(list, target) {
                 if (list && target) {
                     var value;
-                    console.log(target);
                     return _.filter(list, function(item) {
                         var discipline = target;
                         if (item.class.disciplinestyleName) {
@@ -60,7 +59,6 @@ angular.module('boltApp')
                             } else {
                                 discipline = discipline.subDisciplineId;
                             }
-                            console.log(discipline);
                         }
                         if(_.isArray(value)) {
                             if(_.indexOf(value, discipline) !== -1) {
