@@ -33,7 +33,7 @@ module.exports = {
 	  .assert.elementNotPresent('.ignored-columns')
   },
   
-    'Validate no error message present and data processed': function (browser) { 
+    '(INSERT)Validate no error message present and data processed': function (browser) { 
 	browser
 	.getAttribute('.green', 'disabled', function(result) {this.assert.equal(result.value, null);})//asserting that all rows are OK and import button is enabled
 	.click('.green')
@@ -57,7 +57,39 @@ module.exports = {
 				assert.equal(data.classes.classAccesses[i].title.indexOf("test#005")>-1,true,'PASSED:'+data.classes.classAccesses[i].title);
 			}
 		});
-	  })//тут очень долго можно ждать ставлю 300 секунд 
+	  })
+  },
+  
+   '(UPDATE)Validate no error message present and data processed': function (browser) { 
+	browser
+	.refresh()
+	.waitForElementVisible('.btn', browser.globals.waitPOST)
+    .setValue('.btn',absolutePath)	  
+	.waitForElementVisible('tr.ng-scope:nth-child(1) > td:nth-child(2)',browser.globals.waitUI)
+	.assert.elementNotPresent('.ignored-columns')
+	.getAttribute('.green', 'disabled', function(result) {this.assert.equal(result.value, null);})//asserting that all rows are OK and import button is enabled
+	.click('.green')
+	.waitForElementVisible('.modal-content',browser.globals.waitUI)
+	.waitForElementVisible('.form-button',browser.globals.waitImport,true,function(){
+		var params = browser.globals;
+		var assert = this.assert;//passing node assert to this level
+		
+		var RESTClient = require('node-rest-client').Client;
+		var RESTclient = new RESTClient();
+		var args = {
+		  data: { "cityId":4,"locationId":"27452","discipline":"Tanz"},
+		  headers:{"Content-Type": "application/json"} 
+		};
+
+		RESTclient.post("https://stage-smm-api.herokuapp.com/api/classes/get/all", args, function(data,response) {
+			assert.equal(data.status,"success",data.messages);
+			assert.equal(data.classes.occurenceAccesses.length,50);
+			assert.equal(data.classes.classAccesses.length,50);
+			for (i = 0; i < data.classes.classAccesses.length; i++) {
+				assert.equal(data.classes.classAccesses[i].title.indexOf("test#005")>-1,true,'PASSED:'+data.classes.classAccesses[i].title);
+			}
+		});
+	  })
 	.pause(3000, function(){		
 		var pg = require('pg');
 		var client = new pg.Client(browser.globals.conString);
@@ -79,4 +111,6 @@ module.exports = {
 	.pause(3000)//pause to sync SQL function execution from previous lines
 	.end()
   }
+  
+  
 };
