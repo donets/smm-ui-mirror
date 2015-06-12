@@ -10,7 +10,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 
 #: app/views/modalActivate.html:114
 msgid "Activate my account now"
@@ -170,4 +170,4 @@ msgstr "ex : ABCD1234"
 
 #: app/views/modalActivate.html:72
 msgid "e.g. DE12 3456 7890 1234 5678 90"
-msgstr "ex : DE12 3456 7890 1234 5678 90"
+msgstr "ex : FR12 3456 7890 1234 5678 90"

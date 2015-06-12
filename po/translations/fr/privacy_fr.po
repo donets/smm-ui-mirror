@@ -12,10 +12,6 @@ msgstr ""
 "PO-Revision-Date: \n"
 "X-Generator: Poedit 1.7.5\n"
 
-#: app/views/modalAttend.html:3
-msgid "Details about the class:"
-msgstr "Détails du cours :"
-
-#: app/views/modalAttend.html:7
-msgid "OK"
-msgstr "OK"
+#: app/views/privacy.html:3
+msgid "PRIVACY AND COOKIES POLICY"
+msgstr "Politique de confidentialité <br/> et cookies"
