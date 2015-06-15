@@ -232,7 +232,7 @@
             }
         }
     }
-    button {
+    button, .manage-button {
         width: 148px;
         height: 42px;
         background: $colorLink;
@@ -248,6 +248,13 @@
         &.disabled {
             background: $colorLightGrey;
         }
+    }
+    .manage-button {
+        display: block;
+        line-height: 42px;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
     }
 }
 .timetable-mobile {

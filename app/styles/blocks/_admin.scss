@@ -1013,7 +1013,7 @@
                 }
             }
         }
-        button {
+        button, .manage-button {
             width: 100px;
             height: 50px;
             font-size: 15px;
@@ -1023,6 +1023,9 @@
             span {
                 margin: 0;
             }
+        }
+        .manage-button {
+            line-height: 50px;
         }
         &.user-classes {
             tr {
