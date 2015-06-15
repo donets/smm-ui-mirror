@@ -42,6 +42,34 @@ angular.module('boltApp')
             }
             return list;
         };
+    })
+    .filter('disciplineFilter', function() {
+        return function(list, target) {
+                if (list && target) {
+                    var value;
+                    return _.filter(list, function(item) {
+                        var discipline = target;
+                        if (item.class.disciplinestyleName) {
+                            value = item.class.disciplinestyleName;
+                            discipline = discipline.name;
+                        } else if (item.class.disciplinestyleId) {
+                            value = item.class.disciplinestyleId;
+                            if (discipline.type === 'Activities') {
+                                discipline = discipline.disciplineId;
+                            } else {
+                                discipline = discipline.subDisciplineId;
+                            }
+                        }
+                        if(_.isArray(value)) {
+                            if(_.indexOf(value, discipline) !== -1) {
+                                return value;
+                            }
+                        }
+                        return value === discipline;
+                    });
+                }
+            return list;
+        };
     });
 
 angular.module('boltApp')

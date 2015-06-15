@@ -8,9 +8,10 @@
                         ng-model="search.class.discipline"
                         data-placeholder="{{'All activities'|translate}}"
                         disable-search="false"
+                        search-contains="true"
                         allow-single-deselect="true"
                         ng-options-disabled="item.disabled for item in mergeDS"
-                        ng-options="item.name as item.name group by item.type for item in mergeDS">
+                        ng-options="item as item.name group by item.type for item in mergeDS">
                     <option value=""></option>
                 </select>
                 <em ng-if="cities" translate>in</em>
@@ -44,7 +45,7 @@
             </div>
             <div ng-if="desktop" class="short-filters">
                 <ul class="filters-list">
-                    <li ng-if="mergeDS">{{search.class.discipline ? search.class.discipline : 'All activities'}}</li>
+                    <li ng-if="mergeDS">{{search.class.discipline ? search.class.discipline.name : 'All activities'}}</li>
                     <li ng-if="cities">{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
                     <li ng-if="neigbourhood">{{search.location ? search.location : 'All districts'}}</li>
                     <li ng-if="studios">{{search.class.studioId ? _.findWhere(studios, {id: search.class.studioId}).name : 'All Studios'}}</li>
@@ -75,7 +76,7 @@
                         {{search.class.discipline || search.location || search.class.studioId ? (events
                         | isAfter: 'start_date': search.start
                         | isBefore: 'end_date': search.end
-                        | dataFilter: 'class.disciplinestyle': search.class.discipline
+                        | disciplineFilter: search.class.discipline
                         | dataFilter: 'location.neigbourhood': search.location
                         | dataFilter: 'class.studioId': search.class.studioId).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
                 </div>
@@ -85,8 +86,9 @@
                         id="discipline" width="'100%'" ng-if="mergeDS"
                         ng-model="search.class.discipline"
                         disable-search="false"
-                        allow-single-deselect="true"
-                        ng-options="item.name as item.name group by item.type for item in mergeDS">
+                        allow-single-deselect="true" ng-change="searchDiscipline(search.class.discipline)"
+                        ng-options-disabled="item.disabled for item in mergeDS"
+                        ng-options="item as item.name group by item.type for item in mergeDS">
                     <option value="" translate>All activities</option>
                 </select>
                 <select chosen name="city" width="'100%'" ng-if="cities"
@@ -125,7 +127,7 @@
             <div class="b-class-item" ng-hide="showSpinner" ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.disciplinestyle': search.class.discipline
+                            | disciplineFilter: search.class.discipline
                             | dataFilter: 'location.neigbourhood': search.location
                             | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime'">
                 <div class="b-class-item__time">
@@ -153,7 +155,7 @@
             <div ng-hide="showSpinner" ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.disciplinestyle': search.class.discipline
+                            | disciplineFilter: search.class.discipline
                             | dataFilter: 'location.neigbourhood': search.location
                             | dataFilter: 'class.studioId': search.class.studioId).length">
                 <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
@@ -168,7 +170,7 @@
                 <tr ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.disciplinestyle': search.class.discipline
+                            | disciplineFilter: search.class.discipline
                             | dataFilter: 'location.neigbourhood': search.location
                             | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime'" >
                     <td>
@@ -189,7 +191,7 @@
                 <tr ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | dataFilter: 'class.disciplinestyle': search.class.discipline
+                            | disciplineFilter: search.class.discipline
                             | dataFilter: 'location.neigbourhood': search.location
                             | dataFilter: 'class.studioId': search.class.studioId).length">
                     <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>

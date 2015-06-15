@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Dashboard', [])
-    .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window) {
+    .controller('DashboardCtrl', function ($scope, $rootScope, $q, RestApi, $cookieStore, $modal, gettextCatalog, $http, $window, $interval) {
         var fetchClasses = function (date) {
             $scope.showSpinner = true;
             $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {cityId: $scope.cityId, date: date.format('YYYY-MM-DD')}).success(function (res) {
@@ -16,9 +16,9 @@ angular.module('boltApp.controllers.Dashboard', [])
                     var studio = _.findWhere($scope.allstudios, {id: obj.studioId});
                     obj.studio = obj.studioId && studio ? studio : '';
                     if(obj.studio.linkClassesToStudioDisciplines && obj.studio.disciplines) {
-                        obj.disciplinestyle = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
+                        obj.disciplinestyleName = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
                     } else {
-                        obj.disciplinestyle = [obj.discipline, obj.style];
+                        obj.disciplinestyleId = [obj.disciplineId, obj.subDisciplineId];
                     }
                 });
                 _.map(res.classes.occurenceAccesses, function (obj) {
@@ -40,11 +40,15 @@ angular.module('boltApp.controllers.Dashboard', [])
                     return moment(event.start_date).isAfter(moment());
                 });
                 _.map($scope.styles, function (item) {
-                    item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
+                    item.disabled = !_.include(_.compact(_.uniq(_.pluck(res.classes.classAccesses, 'subDisciplineId'))), item.subDisciplineId);
                 });
                 $scope.studios = _.uniq(_.pluck(res.classes.classAccesses, 'studio'));
                 $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
                 $scope.showSpinner = false;
+                $interval(function () {
+                    $('#neigbourhood').trigger("chosen:updated");
+                    $('#discipline').trigger("chosen:updated");
+                }, 0, 1, {invokeApply: false});
             });
         };
         var fetchData = function (city) {

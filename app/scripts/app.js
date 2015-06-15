@@ -646,28 +646,28 @@ angular.module('boltApp')
                     $scope.importData = ImportData;
                 }
             })
-			.state('admin.classes.class', {
-				url: ':classId/',
+            .state('admin.classes.class', {
+                url: ':classId/',
                 templateProvider: function($templateCache){
                     return $templateCache.get('app/views/class.html');
                 },
-				resolve: {
+                resolve: {
 
-					getClass: function(RestApi, $stateParams) {
+                    getClass: function(RestApi, $stateParams) {
 
-						return RestApi.get({route: 'events'}, {id: $stateParams.classId}).$promise;
+                        return RestApi.get({route: 'events'}, {id: $stateParams.classId}).$promise;
 
-					},
+                    },
 
-					getOccurrences: function(RestApi, $stateParams) {
+                    getOccurrences: function(RestApi, $stateParams) {
 
-						return RestApi.query({route: 'occurrences',parentId: $stateParams.classId}).$promise;
+                        return RestApi.query({route: 'occurrences',parentId: $stateParams.classId}).$promise;
 
-					}
+                    }
 
-				},
-				controller: 'ClassCtrl'
-			})
+                },
+                controller: 'ClassCtrl'
+            })
             .state('admin.booking', {
                 url: 'bookings/:bookingId/',
                 templateProvider: function($templateCache){

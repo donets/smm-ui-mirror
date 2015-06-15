@@ -11,12 +11,34 @@
 /* jshint undef:false */
 
 angular.module('boltApp.controllers.Class', [])
-    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, getStudios, RestApi, gettextCatalog) {
+    .controller('ClassCtrl', function ($scope, $rootScope, $document, getClass, getOccurrences, getLocations, getStudios, $http, $q, $window, RestApi, gettextCatalog) {
         $scope.moment = moment();
         $scope._ = _;
         $scope.form = {};
+
+        var getDisciplinesList = function () {
+            $q.all([$http.get($window.smmConfig.restUrlBase + '/api/v2/rest/disciplineLangs?langId=' + ($rootScope.langId || 1)),
+                $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplineLangs?langId=' + ($rootScope.langId || 1)),
+                $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplines')]).then(function (res) {
+                _.map(res[2].data, function (obj) {
+                    var discipline = _.findWhere(res[0].data, {disciplineId: obj.disciplineId});
+                    var subDiscipline = _.findWhere(res[1].data, {subDisciplineId: obj.id});
+                    obj.disciplineName = discipline ? discipline.name : 'none';
+                    obj.subDisciplineName = subDiscipline ? subDiscipline.name : 'none';
+                    return obj.displayName = obj.id + '. ' + obj.disciplineName + '-' + obj.subDisciplineName;
+                });
+                $scope.disciplinesList = _.sortBy(res[2].data, 'id');
+            });
+        };
+
+        $scope.setDisciplineId = function (id) {
+            var discipline = _.findWhere($scope.disciplinesList, {id: id});
+            $scope.class.disciplineId = discipline ? discipline.disciplineId : null;
+        };
+
         getClass.$promise.then(function () {
             $scope.class = getClass;
+            getDisciplinesList();
         });
 
         getLocations.$promise.then(function () {
@@ -68,14 +90,6 @@ angular.module('boltApp.controllers.Class', [])
             {id: '2', text: gettextCatalog.getString('Medium')},
             {id: '3', text: gettextCatalog.getString('Advanced')}
         ];
-
-        /*var exportTag = function (name) {
-            $scope[name] = _.map($scope.class[name], function(tag) { return { text: tag }; });
-        };
-
-        $scope.importTag = function (name) {
-            $scope.class[name] = _.map($scope[name], function(tag) { return tag.text; });
-        };*/
 
         setWeekdayList($scope.weekdayList);
 

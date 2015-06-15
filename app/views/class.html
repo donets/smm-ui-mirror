@@ -165,14 +165,14 @@
         <div class="form-rel">
             <label class="form-label" for="level" translate>Level</label>
             <select chosen
-                    id="level"
-                    ng-model="class.level"
-                    data-placeholder="{{'All Levels'|translate}}"
-                    disable-search="true"
-                    allow-single-deselect="true"
-                    ng-options="item.id as item.text for item in levels">
-                <option value=""></option>
-            </select>
+                             id="level"
+                             ng-model="class.level"
+                             data-placeholder="{{'All Levels'|translate}}"
+                             disable-search="true"
+                             allow-single-deselect="true"
+                             ng-options="item.id as item.text for item in levels">
+            <option value=""></option>
+        </select>
         </div>
         <div class="form-rel flex">
             <div class="form-row">
@@ -195,6 +195,18 @@
         <div class="form-rel">
             <label class="form-label" for="style" translate>Style</label>
             <input class="form-input" type="text" ng-model="class.style" id="style"/>
+        </div>
+        <div class="form-rel">
+            <label class="form-label" for="style" translate>New Discipline</label>
+            <select chosen
+                    id="subdisciplineId"
+                    ng-model="class.subDisciplineId"
+                    disable-search="false"
+                    search-contains="true"
+                    allow-single-deselect="true" ng-change="setDisciplineId(class.subDisciplineId)"
+                    ng-options="item.id as item.displayName for item in disciplinesList">
+                <option value=""></option>
+            </select>
         </div>
         <div class="form-rel large">
             <label class="form-label" for="description" translate>Description</label>
