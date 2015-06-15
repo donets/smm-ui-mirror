@@ -814,6 +814,14 @@ angular.module('boltApp')
                                 $rootScope.neigbourhood = _.pluck(res, 'name');
                             });
                         };
+                        $rootScope.updateMapGeocode = function () {
+                            $http.get($window.smmConfig.restUrlBase + '/api/locations/' + $rootScope.$stateParams.entityId + '/updateGeoCode').success(function(response) {
+                                console.log(response);
+                            }).error(function(response, status) {
+                                console.error(response);
+                                console.error(status);
+                            });
+                        };
 					}
 
 					$rootScope.showDatepicker = {};

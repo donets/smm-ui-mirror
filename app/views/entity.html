@@ -83,6 +83,9 @@
                     kein Foto
                 </div>
             </div>
+            <div class="form-rel" ng-if="field.type === 'updateMapGeocode' && $stateParams.route === 'locations'">
+                <button class="form-button" ng-click="updateMapGeocode()" translate>Update Map Geocode</button>
+            </div>
             <div class="form-rel" ng-if="field.type === 'entity'">
                 <div class="form-rel" ng-class="{'large': subField.large}" ng-repeat="subField in field.fields | filter: {readonly: '!'+true && '!'+$stateParams.entityId}">
                     <label class="form-label" ng-if="subField.type !== 'checkbox'" for="{{subField.model}}">{{subField.title}}</label>

@@ -25,6 +25,8 @@
            }, {
                "model": "address_2",
                "title": "Additional address"
+           }, {
+               "type": "updateMapGeocode"
            }
        ],
        "studios": [
