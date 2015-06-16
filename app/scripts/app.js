@@ -875,7 +875,7 @@ angular.module('boltApp')
 						return _.indexOf(['checkbox', 'photo', 'entity'], fieldType) > -1;
 					};
 
-                    $scope.limit = 10;
+                    $scope.limit = 20;
                     $scope.showMore = function () {
                         $scope.limit += 5;
                     };
