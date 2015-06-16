@@ -5,7 +5,7 @@
                 <em ng-if="mergeDS" translate>Show</em>
                 <select chosen
                         id="discipline" ng-if="mergeDS"
-                        ng-model="search.class.discipline"
+                        ng-model="search.discipline"
                         data-placeholder="{{'All activities'|translate}}"
                         disable-search="false"
                         search-contains="true"
@@ -35,7 +35,7 @@
                 <em ng-if="studios" translate>, or</em>
                 <select chosen
                         id="studio" ng-if="studios"
-                        ng-model="search.class.studioId"
+                        ng-model="search.studioId"
                         data-placeholder="{{'All studios'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
@@ -45,10 +45,10 @@
             </div>
             <div ng-if="desktop" class="short-filters">
                 <ul class="filters-list">
-                    <li ng-if="mergeDS">{{search.class.discipline ? search.class.discipline.name : 'All activities'}}</li>
+                    <li ng-if="mergeDS">{{search.discipline ? search.discipline.name : 'All activities'}}</li>
                     <li ng-if="cities">{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
                     <li ng-if="neigbourhood">{{search.location ? search.location : 'All districts'}}</li>
-                    <li ng-if="studios">{{search.class.studioId ? _.findWhere(studios, {id: search.class.studioId}).name : 'All Studios'}}</li>
+                    <li ng-if="studios">{{search.studioId ? _.findWhere(studios, {id: search.studioId}).name : 'All Studios'}}</li>
                 </ul>
             </div>
             <div ng-if="desktop" class="short-time">
@@ -73,20 +73,20 @@
                 </div>
                 <div class="form-rel half">
                     <button class="control-button" ng-click="filtersMobileShow()">
-                        {{search.class.discipline || search.location || search.class.studioId ? (events
+                        {{search.discipline || search.location || search.studioId ? (events
                         | isAfter: 'start_date': search.start
                         | isBefore: 'end_date': search.end
-                        | disciplineFilter: search.class.discipline
+                        | disciplineFilter: search.discipline
                         | dataFilter: 'location.neigbourhood': search.location
-                        | dataFilter: 'class.studioId': search.class.studioId).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
+                        | dataFilter: 'studioId': search.studioId).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
                 </div>
             </div>
             <div class="mobile-filters" ng-show="filtersMobile" ng-if="mobile">
                 <select chosen
                         id="discipline" width="'100%'" ng-if="mergeDS"
-                        ng-model="search.class.discipline"
+                        ng-model="search.discipline"
                         disable-search="false"
-                        allow-single-deselect="true" ng-change="searchDiscipline(search.class.discipline)"
+                        allow-single-deselect="true" ng-change="searchDiscipline(search.discipline)"
                         ng-options-disabled="item.disabled for item in mergeDS"
                         ng-options="item as item.name group by item.type for item in mergeDS">
                     <option value="" translate>All activities</option>
@@ -108,7 +108,7 @@
                 </select>
                 <select chosen
                         id="studio" width="'100%'" ng-if="studios"
-                        ng-model="search.class.studioId"
+                        ng-model="search.studioId"
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options="item.id as item.name for item in studios | orderBy: 'name'">
@@ -127,17 +127,17 @@
             <div class="b-class-item" ng-hide="showSpinner" ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | disciplineFilter: search.class.discipline
+                            | disciplineFilter: search.discipline
                             | dataFilter: 'location.neigbourhood': search.location
-                            | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime' | limitTo: show.limit">
+                            | dataFilter: 'studioId': search.studioId | orderBy: 'startTime' | limitTo: show.limit">
                 <div class="b-class-item__time">
                     <b>{{e.start_date | amDateFormat: 'HH:mm'}}<span ng-if="desktop"> – {{e.end_date | amDateFormat: 'HH:mm'}}</span></b>
                 </div>
                 <div class="b-class-item__info">
-                    <b>{{e.class.title}}</b>
-                    <p><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span> <span ng-if="e.teacherName">{{e.teacherName}}</span></p>
-                    <p><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.class.studio">{{e.class.studio.name}}</span></p>
-                    <p class="description" ng-if="e.class.description">{{e.class.description}}</p>
+                    <b>{{e.title}}</b>
+                    <p><span ng-if="e.discipline">{{e.discipline}}</span> <span ng-if="e.style">{{e.style}}</span> <span ng-if="e.teacherName">{{e.teacherName}}</span></p>
+                    <p><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.studio">{{e.studio.name}}</span></p>
+                    <p class="description" ng-if="e.description">{{e.description}}</p>
                     <p class="success cf" ng-if="e.bookingStatus === 'CONFIRMED'">
                         <i class="fa fa-check-circle"></i>{{'Reserved for you' | translate}}
                         <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-hide="e.showSpinner" ng-click="cancelBook(e)" type="button" translate>Cancel</button></p>
@@ -155,9 +155,9 @@
             <div ng-hide="showSpinner" ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | disciplineFilter: search.class.discipline
+                            | disciplineFilter: search.discipline
                             | dataFilter: 'location.neigbourhood': search.location
-                            | dataFilter: 'class.studioId': search.class.studioId).length">
+                            | dataFilter: 'studioId': search.studioId).length">
                 <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
             </div>
             <div ng-show="showSpinner" class="dashboard-spinner">
@@ -170,30 +170,30 @@
                 <tr ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | disciplineFilter: search.class.discipline
+                            | disciplineFilter: search.discipline
                             | dataFilter: 'location.neigbourhood': search.location
-                            | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime' | limitTo: show.limit" >
+                            | dataFilter: 'studioId': search.studioId | orderBy: 'startTime' | limitTo: show.limit" >
                     <td>
                         <p>{{e.startTime}} - {{e.endTime}}</p>
                     </td>
-                    <td><span class="title" ng-click="bookClass(e, 'title')">{{e.class.title}}</span></td>
-                    <td><span ng-if="e.class.discipline">{{e.class.discipline}}</span> <span ng-if="e.class.style">{{e.class.style}}</span></td>
-                    <td ng-if="!$state.includes('studio')"><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.class.studio"><a ui-sref="studio({studioId: e.class.studio.id})" ng-if="e.class.studio.profileComplete" target="_blank">{{e.class.studio.name}}</a><span ng-if="!e.class.studio.profileComplete">{{e.class.studio.name}}</span></span></td>
+                    <td><span class="title" ng-click="bookClass(e, 'title')">{{e.title}}</span></td>
+                    <td><span ng-if="e.discipline">{{e.discipline}}</span> <span ng-if="e.style">{{e.style}}</span></td>
+                    <td ng-if="!$state.includes('studio')"><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.studio"><a ui-sref="studio({studioId: e.studioId})" ng-if="e.studio.profileComplete" target="_blank">{{e.studio.name}}</a><span ng-if="!e.studio.profileComplete">{{e.studio.name}}</span></span></td>
                     <td disable-animate>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
-                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
-                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Request')" type="button" translate>Request</button>
+                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.requiresRegistration && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
+                        <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.bookingStatus !== 'REQUESTED' && e.source === 'INTERNAL' && e.requiresRegistration && roleMember" ng-click="bookClass(e, 'Request')" type="button" translate>Request</button>
                         <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'CONFIRMED' && roleMember" ng-click="bookClass(e, 'Cancel')" type="button" translate>Cancel</button>
-                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'REQUESTED' && e.source === 'INTERNAL' && e.class.requiresRegistration && roleMember" ng-click="bookClass(e, 'Cancel')" type="button" translate>Cancel</button>
+                        <button class="class-button cancel" ng-if="e.bookable && e.bookingStatus === 'REQUESTED' && e.source === 'INTERNAL' && e.requiresRegistration && roleMember" ng-click="bookClass(e, 'Cancel')" type="button" translate>Cancel</button>
                         <button class="class-button cancel" ng-if="!e.bookable" ng-click="bookClass(e, 'Details')" type="button" translate>Details</button>
                     </td>
                 </tr>
                 <tr ng-if="!(events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
-                            | disciplineFilter: search.class.discipline
+                            | disciplineFilter: search.discipline
                             | dataFilter: 'location.neigbourhood': search.location
-                            | dataFilter: 'class.studioId': search.class.studioId).length">
+                            | dataFilter: 'studioId': search.studioId).length">
                     <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
                 </tr>
                 </tbody>
