@@ -70,7 +70,7 @@
             <li ng-if="roleMember"><a ui-sref="profile.account" translate>Account</a></li>
             <li ng-if="roleMember"><a ui-sref="profile.membership" translate>My card</a></li>
             <li ng-if="roleMember"><a ui-sref="profile.reservations" translate>My Reservations</a></li>
-            <li class="border" ng-if="roleMember && roleAdmin"><hr/></li>
+            <li class="border" ng-if="roleAdmin"><hr/></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.classes.list" translate>Classes</a></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'locations'})" translate>Locations</a></li>
             <li ng-if="roleAdmin"><a ui-sref="admin.entity.list({route: 'studios'})" translate>Studios</a></li>

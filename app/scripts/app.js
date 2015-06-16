@@ -104,6 +104,8 @@ angular.module('boltApp')
                             }
                             $rootScope.langId = $rootScope.currentCity.langId;
                             $rootScope.countryCode = $rootScope.currentCity.countryCode;
+                            $rootScope.supportPhone = $rootScope.currentCity.supportPhone;
+                            $rootScope.supportEmail = $rootScope.currentCity.supportEmail;
                             $rootScope.$broadcast('changeLang', $rootScope.currentCity.languageCode);
                             $rootScope.$broadcast('configLoaded');
                             prerenderReady();
