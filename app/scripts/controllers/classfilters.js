@@ -72,6 +72,14 @@ angular.module('boltApp.controllers.Classfilters', [])
             showWeeks: false
         };
 
+        $scope.show = {
+            limit: 10
+        };
+
+        $scope.showMore = function () {
+            $scope.show.limit += 5;
+        };
+
         $scope.bookClass = function (event, elementClicked) {
             $modal.open({
                 templateUrl: 'app/views/modalBook.html',

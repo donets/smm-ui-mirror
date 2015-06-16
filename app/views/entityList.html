@@ -43,7 +43,7 @@
             <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
-            <table class="timetable" ng-show="desktop" ng-class="{'membership-table': $stateParams.route === 'memberships'}">
+            <table class="timetable" infinite-scroll="showMore()" ng-show="desktop" ng-class="{'membership-table': $stateParams.route === 'memberships'}">
                 <thead>
                     <tr>
                         <th ng-repeat="field in fields | filter: {listed: '!'+false}">{{field.title}}</th>
@@ -51,7 +51,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="e in entities | filter: search | orderBy: 'id'">
+                    <tr ng-repeat="e in entities | filter: search | orderBy: 'id' | limitTo: limit">
                         <td ng-repeat="field in fields | filter: {listed: '!'+false}">
                             <div ng-if="!field.format && !specialFieldType(field.type)">{{e[field.model]}}</div>
                             <div class="status" ng-if="field.type === 'checkbox'"><i class="fa fa-check" ng-if="e[field.model]"></i><i class="fa fa-times" ng-if="!e[field.model]"></i></div>

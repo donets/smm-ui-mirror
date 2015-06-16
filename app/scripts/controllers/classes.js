@@ -26,4 +26,8 @@ angular.module('boltApp.controllers.Classes', [])
             {id: '2', text: gettextCatalog.getString('Medium')},
             {id: '3', text: gettextCatalog.getString('Advanced')}
         ];
+        $scope.limit = 10;
+        $scope.showMore = function () {
+            $scope.limit += 5;
+        };
     });

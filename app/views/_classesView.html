@@ -57,7 +57,7 @@
             <div ng-if="desktop" class="weekdays-wrapper">
                 <button ng-disabled="today.isSame(weekdays[0])" class="nav-button left" ng-click="changeWeek('sub')"><i class="fa fa-angle-left"></i></button>
                 <ul class="weekdays-dashboard">
-                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="changeDay(w)">{{w | amCalendar}}</li>
+                    <li ng-class="{'current' : currDay.isSame(w, 'd')}" ng-repeat="w in weekdays" ng-click="changeDay(w);show.limit = 10;">{{w | amCalendar}}</li>
                 </ul>
                 <button class="nav-button right" ng-click="changeWeek('add')"><i class="fa fa-angle-right"></i></button>
             </div>
@@ -68,7 +68,7 @@
                 <div class="form-rel half">
                     <button class="control-button" ng-click="openDatepicker($event, 'mobile')">{{currDay | amCalendar}}<i class="fa fa-calendar"></i></button>
                     <input class="input-date" datepicker-popup="dd.MM.yyyy" is-open="showDatepicker.mobile"
-                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(moment(currDay))"
+                           datepicker-options="dateOptions" min-date="minStartDate" ng-change="changeDay(moment(currDay));show.limit = 10;"
                            class="form-input" ng-model="currDay" type="text" show-button-bar="false"/>
                 </div>
                 <div class="form-rel half">
@@ -123,13 +123,13 @@
 </div>
 <div class="dashboard">
     <div class="container cf">
-        <div class="w-left" ng-if="mobile">
+        <div class="w-left" infinite-scroll="showMore()" ng-if="mobile">
             <div class="b-class-item" ng-hide="showSpinner" ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | disciplineFilter: search.class.discipline
                             | dataFilter: 'location.neigbourhood': search.location
-                            | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime'">
+                            | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime' | limitTo: show.limit">
                 <div class="b-class-item__time">
                     <b>{{e.start_date | amDateFormat: 'HH:mm'}}<span ng-if="desktop"> – {{e.end_date | amDateFormat: 'HH:mm'}}</span></b>
                 </div>
@@ -166,13 +166,13 @@
         </div>
         <div class="b-class-table" ng-if="desktop">
             <table ng-hide="showSpinner" class="timetable">
-                <tbody>
+                <tbody infinite-scroll="showMore()">
                 <tr ng-repeat="e in events
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | disciplineFilter: search.class.discipline
                             | dataFilter: 'location.neigbourhood': search.location
-                            | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime'" >
+                            | dataFilter: 'class.studioId': search.class.studioId | orderBy: 'startTime' | limitTo: show.limit" >
                     <td>
                         <p>{{e.startTime}} - {{e.endTime}}</p>
                     </td>
