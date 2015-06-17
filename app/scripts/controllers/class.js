@@ -37,7 +37,9 @@ angular.module('boltApp.controllers.Class', [])
         };
 
         getClass.$promise.then(function () {
-            $scope.class = getClass;
+            $scope.discipline = getClass.discipline;
+            $scope.style = getClass.style;
+            $scope.class = _.omit(getClass, 'discipline', 'style');
             getDisciplinesList();
         });
 

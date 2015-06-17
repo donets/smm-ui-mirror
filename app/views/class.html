@@ -189,7 +189,7 @@
             <input class="form-input" type="text" ng-model="class.teacherName" id="teacher"/>
         </div>
         <div class="form-rel">
-            <label class="form-label" for="style" translate>Discipline (new taxonomy)</label>
+            <label class="form-label" translate>Discipline (new taxonomy)</label>
             <select chosen
                     id="subdisciplineId"
                     ng-model="class.subDisciplineId"
@@ -200,13 +200,13 @@
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-rel">
+        <div class="form-rel" ng-if="$stateParams.classId">
             <label class="form-label" for="discipline" translate>Old discipline</label>
-            <input class="form-input" type="text" ng-model="class.discipline"  id="discipline" readonly/>
+            <input class="form-input" type="text" ng-model="discipline"  id="discipline" readonly/>
         </div>
-        <div class="form-rel">
+        <div class="form-rel" ng-if="$stateParams.classId">
             <label class="form-label" for="style" translate>Old style</label>
-            <input class="form-input" type="text" ng-model="class.style" id="style" readonly/>
+            <input class="form-input" type="text" ng-model="style" id="style" readonly/>
         </div>
         <div class="form-rel large">
             <label class="form-label" for="description" translate>Description</label>
