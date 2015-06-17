@@ -50,35 +50,40 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
         $scope.setLocation = function (location) {
             $scope.currLocation = location;
             $scope.showSpinner = true;
-            $http.post($window.smmConfig.restUrlBase + '/api/classes/get/all', {locationId: location.id, date: $scope.currDay.format('YYYY-MM-DD')}).success(function (res) {
+            $http.get($window.smmConfig.restUrlBase + '/api/v2/eager/classOccurrences?locationId=' + location.id + '&startDate=' + $scope.currDay.format('YYYY-MM-DD')).success(function (res) {
 
-                _.map(res.classes.classAccesses, function (obj) {
-                    obj.disciplinestyle = [obj.discipline, obj.style];
-                    if($scope.studio.linkClassesToStudioDisciplines && $scope.studio.disciplines) {
-                        obj.disciplinestyle = _.union([obj.discipline, obj.style], $scope.studio.disciplines.split(', '));
-                    } else {
-                        obj.disciplinestyle = [obj.discipline, obj.style];
-                    }
-                    obj.studio = $scope.studio;
-                });
-                _.map(res.classes.occurenceAccesses, function (obj) {
+                _.map(res, function (obj) {
                     obj.location = location;
+                    obj.studio = $scope.studio;
+                    if (obj.subdiscipline) {
+                        var discipline = _.findWhere($scope.disciplines, {disciplineId: obj.subdiscipline.disciplineId});
+                        var style = _.findWhere($scope.styles, {subDisciplineId: obj.subdiscipline.id});
+                        obj.discipline = obj.subdiscipline.disciplineId && discipline ? discipline.name : '';
+                        obj.style = obj.subdiscipline.id && style ? style.name : '';
+                    }
+                    if($scope.studio.linkClassesToStudioDisciplines && $scope.studio.disciplines) {
+                        obj.disciplinestyleName = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
+                    } else {
+                        obj.disciplinestyleId = obj.subdiscipline ? [obj.subdiscipline.id, obj.subdiscipline.disciplineId] : 0;
+                    }
                 });
-                $scope.events = _.each(res.classes.occurenceAccesses, function (event) {
+                $scope.events = _.each(res, function (event) {
                     event.start_date = moment(event.date + 'T' + event.startTime);
                     event.end_date = moment(event.date + 'T' + event.endTime);
                     event.startTime = event.startTime.slice(0,5);
                     event.endTime = event.endTime.slice(0,5);
-                    event.class = _.findWhere(res.classes.classAccesses, {id: event.classId});
                 });
                 $scope.events = _.filter($scope.events, function (event) {
                     return moment(event.start_date).isAfter(moment());
                 });
                 _.map($scope.styles, function (item) {
-                    item.disabled = !_.include(_.uniq(_.pluck(res.classes.classAccesses, 'style')), item.name);
+                    item.disabled = !_.include(_.compact(_.uniq(_.pluck(_.pluck(res, 'subdiscipline'), 'id'))), item.subDisciplineId);
                 });
                 $scope.mergeDS = _.union($scope.disciplines, $scope.styles);
                 $scope.showSpinner = false;
+                $interval(function () {
+                    $('#discipline').trigger("chosen:updated");
+                }, 0, 1, {invokeApply: false});
 
             });
             uiGmapGoogleMapApi.then(function() {

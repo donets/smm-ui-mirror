@@ -32,7 +32,7 @@
             <a class="clear-button" href="" ng-click="clearFilters()" translate>Reset filters</a>
         </div>
         <div class="w-right b-classes-list">
-            <table class="timetable classes" ng-show="desktop">
+            <table class="timetable classes" infinite-scroll="showMore()" ng-show="desktop">
                 <thead>
                     <tr>
                         <th translate>Status</th>
@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="c in classes | filter: search | dataFilter: 'studioId': search.studioId">
+                    <tr ng-repeat="c in classes | filter: search | dataFilter: 'studioId': search.studioId | limitTo: limit">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>
                         <td>{{c.discipline}}</td>

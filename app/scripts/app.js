@@ -12,12 +12,10 @@ angular.module('boltApp', [
         'ngAnimate',
         'ngCookies',
         'ngResource',
-        //'ngRoute',
         'ngSanitize',
         'ngTouch',
         'ui.router',
         'ui.bootstrap',
-        //'angular-data.DSCacheFactory',
         'angularMoment',
         'gettext',
         'angularSpinner',
@@ -30,6 +28,7 @@ angular.module('boltApp', [
         'ngOptionsDisabled',
         'xeditable',
         'ngWebSocket',
+        'infinite-scroll',
         'angulartics',
         'angulartics.google.customtagmanager',
         'com.2fdevs.videogular',
@@ -877,6 +876,11 @@ angular.module('boltApp')
 					$scope.specialFieldType = function(fieldType) {
 						return _.indexOf(['checkbox', 'photo', 'entity'], fieldType) > -1;
 					};
+
+                    $scope.limit = 20;
+                    $scope.showMore = function () {
+                        $scope.limit += 5;
+                    };
 
 				}
 			})

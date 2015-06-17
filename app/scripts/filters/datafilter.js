@@ -49,11 +49,11 @@ angular.module('boltApp')
                     var value;
                     return _.filter(list, function(item) {
                         var discipline = target;
-                        if (item.class.disciplinestyleName) {
-                            value = item.class.disciplinestyleName;
+                        if (item.disciplinestyleName) {
+                            value = item.disciplinestyleName;
                             discipline = discipline.name;
-                        } else if (item.class.disciplinestyleId) {
-                            value = item.class.disciplinestyleId;
+                        } else if (item.disciplinestyleId) {
+                            value = item.disciplinestyleId;
                             if (discipline.type === 'Activities') {
                                 discipline = discipline.disciplineId;
                             } else {
