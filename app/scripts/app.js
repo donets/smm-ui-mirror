@@ -815,14 +815,6 @@ angular.module('boltApp')
                                 $rootScope.neigbourhood = _.pluck(res, 'name');
                             });
                         };
-                        $rootScope.updateMapGeocode = function () {
-                            $http.get($window.smmConfig.restUrlBase + '/api/locations/' + $rootScope.$stateParams.entityId + '/updateGeoCode').success(function(response) {
-                                console.log(response);
-                            }).error(function(response, status) {
-                                console.error(response);
-                                console.error(status);
-                            });
-                        };
 					}
 
 					$rootScope.showDatepicker = {};
@@ -941,7 +933,7 @@ angular.module('boltApp')
 				},
 				controller:
 
-					function($scope, $rootScope, getEntity) {
+					function($scope, $rootScope, $http, $window, getEntity) {
 
 					getEntity.$promise.then(function() {
 						$scope.entity = getEntity;
@@ -953,7 +945,12 @@ angular.module('boltApp')
 							console.log(res);
 							$scope.showSpinner = false;
                             if ($rootScope.$stateParams.route === 'locations') {
-                                $rootScope.updateMapGeocode();
+                                $http.get($window.smmConfig.restUrlBase + '/api/locations/' + $rootScope.$stateParams.entityId + '/updateGeoCode').success(function(response) {
+                                    console.log(response);
+                                }).error(function(response, status) {
+                                    console.error(response);
+                                    console.error(status);
+                                });
                             }
 						});
 					};
