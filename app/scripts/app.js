@@ -948,6 +948,9 @@ angular.module('boltApp')
 						$scope.entity.$update({route: $rootScope.$stateParams.route,id: $rootScope.$stateParams.entityId}).then(function(res) {
 							console.log(res);
 							$scope.showSpinner = false;
+                            if ($rootScope.$stateParams.route === 'locations') {
+                                $rootScope.updateMapGeocode();
+                            }
 						});
 					};
 
