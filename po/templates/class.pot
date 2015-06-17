@@ -24,7 +24,7 @@ msgstr ""
 msgid "All Levels"
 msgstr ""
 
-#: app/views/class.html:225
+#: app/views/class.html:237
 msgid "Black Card only"
 msgstr ""
 
@@ -40,12 +40,12 @@ msgstr ""
 msgid "Delete dates"
 msgstr ""
 
-#: app/views/class.html:200
+#: app/views/class.html:212
 msgid "Description"
 msgstr ""
 
 #: app/views/class.html:192
-msgid "Discipline"
+msgid "Discipline (new taxonomy)"
 msgstr ""
 
 #: app/views/class.html:83
@@ -60,11 +60,11 @@ msgstr ""
 msgid "Event repeats"
 msgstr ""
 
-#: app/views/class.html:211
+#: app/views/class.html:223
 msgid "Fixed visit length (in minutes, empty = unlimited)"
 msgstr ""
 
-#: app/views/class.html:207
+#: app/views/class.html:219
 msgid "Free visit?"
 msgstr ""
 
@@ -92,11 +92,19 @@ msgstr ""
 msgid "No. of dates created by schedule"
 msgstr ""
 
+#: app/views/class.html:204
+msgid "Old discipline"
+msgstr ""
+
+#: app/views/class.html:208
+msgid "Old style"
+msgstr ""
+
 #: app/views/class.html:183
 msgid "Price of a drop-in class"
 msgstr ""
 
-#: app/views/class.html:218
+#: app/views/class.html:230
 msgid "Registration required"
 msgstr ""
 
@@ -137,10 +145,6 @@ msgstr ""
 
 #: app/views/class.html:26
 msgid "Studio"
-msgstr ""
-
-#: app/views/class.html:196
-msgid "Style"
 msgstr ""
 
 #: app/views/class.html:188

@@ -507,6 +507,13 @@ li.b-header-nav_city-select {
     position: absolute;
     left: 200px;
     top: 0;
+    .ng-animate {
+        &.ng-move,
+        &.ng-enter,
+        &.ng-leave {
+            @include transition(none);
+        }
+    }
     .top-nav {
         @include my-resetList();
         li {
