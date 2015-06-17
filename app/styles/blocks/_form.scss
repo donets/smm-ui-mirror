@@ -52,6 +52,7 @@ input[type="text"], input[type="password"],  input[type="email"], textarea {
         opacity: 0.5;
     }
     &[readonly] {
+        background-color: #f8f8f8;
         cursor: default;
         &:focus {
             outline: none;
