@@ -54,7 +54,7 @@ angular.module('boltApp')
                             discipline = discipline.name;
                         } else if (item.disciplinestyleId) {
                             value = item.disciplinestyleId;
-                            if (discipline.type === 'Activities') {
+                            if (discipline.disciplineId) {
                                 discipline = discipline.disciplineId;
                             } else {
                                 discipline = discipline.subDisciplineId;
