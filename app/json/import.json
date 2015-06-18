@@ -19,8 +19,13 @@
         },
         "discipline": {
             "type": "string",
+            "rules": {}
+        },
+        "subDisciplineId": {
+            "type": "integer",
             "rules": {
-                "required": true
+                "required": true,
+                "number": true
             }
         },
         "style": {
