@@ -2,7 +2,7 @@
     <h2>{{$stateParams.route}}</h2>
 </div>
 <div class="admin-table cf">
-    <div class="container">
+    <div class="container" ng-class="{'wide-container': $stateParams.route === 'memberships'}">
         <div class="w-left b-sidebar-filters">
             <button class="control-button" ui-sref="admin.entity.new({route: $stateParams.route})" ng-if="$stateParams.route !== 'memberships'" type="button"><i class="fa fa-plus"></i>New {{$stateParams.route.slice(0, -1)}}</button>
             <div class="input-search">
@@ -63,7 +63,7 @@
                         </td>
                         <td>
                             <a ng-hide="$stateParams.route === 'memberships'" class="manage-button" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" target="_blank" translate><i class="fa fa-pencil"></i>Manage</a>
-                            <a ng-show="$stateParams.route === 'memberships'" class="manage-button" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" target="_blank" translate><i class="fa fa-eye"></i>View</a>
+                            <div class="membership-controls"><a ng-show="$stateParams.route === 'memberships'" class="manage-button" ui-sref="admin.entity.item({route: $stateParams.route, entityId: e.id || e.code})" target="_blank" translate><i class="fa fa-eye"></i>View</a><button ng-show="$stateParams.route === 'memberships'" class="login-button" ng-disabled="e.loadingLogin" ng-click="loginAsUser(e)" translate><i class="fa fa-sign-in"></i></button><div ng-show="e.loadingLogin" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
                         </td>
                     </tr>
                 </tbody>

@@ -859,7 +859,7 @@ angular.module('boltApp')
 					}
 
 				},
-				controller: function($scope, $rootScope, getEntityList) {
+				controller: function($scope, $rootScope, $http, $window, getEntityList) {
 
 					getEntityList.$promise.then(function(res) {
 						$scope.entities = res;
@@ -867,6 +867,28 @@ angular.module('boltApp')
 
 					$scope.specialFieldType = function(fieldType) {
 						return _.indexOf(['checkbox', 'photo', 'entity'], fieldType) > -1;
+					};
+
+					$scope.loginAsUser = function(user) {
+                        user.loadingLogin = true;
+                        $http.post($window.smmConfig.restUrlBase + '/api/auth/login/impersonateAs/' + user.id).success(function(response) {
+                            console.log(response);
+                            user.loadingLogin = false;
+                            $rootScope.userName = response.user.name;
+                            $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
+                            $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
+                            $cookieStore.put('session', response.user);
+                            if ($rootScope.roleMember) {
+                                $rootScope.$state.go('dashboard', {
+                                    notify: false,
+                                    city: $rootScope.currentCity.id
+                                });
+                            }
+                        }).error(function(response, status) {
+                            user.loadingLogin = false;
+                            console.error(response);
+                            console.error(status);
+                        });
 					};
 
                     $scope.limit = 20;
