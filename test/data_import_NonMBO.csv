@@ -1,15 +1,15 @@
-id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description,requiresRegistration
-9000001,test#NonMBO NonBook Class,Mon,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000002,test#NonMBO NonBook Class,Tue,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000003,test#NonMBO NonBook Class,Wed,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000004,test#NonMBO NonBook Class,Fri,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000005,test#NonMBO NonBook Class,Sat,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000006,test#NonMBO NonBook Class,Sun,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000007,test#NonMBO NonBook Class,Thu,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true
-9000008,test#NonMBO PreBook Class,Mon,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
-9000009,test#NonMBO PreBook Class,Tue,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
-9000011,test#NonMBO PreBook Class,Wed,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
-9000012,test#NonMBO PreBook Class,Fri,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
-9000013,test#NonMBO PreBook Class,Sat,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
-9000014,test#NonMBO PreBook Class,Sun,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
-9000015,test#NonMBO PreBook Class,Thu,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false
+id,title,day,startTime,endTime,earliestStart,endDate,discipline,style,level,teacherName,studioId,locationId,status,acceptedPlans,description,requiresRegistration,subDisciplineId
+9000001,test#NonMBO NonBook Class,Mon,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000002,test#NonMBO NonBook Class,Tue,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000003,test#NonMBO NonBook Class,Wed,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000004,test#NonMBO NonBook Class,Fri,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000005,test#NonMBO NonBook Class,Sat,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000006,test#NonMBO NonBook Class,Sun,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000007,test#NonMBO NonBook Class,Thu,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,true,5501
+9000008,test#NonMBO PreBook Class,Mon,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501
+9000009,test#NonMBO PreBook Class,Tue,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501
+9000011,test#NonMBO PreBook Class,Wed,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501
+9000012,test#NonMBO PreBook Class,Fri,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501
+9000013,test#NonMBO PreBook Class,Sat,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501
+9000014,test#NonMBO PreBook Class,Sun,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501
+9000015,test#NonMBO PreBook Class,Thu,22:40,23:40,2015-05-01,2017-05-07,CrossFit,Bikram,"1,2,3",Gabe,27453,27452,LIVE,"BLACK,WHITE,LITE",test#NonMBO,false,5501

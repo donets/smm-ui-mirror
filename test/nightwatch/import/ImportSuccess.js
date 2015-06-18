@@ -35,6 +35,7 @@ module.exports = {
     'Validate no error message present': function (browser) { 
 	browser
 	.assert.elementNotPresent('.ignored-columns')
+	.assert.elementNotPresent('td.invalid')
 	.getAttribute('.green', 'disabled', function(result) {this.assert.equal(result.value, null);})//asserting that all rows are OK and import button is enabled
 	.end()
   }
