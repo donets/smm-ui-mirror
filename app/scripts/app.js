@@ -515,12 +515,6 @@ angular.module('boltApp')
 				controller: 'ClassesCtrl',
 				resolve: {
 
-					getClasses: function(RestApi) {
-
-						return RestApi.query({route: 'events'}).$promise;
-
-					}
-
 				}
 			})
 			.state('admin.classes.new', {
@@ -805,9 +799,7 @@ angular.module('boltApp')
 					}
 
 					if ($rootScope.$stateParams.route === 'locations') {
-						RestApi.query({
-							route: 'cities'
-						}).$promise.then(function(response) {
+						RestApi.query({route: 'cities'}).$promise.then(function(response) {
 							$rootScope.cities = response;
 						});
                         $rootScope.changeCityLocation = function (city) {
