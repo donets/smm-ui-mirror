@@ -63,14 +63,15 @@ angular.module('boltApp', [
         'boltApp.services.websocket'
     ]);
 angular.module('boltApp')
-	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
-		function($rootScope, $state, $stateParams, $window, $http, RestApi, $q, $cookieStore, CountryConfig, DetectCity) {
+	.run(['$rootScope', '$state', '$stateParams', '$window', '$http', '$location', 'RestApi', '$q', '$cookieStore', 'CountryConfig', 'DetectCity',
+		function($rootScope, $state, $stateParams, $window, $http, $location, RestApi, $q, $cookieStore, CountryConfig, DetectCity) {
 			// It's very handy to add references to $state and $stateParams to the $rootScope
 			// so that you can access them from any scope within your applications.For example,
 			// <li ng-class='{ active: $state.includes('contacts.list') }'> will set the <li>
 			// to active whenever 'contacts.list' or one of its decendents is active.
 			$rootScope.$state = $state;
 			$rootScope.$stateParams = $stateParams;
+            $rootScope.$location = $location;
 			$rootScope.autoscroll = false;
 			$rootScope.pageReload = function() {
 				$window.location.reload();

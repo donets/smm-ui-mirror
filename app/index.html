@@ -122,7 +122,7 @@
         </button>
     </div>
     <div class="wrapper">
-        <div class="b-header" ng-show="prerenderReady" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'black': $state.includes('dashboard') || $state.includes('allstudios')}">
+        <div class="b-header" ng-show="prerenderReady" ng-if="!(mobile && $location.search().embedded)" ng-class="{'home': $state.includes('home'), 'admin': $state.includes('admin'), 'black': $state.includes('dashboard') || $state.includes('allstudios')}">
             <div class="container">
                 <div class="b-header-logo" ng-class="{'black': $state.includes('more')}"><a ui-sref="home" translate>Somuchmore</a></div>
                 <!--<a class="b-header-likes" ng-controller="SocialCtrl" ng-show="desktop && !$state.includes('home') && !$state.includes('view') && !$state.includes('studio')" ng-class="{'black': $state.includes('more')}" href="" ng-mouseover="popover=true" ng-mouseleave="popover=false"><i class="fa fa-heart"></i><span>{{likes}}</span>
