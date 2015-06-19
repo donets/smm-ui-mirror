@@ -851,7 +851,7 @@ angular.module('boltApp')
 					}
 
 				},
-				controller: function($scope, $rootScope, $http, $window, getEntityList) {
+				controller: function($scope, $rootScope, $http, $window, $cookieStore, getEntityList) {
 
 					getEntityList.$promise.then(function(res) {
 						$scope.entities = res;
@@ -865,16 +865,14 @@ angular.module('boltApp')
                         user.loadingLogin = true;
                         $http.post($window.smmConfig.restUrlBase + '/api/auth/login/impersonateAs/' + user.id).success(function(response) {
                             console.log(response);
+                            $cookieStore.remove('session');
                             user.loadingLogin = false;
                             $rootScope.userName = response.user.name;
                             $rootScope.roleMember = _.include(response.user.roles, 'member') ? true : false;
                             $rootScope.roleAdmin = _.include(response.user.roles, 'admin') ? true : false;
                             $cookieStore.put('session', response.user);
                             if ($rootScope.roleMember) {
-                                $rootScope.$state.go('dashboard', {
-                                    notify: false,
-                                    city: $rootScope.currentCity.id
-                                });
+                                $rootScope.$state.go('dashboard', {notify: false, city: $rootScope.currentCity.id});
                             }
                         }).error(function(response, status) {
                             user.loadingLogin = false;
