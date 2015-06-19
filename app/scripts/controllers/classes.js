@@ -12,7 +12,6 @@ angular.module('boltApp.controllers.Classes', [])
         RestApi.query({route: 'cities'}).$promise.then(function(response) {
             $scope.cities = response;
             $scope.city = $rootScope.currentCity ? $rootScope.currentCity : _.findWhere($scope.cities, {id: 4});
-            console.log($scope.city);
             $scope.changeCityLocation();
         });
         $scope.changeCityLocation = function () {
