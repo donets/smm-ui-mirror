@@ -25,15 +25,6 @@
                     ng-options="item.id as item.defaultName for item in cities | orderBy: 'toString()'">
                 <option value=""></option>
             </select>
-            <select chosen
-                    ng-if="$stateParams.route === 'memberships'"
-                    id="subscription"
-                    ng-model="search.$"
-                    data-placeholder="{{'Alle Karten'|translate}}"
-                    disable-search="false"
-                    ng-options="item as item for item in subscriptionType | orderBy: 'toString()'">
-                <option value=""></option>
-            </select>
             <div ng-show="$stateParams.route === 'memberships'" class="form-check">
                 <input type="checkbox" id="photo" ng-model="search.photo"
                        ng-true-value="!!" ng-false-value="false" ng-change="clearPhotoFilter()" name="photo"/>
