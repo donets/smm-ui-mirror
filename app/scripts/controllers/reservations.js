@@ -15,9 +15,11 @@ angular.module('boltApp.controllers.Reservations', [])
                 $http.get($window.smmConfig.restUrlBase + '/api/bookings/get').success(function (res) {
                 _.map(res.bookings.classAccesses, function (obj) {
                     var studio = _.findWhere($scope.studios, {id: obj.studioId});
-                    var location = _.findWhere($scope.locations, {id: obj.locationId});
                     obj.disciplinestyle = [obj.discipline, obj.style];
                     obj.studio = obj.studioId && studio ? studio : '';
+                });
+                _.map(res.bookings.occurenceAccesses, function (obj) {
+                    var location = _.findWhere($scope.locations, {id: obj.locationId});
                     obj.location = obj.locationId && location ? location : '';
                 });
                 $scope.events = _.each(res.bookings.occurenceAccesses, function (event) {
@@ -32,7 +34,6 @@ angular.module('boltApp.controllers.Reservations', [])
                     event.description = event.class.description;
                     event.title = event.class.title;
                     event.studio = event.class.studio;
-                    event.location = event.class.location;
                 });
                 $scope.groupResAfter = _.groupBy(_.filter($scope.events, function (event) {
                     return moment(event.start_date).isAfter(moment());
@@ -67,7 +68,7 @@ angular.module('boltApp.controllers.Reservations', [])
                             'elementClicked': elementClicked,              // Set to 'title'|'CTA'. title-if class headline was clicked, CTA if 'RESERVE' button was clicked.
                             'studioName': event.class.studio === '' ? event.class.studio : event.class.studio.name,            // Salon/fitness club/etc name.
                             'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
-                            'studioLocation': event.class.location === '' ? event.class.location : event.class.location.displayName,      // Salon/fitness club/etc city and district.
+                            'studioLocation': event.location === '' ? event.location : event.location.displayName,      // Salon/fitness club/etc city and district.
                             'className': event.class.title,                     // class name.
                             'classId': event.class.id,                            // class ID.
                             'classTime': event.start_date.format("ddd") + '_' + event.startTime + '-' + event.endTime,                // Populate with: dayOfWeek_time
@@ -104,7 +105,7 @@ angular.module('boltApp.controllers.Reservations', [])
                                     'event': 'cancelBooking',
                                     'studioName': event.class.studio === '' ? event.class.studio : event.class.studio.name,            // Salon/fitness club/etc name.
                                     'studioId': event.class.studioId,                           // Salon/fitness club/etc ID.
-                                    'studioLocation': event.class.location === '' ? event.class.location : event.class.location.displayName,      // Salon/fitness club/etc city and district.
+                                    'studioLocation': event.location === '' ? event.location : event.location.displayName,      // Salon/fitness club/etc city and district.
                                     'className': event.class.title,                     // class name.
                                     'classId': event.class.id,
                                     'classTime': event.start_date.format("ddd") + '_' + event.startTime + '-' + event.endTime,                // Populate with: dayOfWeek_time
