@@ -864,7 +864,6 @@ angular.module('boltApp')
 					$scope.loginAsUser = function(user) {
                         user.loadingLogin = true;
                         $http.post($window.smmConfig.restUrlBase + '/api/auth/login/impersonateAs/' + user.id).success(function(response) {
-                            console.log(response);
                             $cookieStore.remove('session');
                             user.loadingLogin = false;
                             $rootScope.userName = response.user.name;
