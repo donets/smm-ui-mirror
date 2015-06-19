@@ -27,6 +27,13 @@ angular.module('boltApp.controllers.Reservations', [])
                     event.endTime = event.endTime.slice(0,5);
                     event.class = _.findWhere(res.bookings.classAccesses, {id: event.classId});
                 });
+                _.map($scope.events, function (event) {
+                    event.requiresRegistration = event.class.requiresRegistration;
+                    event.description = event.class.description;
+                    event.title = event.class.title;
+                    event.studio = event.class.studio;
+                    event.location = event.class.location;
+                });
                 $scope.groupResAfter = _.groupBy(_.filter($scope.events, function (event) {
                     return moment(event.start_date).isAfter(moment());
                 }), 'date');
