@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/_loginForm.html:70
+msgid "Account"
+msgstr "Cuenta"
+
+#: app/views/_loginForm.html:68
+msgid "Activities"
+msgstr "Actividades"
+
+#: app/views/_loginForm.html:59
+msgid "Back to login"
+msgstr "Volver al acceso"
+
+#: app/views/_loginForm.html:72
+msgid "Classes"
+msgstr "Clases"
+
+#: app/views/_loginForm.html:31 app/views/_loginForm.html:46
+msgid "Email Address"
+msgstr "Dirección de e-mail"
+
+#: app/views/_loginForm.html:58
+msgid "Forgot password?"
+msgstr "¿Has olvidado la contraseña?"
+
+#: app/views/_loginForm.html:40
+msgid "Incorrect email address or password"
+msgstr "Dirección de e-mail o contraseña incorrectos"
+
+#: app/views/_loginForm.html:73
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#: app/views/_loginForm.html:21 app/views/_loginForm.html:37
+msgid "Login"
+msgstr "Acceso"
+
+#: app/views/_loginForm.html:76
+msgid "Memberships"
+msgstr "Suscripciones"
+
+#: app/views/_loginForm.html:3
+msgid "Monat"
+msgstr "Mes"
+
+#: app/views/_loginForm.html:71
+msgid "My card"
+msgstr "Mi tarjeta"
+
+#: app/views/_loginForm.html:34
+msgid "Password"
+msgstr "Contraseña"
+
+#: app/views/_loginForm.html:49
+msgid "Reset password"
+msgstr "Restablecer la contraseña"
+
+#: app/views/_loginForm.html:77
+msgid "Sign out"
+msgstr "Desconexión"
+
+#: app/views/_loginForm.html:69 app/views/_loginForm.html:74
+msgid "Studios"
+msgstr "Studios"
+
+#: app/views/_loginForm.html:75
+msgid "Vouchers"
+msgstr "Cupones"
+
+#: app/views/_loginForm.html:52
+msgid "You have been sent a reset email"
+msgstr "Se ha enviado un e-mail de restablecimiento"
+
+#: app/views/_loginForm.html:53
+msgid "Your email address was not found"
+msgstr "La dirección de e-mail no se encuentra"

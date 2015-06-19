@@ -1,0 +1,401 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/faq.html:49
+msgid ""
+"After you have registered and your payment has been confirmed, we’ll send "
+"you a confirmation email. The email will include your membership number and "
+"a temporary card that you can print out. Once you have this card you can use "
+"it immediately."
+msgstr ""
+"Una vez te hayas suscrito y el pago haya sido confirmado, recibirás un e-"
+"mail de confirmación. Este e-mail incluirá tu número de socio y una tarjeta "
+"temporal para imprimir. Puedes usarla inmediatamente después de recibirla."
+
+#: app/views/faq.html:28
+msgid "Am I tied up in a long term binding contract with Somuchmore?"
+msgstr "¿Tengo un contrato de permanencia a largo plazo con Somuchmore?"
+
+#: app/views/faq.html:40
+msgid "Are there any hidden costs?"
+msgstr "¿Existen costes ocultos?"
+
+#: app/views/faq.html:41
+msgid ""
+"At Somuchmore there are no hidden costs whatsoever. You will only be charged "
+"an additional cost if you attend a class that isn’t included in your "
+"membership, i.e. if you visit a studio more than three times a month. In "
+"this case we will charge you £16, which is the average price of a drop-in "
+"class for studios in the UK."
+msgstr ""
+"En Somuchmore nunca hay costes ocultos. Solo tendrás que hacer frente a "
+"pagos adicionales si asistes a una clase que no esté incluida en la "
+"suscripción (Ejemplo: si visitas un mismo studio más de 3 veces al mes). En "
+"tal caso, le cobraríamos 15€, que es el precio medio de una clase suelta en "
+"España."
+
+#: app/views/faq.html:45
+msgid ""
+"At all of our partner studios. You will find an overview of our partners and "
+"the studios we work with here. New offerings are being added to the list "
+"every week."
+msgstr ""
+"En todos nuestros studios asociados. Encontrarás una lista de nuestros "
+"aliados y studios con los que trabajamos aquí. Todas las semanas se añaden "
+"nuevos alternativas a la lista."
+
+#: app/views/faq.html:24
+msgid "Can I try out Somuchmore for free?"
+msgstr "¿Puedo probar Somuchmore de forma gratuita?"
+
+#: app/views/faq.html:69
+msgid "Do I have to register in advance for courses?"
+msgstr "¿Debo reservar las clases con antelación?"
+
+#: app/views/faq.html:61
+msgid ""
+"Do I need to show my Somuchmore card when I turn up to classes that I have "
+"pre-booked?"
+msgstr ""
+"¿Tengo que presentar mi tarjeta Somuchmore cuando voy a una clase que he "
+"reservado previamente?"
+
+#: app/views/faq.html:101
+msgid "Get your invitation"
+msgstr "Consigue tu invitación"
+
+#: app/views/faq.html:10
+msgid "Guide to Somuchmore"
+msgstr "La guía Somuchmore"
+
+#: app/views/faq.html:90
+msgid ""
+"Here are the differences between the White Card and the Black Card: The "
+"White Card gives you access to a variety of unlimited courses but only up to "
+"three times per provider a month. With the Black Card you can go to each "
+"provider as often as you like!"
+msgstr ""
+"Esta es la diferencia entre la White Card y la Black Card: La White Card te "
+"da acceso a un número ilimitado de clases, pero solo puedes ir a un mismo "
+"studio 3 veces al mes. ¡Con la Black Card se puede ir a cualquier studio "
+"tantas veces como se desee!"
+
+#: app/views/faq.html:85
+msgid ""
+"How can I guarantee everything that Somuchmore offers is of the highest "
+"quality?"
+msgstr ""
+"¿Cómo puedo asegurarme de que todo lo que ofrece Somuchmore es de la mejor "
+"calidad?"
+
+#: app/views/faq.html:93
+msgid "How do I cancel my membership?"
+msgstr "¿Cómo puedo cancelar mi suscripción?"
+
+#: app/views/faq.html:53
+msgid "How does my Somuchmore membership end?"
+msgstr "¿Cómo puedo abandonar mi suscripción a Somuchmore?"
+
+#: app/views/faq.html:32
+msgid "How much does a Somuchmore membership cost?"
+msgstr "¿Cuánto cuesta ser socio de Somuchmore?"
+
+#: app/views/faq.html:74
+msgid ""
+"If the studio requires pre-booking for their class and you receive a "
+"confirmation email from them, this means your space is officially reserved. "
+"If the course doesn’t require you to sign up in advance, we suggest you turn "
+"up in good time in order to secure a place. You can find out how long each "
+"studio reccomends, by visiting their profile on our website."
+msgstr ""
+"Si el studio requiere reserva previa para la clase y recibes un email de "
+"confirmación, significa que tu plaza ha sido oficialmente reservada. Si la "
+"clase no requiere reserva previa, te recomendamos llegar con tiempo para "
+"asegurar que tienes plaza. Puedes encontrar el tiempo de antelación "
+"recomendado en el perfil de cada uno de los studios."
+
+#: app/views/faq.html:82
+msgid ""
+"If you have pre-booked your place in a class we unfortunately have to charge "
+"you £16 even if you don’t turn up.  The reason we do this is because the "
+"studio won’t be able to offer your reserved spot to anyone else in such a "
+"short time and would otherwise lose money. If the studio doesn’t require you "
+"to pre-book then it’s all a bit more relaxed: you don’t have to pay "
+"anything. Any member who repeatedly doesn't turn up to class, i.e. more than "
+"three times in one month, will no longer be able to continue their "
+"membership with Somuchmore. Don't worry though, we will notify you every "
+"time you don't turn up and try and make sure this doesn't happen!"
+msgstr ""
+"Si has reservado una clase con antelación, desafortunadamente tendremos que "
+"cobrarte 15€ incluso si no pudiste acudir (en los casos en que se hayan "
+"cumplido las 3 visitas mensuales en el studio). Esto se debe a que los "
+"studios responsables de la actividad no tendrán la oportunidad de ofrecer tu "
+"plaza a otra persona en tan poco tiempo. Si la clase no requiere reserva "
+"previa, entonces no es tan grave, no tendrás que pagar nada si no puedes "
+"acudir. No obstante, si un socio no acude repetidamente a clases (más de "
+"tres veces al mes, por ejemplo) no podrá continuar siendo miembro de "
+"Somuchmore. Pero no te preocupes, ¡nosotros te informaremos cada vez que no "
+"asistas a una clase para evitar que esto pueda suceder!"
+
+#: app/views/faq.html:54
+msgid ""
+"If you wish to cancel your membership, simply send us an e-mail to <a href="
+"\"mailto:info@somuchmore.org\">customerservice@somuchmore.org</a>. Please "
+"don’t forget to include your contract number, your name and your full "
+"address and also to destroy your card."
+msgstr ""
+"Si deseas darte de baja, sencillamente envía un e-mail a <a href=\"mailto:"
+"info@somuchmore.org\">customerservice@somuchmore.org</a>. Por favor no te "
+"olvides de incluir tu número de socio, tu nombre y tu dirección completa. "
+
+#: app/views/faq.html:73
+msgid ""
+"Is my place guaranteed if I sign up in advance for a class, course or "
+"workshop?"
+msgstr ""
+"¿Está mi plaza garantizada si reservo una clase, curso o taller con "
+"antelación?"
+
+#: app/views/faq.html:94
+msgid ""
+"Oh no. Don't go! Are you sure you want to leave us? Is there anything we can "
+"do that will make you change your mind? Feel free to let us know. Otherwise, "
+"you can cancel your contract by sending us an e-mail to <a href=\"mailto:"
+"info@somuchmore.org\">info@somuchmore.org</a>. Don’t forget to include your "
+"card number, your first name and surname and details of when you want to "
+"cancel your contract by. Your cancellation will become effective as of the "
+"following month, provided we receive your cancellation at least seven "
+"working days before the end of the current month."
+msgstr ""
+"Oh no. ¡No te vayas! ¿Seguro que deseas quieres dejarnos? ¿Hay algo que "
+"podamos hacer para que cambies de opinión?, no dudes en hacérnoslo saber. De "
+"lo contrario, puedes darte de baja enviando un e-mail a <a href=\"mailto:"
+"info@somuchmore.org\">info@somuchmore.org</a>. No te olvides de incluir tu "
+"número de socio, tu nombre y apellidos y los detalles de cuando quieres "
+"darte de baja. Tu baja se hará efectiva el mes siguiente siempre y cuando "
+"recibimas tu solicitud de cancelación al menos siete días hábiles antes del "
+"final del mes en curso."
+
+#: app/views/faq.html:70
+msgid ""
+"Some selected partners, classes and workshops can only be visited by pre-"
+"booking online. This is displayed on each partner profile with the "
+"appropriate contact to make the reservation for you. However, the majority "
+"of our classes can be taken by just turning up."
+msgstr ""
+"En el caso de que nuestras clases o talleres solo pueden ser realizados vía "
+"pre-reserva online, esto será indicado en el perfil de cada studio."
+
+#: app/views/faq.html:86
+msgid ""
+"Somuchmore only works with high-quality providers. In addition to this, we "
+"know every provider personally, visit every studio in person and speak with "
+"the teachers in great depth. That’s why at Somuchmore you will find only "
+"teachers who have undergone certified training, as well as studios that "
+"represent particularly high-quality courses."
+msgstr ""
+"Somuchmore sólo trabaja con aliados de calidad. Adicionalmente, conocemos a "
+"cada studio de manera personal, los visitamos y hablamos con los profesores. "
+"Por este motivo, en Somuchmore encontrarás profesores que han recibido "
+"entrenamientos certificados, así como studios que ofrecen clases de calidad."
+
+#: app/views/faq.html:104
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: app/views/faq.html:105
+msgid "The Email Address is incorrect"
+msgstr "La dirección de e-mail es incorrecta"
+
+#: app/views/faq.html:21
+msgid ""
+"The Somuchmore membership means you can visit all classes, at all times at "
+"no additional cost at most of our partner studios, centers and workshops. "
+"Please note that some do have exceptions to these terms with peak times "
+"where classes are usually at full capacity. If you really want to go to a "
+"peak time class or a more expensive course, this can be arranged with us for "
+"an additional cost."
+msgstr ""
+"La suscripción a Somuchmore permite participar en todas las clases, en todas "
+"las horas y sin coste adicional, en la mayoría de nuestros studios, centros "
+"y talleres. Por favor, ten en cuenta que a veces algunos studios presentan "
+"excepciones en las horas punta, cuando las clases están completas. Si "
+"realmente quieres ir en una de esas horas punta o a una sesión no incluida "
+"en Somuchmore, podemos gestionarlo a un coste adicional."
+
+#: app/views/faq.html:33
+msgid "The White Card is £99"
+msgstr "La White Card cuesta 69€"
+
+#: app/views/faq.html:17
+msgid ""
+"Unlike gym or studio memberships, with Somuchmore you can take part in "
+"hundreds of classes and courses at countless studios and workshops. You’ll "
+"be welcomed in all studios as if you were one of their own members."
+msgstr ""
+"A diferencia de las suscripciones convencionales a gimnasios o studios, con "
+"la suscripción a Somuchmore puedes participar en cientos de clases en "
+"incontables studios y centros. Serás bienvenido en todos los studios como si "
+"fueses uno de sus propios miembros."
+
+#: app/views/faq.html:50
+msgid ""
+"We are also happy to activate your membership at a later date if you need "
+"to. If you change your mind and decide to attend classes before this date, "
+"we will just charge you the previous month’s membership fee retrospectively."
+msgstr ""
+"Estaremos encantados de activar tu suscripción en una fecha posterior si así "
+"lo deseas. Si cambias de opinión y quieres asistir a clases antes de esta "
+"fecha, se te cobrará la cuota la cuota del mes anterior restrospectivamente."
+
+#: app/views/faq.html:66
+msgid ""
+"We believe that everyone has the capability to reach their full potential in "
+"life. What we aim to do at Somuchmore is make sure your life is as mindful "
+"and active as possible. Our aim is to keep you inspired. Keep you moving. "
+"Keep you thinking. Keep you learning. We help you achieve this through "
+"training your mind, body and soul."
+msgstr ""
+"Creemos que cada persona es capaz de alcanzar su máximo potencial. Nuestro "
+"objetivo en Somuchmore es darte la oportunidad de vivir tu vida de la manera "
+"más consciente y activa posible. Queremos mantenerte inspirado/a. Mantenerte "
+"en movimiento. Mantenerte aprendiendo. Te ayudamos a lograr esto mediante el "
+"entrenamiento de la mente, el cuerpo y el alma."
+
+#: app/views/faq.html:58
+msgid ""
+"We will send you your personalised Somuchmore card after your 14 day trial "
+"period has expired. You will receive your card by post a few working days "
+"later."
+msgstr ""
+"Te enviaremos tu tarjeta Somuchmore personalizada al final de la prueba de "
+"14 días. Recibirás tu tarjeta por correo en unos pocos días."
+
+#: app/views/faq.html:12
+msgid "What are the benefits of Somuchmore?"
+msgstr "¿Cuáles son las ventajas de Somuchmore?"
+
+#: app/views/faq.html:36
+msgid "What are the differences between the membership cards?"
+msgstr "¿Cuáles son las diferencias entre las tarjetas de Somuchmore?"
+
+#: app/views/faq.html:20
+msgid "What does the Somuchmore membership include?"
+msgstr "¿Qué incluye mi suscripción a Somuchmore?"
+
+#: app/views/faq.html:81
+msgid "What happens if I fail to cancel in advance and simply don’t turn up?"
+msgstr ""
+"¿Qué sucede si no cancelo mi clase con antelación y sencillamente no me "
+"presento a la misma?"
+
+#: app/views/faq.html:65
+msgid "What is the Somuchmore philosophy?"
+msgstr "¿Cuál es la filosofía de Somuchmore?"
+
+#: app/views/faq.html:16
+msgid ""
+"What makes Somuchmore different from a regular studio, gym or fitness centre?"
+msgstr ""
+"¿Qué es lo que hace diferente a Somuchmore de un studio o centro "
+"convencional?"
+
+#: app/views/faq.html:89
+msgid "What’s the difference between the White Card and the Black Card?"
+msgstr "¿Cuál es la diferencia entre la White Card y la Black Card?"
+
+#: app/views/faq.html:77
+msgid "When can I cancel a class that I have booked with Somuchmore?"
+msgstr "¿Hasta cuándo puedo cancelar una clase que reservé con Somuchmore?"
+
+#: app/views/faq.html:48
+msgid "When does my Somuchmore membership begin?"
+msgstr "¿Cuándo comienza mi suscripción a Somuchmore?"
+
+#: app/views/faq.html:57
+msgid "When will you send me my Somuchmore card?"
+msgstr "¿Cuándo me vais a enviar mi tarjeta Somuchmore?"
+
+#: app/views/faq.html:44
+msgid "Where can I go with my Somuchmore card?"
+msgstr "¿Dónde puedo ir con mi tarjeta Somuchmore?"
+
+#: app/views/faq.html:37
+msgid ""
+"With the White Card you can attend up to three classes a month per partner "
+"(studio)."
+msgstr ""
+"Con la White Card, se puede participar en un máximo de tres clases al mes en "
+"cada uno de los studios."
+
+#: app/views/faq.html:25
+msgid ""
+"Yes – we offer you a money-back guarantee for 14 days. During this time you "
+"can attend up to three courses. If you decide to cancel your contract after "
+"this period, you will receive a full refund."
+msgstr ""
+"Sí - te ofrecemos una garantía de devolución del dinero en 14 días. Durante "
+"este período podrás asistir a tres clases. Si decides cancelar tu "
+"suscripción después de esos 14 días recibirás el reembolso completo."
+
+#: app/views/faq.html:62
+msgid ""
+"Yes, when visiting and attending any offering, class, course or workshop, "
+"you will be asked to show your Somuchmore photo ID card. During the initial "
+"trial period, you will need to print your class reservation confirmation "
+"email and present this with a photo ID, like a driving license or passport."
+msgstr ""
+"Sí, para participar en cada una de las clases o talleres que ofrecemos, es "
+"necesario que presentes tu tarjeta de Somuchmore. Durante el período inicial "
+"de prueba, deberás imprimir tu e-mail de confirmación de reserva y "
+"presentarlo junto a una tarjeta con foto (DNI o permiso de conducir)."
+
+#: app/views/faq.html:78
+msgid ""
+"You can cancel up to 8 hours before your class starts without incurring a "
+"fee. However, some of our partners require a longer period. All of this "
+"information is displayed on their profile on our website."
+msgstr ""
+"Puedes cancelar una reserva hasta 8 horas antes de una clase sin tener que "
+"pagar penalización. Sin embargo, algunos studios podrán pedir mayor tiempo "
+"de cancelación. Toda esta información está disponible en sus perfiles dentro "
+"de nuestra página web."
+
+#: app/views/faq.html:29
+msgid ""
+"You can cancel your Somuchmore membership monthly at no cost. We have "
+"deliberately decided against fixed long term memberships for a reason. "
+"Because they stop you from reaching your full potential."
+msgstr ""
+"Puedes cancelar tu suscripción mes a mes sin coste. De hecho, decidimos no "
+"aplicar la suscripción a largo plazo por una razón. Te impide alcanzar tu "
+"máximo potencial."
+
+#: app/views/faq.html:13
+msgid ""
+"You can participate in hundreds of classes and try a plethora of health and "
+"fitness disciplines whilst experiencing a variety of studios and teachers. "
+"Somuchmore is ideal, if you crave more variety in your fitness regime, want "
+"to learn new exercise styles and ways to train with noticeably more variety, "
+"motivation and success."
+msgstr ""
+"Puedes participar en cientos de clases y probar una gran variedad de "
+"disciplinas de salud y fitness mientras descubres incontables studios y "
+"profesores. Somuchmore es ideal, si te apetece más variedad en tu rutina de "
+"ejercicios y si quieres aprender nuevos estilos y maneras de entrenar con "
+"mayor motivación y éxito."
+
+#: app/views/faq.html:100
+msgid "Your Email Address"
+msgstr "Tu dirección de e-mail"

@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/studio.html:16
+msgid "&lt; Less"
+msgstr "&lt; Menos"
+
+#: app/views/studio.html:34 app/views/studio.html:39
+#: app/views/studio.html:44
+msgid "(see course plan)"
+msgstr "(ver plan de la clase)"
+
+#: app/views/studio.html:33 app/views/studio.html:38
+#: app/views/studio.html:43
+msgid "<i class=\"fa fa-check\"></i>All courses"
+msgstr "<i clase=\"fa fa-check\"></i>Todas las clases"
+
+#: app/views/studio.html:34 app/views/studio.html:39
+#: app/views/studio.html:44
+msgid ""
+"<i class=\"fa fa-check\"></i>Some courses <span class=\"light\" translate="
+"\"\">(see course plan)</span>"
+msgstr ""
+"<i clase=\"fa fa-check\"></i>Algunas clases <span class=\"light\" "
+"translate=\"\">(ver plan de la clase)</span>"
+
+#: app/views/studio.html:220
+msgid "<i class=\"fa fa-home\"></i>Studio"
+msgstr "<i class=\"fa fa-home\"></i>Studio"
+
+#: app/views/studio.html:35 app/views/studio.html:40
+#: app/views/studio.html:45
+msgid "<i class=\"fa fa-times\"></i>Not accepted"
+msgstr "<i class=\"fa fa-times\"></i>No aceptado"
+
+#: app/views/studio.html:30
+msgid "Accepted cards:"
+msgstr "Tarjetas aceptadas:"
+
+#: app/views/studio.html:20
+msgid "Address:"
+msgstr "Dirección"
+
+#: app/views/studio.html:54
+msgid "Contact:"
+msgstr "Contacto:"
+
+#: app/views/studio.html:77
+msgid "Course"
+msgstr "Clase"
+
+#: app/views/studio.html:78
+msgid "Discipline"
+msgstr "Disciplina"
+
+#: app/views/studio.html:18
+msgid "Disciplines:"
+msgstr "Disciplinas:"
+
+#: app/views/studio.html:19
+msgid "Equipment:"
+msgstr "Equipamiento:"
+
+#: app/views/studio.html:50
+msgid "Information:"
+msgstr "Información:"
+
+#: app/views/studio.html:80
+msgid "Level"
+msgstr "Nivel"
+
+#: app/views/studio.html:218
+msgid "Location"
+msgstr "Ubicación"
+
+#: app/views/studio.html:16
+msgid "More &gt;"
+msgstr "Más &gt;"
+
+#: app/views/studio.html:94
+msgid "No more offers for this day"
+msgstr "No hay más opciones para este día"
+
+#: app/views/studio.html:66
+msgid "Offer"
+msgstr "Opciones"
+
+#: app/views/studio.html:22
+msgid "Show on map"
+msgstr "Ver en el mapa"
+
+#: app/views/studio.html:79
+msgid "Teacher"
+msgstr "Profesor/a"
+
+#: app/views/studio.html:76
+msgid "Time"
+msgstr "Horario"

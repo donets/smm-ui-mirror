@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/modalCancel.html:27
+msgid "Can't find my preferred studio"
+msgstr "No puedo encontrar mi studio favorito"
+
+#: app/views/modalCancel.html:11
+msgid "Choose any duration between 1 month & 3 months"
+msgstr "Seleccionar una duración entre 1 y 3 meses"
+
+#: app/views/modalCancel.html:4
+msgid "Close"
+msgstr "Cerrar"
+
+#: app/views/modalCancel.html:17
+msgid "I still want to cancel"
+msgstr "Quiero cancelar de todos modos"
+
+#: app/views/modalCancel.html:34
+msgid "Next"
+msgstr "Siguiente"
+
+#: app/views/modalCancel.html:30
+msgid "No time for fitness"
+msgstr "No tengo tiempo para fitness"
+
+#: app/views/modalCancel.html:28
+msgid "Not many options in my neighbourhood"
+msgstr "No hay suficientes alternativas en mi barrio"
+
+#: app/views/modalCancel.html:43
+msgid "Ok"
+msgstr "Ok"
+
+#: app/views/modalCancel.html:16
+msgid "Ok, Suspend my account"
+msgstr "Ok, suspender mi cuenta"
+
+#: app/views/modalCancel.html:24
+msgid "One more step"
+msgstr "Un paso más"
+
+#: app/views/modalCancel.html:31
+msgid "Others"
+msgstr "Otros"
+
+#: app/views/modalCancel.html:25
+msgid "Reason for cancellation?"
+msgstr "¿Cuál es la razón por la que cancelas la suscripción?"
+
+#: app/views/modalCancel.html:41
+msgid "Subscription cancelled"
+msgstr "Suscripción cancelada"
+
+#: app/views/modalCancel.html:29
+msgid "Subscription is expensive"
+msgstr "La suscripción es cara"
+
+#: app/views/modalCancel.html:9
+msgid ""
+"Suspending your account gives you flexibility to take a break. Its simple!"
+msgstr ""
+"La congelación de tu cuenta te da flexibilidad de tomarte un respiro. ¡Es "
+"simple!"
+
+#: app/views/modalCancel.html:13
+msgid "Use your remaining days once you are back!"
+msgstr "¡Utiliza los días restantes cuando vuelvas!"
+
+#: app/views/modalCancel.html:8
+msgid "You can choose to suspend your account."
+msgstr "Puedes optar por congelar tu cuenta."
+
+#: app/views/modalCancel.html:42
+msgid ""
+"You can continue to use your account till {{cancellationDate | date: 'dd.MM."
+"yyyy'}}"
+msgstr ""
+"Puedes seguir utilizando tu suscripción hasta {{cancellationDate | date: "
+"'dd.MM.yyyy'}}"
+
+#: app/views/modalCancel.html:7
+msgid "You sure you want to Cancel?"
+msgstr "¿Estás seguro de que deseas cancelar?"
+
+#: app/views/modalCancel.html:12
+msgid ""
+"Your remaining days in the membership cycle stay on hold and don't expire"
+msgstr ""
+"Los días restantes que te quedan de tu suscripción permanecen en espera y "
+"no caducan"

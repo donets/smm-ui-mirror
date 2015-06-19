@@ -1,0 +1,348 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/homepage.html:240
+msgid "1. Order your card"
+msgstr "1. Pide tu tarjeta"
+
+#: app/views/homepage.html:68
+msgid "14 day free trial"
+msgstr "14 días de prueba"
+
+#: app/views/homepage.html:245
+msgid "2. Book your class"
+msgstr "2. Reserva tu clase"
+
+#: app/views/homepage.html:250
+msgid "3. Get moving"
+msgstr "3. Ponte en movimiento"
+
+#: app/views/homepage.html:280 app/views/homepage.html:296
+msgid ""
+"A holistic lifestyle is the key to longevity and happiness. Somuchmore opens "
+"up new options. The card gives me the freedom of not being tied to just one "
+"studio."
+msgstr ""
+"Un estilo de vida holístico es la clave para una vida larga y feliz. "
+"Somuchmore te descubre nuevas opciones. La tarjeta me da la libertad de no "
+"estar vinculado a un solo studio."
+
+#: app/views/homepage.html:361
+msgid "Anymore questions? Read our FAQ here ›"
+msgstr "¿Alguna otra pregunta? Lee nuestras Preguntas Frecuentes aquí >"
+
+#: app/views/homepage.html:200 app/views/homepage.html:228
+msgid "Anytime"
+msgstr "En cualquier momento"
+
+#: app/views/homepage.html:366
+msgid "Are you a studio, coach or nutritionist? Do you want to work with us?"
+msgstr ""
+"¿Tienes un studio? ¿Eres un entrenador/a o nutricionista? ¿Quieres trabajar "
+"con nosotros?"
+
+#: app/views/homepage.html:104 app/views/homepage.html:89
+msgid "Be inspired"
+msgstr "Inspírate"
+
+#: app/views/homepage.html:100 app/views/homepage.html:84
+msgid "Break free"
+msgstr "Libérate"
+
+#: app/views/homepage.html:184 app/views/homepage.html:227
+msgid "Cancel / Freeze"
+msgstr "Cancela / Congela"
+
+#: app/views/homepage.html:105 app/views/homepage.html:90
+msgid ""
+"Choose from thousands of classes. Workout when you want, wherever you want."
+msgstr "Elige entre miles de clases. Entrénate cuando quieras, donde quieras."
+
+#: app/views/homepage.html:131 app/views/homepage.html:16
+msgid "City"
+msgstr "Ciudad"
+
+#: app/views/homepage.html:30 app/views/homepage.html:53
+msgid "Congrats, you are on the list!"
+msgstr "¡Felicidades, estás en el listado!"
+
+#: app/views/homepage.html:370
+msgid "Contact me"
+msgstr "Contáctame"
+
+#: app/views/homepage.html:182 app/views/homepage.html:219
+msgid "Courses per month"
+msgstr "Clases por mes"
+
+#: app/views/homepage.html:183 app/views/homepage.html:223
+msgid "Courses per provider / month"
+msgstr "Clases por studio / mes"
+
+#: app/views/homepage.html:109 app/views/homepage.html:95
+msgid ""
+"Create your personal workout plan. Spice up your routine. Stay motivated."
+msgstr ""
+"Crea un plan de entrenamiento personalizado. Dale vida a tu rutina. Mantente "
+"motivado"
+
+#: app/views/homepage.html:22
+msgid ""
+"Discover so much more - Yoga, Meditation, Fitness, Pilates, Dance, Martial "
+"Arts and Holistic Wellbeing in the finest studios all over {{ currentCity."
+"defaultName }} - with one card."
+msgstr ""
+"Descubre mucho más - Yoga, Meditación, Fitness, Pilates, Baile, Artes "
+"Marciales y Bienestar en los mejores studios de tu alrededor {{ currentCity."
+"defaultName }} - con una sola tarjeta."
+
+#: app/views/homepage.html:339
+msgid "Do I have to book <br> my classes in advance?"
+msgstr "¿Debo reservar <br> mis clases previamente?"
+
+#: app/views/homepage.html:354
+msgid "Do I have to book my classes in advance?"
+msgstr "¿Debo reservar mi clases previamente?"
+
+#: app/views/homepage.html:25 app/views/homepage.html:368
+#: app/views/homepage.html:48
+msgid "Email Address"
+msgstr "Dirección de e-mail"
+
+#: app/views/homepage.html:178
+msgid "Enjoy your <br>free<br> 14 day trial!"
+msgstr "¡Disfruta de tu <br>gratuita<br> ¡periodo de prueba de 14 días!"
+
+#: app/views/homepage.html:45
+msgid "Enjoy your <u>free</u> 14 day trial!"
+msgstr "¡Disfruta de tu <u>gratuita</u> ¡periodo de prueba de 14 días!"
+
+#: app/views/homepage.html:75
+msgid "Feel it all. Explore it all. #BeSomuchmore"
+msgstr "Siéntelo todo. Explóralo todo. #BeSomuchmore"
+
+#: app/views/homepage.html:246
+msgid "Find your class in seconds using our online calendar."
+msgstr ""
+"Encuentra tu clase en cuestión de segundos a través de nuestro calendario "
+"online."
+
+#: app/views/homepage.html:36 app/views/homepage.html:59
+#: app/views/homepage.html:69
+msgid "Get your card"
+msgstr "Obtén tu tarjeta"
+
+#: app/views/homepage.html:27 app/views/homepage.html:50
+msgid "Get your invitation"
+msgstr "Consigue tu invitación"
+
+#: app/views/homepage.html:66
+msgid "Get your invitation today"
+msgstr "Consigue tu invitación hoy"
+
+#: app/views/homepage.html:342
+msgid "How do I cancel or freeze <br> my membership?"
+msgstr "¿Cómo puedo cancelar o congelar <br> mi suscripción?"
+
+#: app/views/homepage.html:357
+msgid "How do I cancel or freeze my membership?"
+msgstr "¿Cómo puedo cancelar o congelar mi suscripción?"
+
+#: app/views/homepage.html:20
+msgid "IS YOUR STUDIO"
+msgstr "ES TU STUDIO"
+
+#: app/views/homepage.html:336 app/views/homepage.html:351
+msgid "Is my card valid everywhere?"
+msgstr "¿Mi tarjeta es válida en todas partes?"
+
+#: app/views/homepage.html:241
+msgid "It takes less than 90 seconds. You can start right away."
+msgstr "Tardarás menos de 90 segundos. Puedes comenzar de inmediato."
+
+#: app/views/homepage.html:236
+msgid "It’s so simple!"
+msgstr "¡Es muy sencillo!"
+
+#: app/views/homepage.html:153
+msgid "Launching {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
+msgstr "Lanzamiento {{currentCity.startDate | amDateFormat: 'DD.MM.YY'}}"
+
+#: app/views/homepage.html:76
+msgid "Learn more about the offer here ›"
+msgstr "Obtén más información sobre la oferta aquí ›"
+
+#: app/views/homepage.html:139
+msgid "List of studios"
+msgstr "Listado de studios"
+
+#: app/views/homepage.html:172
+msgid "Live a healthy and fulfilled life"
+msgstr "Vive una vida sana y plena"
+
+#: app/views/homepage.html:116
+msgid "London is calling"
+msgstr "Madrid te espera"
+
+#: app/views/homepage.html:138
+msgid "Map of studios"
+msgstr "Mapa de studios"
+
+#: app/views/homepage.html:284 app/views/homepage.html:301
+msgid ""
+"Mindfulness effects everything. Your movement, the way you eat, drink and "
+"think. Being mindful promotes a healthy mind, body and soul. This holistic "
+"approach to living is what attracted me to SoMuchMore"
+msgstr ""
+"Ser conciencia tiene un impacto en todo. Tus movimientos, la forma de comer, "
+"beber y pensar. Ser consciente favorece una mente, un cuerpo y una alma "
+"sanos. El enfoque holístico hacia la vida es lo que me acerca a Somuchmore."
+
+#: app/views/homepage.html:276 app/views/homepage.html:291
+msgid ""
+"Modern everyday life and a holistic lifestyle don’t have to be "
+"contradictions. With Somuchmore it becomes easier to combine the two, which "
+"is important to me: meditating or learning more about personal growth."
+msgstr ""
+"Un día a día moderno y un estilo de vida holístico no tienen porqué estar "
+"contrapuestos. Con Somuchmore se hace más fácil combinarlos, lo cual es "
+"importante para mi."
+
+#: app/views/homepage.html:73
+msgid "One card. Unlimited classes."
+msgstr "Una tarjeta. Clases ilimitadas."
+
+#: app/views/homepage.html:173
+msgid "Order your card – and set your life in motion."
+msgstr "Solicita tu tarjeta – y pon tu vida en movimiento."
+
+#: app/views/homepage.html:334 app/views/homepage.html:349
+msgid ""
+"Participate in fitness, health and wellbeing classes. Visit gyms, spas and "
+"studios."
+msgstr ""
+"Participa en clases de fitness, salud y bienestar. Visita centros de "
+"fitness, spas y studios."
+
+#: app/views/homepage.html:369
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+#: app/views/homepage.html:26 app/views/homepage.html:49
+msgid "Postcode"
+msgstr "Código Postal"
+
+#: app/views/homepage.html:181 app/views/homepage.html:211
+msgid "Price per month"
+msgstr "Precio por mes"
+
+#: app/views/homepage.html:166
+msgid "Refer a studio"
+msgstr "Recomienda un studio"
+
+#: app/views/homepage.html:67
+msgid "Register now for free"
+msgstr "Únete gratis ahora"
+
+#: app/views/homepage.html:101 app/views/homepage.html:85
+msgid ""
+"Say goodbye to long-term contracts. Cancel or freeze your card anytime. No "
+"obligation to anybody, or anything."
+msgstr ""
+"Olvídate de las suscripciones a largo plazo. Cancela o congela tu tarjeta en "
+"cualquier momento. No hay ninguna obligación."
+
+#: app/views/homepage.html:174
+msgid ""
+"Secure a 20% discount for the first three months if you sign up by "
+"{{validUntilIn | amDateFormat: 'D MMMM'}}"
+msgstr ""
+"Obtén un descuento del 20% para los primeros tres meses si te registras "
+"mediante {{validUntilIn | amDateFormat: 'D MMMM'}}"
+
+#: app/views/homepage.html:330
+msgid "Still have some more questions?"
+msgstr "¿Sigues teniendo preguntas?"
+
+#: app/views/homepage.html:373
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: app/views/homepage.html:31 app/views/homepage.html:374
+#: app/views/homepage.html:54
+msgid "The email address is incorrect"
+msgstr "La dirección de e-mail no es correcta"
+
+#: app/views/homepage.html:117
+msgid "The finest studios all over the city are awaiting you."
+msgstr "Los mejores studios de la ciudad te esperan."
+
+#: app/views/homepage.html:108 app/views/homepage.html:94
+msgid "Train and Tone"
+msgstr "¡Entrena y tonifica!"
+
+#: app/views/homepage.html:251
+msgid "Visit classes as often as you want."
+msgstr "Asista a clases con la frecuencia que desees."
+
+#: app/views/homepage.html:74
+msgid ""
+"What are you in the mood for today? <b>Yoga</b>, <b>Pilates</b> or "
+"<b>Meditation</b>? Pushing yourself to the limits with <b>CrossFit</b>, "
+"<b>TRX</b> or <b>Barre Core</b>? Feel like hitting up the dance floor with a "
+"spot of <b>Tango</b>, <b>Hip-Hop</b> or <b>Salsa</b>? Or want to slow it "
+"down a little, reconnect and strengthen your core and concentration with "
+"<b>Tai Chi</b>, <b>Qi Gong</b> or <b>Kung-Fu</b>? Fancy learning more about "
+"<b>Nutrition</b> and <b>Biomedicine</b>? Or simply want to chill out and "
+"unwind in the <b>Sauna</b> or <b>Spa</b>?"
+msgstr ""
+"¿Qué quieres hacer hoy? ¿<b>Yoga</b>, <b>Pilates</b> o <b>Meditación</b>? "
+"Llega al límite con ¿<b>CrossFit</b>, <b>TRX</b> o <b>Barre Core</b>? Invade "
+"la pista de baile con ¿<b>Tango</b>, <b>Hip-Hop</b> o <b>Salsa</b>? O "
+"prefieres calmarte, reconectar y fortalecer tu concentración con ¿<b>Tai "
+"Chi</b>, <b>Qi Gong</b> o <b>Kung-Fu</b>? ¿Quieres descubrir o aprender "
+"acerca de <b>Nutrition</b> y <b>Biomedicina</b>? O simplemente, ¿quieres "
+"relajarte y descansar en la <b>Sauna</b> o <b>Spa</b>?"
+
+#: app/views/homepage.html:333 app/views/homepage.html:348
+msgid "What can I do with my card?"
+msgstr "¿Qué puedo hacer con mi tarjeta?"
+
+#: app/views/homepage.html:340 app/views/homepage.html:355
+msgid "Yes. Please always check our online calendar in advance."
+msgstr ""
+"Sí. Por favor, siempre revisa nuestro calendario online con antelación."
+
+#: app/views/homepage.html:337 app/views/homepage.html:352
+msgid "Yes. Your card is valid with all our partners."
+msgstr "Sí. Tu tarjeta es válida con todos nuestros studios."
+
+#: app/views/homepage.html:343 app/views/homepage.html:358
+msgid ""
+"You can cancel on a monthly base. Or freeze your membership for a month or "
+"more."
+msgstr ""
+"Puedes cancelar la suscripción mes a mes. O también congelar tu suscripción "
+"durante un mes o más."
+
+#: app/views/homepage.html:277 app/views/homepage.html:292
+msgid "– Alexandra Liakou, director"
+msgstr "– Alexandra Liakou, directora"
+
+#: app/views/homepage.html:281 app/views/homepage.html:297
+msgid "– Konrad Knops, osteopath"
+msgstr "– Konrad Knops, osteópata "
+
+#: app/views/homepage.html:285 app/views/homepage.html:302
+msgid "– Sonja Reifenhäuser, food coach"
+msgstr "– Sonja Reifenhäuser, nutricionista"

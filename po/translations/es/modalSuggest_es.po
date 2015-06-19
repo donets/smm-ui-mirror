@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/modalSuggest.html:4
+msgid "Close"
+msgstr "Cerrar"
+
+#: app/views/modalSuggest.html:8
+msgid "Name of the studio"
+msgstr "Nombre del estudio"
+
+#: app/views/modalSuggest.html:11
+msgid "Refer"
+msgstr "Recomendar"
+
+#: app/views/modalSuggest.html:6
+msgid "Refer a studio:"
+msgstr "Recomendar un studio:"
+
+#: app/views/modalSuggest.html:15
+msgid "Sorry, your message was not delivered. Please try again later."
+msgstr "Tu mensaje no ha sido enviado. Por favor, inténtalo de nuevo más tarde."
+
+#: app/views/modalSuggest.html:14
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: app/views/modalSuggest.html:10
+msgid "Your Email Address"
+msgstr "Tu dirección de correo electrónico"
+
+#: app/views/modalSuggest.html:9
+msgid "Your Name (Optional)"
+msgstr "Tu nombre (Opcional)"

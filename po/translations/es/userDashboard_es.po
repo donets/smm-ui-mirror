@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/userDashboard.html:32
+msgid ", or"
+msgstr ", o"
+
+#: app/views/userDashboard.html:89 app/views/userDashboard.html:9
+msgid "All activities"
+msgstr "Todas las actividades"
+
+#: app/views/userDashboard.html:103 app/views/userDashboard.html:26
+msgid "All districts"
+msgstr "Todos los distritos"
+
+#: app/views/userDashboard.html:111 app/views/userDashboard.html:36
+msgid "All studios"
+msgstr "Todos los studios"
+
+#: app/views/userDashboard.html:18
+msgid "City"
+msgstr "Ciudad"
+
+#: app/views/userDashboard.html:203
+msgid "Continue to the courses"
+msgstr "Continuar a las clases"
+
+#: app/views/userDashboard.html:202
+msgid ""
+"From now on you can find a list of all our partner studios here. You can "
+"even start before your card arrives. Print out your class confirmation and "
+"take a photo ID to your chosen studio, et voilá! Have Fun!"
+msgstr ""
+"Ahora puedes encontrar una lista de todos los studios aquí. Puede incluso "
+"comenzar antes de recibir tu tarjeta. Imprime la confirmación de tu clase "
+"y llévate un documento con foto (ej. DNI), y ¡magia! ¡Diviértete!"
+
+#: app/views/userDashboard.html:140 app/views/userDashboard.html:178
+msgid "Reserve"
+msgstr "Reserva"
+
+#: app/views/userDashboard.html:138
+msgid "Reserved for you"
+msgstr "Reservado para ti"
+
+#: app/views/userDashboard.html:5
+msgid "Show"
+msgstr "Mostrar"
+
+#: app/views/userDashboard.html:145
+msgid "Sorry, there are no free spots available for this class."
+msgstr "Lo sentimos, no hay más espacios disponibles para esta clase."
+
+#: app/views/userDashboard.html:146
+msgid "Sorry, your request could not be completed. Please Try again."
+msgstr ""
+"Lo sentimos, tu petición no se pudo completar. Por favor, vuelve a "
+"intentarlo."
+
+#: app/views/userDashboard.html:201
+msgid "Thank you for your registration!"
+msgstr "¡Gracias por registrarte!"
+
+#: app/views/userDashboard.html:156 app/views/userDashboard.html:187
+msgid ""
+"There are no courses available for this day and this search. Try another "
+"date or reset the filters."
+msgstr ""
+"No hay clases disponibles para este día y esta búsqueda. Inténtalo con "
+"otra fecha o restablece los filtros."
+
+#: app/views/userDashboard.html:15
+msgid "in"
+msgstr "en"

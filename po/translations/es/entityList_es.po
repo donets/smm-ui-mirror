@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/entityList.html:66
+msgid "<i class=\"fa fa-eye\"></i>View"
+msgstr "<i class=\"fa fa-eye\"></i>Ver"
+
+#: app/views/entityList.html:65
+msgid "<i class=\"fa fa-pencil\"></i>Manage"
+msgstr "<i class=\"fa fa-pencil\"></i>Gestionar"
+
+#: app/views/entityList.html:23
+msgid "All cities"
+msgstr "Todas las ciudades"
+
+#: app/views/entityList.html:32
+msgid "Alle Karten"
+msgstr "Todas las tarjetas"
+
+#: app/views/entityList.html:11
+msgid "Filter card"
+msgstr "Filtrar tarjeta"
+
+#: app/views/entityList.html:10
+msgid "Filter code"
+msgstr "Filtrar código"
+
+#: app/views/entityList.html:14
+msgid "Filter email"
+msgstr "Filtrar e-mail"
+
+#: app/views/entityList.html:17 app/views/entityList.html:9
+msgid "Filter name"
+msgstr "Filtrar nombre"
+
+#: app/views/entityList.html:43
+msgid "Filter zurücksetzen"
+msgstr "Restablecer los filtros"
+
+#: app/views/entityList.html:41
+msgid "Foto"
+msgstr "Foto"

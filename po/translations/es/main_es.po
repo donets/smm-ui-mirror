@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/main.html:9
+msgid "Be who you were born to be."
+msgstr "Sé lo que naciste para ser."
+
+#: app/views/main.html:16 app/views/main.html:39
+msgid "Later"
+msgstr "Más tarde"
+
+#: app/views/main.html:10
+msgid "Learn more &gt;"
+msgstr "Aprende más &gt;"
+
+#: app/views/main.html:14
+msgid "Today"
+msgstr "Hoy"
+
+#: app/views/main.html:15 app/views/main.html:30
+msgid "Tomorrow"
+msgstr "Mañana"
+
+#: app/views/main.html:4
+msgid ""
+"Transform your mind, body and soul with exceptional teachers, trainers and "
+"therapists in London.\n"
+"            <a ui-sref=\"more\">Learn more</a>"
+msgstr ""
+"Transforma tu mente, cuerpo y alma con los maestros, entrenadores y "
+"terapeutas más excepcionales de Madrid.\n"
+"            <a ui-sref=\"plus\">En savoir plus</a>"
+
+#: app/views/main.html:3
+msgid "Welcome to you"
+msgstr "Bienvenido"

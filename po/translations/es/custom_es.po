@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+msgid "Beginners"
+msgstr "Principiante"
+
+msgid "Medium"
+msgstr "Intermedio"
+
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "Meditation can increase your brain capacity to that of a 25-year-old."
+msgstr ""
+"La meditación puede igualar tu capacidad cerebral a la de una persona de 25 "
+"años."
+
+msgid "— NCBI (National Center for Biotechnology Information)"
+msgstr "— NCBI (Centro Nacional de Información sobre Biotecnología)"
+
+msgid ""
+"Yoga has been proven to help self-image and self-love after just 3 months."
+msgstr ""
+"El Yoga mejora la estima hacia uno mismo con solo 3 meses de práctica."
+
+msgid "Dancing helps to alleviate depression."
+msgstr "El baile ayuda a combatir la depresión."
+
+msgid ""
+"People who meditate are able to deal with everyday challenges more "
+"creatively."
+msgstr ""
+"Las personas que meditan son capaces de afrontar los retos diarios con mas "
+"creatividad."
+
+msgid "— WSU (Washington State University)"
+msgstr "— WSU (Washington State University)"
+
+msgid "Yoga helps to reduce anxiety and manage stress."
+msgstr "El yoga ayuda a reducir la ansiedad y controlar el estrés."
+
+msgid ""
+"Your password is too weak; it must contain at least 8 characters, including "
+"numbers and lower and uppercase letters"
+msgstr ""
+"Tu contraseña es muy débil; debe contener al menos 8 caracteres, incluyendo "
+"minúsculas, mayúsculas y números"
+
+msgid "The link is no longer valid"
+msgstr "El enlace ya no está activo"
+
+msgid "The link is invalid"
+msgstr "El enlace no es válido"
+
+msgid ""
+"I don’t have a credit card, but still wish to order the Somuchmore card. "
+"Please contact me!"
+msgstr ""
+"No tengo tarjeta de crédito, pero quiero solicitar la tarjeta Somuchmore. "
+"¡Por favor, contactadme!"
+
+msgid "Unlimited"
+msgstr "Ilimitado"
+
+msgid "Anytime"
+msgstr "En cualquier momento"
+
+msgid "Selected"
+msgstr "Seleccionado"
+
+msgid "Select"
+msgstr "Seleccionar"
+
+msgid "In {{count}} month"
+msgid_plural "In {{count}} months"
+msgstr[0] "En {{count}} mes"
+msgstr[1] "En {{count}} meses"

@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/classes.html:53
+msgid "<i class=\"fa fa-pencil\"></i>Manage"
+msgstr "<i class=\"fa fa-pencil\"></i>Gestiona"
+
+#: app/views/classes.html:8
+msgid "<i class=\"fa fa-plus\"></i>Bulk Import"
+msgstr "<i class=\"fa fa-plus\"></i>Importación masiva"
+
+#: app/views/classes.html:7
+msgid "<i class=\"fa fa-plus\"></i>New Class"
+msgstr "<i class=\"fa fa-plus\"></i>Nueva Clase"
+
+#: app/views/classes.html:21
+msgid "All Levels"
+msgstr "Todos los Niveles"
+
+#: app/views/classes.html:13
+msgid "All Studios"
+msgstr "Todos los Studios"
+
+#: app/views/classes.html:2
+msgid "Classes"
+msgstr "Clases"
+
+#: app/views/classes.html:40
+msgid "Discipline"
+msgstr "Disciplina"
+
+#: app/views/classes.html:30
+msgid "Draft"
+msgstr "Borrador"
+
+#: app/views/classes.html:9
+msgid "Filter name"
+msgstr "Filtrar por nombre"
+
+#: app/views/classes.html:39
+msgid "Name of class"
+msgstr "Nombre de la clase"
+
+#: app/views/classes.html:32
+msgid "Reset filters"
+msgstr "Restablecer los filtros"
+
+#: app/views/classes.html:38
+msgid "Status"
+msgstr "Estado"
+
+#: app/views/classes.html:41
+msgid "Studio"
+msgstr "Studio"
+
+#: app/views/classes.html:42
+msgid "Teacher"
+msgstr "Profesor/a"

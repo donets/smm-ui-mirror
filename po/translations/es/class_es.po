@@ -1,0 +1,161 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/class.html:12
+msgid "<i class=\"fa fa-save\"></i>Save &amp; go live"
+msgstr "<i class=\"fa fa-save\"></i>Save &amp; go live"
+
+#: app/views/class.html:11
+msgid "<i class=\"fa fa-save\"></i>Save as draft"
+msgstr "<i class=\"fa fa-save\"></i>Guardar como borrador"
+
+#: app/views/class.html:13
+msgid "<i class=\"fa fa-trash\"></i>Delete"
+msgstr "<i class=\"fa fa-trash\"></i>Eliminar"
+
+#: app/views/class.html:77
+msgid "Add dates"
+msgstr "Añadir fechas"
+
+#: app/views/class.html:170
+msgid "All Levels"
+msgstr "Todos los niveles"
+
+#: app/views/class.html:225
+msgid "Black Card only"
+msgstr "Solo Black Card"
+
+#: app/views/class.html:160
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: app/views/class.html:4
+msgid "Classes"
+msgstr "Clases"
+
+#: app/views/class.html:78
+msgid "Delete dates"
+msgstr "Cancelar las fechas"
+
+#: app/views/class.html:200
+msgid "Description"
+msgstr "Descripción"
+
+#: app/views/class.html:192
+msgid "Discipline"
+msgstr "Disciplina"
+
+#: app/views/class.html:83
+msgid "Edit a single date"
+msgstr "Modifica una fecha"
+
+#: app/views/class.html:84
+msgid "Edit {{schedule.repeat | lowercase}} repeating dates"
+msgstr "Editar {{schedule.repeat | lowercase}} fechas repetitivas"
+
+#: app/views/class.html:86
+msgid "Event repeats"
+msgstr "Frecuencia de la sesión"
+
+#: app/views/class.html:211
+msgid "Fixed visit length (in minutes, empty = unlimited)"
+msgstr "Duración fija de la visita (en minutos, vacío = ilimitado)"
+
+#: app/views/class.html:207
+msgid "Free visit?"
+msgstr "¿Visita gratuita?"
+
+#: app/views/class.html:110
+msgid "From"
+msgstr "De"
+
+#: app/views/class.html:166
+msgid "Level"
+msgstr "Nivel"
+
+#: app/views/class.html:37
+msgid "Location"
+msgstr "Ubicación"
+
+#: app/views/class.html:179
+msgid "Max. no. of participants"
+msgstr "Número máximo de participantes"
+
+#: app/views/class.html:22
+msgid "Name of class"
+msgstr "Nombre de la clase"
+
+#: app/views/class.html:157
+msgid "No. of dates created by schedule"
+msgstr "Número de fechas creadas por horario"
+
+#: app/views/class.html:183
+msgid "Price of a drop-in class"
+msgstr "Precio de una clase suelta"
+
+#: app/views/class.html:218
+msgid "Registration required"
+msgstr "Requiere registrarse"
+
+#: app/views/class.html:98
+msgid "Repeating every"
+msgstr "Tiene lugar cada"
+
+#: app/views/class.html:160
+msgid "Save"
+msgstr "Guardar"
+
+#: app/views/class.html:82
+msgid "Schedule Dates"
+msgstr "Programa Fechas"
+
+#: app/views/class.html:141 app/views/class.html:148
+msgid "Select Date"
+msgstr "Selecciona Fecha"
+
+#: app/views/class.html:41
+msgid "Select Location"
+msgstr "Selecciona Ubicación"
+
+#: app/views/class.html:103 app/views/class.html:91
+msgid "Select Repeats"
+msgstr "Selecciona Frecuencia"
+
+#: app/views/class.html:30
+msgid "Select Studio"
+msgstr "Selecciona Studio"
+
+#: app/views/class.html:115 app/views/class.html:127
+msgid "Select Time"
+msgstr "Selecciona Hora"
+
+#: app/views/class.html:26
+msgid "Studio"
+msgstr "Studio"
+
+#: app/views/class.html:196
+msgid "Style"
+msgstr "Estilo"
+
+#: app/views/class.html:188
+msgid "Teacher"
+msgstr "Profesor/a"
+
+#: app/views/class.html:122
+msgid "To"
+msgstr "A"
+
+#: app/views/class.html:6
+msgid "{{occurrences.length}} Classes scheduled"
+msgstr "{{occurrences.length}} Clases programadas"

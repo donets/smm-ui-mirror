@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/modalSubscribe.html:4
+msgid "Close"
+msgstr "Cerrar"
+
+#: app/views/modalSubscribe.html:8
+msgid "Email Address"
+msgstr "ÚNETE"
+
+#: app/views/modalSubscribe.html:10
+msgid "GET INVOLVED"
+msgstr "ÚNETE A NOSOTROS"
+
+#: app/views/modalSubscribe.html:6
+msgid "Get your invitation today:"
+msgstr "Consigue tu invitación hoy:"
+
+#: app/views/modalSubscribe.html:9
+msgid "Post Code"
+msgstr "Código Postal"
+
+#: app/views/modalSubscribe.html:16
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: app/views/modalSubscribe.html:13
+msgid "The email address is incorrect"
+msgstr "La dirección de e-mail es incorrecta"

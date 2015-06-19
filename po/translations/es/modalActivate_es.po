@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/modalActivate.html:114
+msgid "Activate my account now"
+msgstr "Activar mi cuenta ahora"
+
+#: app/views/modalActivate.html:64
+msgid "Bank account holder"
+msgstr "Titular de la cuenta bancaria"
+
+#: app/views/modalActivate.html:47
+msgid "CVV"
+msgstr "CVV"
+
+#: app/views/modalActivate.html:15
+msgid "Card number"
+msgstr "Número de tarjeta"
+
+#: app/views/modalActivate.html:115
+msgid "Change activation date"
+msgstr "Cambiar la fecha de activación"
+
+#: app/views/modalActivate.html:4
+msgid "Close"
+msgstr "Cerrar"
+
+#: app/views/modalActivate.html:123
+msgid ""
+"Congratulations! You can now enjoy unlimited access to our network of studios"
+msgstr ""
+"¡Enhorabuena! Ahora puedes disfrutar de acceso a nuestra red de studios."
+
+#: app/views/modalActivate.html:14
+msgid "Credit card"
+msgstr "Tarjeta de crédito"
+
+#: app/views/modalActivate.html:100
+msgid "Earliest activation date: {{member.earliestActivationPossible}}"
+msgstr "Fecha de activación más cercana: {{member.earliestActivationPossible}}"
+
+#: app/views/modalActivate.html:98
+msgid "Great! Lets activate your account"
+msgstr "¡Perfecto! Vamos a activar tu cuenta"
+
+#: app/views/modalActivate.html:71
+msgid "IBAN"
+msgstr "IBAN"
+
+#: app/views/modalActivate.html:30
+msgid "Month"
+msgstr "Mes"
+
+#: app/views/modalActivate.html:57
+msgid "No credit card?"
+msgstr "¿No tienes tarjeta de crédito?"
+
+#: app/views/modalActivate.html:124 app/views/modalActivate.html:129
+msgid "Ok"
+msgstr "Ok"
+
+#: app/views/modalActivate.html:88
+msgid "Payment by credit card?"
+msgstr "¿Pago con tarjeta de crédito?"
+
+#: app/views/modalActivate.html:9
+msgid "Payment information"
+msgstr "Información del pago"
+
+#: app/views/modalActivate.html:21
+msgid "Please enter a valid credit card number"
+msgstr "Introduce un número de tarjeta de crédito válido."
+
+#: app/views/modalActivate.html:51
+msgid ""
+"Please enter the 3 or 4-digit security number (on the back of your card)"
+msgstr ""
+"Introduzca el código de seguridad (en la parte posterior de tu tarjeta)"
+
+#: app/views/modalActivate.html:86
+msgid ""
+"Please note: You can cancel your direct debit payment any time by sending an "
+"e-mail to our customer service team."
+msgstr ""
+"Atención: Puedes cancelar tu pago de débito directo en cualquier momento "
+"enviando un correo electrónico a nuestro servicio de atención al cliente."
+
+#: app/views/modalActivate.html:61
+msgid "SEPA direct debit"
+msgstr "SEPA débito directo"
+
+#: app/views/modalActivate.html:85
+msgid ""
+"SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to "
+"debit my account for services provided. I also instruct my bank to honour "
+"direct debit requests from this recipient."
+msgstr ""
+"SEPA consentimiento de débito directo: Por la presente autorizo al "
+"destinatario Somuchmore Spain a debitar de mi cuenta los servicios "
+"prestados. También instruyo a mi banco a respetar las solicitudes de débito "
+"directas de este destinatario."
+
+#: app/views/modalActivate.html:78
+msgid "SWIFT-BIC"
+msgstr "SWIFT-BIC"
+
+#: app/views/modalActivate.html:99
+msgid "Scheduled activation date: {{member.membershipActivatesOn}}"
+msgstr "Fecha de activación prevista: {{member.membershipActivatesOn}}"
+
+#: app/views/modalActivate.html:109
+msgid "Select date"
+msgstr "Seleccióna una fehca"
+
+#: app/views/modalActivate.html:101
+msgid "Set activation date"
+msgstr "Establece la fecha de activación"
+
+#: app/views/modalActivate.html:94
+msgid "Submit new payment data"
+msgstr "Introduce la nueva información de pago"
+
+#: app/views/modalActivate.html:127
+msgid "Thank you!"
+msgstr "¡Gracias!"
+
+#: app/views/modalActivate.html:20 app/views/modalActivate.html:50
+#: app/views/modalActivate.html:67 app/views/modalActivate.html:74
+#: app/views/modalActivate.html:81
+msgid "This is an obligatory field"
+msgstr "Este es un campo obligatorio"
+
+#: app/views/modalActivate.html:27
+msgid "Valid until"
+msgstr "Válido hasta"
+
+#: app/views/modalActivate.html:40
+msgid "Year"
+msgstr "Año"
+
+#: app/views/modalActivate.html:65
+msgid "Your Name"
+msgstr "Tu nombre"
+
+#: app/views/modalActivate.html:122
+msgid "Your card is active!"
+msgstr "¡Tu tarjeta está activa!"
+
+#: app/views/modalActivate.html:128
+msgid "Your membership will activate on {{startDate | date: 'dd.MM.yyyy'}}"
+msgstr "Tu suscripción se activará el {{startDate | date: 'dd.MM.yyyy'}}"
+
+#: app/views/modalActivate.html:48
+msgid "e.g. 123"
+msgstr "ej. 123"
+
+#: app/views/modalActivate.html:79
+msgid "e.g. ABCD1234"
+msgstr "ej. ABCD1234"
+
+#: app/views/modalActivate.html:72
+msgid "e.g. DE12 3456 7890 1234 5678 90"
+msgstr "ej. DE12 3456 7890 1234 5678 90"

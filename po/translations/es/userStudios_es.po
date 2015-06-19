@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: app/views/userStudios.html:15 app/views/userStudios.html:57
+#: app/views/userStudios.html:61
+msgid "All districts"
+msgstr "Todos los distritos"
+
+#: app/views/userStudios.html:24 app/views/userStudios.html:66
+#: app/views/userStudios.html:70
+msgid "All studios"
+msgstr "Todos los studios"
+
+#: app/views/userStudios.html:49 app/views/userStudios.html:7
+msgid "City"
+msgstr "Ciudad"
+
+#: app/views/userStudios.html:87
+msgid "There are no studios for this search. Try another filters."
+msgstr "No hay studios para esta búsqueda. Por favor, prueba otros filtros."
