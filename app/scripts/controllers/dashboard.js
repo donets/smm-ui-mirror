@@ -20,8 +20,8 @@ angular.module('boltApp.controllers.Dashboard', [])
                     if (obj.subdiscipline) {
                         var discipline = _.findWhere($scope.disciplines, {disciplineId: obj.subdiscipline.disciplineId});
                         var style = _.findWhere($scope.styles, {subDisciplineId: obj.subdiscipline.id});
-                        obj.discipline = obj.subdiscipline.disciplineId && discipline ? discipline.name : '';
-                        obj.style = obj.subdiscipline.id && style ? style.name : '';
+                        obj.discipline = obj.subdiscipline.disciplineId && discipline ? discipline.name : obj.discipline;
+                        obj.style = obj.subdiscipline.id && style ? style.name : obj.style;
                     }
                     if(obj.studio.linkClassesToStudioDisciplines && obj.studio.disciplines) {
                         obj.disciplinestyleName = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
@@ -42,6 +42,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $scope.events = _.filter($scope.events, function (event) {
                     return moment(event.start_date).isAfter(moment());
                 });
+                console.log($scope.events);
                 _.map($scope.styles, function (item) {
                     item.disabled = !_.include(_.compact(_.uniq(_.pluck(_.pluck(res, 'subdiscipline'), 'id'))), item.subDisciplineId);
                 });

@@ -58,8 +58,8 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                     if (obj.subdiscipline) {
                         var discipline = _.findWhere($scope.disciplines, {disciplineId: obj.subdiscipline.disciplineId});
                         var style = _.findWhere($scope.styles, {subDisciplineId: obj.subdiscipline.id});
-                        obj.discipline = obj.subdiscipline.disciplineId && discipline ? discipline.name : '';
-                        obj.style = obj.subdiscipline.id && style ? style.name : '';
+                        obj.discipline = obj.subdiscipline.disciplineId && discipline ? discipline.name : obj.discipline;
+                        obj.style = obj.subdiscipline.id && style ? style.name : obj.style;
                     }
                     if($scope.studio.linkClassesToStudioDisciplines && $scope.studio.disciplines) {
                         obj.disciplinestyleName = _.union([obj.discipline, obj.style], obj.studio.disciplines.split(', '));
