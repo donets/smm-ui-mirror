@@ -42,7 +42,6 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $scope.events = _.filter($scope.events, function (event) {
                     return moment(event.start_date).isAfter(moment());
                 });
-                console.log($scope.events);
                 _.map($scope.styles, function (item) {
                     item.disabled = !_.include(_.compact(_.uniq(_.pluck(_.pluck(res, 'subdiscipline'), 'id'))), item.subDisciplineId);
                 });

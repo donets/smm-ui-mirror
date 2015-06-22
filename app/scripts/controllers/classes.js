@@ -26,9 +26,11 @@ angular.module('boltApp.controllers.Classes', [])
                 $scope.locations = res[2];
                 _.map($scope.classes, function (obj) {
                     var studio = _.findWhere($scope.studios, {id: obj.studioId});
+                    var location = _.findWhere($scope.locations, {id: obj.locationId});
                     var discipline = _.findWhere(res[3].data, {disciplineId: obj.disciplineId});
                     var style = _.findWhere(res[4].data, {subDisciplineId: obj.subDisciplineId});
                     obj.studio = obj.studioId && studio ? studio.name : '';
+                    obj.location = obj.locationId && location ? location.name : '';
                     obj.disciplineName = obj.disciplineId && discipline ? discipline.name : '';
                     obj.styleName = obj.subDisciplineId && style ? style.name : '';
                 });
