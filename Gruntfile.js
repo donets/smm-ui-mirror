@@ -491,7 +491,7 @@ module.exports = function(grunt) {
                     module: 'boltApp'
                 },
                 files: {
-                    'app/scripts/custom/translations.js': ['po/translations/de/*.po', 'po/translations/en/*.po', 'po/translations/fr/*.po']
+                    'app/scripts/custom/translations.js': ['po/translations/de/*.po', 'po/translations/en/*.po', 'po/translations/fr/*.po', 'po/translations/es/*.po']
                 }
             }
         },
