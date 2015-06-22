@@ -11,16 +11,16 @@ angular.module('boltApp.controllers.Classes', [])
     .controller('ClassesCtrl', function ($scope, $rootScope, $http, $window, $q, RestApi, gettextCatalog) {
         RestApi.query({route: 'cities'}).$promise.then(function(response) {
             $scope.cities = response;
-            $scope.city = $rootScope.currentCity ? $rootScope.currentCity : _.findWhere($scope.cities, {id: 4});
+            $scope.cityID = $rootScope.currentCity ? $rootScope.currentCity.id : 4;
             $scope.changeCityLocation();
         });
         $scope.changeCityLocation = function () {
             $scope.showSpinner = true;
-            $q.all([RestApi.query({route: 'events',cityId: $scope.city.id}).$promise,
-                RestApi.query({route: 'studios',cityId: $scope.city.id}).$promise,
-                RestApi.query({route: 'locations',cityId: $scope.city.id}).$promise,
-                $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/disciplineLangs?langId=' + $scope.city.langId),
-                $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplineLangs?langId=' + $scope.city.langId)]).then(function (res) {
+            $q.all([RestApi.query({route: 'events',cityId: $scope.cityID}).$promise,
+                RestApi.query({route: 'studios',cityId: $scope.cityID}).$promise,
+                RestApi.query({route: 'locations',cityId: $scope.cityID}).$promise,
+                $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/disciplineLangs?langId=' + _.findWhere($scope.cities, {id: $scope.cityID}).langId),
+                $http.get($window.smmConfig.restUrlBase + '/api/v2/rest/subDisciplineLangs?langId=' + _.findWhere($scope.cities, {id: $scope.cityID}).langId)]).then(function (res) {
                 $scope.classes = res[0];
                 $scope.studios = res[1];
                 $scope.locations = res[2];
