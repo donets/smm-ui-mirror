@@ -17,12 +17,12 @@
                 <input type="text" ng-model="search.fullName" placeholder="{{'Filter name'|translate}}"/>
             </div>
             <select chosen
-                    ng-if="$stateParams.route === 'locations' || $stateParams.route === 'studios' "
+                    ng-show="$stateParams.route === 'locations' || $stateParams.route === 'studios' "
                     id="city"
-                    ng-model="search.cityId"
+                    ng-model="cityID"
                     data-placeholder="{{'All cities'|translate}}"
-                    disable-search="false"
-                    ng-options="item.id as item.defaultName for item in cities | orderBy: 'toString()'">
+                    disable-search="false" ng-change="changeCity()"
+                    ng-options="item.id as item.defaultName for item in cities">
                 <option value=""></option>
             </select>
             <div ng-show="$stateParams.route === 'memberships'" class="form-check">
@@ -34,7 +34,7 @@
             <a class="clear-button" href="" ng-click="clearFilters()" translate>Filter zurücksetzen</a>
         </div>
         <div class="w-right b-classes-list">
-            <table class="timetable" infinite-scroll="showMore()" ng-show="desktop" ng-class="{'membership-table': $stateParams.route === 'memberships'}">
+            <table class="timetable" infinite-scroll="showMore()" ng-hide="showSpinner" ng-class="{'membership-table': $stateParams.route === 'memberships'}">
                 <thead>
                     <tr>
                         <th ng-repeat="field in fields | filter: {listed: '!'+false}">{{field.title}}</th>
@@ -59,6 +59,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div ng-show="showSpinner" class="admin-spinner">
+                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#f7820f', left: 0, top: 0}"></span>
+            </div>
         </div>
     </div>
 </div>
