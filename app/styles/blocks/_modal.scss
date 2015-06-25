@@ -71,12 +71,7 @@
         right: 15px;
     }
 }
-.modal-cancel {
-    .modal-dialog {
-        @media (min-width: $containerMobileWidth) {
-            width: 480px;
-        }
-    }
+.modal-cancel, .modal-activate {
     .modal-content {
         .form-response {
             position: static;
@@ -148,10 +143,31 @@
             min-width: 0;
             width: 350px;
         }
-        .form-checkout {
-            width: 360px;
-            margin-top: 0;
+    }
+}
+.modal-cancel {
+    .modal-dialog {
+        @media (min-width: $containerMobileWidth) {
+            width: 480px;
         }
+    }
+    .form-checkout {
+        width: 360px;
+        margin-top: 0;
+    }
+}
+.modal-activate {
+    .modal-dialog {
+        @media (min-width: $containerMobileWidth) {
+            width: 640px;
+        }
+    }
+    .modal-body .form-checkout {
+        width: 520px;
+        margin-top: 0;
+    }
+    .form-signup.form-checkout .w-clear {
+        width: auto;
     }
 }
 .modal-attend {

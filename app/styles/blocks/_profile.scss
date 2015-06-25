@@ -132,7 +132,13 @@
     .form-checkout {
         width: 524px;
         padding: 0;
-        margin-top: 0;
+        margin-top: 30px;
+        .payment-provider {
+            margin: 0 0 40px;
+        }
+        .w-clear {
+            width: auto;
+        }
     }
 }
 .widget-overview {
