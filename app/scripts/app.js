@@ -707,10 +707,6 @@ angular.module('boltApp')
 						RestApi.query({route: 'locations'}).$promise.then(function(response) {
 							$rootScope.locations = response;
 						});
-						RestApi.query({route: 'cities'}).$promise.then(function(response) {
-							$rootScope.cities = response;
-							$rootScope.cities.unshift({id: 0,defaultName: 'No location'});
-						});
 						$rootScope.upload = function(target) {
 							$rootScope.modalInstance = $modal.open({
 								templateUrl: 'app/views/modalUpload.html',
@@ -847,16 +843,32 @@ angular.module('boltApp')
 
 					getEntityList: function(RestApi, $stateParams) {
 
-						return RestApi.query({route: $stateParams.route}).$promise;
+						return ($stateParams.route !== 'studios' && $stateParams.route !== 'locations') ? RestApi.query({route: $stateParams.route}).$promise : null;
 
 					}
 
 				},
-				controller: function($scope, $rootScope, $http, $window, $cookieStore, getEntityList) {
+				controller: function($scope, $rootScope, $http, $window, RestApi, $cookieStore, getEntityList) {
 
-					getEntityList.$promise.then(function(res) {
-						$scope.entities = res;
-					});
+					if ($rootScope.$stateParams.route !== 'studios' && $rootScope.$stateParams.route !== 'locations') {
+                        getEntityList.$promise.then(function(res) {
+                            $scope.entities = res;
+                        });
+                    } else {
+                        RestApi.query({route: 'cities'}).$promise.then(function(response) {
+                            $scope.cities = response;
+                            $scope.cityID = $rootScope.currentCity ? $rootScope.currentCity.id : 4;
+                            $scope.changeCity();
+                        });
+                        $scope.changeCity = function () {
+                            $scope.showSpinner = true;
+                            RestApi.query({route: $rootScope.$stateParams.route,cityId: $scope.cityID}).$promise.then(function (res) {
+                                $scope.entities = res;
+                                $scope.clearFilters();
+                                $scope.showSpinner = false;
+                            });
+                        };
+                    }
 
 					$scope.specialFieldType = function(fieldType) {
 						return _.indexOf(['checkbox', 'photo', 'entity'], fieldType) > -1;

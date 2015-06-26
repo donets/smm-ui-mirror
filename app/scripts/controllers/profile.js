@@ -20,6 +20,18 @@ angular.module('boltApp.controllers.Profile', [])
                 });
         };
 
+        $scope.Math = $window.Math;
+        $scope.month = _.range(1, 13);
+        $scope.year = _.range(2015, 2033);
+
+        $scope.order = {};
+
+        $scope.form = {};
+
+        $scope.showForm = function () {
+            $scope.changePayment = true;
+        };
+
         getMembership.$promise.then(function () {
             $scope.membership = getMembership.membership;
             $scope.membership.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
@@ -31,9 +43,15 @@ angular.module('boltApp.controllers.Profile', [])
                 $scope.cities = res;
                 $scope.membership.city = _.findWhere($scope.cities, {id: $scope.membership.cityId});
             });
+            RestApi.query({route: 'countries'}).$promise.then(function (res) {
+                $scope.deliveryCountry = _.findWhere(res, {code: $scope.membership.deliveryAddress.countryCode});
+            });
             if ($scope.membership.discountGranted) {
                 getVoucher($scope.membership.discount.voucherCode);
             }
+            $scope.order = {
+                paymentProvider: 'STRIPE'
+            };
             console.log($scope.membership);
         });
 
@@ -101,11 +119,13 @@ angular.module('boltApp.controllers.Profile', [])
         $scope.activateMembership = function () {
             $modal.open({
                 templateUrl: 'app/views/modalActivate.html',
-                controller: ['$scope', '$modalInstance', '$http', '$window', 'member',
+                controller: ['$scope', '$modalInstance', '$http', '$window', 'scope',
 
-                    function ($scope, $modalInstance, $http, $window, member) {
+                    function ($scope, $modalInstance, $http, $window, scope) {
 
-                        $scope.member = member;
+                        $scope.member = scope.membership;
+
+                        $scope.form = scope.form;
 
                         $scope.showDatepicker = {};
 
@@ -114,59 +134,56 @@ angular.module('boltApp.controllers.Profile', [])
                             $event.stopPropagation();
                             $scope.showDatepicker[type] = true;
                         };
-                        $scope.minStartDate = member.earliestActivationPossible ? moment(member.earliestActivationPossible).format() : moment().format();
+                        $scope.minStartDate = $scope.member.earliestActivationPossible ? moment($scope.member.earliestActivationPossible).format() : moment().format();
                         $scope.dateOptions = {
                             startingDay: 1,
                             showWeekNumbers: false,
                             showWeeks: false
                         };
 
-                        if (member.paymentInfoProvided) {
+                        if ($scope.member.paymentInfoProvided) {
                             $scope.step_1 = true;
                         } else {
                             $scope.step_0 = true;
-                            $scope.Math = $window.Math;
-                            $scope.month = _.range(1, 13);
-                            $scope.year = _.range(2014, 2033);
-
-                            $scope.order = {
-                                paymentProvider: 'STRIPE'
-                            };
-
-                            $scope.checkCard = function (card) {
-                                var patts = [
-                                    {regex: /^4[0-9]{12}(?:[0-9]{3})?$/g, type: 'visa'},
-                                    {regex: /^5[1-5]\d{14}$/g, type: 'masterCard'},
-                                    {regex: /^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/g, type: 'maestroCard'}
-                                ];
-                                if (card) {
-                                    _.each(patts, function (patt) {
-                                        var valid = patt.regex.test(card);
-                                        if (valid) {
-                                            $scope.creditCard = patt.type;
-                                        }
-                                    });
-                                } else {
-                                    $scope.creditCard = null;
+                            $scope.month = scope.month;
+                            $scope.year = scope.year;
+                            $scope.voucher = scope.voucher;
+                            $scope.deliveryCountry = scope.deliveryCountry;
+                            $scope.order = scope.order;
+                            scope.$watch('creditCard', function (card) {
+                                $scope.creditCard = card;
+                            });
+                            $scope.checkCard = scope.checkCard;
+                            $scope.changePaymentProvider = scope.changePaymentProvider;
+                            $scope.orderChange = function (type) {
+                                if (type === 'card' && $scope.error === 'CardException') {
+                                    $scope.error = null;
                                 }
                             };
                             $scope.paymentSubmit = function () {
+                                $scope.error = null;
+                                $scope.errorMsg = '';
                                 $scope.showSpinner = true;
+                                $rootScope.handledError = true;
                                 $http.post($window.smmConfig.restUrlBase + '/api/membership/' + $scope.member.id + '/updatePaymentData', $scope.order).success(function (res) {
                                     console.log(res);
+                                    $rootScope.handledError = false;
                                     $scope.showSpinner = false;
                                     $scope.step_0 = false;
                                     $scope.step_1 = true;
                                 }).error(function (res) {
                                     console.log(res);
                                     $scope.showSpinner = false;
+                                    $rootScope.handledError = false;
+                                    $scope.error = res.type;
+                                    $scope.errorMsg = res.message;
                                 });
                             };
                         }
 
                         $scope.activateSubmit = function () {
                             $scope.loading = true;
-                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + member.id + '/activate', {}, {params: {from: moment($scope.startDate).format('YYYY-MM-DD')}}).success(function (res) {
+                            $http.post($window.smmConfig.restUrlBase + '/api/membership/' + $scope.member.id + '/activate', {}, {params: {from: moment($scope.startDate).format('YYYY-MM-DD')}}).success(function (res) {
                                 console.log(res);
                                 $scope.loading = false;
                                 $scope.step_1 = false;
@@ -189,10 +206,10 @@ angular.module('boltApp.controllers.Profile', [])
                         };
                     }],
                 backdrop: 'static',
-                windowClass: 'modal-cancel',
+                windowClass: 'modal-activate',
                 resolve: {
-                    member: function () {
-                        return $scope.membership;
+                    scope: function () {
+                        return $scope;
                     }
                 }
             }).result.then(function () {
@@ -434,20 +451,6 @@ angular.module('boltApp.controllers.Profile', [])
                 });
         };
 
-        $scope.Math = $window.Math;
-        $scope.month = _.range(1, 13);
-        $scope.year = _.range(2014, 2033);
-
-        $scope.order = {
-            paymentProvider: 'STRIPE'
-        };
-
-        $scope.form = {};
-
-        $scope.showForm = function () {
-            $scope.changePayment = true;
-        };
-
         $scope.checkCard = function (card) {
             var patts = [
                 {regex: /^4[0-9]{12}(?:[0-9]{3})?$/g, type: 'visa'},
@@ -467,16 +470,51 @@ angular.module('boltApp.controllers.Profile', [])
         };
 
         $scope.changePaymentSubmit = function () {
+            $scope.error = null;
+            $scope.errorMsg = '';
             $scope.showSpinner = true;
+            $rootScope.handledError = true;
             $http.post($window.smmConfig.restUrlBase + '/api/membership/' + $scope.membership.id + '/updatePaymentData', $scope.order).success(function (res) {
                 console.log(res);
+                $rootScope.handledError = false;
                 $scope.showSpinner = false;
                 $scope.success = true;
                 $scope.paymentUpdateSuccess();
             }).error(function (res) {
-                    console.log(res);
-                    $scope.showSpinner = false;
-                });
+                console.log(res);
+                $scope.showSpinner = false;
+                $rootScope.handledError = false;
+                $scope.error = res.type;
+                $scope.errorMsg = res.message;
+            });
+        };
+
+        $scope.orderChange = function (type) {
+            if (type === 'card' && $scope.error === 'CardException') {
+                $scope.error = null;
+            }
+        };
+
+        $scope.changePaymentProvider = function (provider) {
+
+            $scope.order.paymentProvider = provider;
+
+            if (provider === 'ELV') {
+                $scope.order.card = null;
+                $scope.order.bankAccount = {
+                    currency: "EUR",
+                    address: {
+                        streetAndHouse: $scope.membership.deliveryAddress.streetAndHouse,
+                        zip: $scope.membership.deliveryAddress.zip,
+                        city: $scope.membership.deliveryAddress.city,
+                        countryCode: $scope.membership.deliveryAddress.countryCode
+                    }
+                };
+            } else {
+                $scope.order.card = {};
+                $scope.order.bankAccount = null;
+            }
+
         };
 
         $scope.isFuture = function (date) {

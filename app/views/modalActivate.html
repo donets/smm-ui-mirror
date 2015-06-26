@@ -4,11 +4,23 @@
         <span class="sr-only" translate>Close</span>
     </button>
     <div ng-show="step_0">
-        <form name="formCheckout" id="step3" class="form-signup form-checkout" ng-submit="paymentSubmit()">
-            <div ng-if="!voucher.freeSubscriptionGranted && order.paymentProvider === 'STRIPE'">
-                <h3 class="form-title cf"><span translate>Payment information</span>
-                    <a class="stripe-link" target="_blank" href="https://stripe.com"><img src="images/stripe.svg" alt="stripe"/></a>
-                </h3>
+        <form name="form.formPayment" class="form-signup form-checkout" ng-submit="paymentSubmit()">
+            <div class="payment-selector" ng-if="order.paymentProvider && member.deliveryAddress.countryCode === 'DE'">
+                <ul class="tab-nav">
+                    <li>
+                        <a ng-class="{'active': order.paymentProvider === 'STRIPE'}" href=""
+                           ng-click="changePaymentProvider('STRIPE');checkCard()"
+                           translate>Credit / Debit Card</a>
+                    </li><li>
+                        <a ng-class="{'active': order.paymentProvider === 'ELV'}" href=""
+                           ng-click="changePaymentProvider('ELV')"
+                           translate>Direct Debit</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="payment-provider" ng-if="order.paymentProvider === 'STRIPE'">
+                <h3 class="form-title cf" ng-if="member.deliveryAddress.countryCode !== 'DE'" translate>Credit / Debit Card</h3>
+                <p class="text" ng-if="voucher.freeSubscriptionGranted" translate>Payment details are required to validate your identity, for future transactions after the promotional period ends, and in the event of class no-show and late cancellation fees - if any. You may still cancel or pause your membership prior to the start of your paid membership. </p>
                 <div ng-class="{'error': error === 'CardException'}" class="form-group">
                     <div class="form-rel">
                         <label class="form-label required" for="cardNumber" translate>Credit card</label>
@@ -16,14 +28,14 @@
                         <img class="credit-card" ng-show="creditCard === 'visa'" src="images/visa-icon.svg" alt=""/>
                         <img class="credit-card" ng-show="creditCard === 'masterCard'" src="images/mastercard-icon.svg" alt=""/>
                         <img class="credit-card" ng-show="creditCard === 'maestroCard'" src="images/maestro-icon.svg" alt=""/>
-                        <div ng-show="formCheckout.cardNumber.$dirty && formCheckout.cardNumber.$invalid">
-                            <div ng-show="formCheckout.cardNumber.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
-                            <div ng-show="formCheckout.cardNumber.$error.pattern" class="form-message form-error" translate>Please enter a valid credit card number</div>
+                        <div ng-show="form.formPayment.cardNumber.$dirty && form.formPayment.cardNumber.$invalid">
+                            <div ng-show="form.formPayment.cardNumber.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                            <div ng-show="form.formPayment.cardNumber.$error.pattern" class="form-message form-error" translate>Please enter a valid credit card number</div>
                         </div>
-                        <i ng-show="formCheckout.cardNumber.$valid" class="fa fa-check check-valid"></i>
+                        <i ng-show="form.formPayment.cardNumber.$valid && error !== 'CardException'" class="fa fa-check check-valid"></i>
                     </div>
                     <div class="form-rel flex">
-                        <div class="third" ng-class="{'chosen-valid': formCheckout.cardMonth.$dirty && formCheckout.cardMonth.$valid}">
+                        <div class="third" ng-class="{'chosen-valid': form.formPayment.cardMonth.$dirty && form.formPayment.cardMonth.$valid}">
                             <label class="form-label required" translate>Valid until</label>
                             <select chosen required name="cardMonth" width="'100%'" id="exp_month" class="third"
                                     ng-model="order.card.exp_month" ng-change="orderChange('card')"
@@ -33,7 +45,7 @@
                                 <option value="" ng-show="desktop"></option>
                             </select>
                         </div>
-                        <div class="third" ng-class="{'chosen-valid': formCheckout.cardYear.$dirty && formCheckout.cardYear.$valid}">
+                        <div class="third" ng-class="{'chosen-valid': form.formPayment.cardYear.$dirty && form.formPayment.cardYear.$valid}">
                             <label class="form-label" ng-show="desktop"></label>
                             <select chosen required name="cardYear" width="'100%'" id="exp_year" class="third"
                                     ng-model="order.card.exp_year" ng-change="orderChange('card')"
@@ -46,52 +58,72 @@
                         <div class="third">
                             <label class="form-label required" for="cardCVC" translate>CVV</label>
                             <input type="text" ng-model="order.card.cvc" ng-pattern="/^\d{3,4}$/" ng-change="orderChange('card')" class="third" id="cardCVC" name="cardCVC" placeholder="{{'e.g. 123'|translate}}" required/>
-                            <div ng-show="formCheckout.cardCVC.$dirty && formCheckout.cardCVC.$invalid">
-                                <div ng-show="formCheckout.cardCVC.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
-                                <div ng-show="formCheckout.cardCVC.$error.pattern" class="form-message form-error" translate>Please enter the 3 or 4-digit security number (on the back of your card)</div>
+                            <div ng-show="form.formPayment.cardCVC.$dirty && form.formPayment.cardCVC.$invalid">
+                                <div ng-show="form.formPayment.cardCVC.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                                <div ng-show="form.formPayment.cardCVC.$error.pattern" class="form-message form-error" translate>Please enter the 3 or 4-digit security number (on the back of your card)</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <a class="form-link" href="" ng-click="order.paymentProvider = 'ELV';order.card = {}" translate>No credit card?</a>
-                </div>
             </div>
-            <div ng-if="!voucher.freeSubscriptionGranted && order.paymentProvider === 'ELV'">
-                <h3 class="form-title cf" translate>SEPA direct debit</h3>
+            <div class="payment-provider" ng-if="order.paymentProvider === 'ELV'">
+                <p class="text" ng-if="voucher.freeSubscriptionGranted" translate>Payment details are required to validate your identity, for future transactions after the promotional period ends, and in the event of class no-show and late cancellation fees - if any. You may still cancel or pause your membership prior to the start of your paid membership. </p>
                 <div class="form-group">
                     <div class="form-rel">
                         <label class="form-label required" for="nameAccount" translate>Bank account holder</label>
-                        <input type="text" ng-model="order.card.name" id="nameAccount" name="name" placeholder="{{'Your Name'|translate}}" required />
-                        <div ng-show="formCheckout.name.$dirty && formCheckout.name.$invalid">
-                            <div ng-show="formCheckout.name.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                        <input type="text" ng-model="order.bankAccount.name" id="nameAccount" name="name" placeholder="{{'Your Name'|translate}}" required />
+                        <div ng-show="form.formPayment.name.$dirty && form.formPayment.name.$invalid">
+                            <div ng-show="form.formPayment.name.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         </div>
                     </div>
                     <div class="form-rel">
                         <label class="form-label required" for="iban" translate>IBAN</label>
-                        <input type="text" ng-model="order.card.iban" id="iban" name="iban" placeholder="{{'e.g. DE12 3456 7890 1234 5678 90'|translate}}" required />
-                        <div ng-show="formCheckout.iban.$dirty && formCheckout.iban.$invalid">
-                            <div ng-show="formCheckout.iban.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                        <input type="text" ng-model="order.bankAccount.iban" id="iban" name="iban" placeholder="{{'e.g. DE12 3456 7890 1234 5678 90'|translate}}" required />
+                        <div ng-show="form.formPayment.iban.$dirty && form.formPayment.iban.$invalid">
+                            <div ng-show="form.formPayment.iban.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         </div>
                     </div>
                     <div class="form-rel">
-                        <label class="form-label required" for="bic" translate>SWIFT-BIC</label>
-                        <input type="text" ng-model="order.card.bic" id="bic" name="bic" placeholder="{{'e.g. ABCD1234'|translate}}" required />
-                        <div ng-show="formCheckout.bic.$dirty && formCheckout.bic.$invalid">
-                            <div ng-show="formCheckout.bic.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                        <label class="form-label required" for="streetBA" translate>House no. and street</label>
+                        <input type="text" ng-model="order.bankAccount.address.streetAndHouse" id="streetBA" name="street" placeholder="{{'e.g. Buckingham St. 1'|translate}}" required />
+                        <div ng-show="form.formPayment.street.$dirty && form.formPayment.street.$invalid">
+                            <div ng-show="form.formPayment.street.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
                         </div>
+                    </div>
+                    <div class="form-rel flex">
+                        <div class="half">
+                            <label class="form-label required" for="zipBA" translate>Postal code</label>
+                            <input type="text" ng-model="order.bankAccount.address.zip" class="half" id="zipBA" name="zip" placeholder="{{'e.g. 10115'|translate}}" required />
+                            <div ng-show="form.formPayment.zip.$dirty && form.formPayment.zip.$invalid">
+                                <div ng-show="form.formPayment.zip.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                                <div ng-show="form.formPayment.zip.$error.pattern" class="form-message form-error" translate>Incorrect postal code</div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <label class="form-label required" for="cityBA" translate>City</label>
+                            <input type="text" ng-model="order.bankAccount.address.city" class="half" ng-pattern="/[a-zA-Z]+/" id="cityBA" name="city" placeholder="{{'London'|translate}}" required/>
+                            <div ng-show="form.formPayment.city.$dirty && form.formPayment.city.$invalid">
+                                <div ng-show="form.formPayment.city.$error.required" class="form-message form-error" translate>This is an obligatory field</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-rel">
+                        <label class="form-label required" translate>Country</label>
+                        <input type="text" name="country" readonly value="{{deliveryCountry.defaultName}}" required />
                     </div>
                 </div>
                 <p class="text" translate>SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for services provided. I also instruct my bank to honour direct debit requests from this recipient.</p>
                 <p class="text" translate>Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer service team.</p>
-                <div class="form-group">
-                    <a class="form-link" href="" ng-click="order.paymentProvider = 'STRIPE';order.card = {};checkCard()" translate>Payment by credit card?</a>
+            </div>
+            <div class="w-clear">
+                <div class="form-rel" ng-show="showSpinner">
+                    <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
+                </div>
+                <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!form.formPayment.$valid || error" translate>Submit new payment data</button>
+                <div class="form-group center">
+                    <div class="form-error" ng-if="error === 'CardException'" translate>Pleas check your credit card details: {{errorMsg}}</div>
                 </div>
             </div>
-            <div class="form-rel" ng-show="showSpinner">
-                <span class="spinner" us-spinner="{lines: 11, radius:10, width:5, length: 7, color: '#ff695c', left: 0, top: 20}"></span>
-            </div>
-            <button class="large" type="submit" ng-hide="showSpinner" ng-disabled="!formCheckout.$valid || errorVoucher" translate>Submit new payment data</button>
         </form>
     </div>
     <div ng-show="step_1">
