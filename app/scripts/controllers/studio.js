@@ -34,7 +34,8 @@ angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
                 qD.$promise,
                 qS.$promise).then(function (res) {
                     _.each($scope.studio.locations, function (locationId) {
-                        $scope.studio.locationsFull.push(_.findWhere(res[0], {id: locationId}));
+                        var location = _.findWhere(res[0], {id: locationId});
+                        location ? $scope.studio.locationsFull.push(location) : 0;
                     });
                     $scope.currDay = moment();
                     $scope.setLocation($scope.studio.locationsFull[0]);
