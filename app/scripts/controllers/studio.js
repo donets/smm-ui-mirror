@@ -8,7 +8,7 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Studio', ['uiGmapgoogle-maps'])
-    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, $http, $window, RestApi, gettextCatalog, uiGmapGoogleMapApi) {
+    .controller('StudioCtrl', function ($scope, $rootScope, $q, $modal, $http, $window, $interval, RestApi, gettextCatalog, uiGmapGoogleMapApi) {
         $scope.coverMain = $rootScope.windowWidth > 1080 ? '/images/landing-2880.jpg' : '/images/landing-1080.jpg';
         $scope._ = _;
         RestApi.get({route: 'studios'}, {id: $rootScope.$stateParams.studioId}).$promise.then(function (res) {
