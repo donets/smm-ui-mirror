@@ -10,7 +10,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8\n"
 
 #: app/views/homepage.html:240
 msgid "1. Order your card"
@@ -79,7 +79,7 @@ msgstr "¡Felicidades, estás en el listado!"
 
 #: app/views/homepage.html:370
 msgid "Contact me"
-msgstr "Contáctame"
+msgstr "Contáctanos"
 
 #: app/views/homepage.html:182 app/views/homepage.html:219
 msgid "Courses per month"
@@ -121,11 +121,12 @@ msgstr "Dirección de e-mail"
 
 #: app/views/homepage.html:178
 msgid "Enjoy your <br>free<br> 14 day trial!"
-msgstr "¡Disfruta de tu <br>gratuita<br> ¡periodo de prueba de 14 días!"
+msgstr ""
+"¡Disfruta de tu tarjeta <br>gratuita<br> ¡periodo de prueba de 14 días!"
 
 #: app/views/homepage.html:45
 msgid "Enjoy your <u>free</u> 14 day trial!"
-msgstr "¡Disfruta de tu <u>gratuita</u> ¡periodo de prueba de 14 días!"
+msgstr "¡Disfruta de tu tarjeta <u>gratuita</u> ¡periodo de prueba de 14 días!"
 
 #: app/views/homepage.html:75
 msgid "Feel it all. Explore it all. #BeSomuchmore"
@@ -204,9 +205,10 @@ msgid ""
 "think. Being mindful promotes a healthy mind, body and soul. This holistic "
 "approach to living is what attracted me to SoMuchMore"
 msgstr ""
-"Ser conciencia tiene un impacto en todo. Tus movimientos, la forma de comer, "
-"beber y pensar. Ser consciente favorece una mente, un cuerpo y una alma "
-"sanos. El enfoque holístico hacia la vida es lo que me acerca a Somuchmore."
+"Tener conciencia tiene un impacto en todo. Tus movimientos, la forma de "
+"comer, beber y pensar. Tener conciencia favorece una mente, un cuerpo y un "
+"alma sanos. El enfoque holístico hacia la vida es lo que me acerca a "
+"Somuchmore."
 
 #: app/views/homepage.html:276 app/views/homepage.html:291
 msgid ""
@@ -216,7 +218,7 @@ msgid ""
 msgstr ""
 "Un día a día moderno y un estilo de vida holístico no tienen porqué estar "
 "contrapuestos. Con Somuchmore se hace más fácil combinarlos, lo cual es "
-"importante para mi."
+"importante para mí."
 
 #: app/views/homepage.html:73
 msgid "One card. Unlimited classes."
@@ -289,11 +291,11 @@ msgstr "Los mejores studios de la ciudad te esperan."
 
 #: app/views/homepage.html:108 app/views/homepage.html:94
 msgid "Train and Tone"
-msgstr "¡Entrena y tonifica!"
+msgstr "Entrena y Tonifica"
 
 #: app/views/homepage.html:251
 msgid "Visit classes as often as you want."
-msgstr "Asista a clases con la frecuencia que desees."
+msgstr "Asiste a clases con la frecuencia que desees."
 
 #: app/views/homepage.html:74
 msgid ""
@@ -311,7 +313,7 @@ msgstr ""
 "la pista de baile con ¿<b>Tango</b>, <b>Hip-Hop</b> o <b>Salsa</b>? O "
 "prefieres calmarte, reconectar y fortalecer tu concentración con ¿<b>Tai "
 "Chi</b>, <b>Qi Gong</b> o <b>Kung-Fu</b>? ¿Quieres descubrir o aprender "
-"acerca de <b>Nutrition</b> y <b>Biomedicina</b>? O simplemente, ¿quieres "
+"acerca de <b>Nutrición</b> y <b>Biomedicina</b>? O simplemente, ¿quieres "
 "relajarte y descansar en la <b>Sauna</b> o <b>Spa</b>?"
 
 #: app/views/homepage.html:333 app/views/homepage.html:348
