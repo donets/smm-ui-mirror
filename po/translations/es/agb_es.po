@@ -14,4 +14,4 @@ msgstr ""
 
 #: app/views/agb.html:3
 msgid "Terms and Conditions"
-msgstr "Términos y condiciones"
+msgstr "Términos y Condiciones"
