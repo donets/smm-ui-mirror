@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+
+#: app/views/_classesView.html:35
+msgid ", or"
+msgstr ""
+
+#: app/views/_classesView.html:9 app/views/_classesView.html:92
+msgid "All activities"
+msgstr ""
+
+#: app/views/_classesView.html:107 app/views/_classesView.html:28
+msgid "All districts"
+msgstr ""
+
+#: app/views/_classesView.html:115 app/views/_classesView.html:39
+msgid "All studios"
+msgstr ""
+
+#: app/views/_classesView.html:143 app/views/_classesView.html:186
+#: app/views/_classesView.html:187
+msgid "Cancel"
+msgstr ""
+
+#: app/views/_classesView.html:20
+msgid "City"
+msgstr ""
+
+#: app/views/_classesView.html:188
+msgid "Details"
+msgstr ""
+
+#: app/views/_classesView.html:185
+msgid "Request"
+msgstr ""
+
+#: app/views/_classesView.html:145 app/views/_classesView.html:183
+#: app/views/_classesView.html:184
+msgid "Reserve"
+msgstr ""
+
+#: app/views/_classesView.html:142
+msgid "Reserved for you"
+msgstr ""
+
+#: app/views/_classesView.html:5
+msgid "Show"
+msgstr ""
+
+#: app/views/_classesView.html:151
+msgid "Sorry, there are no free spots available for this class."
+msgstr ""
+
+#: app/views/_classesView.html:152
+msgid "Sorry, your request could not be completed. Please Try again."
+msgstr ""
+
+#: app/views/_classesView.html:161 app/views/_classesView.html:197
+msgid ""
+"There are no courses available for this day and this search. Try another "
+"date or reset the filters."
+msgstr ""
+
+#: app/views/_classesView.html:17
+msgid "in"
+msgstr ""
