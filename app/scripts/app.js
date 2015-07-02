@@ -242,7 +242,8 @@ angular.module('boltApp')
 		var myInitFunction = ['$window', '$rootScope', function($window, $rootScope) {
 			$window.FB.init({
 				appId: $window.smmConfig.fbClientId,
-				version: 'v1.0'
+                xfbml: 1,
+				version: 'v2.0'
 			});
 
 			$rootScope.$broadcast('FB.init');
