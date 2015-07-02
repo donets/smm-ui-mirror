@@ -186,7 +186,7 @@ msgstr "Découvrez plus sur l'offre ici ›"
 
 #: app/views/homepage.html:139
 msgid "List of studios"
-msgstr "Liste des studios"
+msgstr "Liste"
 
 #: app/views/homepage.html:172
 msgid "Live a healthy and fulfilled life"
@@ -198,7 +198,7 @@ msgstr "Paris est à vos pieds"
 
 #: app/views/homepage.html:138
 msgid "Map of studios"
-msgstr "Carte des salles"
+msgstr "Carte"
 
 #: app/views/homepage.html:284 app/views/homepage.html:301
 msgid ""

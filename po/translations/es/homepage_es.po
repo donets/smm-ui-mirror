@@ -184,7 +184,7 @@ msgstr "Obtén más información sobre la oferta aquí ›"
 
 #: app/views/homepage.html:139
 msgid "List of studios"
-msgstr "Listado de studios"
+msgstr "Listado"
 
 #: app/views/homepage.html:172
 msgid "Live a healthy and fulfilled life"
@@ -196,7 +196,7 @@ msgstr "Madrid te espera"
 
 #: app/views/homepage.html:138
 msgid "Map of studios"
-msgstr "Mapa de studios"
+msgstr "Mapa"
 
 #: app/views/homepage.html:284 app/views/homepage.html:301
 msgid ""
