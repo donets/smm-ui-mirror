@@ -72,7 +72,7 @@
                     <tr ng-repeat="c in classes | filter: search | dataFilter: 'locationId': search.locationId | limitTo: limit">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>
-                        <td>{{c.subDisciplineId}} <span ng-if="c.subDisciplineId">{{c.disciplineName}} - {{c.styleName}}</span>
+                        <td><span ng-if="c.subDisciplineId">{{c.disciplineName}} - {{c.styleName}}</span>
                             <button ng-if="!c.subDisciplineId" class="add-button" ng-click="addDiscipline(c)" ><i class="fa fa-plus"></i>Set</button></td>
                         <td>{{c.discipline}}</td>
                         <td>{{c.style}}</td>

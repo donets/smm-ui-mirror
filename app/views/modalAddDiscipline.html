@@ -25,20 +25,21 @@
                 <th>Class description:</th>
                 <td>{{class.description}}</td>
             </tr>
+            <tr>
+                <th class="align">Discipline</th>
+                <td><select chosen
+                            width="'100%'"
+                            id="subdisciplineId"
+                            ng-model="subDisciplineId"
+                            disable-search="false"
+                            search-contains="true"
+                            allow-single-deselect="true"
+                            ng-options="item.id as item.displayName for item in disciplinesList">
+                        <option value=""></option>
+                    </select>
+                </td>
+            </tr>
         </table>
-        <div class="form-rel">
-            <label class="form-label" translate>Discipline (new taxonomy)</label>
-            <select chosen
-                    width="'70%'"
-                    id="subdisciplineId"
-                    ng-model="subDisciplineId"
-                    disable-search="false"
-                    search-contains="true"
-                    allow-single-deselect="true"
-                    ng-options="item.id as item.displayName for item in disciplinesList">
-                <option value=""></option>
-            </select>
-        </div>
         <input type="submit" value="Save" ng-disabled="showSpinner || !subDisciplineId" />
         <div class="form-response">
             <div ng-show="showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
