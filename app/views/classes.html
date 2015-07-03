@@ -45,6 +45,12 @@
                 <i class="fa"></i>
                 <label for="draft" translate>Draft</label>
             </div>
+            <div class="form-check">
+                <input type="checkbox" id="emptyDiscipline" ng-model="emptyDiscipline"
+                       name="emptyDiscipline" ng-change="filterEmptyDiscipline()"/>
+                <i class="fa"></i>
+                <label for="emptyDiscipline" translate>Without discipline</label>
+            </div>
             <a class="clear-button" href="" ng-click="clearFilters()" translate>Reset filters</a>
         </div>
         <div class="w-right b-classes-list">
@@ -66,7 +72,8 @@
                     <tr ng-repeat="c in classes | filter: search | dataFilter: 'locationId': search.locationId | limitTo: limit">
                         <td><span class="status" ng-class="{'green': c.status === 'LIVE'}">{{c.status}}</span></td>
                         <td>{{c.title}}</td>
-                        <td>{{c.disciplineName}} - {{c.styleName}}</td>
+                        <td>{{c.subDisciplineId}} <span ng-if="c.subDisciplineId">{{c.disciplineName}} - {{c.styleName}}</span>
+                            <button ng-if="!c.subDisciplineId" class="add-button" ng-click="addDiscipline(c)" ><i class="fa fa-plus"></i>Set</button></td>
                         <td>{{c.discipline}}</td>
                         <td>{{c.style}}</td>
                         <td>{{c.studio}}</td>

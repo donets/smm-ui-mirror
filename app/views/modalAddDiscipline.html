@@ -1,0 +1,47 @@
+
+<div class="modal-body">
+    <button ng-click="close()" class="modal-close" type="button">
+        <span class="sr-only" translate>Close</span>
+    </button>
+    <form name="classForm" class="add-discipline" ng-submit="save()">
+        <table>
+            <tr>
+                <th>Name of class:</th>
+                <td>{{class.title}}</td>
+            </tr>
+            <tr>
+                <th>Name of studio:</th>
+                <td><span><a ui-sref="studio({studioId: class.studioId})" target="_blank">{{class.studio}}</a></span></td>
+            </tr>
+            <tr>
+                <th>Old discipline:</th>
+                <td>{{class.discipline}}</td>
+            </tr>
+            <tr>
+                <th>Old style:</th>
+                <td>{{class.style}}</td>
+            </tr>
+            <tr>
+                <th>Class description:</th>
+                <td>{{class.description}}</td>
+            </tr>
+        </table>
+        <div class="form-rel">
+            <label class="form-label" translate>Discipline (new taxonomy)</label>
+            <select chosen
+                    width="'70%'"
+                    id="subdisciplineId"
+                    ng-model="subDisciplineId"
+                    disable-search="false"
+                    search-contains="true"
+                    allow-single-deselect="true"
+                    ng-options="item.id as item.displayName for item in disciplinesList">
+                <option value=""></option>
+            </select>
+        </div>
+        <input type="submit" value="Save" ng-disabled="showSpinner || !subDisciplineId" />
+        <div class="form-response">
+            <div ng-show="showSpinner" class="form-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+    </form>
+</div>

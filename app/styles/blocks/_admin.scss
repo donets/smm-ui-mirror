@@ -1041,6 +1041,10 @@
             background-color: $colorGreen;
             width: 50px;
         }
+        .add-button {
+            background-color: $colorGreen;
+            line-height: 50px;
+        }
         &.user-classes {
             tr {
                 th:last-child, td:last-child {
