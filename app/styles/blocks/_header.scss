@@ -31,7 +31,7 @@
             line-height: 36px;
             &.two-line {
                 line-height: 18px;
-                max-width: 330px;
+                max-width: 290px;
             }
         }
         &.show-top {
@@ -85,6 +85,9 @@
                         width: 100px;
                         &.wide {
                             width: 125px;
+                        }
+                        &.extra {
+                            width: 152px;
                         }
                     }
                 }

@@ -10,7 +10,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: app/views/modalSubscribe.html:4
 msgid "Close"
@@ -18,7 +18,7 @@ msgstr "Cerrar"
 
 #: app/views/modalSubscribe.html:8
 msgid "Email Address"
-msgstr "ÚNETE"
+msgstr "Dirección de e-mail"
 
 #: app/views/modalSubscribe.html:10
 msgid "GET INVOLVED"

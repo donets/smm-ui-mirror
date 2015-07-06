@@ -4,151 +4,179 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/modalActivate.html:114
+#: app/views/modalActivate.html:146
 msgid "Activate my account now"
 msgstr ""
 
-#: app/views/modalActivate.html:64
+#: app/views/modalActivate.html:73
 msgid "Bank account holder"
 msgstr ""
 
-#: app/views/modalActivate.html:47
+#: app/views/modalActivate.html:59
 msgid "CVV"
 msgstr ""
 
-#: app/views/modalActivate.html:15
+#: app/views/modalActivate.html:27
 msgid "Card number"
 msgstr ""
 
-#: app/views/modalActivate.html:115
+#: app/views/modalActivate.html:147
 msgid "Change activation date"
+msgstr ""
+
+#: app/views/modalActivate.html:103
+msgid "City"
 msgstr ""
 
 #: app/views/modalActivate.html:4
 msgid "Close"
 msgstr ""
 
-#: app/views/modalActivate.html:123
+#: app/views/modalActivate.html:155
 msgid "Congratulations! You can now enjoy unlimited access to our network of studios"
 msgstr ""
 
-#: app/views/modalActivate.html:14
+#: app/views/modalActivate.html:111
+msgid "Country"
+msgstr ""
+
+#: app/views/modalActivate.html:11
+#: app/views/modalActivate.html:22
+msgid "Credit / Debit Card"
+msgstr ""
+
+#: app/views/modalActivate.html:26
 msgid "Credit card"
 msgstr ""
 
-#: app/views/modalActivate.html:100
+#: app/views/modalActivate.html:15
+msgid "Direct Debit"
+msgstr ""
+
+#: app/views/modalActivate.html:132
 msgid "Earliest activation date: {{member.earliestActivationPossible}}"
 msgstr ""
 
-#: app/views/modalActivate.html:98
+#: app/views/modalActivate.html:130
 msgid "Great! Lets activate your account"
 msgstr ""
 
-#: app/views/modalActivate.html:71
+#: app/views/modalActivate.html:87
+msgid "House no. and street"
+msgstr ""
+
+#: app/views/modalActivate.html:80
 msgid "IBAN"
 msgstr ""
 
-#: app/views/modalActivate.html:30
+#: app/views/modalActivate.html:99
+msgid "Incorrect postal code"
+msgstr ""
+
+#: app/views/modalActivate.html:104
+msgid "London"
+msgstr ""
+
+#: app/views/modalActivate.html:42
 msgid "Month"
 msgstr ""
 
-#: app/views/modalActivate.html:57
-msgid "No credit card?"
-msgstr ""
-
-#: app/views/modalActivate.html:124
-#: app/views/modalActivate.html:129
+#: app/views/modalActivate.html:156
+#: app/views/modalActivate.html:161
 msgid "Ok"
 msgstr ""
 
-#: app/views/modalActivate.html:88
-msgid "Payment by credit card?"
+#: app/views/modalActivate.html:23
+#: app/views/modalActivate.html:70
+msgid "Payment details are required to validate your identity, for future transactions after the promotional period ends, and in the event of class no-show and late cancellation fees - if any. You may still cancel or pause your membership prior to the start of your paid membership."
 msgstr ""
 
-#: app/views/modalActivate.html:9
-msgid "Payment information"
+#: app/views/modalActivate.html:124
+msgid "Pleas check your credit card details: {{errorMsg}}"
 msgstr ""
 
-#: app/views/modalActivate.html:21
+#: app/views/modalActivate.html:33
 msgid "Please enter a valid credit card number"
 msgstr ""
 
-#: app/views/modalActivate.html:51
+#: app/views/modalActivate.html:63
 msgid "Please enter the 3 or 4-digit security number (on the back of your card)"
 msgstr ""
 
-#: app/views/modalActivate.html:86
+#: app/views/modalActivate.html:116
 msgid "Please note: You can cancel your direct debit payment any time by sending an e-mail to our customer service team."
 msgstr ""
 
-#: app/views/modalActivate.html:61
-msgid "SEPA direct debit"
+#: app/views/modalActivate.html:95
+msgid "Postal code"
 msgstr ""
 
-#: app/views/modalActivate.html:85
+#: app/views/modalActivate.html:115
 msgid "SEPA direct debit consent: I hereby authorise the recipient Somuchmore UG to debit my account for services provided. I also instruct my bank to honour direct debit requests from this recipient."
 msgstr ""
 
-#: app/views/modalActivate.html:78
-msgid "SWIFT-BIC"
-msgstr ""
-
-#: app/views/modalActivate.html:99
+#: app/views/modalActivate.html:131
 msgid "Scheduled activation date: {{member.membershipActivatesOn}}"
 msgstr ""
 
-#: app/views/modalActivate.html:109
+#: app/views/modalActivate.html:141
 msgid "Select date"
 msgstr ""
 
-#: app/views/modalActivate.html:101
+#: app/views/modalActivate.html:133
 msgid "Set activation date"
 msgstr ""
 
-#: app/views/modalActivate.html:94
+#: app/views/modalActivate.html:122
 msgid "Submit new payment data"
 msgstr ""
 
-#: app/views/modalActivate.html:127
+#: app/views/modalActivate.html:159
 msgid "Thank you!"
 msgstr ""
 
-#: app/views/modalActivate.html:20
-#: app/views/modalActivate.html:50
-#: app/views/modalActivate.html:67
-#: app/views/modalActivate.html:74
-#: app/views/modalActivate.html:81
+#: app/views/modalActivate.html:106
+#: app/views/modalActivate.html:32
+#: app/views/modalActivate.html:62
+#: app/views/modalActivate.html:76
+#: app/views/modalActivate.html:83
+#: app/views/modalActivate.html:90
+#: app/views/modalActivate.html:98
 msgid "This is an obligatory field"
 msgstr ""
 
-#: app/views/modalActivate.html:27
+#: app/views/modalActivate.html:39
 msgid "Valid until"
 msgstr ""
 
-#: app/views/modalActivate.html:40
+#: app/views/modalActivate.html:52
 msgid "Year"
 msgstr ""
 
-#: app/views/modalActivate.html:65
+#: app/views/modalActivate.html:74
 msgid "Your Name"
 msgstr ""
 
-#: app/views/modalActivate.html:122
+#: app/views/modalActivate.html:154
 msgid "Your card is active!"
 msgstr ""
 
-#: app/views/modalActivate.html:128
+#: app/views/modalActivate.html:160
 msgid "Your membership will activate on {{startDate | date: 'dd.MM.yyyy'}}"
 msgstr ""
 
-#: app/views/modalActivate.html:48
+#: app/views/modalActivate.html:96
+msgid "e.g. 10115"
+msgstr ""
+
+#: app/views/modalActivate.html:60
 msgid "e.g. 123"
 msgstr ""
 
-#: app/views/modalActivate.html:79
-msgid "e.g. ABCD1234"
+#: app/views/modalActivate.html:88
+msgid "e.g. Buckingham St. 1"
 msgstr ""
 
-#: app/views/modalActivate.html:72
+#: app/views/modalActivate.html:81
 msgid "e.g. DE12 3456 7890 1234 5678 90"
 msgstr ""

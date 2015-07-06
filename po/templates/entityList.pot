@@ -4,20 +4,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/views/entityList.html:66
+#: app/views/entityList.html:57
 msgid "<i class=\"fa fa-eye\"></i>View"
 msgstr ""
 
-#: app/views/entityList.html:65
+#: app/views/entityList.html:56
 msgid "<i class=\"fa fa-pencil\"></i>Manage"
+msgstr ""
+
+#: app/views/entityList.html:57
+msgid "<i class=\"fa fa-sign-in\"></i>"
 msgstr ""
 
 #: app/views/entityList.html:23
 msgid "All cities"
-msgstr ""
-
-#: app/views/entityList.html:32
-msgid "Alle Karten"
 msgstr ""
 
 #: app/views/entityList.html:11
@@ -37,10 +37,10 @@ msgstr ""
 msgid "Filter name"
 msgstr ""
 
-#: app/views/entityList.html:43
+#: app/views/entityList.html:34
 msgid "Filter zurücksetzen"
 msgstr ""
 
-#: app/views/entityList.html:41
+#: app/views/entityList.html:32
 msgid "Foto"
 msgstr ""

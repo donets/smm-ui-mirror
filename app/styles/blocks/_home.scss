@@ -75,6 +75,9 @@
 						&.wide {
 							width: 125px;
 						}
+						&.extra {
+							width: 152px;
+						}
 					}
 				}
 				@media (max-width: $containerMobileWidth) {
