@@ -1,4 +1,4 @@
-<div class="dashboard-title" sticky use-placeholder>
+<div class="dashboard-title" ng-class="{'hover': desktop && expandFilters}" ng-click="expandFiltersClick()" sticky use-placeholder>
     <div class="container">
         <div class="b-filters cf">
             <div ng-if="desktop" class="main-filters">
@@ -15,7 +15,8 @@
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item.name as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options-disabled="item.disabled for item in neigbourhood"
+                        ng-options="item.id as item.name group by item.area for item in neigbourhood">
                     <option value=""></option>
                 </select>
                 <select chosen
@@ -31,7 +32,7 @@
             <div ng-if="desktop" class="short-filters">
                 <ul class="filters-list">
                     <li>{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
-                    <li>{{search.class.location ? search.class.location : 'All districts'}}</li>
+                    <li>{{search.class.location ? _.findWhere(neigbourhood, {id: search.class.location}).name : 'All districts'}}</li>
                     <li>{{search.class.studioId ? _.findWhere(studios, {id: search.class.studioId}).name : 'All Studios'}}</li>
                 </ul>
             </div>
@@ -57,7 +58,8 @@
                         data-placeholder="{{'All districts'|translate}}"
                         disable-search="false"
                         allow-single-deselect="true"
-                        ng-options="item.id as item.name for item in neigbourhood | orderBy: 'toString()'">
+                        ng-options-disabled="item.disabled for item in neigbourhood"
+                        ng-options="item.id as item.name group by item.area for item in neigbourhood">
                     <option value="" translate>All districts</option>
                 </select>
                 <select chosen
@@ -75,10 +77,10 @@
 </div>
 <div class="dashboard">
     <div class="container cf">
-        <div ng-hide="showSpinner" class="studios-list">
+        <div ng-hide="showSpinner" infinite-scroll="showMore()" class="studios-list">
             <div class="b-studio-item" ui-sref="{{s.profileComplete ? 'studio({studioId: s.id})' : '.'}}" ng-class="{'active': s.profileComplete}" ng-repeat="s in studios
                             | dataFilter: 'neigbourhood': search.class.location
-                            | dataFilter: 'id': search.class.studioId">
+                            | dataFilter: 'id': search.class.studioId | limitTo: show.limit">
                 <div class="img-placeholder" ng-style="{'height': mobile && windowWidth / 2}"><img src="{{s.covers[0].cover1080}}" alt=""/></div>
                 <b class="studio-title"><span>{{s.name}}</span></b>
                 <p class="discipline">{{s.disciplines}}</p>

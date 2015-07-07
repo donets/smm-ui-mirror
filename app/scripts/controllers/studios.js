@@ -8,13 +8,13 @@
  * Controller of the boltApp
  */
 angular.module('boltApp.controllers.Studios', [])
-    .controller('StudiosCtrl', function ($scope, $rootScope, $q, RestApi, $window) {
+    .controller('StudiosCtrl', function ($scope, $rootScope, $q, RestApi, $window, $document) {
         var fetchStudios = function (city) {
             $scope.clearFilters();
             $scope.showSpinner = true;
             $q.all([RestApi.query({route: 'studios',cityId: city}).$promise,
                 RestApi.query({route: 'locations',cityId: city}).$promise,
-                RestApi.query({route: 'districts',cityId: city}).$promise
+                RestApi.query({route: 'districts',cityId: city, showAreas: true}).$promise
             ]).then(function (resolve) {
                 _.map(resolve[0], function (obj) {
                     obj.locationsFull = [];
@@ -24,8 +24,15 @@ angular.module('boltApp.controllers.Studios', [])
                             obj.locationsFull.push(location);
                         }
                     });
-                    obj.neigbourhood = _.pluck(obj.locationsFull, 'neigbourhood');
+                    obj.neigbourhood = _.compact(_.uniq(_.flatten(_.pluck(obj.locationsFull, 'districts'))));
                 });
+                _.map(resolve[2], function (item) {
+                    item.disabled = !_.include(_.compact(_.uniq(_.flatten(_.pluck(resolve[0], 'neigbourhood')))), item.id);
+                    if (!item.disabled) {
+                        console.warn(item.id);
+                    }
+                });
+                console.log(_.compact(_.uniq(_.flatten(_.pluck(resolve[0], 'neigbourhood')))));
                 $scope.neigbourhood = resolve[2];
                 $scope.studios = resolve[0];
                 $scope.showSpinner = false;
@@ -53,6 +60,24 @@ angular.module('boltApp.controllers.Studios', [])
         $scope.filtersMobileShow = function () {
             $scope.filtersMobile = !$scope.filtersMobile;
         };
+        $scope.expandFilters = false;
+        $scope.expandFiltersClick = function () {
+            if(!$scope.expandFilters) {
+                $scope.expandFilters = true;
+            }
+        };
+        $document.on('scroll', function() {
+            if ($rootScope.desktop) {
+                if ($scope.expandFilters && $document.scrollTop() > 60) {
+                    $scope.expandFilters = false;
+                }
+            } else {
+                if ($scope.filtersMobile && $document.scrollTop() > 90) {
+                    $scope.filtersMobile = false;
+                }
+            }
+            $scope.$apply();
+        });
         $scope.clearFilters = function () {
             $scope.search = {
                 class: {
@@ -61,5 +86,13 @@ angular.module('boltApp.controllers.Studios', [])
             };
         };
         $scope.clearFilters();
+
+        $scope.show = {
+            limit: 9
+        };
+
+        $scope.showMore = function () {
+            $scope.show.limit += 3;
+        };
 
     });

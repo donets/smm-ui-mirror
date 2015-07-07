@@ -29,7 +29,7 @@
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options-disabled="item.disabled for item in neigbourhoodUPD"
-                        ng-options="item.name as item.name for item in neigbourhoodUPD">
+                        ng-options="item.id as item.name group by item.area for item in neigbourhoodUPD">
                     <option value=""></option>
                 </select>
                 <em ng-if="studios" translate>, or</em>
@@ -47,7 +47,7 @@
                 <ul class="filters-list">
                     <li ng-if="mergeDS">{{search.discipline ? search.discipline.name : 'All activities'}}</li>
                     <li ng-if="cities">{{_.findWhere(cities, {id: cityId}).defaultName}}</li>
-                    <li ng-if="neigbourhood">{{search.location ? search.location : 'All districts'}}</li>
+                    <li ng-if="neigbourhood">{{search.location ? _.findWhere(neigbourhood, {id: search.location}).name : 'All districts'}}</li>
                     <li ng-if="studios">{{search.studioId ? _.findWhere(studios, {id: search.studioId}).name : 'All Studios'}}</li>
                 </ul>
             </div>
@@ -77,7 +77,7 @@
                         | isAfter: 'start_date': search.start
                         | isBefore: 'end_date': search.end
                         | disciplineFilter: search.discipline
-                        | dataFilter: 'location.neigbourhood': search.location
+                        | dataFilter: 'location.districts': search.location
                         | dataFilter: 'studioId': search.studioId).length + (' found' | translate) : ('Search' | translate)}}<i ng-hide="filtersMobile" class="fa fa-angle-down"></i><i ng-show="filtersMobile" class="fa fa-angle-up"></i></button>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options-disabled="item.disabled for item in neigbourhoodUPD"
-                        ng-options="item.name as item.name for item in neigbourhoodUPD">
+                        ng-options="item.id as item.name group by item.area for item in neigbourhoodUPD">
                     <option value="" translate>All districts</option>
                 </select>
                 <select chosen
@@ -128,7 +128,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | disciplineFilter: search.discipline
-                            | dataFilter: 'location.neigbourhood': search.location
+                            | dataFilter: 'location.districts': search.location
                             | dataFilter: 'studioId': search.studioId | orderBy: 'startTime' | limitTo: show.limit">
                 <div class="b-class-item__time">
                     <b>{{e.start_date | amDateFormat: 'HH:mm'}}<span ng-if="desktop"> – {{e.end_date | amDateFormat: 'HH:mm'}}</span></b>
@@ -156,7 +156,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | disciplineFilter: search.discipline
-                            | dataFilter: 'location.neigbourhood': search.location
+                            | dataFilter: 'location.districts': search.location
                             | dataFilter: 'studioId': search.studioId).length">
                 <p class="empty" translate>There are no courses available for this day and this search. Try another date or reset the filters.</p>
             </div>
@@ -171,7 +171,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | disciplineFilter: search.discipline
-                            | dataFilter: 'location.neigbourhood': search.location
+                            | dataFilter: 'location.districts': search.location
                             | dataFilter: 'studioId': search.studioId | orderBy: 'startTime' | limitTo: show.limit" >
                     <td>
                         <p>{{e.startTime}} - {{e.endTime}}</p>
@@ -192,7 +192,7 @@
                             | isAfter: 'start_date': search.start
                             | isBefore: 'end_date': search.end
                             | disciplineFilter: search.discipline
-                            | dataFilter: 'location.neigbourhood': search.location
+                            | dataFilter: 'location.districts': search.location
                             | dataFilter: 'studioId': search.studioId).length">
                     <td class="empty" colspan="7" translate>There are no courses available for this day and this search. Try another date or reset the filters.</td>
                 </tr>

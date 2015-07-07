@@ -29,9 +29,9 @@ angular.module('boltApp.controllers.Dashboard', [])
                         obj.disciplinestyleId = obj.subdiscipline ? [obj.subdiscipline.id, obj.subdiscipline.disciplineId] : 0;
                     }
                 });
-                $scope.neigbourhoodUPD = _.sortBy($scope.neigbourhood, 'name');
+                $scope.neigbourhoodUPD = _.clone($scope.neigbourhood);
                 _.map($scope.neigbourhoodUPD, function (item) {
-                    item.disabled = !_.include(_.compact(_.uniq(_.pluck(_.pluck(res, 'location'), 'neigbourhood'))), item.name);
+                    item.disabled = !_.include(_.compact(_.uniq(_.flatten(_.pluck(_.pluck(res, 'location'), 'districts')))), item.id);
                 });
                 $scope.events = _.each(res, function (event) {
                     event.start_date = moment(event.date + 'T' + event.startTime);
@@ -73,7 +73,7 @@ angular.module('boltApp.controllers.Dashboard', [])
             });
             $q.all([RestApi.query({route: 'studios',cityId: city}).$promise,
                 RestApi.query({route: 'locations',cityId: city}).$promise,
-                RestApi.query({route: 'districts',cityId: city}).$promise,
+                RestApi.query({route: 'districts',cityId: city, showAreas: true}).$promise,
                 qD.$promise,
                 qS.$promise
             ]).then(function (resolve) {

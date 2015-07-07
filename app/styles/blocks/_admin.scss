@@ -666,14 +666,15 @@
     }
     .studios-list {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
+        margin: 0 -7px;
     }
     .b-studio-item {
         width: 320px;
         background: #fff;
         text-align: center;
-        margin: 0 0 15px;
+        margin: 0 7px 15px;
         padding: 0 15px;
         @include border-radius(3px);
         @include box-shadow(0 1px 1px rgba(0,0,0,0.1));
