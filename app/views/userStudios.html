@@ -78,14 +78,14 @@
 <div class="dashboard">
     <div class="container cf">
         <div ng-hide="showSpinner" infinite-scroll="showMore()" class="studios-list">
-            <div class="b-studio-item" ui-sref="{{s.profileComplete ? 'studio({studioId: s.id})' : '.'}}" ng-class="{'active': s.profileComplete}" ng-repeat="s in studios
+            <a class="b-studio-item" ui-sref="{{s.profileComplete ? 'studio({studioId: s.id})' : '.'}}" ng-class="{'active': s.profileComplete}" ng-repeat="s in studios
                             | dataFilter: 'neigbourhood': search.class.location
                             | dataFilter: 'id': search.class.studioId | limitTo: show.limit">
                 <div class="img-placeholder" ng-style="{'height': mobile && windowWidth / 2}"><img src="{{s.covers[0].cover1080}}" alt=""/></div>
                 <b class="studio-title"><span>{{s.name}}</span></b>
                 <p class="discipline">{{s.disciplines}}</p>
                 <address ng-repeat="l in s.locationsFull"><b><i class="fa fa-map-marker"></i> {{l.neigbourhood}}</b><span>{{l.address}}</span></address>
-            </div>
+            </a>
             <p class="empty" ng-if="!(studios
                         | dataFilter: 'neigbourhood': search.class.location
                         | dataFilter: 'id': search.class.studioId).length" translate>There are no studios for this search. Try another filters.</p>
