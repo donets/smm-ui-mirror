@@ -32,11 +32,7 @@ angular.module('boltApp.controllers.Dashboard', [])
                 $scope.neigbourhoodUPD = _.sortBy($scope.neigbourhood, 'id');
                 _.map($scope.neigbourhoodUPD, function (item) {
                     item.disabled = !_.include(_.compact(_.uniq(_.flatten(_.pluck(_.pluck(res, 'location'), 'districts')))), item.id);
-                    if (!item.disabled) {
-                        console.log(item.id);
-                    }
                 });
-                console.log(_.compact(_.uniq(_.flatten(_.pluck(_.pluck(res, 'location'), 'districts')))));
                 $scope.events = _.each(res, function (event) {
                     event.start_date = moment(event.date + 'T' + event.startTime);
                     event.end_date = moment(event.date + 'T' + event.endTime);

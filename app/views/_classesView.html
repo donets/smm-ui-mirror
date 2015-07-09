@@ -29,7 +29,7 @@
                         disable-search="false"
                         allow-single-deselect="true"
                         ng-options-disabled="item.disabled for item in neigbourhoodUPD"
-                        ng-options="item.id as (item.name + '. ' + item.id) group by item.area for item in neigbourhoodUPD">
+                        ng-options="item.id as item.name group by item.area for item in neigbourhoodUPD">
                     <option value=""></option>
                 </select>
                 <em ng-if="studios" translate>, or</em>
@@ -178,7 +178,7 @@
                     </td>
                     <td><span class="title" ng-click="bookClass(e, 'title')">{{e.title}}</span></td>
                     <td><span ng-if="e.discipline">{{e.discipline}}</span> <span ng-if="e.style">{{e.style}}</span></td>
-                    <td ng-if="!$state.includes('studio')"><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.districts}} {{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.studio"><a ui-sref="studio({studioId: e.studioId})" ng-if="e.studio.profileComplete" target="_blank">{{e.studio.name}}</a><span ng-if="!e.studio.profileComplete">{{e.studio.name}}</span></span></td>
+                    <td ng-if="!$state.includes('studio')"><i class="fa fa-map-marker"></i> <span ng-if="e.location">{{e.location.neigbourhood || e.location.postal_code}}</span> <span ng-if="e.studio"><a ui-sref="studio({studioId: e.studioId})" ng-if="e.studio.profileComplete" target="_blank">{{e.studio.name}}</a><span ng-if="!e.studio.profileComplete">{{e.studio.name}}</span></span></td>
                     <td disable-animate>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'MINDBODY' && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
                         <button class="class-button" ng-if="e.bookable && e.bookingStatus !== 'CONFIRMED' && e.source === 'INTERNAL' && !e.requiresRegistration && roleMember" ng-click="bookClass(e, 'Reserve')" type="button" translate>Reserve</button>
