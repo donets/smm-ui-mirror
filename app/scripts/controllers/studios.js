@@ -28,12 +28,8 @@ angular.module('boltApp.controllers.Studios', [])
                 });
                 _.map(resolve[2], function (item) {
                     item.disabled = !_.include(_.compact(_.uniq(_.flatten(_.pluck(resolve[0], 'neigbourhood')))), item.id);
-                    if (!item.disabled) {
-                        console.warn(item.id);
-                    }
                 });
-                console.log(_.compact(_.uniq(_.flatten(_.pluck(resolve[0], 'neigbourhood')))));
-                $scope.neigbourhood = resolve[2];
+                $scope.neigbourhood = _.sortBy(resolve[2], 'id');
                 $scope.studios = resolve[0];
                 $scope.showSpinner = false;
             });
