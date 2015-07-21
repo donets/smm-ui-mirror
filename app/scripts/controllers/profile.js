@@ -34,7 +34,7 @@ angular.module('boltApp.controllers.Profile', [])
 
         getMembership.$promise.then(function () {
             $scope.membership = getMembership.membership;
-            $scope.membership.type = $scope.membership.current.type || $scope.membership.nextPeriod.type;
+            $scope.membership.type = $scope.membership.current.type;
             RestApi.query({route: 'plans', cityId: $scope.membership.cityId}).$promise.then(function (res) {
                 $scope.cards = res;
                 $scope.currentCard = _.findWhere($scope.cards, {code: $scope.membership.type});
