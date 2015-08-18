@@ -15,7 +15,7 @@ msgstr ""
 # All the changes in this PO file should be in the email / file that Johannes sent over earlier today
 #: app/views/homepage.html:81
 msgid "(14 day trial. Money back guarantee )"
-msgstr "(14 day trial. Money back guarantee )"
+msgstr "(7 day trial. Money back guarantee )"
 
 #: app/views/homepage.html:91
 msgid ""
@@ -39,15 +39,15 @@ msgstr "1. Order your card "
 
 #: app/views/homepage.html:171
 msgid "Enjoy your <br>free<br> 14 day trial!"
-msgstr "Enjoy your <br>free<br> 14 day trial!"
+msgstr "Enjoy your <br>free<br> 7 day trial!"
 
 #: app/views/homepage.html:41
 msgid "Enjoy your <u>free</u> 14 day trial!"
-msgstr "Enjoy your <u>free</u> 14 day trial!"
+msgstr "Enjoy your <u>free</u> 7 day trial!"
 
 #: app/views/homepage.html:64
 msgid "14 day free trial"
-msgstr "14 day free trial"
+msgstr "7 day free trial"
 
 #: app/views/homepage.html:238
 msgid "2. Book your class"
