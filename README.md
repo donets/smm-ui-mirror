@@ -11,7 +11,7 @@
 
 To run all tests automatically:
 
-* cd <smm_root>
+* cd \<smm_root\>
 * run ``` webdriver-manager update ``` to update your global selenium webdriver jars for protractor (should be done once)
 after you’ve updated your selenium jars run ``` webdriver-manager start ``` in a separate command prompt shell or via gnu screen (for linux/mac users)
 * and then ``` grunt test ```
