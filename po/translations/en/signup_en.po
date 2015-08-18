@@ -35,11 +35,11 @@ msgstr "1. Registration"
 
 #: app/views/signup.html:9
 msgid "14 day free trial"
-msgstr "14 day free trial"
+msgstr "7 day free trial"
 
 #: app/views/signup.html:15
 msgid "14 day trial"
-msgstr "14 day trial"
+msgstr "7 day trial"
 
 #: app/views/signup.html:30
 msgid "2. Product selection"
@@ -183,7 +183,7 @@ msgid ""
 "upgraded to a paid Somuchmore membership (€39, €69 or €99 per month, incl. "
 "VAT). This membership can be cancelled at any time."
 msgstr ""
-"Information about offer: After 14 days your free trial will be automatically "
+"Information about offer: After 7 days your free trial will be automatically "
 "upgraded to a paid Somuchmore membership (€39, €69 or €99 per month, incl. "
 "VAT). This membership can be cancelled at any time."
 
